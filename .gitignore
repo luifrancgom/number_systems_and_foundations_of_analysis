@@ -50,6 +50,7 @@ rsconnect/
 
 # Quarto
 /.quarto/
+/_book/
 
 # Materials
 materials/
