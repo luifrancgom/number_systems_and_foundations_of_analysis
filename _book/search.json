@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Number Systems and the Foundations of Analysis",
+    "section": "",
+    "text": "Preface\nThe aim of this book is to study the basic number system of mathematics using as a principal guide Mendelson (2015) and other supplementary materials.\nThe idea is to develop all the topics and solve the exercises proposed in Mendelson (2015) as it is proposed in Mathematical Adventures\n\n\n\n\nMendelson, Elliott. 2015. Introduction to Mathematical Logic. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor & Francis Group.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Mendelson (2015) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nMendelson, Elliott. 2015. Introduction to Mathematical Logic. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor & Francis Group.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Mendelson, Elliott. 2015. Introduction to Mathematical Logic.\nSixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor\n& Francis Group.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "chapter_1.html",
+    "href": "chapter_1.html",
+    "title": "1  Basic Facts and Notions of Logic and Set Theory",
+    "section": "",
+    "text": "1.1",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Basic Facts and Notions of Logic and Set Theory</span>"
+    ]
+  }
+]

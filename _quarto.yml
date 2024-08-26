@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: _book
+  preview: 
+    port: 3001
+    navigate: true
+
+book:
+  title: Number Systems and the Foundations of Analysis
+  subtitle: Mathematical Adventures
+  author: Luis Francisco Gomez Lopez
+  date: 2024-08-26
+  date-format: iso
+  chapters:
+    - index.qmd
+    - chapter_1.qmd
+    - chapter_2.qmd
+    - chapter_3.qmd
+    - chapter_4.qmd
+    - chapter_5.qmd
+    - references.qmd
+  appendices: 
+    - appendix_a.qmd
+    - appendix_b.qmd
+    - appendix_c.qmd
+    - appendix_d.qmd
+    - appendix_e.qmd
+    - appendix_f.qmd
+    - appendix_g.qmd
+
+bibliography: number_systems_and_the_foundations_of_analysis.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
