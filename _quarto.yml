@@ -3,6 +3,7 @@ project:
   output-dir: _book
   preview: 
     port: 3001
+    browser: true
     navigate: true
 
 book:
@@ -35,6 +36,11 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+    
+knitr: 
+ opts_chunk: 
+   echo: false
 
-editor: visual
+engine: knitr
+editor: source
 

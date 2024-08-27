@@ -1,5 +1,95 @@
 # Basic Facts and Notions of Logic and Set Theory
 
-This chapter introduces the concepts and terminology of logic and set theory
+This chapter introduces the concepts and terminology of logic and set theory.
 
-## 
+What sets aside mathematics from other disciplines is its reliance on proof [@bilaniuk_problem_2009, p. ix]. But what is a proof? In an informal way a proof is any reasoned argument accepted as such by other mathematicians [@bilaniuk_problem_2009, p. ix].
+
+In that sense mathematical logic is concerned with formalizing and analyzing the kinds of reasoning used in the rest of mathematics [@bilaniuk_problem_2009, p. ix].
+
+## Propositional logic
+
+Propositional logic attempts to make precise the relationships that certain connectives like *not*, *and*, *or*, and *if ... then* [@bilaniuk_problem_2009, p. x].
+
+### Language
+
+First we will define the formal language of propositional logic, $\mathcal{L}_P$, by specifying the symbols and formulas
+
+::: {#def-symbols-lp}
+## Symbols of $\mathcal{L}_P$
+
+The symbols of $\mathcal{L}_P$ are:
+
+-   Parentheses: $($ and $)$
+-   Connectives: $\neg$ and $\Longrightarrow$
+-   Atomic formulas: $A_0, A_1, A_2, \ldots, A_n, \ldots$
+:::
+
+Then we specify the ways in which the symbols of $\mathcal{L}_P$ can be put together.
+
+::: {#def-formulas-lp}
+## Formulas of $\mathcal{L}_P$
+
+The formulas of $\mathcal{L}_P$ are those finite sequences or strings of the symbols given in @def-symbols-lp which satisfy the following rules:
+
+-   Every atomic formula is a formula
+-   If $\alpha$ is a formula, then $(\neg \alpha)$ is a formula
+-   If $\alpha$ and $\beta$ are formulas, then $(\alpha \Longrightarrow \beta)$ is a formula
+-   No other sequence of symbols is a formula
+:::
+
+In @def-symbols-lp and @def-formulas-lp parentheses are just punctuation where their purpose is to group other symbols together, $\neg$ and $\Longrightarrow$ represent the connectives *not* and *if ... then* and the atomic formulas represent statements that cannot be broken down any further using our connectives. Finally we specify that a well formed formula can only be obtained by the first 3 rules pointed out in @def-formulas-lp[^chapter_1-1].
+
+[^chapter_1-1]: See [@church_introduction_1996, p. 70] for more details.
+
+::: {#exr-parentheses}
+Show that every formula of $\mathcal{L}_P$ has the same number of left parentheses as it has of right parentheses.
+:::
+
+::: {#sol-parentheses}
+By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\varphi$ of $\mathcal{L}_P$
+
+*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no parentheses is has the same left as right parentheses.
+
+*Induction hypothesis* $(n \leq k)$: Assume a formula with $n \leq k$ connectives has the same left as right parentheses.
+
+*Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with $n = k + 1$ connectives. From @def-formulas-lp $\varphi$ must be either:
+
+-   $(\neg \alpha)$ for some formula $\alpha$ with $k$ connectives.
+
+    -   By the *induction hypothesis* $\alpha$ has the same left as right parentheses so $(\neg \alpha)$ also have the same left as right parentheses.
+
+-   $(\beta \Longrightarrow \gamma)$ for some formulas $\beta$ and $\gamma$ with $\leq k$ connectives each.
+
+    -   By the *induction hypothesis* $\beta$ and $\gamma$ have the same left as right parentheses so $(\beta \Longrightarrow \gamma)$ also has the same left as right parentheses.
+:::
+
+::: {#exr-length-parentheses}
+Suppose $\alpha$ is any formula of $\mathcal{L}_P$. Let $l(\alpha)$ be the length of $\alpha$ as a sequence of symbols and let $p(\alpha)$ be the number of parentheses (counting both left and right parentheses) in $\alpha$. What are the minimum and maximum values of $\frac{p(\alpha)}{l(\alpha)}$?
+:::
+
+::: {#sol-length-parentheses}
+The minimum value of $p(\alpha)$ is $0$ when $\alpha$ is an atomic formula. Therefore the minimum value of $\frac{p(\alpha)}{l(\alpha)}$ is $0$ because $p(\alpha) \geq 0$ and $l(\alpha) \geq 1$
+
+In the case of other values lets inspect the possible values of $p(\alpha)$ and $l(\alpha)$:
+
+-   For $p(\alpha)$ the possible values are $0, 2, 4, \ldots, 2m, \ldots$
+
+-   For $l(\alpha)$ we can begin with an atomic formula, $A_0$, and then add $3$ or $4$ symbols to create a well formed formula:
+
+    -  $(\neg A_0)$
+    -  $(A_0 \Longrightarrow A_1)$
+
+```{tikz}
+#| label: fig-length-formula-lp
+#| fig-cap: Possible values of $l(\alpha)$ 
+#| fig-align: center
+#| out-width: 50%
+
+\begin{tikzpicture}
+  \node {1}
+    child {node {4}}
+    child {node {5}};
+\end{tikzpicture}
+```
+
+:::
