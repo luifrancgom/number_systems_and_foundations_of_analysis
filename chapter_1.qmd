@@ -78,6 +78,11 @@ In the case of other values lets inspect the possible values of $p(\alpha)$ and 
 
     -  $(\neg A_0)$
     -  $(A_0 \Longrightarrow A_1)$
+    
+```{r}
+
+```
+
 
 ```{tikz}
 #| label: fig-length-formula-lp
