@@ -68,33 +68,128 @@ Suppose $\alpha$ is any formula of $\mathcal{L}_P$. Let $l(\alpha)$ be the lengt
 :::
 
 ::: {#sol-length-parentheses}
-The minimum value of $p(\alpha)$ is $0$ when $\alpha$ is an atomic formula. Therefore the minimum value of $\frac{p(\alpha)}{l(\alpha)}$ is $0$ because $p(\alpha) \geq 0$ and $l(\alpha) \geq 1$
+The minimum value of $p(\alpha)$ is $0$ when $\alpha$ is an atomic formula. Therefore the minimum value of $\frac{p(\alpha)}{l(\alpha)}$ is $0$ because $p(\alpha) \geq 0$ and $l(\alpha) \geq 1$.
 
 In the case of other values lets inspect the possible values of $p(\alpha)$ and $l(\alpha)$:
 
--   For $p(\alpha)$ the possible values are $0, 2, 4, \ldots, 2m, \ldots$
+-   For $p(\alpha)$ the possible values are $0, 2, 4, \ldots, 2m, \ldots$.
 
 -   For $l(\alpha)$ we can begin with an atomic formula, $A_0$, and then add $3$ or $4$ symbols to create a well formed formula:
 
-    -  $(\neg A_0)$
-    -  $(A_0 \Longrightarrow A_1)$
-    
+    -   $(\neg A_0)$
+    -   $(A_0 \Longrightarrow A_1)$
+
 ```{r}
 
 ```
 
+Where the possible values of $l(\alpha)$ are $1, 4, 5, 7, 8, \ldots, s - 1, s, s + 1, \ldots$ as it is shown in @fig-length-formula-lp where the majority of duplicate branches with the same lengths are omitted but can be different in relation to $p(\alpha)$.
 
 ```{tikz}
 #| label: fig-length-formula-lp
-#| fig-cap: Possible values of $l(\alpha)$ 
+#| fig-cap: Possible values of $l(\alpha)$ and associated $p(\alpha)$ values in parentheses  
 #| fig-align: center
 #| out-width: 50%
 
-\begin{tikzpicture}
-  \node {1}
-    child {node {4}}
-    child {node {5}};
+\begin{tikzpicture}[level distance=1.5cm,
+  level 1/.style={sibling distance=5cm},
+  level 2/.style={sibling distance=4cm},
+  level 3/.style={sibling distance=3cm}]
+  level 4/.style={sibling distance=2cm}]
+  \node {1 (0)}
+    child {node {4 (2)}
+      child {node {7 (4)}
+        child {node {10 (6)}
+          child {node {13 (8)}}
+          child {node {14 (8)}} 
+        } 
+        child {node {11 (6)}
+          child {node {15 (8)}}
+        } 
+      } 
+      child {node {8 (4)}
+        child {node {12 (6)}
+          child {node {16 (8)}}        
+        } 
+      }
+    }
+    child {node {5 (2)}
+      child {node {9 (4)}
+        child {node {13 (6)}
+          child {node {17 (8)}}        
+        }
+      }
+    };
 \end{tikzpicture}
 ```
 
+Therefore we can examine the leftmost branch.
+
+-   For the lefmost branch we have for $\frac{p(\alpha)}{l(\alpha)} = \frac{0}{1}, \frac{2}{4}, \frac{4}{7}, \frac{6}{10}, \frac{8}{13}, \ldots, \frac{2n}{3n + 1}, \ldots$. Therefore $\lim_{n \to \infty} \frac{2n}{3n + 1} = \lim_{n \to \infty} \frac{2}{3} = \frac{2}{3}$.
+
+Therefore $0 \leq \frac{p(\alpha)}{l(\alpha)}$ and $\frac{p(\alpha)}{l(\alpha)} < \frac{2}{3}$ for the lefmost branch
+:::
+
+::: {#exr-atomic-implies}
+Suppose $\alpha$ is any formula of $\mathcal{L}_P$. Let $s(\alpha)$ be the number of atomic formulas in $\alpha$ (counting repetitions) and let $c(\alpha)$ be the number of occurrences of $\Longrightarrow$ in $\alpha$. Show that $s(\alpha) = c(\alpha) + 1$.
+:::
+
+::: {#sol-atomic-implies}
+By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\varphi$ of $\mathcal{L}_P$
+
+*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no $\Longrightarrow$ then $c(\varphi) = 0$ and $s(\varphi) = 1$ and so $s(\varphi) = c(\varphi) + 1$.
+
+*Induction hypothesis* $(n \leq k)$: Assume that for a formula with $n \leq k$ connectives $s(\varphi) = c(\varphi) + 1$.
+
+*Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with $n = k + 1$ connectives. From @def-formulas-lp $\varphi$ must be either:
+
+-   $(\neg \alpha)$ for some formula $\alpha$ with $k$ connectives.
+
+    -   By the *induction hypothesis* for $\alpha$ we have that $s(\alpha) = c(\alpha) + 1$. Therefore for $(\neg \alpha)$ we have also that $s((\neg \alpha)) = c((\neg \alpha)) + 1$.
+
+-   $(\beta \Longrightarrow \gamma)$ for some formulas $\beta$ and $\gamma$ with $\leq k$ connectives each.
+
+    -   By the *induction hypothesis* for $\beta$ and $\gamma$ we have that $s(\beta) = c(\beta) + 1$ and $s(\gamma) = c(\gamma) + 1$. Therefore $s((\beta \Longrightarrow \gamma)) = c(\beta) + c(\gamma) + 1 + 1$. But $c(\beta) + c(\gamma) + 1 = c((\beta \Longrightarrow \gamma))$ so $s((\beta \Longrightarrow \gamma)) = c((\beta \Longrightarrow \gamma)) + 1$  
+:::
+
+::: {#exr-length-formulas-lp}
+What are the possible lengths of formulas of $\mathcal{L}_P$? Prove it.
+:::
+
+::: {#sol-length-formulas-lp}
+Using @sol-length-parentheses and @fig-length-formula-lp the possible possible lengths of formulas of $\mathcal{L}_P$ are $1, 4, 5, 7, 8, \ldots, s - 1, s, s + 1, \ldots$.  
+:::
+
+::: {#exr-without-punctuation-lp}
+Find a way for doing without parentheses or other
+punctuation symbols in defining a formal language for $\mathcal{L}_P$.
+:::
+
+::: {#sol-without-punctuation-lp}
+See [@lukasiewicz_selected_1970, p. 180] which is called Lukasiewicz or Polish notation
+
+In Polish notation, logical operators are placed before their operands. This prefix positioning eliminates the need for parentheses, as the order of operations is strictly determined by the operator sequence.
+
+So using @def-formulas-lp we have that:
+
+-   Every atomic formula is a formula
+-   If $\alpha$ is a formula, then $\neg \alpha$ is a formula
+-   If $\alpha$ and $\beta$ are formulas, then $\Longrightarrow \alpha \beta$ is a formula
+-   No other sequence of symbols is a formula
+
+For example $(((\neg \alpha) \Longrightarrow \beta) \Longrightarrow (\neg \gamma))$ can be written using Polish and modern notation as $\Longrightarrow \Longrightarrow \neg \alpha \beta \neg \gamma$
+
+Also Polish notation is not ambiguous. For example:
+
+-  $((\alpha \Longrightarrow \beta) \Longrightarrow \gamma)$ is written as $\Longrightarrow \Longrightarrow \alpha \beta \gamma$  
+
+-  $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ is written as $\Longrightarrow \alpha \Longrightarrow \beta \gamma$
+:::
+
+::: {#exr-formulas-countable-lp}
+Show that the set of formulas of $\mathcal{L}_P$ is countable.
+:::
+
+::: {#sol-formulas-countable-lp}
+**Pending**
 :::
