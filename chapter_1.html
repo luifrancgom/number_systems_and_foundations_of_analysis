@@ -423,6 +423,92 @@ Figure&nbsp;1.1: Possible values of <span class="math inline">\(l(\alpha)\)</spa
 <div id="sol-formulas-countable-lp" class="proof solution">
 <p><span class="proof-title"><em>Solution 1.6</em>. </span><strong>Pending</strong></p>
 </div>
+<section id="informal-conventions" class="level4" data-number="1.1.1.1">
+<h4 data-number="1.1.1.1" class="anchored" data-anchor-id="informal-conventions"><span class="header-section-number">1.1.1.1</span> Informal conventions</h4>
+<p>We will use the symbols <span class="math inline">\(\land\)</span>, <span class="math inline">\(\lor\)</span>, and <span class="math inline">\(\iff\)</span> to represent <em>and</em>, <em>or</em> and <em>if and only if</em> respectively. Since they are not among the symbols of <span class="math inline">\(\mathcal{L}_P\)</span>, we will use them as abbreviations for certain constructions involving only <span class="math inline">\(\neg\)</span> and <span class="math inline">\(\Longrightarrow\)</span>. Namely:</p>
+<ul>
+<li><span class="math inline">\((\alpha \land \beta)\)</span> is short for <span class="math inline">\((\neg(\alpha \Longrightarrow (\neg \beta)))\)</span>,</li>
+<li><span class="math inline">\((\alpha \lor \beta)\)</span> is short for <span class="math inline">\((( \neg \alpha) \Longrightarrow \beta)\)</span>, and</li>
+<li><span class="math inline">\((\alpha \iff \beta)\)</span> is short for <span class="math inline">\(((\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha))\)</span></li>
+</ul>
+<div id="def-subformulas-lp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.3 (Subformulas)</strong></span> Suppose <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}_p\)</span>. The set of subformulas of <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(S(\varphi)\)</span>, is defined as follows:</p>
+<ul>
+<li><p>If <span class="math inline">\(\varphi\)</span> is an atomic formula then <span class="math inline">\(S(\varphi) = \{ \varphi \}\)</span></p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is <span class="math inline">\((\neg \alpha)\)</span> then <span class="math inline">\(S(\varphi) = S(\alpha) \cup \{ (\neg \alpha) \}\)</span></p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> then <span class="math inline">\(S(\varphi) = S(\alpha) \cup S(\beta) \cup \{ (\alpha \Longrightarrow \beta) \}\)</span></p></li>
+</ul>
+</div>
+<div id="exr-find-subformulas-lp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.7</strong></span> Find all the subformulas of each of the following formulas.</p>
+<ul>
+<li><span class="math inline">\((\neg((\neg A_{56}) \Longrightarrow A_{56}))\)</span></li>
+<li><span class="math inline">\((A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))))\)</span></li>
+<li><span class="math inline">\((((\neg A_0) \land (\neg A_1)) \iff (\neg (A_0 \lor A_1)))\)</span></li>
+</ul>
+</div>
+<div id="sol-find-subformulas-lp" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.7</em>. </span><span class="math display">\[\begin{split}
+   S((\neg((\neg A_{56}) \Longrightarrow A_{56}))) &amp; = S(((\neg A_{56}) \Longrightarrow A_{56})) \cup \{ (\neg((\neg A_{56}) \Longrightarrow A_{56})) \} \\
+    &amp; = \{ A_{56}, (\neg A_{56}), ((\neg A_{56}) \Longrightarrow A_{56}), \\
+    &amp; \;\;\;\;\;\; (\neg((\neg A_{56}) \Longrightarrow A_{56})) \}
+     \end{split}\]</span></p>
+<p><span class="math display">\[\begin{split}
+   S((A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))))) &amp; = S(A_9) \cup S((A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \cup \{ (A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \} \\
+    &amp; = \{ A_9, A_8, A_{78}, A_0, (\neg A_0), \\
+    &amp; \;\;\;\;\;\; (\neg(\neg A_0)), (A_{78} \Longrightarrow (\neg (\neg A_0))), \\
+    &amp; \;\;\;\;\;\; (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))), \\
+    &amp; \;\;\;\;\;\; (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))), \\
+    &amp; \;\;\;\;\;\; (A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \}
+     \end{split}\]</span></p>
+<p>Let <span class="math inline">\(\varphi = (((\neg A_0) \land (\neg A_1)) \Longrightarrow (\neg (A_0 \lor A_1)))\)</span> and <span class="math inline">\(\sigma = ((\neg (A_0 \lor A_1)) \Longrightarrow ((\neg A_0) \land (\neg A_1)))\)</span></p>
+<p><span class="math display">\[\begin{split}
+   S((((\neg A_0) \land (\neg A_1)) \iff (\neg (A_0 \lor A_1)))) &amp; = S((\varphi \Longrightarrow (\neg \sigma))) \cup \{ (\neg (\varphi \Longrightarrow (\neg \sigma)))\} \\
+   &amp; = \{ A_0, A_1, (\neg A_0), (\neg A_1), (\neg (\neg A_1) ), \\
+   &amp; \;\;\;\;\;\; (A_0 \lor A_1), ((\neg A_0) \Longrightarrow (\neg (\neg A_1))), \\
+   &amp; \;\;\;\;\;\; (\neg (A_0 \lor A_1)), ((\neg A_0) \land (\neg A_1)) \\
+   &amp; \;\;\;\;\;\; \sigma, (\neg \sigma), \varphi, \\
+   &amp; \;\;\;\;\;\; (\varphi \Longrightarrow (\neg \sigma)), \\
+   &amp; \;\;\;\;\;\; (\neg(\varphi \Longrightarrow (\neg \sigma))) \}
+     \end{split}\]</span></p>
+</div>
+</section>
+<section id="unique-readability" class="level4" data-number="1.1.1.2">
+<h4 data-number="1.1.1.2" class="anchored" data-anchor-id="unique-readability"><span class="header-section-number">1.1.1.2</span> Unique Readability</h4>
+<p>To ensure that the formulas of <span class="math inline">\(\mathcal{L}_p\)</span> are unambiguous (can be read in only one way according to the rules given in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>) one must add to <a href="#def-symbols-lp" class="quarto-xref">Definition&nbsp;<span>1.1</span></a> the requirement that all the symbols of <span class="math inline">\(\mathcal{L}_p\)</span> are distinct and that no symbol is a subsequence of any other symbol.</p>
+<div id="thm-unique-readability" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.1 (Unique Readability)</strong></span> A formula of <span class="math inline">\(\mathcal{L}_p\)</span> must satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By strong induction on <span class="math inline">\(n\)</span>, the number of connectives (occurrences of <span class="math inline">\(\neg\)</span> or <span class="math inline">\(\Longrightarrow\)</span>) in a formula <span class="math inline">\(\varphi\)</span> of <span class="math inline">\(\mathcal{L}_P\)</span></p>
+<p><em>Base step</em> <span class="math inline">\((n = 0)\)</span>: If <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}_P\)</span> with no connectives by <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> is an atomic formula. Since an atomic formula has no connectives it can not of the form <span class="math inline">\((\neg \varphi)\)</span> or <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span>.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume a formula with <span class="math inline">\(n \leq k\)</span> connectives must satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\varphi\)</span> is a formula with <span class="math inline">\(n = k + 1\)</span> connectives. From <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> <span class="math inline">\(\varphi\)</span> must be either:</p>
+<ul>
+<li><p><span class="math inline">\((\neg \alpha)\)</span> for some formula <span class="math inline">\(\alpha\)</span> with <span class="math inline">\(k\)</span> connectives.</p>
+<ul>
+<li><p>By the <em>induction hypothesis</em> <span class="math inline">\(\alpha\)</span> must satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</p>
+<ul>
+<li><p>Because <span class="math inline">\(\alpha\)</span> satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> then <span class="math inline">\((\neg \alpha)\)</span> can’t be an atomic formula because an atomic formula doesn’t have connectives.</p></li>
+<li><p>Now assume that <span class="math inline">\((\neg \alpha)\)</span> can be expressed as <span class="math inline">\((\beta \Longrightarrow \gamma)\)</span>. Then <span class="math inline">\(\neg \alpha\)</span> will be equal to <span class="math inline">\(\beta \Longrightarrow \gamma\)</span>. However <span class="math inline">\(\alpha\)</span> satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> so it will be impossible that <span class="math inline">\(\neg \alpha\)</span> and <span class="math inline">\(\beta \Longrightarrow \gamma\)</span> are equal.</p>
+<ul>
+<li>Therefore <span class="math inline">\((\neg \alpha)\)</span> satisfy exactly the 2 condition in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow \gamma)\)</span> for some formulas <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> with <span class="math inline">\(\leq k\)</span> connectives each.</p>
+<ul>
+<li><p>By the <em>induction hypothesis</em> <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> must satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</p>
+<ul>
+<li><p>Because <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> then <span class="math inline">\((\beta \Longrightarrow \gamma)\)</span> can’t be an atomic formula because an atomic formula doesn’t have connectives.</p></li>
+<li><p>Now assume that <span class="math inline">\((\beta \Longrightarrow \gamma)\)</span> can be expressed as <span class="math inline">\((\neg \sigma)\)</span>. Then <span class="math inline">\(\neg \sigma\)</span> will be equal to <span class="math inline">\(\beta \Longrightarrow \gamma\)</span>. However <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> so it will be impossible that <span class="math inline">\(\neg \sigma\)</span> and <span class="math inline">\(\beta \Longrightarrow \gamma\)</span> are equal.</p>
+<ul>
+<li>Therefore <span class="math inline">\((\beta \Longrightarrow \gamma)\)</span> satisfy exactly the 3 condition in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -436,6 +522,7 @@ Church, Alonzo. 1996. <em>Introduction to Mathematical Logic</em>. 10th ed. Prin
 Łukasiewicz, Jan, and Ludwik Borkowski. 1970. <em>Selected Works</em>. Studies in Logic and the Foundations of Mathematics. Amsterdam: North-Holland Pub. Co.
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
