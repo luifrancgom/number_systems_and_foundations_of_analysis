@@ -38,8 +38,9 @@ format:
     documentclass: scrreprt
     
 knitr: 
- opts_chunk: 
+ opts_chunk:
    echo: false
+   message: false
 
 engine: knitr
 editor: source

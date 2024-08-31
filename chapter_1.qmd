@@ -1,3 +1,13 @@
+
+```{r}
+#| label: libraries
+
+library(kableExtra)
+library(tidyverse)
+
+# See https://quarto.org/docs/computations/execution-options.html#engine-binding to specify why knitr is used
+```
+
 # Basic Facts and Notions of Logic and Set Theory
 
 This chapter introduces the concepts and terminology of logic and set theory.
@@ -78,10 +88,6 @@ In the case of other values lets inspect the possible values of $p(\alpha)$ and 
 
     -   $(\neg A_0)$
     -   $(A_0 \Longrightarrow A_1)$
-
-```{r}
-
-```
 
 Where the possible values of $l(\alpha)$ are $1, 4, 5, 7, 8, \ldots, s - 1, s, s + 1, \ldots$ as it is shown in @fig-length-formula-lp where the majority of duplicate branches with the same lengths are omitted but can be different in relation to $p(\alpha)$.
 
@@ -193,7 +199,7 @@ Show that the set of formulas of $\mathcal{L}_P$ is countable.
 **Pending**
 :::
 
-#### Informal conventions
+#### Informal conventions {#sec-informal-conventions}
 
 We will use the symbols $\land$, $\lor$, and $\iff$ to represent *and*, *or* and *if and only if* respectively. Since they are not among the symbols of $\mathcal{L}_P$, we will use them as abbreviations for certain constructions involving only $\neg$ and $\Longrightarrow$. Namely:
 
@@ -295,3 +301,165 @@ By strong induction on $n$, the number of connectives (occurrences of $\neg$ or 
            -  Therefore $(\beta \Longrightarrow \gamma)$ satisfy exactly the 3 condition in @def-formulas-lp. 
 
 :::
+
+### Truth Assignments
+
+Whether a given formula $\varphi$ of $\mathcal{L}_p$ is true or false usually depends on how we interpret the atomic formulas which appear in $\varphi$ [@bilaniuk_problem_2009, p. 7].
+
+::: {#def-truth-assignment}
+
+## Truth assignment
+
+A truth assignment is a function $v$ whose domain is the set of all formulas of $\mathcal{L}_p$ and whose range is the set $\{ T, F \}$ of truth values, such that:
+
+-  $v(A_n)$ is defined for every atomic formula $A_n$.
+
+-  For any formula $\alpha$:
+
+$$v((\neg \alpha)) = \begin{cases}
+                     T & \text{ if } v(\alpha) = F \\
+                     F & \text{ if } v(\alpha) = T 
+                     \end{cases}$$
+                     
+-  For any formulas $\alpha$ and $\beta$:
+
+$$v((\alpha \Longrightarrow \beta)) = \begin{cases}
+                     F & \text{ if } v(\alpha) = T \text{ and } v(\beta) = F \\
+                     T & \text{ otherwise }
+                     \end{cases}$$
+
+:::
+
+For example, let $v(A_0) = T$ and $v(A_1) = F$ then it is possible to determine $v(((\neg A_1) \Longrightarrow (A_0 \Longrightarrow A_1)))$ in the following way:
+
+-  $v((\neg A_1)) = T$
+-  $v((A_0 \Longrightarrow A_1)) = F$
+-  $v(((\neg A_1) \Longrightarrow (A_0 \Longrightarrow A_1))) = F$
+
+A convenient way to write out the determination of the truth value of a formula on a given truth assignment is to use a *truth table*:
+
+```{r}
+#| results: asis
+#| label: tbl-true-table-example
+#| tbl-cap: True table example
+
+# See https://stackoverflow.com/questions/76025169/latex-equations-in-tables-with-quarto-revealjs to create a table
+
+true_table_example <- tibble(
+ `$A_0$` = c("$T$"), 
+ `$A_1$` = c("$F$"),
+ `$(\\neg A_1)$` = c("$T$"),
+ `$(A_0 \\Longrightarrow A_1)$` = c("$F$"),
+ `$((\\neg A_1) \\Longrightarrow (A_0 \\Longrightarrow A_1))$` = c("$T$")
+)
+
+kbl(true_table_example, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:5, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+Using what is described in @sec-informal-conventions we have the following:
+
+$$v((\alpha \land \beta)) = \begin{cases}
+                     T & \text{ if } v(\alpha) = T \text{ and } v(\beta) = T \\
+                     F & \text{ otherwise }
+                     \end{cases}$$
+                     
+$$v((\alpha \lor \beta)) = \begin{cases}
+                     F & \text{ if } v(\alpha) = F \text{ and } v(\beta) = F \\
+                     T & \text{ otherwise }
+                     \end{cases}$$
+
+$$v((\alpha \iff \beta)) = \begin{cases}
+                     T & \text{ if } v(\alpha) = v(\beta) \\
+                     F & \text{ otherwise }
+                     \end{cases}$$
+
+Also it is important to point out that in @def-truth-assignment $v((\alpha \Longrightarrow \beta))$ is known as *material implication* [@egre_logic_2021]. In a 2-valued propositional framework there are 16 possible truth tables for 2 formulas $\alpha$ and $\beta$ as it is shown in @tbl-true-1-4, @tbl-true-5-8, @tbl-true-9-12 and @tbl-true-13-16
+
+```{r}
+#| results: asis
+#| label: tbl-true-1-4
+#| tbl-cap: True tables contradiction, tautology, $\alpha$ and $\beta$
+
+true_table_1_4 <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\bot$` = c("$F$", "$F$", "$F$", "$F$"),
+ `$\\top$` = c("$T$", "$T$", "$T$", "$T$"),
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"),
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ .name_repair = "minimal"
+)
+
+kbl(true_table_1_4, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:6, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+```{r}
+#| results: asis
+#| label: tbl-true-5-8
+#| tbl-cap: True tables $\neg \alpha$, $\neg \beta$, NOR and NAND
+
+true_table_5_8 <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\neg \\alpha$` = c("$F$", "$F$", "$T$", "$T$"),
+ `$\\neg \\beta$` = c("$F$", "$T$", "$F$", "$T$"),
+ `$\\Downarrow$` = c("$F$", "$F$", "$F$", "$T$"),
+ `$\\Uparrow$` = c("$F$", "$T$", "$T$", "$T$")
+)
+
+kbl(true_table_5_8, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:6, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+```{r}
+#| results: asis
+#| label: tbl-true-9-12
+#| tbl-cap: True tables AND, OR, material implication (IMPLY) and biconditional (XNOR)
+
+true_table_9_12 <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\land$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\lor$` = c("$T$", "$T$", "$T$", "$F$"),
+ `$\\Longrightarrow$` = c("$T$", "$F$", "$T$", "$T$"),
+ `$\\iff$` = c("$T$", "$F$", "$F$", "$T$")
+)
+
+kbl(true_table_9_12, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:6, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+```{r}
+#| results: asis
+#| label: tbl-true-13-16
+#| tbl-cap: True tables converse implication, material nonimplication (NIMPLY), converse material nonimplication and XOR
+
+true_table_13_16 <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\Longleftarrow$` = c("$T$", "$T$", "$F$", "$T$"),
+ `$\\not\\Longrightarrow$` = c("$F$", "$T$", "$F$", "$F$"),
+ `$\\not\\Longleftarrow$` = c("$F$", "$F$", "$T$", "$F$"),
+ `$\\oplus$` = c("$F$", "$T$", "$T$", "$F$")
+)
+
+kbl(true_table_13_16, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:6, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
