@@ -463,3 +463,168 @@ kbl(true_table_13_16, escape = FALSE) |>
  row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
  cat()
 ```
+
+Assuming that we want:
+
+-  $v(\alpha) = T$, $v(\beta) = T$ and $v((\alpha \Longrightarrow \beta)) = T$
+
+-  $v(\alpha) = T$, $v(\beta) = F$ and $v((\alpha \Longrightarrow \beta)) = F$
+
+From the 16 possible truth tables only 4 comply with these both conditions:
+
+```{r}
+#| results: asis
+#| label: tbl-true-scenarios
+#| tbl-cap: Possible true tables for $\Longrightarrow$ in a 2-valued propositional framework  
+
+true_table_scenarios <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\land$` = c("$T$", "$F$", "$F$", "$F$"),
+ `$\\iff$` = c("$T$", "$F$", "$F$", "$T$"),
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$\\Longrightarrow$` = c("$T$", "$F$", "$T$", "$T$"),
+ .name_repair = "minimal"
+)
+
+kbl(true_table_scenarios, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:6, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+In @tbl-true-scenarios the first true table corresponds to $\land$, the second corresponds to $\iff$ and the third corresponds to $\beta$ where these tables are not suitable for $\Longrightarrow$. Therefore the last table is the only truth table suitable for $\Longrightarrow$ assuming we want the both conditions pointed above in a 2-valued propositional framework.
+
+::: {#prp-true-values-atomic-formulas}
+
+## True values of atomic formulas
+
+Suppose $\delta$ is any formula and $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for all atomic formulas $A_n$ which occur in $\delta$. Then $u(\delta) = v(\delta)$.
+
+:::
+
+::: {.proof}
+
+By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\delta$ of $\mathcal{L}_P$
+
+*Base step* $(n = 0)$: If $\delta$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. So $\delta = A_i$ for some $i \in \mathbb{N}$ where $u(A_i) = v(A_i)$. Therefore $u(\delta) = v(\delta)$.  
+
+*Induction hypothesis* $(n \leq k)$: Assume that for a formula $\delta$ with $n \leq k$ connectives we have that for $u$ and $v$ truth assignments such that $u(A_n) = v(A_n)$ for all atomic formulates $A_n$ which occur in the $\delta$ we have that $u(\delta) = v(\delta)$ 
+
+*Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with $n = k + 1$ connectives. From @def-formulas-lp $\varphi$ must be either:
+
+-   $(\neg \delta)$ for some formula $\delta$ with $k$ connectives.
+
+    -  Therefore $v(\delta) = u(\delta)$ and by @def-truth-assignment $v(\neg \delta) = u( \neg \delta)$ which means that $v(\varphi) = u(\varphi)$.
+    
+-   $(\delta \Longrightarrow \beta)$ for some formulas $\delta$ and $\beta$ with $k$ connectives.
+
+    -  Therefore $v(\delta) = u(\delta)$ and $v(\beta) = u(\beta)$ and by @def-truth-assignment $v(\delta \Longrightarrow \delta) = u(\delta \Longrightarrow \delta)$ which means that $v(\varphi) = u(\varphi)$.     
+
+:::
+
+::: {#cor-true-values-atomic-formulas}
+
+## True values of atomic formulas
+
+Suppose $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for every atomic formula $A_n$. Then $u = v$, i.e. $u(\varphi) = v(\varphi)$ for every formula $\varphi$.
+
+:::
+
+::: {.proof}
+
+Because $u(A_n) = v(A_n)$ for every atomic formula $A_n$ in $\mathcal{L}_p$ we can take any formula $\varphi$ and apply @prp-true-values-atomic-formulas. Thefefore $v(\varphi) = u(\varphi)$ but $\varphi$ is any formula in $\mathcal{L}_p$ so it applies to every formula.  
+
+:::
+
+::: {#def-formula-satisfiable}
+
+If $v$ is a truth assignment and $\varphi$ is a formula, we will often say that $v$ *satisfies* $\varphi$ if $v(\varphi) = T$. 
+
+Similarly, if $\Sigma$ is a set of formulas, we will often say that $v$ *satisfies* $\Sigma$ if $v(\sigma) = T$ for every $\sigma \in \Sigma$. 
+
+We will say that $\varphi$ (respectively, $\Sigma$) is *satisfiable* if there is some truth assignment which satisfies it.
+
+:::
+
+::: {#def-tautology-contradiction}
+
+A formula $\varphi$ is a *tautology* if it is satisfied by every truth assignment. 
+
+A formula $\psi$ is a *contradiction* if there is no truth assignment which satisfies it.
+
+:::
+
+For example, $(A_4 \Longrightarrow A_4)$ is a tautology, $(\neg (A_4 \Longrightarrow A_4))$ is a contradiction and $A_4$ neither of them.
+
+```{r}
+#| results: asis
+#| label: tbl-example-tautology-contradiction
+#| tbl-cap: Example of a tautology and a contradiction
+
+tautology_contradiction <- tibble(
+ `$A_4$` = c("$T$", "$F$"), 
+ `$(A_4 \\Longrightarrow A_4)$` = c("$T$", "$T$"),
+ `$(\\neg (A_4 \\Longrightarrow A_4))$` = c("$F$", "$F$")
+)
+
+kbl(tautology_contradiction, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:3, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+::: {#prp-tautology-contradiction-example}
+
+If $\alpha$ is any formula, then $((\neg \alpha) \lor \alpha)$ is a tautology and $((\neg \alpha) \land \alpha)$ is a contradiction.
+
+:::
+
+::: {.proof}
+
+```{r}
+#| results: asis
+
+tautology_contradiction_proof <- tibble(
+ `$\\alpha$` = c("$T$", "$F$"), 
+ `$(\\neg \\alpha)$` = c("$F$", "$T$"),
+ `$((\\neg \\alpha) \\lor \\alpha)$` = c("$T$", "$T$"),
+ `$((\\neg \\alpha) \\land \\alpha)$` = c("$F$", "$F$")
+)
+
+kbl(tautology_contradiction_proof, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:4, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+:::
+
+::: {#prp-relation-tautology-contradiction}
+
+A formula $\beta$ is a tautology if and only if $\neg \beta$ is a contradiction.
+
+:::
+
+::: {.proof}
+
+For all $v$, where $v$ is a true assignment, $v(\beta) = T$. By @def-truth-assignment $v((\neg \beta)) = F$ so $(\neg \beta)$ is a contradiction. 
+
+For all $v$, where $v$ is a true assignment, $v((\neg \beta)) = F$. By @def-truth-assignment $v(\beta) = T$ so $\beta$ is a tautology.
+:::
+
+::: {#def-formula-or-formulas-implies-a-formula}
+
+A set of formulas $\Sigma$ implies a formula $\varphi$, written as $\Sigma \models \varphi$, if every truth assignment $v$ which satisfies $\Sigma$ also satisfies $\varphi$.
+
+We will often write $\Sigma \not \models \varphi$ if it is not the case that $\Sigma \models \varphi$.
+
+In the case where $\Sigma$ is empty, we will usually write $\models \varphi$ instead of $\emptyset \models \varphi$.
+
+Similarly, if $\Delta$ and $\Gamma$ are sets of formulas, then $\Delta$ implies $\Gamma$, written as $\Delta \models \Gamma$, if every truth assignment $v$ which satisfies $\Delta$ also satisfies
+$\Gamma$.
+
+:::
