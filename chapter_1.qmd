@@ -382,7 +382,7 @@ Also it is important to point out that in @def-truth-assignment $v((\alpha \Long
 ```{r}
 #| results: asis
 #| label: tbl-true-1-4
-#| tbl-cap: True tables contradiction, tautology, $\alpha$ and $\beta$
+#| tbl-cap: Truth tables contradiction, tautology, $\alpha$ and $\beta$
 
 true_table_1_4 <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
@@ -404,7 +404,7 @@ kbl(true_table_1_4, escape = FALSE) |>
 ```{r}
 #| results: asis
 #| label: tbl-true-5-8
-#| tbl-cap: True tables $\neg \alpha$, $\neg \beta$, NOR and NAND
+#| tbl-cap: Truth tables $\neg \alpha$, $\neg \beta$, NOR and NAND
 
 true_table_5_8 <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
@@ -425,7 +425,7 @@ kbl(true_table_5_8, escape = FALSE) |>
 ```{r}
 #| results: asis
 #| label: tbl-true-9-12
-#| tbl-cap: True tables AND, OR, material implication (IMPLY) and biconditional (XNOR)
+#| tbl-cap: Truth tables AND, OR, material implication (IMPLY) and biconditional (XNOR)
 
 true_table_9_12 <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
@@ -446,7 +446,7 @@ kbl(true_table_9_12, escape = FALSE) |>
 ```{r}
 #| results: asis
 #| label: tbl-true-13-16
-#| tbl-cap: True tables converse implication, material nonimplication (NIMPLY), converse material nonimplication and XOR
+#| tbl-cap: Truth tables converse implication, material nonimplication (NIMPLY), converse material nonimplication and XOR
 
 true_table_13_16 <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
@@ -475,7 +475,7 @@ From the 16 possible truth tables only 4 comply with these both conditions:
 ```{r}
 #| results: asis
 #| label: tbl-true-scenarios
-#| tbl-cap: Possible true tables for $\Longrightarrow$ in a 2-valued propositional framework  
+#| tbl-cap: Possible truth tables for $\Longrightarrow$ in a 2-valued propositional framework  
 
 true_table_scenarios <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
@@ -494,11 +494,11 @@ kbl(true_table_scenarios, escape = FALSE) |>
  cat()
 ```
 
-In @tbl-true-scenarios the first true table corresponds to $\land$, the second corresponds to $\iff$ and the third corresponds to $\beta$ where these tables are not suitable for $\Longrightarrow$. Therefore the last table is the only truth table suitable for $\Longrightarrow$ assuming we want the both conditions pointed above in a 2-valued propositional framework.
+In @tbl-true-scenarios the first truth table corresponds to $\land$, the second corresponds to $\iff$ and the third corresponds to $\beta$ where these tables are not suitable for $\Longrightarrow$. Therefore the last table is the only truth table suitable for $\Longrightarrow$ assuming we want the both conditions pointed above in a 2-valued propositional framework.
 
-::: {#prp-true-values-atomic-formulas}
+::: {#prp-truth-values-atomic-formulas}
 
-## True values of atomic formulas
+## Truth values of atomic formulas
 
 Suppose $\delta$ is any formula and $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for all atomic formulas $A_n$ which occur in $\delta$. Then $u(\delta) = v(\delta)$.
 
@@ -524,9 +524,9 @@ By strong induction on $n$, the number of connectives (occurrences of $\neg$ or 
 
 :::
 
-::: {#cor-true-values-atomic-formulas}
+::: {#cor-truth-values-atomic-formulas}
 
-## True values of atomic formulas
+## Truth values of atomic formulas
 
 Suppose $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for every atomic formula $A_n$. Then $u = v$, i.e. $u(\varphi) = v(\varphi)$ for every formula $\varphi$.
 
@@ -534,7 +534,7 @@ Suppose $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for every 
 
 ::: {.proof}
 
-Because $u(A_n) = v(A_n)$ for every atomic formula $A_n$ in $\mathcal{L}_p$ we can take any formula $\varphi$ and apply @prp-true-values-atomic-formulas. Thefefore $v(\varphi) = u(\varphi)$ but $\varphi$ is any formula in $\mathcal{L}_p$ so it applies to every formula.  
+Because $u(A_n) = v(A_n)$ for every atomic formula $A_n$ in $\mathcal{L}_p$ we can take any formula $\varphi$ and apply @prp-truth-values-atomic-formulas. Thefefore $v(\varphi) = u(\varphi)$ but $\varphi$ is any formula in $\mathcal{L}_p$ so it applies to every formula.  
 
 :::
 
@@ -626,5 +626,131 @@ In the case where $\Sigma$ is empty, we will usually write $\models \varphi$ ins
 
 Similarly, if $\Delta$ and $\Gamma$ are sets of formulas, then $\Delta$ implies $\Gamma$, written as $\Delta \models \Gamma$, if every truth assignment $v$ which satisfies $\Delta$ also satisfies
 $\Gamma$.
+
+:::
+
+For example, $\{ A_3, (A_3 \Longrightarrow (\neg A_7)) \} \models (\neg A_7)$ because if $v$ is a true assignment such that $v(A_3) = T$ and $v((A_3 \Longrightarrow (\neg A_7))) = T$ then it must be the case that $v((\neg A_7)) = T$ by @def-truth-assignment.
+
+Also, $\{ A_8, (A_5 \Longrightarrow A_8) \} \not \models A_5$, because if $u$ is a true assignment such that $u(A_8) = T$ and $u((A_5 \Longrightarrow A_8)) = T$. However, it is possible to have $u(A_5) = F$.
+
+::: {#rem-contradiction-tautology-empty-set}
+
+A formula $\varphi$ is a tautology if and only if $\models \varphi$.
+
+A formula $\varphi$ is a contradiction if and only if $\models (\neg \varphi)$.
+
+:::
+
+Lets brake each element to understand why @rem-contradiction-tautology-empty-set is true:
+
+-  If $v$ is a truth assignment then:
+
+    -  $v$ satisfies $\sigma \iff v(\sigma) = T$
+    
+-  If $\Sigma$ is a set of formulas then:
+
+    -  $v$ satisfies $\Sigma \iff (\forall \sigma)(\sigma \in \Sigma \Longrightarrow v(\sigma)=T)$
+
+-  $\Sigma \models \varphi$ if and only if every truth assignment $v$ which satisfies $\Sigma$ also satisfies $\varphi$
+
+   -  $\Sigma \models \varphi \iff ((\forall v)((\forall \sigma)(\sigma \in \Sigma \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$
+
+-  Now let's apply to $\models \varphi$ when $\varphi$ is a tautology:
+
+    -  $\models \varphi \iff ((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$
+    
+        -  $\sigma \in \emptyset$ is false so $(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)$ is true by @def-truth-assignment.
+        
+        -  $(\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T))$ will be true and $v(\sigma)=T$ is true because $\sigma$ is a tautology
+        
+        -  By @def-truth-assignment $((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$ is true so we can write $\models \varphi$.
+        
+::: {#prp-subset-formulas-implies}
+
+If $\Gamma$ and $\Sigma$ are sets of formulas such that $\Gamma \subseteq \Sigma$, then $\Sigma \models \Gamma$.
+
+:::
+
+::: {.proof}
+
+If $v$ satisfies $\Sigma$ then for all $\sigma \in \Sigma$ we have that $v(\sigma) = T$. But if $\gamma \in \Gamma$ then also $\gamma \in \Sigma$. Therefore $v(\gamma) = T$ for any formula that belongs to $\Gamma$. This means that $\Sigma \models \Gamma$.
+
+:::
+
+::: {#exr-check-a-formulas-implies-a-formula}
+
+How can one check whether or not $\Sigma \models \varphi$ for a formula $\varphi$ and a finite set of formulas $\Sigma$?
+
+:::
+
+::: {#sol-check-a-formulas-implies-a-formula}
+
+We can construct a truth table and evaluate if in each row where the formulas that belongs to $\Sigma$ are true $\varphi$ is also true.
+
+For example, let $\Sigma = \{ (\alpha \Longrightarrow \beta), (\neg \beta) \}$ and $\varphi = (\neg \alpha)$. The truth table will be:
+
+```{r}
+#| results: asis
+
+exercise_1_8 <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$(\\alpha \\Longrightarrow \\beta)$` = c("$T$", "$F$", "$T$", "$T$"),
+ `$(\\neg \\beta)$` = c("$F$", "$T$", "$F$", "$T$"),
+ `$(\\neg \\alpha)$` = c("$F$", "$F$", "$T$", "$T$")
+)
+
+kbl(exercise_1_8, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:5, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+The last row of the truth table represents a truth assignment $v$ that satisfies $\Sigma$ and also the same truth asignment $v$ satisfies $\varphi$. Therefore we can check that $\Sigma \models \varphi$.
+
+It is importa to mention that $\Sigma$ must be a finite set of formulas or it will not be possible to check each row in the truth table that is build.
+
+:::
+
+::: {#prp-line}
+
+Suppose $\Sigma$ is a set of formulas and $\psi$ and $\rho$ are
+formulas. Then $\Sigma \cup \{ \psi \} \models \rho$ if and only if $\Sigma \models (\psi \Longrightarrow \rho)$.
+
+:::
+
+::: {.proof}
+
+-  Assume $\Sigma \models (\psi \Longrightarrow \rho)$ and let $v$ satisfies $\Sigma \cup \{ \psi \}$.
+
+    -  By @prp-subset-formulas-implies $v$ satisfies also $\Sigma$ because $\Sigma \subseteq \Sigma \cup \{ \psi \}$.
+    
+    -  By assumption $v$ satisfies $(\psi \Longrightarrow \rho)$ because $\Sigma \models (\psi \Longrightarrow \rho)$. Therefore $v((\psi \Longrightarrow \rho)) = T$
+    
+    -  Because $v(\psi) = T$ and $v((\psi \Longrightarrow \rho)) = T$ by @def-truth-assignment it must be the case that $v(\rho) = T$. Therefore $\Sigma \cup \{ \psi \} \models \rho$.
+    
+-  Assume $\Sigma \cup \{ \psi \} \models \rho$.
+
+    -  Let $v$ satisfies $\Sigma \cup \{ \psi \}$ so $v(\sigma) = F$ for all $\sigma in \Sigma$, $v(\psi) = T$ and $v(\rho) = T$.
+    
+    -  Because $v(\psi) = T$ and $v(\rho) = T$ by @def-truth-assignment $v((\psi \Longrightarrow \rho)) = T$.
+    
+    -  Theforefore $\Sigma \models (\psi \Longrightarrow \rho)$.
+
+:::
+
+::: {#prp-set-formulas-satisfiable}
+
+A set of formulas $\Sigma$ is satisfiable if and only if
+there is no contradiction $\chi$ such that $\Sigma \models \chi$.
+
+:::
+
+::: {.proof}
+
+-  Assume $\Sigma$ is a set of formulas that is satisfiable
+
+**Pending** (Possible solution @prp-subset-formulas-implies)
 
 :::
