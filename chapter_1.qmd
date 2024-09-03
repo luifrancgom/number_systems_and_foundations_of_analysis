@@ -749,8 +749,148 @@ there is no contradiction $\chi$ such that $\Sigma \models \chi$.
 
 ::: {.proof}
 
--  Assume $\Sigma$ is a set of formulas that is satisfiable
+-  Assume $\Sigma = \emptyset$ then by @rem-contradiction-tautology-empty-set $\emptyset$ is satisfiable and $\chi$ will be a tautology because $\models \chi$.
 
-**Pending** (Possible solution @prp-subset-formulas-implies)
+-  Assume $\Sigma \neq \emptyset$ is a set of formulas that are satisfiable.
+
+    -  Lets take $\sigma \in \Sigma$ so $v(T) = \sigma$. Then $\Sigma \models \sigma$ where $\sigma$ is not a contradiction.
+
+-  Assume $\Sigma \models \chi$ where $\chi$ is not a contradiction.
+
+    -  Then for all $\sigma \in Sigma$ we have that $v(\sigma) = T$. Therefore $\Sigma$ is satisfiable.
+
+:::
+
+### Deductions
+
+::: {#def-axioms-lp}
+
+The 3 axiom schema of $\mathcal{L}_P$ are:
+
+-  $(\alpha \Longrightarrow (\beta \Longrightarrow \alpha))$
+
+-  $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$
+
+-  $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$
+
+Replacing $\alpha$, $\beta$, and $\gamma$ by particular formulas of $\mathcal{L}_P$ in any one of the axiom schemas gives an axiom of $\mathcal{L}_P$.
+
+:::
+
+::: {#prp-axioms-lp-tautology}
+
+Every axiom of $\mathcal{L}_P$ is a tautology.
+
+:::
+
+::: {.proof}
+
+```{r}
+#| results: asis
+#| label: tbl-axiom-1-lp
+#| tbl-cap: Truth table axiom 1 $\mathcal{L}_p$
+
+axiom_1_lp <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$(\\beta \\Longrightarrow \\alpha)$` = c("$T$", "$T$", "$F$", "$T$"),
+ `$\\alpha \\Longrightarrow ((\\beta \\Longrightarrow \\alpha))$` = c("$T$", "$T$", "$T$", "$T$")
+)
+
+kbl(axiom_1_lp, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:4, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+```{r}
+#| results: asis
+#| label: tbl-axiom-2-lp
+#| tbl-cap: Truth table axiom 2 $\mathcal{L}_p$
+
+axiom_2_lp <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$T$", "$F$", "$F$", "$T$", "$T$", "$F$", "$F$"),
+ `$\\gamma$` = c("$T$", "$F$", "$T$", "$F$", "$T$", "$F$", "$T$", "$F$"),
+ `$(\\alpha \\Longrightarrow (\\beta \\Longrightarrow \\gamma))$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$"),
+ `$((\\alpha \\Longrightarrow \\beta) \\Longrightarrow (\\alpha \\Longrightarrow \\gamma))$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$"),
+ `$((\\alpha \\Longrightarrow (\\beta \\Longrightarrow \\gamma))) \\Longrightarrow ((\\alpha \\Longrightarrow \\beta) \\Longrightarrow (\\alpha \\Longrightarrow \\gamma))$` = c("$T$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$")
+)
+
+kbl(axiom_2_lp, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:6, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+```{r}
+#| results: asis
+#| label: tbl-axiom-3-lp
+#| tbl-cap: Truth table axiom 3 $\mathcal{L}_p$
+
+axiom_3_lp <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$((\\neg \\beta) \\Longrightarrow (\\neg \\alpha))$` = c("$T$", "$F$", "$T$", "$T$"),
+ `$(((\\neg \\beta) \\Longrightarrow \\alpha) \\Longrightarrow \\beta)$` = c("$T$", "$F$", "$T$", "$T$"),
+ `$(((\\neg \\beta) \\Longrightarrow (\\neg \\alpha)) \\\\Longrightarrow (((\\neg \\beta) \\Longrightarrow \\alpha) \\Longrightarrow \\beta))$` = c("$T$", "$T$", "$T$", "$T$")
+)
+
+kbl(axiom_3_lp, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:5, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+:::
+
+::: {#def-modus-ponens}
+
+## Modus ponens (rule of inference)
+
+Given the formulas $\varphi$ and $(\varphi \Longrightarrow \psi)$, one may infer $\psi$.
+
+:::
+
+::: {#prp-modus-ponens-implies}
+
+Suppose $\varphi$ and $\psi$ are formulas. Then $\{ \varphi, (\varphi \Longrightarrow \psi) \} \models \psi$.
+
+:::
+
+::: {.proof}
+
+Becuase $v(\varphi) = T$ and $v((\varphi \Longrightarrow \psi)) = T$ by @def-truth-assignment it must be the case that $v(\psi) = T$. Therefore $\{ \varphi, (\varphi \Longrightarrow \psi) \} \models \psi$.
+
+:::
+
+::: {#def-deduction-or-proof}
+
+## Deduction or proof
+
+Let $\Sigma$ be a set of formulas. A deduction or proof from $\Sigma$ in $\mathcal{L}_P$ is a finite sequence $\varphi_1 \varphi_2 \ldots \varphi_n$ of formulas such that for each $k \leq n$:
+
+-  $\varphi_k$ is an axiom
+-  $\varphi_k \in \Sigma$
+-  There are $i, j < k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+
+A formula of $\Sigma$ appearing in the deduction is called a *premiss*. 
+
+$\Sigma$ proves a formula $\alpha$, written as $\Sigma \vdash \alpha$, if $\alpha$ is the last formula of a deduction from $\Sigma$. 
+
+We will usually write $\vdash \alpha$ for $\emptyset \vdash \alpha$
+
+We will take $\Sigma \vdash \Delta$ to mean that $\Sigma \vdash \delta$ for every formula $\delta \in \Delta$.
+
+:::
+
+::: {#exm-example-proof-1}
+
+Show that $\vdash (\varphi \Longrightarrow \varphi)$
+
+**Pending check in latex begin{enumerate}**
 
 :::
