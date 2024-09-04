@@ -4,8 +4,6 @@
 
 library(kableExtra)
 library(tidyverse)
-
-# See https://quarto.org/docs/computations/execution-options.html#engine-binding to specify why knitr is used
 ```
 
 # Basic Facts and Notions of Logic and Set Theory
@@ -203,8 +201,10 @@ Show that the set of formulas of $\mathcal{L}_P$ is countable.
 
 We will use the symbols $\land$, $\lor$, and $\iff$ to represent *and*, *or* and *if and only if* respectively. Since they are not among the symbols of $\mathcal{L}_P$, we will use them as abbreviations for certain constructions involving only $\neg$ and $\Longrightarrow$. Namely:
 
--   $(\alpha \land \beta)$ is short for $(\neg(\alpha \Longrightarrow (\neg \beta)))$,
--   $(\alpha \lor \beta)$ is short for $(( \neg \alpha) \Longrightarrow \beta)$, and
+-   $(\alpha \land \beta)$ is short for $(\neg(\alpha \Longrightarrow (\neg \beta)))$
+
+-   $(\alpha \lor \beta)$ is short for $(( \neg \alpha) \Longrightarrow \beta)$
+
 -   $(\alpha \iff \beta)$ is short for $((\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha))$
 
 ::: {#def-subformulas-lp}
@@ -236,7 +236,8 @@ $$\begin{split}
      \end{split}$$
 
 $$\begin{split}
-   S((A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))))) & = S(A_9) \cup S((A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \cup \{ (A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \} \\
+   S((A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))))) & = S(A_9) \cup S((A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \\ 
+    & \;\;\;\; \cup \{ (A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \} \\
     & = \{ A_9, A_8, A_{78}, A_0, (\neg A_0), \\ 
     & \;\;\;\;\;\; (\neg(\neg A_0)), (A_{78} \Longrightarrow (\neg (\neg A_0))), \\
     & \;\;\;\;\;\; (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))), \\
@@ -767,11 +768,11 @@ there is no contradiction $\chi$ such that $\Sigma \models \chi$.
 
 The 3 axiom schema of $\mathcal{L}_P$ are:
 
--  $(\alpha \Longrightarrow (\beta \Longrightarrow \alpha))$
+1. $(\alpha \Longrightarrow (\beta \Longrightarrow \alpha))$
 
--  $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$
+2. $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$
 
--  $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$
+3. $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$
 
 Replacing $\alpha$, $\beta$, and $\gamma$ by particular formulas of $\mathcal{L}_P$ in any one of the axiom schemas gives an axiom of $\mathcal{L}_P$.
 
@@ -809,18 +810,30 @@ kbl(axiom_1_lp, escape = FALSE) |>
 #| label: tbl-axiom-2-lp
 #| tbl-cap: Truth table axiom 2 $\mathcal{L}_p$
 
-axiom_2_lp <- tibble(
+axiom_2_a_lp <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$"), 
  `$\\beta$` = c("$T$", "$T$", "$F$", "$F$", "$T$", "$T$", "$F$", "$F$"),
  `$\\gamma$` = c("$T$", "$F$", "$T$", "$F$", "$T$", "$F$", "$T$", "$F$"),
  `$(\\alpha \\Longrightarrow (\\beta \\Longrightarrow \\gamma))$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$"),
- `$((\\alpha \\Longrightarrow \\beta) \\Longrightarrow (\\alpha \\Longrightarrow \\gamma))$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$"),
- `$((\\alpha \\Longrightarrow (\\beta \\Longrightarrow \\gamma))) \\Longrightarrow ((\\alpha \\Longrightarrow \\beta) \\Longrightarrow (\\alpha \\Longrightarrow \\gamma))$` = c("$T$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$")
+ `$((\\alpha \\Longrightarrow \\beta) \\Longrightarrow (\\alpha \\Longrightarrow \\gamma))$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$")
 )
 
-kbl(axiom_2_lp, escape = FALSE) |>
+kbl(axiom_2_a_lp, escape = FALSE) |>
  kable_styling() |> 
- column_spec(column = 1:6, border_right = TRUE) |> 
+ column_spec(column = 1:5, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+ 
+axiom_2_b_lp <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$T$", "$F$", "$F$", "$T$", "$T$", "$F$", "$F$"),
+ `$\\gamma$` = c("$T$", "$F$", "$T$", "$F$", "$T$", "$F$", "$T$", "$F$"),
+ `$((\\alpha \\Longrightarrow (\\beta \\Longrightarrow \\gamma))) \\Longrightarrow \\\\ ((\\alpha \\Longrightarrow \\beta) \\Longrightarrow (\\alpha \\Longrightarrow \\gamma))$` = c("$T$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$")
+)
+
+kbl(axiom_2_b_lp, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:4, border_right = TRUE) |> 
  row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
  cat()
 ```
@@ -830,17 +843,28 @@ kbl(axiom_2_lp, escape = FALSE) |>
 #| label: tbl-axiom-3-lp
 #| tbl-cap: Truth table axiom 3 $\mathcal{L}_p$
 
-axiom_3_lp <- tibble(
+axiom_3_a_lp <- tibble(
  `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
  `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
  `$((\\neg \\beta) \\Longrightarrow (\\neg \\alpha))$` = c("$T$", "$F$", "$T$", "$T$"),
- `$(((\\neg \\beta) \\Longrightarrow \\alpha) \\Longrightarrow \\beta)$` = c("$T$", "$F$", "$T$", "$T$"),
- `$(((\\neg \\beta) \\Longrightarrow (\\neg \\alpha)) \\\\Longrightarrow (((\\neg \\beta) \\Longrightarrow \\alpha) \\Longrightarrow \\beta))$` = c("$T$", "$T$", "$T$", "$T$")
+ `$(((\\neg \\beta) \\Longrightarrow \\alpha) \\Longrightarrow \\beta)$` = c("$T$", "$F$", "$T$", "$T$")
 )
 
-kbl(axiom_3_lp, escape = FALSE) |>
+kbl(axiom_3_a_lp, escape = FALSE) |>
  kable_styling() |> 
- column_spec(column = 1:5, border_right = TRUE) |> 
+ column_spec(column = 1:4, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+ 
+axiom_3_b_lp <- tibble(
+ `$\\alpha$` = c("$T$", "$T$", "$F$", "$F$"), 
+ `$\\beta$` = c("$T$", "$F$", "$T$", "$F$"),
+ `$(((\\neg \\beta) \\Longrightarrow (\\neg \\alpha)) \\Longrightarrow (((\\neg \\beta) \\Longrightarrow \\alpha) \\Longrightarrow \\beta))$` = c("$T$", "$T$", "$T$", "$T$")
+)
+
+kbl(axiom_3_b_lp, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:3, border_right = TRUE) |> 
  row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
  cat()
 ```
@@ -873,9 +897,9 @@ Becuase $v(\varphi) = T$ and $v((\varphi \Longrightarrow \psi)) = T$ by @def-tru
 
 Let $\Sigma$ be a set of formulas. A deduction or proof from $\Sigma$ in $\mathcal{L}_P$ is a finite sequence $\varphi_1 \varphi_2 \ldots \varphi_n$ of formulas such that for each $k \leq n$:
 
--  $\varphi_k$ is an axiom
--  $\varphi_k \in \Sigma$
--  There are $i, j < k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+1. $\varphi_k$ is an axiom
+2. $\varphi_k \in \Sigma$
+3. There are $i, j < k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
 
 A formula of $\Sigma$ appearing in the deduction is called a *premiss*. 
 
@@ -891,6 +915,88 @@ We will take $\Sigma \vdash \Delta$ to mean that $\Sigma \vdash \delta$ for ever
 
 Show that $\vdash (\varphi \Longrightarrow \varphi)$
 
-**Pending check in latex begin{enumerate}**
+1. $((\varphi \Longrightarrow ((\varphi \Longrightarrow \varphi) \Longrightarrow \varphi)) \Longrightarrow ((\varphi \Longrightarrow (\varphi \Longrightarrow \varphi)) \Longrightarrow (\varphi \Longrightarrow \varphi)))$ Axiom 2
+
+2. $(\varphi \Longrightarrow ((\varphi \Longrightarrow \varphi) \Longrightarrow \varphi))$ Axiom 1
+
+3. $((\varphi \Longrightarrow (\varphi \Longrightarrow \varphi)) \Longrightarrow (\varphi \Longrightarrow \varphi))$ Modus ponens 1, 2
+
+4. $(\varphi \Longrightarrow (\varphi \Longrightarrow \varphi))$ Axiom 1
+
+5. $(\varphi \Longrightarrow \varphi)$ Modus ponens 3, 4 
+
+:::
+
+::: {#exm-example-proof-2}
+
+Show that $\{ (\alpha \Longrightarrow \beta), (\beta \Longrightarrow \gamma) \} \vdash (\alpha \Longrightarrow \gamma)$
+
+1. $((\beta \Longrightarrow \gamma) \Longrightarrow (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)))$ Axiom 1
+
+2. $(\beta \Longrightarrow \gamma)$ Premiss
+
+3. $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ Modus ponens 1, 2
+
+4. $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$ Axiom 2 
+
+5. $((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma))$ Modus ponens 4, 3
+
+6. $(\alpha \Longrightarrow \beta)$ Premiss
+
+7. $(\alpha \Longrightarrow \gamma)$ Modus ponens 5, 6 
+
+:::
+
+::: {#exm-example-proof-3}
+
+Show that $\vdash (((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha)$
+
+1. $(((\neg \alpha) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha))$ Axiom 3
+
+2. $((\neg \alpha) \Longrightarrow (\neg \alpha))$ @exm-example-proof-1 
+
+3. $(((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha)$ Modus ponens 1, 2 
+
+:::
+
+::: {#exr-exercise-proof-1}
+
+Show that if $\alpha$, $\beta$, and $\gamma$ are formulas, then:
+
+-  $\{ (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)), \beta \} \vdash (\alpha \Longrightarrow \gamma)$
+
+-  $\vdash (\alpha \lor (\neg \alpha))$
+
+:::
+
+::: {#sol-exercise-proof-1}
+
+In the case of $\{ (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)), \beta \} \vdash (\alpha \Longrightarrow \gamma)$
+
+1. $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$ Axiom 2
+
+2. $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ Premiss
+
+3. $((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma))$ Modus ponens 1, 2
+
+4. $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
+
+5. $\beta$ Premiss
+
+6. $(\alpha \Longrightarrow \beta)$ Modus ponens 4, 5
+
+7. $(\alpha \Longrightarrow \gamma)$ Modus ponens 3, 6
+
+In the case of $\vdash (\alpha \lor (\neg \alpha))$ by @sec-informal-conventions is it equivalent to $\vdash ((\neg \alpha) \Longrightarrow (\neg \alpha))$
+ 
+1. $((\neg \alpha) \Longrightarrow (\neg \alpha))$ @exm-example-proof-1 
+
+:::
+
+::: {#exm-example-proof-4}
+
+Let us show that $\vdash ((\neg (\neg \beta)) \Longrightarrow \beta)$
+
+1. 
 
 :::
