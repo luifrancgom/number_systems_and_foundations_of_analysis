@@ -34,8 +34,6 @@ bibliography: number_systems_and_the_foundations_of_analysis.bib
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
     
 knitr: 
  opts_chunk:
