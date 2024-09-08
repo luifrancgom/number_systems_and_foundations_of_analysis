@@ -737,7 +737,7 @@ formulas. Then $\Sigma \cup \{ \psi \} \models \rho$ if and only if $\Sigma \mod
     
     -  Because $v(\psi) = T$ and $v(\rho) = T$ by @def-truth-assignment $v((\psi \Longrightarrow \rho)) = T$.
     
-    -  Theforefore $\Sigma \models (\psi \Longrightarrow \rho)$.
+    -  Therefore $\Sigma \models (\psi \Longrightarrow \rho)$.
 
 :::
 
@@ -997,6 +997,201 @@ In the case of $\vdash (\alpha \lor (\neg \alpha))$ by @sec-informal-conventions
 
 Let us show that $\vdash ((\neg (\neg \beta)) \Longrightarrow \beta)$
 
-1. 
+1. $(((\neg \beta) \Longrightarrow (\neg (\neg \beta))) \Longrightarrow (((\neg \beta) \Longrightarrow (\neg \beta)) \Longrightarrow \beta))$ Axiom 3
+
+2. $((\neg (\neg \beta)) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg (\neg \beta))))$ Axiom 1
+
+3. $((\neg (\neg \beta)) \Longrightarrow (((\neg \beta) \Longrightarrow (\neg \beta)) \Longrightarrow \beta))$ @exm-example-proof-2 2, 1
+
+4. $((\neg \beta) \Longrightarrow (\neg \beta))$ @exm-example-proof-1
+
+5. $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exr-exercise-proof-1 3, 4
+
+:::
+
+::: {#prp-sub-deduction}
+
+If $\varphi_1 \varphi_2 \ldots \varphi_n$ is a deduction of $\mathcal{L}_P$, then $\varphi_1 \ldots \varphi_{\ell}$ is also a deduction of $\mathcal{L}_P$ for any $\ell$ such that $1 \leq \ell \leq n$.
+
+:::
+
+::: {.proof}
+
+Because $\varphi_1 \varphi_2 \ldots \varphi_n$ is a deduction of $\mathcal{L}_P$ then by @def-deduction-or-proof $\varphi_m$ for $1 \leq m \leq \ell n$ is an axiom, it belongs to a set of premisses or there are $i, j < m$ such that $\varphi_m$ follows from $\varphi_i$ and $\varphi_i$ by Modus Ponens. Therefore again by @def-deduction-or-proof $\varphi_1 \ldots \varphi_{\ell}$ is a deduction. 
+
+:::
+
+::: {#prp-modus-ponens-deduction}
+
+If $\Gamma \vdash \delta$ and $\Gamma \vdash (\delta \Longrightarrow \beta)$, then $\Gamma \vdash \beta$.
+
+:::
+
+::: {.proof}
+
+If $\Gamma \vdash \delta$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that $\varphi_n = \delta$. 
+
+Also if $\Gamma \vdash (\delta \Longrightarrow \beta)$ then there is a deduction $\psi_1 \ldots \psi_m$ such that $\psi_m = (\delta \Longrightarrow \beta)$.
+
+Therefore we can build a deduction $\varphi_1 \ldots \varphi_n \psi_1 \ldots \psi_m \psi_{m+1}$ such that $\psi_{m+1} = \beta$ where it follows from $\varphi_n$ and $\psi_m$ by Modus Ponens.
+
+By @def-deduction-or-proof and using $\varphi_1 \ldots \varphi_n \psi_1 \ldots \psi_m \psi_{m+1}$ we have that $\Gamma \vdash \beta$ because for each $k \leq n$ and $s \leq m + 1$:
+
+-  $\varphi_k$ or $\psi_s$ is an axiom
+-  $\varphi_k \in \Gamma$ or $\psi_s \in \Gamma$
+-  there are $i,j \leq k$ or $i,j \leq s$ such that $\varphi_k$ or $\psi_s$ follows from $\varphi_i$ and $\varphi_j$ or from $\psi_i$ and $\psi_j$ by Modus Ponens.   
+
+:::
+
+::: {#prp-subset-formulas-deduction}
+
+If $\Gamma \subseteq \Delta$ and $\Gamma \vdash \alpha$, then $\Delta \vdash \alpha$.
+
+:::
+
+::: {.proof}
+
+Because $\Gamma \vdash \alpha$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that for each $k \leq n$:
+
+-  $\varphi_k$ is an axiom
+-  $\varphi_k \in \Gamma$
+-  there are $i,j \leq k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+
+Because $\Gamma \subseteq \Delta$ then we also have that:
+
+-  $\varphi_k$ is an axiom
+-  $\varphi_k \in \Delta$
+-  there are $i,j \leq k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+
+Therefore $\Delta \vdash \alpha$.
+
+:::
+
+::: {#prp-set-formulas-transitivity-deduction}
+
+If $\Gamma \vdash \Delta$ and $\Delta \vdash \sigma$, then $\Gamma \vdash \sigma$.
+
+:::
+
+::: {.proof}
+
+If $\Gamma \vdash \Delta$ then $\Gamma \vdash \delta$ for every formula $\delta \in \Delta$. Therefore there is a deduction $\psi_1 \ldots \psi_m$ such that for each $k \leq m$:
+
+-  $\psi_k$ is an axiom
+-  $\psi_k \in \Gamma$
+-  there are $i,j \leq k$ such that $\psi_k$ follows from $\psi_i$ and $\psi_j$ by Modus Ponens.
+
+Because $\Gamma \vdash \delta$ for every formula $\delta \in \Delta$ then $\psi_m = \delta$.
+
+Also if $\Delta \vdash \sigma$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that for each $s \leq n$:
+
+-  $\varphi_s$ is an axiom
+-  $\varphi_s \in \Delta$
+-  there are $i,j \leq s$ such that $\varphi_s$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+
+Because $\Delta \vdash \sigma$ then $\varphi_n = \sigma$.
+
+Therefore we can build a deduction $\psi_1 \ldots \psi_m \varphi_1 \ldots \varphi_n$ such that for each $k \leq m$ and $s \leq n$:
+
+-  $\psi_k$ or $\varphi_s$ is an axiom
+-  $\psi_k \in \Gamma$ or $\varphi_s \in \Gamma$
+-  there are $i,j \leq k$ or $i,j \leq s$ such that $\psi_k$ or $\varphi_s$ follows from $\psi_i$ and $\psi_j$ or from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+
+Therefore $\Gamma \vdash \sigma$.
+
+:::
+
+::: {#thm-deduction-theorem}
+
+## Deduction Theorem
+
+If $\Sigma$ is any set of formulas and $\alpha$ and $\beta$ are any formulas, then $\Sigma \vdash (\alpha \Longrightarrow \beta)$ if and only if $\Sigma \cup \{ \alpha \} \vdash \beta$.
+
+:::
+
+::: {.proof}
+
+-  Assume $\Sigma \vdash (\alpha \Longrightarrow \beta)$
+
+   -  If $\Sigma \cup \{ \alpha \}$ then because $\alpha$ is a premiss we have that $\Sigma \cup \{ \alpha \} \vdash \alpha$
+   
+   -  Also because $\Sigma \subseteq \Sigma \cup \{ \alpha \}$ and $Σ \vdash (\alpha \Longrightarrow \beta)$ by @prp-subset-formulas-deduction $\Sigma \cup \{ \alpha \} \vdash (\alpha \Longrightarrow \beta)$
+   
+   -  Finally, because $\Sigma \cup \{ \alpha \} \vdash \alpha$ and $\Sigma \cup \{ \alpha \} \vdash (\alpha \Longrightarrow \beta)$ by @prp-modus-ponens-deduction $\Sigma \cup \{ \alpha \} \vdash \beta$   
+
+-  Assume $\Sigma \cup \{ \alpha \} \vdash \beta$
+
+    -  By strong induction on $n$, the length of deduction or proof of $\beta$ from $\Sigma \cup \{ \alpha \}$
+    
+       -  *Base step* $(n = 1)$: Then $\beta$ is an axiom or $\beta \in \Sigma \cup \{ \alpha \}$
+       
+          -  If $\beta$ is an axiom then we can proof $(\alpha \Longrightarrow \beta)$ from $\Sigma$ in the following way:
+          
+              1. $\beta$ Axiom 1, 2 or 3
+              2. $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
+              3. $(\alpha \Longrightarrow \beta)$ Modus Ponens 2, 1
+              
+          -  If $\beta \in \Sigma$ then:
+          
+              1. $\beta$ Premiss
+              2. $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
+              3. $(\alpha \Longrightarrow \beta)$ Modus Ponens 2, 1
+              
+          -  If $\beta = \alpha$ then $(\alpha \Longrightarrow \beta) = (\alpha \Longrightarrow \alpha)$ and we can use @exm-example-proof-1.
+
+       -  *Induction hypothesis* $(n \leq k)$: Assume that if there is a deduction or proof of length $n \leq k$ of $\beta$ from $\Sigma \cup \{ \alpha \}$ then $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
+       
+       -  *Induction step* $(n = k + 1)$: Suppose there is a deduction or proof of length $n = k + 1$ of $\beta$ from $\Sigma \cup \{ \alpha \}$.
+       
+          -  Therefore there are 3 possibilities by @def-deduction-or-proof: $\beta$ is an axiom, $\beta \in \Sigma \cup \{ \alpha \}$ or there are $i,j \leq k + 1$ such that $\beta$ follows from $\psi_i$ and $\psi_j$. 
+          
+             -  The first 2 possibilities are cover in the *Base step* where we can show in a similar way that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
+             
+             -  In the case of the last possibility and without loss of generality $\psi_i = (\psi_j \Longrightarrow \beta)$. Furthermore, $\Sigma \cup \{ \alpha \} \vdash \psi_i$ and $\Sigma \cup \{ \alpha \} \vdash \psi_j$ where are deductions of length $n \leq k$.
+             
+                 -  By the *Induction hypothesis* $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ and $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$. Therefore:
+                 
+                     1. $(\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ because $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ 
+                     2. $(\alpha \Longrightarrow \psi_j)$ because $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$
+                     
+                     3. $((\alpha \Longrightarrow (\psi_j \Longrightarrow \beta)) \Longrightarrow ((\alpha \Longrightarrow \psi_j) \Longrightarrow (\alpha \Longrightarrow \beta)))$ Axiom 2
+                     
+                     4. $((\alpha \Longrightarrow \psi_j) \Longrightarrow (\alpha \Longrightarrow \beta))$ Modus Ponens 3, 1
+                     
+                     5. $(\alpha \Longrightarrow \beta)$ Modus Ponens 4, 2 
+
+             -  In any case we have that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
+
+:::
+
+::: {#exm-deduction-theorem-example-1}
+
+Show that $\vdash (\psi \Longrightarrow \psi)$. Using @thm-deduction-theorem this is equivalent to $\emptyset \cup \{ \psi \} \vdash \psi$. Therefore:
+
+1. $\psi$ Premiss
+
+Compare it to @exm-example-proof-1.
+
+:::
+
+::: {#exr-application-deduction-theorem}
+
+Show that:
+
+1. $\{ \delta, (\neg \delta) \} \vdash \gamma$
+2. $\vdash (\psi \Longrightarrow (\neg (\neg \psi)))$
+3. $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$
+4. $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$
+5. $\vdash ((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$
+6. $\vdash (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$
+7. $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$
+8. $\{ (\alpha \land \beta) \} \vdash \beta$
+9. $\{ (\alpha \land \beta) \} \vdash \alpha$
+
+:::
+
+::: {#sol-application-deduction-theorem}
+
+
 
 :::
