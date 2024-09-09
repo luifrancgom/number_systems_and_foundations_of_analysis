@@ -1192,6 +1192,34 @@ Show that:
 
 ::: {#sol-application-deduction-theorem}
 
+-   $\{ \delta, (\neg \delta) \} \vdash \gamma$
 
+    1.  $(((\neg \gamma) \Longrightarrow (\neg \delta)) \Longrightarrow (((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma))$ Axiom 3
+    
+    2. $((\neg \delta) \Longrightarrow ((\neg \gamma) \Longrightarrow (\neg \delta)))$ Axiom 1
+    
+    3. $(\neg \delta)$ Premiss
+    
+    4. $(((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma)$ Modus Ponens 2, 3
+    
+    5. $(\delta \Longrightarrow ((\neg \gamma) \Longrightarrow \delta))$ Axiom 1
+    
+    6. $\delta$ Premiss
+    
+    7. $((\neg \gamma) \Longrightarrow \delta)$ Modus Ponens 5, 6
+    
+    8. $\gamma$ Modus Ponens 4, 7
+
+-   $\vdash (\psi \Longrightarrow (\neg (\neg \psi)))$
+
+    1.  $(((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi)) \Longrightarrow (((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi))))$ Axiom 3
+    
+    2. $((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi))$ @exm-example-proof-4
+    
+    3. $(((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi)))$ Modus Ponens 1, 2
+    
+    4. $(\psi \Longrightarrow ((\neg (\neg (\neg \psi))) \Longrightarrow \psi))$ Axiom 1
+    
+    5. $(\psi \Longrightarrow (\neg (\neg \psi)))$ @exm-example-proof-2 4, 3
 
 :::
