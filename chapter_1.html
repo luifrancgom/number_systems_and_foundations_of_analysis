@@ -2306,6 +2306,14 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <li><p><span class="math inline">\((\psi \Longrightarrow ((\neg (\neg (\neg \psi))) \Longrightarrow \psi))\)</span> Axiom 1</p></li>
 <li><p><span class="math inline">\((\psi \Longrightarrow (\neg (\neg \psi)))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 4, 3</p></li>
 </ol></li>
+<li><p>By <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))\)</span> is equivalent to <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta)\)</span> Modus Ponens 1, 2</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow ((\neg \beta) \Longrightarrow \alpha))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 4, 3</p></li>
+</ol></li>
 </ul>
 </div>
 
