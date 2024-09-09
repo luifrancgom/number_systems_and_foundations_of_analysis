@@ -1234,4 +1234,24 @@ Show that:
     
     5. $(\alpha \Longrightarrow \beta)$ @exm-example-proof-2 4, 3
 
+-  By @thm-deduction-theorem $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$ it is equivalent to $(\alpha \Longrightarrow \beta) \vdash ((\neg \beta) \Longrightarrow (\neg \alpha))$
+
+    1. $(((\neg (\neg \alpha)) \Longrightarrow (\neg(\neg \beta))) \Longrightarrow (((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha)))$ Axiom 1
+    
+    2. $(\alpha \Longrightarrow \beta)$ Premiss
+    
+    3. $(\beta \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 2
+    
+    4. $(\alpha \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 2, 3
+    
+    5. $((\neg (\neg \alpha)) \Longrightarrow \alpha)$ @exm-example-proof-4
+    
+    6. $((\neg (\neg \alpha)) \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 5, 4
+    
+    7. $(((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha))$ Modus Ponens 1, 6
+    
+    8. $((\neg \beta) \Longrightarrow ((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)))$ Axiom 1
+    
+    9. $((\neg \beta) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 8, 7
+
 :::
