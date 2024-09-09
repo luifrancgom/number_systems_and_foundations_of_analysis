@@ -2286,6 +2286,27 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 </div>
 <div id="sol-application-deduction-theorem" class="proof solution">
 <p><span class="proof-title"><em>Solution 1.10</em>. </span></p>
+<ul>
+<li><p><span class="math inline">\(\{ \delta, (\neg \delta) \} \vdash \gamma\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg \gamma) \Longrightarrow (\neg \delta)) \Longrightarrow (((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\(((\neg \delta) \Longrightarrow ((\neg \gamma) \Longrightarrow (\neg \delta)))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\neg \delta)\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma)\)</span> Modus Ponens 2, 3</p></li>
+<li><p><span class="math inline">\((\delta \Longrightarrow ((\neg \gamma) \Longrightarrow \delta))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(\delta\)</span> Premiss</p></li>
+<li><p><span class="math inline">\(((\neg \gamma) \Longrightarrow \delta)\)</span> Modus Ponens 5, 6</p></li>
+<li><p><span class="math inline">\(\gamma\)</span> Modus Ponens 4, 7</p></li>
+</ol></li>
+<li><p><span class="math inline">\(\vdash (\psi \Longrightarrow (\neg (\neg \psi)))\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi)) \Longrightarrow (((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi))))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\(((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi))\)</span> <a href="#exm-example-proof-4" class="quarto-xref">Example&nbsp;<span>1.4</span></a></p></li>
+<li><p><span class="math inline">\((((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi)))\)</span> Modus Ponens 1, 2</p></li>
+<li><p><span class="math inline">\((\psi \Longrightarrow ((\neg (\neg (\neg \psi))) \Longrightarrow \psi))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\psi \Longrightarrow (\neg (\neg \psi)))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 4, 3</p></li>
+</ol></li>
+</ul>
 </div>
 
 
