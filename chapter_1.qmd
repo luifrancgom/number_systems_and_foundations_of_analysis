@@ -1222,4 +1222,16 @@ Show that:
     
     5. $(\psi \Longrightarrow (\neg (\neg \psi)))$ @exm-example-proof-2 4, 3
 
+-  By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$ is equivalent to $((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)$
+
+    1. $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$ Axiom 3
+    
+    2. $((\neg \beta) \Longrightarrow (\neg \alpha))$ Premiss
+    
+    3. $(((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta)$ Modus Ponens 1, 2 
+    
+    4. $(\alpha \Longrightarrow ((\neg \beta) \Longrightarrow \alpha))$ Axiom 1
+    
+    5. $(\alpha \Longrightarrow \beta)$ @exm-example-proof-2 4, 3
+
 :::
