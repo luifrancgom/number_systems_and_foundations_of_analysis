@@ -1192,6 +1192,24 @@ Show that:
     6.  $((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ Axiom 1
 
     7.  $\beta$ Modus Ponens 5, 6
-    
--  
+
+-   By @sec-informal-conventions $\{ (\alpha \land \beta) \} \vdash \alpha$ is equivalent to $\{ (\neg (\alpha \Longrightarrow (\neg \beta))) \} \vdash \alpha$.
+
+    1.  $(((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha))$ Axiom 3
+
+    2.  $((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow ((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))))$ Axiom 1
+
+    3.  $((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow (((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha))$ @exm-example-proof-2 2, 1
+
+    4.  $(\neg (\alpha \Longrightarrow (\neg \beta)))$ Premiss
+
+    5.  $(((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha)$ Modus ponens 3, 4
+
+    6.  $((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ @thm-deduction-theorem and @exr-application-deduction-theorem 1[^chapter_1-2].
+
+    7.  $\alpha$ Modus Ponens 5, 6
 :::
+
+[^chapter_1-2]: $\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)$ and this result has already been prove in @exr-application-deduction-theorem 1.
+
+### Soundness and Completeness
