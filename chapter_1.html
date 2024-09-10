@@ -265,6 +265,7 @@ window.Quarto = {
   <li><a href="#language" id="toc-language" class="nav-link" data-scroll-target="#language"><span class="header-section-number">1.1.1</span> Language</a></li>
   <li><a href="#truth-assignments" id="toc-truth-assignments" class="nav-link" data-scroll-target="#truth-assignments"><span class="header-section-number">1.1.2</span> Truth Assignments</a></li>
   <li><a href="#deductions" id="toc-deductions" class="nav-link" data-scroll-target="#deductions"><span class="header-section-number">1.1.3</span> Deductions</a></li>
+  <li><a href="#soundness-and-completeness" id="toc-soundness-and-completeness" class="nav-link" data-scroll-target="#soundness-and-completeness"><span class="header-section-number">1.1.4</span> Soundness and Completeness</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2354,9 +2355,21 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <li><p><span class="math inline">\(((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> Axiom 1</p></li>
 <li><p><span class="math inline">\(\beta\)</span> Modus Ponens 5, 6</p></li>
 </ol></li>
-<li></li>
+<li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\(\{ (\alpha \land \beta) \} \vdash \alpha\)</span> is equivalent to <span class="math inline">\(\{ (\neg (\alpha \Longrightarrow (\neg \beta))) \} \vdash \alpha\)</span>.</p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow ((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow (((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 2, 1</p></li>
+<li><p><span class="math inline">\((\neg (\alpha \Longrightarrow (\neg \beta)))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha)\)</span> Modus ponens 3, 4</p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> and <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> Modus Ponens 5, 6</p></li>
+</ol></li>
 </ul>
 </div>
+</section>
+<section id="soundness-and-completeness" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="soundness-and-completeness"><span class="header-section-number">1.1.4</span> Soundness and Completeness</h3>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -2379,6 +2392,7 @@ Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Condi
 <hr>
 <ol>
 <li id="fn1"><p>See <span class="citation" data-cites="church_introduction_1996">(<a href="references.html#ref-church_introduction_1996" role="doc-biblioref">Church 1996, 70</a>)</span> for more details.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> is equivalent to <span class="math inline">\(\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)\)</span> and this result has already been prove in <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
