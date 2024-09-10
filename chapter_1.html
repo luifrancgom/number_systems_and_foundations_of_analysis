@@ -2344,6 +2344,17 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <ol type="1">
 <li><span class="math inline">\(\tau\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1</li>
 </ol></li>
+<li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\(\{ (\alpha \land \beta) \} \vdash \beta\)</span> is equivalent to <span class="math inline">\(\{ (\neg (\alpha \Longrightarrow (\neg \beta))) \} \vdash \beta\)</span>.</p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg \beta) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \beta))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow (((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \beta))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 2, 1</p></li>
+<li><p><span class="math inline">\((\neg (\alpha \Longrightarrow (\neg \beta)))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \beta)\)</span> Modus ponens 3, 4</p></li>
+<li><p><span class="math inline">\(((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(\beta\)</span> Modus Ponens 5, 6</p></li>
+</ol></li>
+<li></li>
 </ul>
 </div>
 
