@@ -1,4 +1,3 @@
-
 ```{r}
 #| label: libraries
 
@@ -222,13 +221,12 @@ Suppose $\varphi$ is a formula of $\mathcal{L}_p$. The set of subformulas of $\v
 ::: {#exr-find-subformulas-lp}
 Find all the subformulas of each of the following formulas.
 
--  $(\neg((\neg A_{56}) \Longrightarrow A_{56}))$
--  $(A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))))$
--  $(((\neg A_0) \land (\neg A_1)) \iff (\neg (A_0 \lor A_1)))$
+-   $(\neg((\neg A_{56}) \Longrightarrow A_{56}))$
+-   $(A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))))$
+-   $(((\neg A_0) \land (\neg A_1)) \iff (\neg (A_0 \lor A_1)))$
 :::
 
 ::: {#sol-find-subformulas-lp}
-
 $$\begin{split}
    S((\neg((\neg A_{56}) \Longrightarrow A_{56}))) & = S(((\neg A_{56}) \Longrightarrow A_{56})) \cup \{ (\neg((\neg A_{56}) \Longrightarrow A_{56})) \} \\
     & = \{ A_{56}, (\neg A_{56}), ((\neg A_{56}) \Longrightarrow A_{56}), \\
@@ -244,7 +242,7 @@ $$\begin{split}
     & \;\;\;\;\;\; (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0))))), \\
     & \;\;\;\;\;\; (A_9 \Longrightarrow (A_8 \Longrightarrow (\neg (A_{78} \Longrightarrow (\neg (\neg A_0)))))) \}
      \end{split}$$
-     
+
 Let $\varphi = (((\neg A_0) \land (\neg A_1)) \Longrightarrow (\neg (A_0 \lor A_1)))$ and $\sigma = ((\neg (A_0 \lor A_1)) \Longrightarrow ((\neg A_0) \land (\neg A_1)))$
 
 $$\begin{split}
@@ -256,7 +254,6 @@ $$\begin{split}
    & \;\;\;\;\;\; (\varphi \Longrightarrow (\neg \sigma)), \\
    & \;\;\;\;\;\; (\neg(\varphi \Longrightarrow (\neg \sigma))) \}
      \end{split}$$
-
 :::
 
 #### Unique Readability
@@ -264,15 +261,12 @@ $$\begin{split}
 To ensure that the formulas of $\mathcal{L}_p$ are unambiguous (can be read in only one way according to the rules given in @def-formulas-lp) one must add to @def-symbols-lp the requirement that all the symbols of $\mathcal{L}_p$ are distinct and that no symbol is a subsequence of any other symbol.
 
 ::: {#thm-unique-readability}
-
 ## Unique Readability
 
 A formula of $\mathcal{L}_p$ must satisfy exactly one of the first 3 conditions in @def-formulas-lp.
-
 :::
 
-::: {.proof}
-
+::: proof
 By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\varphi$ of $\mathcal{L}_P$
 
 *Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no connectives it can not of the form $(\neg \varphi)$ or $(\alpha \Longrightarrow \beta)$.
@@ -284,23 +278,22 @@ By strong induction on $n$, the number of connectives (occurrences of $\neg$ or 
 -   $(\neg \alpha)$ for some formula $\alpha$ with $k$ connectives.
 
     -   By the *induction hypothesis* $\alpha$ must satisfy exactly one of the first 3 conditions in @def-formulas-lp.
-    
-        -  Because $\alpha$ satisfy exactly one of the first 3 conditions in @def-formulas-lp then $(\neg \alpha)$ can't be an atomic formula because an atomic formula doesn't have connectives.
 
-        -  Now assume that $(\neg \alpha)$ can be expressed as $(\beta \Longrightarrow \gamma)$. Then $\neg \alpha$ will be equal to $\beta \Longrightarrow \gamma$. However $\alpha$ satisfy exactly one of the first 3 conditions in @def-formulas-lp so it will be impossible that $\neg \alpha$ and $\beta \Longrightarrow \gamma$ are equal.
-        
-           -  Therefore $(\neg \alpha)$ satisfy exactly the 2 condition in @def-formulas-lp.
-           
+        -   Because $\alpha$ satisfy exactly one of the first 3 conditions in @def-formulas-lp then $(\neg \alpha)$ can't be an atomic formula because an atomic formula doesn't have connectives.
+
+        -   Now assume that $(\neg \alpha)$ can be expressed as $(\beta \Longrightarrow \gamma)$. Then $\neg \alpha$ will be equal to $\beta \Longrightarrow \gamma$. However $\alpha$ satisfy exactly one of the first 3 conditions in @def-formulas-lp so it will be impossible that $\neg \alpha$ and $\beta \Longrightarrow \gamma$ are equal.
+
+            -   Therefore $(\neg \alpha)$ satisfy exactly the 2 condition in @def-formulas-lp.
+
 -   $(\beta \Longrightarrow \gamma)$ for some formulas $\beta$ and $\gamma$ with $\leq k$ connectives each.
 
     -   By the *induction hypothesis* $\beta$ and $\gamma$ must satisfy exactly one of the first 3 conditions in @def-formulas-lp.
-    
-        -  Because $\beta$ and $\gamma$ satisfy exactly one of the first 3 conditions in @def-formulas-lp then $(\beta \Longrightarrow \gamma)$ can't be an atomic formula because an atomic formula doesn't have connectives.
-        
-        -  Now assume that $(\beta \Longrightarrow \gamma)$ can be expressed as $(\neg \sigma)$. Then $\neg \sigma$ will be equal to $\beta \Longrightarrow \gamma$. However $\beta$ and $\gamma$ satisfy exactly one of the first 3 conditions in @def-formulas-lp so it will be impossible that $\neg \sigma$ and $\beta \Longrightarrow \gamma$ are equal.
-        
-           -  Therefore $(\beta \Longrightarrow \gamma)$ satisfy exactly the 3 condition in @def-formulas-lp. 
 
+        -   Because $\beta$ and $\gamma$ satisfy exactly one of the first 3 conditions in @def-formulas-lp then $(\beta \Longrightarrow \gamma)$ can't be an atomic formula because an atomic formula doesn't have connectives.
+
+        -   Now assume that $(\beta \Longrightarrow \gamma)$ can be expressed as $(\neg \sigma)$. Then $\neg \sigma$ will be equal to $\beta \Longrightarrow \gamma$. However $\beta$ and $\gamma$ satisfy exactly one of the first 3 conditions in @def-formulas-lp so it will be impossible that $\neg \sigma$ and $\beta \Longrightarrow \gamma$ are equal.
+
+            -   Therefore $(\beta \Longrightarrow \gamma)$ satisfy exactly the 3 condition in @def-formulas-lp.
 :::
 
 ### Truth Assignments
@@ -308,34 +301,32 @@ By strong induction on $n$, the number of connectives (occurrences of $\neg$ or 
 Whether a given formula $\varphi$ of $\mathcal{L}_p$ is true or false usually depends on how we interpret the atomic formulas which appear in $\varphi$ [@bilaniuk_problem_2009, p. 7].
 
 ::: {#def-truth-assignment}
-
 ## Truth assignment
 
 A truth assignment is a function $v$ whose domain is the set of all formulas of $\mathcal{L}_p$ and whose range is the set $\{ T, F \}$ of truth values, such that:
 
--  $v(A_n)$ is defined for every atomic formula $A_n$.
+-   $v(A_n)$ is defined for every atomic formula $A_n$.
 
--  For any formula $\alpha$:
+-   For any formula $\alpha$:
 
 $$v((\neg \alpha)) = \begin{cases}
                      T & \text{ if } v(\alpha) = F \\
                      F & \text{ if } v(\alpha) = T 
                      \end{cases}$$
-                     
--  For any formulas $\alpha$ and $\beta$:
+
+-   For any formulas $\alpha$ and $\beta$:
 
 $$v((\alpha \Longrightarrow \beta)) = \begin{cases}
                      F & \text{ if } v(\alpha) = T \text{ and } v(\beta) = F \\
                      T & \text{ otherwise }
                      \end{cases}$$
-
 :::
 
 For example, let $v(A_0) = T$ and $v(A_1) = F$ then it is possible to determine $v(((\neg A_1) \Longrightarrow (A_0 \Longrightarrow A_1)))$ in the following way:
 
--  $v((\neg A_1)) = T$
--  $v((A_0 \Longrightarrow A_1)) = F$
--  $v(((\neg A_1) \Longrightarrow (A_0 \Longrightarrow A_1))) = F$
+-   $v((\neg A_1)) = T$
+-   $v((A_0 \Longrightarrow A_1)) = F$
+-   $v(((\neg A_1) \Longrightarrow (A_0 \Longrightarrow A_1))) = F$
 
 A convenient way to write out the determination of the truth value of a formula on a given truth assignment is to use a *truth table*:
 
@@ -367,7 +358,7 @@ $$v((\alpha \land \beta)) = \begin{cases}
                      T & \text{ if } v(\alpha) = T \text{ and } v(\beta) = T \\
                      F & \text{ otherwise }
                      \end{cases}$$
-                     
+
 $$v((\alpha \lor \beta)) = \begin{cases}
                      F & \text{ if } v(\alpha) = F \text{ and } v(\beta) = F \\
                      T & \text{ otherwise }
@@ -467,9 +458,9 @@ kbl(true_table_13_16, escape = FALSE) |>
 
 Assuming that we want:
 
--  $v(\alpha) = T$, $v(\beta) = T$ and $v((\alpha \Longrightarrow \beta)) = T$
+-   $v(\alpha) = T$, $v(\beta) = T$ and $v((\alpha \Longrightarrow \beta)) = T$
 
--  $v(\alpha) = T$, $v(\beta) = F$ and $v((\alpha \Longrightarrow \beta)) = F$
+-   $v(\alpha) = T$, $v(\beta) = F$ and $v((\alpha \Longrightarrow \beta)) = F$
 
 From the 16 possible truth tables only 4 comply with these both conditions:
 
@@ -498,63 +489,51 @@ kbl(true_table_scenarios, escape = FALSE) |>
 In @tbl-true-scenarios the first truth table corresponds to $\land$, the second corresponds to $\iff$ and the third corresponds to $\beta$ where these tables are not suitable for $\Longrightarrow$. Therefore the last table is the only truth table suitable for $\Longrightarrow$ assuming we want the both conditions pointed above in a 2-valued propositional framework.
 
 ::: {#prp-truth-values-atomic-formulas}
-
 ## Truth values of atomic formulas
 
 Suppose $\delta$ is any formula and $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for all atomic formulas $A_n$ which occur in $\delta$. Then $u(\delta) = v(\delta)$.
-
 :::
 
-::: {.proof}
-
+::: proof
 By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\delta$ of $\mathcal{L}_P$
 
-*Base step* $(n = 0)$: If $\delta$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. So $\delta = A_i$ for some $i \in \mathbb{N}$ where $u(A_i) = v(A_i)$. Therefore $u(\delta) = v(\delta)$.  
+*Base step* $(n = 0)$: If $\delta$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. So $\delta = A_i$ for some $i \in \mathbb{N}$ where $u(A_i) = v(A_i)$. Therefore $u(\delta) = v(\delta)$.
 
-*Induction hypothesis* $(n \leq k)$: Assume that for a formula $\delta$ with $n \leq k$ connectives we have that for $u$ and $v$ truth assignments such that $u(A_n) = v(A_n)$ for all atomic formulates $A_n$ which occur in the $\delta$ we have that $u(\delta) = v(\delta)$ 
+*Induction hypothesis* $(n \leq k)$: Assume that for a formula $\delta$ with $n \leq k$ connectives we have that for $u$ and $v$ truth assignments such that $u(A_n) = v(A_n)$ for all atomic formulates $A_n$ which occur in the $\delta$ we have that $u(\delta) = v(\delta)$
 
 *Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with $n = k + 1$ connectives. From @def-formulas-lp $\varphi$ must be either:
 
 -   $(\neg \delta)$ for some formula $\delta$ with $k$ connectives.
 
-    -  Therefore $v(\delta) = u(\delta)$ and by @def-truth-assignment $v(\neg \delta) = u( \neg \delta)$ which means that $v(\varphi) = u(\varphi)$.
-    
+    -   Therefore $v(\delta) = u(\delta)$ and by @def-truth-assignment $v(\neg \delta) = u( \neg \delta)$ which means that $v(\varphi) = u(\varphi)$.
+
 -   $(\delta \Longrightarrow \beta)$ for some formulas $\delta$ and $\beta$ with $k$ connectives.
 
-    -  Therefore $v(\delta) = u(\delta)$ and $v(\beta) = u(\beta)$ and by @def-truth-assignment $v(\delta \Longrightarrow \delta) = u(\delta \Longrightarrow \delta)$ which means that $v(\varphi) = u(\varphi)$.     
-
+    -   Therefore $v(\delta) = u(\delta)$ and $v(\beta) = u(\beta)$ and by @def-truth-assignment $v(\delta \Longrightarrow \delta) = u(\delta \Longrightarrow \delta)$ which means that $v(\varphi) = u(\varphi)$.
 :::
 
 ::: {#cor-truth-values-atomic-formulas}
-
 ## Truth values of atomic formulas
 
 Suppose $u$ and $v$ are truth assignments such that $u(A_n) = v(A_n)$ for every atomic formula $A_n$. Then $u = v$, i.e. $u(\varphi) = v(\varphi)$ for every formula $\varphi$.
-
 :::
 
-::: {.proof}
-
-Because $u(A_n) = v(A_n)$ for every atomic formula $A_n$ in $\mathcal{L}_p$ we can take any formula $\varphi$ and apply @prp-truth-values-atomic-formulas. Thefefore $v(\varphi) = u(\varphi)$ but $\varphi$ is any formula in $\mathcal{L}_p$ so it applies to every formula.  
-
+::: proof
+Because $u(A_n) = v(A_n)$ for every atomic formula $A_n$ in $\mathcal{L}_p$ we can take any formula $\varphi$ and apply @prp-truth-values-atomic-formulas. Thefefore $v(\varphi) = u(\varphi)$ but $\varphi$ is any formula in $\mathcal{L}_p$ so it applies to every formula.
 :::
 
 ::: {#def-formula-satisfiable}
+If $v$ is a truth assignment and $\varphi$ is a formula, we will often say that $v$ *satisfies* $\varphi$ if $v(\varphi) = T$.
 
-If $v$ is a truth assignment and $\varphi$ is a formula, we will often say that $v$ *satisfies* $\varphi$ if $v(\varphi) = T$. 
-
-Similarly, if $\Sigma$ is a set of formulas, we will often say that $v$ *satisfies* $\Sigma$ if $v(\sigma) = T$ for every $\sigma \in \Sigma$. 
+Similarly, if $\Sigma$ is a set of formulas, we will often say that $v$ *satisfies* $\Sigma$ if $v(\sigma) = T$ for every $\sigma \in \Sigma$.
 
 We will say that $\varphi$ (respectively, $\Sigma$) is *satisfiable* if there is some truth assignment which satisfies it.
-
 :::
 
 ::: {#def-tautology-contradiction}
-
-A formula $\varphi$ is a *tautology* if it is satisfied by every truth assignment. 
+A formula $\varphi$ is a *tautology* if it is satisfied by every truth assignment.
 
 A formula $\psi$ is a *contradiction* if there is no truth assignment which satisfies it.
-
 :::
 
 For example, $(A_4 \Longrightarrow A_4)$ is a tautology, $(\neg (A_4 \Longrightarrow A_4))$ is a contradiction and $A_4$ neither of them.
@@ -578,13 +557,10 @@ kbl(tautology_contradiction, escape = FALSE) |>
 ```
 
 ::: {#prp-tautology-contradiction-example}
-
 If $\alpha$ is any formula, then $((\neg \alpha) \lor \alpha)$ is a tautology and $((\neg \alpha) \land \alpha)$ is a contradiction.
-
 :::
 
-::: {.proof}
-
+::: proof
 ```{r}
 #| results: asis
 
@@ -601,33 +577,26 @@ kbl(tautology_contradiction_proof, escape = FALSE) |>
  row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
  cat()
 ```
-
 :::
 
 ::: {#prp-relation-tautology-contradiction}
-
 A formula $\beta$ is a tautology if and only if $\neg \beta$ is a contradiction.
-
 :::
 
-::: {.proof}
-
-For all $v$, where $v$ is a true assignment, $v(\beta) = T$. By @def-truth-assignment $v((\neg \beta)) = F$ so $(\neg \beta)$ is a contradiction. 
+::: proof
+For all $v$, where $v$ is a true assignment, $v(\beta) = T$. By @def-truth-assignment $v((\neg \beta)) = F$ so $(\neg \beta)$ is a contradiction.
 
 For all $v$, where $v$ is a true assignment, $v((\neg \beta)) = F$. By @def-truth-assignment $v(\beta) = T$ so $\beta$ is a tautology.
 :::
 
 ::: {#def-formula-or-formulas-implies-a-formula}
-
 A set of formulas $\Sigma$ implies a formula $\varphi$, written as $\Sigma \models \varphi$, if every truth assignment $v$ which satisfies $\Sigma$ also satisfies $\varphi$.
 
 We will often write $\Sigma \not \models \varphi$ if it is not the case that $\Sigma \models \varphi$.
 
 In the case where $\Sigma$ is empty, we will usually write $\models \varphi$ instead of $\emptyset \models \varphi$.
 
-Similarly, if $\Delta$ and $\Gamma$ are sets of formulas, then $\Delta$ implies $\Gamma$, written as $\Delta \models \Gamma$, if every truth assignment $v$ which satisfies $\Delta$ also satisfies
-$\Gamma$.
-
+Similarly, if $\Delta$ and $\Gamma$ are sets of formulas, then $\Delta$ implies $\Gamma$, written as $\Delta \models \Gamma$, if every truth assignment $v$ which satisfies $\Delta$ also satisfies $\Gamma$.
 :::
 
 For example, $\{ A_3, (A_3 \Longrightarrow (\neg A_7)) \} \models (\neg A_7)$ because if $v$ is a true assignment such that $v(A_3) = T$ and $v((A_3 \Longrightarrow (\neg A_7))) = T$ then it must be the case that $v((\neg A_7)) = T$ by @def-truth-assignment.
@@ -635,57 +604,48 @@ For example, $\{ A_3, (A_3 \Longrightarrow (\neg A_7)) \} \models (\neg A_7)$ be
 Also, $\{ A_8, (A_5 \Longrightarrow A_8) \} \not \models A_5$, because if $u$ is a true assignment such that $u(A_8) = T$ and $u((A_5 \Longrightarrow A_8)) = T$. However, it is possible to have $u(A_5) = F$.
 
 ::: {#rem-contradiction-tautology-empty-set}
-
 A formula $\varphi$ is a tautology if and only if $\models \varphi$.
 
 A formula $\varphi$ is a contradiction if and only if $\models (\neg \varphi)$.
-
 :::
 
 Lets brake each element to understand why @rem-contradiction-tautology-empty-set is true:
 
--  If $v$ is a truth assignment then:
+-   If $v$ is a truth assignment then:
 
-    -  $v$ satisfies $\sigma \iff v(\sigma) = T$
-    
--  If $\Sigma$ is a set of formulas then:
+    -   $v$ satisfies $\sigma \iff v(\sigma) = T$
 
-    -  $v$ satisfies $\Sigma \iff (\forall \sigma)(\sigma \in \Sigma \Longrightarrow v(\sigma)=T)$
+-   If $\Sigma$ is a set of formulas then:
 
--  $\Sigma \models \varphi$ if and only if every truth assignment $v$ which satisfies $\Sigma$ also satisfies $\varphi$
+    -   $v$ satisfies $\Sigma \iff (\forall \sigma)(\sigma \in \Sigma \Longrightarrow v(\sigma)=T)$
 
-   -  $\Sigma \models \varphi \iff ((\forall v)((\forall \sigma)(\sigma \in \Sigma \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$
+-   $\Sigma \models \varphi$ if and only if every truth assignment $v$ which satisfies $\Sigma$ also satisfies $\varphi$
 
--  Now let's apply to $\models \varphi$ when $\varphi$ is a tautology:
+    -   $\Sigma \models \varphi \iff ((\forall v)((\forall \sigma)(\sigma \in \Sigma \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$
 
-    -  $\models \varphi \iff ((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$
-    
-        -  $\sigma \in \emptyset$ is false so $(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)$ is true by @def-truth-assignment.
-        
-        -  $(\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T))$ will be true and $v(\sigma)=T$ is true because $\sigma$ is a tautology
-        
-        -  By @def-truth-assignment $((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$ is true so we can write $\models \varphi$.
-        
+-   Now let's apply to $\models \varphi$ when $\varphi$ is a tautology:
+
+    -   $\models \varphi \iff ((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$
+
+        -   $\sigma \in \emptyset$ is false so $(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)$ is true by @def-truth-assignment.
+
+        -   $(\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T))$ will be true and $v(\sigma)=T$ is true because $\sigma$ is a tautology
+
+        -   By @def-truth-assignment $((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$ is true so we can write $\models \varphi$.
+
 ::: {#prp-subset-formulas-implies}
-
 If $\Gamma$ and $\Sigma$ are sets of formulas such that $\Gamma \subseteq \Sigma$, then $\Sigma \models \Gamma$.
-
 :::
 
-::: {.proof}
-
+::: proof
 If $v$ satisfies $\Sigma$ then for all $\sigma \in \Sigma$ we have that $v(\sigma) = T$. But if $\gamma \in \Gamma$ then also $\gamma \in \Sigma$. Therefore $v(\gamma) = T$ for any formula that belongs to $\Gamma$. This means that $\Sigma \models \Gamma$.
-
 :::
 
 ::: {#exr-check-a-formulas-implies-a-formula}
-
 How can one check whether or not $\Sigma \models \varphi$ for a formula $\varphi$ and a finite set of formulas $\Sigma$?
-
 :::
 
 ::: {#sol-check-a-formulas-implies-a-formula}
-
 We can construct a truth table and evaluate if in each row where the formulas that belongs to $\Sigma$ are true $\varphi$ is also true.
 
 For example, let $\Sigma = \{ (\alpha \Longrightarrow \beta), (\neg \beta) \}$ and $\varphi = (\neg \alpha)$. The truth table will be:
@@ -711,81 +671,65 @@ kbl(exercise_1_8, escape = FALSE) |>
 The last row of the truth table represents a truth assignment $v$ that satisfies $\Sigma$ and also the same truth asignment $v$ satisfies $\varphi$. Therefore we can check that $\Sigma \models \varphi$.
 
 It is importa to mention that $\Sigma$ must be a finite set of formulas or it will not be possible to check each row in the truth table that is build.
-
 :::
 
 ::: {#prp-line}
-
-Suppose $\Sigma$ is a set of formulas and $\psi$ and $\rho$ are
-formulas. Then $\Sigma \cup \{ \psi \} \models \rho$ if and only if $\Sigma \models (\psi \Longrightarrow \rho)$.
-
+Suppose $\Sigma$ is a set of formulas and $\psi$ and $\rho$ are formulas. Then $\Sigma \cup \{ \psi \} \models \rho$ if and only if $\Sigma \models (\psi \Longrightarrow \rho)$.
 :::
 
-::: {.proof}
+::: proof
+-   Assume $\Sigma \models (\psi \Longrightarrow \rho)$ and let $v$ satisfies $\Sigma \cup \{ \psi \}$.
 
--  Assume $\Sigma \models (\psi \Longrightarrow \rho)$ and let $v$ satisfies $\Sigma \cup \{ \psi \}$.
+    -   By @prp-subset-formulas-implies $v$ satisfies also $\Sigma$ because $\Sigma \subseteq \Sigma \cup \{ \psi \}$.
 
-    -  By @prp-subset-formulas-implies $v$ satisfies also $\Sigma$ because $\Sigma \subseteq \Sigma \cup \{ \psi \}$.
-    
-    -  By assumption $v$ satisfies $(\psi \Longrightarrow \rho)$ because $\Sigma \models (\psi \Longrightarrow \rho)$. Therefore $v((\psi \Longrightarrow \rho)) = T$
-    
-    -  Because $v(\psi) = T$ and $v((\psi \Longrightarrow \rho)) = T$ by @def-truth-assignment it must be the case that $v(\rho) = T$. Therefore $\Sigma \cup \{ \psi \} \models \rho$.
-    
--  Assume $\Sigma \cup \{ \psi \} \models \rho$.
+    -   By assumption $v$ satisfies $(\psi \Longrightarrow \rho)$ because $\Sigma \models (\psi \Longrightarrow \rho)$. Therefore $v((\psi \Longrightarrow \rho)) = T$
 
-    -  Let $v$ satisfies $\Sigma \cup \{ \psi \}$ so $v(\sigma) = F$ for all $\sigma in \Sigma$, $v(\psi) = T$ and $v(\rho) = T$.
-    
-    -  Because $v(\psi) = T$ and $v(\rho) = T$ by @def-truth-assignment $v((\psi \Longrightarrow \rho)) = T$.
-    
-    -  Therefore $\Sigma \models (\psi \Longrightarrow \rho)$.
+    -   Because $v(\psi) = T$ and $v((\psi \Longrightarrow \rho)) = T$ by @def-truth-assignment it must be the case that $v(\rho) = T$. Therefore $\Sigma \cup \{ \psi \} \models \rho$.
 
+-   Assume $\Sigma \cup \{ \psi \} \models \rho$.
+
+    -   Let $v$ satisfies $\Sigma \cup \{ \psi \}$ so $v(\sigma) = F$ for all $\sigma in \Sigma$, $v(\psi) = T$ and $v(\rho) = T$.
+
+    -   Because $v(\psi) = T$ and $v(\rho) = T$ by @def-truth-assignment $v((\psi \Longrightarrow \rho)) = T$.
+
+    -   Therefore $\Sigma \models (\psi \Longrightarrow \rho)$.
 :::
 
 ::: {#prp-set-formulas-satisfiable}
-
-A set of formulas $\Sigma$ is satisfiable if and only if
-there is no contradiction $\chi$ such that $\Sigma \models \chi$.
-
+A set of formulas $\Sigma$ is satisfiable if and only if there is no contradiction $\chi$ such that $\Sigma \models \chi$.
 :::
 
-::: {.proof}
+::: proof
+-   Assume $\Sigma = \emptyset$ then by @rem-contradiction-tautology-empty-set $\emptyset$ is satisfiable and $\chi$ will be a tautology because $\models \chi$.
 
--  Assume $\Sigma = \emptyset$ then by @rem-contradiction-tautology-empty-set $\emptyset$ is satisfiable and $\chi$ will be a tautology because $\models \chi$.
+-   Assume $\Sigma \neq \emptyset$ is a set of formulas that are satisfiable.
 
--  Assume $\Sigma \neq \emptyset$ is a set of formulas that are satisfiable.
+    -   Lets take $\sigma \in \Sigma$ so $v(T) = \sigma$. Then $\Sigma \models \sigma$ where $\sigma$ is not a contradiction.
 
-    -  Lets take $\sigma \in \Sigma$ so $v(T) = \sigma$. Then $\Sigma \models \sigma$ where $\sigma$ is not a contradiction.
+-   Assume $\Sigma \models \chi$ where $\chi$ is not a contradiction.
 
--  Assume $\Sigma \models \chi$ where $\chi$ is not a contradiction.
-
-    -  Then for all $\sigma \in Sigma$ we have that $v(\sigma) = T$. Therefore $\Sigma$ is satisfiable.
-
+    -   Then for all $\sigma \in Sigma$ we have that $v(\sigma) = T$. Therefore $\Sigma$ is satisfiable.
 :::
 
 ### Deductions
 
 ::: {#def-axioms-lp}
-
 The 3 axiom schema of $\mathcal{L}_P$ are:
 
-1. $(\alpha \Longrightarrow (\beta \Longrightarrow \alpha))$
+1.  $(\alpha \Longrightarrow (\beta \Longrightarrow \alpha))$
 
-2. $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$
+2.  $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$
 
-3. $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$
+3.  $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$
 
 Replacing $\alpha$, $\beta$, and $\gamma$ by particular formulas of $\mathcal{L}_P$ in any one of the axiom schemas gives an axiom of $\mathcal{L}_P$.
-
 :::
 
 ::: {#prp-axioms-lp-tautology}
-
 Every axiom of $\mathcal{L}_P$ is a tautology.
-
 :::
 
-::: {.proof}
-
+::: proof
 ```{r}
 #| results: asis
 #| label: tbl-axiom-1-lp
@@ -868,168 +812,140 @@ kbl(axiom_3_b_lp, escape = FALSE) |>
  row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
  cat()
 ```
-
 :::
 
 ::: {#def-modus-ponens}
-
 ## Modus ponens (rule of inference)
 
 Given the formulas $\varphi$ and $(\varphi \Longrightarrow \psi)$, one may infer $\psi$.
-
 :::
 
 ::: {#prp-modus-ponens-implies}
-
 Suppose $\varphi$ and $\psi$ are formulas. Then $\{ \varphi, (\varphi \Longrightarrow \psi) \} \models \psi$.
-
 :::
 
-::: {.proof}
-
+::: proof
 Becuase $v(\varphi) = T$ and $v((\varphi \Longrightarrow \psi)) = T$ by @def-truth-assignment it must be the case that $v(\psi) = T$. Therefore $\{ \varphi, (\varphi \Longrightarrow \psi) \} \models \psi$.
-
 :::
 
 ::: {#def-deduction-or-proof}
-
 ## Deduction or proof
 
 Let $\Sigma$ be a set of formulas. A deduction or proof from $\Sigma$ in $\mathcal{L}_P$ is a finite sequence $\varphi_1 \varphi_2 \ldots \varphi_n$ of formulas such that for each $k \leq n$:
 
-1. $\varphi_k$ is an axiom
-2. $\varphi_k \in \Sigma$
-3. There are $i, j < k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+1.  $\varphi_k$ is an axiom
+2.  $\varphi_k \in \Sigma$
+3.  There are $i, j < k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
 
-A formula of $\Sigma$ appearing in the deduction is called a *premiss*. 
+A formula of $\Sigma$ appearing in the deduction is called a *premiss*.
 
-$\Sigma$ proves a formula $\alpha$, written as $\Sigma \vdash \alpha$, if $\alpha$ is the last formula of a deduction from $\Sigma$. 
+$\Sigma$ proves a formula $\alpha$, written as $\Sigma \vdash \alpha$, if $\alpha$ is the last formula of a deduction from $\Sigma$.
 
 We will usually write $\vdash \alpha$ for $\emptyset \vdash \alpha$
 
 We will take $\Sigma \vdash \Delta$ to mean that $\Sigma \vdash \delta$ for every formula $\delta \in \Delta$.
-
 :::
 
 ::: {#exm-example-proof-1}
-
 Show that $\vdash (\varphi \Longrightarrow \varphi)$
 
-1. $((\varphi \Longrightarrow ((\varphi \Longrightarrow \varphi) \Longrightarrow \varphi)) \Longrightarrow ((\varphi \Longrightarrow (\varphi \Longrightarrow \varphi)) \Longrightarrow (\varphi \Longrightarrow \varphi)))$ Axiom 2
+1.  $((\varphi \Longrightarrow ((\varphi \Longrightarrow \varphi) \Longrightarrow \varphi)) \Longrightarrow ((\varphi \Longrightarrow (\varphi \Longrightarrow \varphi)) \Longrightarrow (\varphi \Longrightarrow \varphi)))$ Axiom 2
 
-2. $(\varphi \Longrightarrow ((\varphi \Longrightarrow \varphi) \Longrightarrow \varphi))$ Axiom 1
+2.  $(\varphi \Longrightarrow ((\varphi \Longrightarrow \varphi) \Longrightarrow \varphi))$ Axiom 1
 
-3. $((\varphi \Longrightarrow (\varphi \Longrightarrow \varphi)) \Longrightarrow (\varphi \Longrightarrow \varphi))$ Modus ponens 1, 2
+3.  $((\varphi \Longrightarrow (\varphi \Longrightarrow \varphi)) \Longrightarrow (\varphi \Longrightarrow \varphi))$ Modus ponens 1, 2
 
-4. $(\varphi \Longrightarrow (\varphi \Longrightarrow \varphi))$ Axiom 1
+4.  $(\varphi \Longrightarrow (\varphi \Longrightarrow \varphi))$ Axiom 1
 
-5. $(\varphi \Longrightarrow \varphi)$ Modus ponens 3, 4 
-
+5.  $(\varphi \Longrightarrow \varphi)$ Modus ponens 3, 4
 :::
 
 ::: {#exm-example-proof-2}
-
 Show that $\{ (\alpha \Longrightarrow \beta), (\beta \Longrightarrow \gamma) \} \vdash (\alpha \Longrightarrow \gamma)$
 
-1. $((\beta \Longrightarrow \gamma) \Longrightarrow (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)))$ Axiom 1
+1.  $((\beta \Longrightarrow \gamma) \Longrightarrow (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)))$ Axiom 1
 
-2. $(\beta \Longrightarrow \gamma)$ Premiss
+2.  $(\beta \Longrightarrow \gamma)$ Premiss
 
-3. $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ Modus ponens 1, 2
+3.  $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ Modus ponens 1, 2
 
-4. $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$ Axiom 2 
+4.  $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$ Axiom 2
 
-5. $((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma))$ Modus ponens 4, 3
+5.  $((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma))$ Modus ponens 4, 3
 
-6. $(\alpha \Longrightarrow \beta)$ Premiss
+6.  $(\alpha \Longrightarrow \beta)$ Premiss
 
-7. $(\alpha \Longrightarrow \gamma)$ Modus ponens 5, 6 
-
+7.  $(\alpha \Longrightarrow \gamma)$ Modus ponens 5, 6
 :::
 
 ::: {#exm-example-proof-3}
-
 Show that $\vdash (((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha)$
 
-1. $(((\neg \alpha) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha))$ Axiom 3
+1.  $(((\neg \alpha) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha))$ Axiom 3
 
-2. $((\neg \alpha) \Longrightarrow (\neg \alpha))$ @exm-example-proof-1 
+2.  $((\neg \alpha) \Longrightarrow (\neg \alpha))$ @exm-example-proof-1
 
-3. $(((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha)$ Modus ponens 1, 2 
-
+3.  $(((\neg \alpha) \Longrightarrow \alpha) \Longrightarrow \alpha)$ Modus ponens 1, 2
 :::
 
 ::: {#exr-exercise-proof-1}
-
 Show that if $\alpha$, $\beta$, and $\gamma$ are formulas, then:
 
--  $\{ (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)), \beta \} \vdash (\alpha \Longrightarrow \gamma)$
+-   $\{ (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)), \beta \} \vdash (\alpha \Longrightarrow \gamma)$
 
--  $\vdash (\alpha \lor (\neg \alpha))$
-
+-   $\vdash (\alpha \lor (\neg \alpha))$
 :::
 
 ::: {#sol-exercise-proof-1}
-
 In the case of $\{ (\alpha \Longrightarrow (\beta \Longrightarrow \gamma)), \beta \} \vdash (\alpha \Longrightarrow \gamma)$
 
-1. $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$ Axiom 2
+1.  $((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))$ Axiom 2
 
-2. $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ Premiss
+2.  $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ Premiss
 
-3. $((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma))$ Modus ponens 1, 2
+3.  $((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma))$ Modus ponens 1, 2
 
-4. $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
+4.  $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
 
-5. $\beta$ Premiss
+5.  $\beta$ Premiss
 
-6. $(\alpha \Longrightarrow \beta)$ Modus ponens 4, 5
+6.  $(\alpha \Longrightarrow \beta)$ Modus ponens 4, 5
 
-7. $(\alpha \Longrightarrow \gamma)$ Modus ponens 3, 6
+7.  $(\alpha \Longrightarrow \gamma)$ Modus ponens 3, 6
 
 In the case of $\vdash (\alpha \lor (\neg \alpha))$ by @sec-informal-conventions is it equivalent to $\vdash ((\neg \alpha) \Longrightarrow (\neg \alpha))$
- 
-1. $((\neg \alpha) \Longrightarrow (\neg \alpha))$ @exm-example-proof-1 
 
+1.  $((\neg \alpha) \Longrightarrow (\neg \alpha))$ @exm-example-proof-1
 :::
 
 ::: {#exm-example-proof-4}
-
 Let us show that $\vdash ((\neg (\neg \beta)) \Longrightarrow \beta)$
 
-1. $(((\neg \beta) \Longrightarrow (\neg (\neg \beta))) \Longrightarrow (((\neg \beta) \Longrightarrow (\neg \beta)) \Longrightarrow \beta))$ Axiom 3
+1.  $(((\neg \beta) \Longrightarrow (\neg (\neg \beta))) \Longrightarrow (((\neg \beta) \Longrightarrow (\neg \beta)) \Longrightarrow \beta))$ Axiom 3
 
-2. $((\neg (\neg \beta)) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg (\neg \beta))))$ Axiom 1
+2.  $((\neg (\neg \beta)) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg (\neg \beta))))$ Axiom 1
 
-3. $((\neg (\neg \beta)) \Longrightarrow (((\neg \beta) \Longrightarrow (\neg \beta)) \Longrightarrow \beta))$ @exm-example-proof-2 2, 1
+3.  $((\neg (\neg \beta)) \Longrightarrow (((\neg \beta) \Longrightarrow (\neg \beta)) \Longrightarrow \beta))$ @exm-example-proof-2 2, 1
 
-4. $((\neg \beta) \Longrightarrow (\neg \beta))$ @exm-example-proof-1
+4.  $((\neg \beta) \Longrightarrow (\neg \beta))$ @exm-example-proof-1
 
-5. $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exr-exercise-proof-1 3, 4
-
+5.  $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exr-exercise-proof-1 3, 4
 :::
 
 ::: {#prp-sub-deduction}
-
 If $\varphi_1 \varphi_2 \ldots \varphi_n$ is a deduction of $\mathcal{L}_P$, then $\varphi_1 \ldots \varphi_{\ell}$ is also a deduction of $\mathcal{L}_P$ for any $\ell$ such that $1 \leq \ell \leq n$.
-
 :::
 
-::: {.proof}
-
-Because $\varphi_1 \varphi_2 \ldots \varphi_n$ is a deduction of $\mathcal{L}_P$ then by @def-deduction-or-proof $\varphi_m$ for $1 \leq m \leq \ell n$ is an axiom, it belongs to a set of premisses or there are $i, j < m$ such that $\varphi_m$ follows from $\varphi_i$ and $\varphi_i$ by Modus Ponens. Therefore again by @def-deduction-or-proof $\varphi_1 \ldots \varphi_{\ell}$ is a deduction. 
-
+::: proof
+Because $\varphi_1 \varphi_2 \ldots \varphi_n$ is a deduction of $\mathcal{L}_P$ then by @def-deduction-or-proof $\varphi_m$ for $1 \leq m \leq \ell n$ is an axiom, it belongs to a set of premisses or there are $i, j < m$ such that $\varphi_m$ follows from $\varphi_i$ and $\varphi_i$ by Modus Ponens. Therefore again by @def-deduction-or-proof $\varphi_1 \ldots \varphi_{\ell}$ is a deduction.
 :::
 
 ::: {#prp-modus-ponens-deduction}
-
 If $\Gamma \vdash \delta$ and $\Gamma \vdash (\delta \Longrightarrow \beta)$, then $\Gamma \vdash \beta$.
-
 :::
 
-::: {.proof}
-
-If $\Gamma \vdash \delta$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that $\varphi_n = \delta$. 
+::: proof
+If $\Gamma \vdash \delta$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that $\varphi_n = \delta$.
 
 Also if $\Gamma \vdash (\delta \Longrightarrow \beta)$ then there is a deduction $\psi_1 \ldots \psi_m$ such that $\psi_m = (\delta \Longrightarrow \beta)$.
 
@@ -1037,245 +953,245 @@ Therefore we can build a deduction $\varphi_1 \ldots \varphi_n \psi_1 \ldots \ps
 
 By @def-deduction-or-proof and using $\varphi_1 \ldots \varphi_n \psi_1 \ldots \psi_m \psi_{m+1}$ we have that $\Gamma \vdash \beta$ because for each $k \leq n$ and $s \leq m + 1$:
 
--  $\varphi_k$ or $\psi_s$ is an axiom
--  $\varphi_k \in \Gamma$ or $\psi_s \in \Gamma$
--  there are $i,j \leq k$ or $i,j \leq s$ such that $\varphi_k$ or $\psi_s$ follows from $\varphi_i$ and $\varphi_j$ or from $\psi_i$ and $\psi_j$ by Modus Ponens.   
-
+-   $\varphi_k$ or $\psi_s$ is an axiom
+-   $\varphi_k \in \Gamma$ or $\psi_s \in \Gamma$
+-   there are $i,j \leq k$ or $i,j \leq s$ such that $\varphi_k$ or $\psi_s$ follows from $\varphi_i$ and $\varphi_j$ or from $\psi_i$ and $\psi_j$ by Modus Ponens.
 :::
 
 ::: {#prp-subset-formulas-deduction}
-
 If $\Gamma \subseteq \Delta$ and $\Gamma \vdash \alpha$, then $\Delta \vdash \alpha$.
-
 :::
 
-::: {.proof}
-
+::: proof
 Because $\Gamma \vdash \alpha$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that for each $k \leq n$:
 
--  $\varphi_k$ is an axiom
--  $\varphi_k \in \Gamma$
--  there are $i,j \leq k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+-   $\varphi_k$ is an axiom
+-   $\varphi_k \in \Gamma$
+-   there are $i,j \leq k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
 
 Because $\Gamma \subseteq \Delta$ then we also have that:
 
--  $\varphi_k$ is an axiom
--  $\varphi_k \in \Delta$
--  there are $i,j \leq k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+-   $\varphi_k$ is an axiom
+-   $\varphi_k \in \Delta$
+-   there are $i,j \leq k$ such that $\varphi_k$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
 
 Therefore $\Delta \vdash \alpha$.
-
 :::
 
 ::: {#prp-set-formulas-transitivity-deduction}
-
 If $\Gamma \vdash \Delta$ and $\Delta \vdash \sigma$, then $\Gamma \vdash \sigma$.
-
 :::
 
-::: {.proof}
-
+::: proof
 If $\Gamma \vdash \Delta$ then $\Gamma \vdash \delta$ for every formula $\delta \in \Delta$. Therefore there is a deduction $\psi_1 \ldots \psi_m$ such that for each $k \leq m$:
 
--  $\psi_k$ is an axiom
--  $\psi_k \in \Gamma$
--  there are $i,j \leq k$ such that $\psi_k$ follows from $\psi_i$ and $\psi_j$ by Modus Ponens.
+-   $\psi_k$ is an axiom
+-   $\psi_k \in \Gamma$
+-   there are $i,j \leq k$ such that $\psi_k$ follows from $\psi_i$ and $\psi_j$ by Modus Ponens.
 
 Because $\Gamma \vdash \delta$ for every formula $\delta \in \Delta$ then $\psi_m = \delta$.
 
 Also if $\Delta \vdash \sigma$ then there is a deduction $\varphi_1 \ldots \varphi_n$ such that for each $s \leq n$:
 
--  $\varphi_s$ is an axiom
--  $\varphi_s \in \Delta$
--  there are $i,j \leq s$ such that $\varphi_s$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+-   $\varphi_s$ is an axiom
+-   $\varphi_s \in \Delta$
+-   there are $i,j \leq s$ such that $\varphi_s$ follows from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
 
 Because $\Delta \vdash \sigma$ then $\varphi_n = \sigma$.
 
 Therefore we can build a deduction $\psi_1 \ldots \psi_m \varphi_1 \ldots \varphi_n$ such that for each $k \leq m$ and $s \leq n$:
 
--  $\psi_k$ or $\varphi_s$ is an axiom
--  $\psi_k \in \Gamma$ or $\varphi_s \in \Gamma$
--  there are $i,j \leq k$ or $i,j \leq s$ such that $\psi_k$ or $\varphi_s$ follows from $\psi_i$ and $\psi_j$ or from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
+-   $\psi_k$ or $\varphi_s$ is an axiom
+-   $\psi_k \in \Gamma$ or $\varphi_s \in \Gamma$
+-   there are $i,j \leq k$ or $i,j \leq s$ such that $\psi_k$ or $\varphi_s$ follows from $\psi_i$ and $\psi_j$ or from $\varphi_i$ and $\varphi_j$ by Modus Ponens.
 
 Therefore $\Gamma \vdash \sigma$.
-
 :::
 
 ::: {#thm-deduction-theorem}
-
 ## Deduction Theorem
 
 If $\Sigma$ is any set of formulas and $\alpha$ and $\beta$ are any formulas, then $\Sigma \vdash (\alpha \Longrightarrow \beta)$ if and only if $\Sigma \cup \{ \alpha \} \vdash \beta$.
-
 :::
 
-::: {.proof}
+::: proof
+-   Assume $\Sigma \vdash (\alpha \Longrightarrow \beta)$
 
--  Assume $\Sigma \vdash (\alpha \Longrightarrow \beta)$
+    -   If $\Sigma \cup \{ \alpha \}$ then because $\alpha$ is a premiss we have that $\Sigma \cup \{ \alpha \} \vdash \alpha$
 
-   -  If $\Sigma \cup \{ \alpha \}$ then because $\alpha$ is a premiss we have that $\Sigma \cup \{ \alpha \} \vdash \alpha$
-   
-   -  Also because $\Sigma \subseteq \Sigma \cup \{ \alpha \}$ and $Σ \vdash (\alpha \Longrightarrow \beta)$ by @prp-subset-formulas-deduction $\Sigma \cup \{ \alpha \} \vdash (\alpha \Longrightarrow \beta)$
-   
-   -  Finally, because $\Sigma \cup \{ \alpha \} \vdash \alpha$ and $\Sigma \cup \{ \alpha \} \vdash (\alpha \Longrightarrow \beta)$ by @prp-modus-ponens-deduction $\Sigma \cup \{ \alpha \} \vdash \beta$   
+    -   Also because $\Sigma \subseteq \Sigma \cup \{ \alpha \}$ and $Σ \vdash (\alpha \Longrightarrow \beta)$ by @prp-subset-formulas-deduction $\Sigma \cup \{ \alpha \} \vdash (\alpha \Longrightarrow \beta)$
 
--  Assume $\Sigma \cup \{ \alpha \} \vdash \beta$
+    -   Finally, because $\Sigma \cup \{ \alpha \} \vdash \alpha$ and $\Sigma \cup \{ \alpha \} \vdash (\alpha \Longrightarrow \beta)$ by @prp-modus-ponens-deduction $\Sigma \cup \{ \alpha \} \vdash \beta$
 
-    -  By strong induction on $n$, the length of deduction or proof of $\beta$ from $\Sigma \cup \{ \alpha \}$
-    
-       -  *Base step* $(n = 1)$: Then $\beta$ is an axiom or $\beta \in \Sigma \cup \{ \alpha \}$
-       
-          -  If $\beta$ is an axiom then we can proof $(\alpha \Longrightarrow \beta)$ from $\Sigma$ in the following way:
-          
-              1. $\beta$ Axiom 1, 2 or 3
-              2. $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
-              3. $(\alpha \Longrightarrow \beta)$ Modus Ponens 2, 1
-              
-          -  If $\beta \in \Sigma$ then:
-          
-              1. $\beta$ Premiss
-              2. $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
-              3. $(\alpha \Longrightarrow \beta)$ Modus Ponens 2, 1
-              
-          -  If $\beta = \alpha$ then $(\alpha \Longrightarrow \beta) = (\alpha \Longrightarrow \alpha)$ and we can use @exm-example-proof-1.
+-   Assume $\Sigma \cup \{ \alpha \} \vdash \beta$
 
-       -  *Induction hypothesis* $(n \leq k)$: Assume that if there is a deduction or proof of length $n \leq k$ of $\beta$ from $\Sigma \cup \{ \alpha \}$ then $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
-       
-       -  *Induction step* $(n = k + 1)$: Suppose there is a deduction or proof of length $n = k + 1$ of $\beta$ from $\Sigma \cup \{ \alpha \}$.
-       
-          -  Therefore there are 3 possibilities by @def-deduction-or-proof: $\beta$ is an axiom, $\beta \in \Sigma \cup \{ \alpha \}$ or there are $i,j \leq k + 1$ such that $\beta$ follows from $\psi_i$ and $\psi_j$. 
-          
-             -  The first 2 possibilities are cover in the *Base step* where we can show in a similar way that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
-             
-             -  In the case of the last possibility and without loss of generality $\psi_i = (\psi_j \Longrightarrow \beta)$. Furthermore, $\Sigma \cup \{ \alpha \} \vdash \psi_i$ and $\Sigma \cup \{ \alpha \} \vdash \psi_j$ where are deductions of length $n \leq k$.
-             
-                 -  By the *Induction hypothesis* $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ and $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$. Therefore:
-                 
-                     1. $(\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ because $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ 
-                     2. $(\alpha \Longrightarrow \psi_j)$ because $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$
-                     
-                     3. $((\alpha \Longrightarrow (\psi_j \Longrightarrow \beta)) \Longrightarrow ((\alpha \Longrightarrow \psi_j) \Longrightarrow (\alpha \Longrightarrow \beta)))$ Axiom 2
-                     
-                     4. $((\alpha \Longrightarrow \psi_j) \Longrightarrow (\alpha \Longrightarrow \beta))$ Modus Ponens 3, 1
-                     
-                     5. $(\alpha \Longrightarrow \beta)$ Modus Ponens 4, 2 
+    -   By strong induction on $n$, the length of deduction or proof of $\beta$ from $\Sigma \cup \{ \alpha \}$
 
-             -  In any case we have that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
+        -   *Base step* $(n = 1)$: Then $\beta$ is an axiom or $\beta \in \Sigma \cup \{ \alpha \}$
 
+            -   If $\beta$ is an axiom then we can proof $(\alpha \Longrightarrow \beta)$ from $\Sigma$ in the following way:
+
+                1.  $\beta$ Axiom 1, 2 or 3
+                2.  $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
+                3.  $(\alpha \Longrightarrow \beta)$ Modus Ponens 2, 1
+
+            -   If $\beta \in \Sigma$ then:
+
+                1.  $\beta$ Premiss
+                2.  $(\beta \Longrightarrow (\alpha \Longrightarrow \beta))$ Axiom 1
+                3.  $(\alpha \Longrightarrow \beta)$ Modus Ponens 2, 1
+
+            -   If $\beta = \alpha$ then $(\alpha \Longrightarrow \beta) = (\alpha \Longrightarrow \alpha)$ and we can use @exm-example-proof-1.
+
+        -   *Induction hypothesis* $(n \leq k)$: Assume that if there is a deduction or proof of length $n \leq k$ of $\beta$ from $\Sigma \cup \{ \alpha \}$ then $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
+
+        -   *Induction step* $(n = k + 1)$: Suppose there is a deduction or proof of length $n = k + 1$ of $\beta$ from $\Sigma \cup \{ \alpha \}$.
+
+            -   Therefore there are 3 possibilities by @def-deduction-or-proof: $\beta$ is an axiom, $\beta \in \Sigma \cup \{ \alpha \}$ or there are $i,j \leq k + 1$ such that $\beta$ follows from $\psi_i$ and $\psi_j$.
+
+                -   The first 2 possibilities are cover in the *Base step* where we can show in a similar way that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
+
+                -   In the case of the last possibility and without loss of generality $\psi_i = (\psi_j \Longrightarrow \beta)$. Furthermore, $\Sigma \cup \{ \alpha \} \vdash \psi_i$ and $\Sigma \cup \{ \alpha \} \vdash \psi_j$ where are deductions of length $n \leq k$.
+
+                    -   By the *Induction hypothesis* $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ and $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$. Therefore:
+
+                        1.  $(\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ because $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$
+
+                        2.  $(\alpha \Longrightarrow \psi_j)$ because $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$
+
+                        3.  $((\alpha \Longrightarrow (\psi_j \Longrightarrow \beta)) \Longrightarrow ((\alpha \Longrightarrow \psi_j) \Longrightarrow (\alpha \Longrightarrow \beta)))$ Axiom 2
+
+                        4.  $((\alpha \Longrightarrow \psi_j) \Longrightarrow (\alpha \Longrightarrow \beta))$ Modus Ponens 3, 1
+
+                        5.  $(\alpha \Longrightarrow \beta)$ Modus Ponens 4, 2
+
+                -   In any case we have that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
 :::
 
 ::: {#exm-deduction-theorem-example-1}
-
 Show that $\vdash (\psi \Longrightarrow \psi)$. Using @thm-deduction-theorem this is equivalent to $\emptyset \cup \{ \psi \} \vdash \psi$. Therefore:
 
-1. $\psi$ Premiss
+1.  $\psi$ Premiss
 
 Compare it to @exm-example-proof-1.
-
 :::
 
 ::: {#exr-application-deduction-theorem}
-
 Show that:
 
-1. $\{ \delta, (\neg \delta) \} \vdash \gamma$
-2. $\vdash (\psi \Longrightarrow (\neg (\neg \psi)))$
-3. $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$
-4. $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$
-5. $\vdash ((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$
-6. $\vdash (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$
-7. $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$
-8. $\{ (\alpha \land \beta) \} \vdash \beta$
-9. $\{ (\alpha \land \beta) \} \vdash \alpha$
-
+1.  $\{ \delta, (\neg \delta) \} \vdash \gamma$
+2.  $\vdash (\psi \Longrightarrow (\neg (\neg \psi)))$
+3.  $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$
+4.  $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$
+5.  $\vdash ((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$
+6.  $\vdash (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$
+7.  $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$
+8.  $\{ (\alpha \land \beta) \} \vdash \beta$
+9.  $\{ (\alpha \land \beta) \} \vdash \alpha$
 :::
 
 ::: {#sol-application-deduction-theorem}
-
 -   $\{ \delta, (\neg \delta) \} \vdash \gamma$
 
     1.  $(((\neg \gamma) \Longrightarrow (\neg \delta)) \Longrightarrow (((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma))$ Axiom 3
-    
-    2. $((\neg \delta) \Longrightarrow ((\neg \gamma) \Longrightarrow (\neg \delta)))$ Axiom 1
-    
-    3. $(\neg \delta)$ Premiss
-    
-    4. $(((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma)$ Modus Ponens 2, 3
-    
-    5. $(\delta \Longrightarrow ((\neg \gamma) \Longrightarrow \delta))$ Axiom 1
-    
-    6. $\delta$ Premiss
-    
-    7. $((\neg \gamma) \Longrightarrow \delta)$ Modus Ponens 5, 6
-    
-    8. $\gamma$ Modus Ponens 4, 7
+
+    2.  $((\neg \delta) \Longrightarrow ((\neg \gamma) \Longrightarrow (\neg \delta)))$ Axiom 1
+
+    3.  $(\neg \delta)$ Premiss
+
+    4.  $(((\neg \gamma) \Longrightarrow \delta) \Longrightarrow \gamma)$ Modus Ponens 2, 3
+
+    5.  $(\delta \Longrightarrow ((\neg \gamma) \Longrightarrow \delta))$ Axiom 1
+
+    6.  $\delta$ Premiss
+
+    7.  $((\neg \gamma) \Longrightarrow \delta)$ Modus Ponens 5, 6
+
+    8.  $\gamma$ Modus Ponens 4, 7
 
 -   $\vdash (\psi \Longrightarrow (\neg (\neg \psi)))$
 
     1.  $(((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi)) \Longrightarrow (((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi))))$ Axiom 3
-    
-    2. $((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi))$ @exm-example-proof-4
-    
-    3. $(((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi)))$ Modus Ponens 1, 2
-    
-    4. $(\psi \Longrightarrow ((\neg (\neg (\neg \psi))) \Longrightarrow \psi))$ Axiom 1
-    
-    5. $(\psi \Longrightarrow (\neg (\neg \psi)))$ @exm-example-proof-2 4, 3
 
--  By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$ is equivalent to $\{ ((\neg \beta) \Longrightarrow (\neg \alpha)) \} \vdash (\alpha \Longrightarrow \beta)$
+    2.  $((\neg (\neg (\neg \psi))) \Longrightarrow (\neg \psi))$ @exm-example-proof-4
 
-    1. $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$ Axiom 3
-    
-    2. $((\neg \beta) \Longrightarrow (\neg \alpha))$ Premiss
-    
-    3. $(((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta)$ Modus Ponens 1, 2 
-    
-    4. $(\alpha \Longrightarrow ((\neg \beta) \Longrightarrow \alpha))$ Axiom 1
-    
-    5. $(\alpha \Longrightarrow \beta)$ @exm-example-proof-2 4, 3
+    3.  $(((\neg (\neg (\neg \psi))) \Longrightarrow \psi) \Longrightarrow (\neg (\neg \psi)))$ Modus Ponens 1, 2
 
--  By @thm-deduction-theorem $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$ it is equivalent to $\{ (\alpha \Longrightarrow \beta) \} \vdash ((\neg \beta) \Longrightarrow (\neg \alpha))$
+    4.  $(\psi \Longrightarrow ((\neg (\neg (\neg \psi))) \Longrightarrow \psi))$ Axiom 1
 
-    1. $(((\neg (\neg \alpha)) \Longrightarrow (\neg(\neg \beta))) \Longrightarrow (((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha)))$ Axiom 1
-    
-    2. $(\alpha \Longrightarrow \beta)$ Premiss
-    
-    3. $(\beta \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 2
-    
-    4. $(\alpha \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 2, 3
-    
-    5. $((\neg (\neg \alpha)) \Longrightarrow \alpha)$ @exm-example-proof-4
-    
-    6. $((\neg (\neg \alpha)) \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 5, 4
-    
-    7. $(((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha))$ Modus Ponens 1, 6
-    
-    8. $((\neg \beta) \Longrightarrow ((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)))$ Axiom 1
-    
-    9. $((\neg \beta) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 8, 7
+    5.  $(\psi \Longrightarrow (\neg (\neg \psi)))$ @exm-example-proof-2 4, 3
 
--  By @thm-deduction-theorem $\vdash ((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\beta \Longrightarrow (\neg \alpha)) \} \vdash (\alpha \Longrightarrow (\neg \beta))$
+-   By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$ is equivalent to $\{ ((\neg \beta) \Longrightarrow (\neg \alpha)) \} \vdash (\alpha \Longrightarrow \beta)$
 
-    1. $(\beta \Longrightarrow (\neg \alpha))$ Premiss
-    
-    2. $((\neg (\neg \alpha)) \Longrightarrow (\neg \beta))$ @exr-application-deduction-theorem 4 applied to 1
-    
-    3. $(\alpha \Longrightarrow (\neg (\neg \alpha)))$ @exr-application-deduction-theorem 2
-    
-    4. $(\alpha \Longrightarrow (\neg \beta))$ @exm-example-proof-2 3, 2 
+    1.  $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$ Axiom 3
 
--  By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$ is equivalent to $\{ ((\neg \beta) \Longrightarrow \alpha) \} \vdash ((\neg \alpha) \Longrightarrow \beta)$
+    2.  $((\neg \beta) \Longrightarrow (\neg \alpha))$ Premiss
+
+    3.  $(((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta)$ Modus Ponens 1, 2
+
+    4.  $(\alpha \Longrightarrow ((\neg \beta) \Longrightarrow \alpha))$ Axiom 1
+
+    5.  $(\alpha \Longrightarrow \beta)$ @exm-example-proof-2 4, 3
+
+-   By @thm-deduction-theorem $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$ it is equivalent to $\{ (\alpha \Longrightarrow \beta) \} \vdash ((\neg \beta) \Longrightarrow (\neg \alpha))$
+
+    1.  $(((\neg (\neg \alpha)) \Longrightarrow (\neg(\neg \beta))) \Longrightarrow (((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha)))$ Axiom 1
+
+    2.  $(\alpha \Longrightarrow \beta)$ Premiss
+
+    3.  $(\beta \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 2
+
+    4.  $(\alpha \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 2, 3
+
+    5.  $((\neg (\neg \alpha)) \Longrightarrow \alpha)$ @exm-example-proof-4
+
+    6.  $((\neg (\neg \alpha)) \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 5, 4
+
+    7.  $(((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha))$ Modus Ponens 1, 6
+
+    8.  $((\neg \beta) \Longrightarrow ((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)))$ Axiom 1
+
+    9.  $((\neg \beta) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 8, 7
+
+-   By @thm-deduction-theorem $\vdash ((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\beta \Longrightarrow (\neg \alpha)) \} \vdash (\alpha \Longrightarrow (\neg \beta))$
+
+    1.  $(\beta \Longrightarrow (\neg \alpha))$ Premiss
+
+    2.  $((\neg (\neg \alpha)) \Longrightarrow (\neg \beta))$ @exr-application-deduction-theorem 4 applied to 1
+
+    3.  $(\alpha \Longrightarrow (\neg (\neg \alpha)))$ @exr-application-deduction-theorem 2
+
+    4.  $(\alpha \Longrightarrow (\neg \beta))$ @exm-example-proof-2 3, 2
+
+-   By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$ is equivalent to $\{ ((\neg \beta) \Longrightarrow \alpha) \} \vdash ((\neg \alpha) \Longrightarrow \beta)$
 
     1.  $((\neg \beta) \Longrightarrow \alpha)$ Premiss
-    
-    2.  $((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 4 applied to 1
-    
-    3.  $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exm-example-proof-4
-    
-    4.  $((\neg \alpha) \Longrightarrow \beta)$ @exm-example-proof-2 2, 3
-    
--  By @sec-informal-conventions $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$ is equivalent to $\vdash (\sigma \Longrightarrow ((\neg \sigma) \Longrightarrow \tau))$. Also applying 2 times @thm-deduction-theorem $\vdash (\sigma \Longrightarrow ((\neg \sigma) \Longrightarrow \tau))$ is equivalent to $\{ \sigma, (\neg \sigma) \} \vdash \tau$
 
-    1. $\tau$ @exr-application-deduction-theorem 1  
+    2.  $((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 4 applied to 1
+
+    3.  $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exm-example-proof-4
+
+    4.  $((\neg \alpha) \Longrightarrow \beta)$ @exm-example-proof-2 2, 3
+
+-   By @sec-informal-conventions $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$ is equivalent to $\vdash (\sigma \Longrightarrow ((\neg \sigma) \Longrightarrow \tau))$. Also applying 2 times @thm-deduction-theorem $\vdash (\sigma \Longrightarrow ((\neg \sigma) \Longrightarrow \tau))$ is equivalent to $\{ \sigma, (\neg \sigma) \} \vdash \tau$
+
+    1.  $\tau$ @exr-application-deduction-theorem 1
+
+-   By @sec-informal-conventions $\{ (\alpha \land \beta) \} \vdash \beta$ is equivalent to $\{ (\neg (\alpha \Longrightarrow (\neg \beta))) \} \vdash \beta$.
+
+    1.  $(((\neg \beta) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \beta))$ Axiom 3
+
+    2.  $((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))))$ Axiom 1
+
+    3.  $((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow (((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \beta))$ @exm-example-proof-2 2, 1
+
+    4.  $(\neg (\alpha \Longrightarrow (\neg \beta)))$ Premiss
+
+    5.  $(((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \beta)$ Modus ponens 3, 4
+
+    6.  $((\neg \beta) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ Axiom 1
+
+    7.  $\beta$ Modus Ponens 5, 6
     
+-  
 :::
