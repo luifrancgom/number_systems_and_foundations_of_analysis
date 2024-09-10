@@ -1222,7 +1222,7 @@ Show that:
     
     5. $(\psi \Longrightarrow (\neg (\neg \psi)))$ @exm-example-proof-2 4, 3
 
--  By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$ is equivalent to $((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)$
+-  By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow \beta))$ is equivalent to $\{ ((\neg \beta) \Longrightarrow (\neg \alpha)) \} \vdash (\alpha \Longrightarrow \beta)$
 
     1. $(((\neg \beta) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow \beta))$ Axiom 3
     
@@ -1234,7 +1234,7 @@ Show that:
     
     5. $(\alpha \Longrightarrow \beta)$ @exm-example-proof-2 4, 3
 
--  By @thm-deduction-theorem $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$ it is equivalent to $(\alpha \Longrightarrow \beta) \vdash ((\neg \beta) \Longrightarrow (\neg \alpha))$
+-  By @thm-deduction-theorem $\vdash ((\alpha \Longrightarrow \beta) \Longrightarrow ((\neg \beta) \Longrightarrow (\neg \alpha)))$ it is equivalent to $\{ (\alpha \Longrightarrow \beta) \} \vdash ((\neg \beta) \Longrightarrow (\neg \alpha))$
 
     1. $(((\neg (\neg \alpha)) \Longrightarrow (\neg(\neg \beta))) \Longrightarrow (((\neg (\neg \alpha)) \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha)))$ Axiom 1
     
@@ -1254,4 +1254,28 @@ Show that:
     
     9. $((\neg \beta) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 8, 7
 
+-  By @thm-deduction-theorem $\vdash ((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\beta \Longrightarrow (\neg \alpha)) \} \vdash (\alpha \Longrightarrow (\neg \beta))$
+
+    1. $(\beta \Longrightarrow (\neg \alpha))$ Premiss
+    
+    2. $((\neg (\neg \alpha)) \Longrightarrow (\neg \beta))$ @exr-application-deduction-theorem 4 applied to 1
+    
+    3. $(\alpha \Longrightarrow (\neg (\neg \alpha)))$ @exr-application-deduction-theorem 2
+    
+    4. $(\alpha \Longrightarrow (\neg \beta))$ @exm-example-proof-2 3, 2 
+
+-  By @thm-deduction-theorem $\vdash (((\neg \beta) \Longrightarrow \alpha) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$ is equivalent to $\{ ((\neg \beta) \Longrightarrow \alpha) \} \vdash ((\neg \alpha) \Longrightarrow \beta)$
+
+    1.  $((\neg \beta) \Longrightarrow \alpha)$ Premiss
+    
+    2.  $((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 4 applied to 1
+    
+    3.  $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exm-example-proof-4
+    
+    4.  $((\neg \alpha) \Longrightarrow \beta)$ @exm-example-proof-2 2, 3
+    
+-  By @sec-informal-conventions $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$ is equivalent to $\vdash (\sigma \Longrightarrow ((\neg \sigma) \Longrightarrow \tau))$. Also applying 2 times @thm-deduction-theorem $\vdash (\sigma \Longrightarrow ((\neg \sigma) \Longrightarrow \tau))$ is equivalent to $\{ \sigma, (\neg \sigma) \} \vdash \tau$
+
+    1. $\tau$ @exr-application-deduction-theorem 1  
+    
 :::
