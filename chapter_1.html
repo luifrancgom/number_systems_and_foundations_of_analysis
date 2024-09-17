@@ -2622,7 +2622,7 @@ Warning&nbsp;1.1
 </ul></li>
 </ul>
 </div>
-<div id="cor-inconsisten-formulas-subset" class="theorem corollary">
+<div id="cor-inconsistent-formulas-subset" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1.2</strong></span> A set of formulas <span class="math inline">\(\Gamma\)</span> is consistent if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is consistent.</p>
 </div>
 <div class="proof">
@@ -2800,7 +2800,7 @@ Note&nbsp;1.3: Proof by reductio ad absurdum
 <ul>
 <li><p>Let <span class="math inline">\(\Lambda = \bigcup_{k \in \mathbb{N}} \Delta_k\)</span> then <span class="math inline">\(\Lambda\)</span> is maximally consistent because:</p>
 <ul>
-<li><p>Because every finite subset of <span class="math inline">\(\Lambda\)</span> is contained in some <span class="math inline">\(\Delta_k\)</span> for some <span class="math inline">\(k\)</span> and each <span class="math inline">\(\Delta_k\)</span> is consistent by <a href="#cor-inconsisten-formulas-subset" class="quarto-xref">Corollary&nbsp;<span>1.2</span></a> <span class="math inline">\(\Lambda\)</span> is consistent.</p></li>
+<li><p>Because every finite subset of <span class="math inline">\(\Lambda\)</span> is contained in some <span class="math inline">\(\Delta_k\)</span> for some <span class="math inline">\(k\)</span> and each <span class="math inline">\(\Delta_k\)</span> is consistent by <a href="#cor-inconsistent-formulas-subset" class="quarto-xref">Corollary&nbsp;<span>1.2</span></a> <span class="math inline">\(\Lambda\)</span> is consistent.</p></li>
 <li><p>Let <span class="math inline">\(\beta \not \in \Lambda\)</span> then there is some <span class="math inline">\(\psi_i\)</span> such that <span class="math inline">\(\beta = \psi_i\)</span> and <span class="math inline">\(\Delta_{i+1} = \Delta_i \cup \{ \psi_i \}\)</span> is inconsistent. Because <span class="math inline">\(\Delta_{i+1}\)</span> is a finite subset of <span class="math inline">\(\Lambda\)</span> by <a href="#prp-inconsisten-formulas-subset" class="quarto-xref">Proposition&nbsp;<span>1.15</span></a> <span class="math inline">\(\Lambda \cup \{ \beta \}\)</span> is inconsistent.</p></li>
 </ul></li>
 </ul>
@@ -2881,7 +2881,10 @@ Note&nbsp;1.4
 <p><span class="theorem-title"><strong>Theorem 1.7 (Compactness Theorem)</strong></span> A set of formulas <span class="math inline">\(\Gamma\)</span> is satisfiable if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is satisfiable.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-consistent-satisfiable-equivalence" class="quarto-xref">Theorem&nbsp;<span>1.5</span></a> <span class="math inline">\(\Gamma\)</span> is satisfiable if and only if <span class="math inline">\(\Gamma\)</span> is consistent.</p>
+<p>By <a href="#cor-inconsistent-formulas-subset" class="quarto-xref">Corollary&nbsp;<span>1.2</span></a> <span class="math inline">\(\Gamma\)</span> is consistent if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is consistent.</p>
+<p>By <a href="#thm-consistent-satisfiable-equivalence" class="quarto-xref">Theorem&nbsp;<span>1.5</span></a> every finite subset of <span class="math inline">\(\Gamma\)</span> is consistent if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is satisfiable.</p>
+<p>Therefore by the above results <span class="math inline">\(\Gamma\)</span> is satisfiable if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is satisfiable.</p>
 </div>
 </section>
 </section>
