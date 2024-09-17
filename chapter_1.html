@@ -267,6 +267,10 @@ window.Quarto = {
   <li><a href="#deductions" id="toc-deductions" class="nav-link" data-scroll-target="#deductions"><span class="header-section-number">1.1.3</span> Deductions</a></li>
   <li><a href="#soundness-and-completeness" id="toc-soundness-and-completeness" class="nav-link" data-scroll-target="#soundness-and-completeness"><span class="header-section-number">1.1.4</span> Soundness and Completeness</a></li>
   </ul></li>
+  <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets"><span class="header-section-number">1.2</span> Sets</a>
+  <ul class="collapse">
+  <li><a href="#the-axiom-of-extension" id="toc-the-axiom-of-extension" class="nav-link" data-scroll-target="#the-axiom-of-extension"><span class="header-section-number">1.2.1</span> The axiom of extension</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -354,19 +358,15 @@ window.Quarto = {
 </ul></li>
 </ul>
 <p>Where the possible values of <span class="math inline">\(l(\alpha)\)</span> are <span class="math inline">\(1, 4, 5, 7, 8, \ldots, s - 1, s, s + 1, \ldots\)</span> as it is shown in <a href="#fig-length-formula-lp" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> where the majority of duplicate branches with the same lengths are omitted but can be different in relation to <span class="math inline">\(p(\alpha)\)</span>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div id="fig-length-formula-lp" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-length-formula-lp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="chapter_1_files/figure-html/fig-length-formula-lp-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%">
+<img src="images/fig-length-formula-lp-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-length-formula-lp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.1: Possible values of <span class="math inline">\(l(\alpha)\)</span> and associated <span class="math inline">\(p(\alpha)\)</span> values in parentheses
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>Therefore we can examine the leftmost branch.</p>
 <ul>
@@ -425,6 +425,16 @@ Figure&nbsp;1.1: Possible values of <span class="math inline">\(l(\alpha)\)</spa
 </div>
 <div id="sol-formulas-countable-lp" class="proof solution">
 <p><span class="proof-title"><em>Solution 1.6</em>. </span><strong>Pending</strong></p>
+<p>Let <span class="math inline">\(S_{\mathcal{L}_p}\)</span> the set of symbols of <span class="math inline">\(\mathcal{L}_p\)</span>, <span class="math inline">\(S_{\mathcal{L}_p} = \{ (, ), \neg, \Longrightarrow \} \cup \{ A_0, A_1, A_2, \ldots, A_n, \ldots \}\)</span>.</p>
+<ul>
+<li>Show that <span class="math inline">\(S_{\mathcal{L}_p}\)</span> is a denumerable set.</li>
+</ul>
+<p>Let <span class="math inline">\(S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathcal{L}_p} \times \ldots \times S_{\mathcal{L}_p}}} = S_{\mathcal{L}_p}^n\)</span> the string of symbols of length <span class="math inline">\(n\)</span> build from <span class="math inline">\(S_{\mathcal{L}_p}\)</span>.</p>
+<ul>
+<li><p>Prove that <span class="math inline">\(S_{\mathcal{L}_p}^2, S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n\)</span> are denumerable sets.</p></li>
+<li><p>Prove that <span class="math inline">\(S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> is a denumerable set. That is, any denumerable union of denumerable sets is a countable set.</p></li>
+<li><p>Let <span class="math inline">\(F_{\mathcal{L}_p}\)</span> the set of formulas of <span class="math inline">\(\mathcal{L}_p\)</span>. Because <span class="math inline">\(F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> then <span class="math inline">\(F_{\mathcal{L}_p}\)</span> is countable.</p></li>
+</ul>
 </div>
 <section id="sec-informal-conventions" class="level4" data-number="1.1.1.1">
 <h4 data-number="1.1.1.1" class="anchored" data-anchor-id="sec-informal-conventions"><span class="header-section-number">1.1.1.1</span> Informal conventions</h4>
@@ -1340,11 +1350,18 @@ Table&nbsp;1.7: Example of a tautology and a contradiction
 </div>
 <p>For example, <span class="math inline">\(\{ A_3, (A_3 \Longrightarrow (\neg A_7)) \} \models (\neg A_7)\)</span> because if <span class="math inline">\(v\)</span> is a true assignment such that <span class="math inline">\(v(A_3) = T\)</span> and <span class="math inline">\(v((A_3 \Longrightarrow (\neg A_7))) = T\)</span> then it must be the case that <span class="math inline">\(v((\neg A_7)) = T\)</span> by <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a>.</p>
 <p>Also, <span class="math inline">\(\{ A_8, (A_5 \Longrightarrow A_8) \} \not \models A_5\)</span>, because if <span class="math inline">\(u\)</span> is a true assignment such that <span class="math inline">\(u(A_8) = T\)</span> and <span class="math inline">\(u((A_5 \Longrightarrow A_8)) = T\)</span>. However, it is possible to have <span class="math inline">\(u(A_5) = F\)</span>.</p>
-<div id="rem-contradiction-tautology-empty-set" class="proof remark">
-<p><span class="proof-title"><em>Remark 1.1</em>. </span>A formula <span class="math inline">\(\varphi\)</span> is a tautology if and only if <span class="math inline">\(\models \varphi\)</span>.</p>
-<p>A formula <span class="math inline">\(\varphi\)</span> is a contradiction if and only if <span class="math inline">\(\models (\neg \varphi)\)</span>.</p>
+<div id="nte-truth-assignments-tautology-contradiction" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Lets brake each element to understand why <a href="#rem-contradiction-tautology-empty-set" class="quarto-xref">Remark&nbsp;<span>1.1</span></a> is true:</p>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A formula <span class="math inline">\(\varphi\)</span> is a tautology if and only if <span class="math inline">\(\models \varphi\)</span> and a contradiction if and only if <span class="math inline">\(\models (\neg \varphi)\)</span>.</p>
+<p>Lets brake each element to understand why this is true:</p>
 <ul>
 <li><p>If <span class="math inline">\(v\)</span> is a truth assignment then:</p>
 <ul>
@@ -1368,6 +1385,8 @@ Table&nbsp;1.7: Example of a tautology and a contradiction
 </ul></li>
 </ul></li>
 </ul>
+</div>
+</div>
 <div id="prp-subset-formulas-implies" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 1.4</strong></span> If <span class="math inline">\(\Gamma\)</span> and <span class="math inline">\(\Sigma\)</span> are sets of formulas such that <span class="math inline">\(\Gamma \subseteq \Sigma\)</span>, then <span class="math inline">\(\Sigma \models \Gamma\)</span>.</p>
 </div>
@@ -1474,7 +1493,7 @@ Table&nbsp;1.7: Example of a tautology and a contradiction
 <p>The last row of the truth table represents a truth assignment <span class="math inline">\(v\)</span> that satisfies <span class="math inline">\(\Sigma\)</span> and also the same truth asignment <span class="math inline">\(v\)</span> satisfies <span class="math inline">\(\varphi\)</span>. Therefore we can check that <span class="math inline">\(\Sigma \models \varphi\)</span>.</p>
 <p>It is importa to mention that <span class="math inline">\(\Sigma\)</span> must be a finite set of formulas or it will not be possible to check each row in the truth table that is build.</p>
 </div>
-<div id="prp-line" class="theorem proposition">
+<div id="prp-truth-tables-deduction-theorem" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 1.5</strong></span> Suppose <span class="math inline">\(\Sigma\)</span> is a set of formulas and <span class="math inline">\(\psi\)</span> and <span class="math inline">\(\rho\)</span> are formulas. Then <span class="math inline">\(\Sigma \cup \{ \psi \} \models \rho\)</span> if and only if <span class="math inline">\(\Sigma \models (\psi \Longrightarrow \rho)\)</span>.</p>
 </div>
 <div class="proof">
@@ -1500,14 +1519,14 @@ Table&nbsp;1.7: Example of a tautology and a contradiction
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <ul>
-<li><p>Assume <span class="math inline">\(\Sigma = \emptyset\)</span> then by <a href="#rem-contradiction-tautology-empty-set" class="quarto-xref">Remark&nbsp;<span>1.1</span></a> <span class="math inline">\(\emptyset\)</span> is satisfiable and <span class="math inline">\(\chi\)</span> will be a tautology because <span class="math inline">\(\models \chi\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(\Sigma = \emptyset\)</span> by <a href="#nte-truth-assignments-tautology-contradiction" class="quarto-xref">Note&nbsp;<span>1.1</span></a> <span class="math inline">\(\emptyset\)</span> is satisfiable and <span class="math inline">\(\chi\)</span> will be a tautology because <span class="math inline">\(\models \chi\)</span>.</p></li>
 <li><p>Assume <span class="math inline">\(\Sigma \neq \emptyset\)</span> is a set of formulas that are satisfiable.</p>
 <ul>
 <li>Lets take <span class="math inline">\(\sigma \in \Sigma\)</span> so <span class="math inline">\(v(T) = \sigma\)</span>. Then <span class="math inline">\(\Sigma \models \sigma\)</span> where <span class="math inline">\(\sigma\)</span> is not a contradiction.</li>
 </ul></li>
 <li><p>Assume <span class="math inline">\(\Sigma \models \chi\)</span> where <span class="math inline">\(\chi\)</span> is not a contradiction.</p>
 <ul>
-<li>Then for all <span class="math inline">\(\sigma \in Sigma\)</span> we have that <span class="math inline">\(v(\sigma) = T\)</span>. Therefore <span class="math inline">\(\Sigma\)</span> is satisfiable.</li>
+<li>Then for all <span class="math inline">\(\sigma \in \Sigma\)</span> we have that <span class="math inline">\(v(\sigma) = T\)</span>. Therefore <span class="math inline">\(\Sigma\)</span> is satisfiable.</li>
 </ul></li>
 </ul>
 </div>
@@ -2246,7 +2265,7 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <li><p>Therefore there are 3 possibilities by <a href="#def-deduction-or-proof" class="quarto-xref">Definition&nbsp;<span>1.10</span></a>: <span class="math inline">\(\beta\)</span> is an axiom, <span class="math inline">\(\beta \in \Sigma \cup \{ \alpha \}\)</span> or there are <span class="math inline">\(i,j \leq k + 1\)</span> such that <span class="math inline">\(\beta\)</span> follows from <span class="math inline">\(\psi_i\)</span> and <span class="math inline">\(\psi_j\)</span>.</p>
 <ul>
 <li><p>The first 2 possibilities are cover in the <em>Base step</em> where we can show in a similar way that <span class="math inline">\(\Sigma \vdash (\alpha \Longrightarrow \beta)\)</span>.</p></li>
-<li><p>In the case of the last possibility and without loss of generality <span class="math inline">\(\psi_i = (\psi_j \Longrightarrow \beta)\)</span>. Furthermore, <span class="math inline">\(\Sigma \cup \{ \alpha \} \vdash \psi_i\)</span> and <span class="math inline">\(\Sigma \cup \{ \alpha \} \vdash \psi_j\)</span> where are deductions of length <span class="math inline">\(n \leq k\)</span>.</p>
+<li><p>In the case of the last possibility and without loss of generality <span class="math inline">\(\psi_i = (\psi_j \Longrightarrow \beta)\)</span>. Furthermore, <span class="math inline">\(\Sigma \cup \{ \alpha \} \vdash \psi_i\)</span> and <span class="math inline">\(\Sigma \cup \{ \alpha \} \vdash \psi_j\)</span> are deductions of length <span class="math inline">\(n \leq k\)</span>.</p>
 <ul>
 <li><p>By the <em>Induction hypothesis</em> <span class="math inline">\(\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))\)</span> and <span class="math inline">\(\Sigma \vdash (\alpha \Longrightarrow \psi_j)\)</span>. Therefore:</p>
 <ol type="1">
@@ -2283,6 +2302,14 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <li><span class="math inline">\(\vdash (\sigma \Longrightarrow (\sigma \lor \tau))\)</span></li>
 <li><span class="math inline">\(\{ (\alpha \land \beta) \} \vdash \beta\)</span></li>
 <li><span class="math inline">\(\{ (\alpha \land \beta) \} \vdash \alpha\)</span></li>
+<li><span class="math inline">\(\{ \alpha, \beta \} \vdash (\alpha \land \beta)\)</span></li>
+<li><span class="math inline">\(\{ (\alpha \land \beta) \} \vdash (\beta \land \alpha)\)</span></li>
+<li><span class="math inline">\(\{ (\alpha \iff \beta) \} \vdash ((\neg \alpha) \iff (\neg \beta))\)</span></li>
+<li><span class="math inline">\((\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span></li>
+<li><span class="math inline">\((\alpha \Longrightarrow \beta) \vdash (\neg (\alpha \land (\neg \beta)))\)</span></li>
+<li><span class="math inline">\(((\neg \alpha) \Longrightarrow (\neg (\neg \beta))) \vdash ((\neg \alpha) \Longrightarrow \beta)\)</span></li>
+<li><span class="math inline">\((\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))\)</span></li>
+<li><span class="math inline">\((\alpha \lor \beta) \vdash (\beta \lor \alpha)\)</span></li>
 </ol>
 </div>
 <div id="sol-application-deduction-theorem" class="proof solution">
@@ -2365,11 +2392,527 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> and <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
 <li><p><span class="math inline">\(\alpha\)</span> Modus Ponens 5, 6</p></li>
 </ol></li>
+<li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\(\{ \alpha, \beta \} \vdash (\alpha \land \beta)\)</span> is equivalent to <span class="math inline">\(\{ \alpha, \beta \} \vdash (\neg (\alpha \Longrightarrow (\neg \beta)))\)</span>.</p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (\neg \alpha)) \Longrightarrow\)</span> <span class="math inline">\((((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\((((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\beta \Longrightarrow (\neg \alpha))) \Longrightarrow\)</span> <span class="math inline">\((((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow \beta) \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha))))\)</span> Axiom 2</p></li>
+<li><p><span class="math inline">\(((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\beta \Longrightarrow (\neg \alpha)))\)</span> <a href="#exm-example-proof-4" class="quarto-xref">Example&nbsp;<span>1.4</span></a></p></li>
+<li><p><span class="math inline">\((((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow \beta) \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha)))\)</span> Modus Ponens 2, 3</p></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow \beta))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha)))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 5, 4</p></li>
+<li><p><span class="math inline">\(\beta\)</span> Premiss</p></li>
+<li><p><span class="math inline">\(((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha))\)</span> Modus Ponens 6, 7</p></li>
+<li><p><span class="math inline">\(((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\neg (\neg (\beta \Longrightarrow (\neg \alpha)))))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 2</p></li>
+<li><p><span class="math inline">\(((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\neg \alpha))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 9, 8</p></li>
+<li><p><span class="math inline">\(((\alpha \Longrightarrow (\neg \beta)) \Longrightarrow (\beta \Longrightarrow (\neg \alpha)))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 5</p></li>
+<li><p><span class="math inline">\(((\alpha \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 11, 10</p></li>
+<li><p><span class="math inline">\(((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> <a href="#exm-example-proof-4" class="quarto-xref">Example&nbsp;<span>1.4</span></a></p></li>
+<li><p><span class="math inline">\(((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (\neg \alpha))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 13, 12</p></li>
+<li><p><span class="math inline">\((((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta))))\)</span> Modus Ponens 1, 14</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow ((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow \alpha))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta))))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 16, 15</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((\neg (\alpha \Longrightarrow (\neg \beta)))\)</span> Modus Ponens 17, 18</p></li>
+</ol></li>
+<li><p><span class="math inline">\(\{ (\alpha \land \beta) \} \vdash (\beta \land \alpha)\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\beta\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 8</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 9</p></li>
+<li><p><span class="math inline">\((\beta \land \alpha)\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 10 applied to 8, 9</p></li>
+</ol></li>
+<li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\(\{ (\alpha \iff \beta) \} \vdash ((\neg \beta) \iff (\neg \alpha))\)</span> is equivalent to <span class="math inline">\(\{ (\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha) \} \vdash ((\neg \alpha) \iff (\neg \beta))\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((\beta \Longrightarrow \alpha)\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 8</p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\neg \beta))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 4 applied to 1</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 9</p></li>
+<li><p><span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 4 applied to 3</p></li>
+<li><p><span class="math inline">\((((\neg \alpha) \Longrightarrow (\neg \beta)) \land ((\neg \beta) \Longrightarrow (\neg \alpha)))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 10 applied to 2, 4</p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \iff (\neg \beta))\)</span> <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> 5</p></li>
+</ol></li>
+<li><p><span class="math inline">\((\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))))\)</span> Axiom 3</p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow ((\neg (\alpha \Longrightarrow \alpha)) \Longrightarrow (\neg \alpha)))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 2, 1</p></li>
+<li><p><span class="math inline">\((\neg \alpha)\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 8</p></li>
+<li><p><span class="math inline">\((((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))\)</span> Modus Ponens 3, 4</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow ((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 6, 5</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 9</p></li>
+<li><p><span class="math inline">\((\neg (\alpha \Longrightarrow \alpha))\)</span> Modus Ponens 7, 8</p></li>
+</ol></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \beta) \vdash (\neg (\alpha \land (\neg \beta)))\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow (\neg (\neg \beta)))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 2</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow (\neg (\neg \beta)))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 1, 2</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow (\neg (\neg \beta))) \Longrightarrow (\neg (\neg (\alpha \Longrightarrow (\neg (\neg \beta)))))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 2</p></li>
+<li><p><span class="math inline">\((\neg (\alpha \land (\neg \beta)))\)</span> <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> 4</p></li>
+</ol></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\neg (\neg \beta))) \vdash ((\neg \alpha) \Longrightarrow \beta)\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\(((\neg (\neg \beta)) \Longrightarrow \beta)\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a></p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow \beta)\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 1, 2</p></li>
+</ol></li>
+<li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\((\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))\)</span> is equivalent to <span class="math inline">\((\neg ((\neg \alpha) \Longrightarrow \beta)) \vdash (\neg ((\neg \alpha) \Longrightarrow (\neg (\neg \beta))))\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg \alpha) \Longrightarrow (\neg (\neg \beta))) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 15 and <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a></p></li>
+<li><p><span class="math inline">\(((\neg((\neg \alpha) \Longrightarrow \beta)) \Longrightarrow (\neg ((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 4</p></li>
+<li><p><span class="math inline">\((\neg ((\neg \alpha) \Longrightarrow \beta))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((\neg ((\neg \alpha) \Longrightarrow (\neg (\neg \beta))))\)</span> Modus ponens 2, 3</p></li>
+</ol></li>
+<li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\((\alpha \lor \beta) \vdash (\beta \lor \alpha)\)</span> is equivalent to <span class="math inline">\((\alpha \Longrightarrow (\neg \beta)) \vdash (\beta \Longrightarrow (\neg \alpha))\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(((\alpha \Longrightarrow (\neg \beta)) \Longrightarrow (\beta \Longrightarrow (\neg \alpha)))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 5</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow (\neg \beta))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow (\neg \alpha))\)</span> Modus Ponens 1, 2</p></li>
+</ol></li>
 </ul>
 </div>
 </section>
 <section id="soundness-and-completeness" class="level3" data-number="1.1.4">
 <h3 data-number="1.1.4" class="anchored" data-anchor-id="soundness-and-completeness"><span class="header-section-number">1.1.4</span> Soundness and Completeness</h3>
+<p>How are deduction and implication related? See for example <a href="#prp-truth-tables-deduction-theorem" class="quarto-xref">Proposition&nbsp;<span>1.5</span></a> and <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a>.</p>
+<p>The <em>Soundness</em> and <em>Completeness Theorems</em> say that <span class="math inline">\(\Sigma \vdash \psi\)</span> if and only if <span class="math inline">\(\Sigma \models \psi\)</span>, i.e.&nbsp;<span class="math inline">\(\vdash\)</span> and <span class="math inline">\(\models\)</span> are equivalent for propositional logic <span class="citation" data-cites="bilaniuk_problem_2009">(<a href="references.html#ref-bilaniuk_problem_2009" role="doc-biblioref">Bilaniuk 2009, 15</a>)</span>.</p>
+<div id="thm-soundness-theorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.3 (Soundness theorem)</strong></span> If <span class="math inline">\(\Delta\)</span> is a set of formulas and <span class="math inline">\(\alpha\)</span> is a formula such that <span class="math inline">\(\Delta \vdash \alpha\)</span>, then <span class="math inline">\(\Delta \models \alpha\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By strong induction on <span class="math inline">\(n\)</span>, the length of deduction or proof of <span class="math inline">\(\alpha\)</span> from <span class="math inline">\(\Delta\)</span>:</p>
+<p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: Then <span class="math inline">\(\alpha\)</span> is an axiom or <span class="math inline">\(\alpha \in \Delta\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(\alpha\)</span> is an axiom then by <a href="#prp-axioms-lp-tautology" class="quarto-xref">Proposition&nbsp;<span>1.7</span></a> is a tautology so for every truth assignment <span class="math inline">\(v\)</span> we have that <span class="math inline">\(v(\alpha) = T\)</span>. If <span class="math inline">\(v(\delta) = T\)</span> for some truth assignment <span class="math inline">\(v\)</span> for all <span class="math inline">\(\delta \in \Delta\)</span> then <span class="math inline">\(\Delta \models \alpha\)</span>.</p>
+<ul>
+<li><p>What happen if <span class="math inline">\(\Delta = \emptyset\)</span>?</p>
+<ul>
+<li><span class="math inline">\(\alpha\)</span> will be an axiom so by <a href="#prp-axioms-lp-tautology" class="quarto-xref">Proposition&nbsp;<span>1.7</span></a> it can’t be a contradiction.</li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(\alpha \in \Delta\)</span> and assuming that <span class="math inline">\(v(\delta) = T\)</span> for some truth assignment <span class="math inline">\(v\)</span> for all <span class="math inline">\(\delta \in \Delta\)</span> then <span class="math inline">\(\Delta \models \alpha\)</span>.</p>
+<ul>
+<li><p>What happen if <span class="math inline">\(\alpha\)</span> is a contradiction?</p>
+<ul>
+<li><p>We still have that <span class="math inline">\(\{ \alpha \} \vdash \alpha\)</span></p></li>
+<li><p>In the case of <span class="math inline">\(\{ \alpha \} \models \alpha \iff ((\forall v)((\forall \sigma)(\sigma \in \{ \alpha \} \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\alpha)=T)\)</span> we have that <span class="math inline">\(v(\sigma) = T\)</span> is false because <span class="math inline">\(\{ \alpha\}\)</span> contains a contradiction so <span class="math inline">\((\forall v)((\forall \sigma)(\sigma \in \{ \alpha \} \Longrightarrow v(\sigma)=T))\)</span> will be false and <span class="math inline">\(((\forall v)((\forall \sigma)(\sigma \in \{ \alpha \} \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\alpha)=T)\)</span> will be true.</p>
+<ul>
+<li>The above results doesn’t contradicts <a href="#prp-set-formulas-satisfiable" class="quarto-xref">Proposition&nbsp;<span>1.6</span></a> because in this case <span class="math inline">\(\{ \alpha \}\)</span> is not satisfiable and there exist a contradiction <span class="math inline">\(\alpha\)</span> such that <span class="math inline">\(\{ \alpha \} \models \alpha\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume that if there is a deduction or proof of length <span class="math inline">\(n \leq k\)</span> of <span class="math inline">\(\alpha\)</span> from <span class="math inline">\(\Delta\)</span> then <span class="math inline">\(\Delta \models \alpha\)</span>.</p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose there is a deduction or proof of length <span class="math inline">\(n = k + 1\)</span> of <span class="math inline">\(\alpha\)</span> from <span class="math inline">\(\Delta\)</span>.</p>
+<ul>
+<li><p>Therefore there are 3 possibilities by <a href="#def-deduction-or-proof" class="quarto-xref">Definition&nbsp;<span>1.10</span></a>: <span class="math inline">\(\alpha\)</span> is an axiom, <span class="math inline">\(\alpha \in \Delta\)</span> or there are <span class="math inline">\(i,j \leq k + 1\)</span> such that <span class="math inline">\(\alpha\)</span> follows from <span class="math inline">\(\psi_i\)</span> and <span class="math inline">\(\psi_j\)</span>.</p>
+<ul>
+<li><p>The first 2 possibilities are cover in the <em>Base step</em> where we can show in a similar way that <span class="math inline">\(\Delta \models \alpha\)</span>.</p></li>
+<li><p>In the case of the last possibility and without loss of generality <span class="math inline">\(\psi_i = (\psi_j \Longrightarrow \alpha)\)</span>. Furthermore, <span class="math inline">\(\Delta \vdash \psi_i\)</span> and <span class="math inline">\(\Delta \vdash \psi_j\)</span> are deductions of length <span class="math inline">\(n \leq k\)</span>.</p>
+<ul>
+<li><p>By the <em>Induction hypothesis</em> <span class="math inline">\(\Delta \models (\psi_j \Longrightarrow \alpha)\)</span> and <span class="math inline">\(\Delta \models \psi_j\)</span>. Therefore:</p></li>
+<li><p>For all truth assignment <span class="math inline">\(v\)</span> we have that if <span class="math inline">\(\delta \in \Delta\)</span> then <span class="math inline">\(v(\delta) = T\)</span>, <span class="math inline">\(v((\psi_j \Longrightarrow \alpha)) = T\)</span> and <span class="math inline">\(v(\psi_j) = T\)</span>.</p></li>
+<li><p>By <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a> <span class="math inline">\(v(\alpha) = T\)</span> so <span class="math inline">\(\Delta \models \alpha\)</span></p></li>
+</ul></li>
+<li><p>In any case <span class="math inline">\(\Delta \models \alpha\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="nte-soundness-plain-english" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Soundness guarantees that if you can deduce or prove something using the rules of the logical system, then that something is actually true.</p></li>
+<li><p>It ensures that the system’s rules of deduction are reliable and do not lead to false conclusions.</p>
+<ul>
+<li>In the case of <span class="math inline">\(\mathcal{L}_p\)</span> the rules are described in <a href="#def-axioms-lp" class="quarto-xref">Definition&nbsp;<span>1.8</span></a>, <a href="#def-modus-ponens" class="quarto-xref">Definition&nbsp;<span>1.9</span></a> and <a href="#def-deduction-or-proof" class="quarto-xref">Definition&nbsp;<span>1.10</span></a>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="def-inconsistent-consisten-formula" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.11</strong></span> A set of formulas <span class="math inline">\(\Gamma\)</span> is <em>inconsistent</em> if <span class="math inline">\(Γ \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span> for some formula <span class="math inline">\(\alpha\)</span>, and <em>consistent</em> if it is not inconsistent.</p>
+</div>
+<p>For example <span class="math inline">\(\{ \alpha, (\neg \alpha) \}\)</span> is inconsistent by <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1 because <span class="math inline">\(\{ \alpha, (\neg \alpha) \} \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>. What happen if <span class="math inline">\(\beta\)</span> is a formula that is satisfiable?</p>
+<div id="prp-satisfiable-consistent-formula" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.13</strong></span> If a set of formulas is satisfiable, then it is consistent.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is equivalent to show that if a set of formulas is inconsistent then it is not satisfiable<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Therefore:</p>
+<ul>
+<li><p>Let <span class="math inline">\(\Delta\)</span> a set of formulas such that <span class="math inline">\(\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p></li>
+<li><p>By <a href="#thm-soundness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.3</span></a> <span class="math inline">\(\Delta \models (\neg (\alpha \Longrightarrow \alpha))\)</span></p>
+<ul>
+<li><p>Because <span class="math inline">\((\alpha \Longrightarrow \alpha)\)</span> is a tautology by <a href="#def-tautology-contradiction" class="quarto-xref">Definition&nbsp;<span>1.6</span></a> <span class="math inline">\((\neg (\alpha \Longrightarrow \alpha))\)</span> is a contradiction.</p></li>
+<li><p>Therefore by <a href="#prp-set-formulas-satisfiable" class="quarto-xref">Proposition&nbsp;<span>1.6</span></a> <span class="math inline">\(\Delta\)</span> is not satisfiable because there exist a contradiction <span class="math inline">\(\chi\)</span> such that <span class="math inline">\(\Delta \models \chi\)</span> where <span class="math inline">\(\chi = (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="prp-inconsistent-set-formulas-deduction" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.14</strong></span> Suppose <span class="math inline">\(\Delta\)</span> is an inconsistent set of formulas. Then <span class="math inline">\(\Delta \vdash \psi\)</span> for any formula <span class="math inline">\(\psi\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(\Delta\)</span> is an inconsistent set of formulas then <span class="math inline">\(\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p>
+<p>Also it is possible to show that <span class="math inline">\(\{ (\neg (\alpha \Longrightarrow \alpha)) \} \vdash \psi\)</span>:</p>
+<ol type="1">
+<li><p><span class="math inline">\((((\neg \psi) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow (((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)) \Longrightarrow \psi))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow \alpha)) \Longrightarrow ((\neg \psi) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow \alpha)) \Longrightarrow (((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)) \Longrightarrow \psi))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 2, 1</p></li>
+<li><p><span class="math inline">\((\neg (\alpha \Longrightarrow \alpha))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)) \Longrightarrow \psi)\)</span> Modus Ponens 3, 4</p></li>
+<li><p><span class="math inline">\(((\alpha \Longrightarrow \alpha) \Longrightarrow ((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\alpha \Longrightarrow \alpha) \Longrightarrow \psi)\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 6, 5</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \alpha)\)</span> <a href="#exm-example-proof-1" class="quarto-xref">Example&nbsp;<span>1.1</span></a></p></li>
+<li><p><span class="math inline">\(\psi\)</span> Modus ponens 7, 8</p></li>
+</ol>
+<p>Finally, because <span class="math inline">\(\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span> and <span class="math inline">\(\{ (\neg (\alpha \Longrightarrow \alpha)) \} \vdash \psi\)</span> by <a href="#prp-set-formulas-transitivity-deduction" class="quarto-xref">Proposition&nbsp;<span>1.12</span></a> <span class="math inline">\(\Delta \vdash \psi\)</span>.</p>
+</div>
+<div id="prp-inconsisten-formulas-subset" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.15</strong></span> <span class="math inline">\(\Sigma\)</span> is an inconsistent set of formulas if and only if there is a finite subset <span class="math inline">\(\Delta\)</span> of <span class="math inline">\(\Sigma\)</span> such that <span class="math inline">\(\Delta\)</span> is inconsistent.</p>
+</div>
+<div id="wrn-contradiction-empty-set-deduction" class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning&nbsp;1.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is possible that <span class="math inline">\(\vdash \sigma\)</span> where <span class="math inline">\(\sigma\)</span> is a contradiction?</p>
+<p>If <span class="math inline">\(\vdash \sigma\)</span> then there is a deduction <span class="math inline">\(\psi_1 \ldots \psi_n\)</span> where <span class="math inline">\(\psi_n = \sigma\)</span> and for each <span class="math inline">\(k \leq n\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\psi_k\)</span> is an axiom</li>
+<li>there are <span class="math inline">\(i, j &lt; k\)</span> such that <span class="math inline">\(\psi_k\)</span> follows from <span class="math inline">\(\psi_i\)</span> and <span class="math inline">\(\psi_j\)</span> by Modus Ponens.</li>
+</ul>
+<p>Taking into account that <span class="math inline">\(\emptyset \vdash \sigma\)</span> so it will not be possible that <span class="math inline">\(\sigma \in \emptyset\)</span>.</p>
+<p>Finally by <a href="#prp-axioms-lp-tautology" class="quarto-xref">Proposition&nbsp;<span>1.7</span></a> every axiom of <span class="math inline">\(\mathcal{L}_p\)</span> is a tautology and by <a href="#prp-modus-ponens-implies" class="quarto-xref">Proposition&nbsp;<span>1.8</span></a> it is not possible to obtain a contradiction by using Modus Ponens.</p>
+<p>Therefore if <span class="math inline">\(\vdash \sigma\)</span> then <span class="math inline">\(\sigma\)</span> can’t be a contradiction.</p>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(\Sigma \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span> then by <a href="#wrn-contradiction-empty-set-deduction" class="quarto-xref">Warning&nbsp;<span>1.1</span></a> <span class="math inline">\(\Sigma \neq \emptyset\)</span>. Also by <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> there is a deduction <span class="math inline">\(\psi_1 \ldots \psi_n\)</span> where <span class="math inline">\(\psi_n = (\neg (\alpha \Longrightarrow \alpha))\)</span> and for each <span class="math inline">\(k \leq n\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\psi_k\)</span> is an axiom</p></li>
+<li><p><span class="math inline">\(\psi_k \in \Sigma\)</span></p></li>
+<li><p>there are <span class="math inline">\(i, j &lt; k\)</span> such that <span class="math inline">\(\psi_k\)</span> follows from <span class="math inline">\(\psi_i\)</span> and <span class="math inline">\(\psi_j\)</span> by Modus Ponens.</p>
+<ul>
+<li><p>If some or all <span class="math inline">\(\psi_k \in \Sigma\)</span> then <span class="math inline">\(\Delta \subseteq \Sigma\)</span> will be the set of formulas than contains the <span class="math inline">\(\psi_k\)</span> used in <span class="math inline">\(\psi_1 \ldots \psi_n\)</span>. Therefore <span class="math inline">\(\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span> where <span class="math inline">\(\Delta \neq \emptyset\)</span> by <a href="#wrn-contradiction-empty-set-deduction" class="quarto-xref">Warning&nbsp;<span>1.1</span></a>.</p>
+<ul>
+<li><p>To illustrate when <span class="math inline">\(\Delta = \Sigma\)</span> or <span class="math inline">\(\Delta \subset \Sigma\)</span> we can point out the following examples:</p>
+<ul>
+<li><p><span class="math inline">\(\Sigma = \{ \alpha, ((\beta \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))) \}\)</span> or <span class="math inline">\(\Sigma = \{ (\neg (\alpha \Longrightarrow \alpha)) \}\)</span>.</p></li>
+<li><p><span class="math inline">\(\Sigma = \{ \alpha, (\alpha \Longrightarrow (\alpha \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))), (\alpha \Longrightarrow \alpha) \}\)</span> where <span class="math inline">\(\Delta = \{ \alpha, (\alpha \Longrightarrow (\alpha \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))) \}\)</span> or <span class="math inline">\(\Sigma = \{ (\neg (\alpha \Longrightarrow \alpha)), (\alpha \Longrightarrow \alpha) \}\)</span> where <span class="math inline">\(\Delta = \{ (\neg (\alpha \Longrightarrow \alpha)) \}\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(\Delta \subseteq \Sigma\)</span> such that <span class="math inline">\(\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p>
+<ul>
+<li>By <a href="#prp-subset-formulas-deduction" class="quarto-xref">Proposition&nbsp;<span>1.11</span></a> <span class="math inline">\(\Sigma \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span> so <span class="math inline">\(\Sigma\)</span> is inconsistent.</li>
+</ul></li>
+</ul>
+</div>
+<div id="cor-inconsisten-formulas-subset" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.2</strong></span> A set of formulas <span class="math inline">\(\Gamma\)</span> is consistent if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is consistent.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is equivalent to show that <span class="math inline">\(\Gamma\)</span> is an inconsistent set of formulas if and only if there is a finite subset <span class="math inline">\(\Delta\)</span> of <span class="math inline">\(\Gamma\)</span> such that <span class="math inline">\(\Delta\)</span> is inconsistent<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Therefore by <a href="#prp-inconsisten-formulas-subset" class="quarto-xref">Proposition&nbsp;<span>1.15</span></a> this is already proved.</p>
+</div>
+<div id="def-formulas-maximally-consistent" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.12</strong></span> A set of formulas <span class="math inline">\(\Sigma\)</span> is maximally consistent if <span class="math inline">\(\Sigma\)</span> is consistent but <span class="math inline">\(\Sigma \cup \{ \psi \}\)</span> is inconsistent for any <span class="math inline">\(\psi \not \in \Sigma\)</span>.</p>
+</div>
+<div id="exr-maximally-consistent-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.11</strong></span> Suppose <span class="math inline">\(v\)</span> is a truth assignment. Show that <span class="math inline">\(\Sigma =
+\{ \psi \mid v(\psi) = T \}\)</span> is maximally consistent.</p>
+</div>
+<div id="sol-maximally-consistent-1" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.11</em>. </span>First, <span class="math inline">\(\Sigma\)</span> is satisfiable because <span class="math inline">\(v\)</span> is a truth assignment that satisfies <span class="math inline">\(\Sigma\)</span> taking into account that <span class="math inline">\(v(\psi) = T\)</span>. Then by <a href="#prp-satisfiable-consistent-formula" class="quarto-xref">Proposition&nbsp;<span>1.13</span></a> <span class="math inline">\(\Sigma\)</span> is consistent.</p>
+<p>Second, let <span class="math inline">\(\Sigma \cup \{ \beta \} = \{ \psi, \beta \}\)</span> where <span class="math inline">\(\beta \not \in \Sigma\)</span>. Because <span class="math inline">\(\beta \not \in \Sigma\)</span> then <span class="math inline">\(v(\beta) = F\)</span>. By <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a> <span class="math inline">\(v((\neg \beta)) = T\)</span> so <span class="math inline">\((\neg \beta) \in \Sigma\)</span>. Therefore we can prove that <span class="math inline">\(\Sigma \cup \{ \beta \} \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\beta\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((\neg \beta) \in \Sigma\)</span></p></li>
+<li><p><span class="math inline">\((\neg (\alpha \Longrightarrow \alpha))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1 applied to 1, 2</p></li>
+</ol>
+<p>Therefore, <span class="math inline">\(\Sigma\)</span> is maximally consistent.</p>
+</div>
+<div id="prp-belongs-maximally-consistent" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.16</strong></span> If <span class="math inline">\(\Sigma\)</span> is a maximally consistent set of formulas, <span class="math inline">\(\psi\)</span> is a formula and <span class="math inline">\(\Sigma \vdash \psi\)</span> then <span class="math inline">\(\psi \in \Sigma\)</span>.</p>
+</div>
+<div id="nte-proof-by-reductio-ad-absurdum" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1.3: Proof by reductio ad absurdum
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A proof by reductio ad absurdum is a way to prove <span class="math inline">\(\beta\)</span> by showing that <span class="math inline">\((\neg \beta)\)</span> leads to a contradiction <span class="citation" data-cites="mendelson_number_2008">(<a href="references.html#ref-mendelson_number_2008" role="doc-biblioref">Mendelson 2008, 7</a>, Exercise 5)</span>. That is, <span class="math inline">\(((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha))) \models \beta\)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;border-right: 1px solid;">
+<span class="math inline">\(\beta\)</span>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<span class="math inline">\((\neg \beta)\)</span>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<span class="math inline">\((\alpha \land (\neg \alpha))\)</span>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<span class="math inline">\(((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha)))\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(T\)</span>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(F\)</span>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(F\)</span>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(T\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(F\)</span>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(T\)</span>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(F\)</span>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(F\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> and <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 14 assume that <span class="math inline">\(\Sigma\)</span> is a maximally consistent set of formulas, <span class="math inline">\(\psi\)</span> is a formula, <span class="math inline">\(\Sigma \vdash \psi\)</span> and <span class="math inline">\(\psi  \not \in \Sigma\)</span>.</p>
+<p>Because <span class="math inline">\(\psi  \not \in \Sigma\)</span> and <span class="math inline">\(\Sigma\)</span> is maximally consistent then <span class="math inline">\(\Sigma \cup \{ \psi \} \vdash (\neg (\alpha \Longrightarrow) \alpha)\)</span>.</p>
+<p>By <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(\Sigma \vdash (\psi \Longrightarrow (\neg (\alpha \Longrightarrow)) \alpha)\)</span> but <span class="math inline">\(\Sigma \vdash \psi\)</span> so by Modus Ponens <span class="math inline">\(\Sigma \vdash (\neg (\alpha \Longrightarrow)) \alpha)\)</span></p>
+<p>The above result is a contradiction because <span class="math inline">\(\Sigma\)</span> is maximally consistent so by <a href="#def-formulas-maximally-consistent" class="quarto-xref">Definition&nbsp;<span>1.12</span></a> it must by consistent. Therefore by <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> is must be the case that <a href="#prp-belongs-maximally-consistent" class="quarto-xref">Proposition&nbsp;<span>1.16</span></a> is true.</p>
+</div>
+<div id="prp-consistent-negation" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.17</strong></span> &nbsp;</p>
+<ul>
+<li><p>If <span class="math inline">\(\Sigma\)</span> is maximally consistent and <span class="math inline">\((\neg \psi) \in \Sigma\)</span> then <span class="math inline">\(\psi \not \in \Sigma\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\Sigma\)</span> is maximally consistent and <span class="math inline">\(\psi \not \in \Sigma\)</span> then <span class="math inline">\((\neg \psi) \in \Sigma\)</span>.</p></li>
+</ul>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li><p>Using <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume that <span class="math inline">\(\Sigma\)</span> is maximally consistent, <span class="math inline">\((\neg \psi) \in \Sigma\)</span> and <span class="math inline">\(\psi \in \Sigma\)</span></p>
+<ul>
+<li><p>Therefore <span class="math inline">\(\Sigma \vdash (\neg \psi)\)</span>, <span class="math inline">\(\Sigma \vdash \psi\)</span> and by <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1 <span class="math inline">\(\Sigma \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p></li>
+<li><p>However this is a contradiction because<span class="math inline">\(\Sigma\)</span> is consistent by <a href="#def-formulas-maximally-consistent" class="quarto-xref">Definition&nbsp;<span>1.12</span></a>. Therefore $ is maximally consistent and <span class="math inline">\((\neg \psi) \in \Sigma\)</span> then <span class="math inline">\(\psi \not \in \Sigma\)</span> must be true.</p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(\Sigma\)</span> is maximally consistent and <span class="math inline">\(\psi \not \in \Sigma\)</span>:</p>
+<ul>
+<li><p>By <a href="#def-formulas-maximally-consistent" class="quarto-xref">Definition&nbsp;<span>1.12</span></a> <span class="math inline">\(\Sigma \cup \{ \psi \} \vdash (\neg (\alpha \Longrightarrow))\)</span>.</p></li>
+<li><p>By <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(\Sigma \vdash (\psi \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))\)</span>. Therefore:</p>
+<ol type="1">
+<li><p><span class="math inline">\((\psi \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\(((\psi \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow ((\alpha \Longrightarrow \alpha) \Longrightarrow (\neg \psi)))\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 5</p></li>
+<li><p><span class="math inline">\(((\alpha \Longrightarrow \alpha) \Longrightarrow (\neg \psi))\)</span> Modus Ponens 2, 1</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \alpha)\)</span> <a href="#exm-example-proof-1" class="quarto-xref">Example&nbsp;<span>1.1</span></a></p></li>
+<li><p><span class="math inline">\((\neg \psi)\)</span> Modus Ponens 3, 4</p></li>
+</ol></li>
+<li><p>Therefore <span class="math inline">\(\Sigma \vdash (\neg \psi)\)</span> and by <a href="#prp-belongs-maximally-consistent" class="quarto-xref">Proposition&nbsp;<span>1.16</span></a> <span class="math inline">\((\neg \psi) \in \Sigma\)</span>.</p></li>
+</ul></li>
+</ul>
+<p>Using similar arguments we can prove that:</p>
+<ul>
+<li><p>If <span class="math inline">\(\Sigma\)</span> is maximally consistent and <span class="math inline">\(\beta \in \Sigma\)</span> then <span class="math inline">\((\neg \beta) \not \in \Sigma\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\Sigma\)</span> is maximally consistent and <span class="math inline">\((\neg \beta) \not \in \Sigma\)</span> then <span class="math inline">\(\beta \in \Sigma\)</span>.</p></li>
+</ul>
+</div>
+<div id="prp-maximally-consistent-implies" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.18</strong></span> Suppose <span class="math inline">\(\Sigma\)</span> is a maximally consistent set of formulas and <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are formulas. Then <span class="math inline">\((\varphi \Longrightarrow \psi) \in \Sigma\)</span> if and only if <span class="math inline">\(\varphi \not \in \Sigma\)</span> or <span class="math inline">\(\psi \in \Sigma\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 16<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> and <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume <span class="math inline">\(\Sigma\)</span> is maximally consistent, <span class="math inline">\((\varphi \Longrightarrow \psi) \in \Sigma\)</span>, <span class="math inline">\(\varphi \in \Sigma\)</span> and <span class="math inline">\(\psi \not \in \Sigma\)</span>. Therefore:</p>
+<ul>
+<li><p>Because <span class="math inline">\(\Sigma \vdash (\varphi \Longrightarrow \psi)\)</span> and <span class="math inline">\(\Sigma \vdash \varphi\)</span> then <span class="math inline">\(\Sigma \vdash \psi\)</span> by Modus Ponens.</p></li>
+<li><p>Because <span class="math inline">\(\psi \not \in \Sigma\)</span> by <a href="#prp-consistent-negation" class="quarto-xref">Proposition&nbsp;<span>1.17</span></a> <span class="math inline">\((\neg \psi) \in \Sigma\)</span> so <span class="math inline">\(\Sigma \vdash (\neg \psi)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\Sigma \vdash \psi\)</span> and <span class="math inline">\(\Sigma \vdash (\neg \psi)\)</span> by <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 5 <span class="math inline">\(\Sigma \vdash (\neg (\alpha \Longrightarrow) \alpha)\)</span>.</p></li>
+<li><p>However the above result is a contradiction because <span class="math inline">\(\Sigma\)</span> is maximally consistent so it must be consistent by <a href="#def-formulas-maximally-consistent" class="quarto-xref">Definition&nbsp;<span>1.12</span></a>.</p></li>
+<li><p>Therefore if <span class="math inline">\(\Sigma\)</span> is a maximally consistent and <span class="math inline">\((\varphi \Longrightarrow \psi) \in \Sigma\)</span> then <span class="math inline">\(\varphi \not \in \Sigma\)</span> or <span class="math inline">\(\psi \in \Sigma\)</span> must be true.</p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(\Sigma\)</span> is a maximally consistent and <span class="math inline">\(\varphi \not \in \Sigma\)</span> or <span class="math inline">\(\psi \in \Sigma\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(\Sigma\)</span> is a maximally consistent and <span class="math inline">\(\varphi \not \in \Sigma\)</span> then <span class="math inline">\((\neg \varphi) \in \Sigma\)</span> by <a href="#prp-consistent-negation" class="quarto-xref">Proposition&nbsp;<span>1.17</span></a> so <span class="math inline">\(\Sigma \vdash (\neg \varphi)\)</span>. Therefore:</p>
+<ol type="1">
+<li><p><span class="math inline">\((\neg \varphi)\)</span> Premiss</p></li>
+<li><p><span class="math inline">\(((\neg \varphi) \Longrightarrow ((\neg \psi) \Longrightarrow (\neg \varphi)))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\(((\neg \psi) \Longrightarrow (\neg \varphi))\)</span> Modus Ponens 2, 1</p></li>
+<li><p><span class="math inline">\((\varphi \Longrightarrow \psi)\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 3</p></li>
+</ol></li>
+<li><p>If <span class="math inline">\(\Sigma\)</span> is a maximally consistent and <span class="math inline">\(\psi \in \Sigma\)</span> then <span class="math inline">\(\Sigma \vdash \psi\)</span>. Therefore:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\psi\)</span> Premiss</p></li>
+<li><p><span class="math inline">\((\psi \Longrightarrow (\varphi \Longrightarrow \psi))\)</span> Axiom 1</p></li>
+<li><p><span class="math inline">\((\varphi \Longrightarrow \psi)\)</span> Modus Ponens 2, 1</p></li>
+</ol></li>
+<li><p>In any case because <span class="math inline">\(\Sigma \vdash (\varphi \Longrightarrow \psi)\)</span> by <a href="#prp-belongs-maximally-consistent" class="quarto-xref">Proposition&nbsp;<span>1.16</span></a> <span class="math inline">\((\varphi \Longrightarrow \psi) \in \Sigma\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="thm-expand-to-maximally-consistent" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.4</strong></span> Suppose <span class="math inline">\(\Gamma\)</span> is a consistent set of formulas. Then there is a maximally consistent set of formulas <span class="math inline">\(\Sigma\)</span> such that <span class="math inline">\(\Gamma \subseteq \Sigma\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(\gamma \not \in \Gamma\)</span> and <span class="math inline">\(\Gamma \cup \{ \gamma \}\)</span> be inconsistent then <span class="math inline">\(\Gamma = \Sigma\)</span>.</p>
+<p>Otherwise, assume <span class="math inline">\(\gamma \not \in \Gamma\)</span> and <span class="math inline">\(\Gamma \cup \{ \gamma \}\)</span> be inconsistent. Therefore:</p>
+<ul>
+<li><p>By <a href="#exr-formulas-countable-lp" class="quarto-xref">Exercise&nbsp;<span>1.6</span></a> let <span class="math inline">\(\psi_1, \psi_2,  \ldots, \psi_n, \ldots\)</span> the formulas of <span class="math inline">\(\mathcal{L}_p\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\Delta_1 = \Gamma\)</span> and <span class="math inline">\(\Delta_{k+1}\)</span> <span class="citation" data-cites="fagin_reasoning_1995">(<a href="references.html#ref-fagin_reasoning_1995" role="doc-biblioref">Fagin 1995, 55</a>, Lemma 3.1.2)</span>:</p></li>
+</ul>
+<p><span class="math display">\[\Delta_{k+1} = \begin{cases}
+                  \Delta_k \cup \{ \psi_k \} &amp; \text{if is consistent} \\
+                  \Delta_k &amp; \text{if is inconsistent}
+                  \end{cases}\]</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(\Lambda = \bigcup_{k \in \mathbb{N}} \Delta_k\)</span> then <span class="math inline">\(\Lambda\)</span> is maximally consistent because:</p>
+<ul>
+<li><p>Because every finite subset of <span class="math inline">\(\Lambda\)</span> is contained in some <span class="math inline">\(\Delta_k\)</span> for some <span class="math inline">\(k\)</span> and each <span class="math inline">\(\Delta_k\)</span> is consistent by <a href="#cor-inconsisten-formulas-subset" class="quarto-xref">Corollary&nbsp;<span>1.2</span></a> <span class="math inline">\(\Lambda\)</span> is consistent.</p></li>
+<li><p>Let <span class="math inline">\(\beta \not \in \Lambda\)</span> then there is some <span class="math inline">\(\psi_i\)</span> such that <span class="math inline">\(\beta = \psi_i\)</span> and <span class="math inline">\(\Delta_{i+1} = \Delta_i \cup \{ \psi_i \}\)</span> is inconsistent. Because <span class="math inline">\(\Delta_{i+1}\)</span> is a finite subset of <span class="math inline">\(\Lambda\)</span> by <a href="#prp-inconsisten-formulas-subset" class="quarto-xref">Proposition&nbsp;<span>1.15</span></a> <span class="math inline">\(\Lambda \cup \{ \beta \}\)</span> is inconsistent.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="thm-consistent-satisfiable-equivalence" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.5</strong></span> A set of formulas is consistent if and only if it is satisfiable.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li><p>If a set of formulas <span class="math inline">\(\Gamma\)</span> is consistent then by <a href="#thm-expand-to-maximally-consistent" class="quarto-xref">Theorem&nbsp;<span>1.4</span></a> there is maximally consistent set of formulas <span class="math inline">\(\Sigma\)</span> such that <span class="math inline">\(\Gamma \subseteq \Sigma\)</span>. Therefore:</p>
+<ul>
+<li><p>Lets define a truth assignment <span class="math inline">\(v\)</span> such that <span class="math inline">\(v(A_i) = T\)</span> if and only if <span class="math inline">\(A_i \in \Sigma\)</span> <span class="citation" data-cites="bilaniuk_problem_2009">(<a href="references.html#ref-bilaniuk_problem_2009" role="doc-biblioref">Bilaniuk 2009, 20</a>)</span>. Also by <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 12 and because <span class="math inline">\(\{ (\alpha \iff \beta) \} \models ((\neg \beta) \iff (\neg \alpha))\)</span> we have that <span class="math inline">\(v(A_i) = T\)</span> if and only if <span class="math inline">\(A_i \in \Sigma\)</span> is equivalent to <span class="math inline">\(v(A_i) = F\)</span> if and only if <span class="math inline">\(A_i \not \in \Sigma\)</span>.</p>
+<ul>
+<li><p>By strong induction on <span class="math inline">\(n\)</span>, the number of connectives (occurrences of <span class="math inline">\(\neg\)</span> or <span class="math inline">\(\Longrightarrow\)</span>) in <span class="math inline">\(\varphi\)</span>:</p>
+<ul>
+<li><p><em>Base step</em> <span class="math inline">\((n = 0)\)</span>: Because <span class="math inline">\(\varphi\)</span> has no connectives then by <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> <span class="math inline">\(\varphi\)</span> is an atomic formula. Therefore by the assumption made <span class="math inline">\(v(\varphi) = T\)</span> if and only if <span class="math inline">\(\varphi \in \Sigma\)</span>.</p></li>
+<li><p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume that if <span class="math inline">\(\varphi\)</span> is a formula with <span class="math inline">\(n \leq k\)</span> connectives then <span class="math inline">\(v(\varphi) = T\)</span> if and only if <span class="math inline">\(\varphi \in \Sigma\)</span>.</p></li>
+<li><p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\varphi\)</span> is a formula with <span class="math inline">\(n = k + 1\)</span> connectives. From <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> <span class="math inline">\(\varphi\)</span> must be either:</p>
+<ul>
+<li><p><span class="math inline">\((\neg \alpha)\)</span> for some formula <span class="math inline">\(\alpha\)</span> with <span class="math inline">\(k\)</span> connectives. By the <em>induction hypothesis</em> <span class="math inline">\(v(\alpha) = T\)</span> if and only if <span class="math inline">\(\alpha \in \Sigma\)</span>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(v((\neg \alpha)) = F\)</span> <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a></p></li>
+<li><p><span class="math inline">\(v(\alpha) = T\)</span> <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a> or <a href="#thm-soundness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.3</span></a> (for <span class="math inline">\(\iff\)</span> to apply)</p></li>
+<li><p><span class="math inline">\(\alpha \in \Sigma\)</span> <em>Induction hypothesis</em> or <a href="#prp-consistent-negation" class="quarto-xref">Proposition&nbsp;<span>1.17</span></a> (for <span class="math inline">\(\iff\)</span> to apply)</p></li>
+<li><p><span class="math inline">\((\neg \alpha) \not \in \Sigma\)</span> <a href="#prp-consistent-negation" class="quarto-xref">Proposition&nbsp;<span>1.17</span></a></p></li>
+</ol></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow \gamma)\)</span> for some formulas <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> with <span class="math inline">\(\leq k\)</span> connectives each. By the <em>induction hypothesis</em> <span class="math inline">\(v(\beta) = T\)</span> if and only if <span class="math inline">\(\beta \in \Sigma\)</span> and <span class="math inline">\(v(\gamma) = T\)</span> if and only if <span class="math inline">\(\gamma \in \Sigma\)</span>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(v((\beta \Longrightarrow \gamma)) = T\)</span> <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a></p></li>
+<li><p><span class="math inline">\(v(\beta) = F\)</span> or <span class="math inline">\(v(\gamma) = T\)</span> <a href="#def-truth-assignment" class="quarto-xref">Definition&nbsp;<span>1.4</span></a> or <em>induction hypothesis</em> (for <span class="math inline">\(\iff\)</span> to apply)</p></li>
+<li><p><span class="math inline">\(\beta \not \in \Sigma\)</span> and <span class="math inline">\(\gamma \in \Sigma\)</span> <em>induction hypothesis</em> or <a href="#prp-maximally-consistent-implies" class="quarto-xref">Proposition&nbsp;<span>1.18</span></a> (for <span class="math inline">\(\iff\)</span> to apply)</p></li>
+<li><p><span class="math inline">\((\beta \Longrightarrow \gamma) \in \Sigma\)</span> <a href="#prp-maximally-consistent-implies" class="quarto-xref">Proposition&nbsp;<span>1.18</span></a></p></li>
+</ol></li>
+<li><p>In any case <span class="math inline">\(v(\varphi) = T\)</span> if and only if <span class="math inline">\(\varphi \in \Sigma\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Because for all <span class="math inline">\(\gamma \in \Gamma\)</span> then <span class="math inline">\(\gamma \in \Sigma\)</span> by the above result <span class="math inline">\(v(\gamma) = T\)</span> for all <span class="math inline">\(\gamma \in \Gamma\)</span>. Therefore <span class="math inline">\(\Gamma\)</span> is satisfiable.</p></li>
+</ul></li>
+<li><p>If a set of formulas <span class="math inline">\(\Gamma\)</span> is satisfiable then by <a href="#prp-satisfiable-consistent-formula" class="quarto-xref">Proposition&nbsp;<span>1.13</span></a> <span class="math inline">\(\Gamma\)</span> is consistent.</p></li>
+</ul>
+</div>
+<div id="thm-completeness-theorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.6 (Completeness Theorem)</strong></span> If <span class="math inline">\(\Delta\)</span> is a set of formulas and <span class="math inline">\(\alpha\)</span> is a formula such that <span class="math inline">\(\Delta \models \alpha\)</span>, then <span class="math inline">\(\Delta \vdash \alpha\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(\Delta \models \alpha\)</span> then by <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> <span class="math inline">\(\Delta \cup \{ (\neg \alpha) \}\)</span> is not satisfiable because there is no truth assignment <span class="math inline">\(v\)</span> such that <span class="math inline">\(v(\alpha) = T\)</span> and <span class="math inline">\(v((\neg \alpha)) = T\)</span>.</p>
+<p>If <span class="math inline">\(\Delta \cup \{ (\neg \alpha) \}\)</span> is not satisfiable by <a href="#thm-consistent-satisfiable-equivalence" class="quarto-xref">Theorem&nbsp;<span>1.5</span></a>, <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 12 and because <span class="math inline">\(\{ (\alpha \iff \beta) \} \models ((\neg \beta) \iff (\neg \alpha))\)</span> we have that <span class="math inline">\(\Delta \cup \{ (\neg \alpha) \}\)</span> is inconsistent, <span class="math inline">\(\Delta \cup \{ (\neg \alpha) \} \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p>
+<p>By <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(\Delta \vdash ((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))\)</span> Therefore:</p>
+<ol type="1">
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))\)</span> Premiss</p></li>
+<li><p><span class="math inline">\(((\alpha \Longrightarrow \alpha) \Longrightarrow \alpha)\)</span> <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 3</p></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \alpha)\)</span> <a href="#exm-example-proof-1" class="quarto-xref">Example&nbsp;<span>1.1</span></a></p></li>
+<li><p><span class="math inline">\(\alpha\)</span> Modus Ponens 2, 3</p></li>
+</ol>
+<p>The above result means that <span class="math inline">\(\Delta \vdash \alpha\)</span>.</p>
+</div>
+<div id="nte-completness-plain-english" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Completeness guarantees that if something is actually true, then you can deduce or prove it using the rules of the logical system.</p>
+<ul>
+<li>In the case of <span class="math inline">\(\mathcal{L}_p\)</span> the rules are described in <a href="#def-axioms-lp" class="quarto-xref">Definition&nbsp;<span>1.8</span></a>, <a href="#def-modus-ponens" class="quarto-xref">Definition&nbsp;<span>1.9</span></a> and <a href="#def-deduction-or-proof" class="quarto-xref">Definition&nbsp;<span>1.10</span></a>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="thm-compactness-theorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.7 (Compactness Theorem)</strong></span> A set of formulas <span class="math inline">\(\Gamma\)</span> is satisfiable if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is satisfiable.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+</div>
+</section>
+</section>
+<section id="sets" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sets"><span class="header-section-number">1.2</span> Sets</h2>
+<p>This section is a treatment of axiomatic set theory from the naive point of view as described in <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017</a>)</span>:</p>
+<ul>
+<li><p>It is axiomatic in that some axioms for set theory are stated and used as the basis of all subsequent proofs <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, v</a>)</span>. For an axiomatic approach see <strong>Appendix E</strong>.</p></li>
+<li><p>It is naive in that the language and notation are those of ordinary informal (but formalizable) mathematics <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, v</a>)</span></p></li>
+</ul>
+<p>One thing that the development will not include is a definition of sets. The naive point of view adopted assumes that the reader has the ordinary, human, intuitive (and frequently erroneous) understanding of what sets are. The purpose of the exposition is to delineate some of the many things that one can correctly do with them <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 1</a>)</span>.</p>
+<section id="the-axiom-of-extension" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="the-axiom-of-extension"><span class="header-section-number">1.2.1</span> The axiom of extension</h3>
+<p>Sets, as they are usually conceived, have <em>elements</em> or <em>members</em>. It is important to know that a set itself may also be an element of some other set.</p>
+<p>The principal concept of set theory, the one that in completely axiomatic studies is the principal primitive (undefined) concept, is that of <em>belonging</em>. If <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(A\)</span>, we shall write <span class="math inline">\(x \in A\)</span>. Also if <span class="math inline">\(x\)</span> is not an element of <span class="math inline">\(A\)</span> we shall write <span class="math inline">\(x \not \in A\)</span>, <span class="math inline">\((\neg (x \in A))\)</span>.</p>
+<p>A possible relation between sets, more elementary than belonging, is equality. The equality of two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is written as <span class="math inline">\(A = B\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not equal is denoted as <span class="math inline">\(A \neq B\)</span>, <span class="math inline">\((\neg (A = B))\)</span>.</p>
+<div id="def-axiom-of-extension" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.13 (Axiom of extension)</strong></span> Two sets are equal if and only if they have the same elements.</p>
+<p><span class="math display">\[A = B \iff (\forall x)(x \in A \iff x \in B)\]</span></p>
+<p>The axiom expresses the basic idea that a set is determined by its elements:</p>
+<ul>
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equal then they have the same elements.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements then they are equal.</p></li>
+</ul>
+</div>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets then <span class="math inline">\(A\)</span> is <em>included</em> in <span class="math inline">\(B\)</span> or <span class="math inline">\(A\)</span> is a <em>subset</em> of <span class="math inline">\(B\)</span> if every element of <span class="math inline">\(A\)</span> is an element of <span class="math inline">\(B\)</span>. If this is the case this situation is denoted as <span class="math inline">\(A \subseteq B\)</span>. Thus:</p>
+<p><span class="math display">\[A \subseteq B \iff (\forall x)(x \in A \Longrightarrow x \in B)\]</span></p>
+<p>Because <span class="math inline">\(A = A\)</span> then <span class="math inline">\(A \subseteq A\)</span>. Any subset of <span class="math inline">\(A\)</span> which is from <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(A\)</span>. To denote that <span class="math inline">\(C\)</span> is a proper subset of <span class="math inline">\(A\)</span> we use the notation <span class="math inline">\(C \subset A\)</span>. Thus:</p>
+<p><span class="math display">\[C \subset A \iff (C \subseteq A \land C \neq A)\]</span></p>
+<p>If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B \subseteq C\)</span> then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements so by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> <span class="math inline">\(A = B\)</span>. Thus:</p>
+<p><span class="math display">\[A = B \iff (A \subseteq B \land B \subseteq A)\]</span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -2382,8 +2925,17 @@ Church, Alonzo. 1996. <em>Introduction to Mathematical Logic</em>. 10th ed. Prin
 <div id="ref-egre_logic_2021" class="csl-entry" role="listitem">
 Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Conditionals</span>.”</span> In <em>The <span>Stanford</span> <span>Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta, Winter 2021. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/">https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/</a>.
 </div>
+<div id="ref-fagin_reasoning_1995" class="csl-entry" role="listitem">
+Fagin, Ronald, ed. 1995. <em>Reasoning about Knowledge</em>. Cambridge, Mass: MIT Press.
+</div>
+<div id="ref-halmos_naive_2017" class="csl-entry" role="listitem">
+Halmos, Paul Richard. 2017. <em>Naive Set Theory</em>. Dover edition. Mineola, New York: Dover Publications, Inc.
+</div>
 <div id="ref-lukasiewicz_selected_1970" class="csl-entry" role="listitem">
 Łukasiewicz, Jan, and Ludwik Borkowski. 1970. <em>Selected Works</em>. Studies in Logic and the Foundations of Mathematics. Amsterdam: North-Holland Pub. Co.
+</div>
+<div id="ref-mendelson_number_2008" class="csl-entry" role="listitem">
+Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.
 </div>
 </div>
 </section>
@@ -2393,6 +2945,10 @@ Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Condi
 <ol>
 <li id="fn1"><p>See <span class="citation" data-cites="church_introduction_1996">(<a href="references.html#ref-church_introduction_1996" role="doc-biblioref">Church 1996, 70</a>)</span> for more details.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><span class="math inline">\(\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> is equivalent to <span class="math inline">\(\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)\)</span> and this result has already been prove in <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 3 and <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)\)</span>. Also using a truth table it is possible to show that <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 12 <span class="math inline">\((\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))\)</span>. Also using a truth table it is possible to show that <span class="math inline">\((\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 13 <span class="math inline">\((\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>. Also both formulas are contradictions.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 16 <span class="math inline">\((\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))\)</span>. Also using a truth table is possible to show that <span class="math inline">\((\neg (\alpha \lor \beta)) \models ((\neg \alpha) \land (\neg \beta))\)</span>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
