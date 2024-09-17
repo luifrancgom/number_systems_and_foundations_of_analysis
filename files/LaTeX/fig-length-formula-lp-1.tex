@@ -1,0 +1,32 @@
+\begin{tikzpicture}[
+    level distance=1.5cm,
+    level 1/.style={sibling distance=5cm},
+    level 2/.style={sibling distance=4cm},
+    level 3/.style={sibling distance=3cm},
+    level 4/.style={sibling distance=2cm}
+  ]
+  \node {1 (0)}
+    child {node {4 (2)}
+      child {node {7 (4)}
+        child {node {10 (6)}
+          child {node {13 (8)}}
+          child {node {14 (8)}} 
+        } 
+        child {node {11 (6)}
+          child {node {15 (8)}}
+        } 
+      } 
+      child {node {8 (4)}
+        child {node {12 (6)}
+          child {node {16 (8)}}     
+        } 
+      }
+    }
+    child {node {5 (2)}
+      child {node {9 (4)}
+        child {node {13 (6)}
+          child {node {17 (8)}}     
+        }
+      }
+    };
+  \end{tikzpicture}

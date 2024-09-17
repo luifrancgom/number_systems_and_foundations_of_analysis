@@ -88,53 +88,20 @@ In the case of other values lets inspect the possible values of $p(\alpha)$ and 
 
 Where the possible values of $l(\alpha)$ are $1, 4, 5, 7, 8, \ldots, s - 1, s, s + 1, \ldots$ as it is shown in @fig-length-formula-lp where the majority of duplicate branches with the same lengths are omitted but can be different in relation to $p(\alpha)$.
 
-```{tikz}
-#| label: fig-length-formula-lp
-#| fig-cap: Possible values of $l(\alpha)$ and associated $p(\alpha)$ values in parentheses  
-#| fig-align: center
-#| out-width: 50%
-
-\begin{tikzpicture}[level distance=1.5cm,
-  level 1/.style={sibling distance=5cm},
-  level 2/.style={sibling distance=4cm},
-  level 3/.style={sibling distance=3cm}]
-  level 4/.style={sibling distance=2cm}]
-  \node {1 (0)}
-    child {node {4 (2)}
-      child {node {7 (4)}
-        child {node {10 (6)}
-          child {node {13 (8)}}
-          child {node {14 (8)}} 
-        } 
-        child {node {11 (6)}
-          child {node {15 (8)}}
-        } 
-      } 
-      child {node {8 (4)}
-        child {node {12 (6)}
-          child {node {16 (8)}}        
-        } 
-      }
-    }
-    child {node {5 (2)}
-      child {node {9 (4)}
-        child {node {13 (6)}
-          child {node {17 (8)}}        
-        }
-      }
-    };
-\end{tikzpicture}
-```
+![Possible values of $l(\alpha)$ and associated $p(\alpha)$ values in parentheses](images/fig-length-formula-lp-1.png){#fig-length-formula-lp fig-align="center" width=70%}
 
 Therefore we can examine the leftmost branch.
 
 -   For the lefmost branch we have for $\frac{p(\alpha)}{l(\alpha)} = \frac{0}{1}, \frac{2}{4}, \frac{4}{7}, \frac{6}{10}, \frac{8}{13}, \ldots, \frac{2n}{3n + 1}, \ldots$. Therefore $\lim_{n \to \infty} \frac{2n}{3n + 1} = \lim_{n \to \infty} \frac{2}{3} = \frac{2}{3}$.
 
 Therefore $0 \leq \frac{p(\alpha)}{l(\alpha)}$ and $\frac{p(\alpha)}{l(\alpha)} < \frac{2}{3}$ for the lefmost branch
+
 :::
 
 ::: {#exr-atomic-implies}
+
 Suppose $\alpha$ is any formula of $\mathcal{L}_P$. Let $s(\alpha)$ be the number of atomic formulas in $\alpha$ (counting repetitions) and let $c(\alpha)$ be the number of occurrences of $\Longrightarrow$ in $\alpha$. Show that $s(\alpha) = c(\alpha) + 1$.
+
 :::
 
 ::: {#sol-atomic-implies}
@@ -193,7 +160,21 @@ Show that the set of formulas of $\mathcal{L}_P$ is countable.
 :::
 
 ::: {#sol-formulas-countable-lp}
+
 **Pending**
+
+Let $S_{\mathcal{L}_p}$ the set of symbols of $\mathcal{L}_p$, $S_{\mathcal{L}_p} = \{ (, ), \neg, \Longrightarrow \} \cup \{ A_0, A_1, A_2, \ldots, A_n, \ldots \}$.
+
+-  Show that $S_{\mathcal{L}_p}$ is a denumerable set.
+
+Let $S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathcal{L}_p} \times \ldots \times S_{\mathcal{L}_p}}} = S_{\mathcal{L}_p}^n$ the string of symbols of length $n$ build from $S_{\mathcal{L}_p}$.
+
+-  Prove that $S_{\mathcal{L}_p}^2, S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n$ are denumerable sets.
+
+-  Prove that $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a countable set.
+
+-  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ is countable.
+
 :::
 
 #### Informal conventions {#sec-informal-conventions}
@@ -603,13 +584,11 @@ For example, $\{ A_3, (A_3 \Longrightarrow (\neg A_7)) \} \models (\neg A_7)$ be
 
 Also, $\{ A_8, (A_5 \Longrightarrow A_8) \} \not \models A_5$, because if $u$ is a true assignment such that $u(A_8) = T$ and $u((A_5 \Longrightarrow A_8)) = T$. However, it is possible to have $u(A_5) = F$.
 
-::: {#rem-contradiction-tautology-empty-set}
-A formula $\varphi$ is a tautology if and only if $\models \varphi$.
+::: {#nte-truth-assignments-tautology-contradiction .callout-note}
 
-A formula $\varphi$ is a contradiction if and only if $\models (\neg \varphi)$.
-:::
+A formula $\varphi$ is a tautology if and only if $\models \varphi$ and a contradiction if and only if $\models (\neg \varphi)$.
 
-Lets brake each element to understand why @rem-contradiction-tautology-empty-set is true:
+Lets brake each element to understand why this is true:
 
 -   If $v$ is a truth assignment then:
 
@@ -632,6 +611,7 @@ Lets brake each element to understand why @rem-contradiction-tautology-empty-set
         -   $(\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T))$ will be true and $v(\sigma)=T$ is true because $\sigma$ is a tautology
 
         -   By @def-truth-assignment $((\forall v)((\forall \sigma)(\sigma \in \emptyset \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\varphi)=T)$ is true so we can write $\models \varphi$.
+:::
 
 ::: {#prp-subset-formulas-implies}
 If $\Gamma$ and $\Sigma$ are sets of formulas such that $\Gamma \subseteq \Sigma$, then $\Sigma \models \Gamma$.
@@ -673,7 +653,7 @@ The last row of the truth table represents a truth assignment $v$ that satisfies
 It is importa to mention that $\Sigma$ must be a finite set of formulas or it will not be possible to check each row in the truth table that is build.
 :::
 
-::: {#prp-line}
+::: {#prp-truth-tables-deduction-theorem}
 Suppose $\Sigma$ is a set of formulas and $\psi$ and $\rho$ are formulas. Then $\Sigma \cup \{ \psi \} \models \rho$ if and only if $\Sigma \models (\psi \Longrightarrow \rho)$.
 :::
 
@@ -700,7 +680,7 @@ A set of formulas $\Sigma$ is satisfiable if and only if there is no contradicti
 :::
 
 ::: proof
--   Assume $\Sigma = \emptyset$ then by @rem-contradiction-tautology-empty-set $\emptyset$ is satisfiable and $\chi$ will be a tautology because $\models \chi$.
+-   Assume $\Sigma = \emptyset$ by @nte-truth-assignments-tautology-contradiction $\emptyset$ is satisfiable and $\chi$ will be a tautology because $\models \chi$.
 
 -   Assume $\Sigma \neq \emptyset$ is a set of formulas that are satisfiable.
 
@@ -708,7 +688,7 @@ A set of formulas $\Sigma$ is satisfiable if and only if there is no contradicti
 
 -   Assume $\Sigma \models \chi$ where $\chi$ is not a contradiction.
 
-    -   Then for all $\sigma \in Sigma$ we have that $v(\sigma) = T$. Therefore $\Sigma$ is satisfiable.
+    -   Then for all $\sigma \in \Sigma$ we have that $v(\sigma) = T$. Therefore $\Sigma$ is satisfiable.
 :::
 
 ### Deductions
@@ -1051,7 +1031,7 @@ If $\Sigma$ is any set of formulas and $\alpha$ and $\beta$ are any formulas, th
 
                 -   The first 2 possibilities are cover in the *Base step* where we can show in a similar way that $\Sigma \vdash (\alpha \Longrightarrow \beta)$.
 
-                -   In the case of the last possibility and without loss of generality $\psi_i = (\psi_j \Longrightarrow \beta)$. Furthermore, $\Sigma \cup \{ \alpha \} \vdash \psi_i$ and $\Sigma \cup \{ \alpha \} \vdash \psi_j$ where are deductions of length $n \leq k$.
+                -   In the case of the last possibility and without loss of generality $\psi_i = (\psi_j \Longrightarrow \beta)$. Furthermore, $\Sigma \cup \{ \alpha \} \vdash \psi_i$ and $\Sigma \cup \{ \alpha \} \vdash \psi_j$ are deductions of length $n \leq k$.
 
                     -   By the *Induction hypothesis* $\Sigma \vdash (\alpha \Longrightarrow (\psi_j \Longrightarrow \beta))$ and $\Sigma \vdash (\alpha \Longrightarrow \psi_j)$. Therefore:
 
@@ -1088,6 +1068,14 @@ Show that:
 7.  $\vdash (\sigma \Longrightarrow (\sigma \lor \tau))$
 8.  $\{ (\alpha \land \beta) \} \vdash \beta$
 9.  $\{ (\alpha \land \beta) \} \vdash \alpha$
+10. $\{ \alpha, \beta \} \vdash (\alpha \land \beta)$
+11. $\{ (\alpha \land \beta) \} \vdash (\beta \land \alpha)$
+12. $\{ (\alpha \iff \beta) \} \vdash ((\neg \alpha) \iff (\neg \beta))$
+13. $(\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))$
+14. $(\alpha \Longrightarrow \beta) \vdash (\neg (\alpha \land (\neg \beta)))$
+15. $((\neg \alpha) \Longrightarrow (\neg (\neg \beta))) \vdash ((\neg \alpha) \Longrightarrow \beta)$
+16. $(\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))$
+17. $(\alpha \lor \beta) \vdash (\beta \lor \alpha)$
 :::
 
 ::: {#sol-application-deduction-theorem}
@@ -1208,8 +1196,652 @@ Show that:
     6.  $((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ @thm-deduction-theorem and @exr-application-deduction-theorem 1[^chapter_1-2].
 
     7.  $\alpha$ Modus Ponens 5, 6
+
+-  By @sec-informal-conventions $\{ \alpha, \beta \} \vdash (\alpha \land \beta)$ is equivalent to $\{ \alpha, \beta \} \vdash (\neg (\alpha \Longrightarrow (\neg \beta)))$.
+
+    1. $(((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (\neg \alpha)) \Longrightarrow$ $(((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta)))))$ Axiom 3
+    
+    2.  $(((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\beta \Longrightarrow (\neg \alpha))) \Longrightarrow$ $(((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow \beta) \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha))))$ Axiom 2
+    
+    3.  $((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\beta \Longrightarrow (\neg \alpha)))$ @exm-example-proof-4
+    
+    4.  $(((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow \beta) \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha)))$ Modus Ponens  2, 3
+    
+    5.  $(\beta \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow \beta))$ Axiom 1
+    
+    6.  $(\beta \Longrightarrow ((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha)))$ @exm-example-proof-2 5, 4
+    
+    7.  $\beta$ Premiss
+    
+    8.  $((\neg (\neg (\beta \Longrightarrow (\neg \alpha)))) \Longrightarrow (\neg \alpha))$ Modus Ponens 6, 7
+    
+    9.  $((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\neg (\neg (\beta \Longrightarrow (\neg \alpha)))))$ @exr-application-deduction-theorem 2
+    10.  $((\beta \Longrightarrow (\neg \alpha)) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 9, 8
+    
+    11.  $((\alpha \Longrightarrow (\neg \beta)) \Longrightarrow (\beta \Longrightarrow (\neg \alpha)))$ @exr-application-deduction-theorem 5
+    
+    12.  $((\alpha \Longrightarrow (\neg \beta)) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 11, 10
+    
+    13.  $((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ @exm-example-proof-4
+    
+    14.  $((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow (\neg \alpha))$ @exm-example-proof-2 13, 12
+    
+    15.  $(((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta))))$ Modus Ponens 1, 14
+    
+    16.  $(\alpha \Longrightarrow ((\neg (\neg (\alpha \Longrightarrow (\neg \beta)))) \Longrightarrow \alpha))$ Axiom 1
+    
+    17.  $(\alpha \Longrightarrow (\neg (\alpha \Longrightarrow (\neg \beta))))$ @exm-example-proof-2 16, 15
+    
+    18.  $\alpha$ Premiss
+    
+    19.  $(\neg (\alpha \Longrightarrow (\neg \beta)))$ Modus Ponens 17, 18
+    
+-  $\{ (\alpha \land \beta) \} \vdash (\beta \land \alpha)$
+
+    1.  $\beta$ @exr-application-deduction-theorem 8
+    
+    2.  $\alpha$ @exr-application-deduction-theorem 9
+    
+    3.  $(\beta \land \alpha)$ @exr-application-deduction-theorem 10 applied to 8, 9 
+    
+-  By @sec-informal-conventions $\{ (\alpha \iff \beta) \} \vdash ((\neg \beta) \iff (\neg \alpha))$ is equivalent to $\{ (\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha) \} \vdash ((\neg \alpha) \iff (\neg \beta))$
+
+    1.  $(\beta \Longrightarrow \alpha)$ @exr-application-deduction-theorem 8
+    
+    2.  $((\neg \alpha) \Longrightarrow (\neg \beta))$ @exr-application-deduction-theorem 4 applied to 1
+
+    3.  $(\alpha \Longrightarrow \beta)$ @exr-application-deduction-theorem 9    
+
+    4.  $((\neg \beta) \Longrightarrow (\neg \alpha))$ @exr-application-deduction-theorem 4 applied to 3
+
+    5.  $(((\neg \alpha) \Longrightarrow (\neg \beta)) \land ((\neg \beta) \Longrightarrow (\neg \alpha)))$ @exr-application-deduction-theorem 10 applied to 2, 4
+    
+    6.  $((\neg \alpha) \iff (\neg \beta))$ @sec-informal-conventions 5
+    
+-  $(\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))$
+
+    1.  $(((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow (\neg \alpha)) \Longrightarrow (((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))))$ Axiom 3
+    
+    2.  $((\neg \alpha) \Longrightarrow ((\neg (\alpha \Longrightarrow \alpha)) \Longrightarrow (\neg \alpha)))$ Axiom 1
+    
+    3.  $((\neg \alpha) \Longrightarrow (((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))))$ @exm-example-proof-2 2, 1
+    
+    4.  $(\neg \alpha)$ @exr-application-deduction-theorem 8
+    
+    5.  $(((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))$ Modus Ponens 3, 4
+    
+    6.  $(\alpha \Longrightarrow ((\neg (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow \alpha))$ Axiom 1
+    
+    7.  $(\alpha \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))$ @exm-example-proof-2 6, 5  
+    
+    8.  $\alpha$ @exr-application-deduction-theorem 9
+    
+    9.  $(\neg (\alpha \Longrightarrow \alpha))$ Modus Ponens 7, 8
+    
+-  $(\alpha \Longrightarrow \beta) \vdash (\neg (\alpha \land (\neg \beta)))$
+
+    1.  $(\alpha \Longrightarrow \beta)$ Premiss
+    
+    2.  $(\beta \Longrightarrow (\neg (\neg \beta)))$ @exr-application-deduction-theorem 2
+    
+    3.  $(\alpha \Longrightarrow (\neg (\neg \beta)))$ @exm-example-proof-2 1, 2
+    
+    4.  $(\alpha \Longrightarrow (\neg (\neg \beta))) \Longrightarrow (\neg (\neg (\alpha \Longrightarrow (\neg (\neg \beta)))))$ @exr-application-deduction-theorem 2
+    
+    5.  $(\neg (\alpha \land (\neg \beta)))$ @sec-informal-conventions 4
+    
+-  $((\neg \alpha) \Longrightarrow (\neg (\neg \beta))) \vdash ((\neg \alpha) \Longrightarrow \beta)$
+
+    1.  $((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))$ Premiss
+    
+    2.  $((\neg (\neg \beta)) \Longrightarrow \beta)$ @exm-example-proof-2
+    
+    3.  $((\neg \alpha) \Longrightarrow \beta)$ @exm-example-proof-2 1, 2
+
+-  By @sec-informal-conventions $(\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))$ is equivalent to $(\neg ((\neg \alpha) \Longrightarrow \beta)) \vdash (\neg ((\neg \alpha) \Longrightarrow (\neg (\neg \beta))))$
+
+    1.  $(((\neg \alpha) \Longrightarrow (\neg (\neg \beta))) \Longrightarrow ((\neg \alpha) \Longrightarrow \beta))$ @exr-application-deduction-theorem 15 and @thm-deduction-theorem
+    
+    2.  $((\neg((\neg \alpha) \Longrightarrow \beta)) \Longrightarrow (\neg ((\neg \alpha) \Longrightarrow (\neg (\neg \beta)))))$ @exr-application-deduction-theorem 4
+    
+    3.  $(\neg ((\neg \alpha) \Longrightarrow \beta))$ Premiss
+    
+    4.  $(\neg ((\neg \alpha) \Longrightarrow (\neg (\neg \beta))))$ Modus ponens 2, 3
+
+       
+-  By @sec-informal-conventions $(\alpha \lor \beta) \vdash (\beta \lor \alpha)$ is equivalent to $(\alpha \Longrightarrow (\neg \beta)) \vdash (\beta \Longrightarrow (\neg \alpha))$
+
+    1.  $((\alpha \Longrightarrow (\neg \beta)) \Longrightarrow (\beta \Longrightarrow (\neg \alpha)))$ @exr-application-deduction-theorem 5
+    
+    2.  $(\alpha \Longrightarrow (\neg \beta))$ Premiss
+    
+    3.  $(\beta \Longrightarrow (\neg \alpha))$ Modus Ponens 1, 2
+
 :::
 
 [^chapter_1-2]: $\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)$ and this result has already been prove in @exr-application-deduction-theorem 1.
 
 ### Soundness and Completeness
+
+How are deduction and implication related? See for example @prp-truth-tables-deduction-theorem and @thm-deduction-theorem.
+
+The *Soundness* and *Completeness Theorems* say that $\Sigma \vdash \psi$ if and only if $\Sigma \models \psi$, i.e. $\vdash$ and $\models$ are equivalent for propositional logic [@bilaniuk_problem_2009, p. 15].
+
+::: {#thm-soundness-theorem}
+## Soundness theorem
+
+If $\Delta$ is a set of formulas and $\alpha$ is a formula such that $\Delta \vdash \alpha$, then $\Delta \models \alpha$.
+:::
+
+::: proof
+By strong induction on $n$, the length of deduction or proof of $\alpha$ from $\Delta$:
+
+*Base step* $(n = 1)$: Then $\alpha$ is an axiom or $\alpha \in \Delta$.
+
+-   If $\alpha$ is an axiom then by @prp-axioms-lp-tautology is a tautology so for every truth assignment $v$ we have that $v(\alpha) = T$. If $v(\delta) = T$ for some truth assignment $v$ for all $\delta \in \Delta$ then $\Delta \models \alpha$.
+
+    -   What happen if $\Delta = \emptyset$?
+
+        -   $\alpha$ will be an axiom so by @prp-axioms-lp-tautology it can't be a contradiction.
+
+-   If $\alpha \in \Delta$ and assuming that $v(\delta) = T$ for some truth assignment $v$ for all $\delta \in \Delta$ then $\Delta \models \alpha$.
+
+    -   What happen if $\alpha$ is a contradiction?
+
+        -   We still have that $\{ \alpha \} \vdash \alpha$
+
+        -   In the case of $\{ \alpha \} \models \alpha \iff ((\forall v)((\forall \sigma)(\sigma \in \{ \alpha \} \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\alpha)=T)$ we have that $v(\sigma) = T$ is false because $\{ \alpha\}$ contains a contradiction so $(\forall v)((\forall \sigma)(\sigma \in \{ \alpha \} \Longrightarrow v(\sigma)=T))$ will be false and $((\forall v)((\forall \sigma)(\sigma \in \{ \alpha \} \Longrightarrow v(\sigma)=T)) \Longrightarrow v(\alpha)=T)$ will be true.
+
+            -   The above results doesn't contradicts @prp-set-formulas-satisfiable because in this case $\{ \alpha \}$ is not satisfiable and there exist a contradiction $\alpha$ such that $\{ \alpha \} \models \alpha$.
+
+*Induction hypothesis* $(n \leq k)$: Assume that if there is a deduction or proof of length $n \leq k$ of $\alpha$ from $\Delta$ then $\Delta \models \alpha$.
+
+*Induction step* $(n = k + 1)$: Suppose there is a deduction or proof of length $n = k + 1$ of $\alpha$ from $\Delta$.
+
+-   Therefore there are 3 possibilities by @def-deduction-or-proof: $\alpha$ is an axiom, $\alpha \in \Delta$ or there are $i,j \leq k + 1$ such that $\alpha$ follows from $\psi_i$ and $\psi_j$.
+
+    -   The first 2 possibilities are cover in the *Base step* where we can show in a similar way that $\Delta \models \alpha$.
+
+    -   In the case of the last possibility and without loss of generality $\psi_i = (\psi_j \Longrightarrow \alpha)$. Furthermore, $\Delta \vdash \psi_i$ and $\Delta \vdash \psi_j$ are deductions of length $n \leq k$.
+
+        -   By the *Induction hypothesis* $\Delta \models (\psi_j \Longrightarrow \alpha)$ and $\Delta \models \psi_j$. Therefore:
+
+        -   For all truth assignment $v$ we have that if $\delta \in \Delta$ then $v(\delta) = T$, $v((\psi_j \Longrightarrow \alpha)) = T$ and $v(\psi_j) = T$.
+
+        -   By @def-truth-assignment $v(\alpha) = T$ so $\Delta \models \alpha$
+
+    -   In any case $\Delta \models \alpha$.
+:::
+
+::: {#nte-soundness-plain-english .callout-note}
+-   Soundness guarantees that if you can deduce or prove something using the rules of the logical system, then that something is actually true.
+
+-   It ensures that the system's rules of deduction are reliable and do not lead to false conclusions.
+
+    -   In the case of $\mathcal{L}_p$ the rules are described in @def-axioms-lp, @def-modus-ponens and @def-deduction-or-proof.
+:::
+
+::: {#def-inconsistent-consisten-formula}
+
+A set of formulas $\Gamma$ is *inconsistent* if $Γ \vdash (\neg (\alpha \Longrightarrow \alpha))$ for some formula $\alpha$, and *consistent* if it is not inconsistent.
+
+:::
+
+For example $\{ \alpha, (\neg \alpha) \}$ is inconsistent by @exr-application-deduction-theorem 1 because $\{ \alpha, (\neg \alpha) \} \vdash (\neg (\alpha \Longrightarrow \alpha))$. What happen if $\beta$ is a formula that is satisfiable?
+
+::: {#prp-satisfiable-consistent-formula}
+
+If a set of formulas is satisfiable, then it is consistent.
+
+:::
+
+::: {.proof}
+
+This is equivalent to show that if a set of formulas is inconsistent then it is not satisfiable[^chapter_1-3]. Therefore:
+
+-  Let $\Delta$ a set of formulas such that $\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))$.
+
+-  By @thm-soundness-theorem $\Delta \models (\neg (\alpha \Longrightarrow \alpha))$
+
+    -  Because $(\alpha \Longrightarrow \alpha)$ is a tautology by @def-tautology-contradiction $(\neg (\alpha \Longrightarrow \alpha))$ is a contradiction.
+    
+    -  Therefore by @prp-set-formulas-satisfiable $\Delta$ is not satisfiable because there exist a contradiction $\chi$ such that $\Delta \models \chi$ where $\chi = (\neg (\alpha \Longrightarrow \alpha))$.
+
+:::
+
+[^chapter_1-3]: By @exr-application-deduction-theorem 3 and @thm-deduction-theorem $((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)$. Also using a truth table it is possible to show that $((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)$.
+
+::: {#prp-inconsistent-set-formulas-deduction}
+
+Suppose $\Delta$ is an inconsistent set of formulas.
+Then $\Delta \vdash \psi$ for any formula $\psi$.
+
+:::
+
+::: {.proof}
+
+If $\Delta$ is an inconsistent set of formulas then $\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))$.
+
+Also it is possible to show that $\{ (\neg (\alpha \Longrightarrow \alpha)) \} \vdash \psi$:
+
+1.  $(((\neg \psi) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow (((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)) \Longrightarrow \psi))$ Axiom 1
+
+2.  $((\neg (\alpha \Longrightarrow \alpha)) \Longrightarrow ((\neg \psi) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))))$ Axiom 1
+
+3. $((\neg (\alpha \Longrightarrow \alpha)) \Longrightarrow (((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)) \Longrightarrow \psi))$ @exm-example-proof-2 2, 1
+
+4.  $(\neg (\alpha \Longrightarrow \alpha))$ Premiss
+
+5.  $(((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)) \Longrightarrow \psi)$ Modus Ponens 3, 4
+
+6. $((\alpha \Longrightarrow \alpha) \Longrightarrow ((\neg \psi) \Longrightarrow (\alpha \Longrightarrow \alpha)))$ Axiom 1
+
+7.  $((\alpha \Longrightarrow \alpha) \Longrightarrow \psi)$ @exm-example-proof-2 6, 5
+
+8.  $(\alpha \Longrightarrow \alpha)$ @exm-example-proof-1
+
+9.  $\psi$ Modus ponens 7, 8
+
+Finally, because $\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))$ and $\{ (\neg (\alpha \Longrightarrow \alpha)) \} \vdash \psi$ by @prp-set-formulas-transitivity-deduction $\Delta \vdash \psi$.
+
+:::
+
+::: {#prp-inconsisten-formulas-subset}
+
+$\Sigma$ is an inconsistent set of formulas if and only if there is a finite subset $\Delta$ of $\Sigma$ such that $\Delta$ is inconsistent.
+
+:::
+
+::: {#wrn-contradiction-empty-set-deduction .callout-warning}
+
+It is possible that $\vdash \sigma$ where $\sigma$ is a contradiction?
+
+If $\vdash \sigma$ then there is a deduction $\psi_1 \ldots \psi_n$ where $\psi_n = \sigma$ and for each $k \leq n$:
+
+-  $\psi_k$ is an axiom
+-  there are $i, j < k$ such that $\psi_k$ follows from $\psi_i$ and $\psi_j$ by Modus Ponens.
+
+Taking into account that $\emptyset \vdash \sigma$ so it will not be possible that $\sigma \in \emptyset$.
+
+Finally by @prp-axioms-lp-tautology every axiom of $\mathcal{L}_p$ is a tautology and by @prp-modus-ponens-implies it is not possible to obtain a contradiction by using Modus Ponens.
+
+Therefore if $\vdash \sigma$ then $\sigma$ can't be a contradiction.
+
+:::
+
+::: {.proof}
+
+-  Assume $\Sigma \vdash (\neg (\alpha \Longrightarrow \alpha))$ then by @wrn-contradiction-empty-set-deduction $\Sigma \neq \emptyset$. Also by @thm-deduction-theorem there is a deduction $\psi_1 \ldots \psi_n$ where $\psi_n = (\neg (\alpha \Longrightarrow \alpha))$ and for each $k \leq n$:
+
+   -  $\psi_k$ is an axiom
+   -  $\psi_k \in \Sigma$
+   -  there are $i, j < k$ such that $\psi_k$ follows from $\psi_i$ and $\psi_j$ by Modus Ponens. 
+
+      -  If some or all $\psi_k \in \Sigma$ then $\Delta \subseteq \Sigma$ will be the set of formulas than contains the $\psi_k$ used in $\psi_1 \ldots \psi_n$. Therefore $\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))$ where $\Delta \neq \emptyset$ by @wrn-contradiction-empty-set-deduction.
+
+         -  To illustrate when $\Delta = \Sigma$ or $\Delta \subset \Sigma$ we can point out the following examples:
+   
+            -  $\Sigma = \{ \alpha, ((\beta \Longrightarrow \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))) \}$ or $\Sigma = \{ (\neg (\alpha \Longrightarrow \alpha)) \}$.
+   
+            - $\Sigma = \{ \alpha, (\alpha \Longrightarrow (\alpha \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))), (\alpha \Longrightarrow \alpha) \}$ where $\Delta = \{ \alpha, (\alpha \Longrightarrow (\alpha \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))) \}$ or $\Sigma = \{ (\neg (\alpha \Longrightarrow \alpha)), (\alpha \Longrightarrow \alpha) \}$ where $\Delta = \{ (\neg (\alpha \Longrightarrow \alpha)) \}$.
+
+-  Assume $\Delta \subseteq \Sigma$ such that $\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))$.
+
+   -  By @prp-subset-formulas-deduction $\Sigma \vdash (\neg (\alpha \Longrightarrow \alpha))$ so $\Sigma$ is inconsistent. 
+
+:::
+
+::: {#cor-inconsisten-formulas-subset}
+
+A set of formulas $\Gamma$ is consistent if and only if every finite subset of $\Gamma$ is consistent.
+
+:::
+
+::: {.proof}
+
+This is equivalent to show that $\Gamma$ is an inconsistent set of formulas if and only if there is a finite subset $\Delta$ of $\Gamma$ such that $\Delta$ is inconsistent[^chapter_1-4]. Therefore by @prp-inconsisten-formulas-subset this is already proved. 
+
+:::
+
+[^chapter_1-4]: By @exr-application-deduction-theorem 12 $(\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))$. Also using a truth table it is possible to show that $(\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))$.
+
+::: {#def-formulas-maximally-consistent}
+
+A set of formulas $\Sigma$ is maximally consistent if $\Sigma$ is consistent but $\Sigma \cup \{ \psi \}$ is inconsistent for any $\psi \not \in \Sigma$.
+
+:::
+
+::: {#exr-maximally-consistent-1}
+
+Suppose $v$ is a truth assignment. Show that $\Sigma =
+\{ \psi \mid v(\psi) = T \}$ is maximally consistent.
+
+:::
+
+::: {#sol-maximally-consistent-1}
+
+First, $\Sigma$ is satisfiable because $v$ is a truth assignment that satisfies $\Sigma$ taking into account that $v(\psi) = T$. Then by @prp-satisfiable-consistent-formula $\Sigma$ is consistent.
+
+Second, let $\Sigma \cup \{ \beta \} = \{ \psi, \beta \}$ where $\beta \not \in \Sigma$. Because $\beta \not \in \Sigma$ then $v(\beta) = F$. By @def-truth-assignment $v((\neg \beta)) = T$ so $(\neg \beta) \in \Sigma$. Therefore we can prove that $\Sigma \cup \{ \beta \} \vdash (\neg (\alpha \Longrightarrow \alpha))$:
+
+1. $\beta$ Premiss
+
+2. $(\neg \beta) \in \Sigma$
+
+3. $(\neg (\alpha \Longrightarrow \alpha))$ @exr-application-deduction-theorem 1 applied to 1, 2
+
+Therefore, $\Sigma$ is maximally consistent.
+
+:::
+
+::: {#prp-belongs-maximally-consistent}
+
+If $\Sigma$ is a maximally consistent set of formulas,
+$\psi$ is a formula and $\Sigma \vdash \psi$ then $\psi \in \Sigma$.
+
+:::
+
+::: {#nte-proof-by-reductio-ad-absurdum .callout-note}
+
+## Proof by reductio ad absurdum 
+
+A proof by reductio ad absurdum is a way to prove $\beta$ by showing that $(\neg \beta)$ leads to a contradiction [@mendelson_number_2008, p. 7, Exercise 5]. That is, $((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha))) \models \beta$[^chapter_1-5].
+
+```{r}
+#| results: asis
+
+reductio_ad_absurdum <- tibble(
+ `$\\beta$` = c("$T$", "$F$"), 
+ `$(\\neg \\beta)$` = c("$F$", "$T$"),
+ `$(\\alpha \\land (\\neg \\alpha))$` = c("$F$", "$F$"),
+ `$((\\neg \\beta) \\Longrightarrow (\\alpha \\land (\\neg \\alpha)))$` = c("$T$", "$F$")
+)
+
+kbl(reductio_ad_absurdum, escape = FALSE) |>
+ kable_styling() |> 
+ column_spec(column = 1:4, border_right = TRUE) |> 
+ row_spec(row = 0, extra_css = "border-right: 1px solid;") |> 
+ cat()
+```
+
+:::
+
+[^chapter_1-5]: By @exr-application-deduction-theorem 13 $(\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))$. Also both formulas are contradictions.
+
+::: {.proof}
+
+By @nte-proof-by-reductio-ad-absurdum and @exr-application-deduction-theorem 14 assume that $\Sigma$ is a maximally consistent set of formulas,
+$\psi$ is a formula, $\Sigma \vdash \psi$ and $\psi  \not \in \Sigma$.
+
+Because $\psi  \not \in \Sigma$ and $\Sigma$ is maximally consistent then $\Sigma \cup \{ \psi \} \vdash (\neg (\alpha \Longrightarrow) \alpha)$. 
+
+By @thm-deduction-theorem $\Sigma \vdash (\psi \Longrightarrow (\neg (\alpha \Longrightarrow)) \alpha)$ but $\Sigma \vdash \psi$ so by Modus Ponens $\Sigma \vdash (\neg (\alpha \Longrightarrow)) \alpha)$
+
+The above result is a contradiction because $\Sigma$ is maximally consistent so by @def-formulas-maximally-consistent it must by consistent. Therefore by @nte-proof-by-reductio-ad-absurdum is must be the case that @prp-belongs-maximally-consistent is true.
+
+:::
+
+::: {#prp-consistent-negation}
+
+-  If $\Sigma$ is maximally consistent and $(\neg \psi) \in \Sigma$ then $\psi \not \in \Sigma$.
+
+-  If $\Sigma$ is maximally consistent and $\psi \not \in \Sigma$ then $(\neg \psi) \in \Sigma$.
+
+:::
+
+::: {.proof}
+
+-  Using @nte-proof-by-reductio-ad-absurdum assume that $\Sigma$ is maximally consistent, $(\neg \psi) \in \Sigma$ and $\psi \in \Sigma$
+
+   -  Therefore $\Sigma \vdash (\neg \psi)$, $\Sigma \vdash \psi$ and by @exr-application-deduction-theorem 1 $\Sigma \vdash (\neg (\alpha \Longrightarrow \alpha))$.
+   
+   -  However this is a contradiction because$\Sigma$ is consistent by @def-formulas-maximally-consistent. Therefore \Sigma$ is maximally consistent and $(\neg \psi) \in \Sigma$ then $\psi \not \in \Sigma$ must be true.
+   
+-  Assume $\Sigma$ is maximally consistent and $\psi \not \in \Sigma$:
+
+   -  By @def-formulas-maximally-consistent $\Sigma \cup \{ \psi \} \vdash (\neg (\alpha \Longrightarrow))$.
+   
+   -  By @thm-deduction-theorem $\Sigma \vdash (\psi \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))$. Therefore:
+   
+      1. $(\psi \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))$ Premiss
+      
+      2. $((\psi \Longrightarrow (\neg (\alpha \Longrightarrow \alpha))) \Longrightarrow ((\alpha \Longrightarrow \alpha) \Longrightarrow (\neg \psi)))$ @exr-application-deduction-theorem 5
+      
+      3.  $((\alpha \Longrightarrow \alpha) \Longrightarrow (\neg \psi))$ Modus Ponens 2, 1
+      
+      4.  $(\alpha \Longrightarrow \alpha)$ @exm-example-proof-1
+      
+      5.  $(\neg \psi)$ Modus Ponens 3, 4
+      
+   -  Therefore $\Sigma \vdash (\neg \psi)$ and by @prp-belongs-maximally-consistent $(\neg \psi) \in \Sigma$.
+   
+Using similar arguments we can prove that:
+
+-  If $\Sigma$ is maximally consistent and $\beta \in \Sigma$ then $(\neg \beta) \not \in \Sigma$.
+
+-  If $\Sigma$ is maximally consistent and $(\neg \beta) \not \in \Sigma$ then $\beta \in \Sigma$.
+      
+:::
+
+::: {#prp-maximally-consistent-implies}
+
+Suppose $\Sigma$ is a maximally consistent set of formulas and $\varphi$ and $\psi$ are formulas. Then $(\varphi \Longrightarrow \psi) \in \Sigma$ if and only if $\varphi \not \in \Sigma$ or $\psi \in \Sigma$.
+
+:::
+
+::: {.proof}
+
+-  By @exr-application-deduction-theorem 16[^chapter_1-6] and @nte-proof-by-reductio-ad-absurdum assume $\Sigma$ is maximally consistent, $(\varphi \Longrightarrow \psi) \in \Sigma$, $\varphi \in \Sigma$ and $\psi \not \in \Sigma$. Therefore:
+
+   -  Because $\Sigma \vdash (\varphi \Longrightarrow \psi)$ and $\Sigma \vdash \varphi$ then $\Sigma \vdash \psi$ by Modus Ponens.
+   
+   -  Because $\psi \not \in \Sigma$ by @prp-consistent-negation $(\neg \psi) \in \Sigma$ so $\Sigma \vdash (\neg \psi)$.
+   
+   -  Because $\Sigma \vdash \psi$ and $\Sigma \vdash (\neg \psi)$ by @exr-application-deduction-theorem 5 $\Sigma \vdash (\neg (\alpha \Longrightarrow) \alpha)$.
+   
+   -  However the above result is a contradiction because $\Sigma$ is maximally consistent so it must be consistent by @def-formulas-maximally-consistent. 
+   
+   -  Therefore if $\Sigma$ is a maximally consistent and $(\varphi \Longrightarrow \psi) \in \Sigma$ then $\varphi \not \in \Sigma$ or $\psi \in \Sigma$ must be true.
+   
+-  Assume $\Sigma$ is a maximally consistent and $\varphi \not \in \Sigma$ or $\psi \in \Sigma$.
+
+   -  If $\Sigma$ is a maximally consistent and $\varphi \not \in \Sigma$ then $(\neg \varphi) \in \Sigma$ by @prp-consistent-negation so $\Sigma \vdash (\neg \varphi)$. Therefore:  
+      
+       1.  $(\neg \varphi)$ Premiss
+       
+       2.  $((\neg \varphi) \Longrightarrow ((\neg \psi) \Longrightarrow (\neg \varphi)))$ Axiom 1
+       
+       3.  $((\neg \psi) \Longrightarrow (\neg \varphi))$ Modus Ponens 2, 1
+       
+       4.  $(\varphi \Longrightarrow \psi)$ @exr-application-deduction-theorem 3
+       
+   -  If $\Sigma$ is a maximally consistent and $\psi \in \Sigma$ then $\Sigma \vdash \psi$. Therefore:  
+      
+       1.  $\psi$ Premiss
+       
+       2.  $(\psi \Longrightarrow (\varphi \Longrightarrow \psi))$ Axiom 1
+       
+       3.  $(\varphi \Longrightarrow \psi)$ Modus Ponens 2, 1
+
+   -  In any case because $\Sigma \vdash (\varphi \Longrightarrow \psi)$ by @prp-belongs-maximally-consistent $(\varphi \Longrightarrow \psi) \in \Sigma$.
+
+:::
+
+[^chapter_1-6]: By @exr-application-deduction-theorem 16 $(\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))$. Also using a truth table is possible to show that $(\neg (\alpha \lor \beta)) \models ((\neg \alpha) \land (\neg \beta))$.
+
+::: {#thm-expand-to-maximally-consistent}
+
+Suppose $\Gamma$ is a consistent set of formulas. Then
+there is a maximally consistent set of formulas $\Sigma$ such that $\Gamma \subseteq \Sigma$.
+
+:::
+
+::: {.proof}
+
+If $\gamma \not \in \Gamma$ and $\Gamma \cup \{ \gamma \}$ be inconsistent then $\Gamma = \Sigma$.
+
+Otherwise, assume $\gamma \not \in \Gamma$ and $\Gamma \cup \{ \gamma \}$ be inconsistent. Therefore:
+
+-  By @exr-formulas-countable-lp let $\psi_1, \psi_2,  \ldots, \psi_n, \ldots$ the formulas of $\mathcal{L}_p$.
+
+-  Let $\Delta_1 = \Gamma$ and $\Delta_{k+1}$ [@fagin_reasoning_1995, p. 55, Lemma 3.1.2]:
+
+$$\Delta_{k+1} = \begin{cases}
+                  \Delta_k \cup \{ \psi_k \} & \text{if is consistent} \\
+                  \Delta_k & \text{if is inconsistent}
+                  \end{cases}$$
+
+-  Let $\Lambda = \bigcup_{k \in \mathbb{N}} \Delta_k$ then $\Lambda$ is maximally consistent because:
+
+   -  Because every finite subset of $\Lambda$ is contained in some $\Delta_k$ for some $k$ and each $\Delta_k$ is consistent by @cor-inconsisten-formulas-subset $\Lambda$ is consistent.
+   
+   -  Let $\beta \not \in \Lambda$ then there is some $\psi_i$ such that $\beta = \psi_i$ and $\Delta_{i+1} = \Delta_i \cup \{ \psi_i \}$ is inconsistent. Because $\Delta_{i+1}$ is a finite subset of $\Lambda$ by @prp-inconsisten-formulas-subset $\Lambda \cup \{ \beta \}$ is inconsistent. 
+
+:::
+
+::: {#thm-consistent-satisfiable-equivalence}
+
+A set of formulas is consistent if and only if it is
+satisfiable.
+
+:::
+
+::: {.proof}
+
+-  If a set of formulas $\Gamma$ is consistent then by @thm-expand-to-maximally-consistent there is maximally  consistent set of formulas $\Sigma$ such that $\Gamma \subseteq \Sigma$. Therefore:
+
+   -  Lets define a truth assignment $v$ such that $v(A_i) = T$ if and only if $A_i \in \Sigma$ [@bilaniuk_problem_2009, p. 20]. Also by @exr-application-deduction-theorem 12 and because $\{ (\alpha \iff \beta) \} \models ((\neg \beta) \iff (\neg \alpha))$ we have that $v(A_i) = T$ if and only if $A_i \in \Sigma$ is equivalent to $v(A_i) = F$ if and only if $A_i \not \in \Sigma$.
+   
+      -  By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in $\varphi$:
+      
+         -  *Base step* $(n = 0)$: Because $\varphi$ has no connectives then by @def-formulas-lp $\varphi$ is an atomic formula. Therefore by the assumption made $v(\varphi) = T$ if and only if $\varphi \in \Sigma$.
+         
+         -  *Induction hypothesis* $(n \leq k)$: Assume that if $\varphi$ is a formula with $n \leq k$ connectives then $v(\varphi) = T$ if and only if $\varphi \in \Sigma$.
+
+         -  *Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with $n = k + 1$ connectives. From @def-formulas-lp $\varphi$ must be either:
+         
+            -   $(\neg \alpha)$ for some formula $\alpha$ with $k$ connectives. By the *induction hypothesis* $v(\alpha) = T$ if and only if $\alpha \in \Sigma$:
+            
+                1. $v((\neg \alpha)) = F$ @def-truth-assignment
+                
+                2. $v(\alpha) = T$ @def-truth-assignment or @thm-soundness-theorem (for $\iff$ to apply) 
+                   
+                3. $\alpha \in \Sigma$ *Induction hypothesis* or @prp-consistent-negation (for $\iff$ to apply)
+    
+                4. $(\neg \alpha) \not \in \Sigma$ @prp-consistent-negation 
+
+            -   $(\beta \Longrightarrow \gamma)$ for some formulas $\beta$ and $\gamma$ with $\leq k$ connectives each. By the *induction hypothesis* $v(\beta) = T$ if and only if $\beta \in \Sigma$ and $v(\gamma) = T$ if and only if $\gamma \in \Sigma$:
+            
+                1. $v((\beta \Longrightarrow \gamma)) = T$ @def-truth-assignment 
+                
+                2. $v(\beta) = F$ or $v(\gamma) = T$ @def-truth-assignment or *induction hypothesis* (for $\iff$ to apply)
+                
+                3. $\beta \not \in \Sigma$ and $\gamma \in \Sigma$ *induction hypothesis* or @prp-maximally-consistent-implies (for $\iff$ to apply)
+                
+                4. $(\beta \Longrightarrow \gamma) \in \Sigma$ @prp-maximally-consistent-implies
+
+            -   In any case $v(\varphi) = T$ if and only if $\varphi \in \Sigma$.
+
+   -  Because for all $\gamma \in \Gamma$ then $\gamma \in \Sigma$ by the above result $v(\gamma) = T$ for all $\gamma \in \Gamma$. Therefore $\Gamma$ is satisfiable.   
+                
+-  If a set of formulas $\Gamma$ is satisfiable then by @prp-satisfiable-consistent-formula $\Gamma$ is consistent.
+
+:::
+
+::: {#thm-completeness-theorem}
+
+## Completeness Theorem
+
+If $\Delta$ is a set of formulas and $\alpha$ is a formula such that $\Delta \models \alpha$, then $\Delta \vdash \alpha$.
+
+:::
+
+::: {.proof}
+
+If $\Delta \models \alpha$ then by @def-formulas-lp $\Delta \cup \{ (\neg \alpha) \}$ is not satisfiable because there is no truth assignment $v$ such that $v(\alpha) = T$ and $v((\neg \alpha)) = T$.
+
+If $\Delta \cup \{ (\neg \alpha) \}$ is not satisfiable by @thm-consistent-satisfiable-equivalence, @exr-application-deduction-theorem 12 and because $\{ (\alpha \iff \beta) \} \models ((\neg \beta) \iff (\neg \alpha))$ we have that $\Delta \cup \{ (\neg \alpha) \}$ is inconsistent, $\Delta \cup \{ (\neg \alpha) \} \vdash (\neg (\alpha \Longrightarrow \alpha))$. 
+
+By @thm-deduction-theorem $\Delta \vdash ((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))$ Therefore:
+
+1.  $((\neg \alpha) \Longrightarrow (\neg (\alpha \Longrightarrow \alpha)))$ Premiss  
+
+2.  $((\alpha \Longrightarrow \alpha) \Longrightarrow \alpha)$ @exr-application-deduction-theorem 3
+
+3.  $(\alpha \Longrightarrow \alpha)$ @exm-example-proof-1
+
+4.  $\alpha$ Modus Ponens 2, 3
+
+The above result means that $\Delta \vdash \alpha$.
+
+:::
+
+::: {#nte-completness-plain-english .callout-note}
+
+-   Completeness guarantees that if something is actually true, then you can deduce or prove it using the rules of the logical system.
+
+    -   In the case of $\mathcal{L}_p$ the rules are described in @def-axioms-lp, @def-modus-ponens and @def-deduction-or-proof.
+
+:::
+
+::: {#thm-compactness-theorem}
+
+## Compactness Theorem
+
+A set of formulas $\Gamma$ is satisfiable if and only if every finite subset of $\Gamma$ is satisfiable.
+
+:::
+
+::: {.proof}
+
+
+
+:::
+
+## Sets
+
+This section is a treatment of axiomatic set theory from the naive point of view as described in [@halmos_naive_2017]:
+
+-  It is axiomatic in that some axioms for set theory
+are stated and used as the basis of all subsequent proofs [@halmos_naive_2017, p. v]. For an axiomatic approach see **Appendix E**.
+
+-  It is naive in that the language and notation are those of ordinary informal (but formalizable) mathematics [@halmos_naive_2017, p. v]
+
+One thing that the development will not include is a definition of sets. The naive point of view adopted assumes that the reader has the ordinary, human, intuitive (and frequently erroneous) understanding of what sets are. The purpose of the exposition is to delineate some of the many things that one can correctly do with them [@halmos_naive_2017, p. 1].
+
+### The axiom of extension
+
+Sets, as they are usually conceived, have *elements* or *members*. It is important to know that a set itself may also be an element of some other set.
+
+The principal concept of set theory, the one that in completely axiomatic studies is the principal primitive (undefined) concept, is that of *belonging*. If $x$ belongs to $A$, $x$ is an element of $A$, we shall write $x \in A$. Also if $x$ is not an element of $A$ we shall write $x \not \in A$, $(\neg (x \in A))$.
+
+A possible relation between sets, more elementary than belonging, is equality. The equality of two sets $A$ and $B$ is written as $A = B$. Also if $A$ and $B$ are not equal is denoted as $A \neq B$, $(\neg (A = B))$.
+
+::: {#def-axiom-of-extension}
+
+## Axiom of extension
+
+Two sets are equal if and only if they have the same
+elements.
+
+$$A = B \iff (\forall x)(x \in A \iff x \in B)$$
+
+The axiom expresses the basic idea that a set is determined by its elements:
+
+-  If $A$ and $B$ are equal then they have the same elements.
+
+-  If $A$ and $B$ have the same elements then they are equal.
+
+:::
+
+If $A$ and $B$ are sets then $A$ is *included* in $B$ or $A$ is a *subset* of $B$ if every element of $A$ is an element of $B$. If this is the case this situation is denoted as $A \subseteq B$. Thus:
+
+$$A \subseteq B \iff (\forall x)(x \in A \Longrightarrow x \in B)$$
+
+Because $A = A$ then $A \subseteq A$. Any subset of $A$ which is from $A$ is called a *proper subset* of $A$. To denote that $C$ is a proper subset of $A$ we use the notation $C \subset A$. Thus:
+
+$$C \subset A \iff (C \subseteq A \land C \neq A)$$
+
+If $A \subseteq B$ and $B \subseteq C$ then $A$ and $B$ have the same elements so by @def-axiom-of-extension $A = B$. Thus:
+
+$$A = B \iff (A \subseteq B \land B \subseteq A)$$
