@@ -1534,7 +1534,7 @@ Note&nbsp;1.1
 <section id="deductions" class="level3" data-number="1.1.3">
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="deductions"><span class="header-section-number">1.1.3</span> Deductions</h3>
 <div id="def-axioms-lp" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.8</strong></span> The 3 axiom schema of <span class="math inline">\(\mathcal{L}_P\)</span> are:</p>
+<p><span class="theorem-title"><strong>Definition 1.8</strong></span> The 3 axiom schema of <span class="math inline">\(\mathcal{L}_P\)</span> are<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
 <ol type="1">
 <li><p><span class="math inline">\((\alpha \Longrightarrow (\beta \Longrightarrow \alpha))\)</span></p></li>
 <li><p><span class="math inline">\(((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \Longrightarrow ((\alpha \Longrightarrow \beta) \Longrightarrow (\alpha \Longrightarrow \gamma)))\)</span></p></li>
@@ -2389,7 +2389,7 @@ Table&nbsp;1.10: Truth table axiom 3 <span class="math inline">\(\mathcal{L}_p\)
 <li><p><span class="math inline">\(((\neg (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow (((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha))\)</span> <a href="#exm-example-proof-2" class="quarto-xref">Example&nbsp;<span>1.2</span></a> 2, 1</p></li>
 <li><p><span class="math inline">\((\neg (\alpha \Longrightarrow (\neg \beta)))\)</span> Premiss</p></li>
 <li><p><span class="math inline">\((((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha)\)</span> Modus ponens 3, 4</p></li>
-<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> and <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
+<li><p><span class="math inline">\(((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> and <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p></li>
 <li><p><span class="math inline">\(\alpha\)</span> Modus Ponens 5, 6</p></li>
 </ol></li>
 <li><p>By <a href="#sec-informal-conventions" class="quarto-xref"><span>Section 1.1.1.1</span></a> <span class="math inline">\(\{ \alpha, \beta \} \vdash (\alpha \land \beta)\)</span> is equivalent to <span class="math inline">\(\{ \alpha, \beta \} \vdash (\neg (\alpha \Longrightarrow (\neg \beta)))\)</span>.</p>
@@ -2544,7 +2544,7 @@ Note&nbsp;1.2
 <p><span class="theorem-title"><strong>Proposition 1.13</strong></span> If a set of formulas is satisfiable, then it is consistent.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is equivalent to show that if a set of formulas is inconsistent then it is not satisfiable<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Therefore:</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is equivalent to show that if a set of formulas is inconsistent then it is not satisfiable<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Therefore:</p>
 <ul>
 <li><p>Let <span class="math inline">\(\Delta\)</span> a set of formulas such that <span class="math inline">\(\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>.</p></li>
 <li><p>By <a href="#thm-soundness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.3</span></a> <span class="math inline">\(\Delta \models (\neg (\alpha \Longrightarrow \alpha))\)</span></p>
@@ -2626,7 +2626,7 @@ Warning&nbsp;1.1
 <p><span class="theorem-title"><strong>Corollary 1.2</strong></span> A set of formulas <span class="math inline">\(\Gamma\)</span> is consistent if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is consistent.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is equivalent to show that <span class="math inline">\(\Gamma\)</span> is an inconsistent set of formulas if and only if there is a finite subset <span class="math inline">\(\Delta\)</span> of <span class="math inline">\(\Gamma\)</span> such that <span class="math inline">\(\Delta\)</span> is inconsistent<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Therefore by <a href="#prp-inconsisten-formulas-subset" class="quarto-xref">Proposition&nbsp;<span>1.15</span></a> this is already proved.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is equivalent to show that <span class="math inline">\(\Gamma\)</span> is an inconsistent set of formulas if and only if there is a finite subset <span class="math inline">\(\Delta\)</span> of <span class="math inline">\(\Gamma\)</span> such that <span class="math inline">\(\Delta\)</span> is inconsistent<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Therefore by <a href="#prp-inconsisten-formulas-subset" class="quarto-xref">Proposition&nbsp;<span>1.15</span></a> this is already proved.</p>
 </div>
 <div id="def-formulas-maximally-consistent" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.12</strong></span> A set of formulas <span class="math inline">\(\Sigma\)</span> is maximally consistent if <span class="math inline">\(\Sigma\)</span> is consistent but <span class="math inline">\(\Sigma \cup \{ \psi \}\)</span> is inconsistent for any <span class="math inline">\(\psi \not \in \Sigma\)</span>.</p>
@@ -2658,7 +2658,7 @@ Note&nbsp;1.3: Proof by reductio ad absurdum
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A proof by reductio ad absurdum is a way to prove <span class="math inline">\(\beta\)</span> by showing that <span class="math inline">\((\neg \beta)\)</span> leads to a contradiction <span class="citation" data-cites="mendelson_number_2008">(<a href="references.html#ref-mendelson_number_2008" role="doc-biblioref">Mendelson 2008, 7</a>, Exercise 5)</span>. That is, <span class="math inline">\(((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha))) \models \beta\)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<p>A proof by reductio ad absurdum is a way to prove <span class="math inline">\(\beta\)</span> by showing that <span class="math inline">\((\neg \beta)\)</span> leads to a contradiction <span class="citation" data-cites="mendelson_number_2008">(<a href="references.html#ref-mendelson_number_2008" role="doc-biblioref">Mendelson 2008, 7</a>, Exercise 5)</span>. That is, <span class="math inline">\(((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha))) \models \beta\)</span><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2756,7 +2756,7 @@ Note&nbsp;1.3: Proof by reductio ad absurdum
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <ul>
-<li><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 16<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> and <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume <span class="math inline">\(\Sigma\)</span> is maximally consistent, <span class="math inline">\((\varphi \Longrightarrow \psi) \in \Sigma\)</span>, <span class="math inline">\(\varphi \in \Sigma\)</span> and <span class="math inline">\(\psi \not \in \Sigma\)</span>. Therefore:</p>
+<li><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 16<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> and <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume <span class="math inline">\(\Sigma\)</span> is maximally consistent, <span class="math inline">\((\varphi \Longrightarrow \psi) \in \Sigma\)</span>, <span class="math inline">\(\varphi \in \Sigma\)</span> and <span class="math inline">\(\psi \not \in \Sigma\)</span>. Therefore:</p>
 <ul>
 <li><p>Because <span class="math inline">\(\Sigma \vdash (\varphi \Longrightarrow \psi)\)</span> and <span class="math inline">\(\Sigma \vdash \varphi\)</span> then <span class="math inline">\(\Sigma \vdash \psi\)</span> by Modus Ponens.</p></li>
 <li><p>Because <span class="math inline">\(\psi \not \in \Sigma\)</span> by <a href="#prp-consistent-negation" class="quarto-xref">Proposition&nbsp;<span>1.17</span></a> <span class="math inline">\((\neg \psi) \in \Sigma\)</span> so <span class="math inline">\(\Sigma \vdash (\neg \psi)\)</span>.</p></li>
@@ -2940,6 +2940,9 @@ Halmos, Paul Richard. 2017. <em>Naive Set Theory</em>. Dover edition. Mineola, N
 <div id="ref-mendelson_number_2008" class="csl-entry" role="listitem">
 Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.
 </div>
+<div id="ref-wasilewska_logics_2018" class="csl-entry" role="listitem">
+Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
+</div>
 </div>
 </section>
 </section>
@@ -2947,11 +2950,12 @@ Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em
 <hr>
 <ol>
 <li id="fn1"><p>See <span class="citation" data-cites="church_introduction_1996">(<a href="references.html#ref-church_introduction_1996" role="doc-biblioref">Church 1996, 70</a>)</span> for more details.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><span class="math inline">\(\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> is equivalent to <span class="math inline">\(\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)\)</span> and this result has already been prove in <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 3 and <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)\)</span>. Also using a truth table it is possible to show that <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 12 <span class="math inline">\((\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))\)</span>. Also using a truth table it is possible to show that <span class="math inline">\((\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 13 <span class="math inline">\((\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>. Also both formulas are contradictions.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 16 <span class="math inline">\((\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))\)</span>. Also using a truth table is possible to show that <span class="math inline">\((\neg (\alpha \lor \beta)) \models ((\neg \alpha) \land (\neg \beta))\)</span>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This axioms are part of Hilbert proof systems. See <span class="citation" data-cites="wasilewska_logics_2018">(<a href="references.html#ref-wasilewska_logics_2018" role="doc-biblioref">Wasilewska 2018, chap. 5</a>)</span> for more details.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><span class="math inline">\(\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> is equivalent to <span class="math inline">\(\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)\)</span> and this result has already been prove in <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 3 and <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)\)</span>. Also using a truth table it is possible to show that <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 12 <span class="math inline">\((\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))\)</span>. Also using a truth table it is possible to show that <span class="math inline">\((\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))\)</span>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 13 <span class="math inline">\((\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))\)</span>. Also both formulas are contradictions.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 16 <span class="math inline">\((\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))\)</span>. Also using a truth table is possible to show that <span class="math inline">\((\neg (\alpha \lor \beta)) \models ((\neg \alpha) \land (\neg \beta))\)</span>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
