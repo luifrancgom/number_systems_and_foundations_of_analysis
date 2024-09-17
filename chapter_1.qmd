@@ -694,7 +694,7 @@ A set of formulas $\Sigma$ is satisfiable if and only if there is no contradicti
 ### Deductions
 
 ::: {#def-axioms-lp}
-The 3 axiom schema of $\mathcal{L}_P$ are:
+The 3 axiom schema of $\mathcal{L}_P$ are[^chapter_1-2]:
 
 1.  $(\alpha \Longrightarrow (\beta \Longrightarrow \alpha))$
 
@@ -704,6 +704,8 @@ The 3 axiom schema of $\mathcal{L}_P$ are:
 
 Replacing $\alpha$, $\beta$, and $\gamma$ by particular formulas of $\mathcal{L}_P$ in any one of the axiom schemas gives an axiom of $\mathcal{L}_P$.
 :::
+
+[^chapter_1-2]: This axioms are part of Hilbert proof systems. See [@wasilewska_logics_2018, chap. 5] for more details.
 
 ::: {#prp-axioms-lp-tautology}
 Every axiom of $\mathcal{L}_P$ is a tautology.
@@ -1193,7 +1195,7 @@ Show that:
 
     5.  $(((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta))) \Longrightarrow \alpha)$ Modus ponens 3, 4
 
-    6.  $((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ @thm-deduction-theorem and @exr-application-deduction-theorem 1[^chapter_1-2].
+    6.  $((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ @thm-deduction-theorem and @exr-application-deduction-theorem 1[^chapter_1-3].
 
     7.  $\alpha$ Modus Ponens 5, 6
 
@@ -1319,7 +1321,7 @@ Show that:
 
 :::
 
-[^chapter_1-2]: $\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)$ and this result has already been prove in @exr-application-deduction-theorem 1.
+[^chapter_1-3]: $\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))$ is equivalent to $\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)$ and this result has already been prove in @exr-application-deduction-theorem 1.
 
 ### Soundness and Completeness
 
@@ -1397,7 +1399,7 @@ If a set of formulas is satisfiable, then it is consistent.
 
 ::: {.proof}
 
-This is equivalent to show that if a set of formulas is inconsistent then it is not satisfiable[^chapter_1-3]. Therefore:
+This is equivalent to show that if a set of formulas is inconsistent then it is not satisfiable[^chapter_1-4]. Therefore:
 
 -  Let $\Delta$ a set of formulas such that $\Delta \vdash (\neg (\alpha \Longrightarrow \alpha))$.
 
@@ -1409,7 +1411,7 @@ This is equivalent to show that if a set of formulas is inconsistent then it is 
 
 :::
 
-[^chapter_1-3]: By @exr-application-deduction-theorem 3 and @thm-deduction-theorem $((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)$. Also using a truth table it is possible to show that $((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)$.
+[^chapter_1-4]: By @exr-application-deduction-theorem 3 and @thm-deduction-theorem $((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)$. Also using a truth table it is possible to show that $((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)$.
 
 ::: {#prp-inconsistent-set-formulas-deduction}
 
@@ -1499,11 +1501,11 @@ A set of formulas $\Gamma$ is consistent if and only if every finite subset of $
 
 ::: {.proof}
 
-This is equivalent to show that $\Gamma$ is an inconsistent set of formulas if and only if there is a finite subset $\Delta$ of $\Gamma$ such that $\Delta$ is inconsistent[^chapter_1-4]. Therefore by @prp-inconsisten-formulas-subset this is already proved. 
+This is equivalent to show that $\Gamma$ is an inconsistent set of formulas if and only if there is a finite subset $\Delta$ of $\Gamma$ such that $\Delta$ is inconsistent[^chapter_1-5]. Therefore by @prp-inconsisten-formulas-subset this is already proved. 
 
 :::
 
-[^chapter_1-4]: By @exr-application-deduction-theorem 12 $(\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))$. Also using a truth table it is possible to show that $(\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))$.
+[^chapter_1-5]: By @exr-application-deduction-theorem 12 $(\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))$. Also using a truth table it is possible to show that $(\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))$.
 
 ::: {#def-formulas-maximally-consistent}
 
@@ -1545,7 +1547,7 @@ $\psi$ is a formula and $\Sigma \vdash \psi$ then $\psi \in \Sigma$.
 
 ## Proof by reductio ad absurdum 
 
-A proof by reductio ad absurdum is a way to prove $\beta$ by showing that $(\neg \beta)$ leads to a contradiction [@mendelson_number_2008, p. 7, Exercise 5]. That is, $((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha))) \models \beta$[^chapter_1-5].
+A proof by reductio ad absurdum is a way to prove $\beta$ by showing that $(\neg \beta)$ leads to a contradiction [@mendelson_number_2008, p. 7, Exercise 5]. That is, $((\neg \beta) \Longrightarrow (\alpha \land (\neg \alpha))) \models \beta$[^chapter_1-6].
 
 ```{r}
 #| results: asis
@@ -1566,7 +1568,7 @@ kbl(reductio_ad_absurdum, escape = FALSE) |>
 
 :::
 
-[^chapter_1-5]: By @exr-application-deduction-theorem 13 $(\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))$. Also both formulas are contradictions.
+[^chapter_1-6]: By @exr-application-deduction-theorem 13 $(\alpha \land (\neg \alpha)) \vdash (\neg (\alpha \Longrightarrow \alpha))$. Also both formulas are contradictions.
 
 ::: {.proof}
 
@@ -1631,7 +1633,7 @@ Suppose $\Sigma$ is a maximally consistent set of formulas and $\varphi$ and $\p
 
 ::: {.proof}
 
--  By @exr-application-deduction-theorem 16[^chapter_1-6] and @nte-proof-by-reductio-ad-absurdum assume $\Sigma$ is maximally consistent, $(\varphi \Longrightarrow \psi) \in \Sigma$, $\varphi \in \Sigma$ and $\psi \not \in \Sigma$. Therefore:
+-  By @exr-application-deduction-theorem 16[^chapter_1-7] and @nte-proof-by-reductio-ad-absurdum assume $\Sigma$ is maximally consistent, $(\varphi \Longrightarrow \psi) \in \Sigma$, $\varphi \in \Sigma$ and $\psi \not \in \Sigma$. Therefore:
 
    -  Because $\Sigma \vdash (\varphi \Longrightarrow \psi)$ and $\Sigma \vdash \varphi$ then $\Sigma \vdash \psi$ by Modus Ponens.
    
@@ -1667,7 +1669,7 @@ Suppose $\Sigma$ is a maximally consistent set of formulas and $\varphi$ and $\p
 
 :::
 
-[^chapter_1-6]: By @exr-application-deduction-theorem 16 $(\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))$. Also using a truth table is possible to show that $(\neg (\alpha \lor \beta)) \models ((\neg \alpha) \land (\neg \beta))$.
+[^chapter_1-7]: By @exr-application-deduction-theorem 16 $(\neg (\alpha \lor \beta)) \vdash ((\neg \alpha) \land (\neg \beta))$. Also using a truth table is possible to show that $(\neg (\alpha \lor \beta)) \models ((\neg \alpha) \land (\neg \beta))$.
 
 ::: {#thm-expand-to-maximally-consistent}
 
