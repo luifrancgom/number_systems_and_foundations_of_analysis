@@ -1491,7 +1491,7 @@ Therefore if $\vdash \sigma$ then $\sigma$ can't be a contradiction.
 
 :::
 
-::: {#cor-inconsisten-formulas-subset}
+::: {#cor-inconsistent-formulas-subset}
 
 A set of formulas $\Gamma$ is consistent if and only if every finite subset of $\Gamma$ is consistent.
 
@@ -1693,7 +1693,7 @@ $$\Delta_{k+1} = \begin{cases}
 
 -  Let $\Lambda = \bigcup_{k \in \mathbb{N}} \Delta_k$ then $\Lambda$ is maximally consistent because:
 
-   -  Because every finite subset of $\Lambda$ is contained in some $\Delta_k$ for some $k$ and each $\Delta_k$ is consistent by @cor-inconsisten-formulas-subset $\Lambda$ is consistent.
+   -  Because every finite subset of $\Lambda$ is contained in some $\Delta_k$ for some $k$ and each $\Delta_k$ is consistent by @cor-inconsistent-formulas-subset $\Lambda$ is consistent.
    
    -  Let $\beta \not \in \Lambda$ then there is some $\psi_i$ such that $\beta = \psi_i$ and $\Delta_{i+1} = \Delta_i \cup \{ \psi_i \}$ is inconsistent. Because $\Delta_{i+1}$ is a finite subset of $\Lambda$ by @prp-inconsisten-formulas-subset $\Lambda \cup \{ \beta \}$ is inconsistent. 
 
@@ -1794,8 +1794,13 @@ A set of formulas $\Gamma$ is satisfiable if and only if every finite subset of 
 
 ::: {.proof}
 
+By @thm-consistent-satisfiable-equivalence $\Gamma$ is satisfiable if and only if $\Gamma$ is consistent.
 
+By @cor-inconsistent-formulas-subset $\Gamma$ is consistent if and only if every finite subset of $\Gamma$ is consistent. 
 
+By @thm-consistent-satisfiable-equivalence every finite subset of $\Gamma$ is consistent if and only if every finite subset of $\Gamma$ is satisfiable.
+
+Therefore by the above results $\Gamma$ is satisfiable if and only if every finite subset of $\Gamma$ is satisfiable.
 :::
 
 ## Sets
