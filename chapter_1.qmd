@@ -1805,6 +1805,10 @@ By @thm-consistent-satisfiable-equivalence every finite subset of $\Gamma$ is co
 Therefore by the above results $\Gamma$ is satisfiable if and only if every finite subset of $\Gamma$ is satisfiable.
 :::
 
+## First order logic
+
+
+
 ## Sets
 
 This section is a treatment of axiomatic set theory from the naive point of view as described in [@halmos_naive_2017]:
@@ -1816,7 +1820,7 @@ are stated and used as the basis of all subsequent proofs [@halmos_naive_2017, p
 
 One thing that the development will not include is a definition of sets. The naive point of view adopted assumes that the reader has the ordinary, human, intuitive (and frequently erroneous) understanding of what sets are. The purpose of the exposition is to delineate some of the many things that one can correctly do with them [@halmos_naive_2017, p. 1].
 
-### The axiom of extension
+### The axiom of extensionality
 
 Sets, as they are usually conceived, have *elements* or *members*. It is important to know that a set itself may also be an element of some other set.
 
@@ -1826,7 +1830,7 @@ A possible relation between sets, more elementary than belonging, is equality. T
 
 ::: {#def-axiom-of-extension}
 
-## Axiom of extension
+## Axiom of extensionality
 
 Two sets are equal if and only if they have the same
 elements.
@@ -1852,3 +1856,37 @@ $$C \subset A \iff (C \subseteq A \land C \neq A)$$
 If $A \subseteq B$ and $B \subseteq C$ then $A$ and $B$ have the same elements so by @def-axiom-of-extension $A = B$. Thus:
 
 $$A = B \iff (A \subseteq B \land B \subseteq A)$$
+
+### Axiom schema of specification (or separation)
+
+All the basic principles of set theory, except only @def-axiom-of-extension are designed to make new sets out of old ones. The first and most important of these basic principles is the axiom of secham of specification.
+
+Let $A$ be the set of all men. The sentence $x$ *is married* is true for some of the elements $x \in A$ and false for others. The principle we are illustrating is the one that justifies the passage from the given set $A$ to the subset (namely, the set of all married men) specified by the given sentence [@halmos_naive_2017, p. 4].
+
+To indicate the generation of the subset, it is usually denoted by: 
+
+$$\{ x \in A \mid x \text{ is married} \}$$
+
+::: {#def-schema-of-specification}
+
+## Axiom schema of specification
+
+If $P$ is a property then for every set $A$ there exist a set $B = \{ x \in A \mid P(x) \}$ that contains all those $x \in A$ that have the property $P$.
+
+-  Observe that $B \subseteq A$ and that if $A$ exists then $B = \{ x \in A \mid P(x) \}$ exists 
+
+:::
+
+Lets see an amusing application of @def-schema-of-specification [@halmos_naive_2017, p. 6]. Consider $P(x)$ as $(\neg (x \in x))$ or more compact $x \not \in x$. Therefore if $A$ is a set and $B = \{ x \in A \mid x \not \in x \}$ then:
+
+$$y \in B \iff (y \in A \land y \not \in y)$$ {#eq-application-axiom-schema-of-specification}
+
+Can it be that $B \in A$? Because $B \subseteq A$ then if $B \in A$ we have that $B \in B$ or $B \not \in A$ but not both:
+
+-  If $B \in B$ by  @eq-application-axiom-schema-of-specification $B \in A \land B \not \in B$ but this is a contradiction because $(B \in B) \land (B \not \in B)$
+
+-  If $B \not \in B$ and because $B \in A$ then again by @eq-application-axiom-schema-of-specification $B \in B$. However this is again a contradiction because $(B \in B) \land (B \not \in B)$
+
+Because $B \in A$ generates a contradiction by @nte-proof-by-reductio-ad-absurdum it must be the case that $B \not \in A$. In simple words *nothing contains everything* or *there is no universe* [@halmos_naive_2017, pp. 6-7]. In older approaches to set theory, the existence of a universe was taken for granted, and the argument in the preceding paragraph was known as the *Russell paradox* [@halmos_naive_2017, p. 7].
+
+### Axiom of pairing
