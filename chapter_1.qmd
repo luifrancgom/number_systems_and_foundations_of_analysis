@@ -705,7 +705,7 @@ The 3 axiom schema of $\mathcal{L}_P$ are[^chapter_1-2]:
 Replacing $\alpha$, $\beta$, and $\gamma$ by particular formulas of $\mathcal{L}_P$ in any one of the axiom schemas gives an axiom of $\mathcal{L}_P$.
 :::
 
-[^chapter_1-2]: This axioms are part of Hilbert proof systems. See [@wasilewska_logics_2018, chap. 5] for more details.
+[^chapter_1-2]: This axioms are part of Hilbert proof systems. See [@wasilewska_logics_2018, chap. 5] for more details and where these axioms where taken from [@mendelson_introduction_2015, p. 28]. For an alternative check out [Metamath Proof Explorer - The Axioms](https://us.metamath.org/mpeuni/mmset.html#axioms)
 
 ::: {#prp-axioms-lp-tautology}
 Every axiom of $\mathcal{L}_P$ is a tautology.
@@ -1867,7 +1867,7 @@ To indicate the generation of the subset, it is usually denoted by:
 
 $$\{ x \in A \mid x \text{ is married} \}$$
 
-::: {#def-schema-of-specification}
+::: {#def-axiom-schema-of-specification}
 
 ## Axiom schema of specification
 
@@ -1877,7 +1877,7 @@ If $P$ is a property then for every set $A$ there exist a set $B = \{ x \in A \m
 
 :::
 
-Lets see an amusing application of @def-schema-of-specification [@halmos_naive_2017, p. 6]. Consider $P(x)$ as $(\neg (x \in x))$ or more compact $x \not \in x$. Therefore if $A$ is a set and $B = \{ x \in A \mid x \not \in x \}$ then:
+Lets see an amusing application of @def-axiom-schema-of-specification [@halmos_naive_2017, p. 6]. Consider $P(x)$ as $(\neg (x \in x))$ or more compact $x \not \in x$. Therefore if $A$ is a set and $B = \{ x \in A \mid x \not \in x \}$ then:
 
 $$y \in B \iff (y \in A \land y \not \in y)$$ {#eq-application-axiom-schema-of-specification}
 
@@ -1889,4 +1889,182 @@ Can it be that $B \in A$? Because $B \subseteq A$ then if $B \in A$ we have that
 
 Because $B \in A$ generates a contradiction by @nte-proof-by-reductio-ad-absurdum it must be the case that $B \not \in A$. In simple words *nothing contains everything* or *there is no universe* [@halmos_naive_2017, pp. 6-7]. In older approaches to set theory, the existence of a universe was taken for granted, and the argument in the preceding paragraph was known as the *Russell paradox* [@halmos_naive_2017, p. 7].
 
+Let as assume that *there exists a set*. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only [@halmos_naive_2017, p. 8]. One consequence of this assumption is that there exists a set without any elements at all. By @def-axiom-schema-of-specification define $B$ using some false $P(x)$ like $x \not = x$:
+
+$$B = \{ x \in A \mid x \not = x \}$$
+Furthermore by @def-axiom-of-extension $B$ is unique. This is because $(\forall x)(x \not \in B)$ so if there is another $B^*$ such that $(\forall x)(x \not \in B^*)$ then we have that:
+
+-  $(\forall x)(x \in B \Longrightarrow x \in B^*)$ is true because $x \in B$ is false so $B \subseteq B^*$
+
+-  $(\forall x)(x \in B^* \Longrightarrow x \in B)$ is true because $x \in B^*$ is false so $B^* \subseteq B$
+
+Therefore $B = B^*$. Because $B$ is unique we will use the symbol $\emptyset$ for this set. Also we know that $\emptyset \subseteq \emptyset$ but also we have that $\emptyset \subseteq A$ for any set $A$. How could it be that the empty set is a subset of every set? To prove that something is true about the empty set, prove that it cannot be false [@halmos_naive_2017, p. 8]. Assume $\emptyset \not \subseteq A$ for any set $A$. But this will mean that there is some $x$ such that $x \in \emptyset \land x \not \in A$. However this is not possible because $(\forall x)(x \not \in \emptyset)$. Therefore by @nte-proof-by-reductio-ad-absurdum it must be the case that $(\forall A)(\emptyset \subseteq A)$.
+
 ### Axiom of pairing
+
+The pairing axiom states that whenever we have two sets $a$ and $b$, there is a set $A$ whose only members are $a$ and $b$.
+
+::: {#def-axiom-of-pairing}
+
+## Axiom of pairing
+
+If $a$ and $b$ are sets there is a set $A$ such that it contains exactly $a$ and $b$.
+
+:::
+
+By @def-axiom-schema-of-specification we can specify $P(x)$ as $x = a \lor x = b$ and build $A$ as:
+
+$$A = \{ x \in C \mid x = a \lor x = b \}$$
+
+If there is another set $B$ such that $\{ x \in C \mid x = a \lor x = b \}$ then by @def-axiom-of-extension $A = B$ so we can denote $A$ as $\{ a, b\}$. In case $a = b$ we have that $\{ a, a \}$ but we can simply write $\{ a\}$ because $\{ a, a \} \subseteq \{ a \}$ and $\{ a \} \subseteq \{ a, a \}$ so $\{ a, a \} = \{ a \}$. Also $a \in A$ is equivalent to $\{ a \} \subseteq A$ but be careful because $a \not = \{ a \}$. 
+
+Furthermore because $\emptyset$ exists we can build new sets:
+
+$$\{ \emptyset \}, \{ \{ \emptyset \} \}, \{ \{ \{ \emptyset \} \} \}, \ldots$$
+
+Or pairs of them like $\{ \emptyset, \{ \emptyset \} \}$, $\{ \{ \emptyset \}, \{ \{ \emptyset \} \} \}$. But we can still apply the same logic by creating new sets from the above sets like $\{ \emptyset, \{ \emptyset, \{ \emptyset \} \} \}$.  
+
+Because $\{ a, b \} = \{ b, a \}$ and using the above logic we can use those aspects to motive the definition of ordered pair as:
+
+$$(a, b) = \{ \{ a \}, \{ a, b\} \}$$
+Where we can use it to define recursively an $n$-tuple for $n \geq 3$ as:
+
+$$\begin{split}
+ (a_1, a_2, a_3) & = ((a_1, a_2), a_3) \\
+ (a_1, a_2, a_3, a_4) & = ((a_1, a_2, a_3), a_4) \\
+ & \;\; \vdots \\
+ (a_1, \ldots , a_n) & = ((a_1, \ldots, a_{n-1}), a_n)
+\end{split}$$
+
+$(a, b) = \{ \{ a \}, \{ a, b\} \}$ is defined an ordered pair because $(a, b) = (a^{'}, b^{'})$ if and only if $a = a^{'} \land b = b^{'}$. Why?
+
+::: {.proof}
+
+-  If $a = a^{'} \land b = b^{'}$ then $(a, b) = \{ \{ a^{'} \}, \{ b^{'}, a^{'}\} \}$. But $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$ so $(a, b) = (a^{'}, b^{'})$.
+
+-  If $(a, b) = (a^{'}, b^{'})$ lets assume 2 cases [@forero_cuervo_matematica_2009, p. 59]:
+
+   -  Assume $a^{'} = b^{'}$ then $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, a^{'}\} \} = \{ \{ a^{'} \}, \{ a^{'} \} \} = \{ \{ a^{'} \} \}$. Because $(a^{'}, b^{'}) = (a, b)$ then $\{ \{ a^{'} \} \} = \{ \{ a \}, \{ b, a \} \}$. Therefore $b = a$ and $\{ \{ a \} \}$ so $a^{'} = a$. In particular $a = a^{'} \land b = b^{'}$.
+   
+   -  Assume $a^{'} \neq b^{'}$ then because $(a, b) = (a^{'}, b^{'})$ we have that $\{ \{ a \}, \{ a, b \} \} = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$. Also $a \neq b$ because $a^{'} \neq b^{'}$. Therefore $a = a^{'}$ and $\{ a, b \} = \{ a^{'}, b^{'}\}$. But again $a^{'} \neq b^{'}$ so $b = b^{'}$. We have that $a = a^{'} \land b = b^{'}$. 
+
+:::
+
+## Axiom of union
+
+If $A$ and $B$ are sets, it is sometimes natural to wish to unite their elements into one comprehensive set [@halmos_naive_2017, p. 12].
+
+::: {#def-axiom-of-union}
+
+## Axiom of union
+
+For any set $A$ there exist a set $B = \bigcup A$, the union of all elements of $A$.
+
+In other words $\bigcup A = \{ x \in C \mid \exists C\in A \}$ or that $x \in \bigcup A$ if and only if $(\exists C \in A)(x \in C)$.
+
+:::
+
+For example let $A = \{ \{ a, b\}, \{ c \} \}$ then $\bigcup A = \{ a, b, c \}$. Also if $A$ and $B$ are sets using @def-axiom-of-pairing we can generate the set $\{ A, B \}$ and apply @def-axiom-of-union to obtain:
+
+$$\begin{split}
+   \bigcup \{ A, B \} & = \{ x \in C \mid C = A \lor C = B \} \\
+   & = A \cup B
+  \end{split}$$
+ 
+Also let $B = \{ A \}$ then $\bigcup B = \{ x \in A \mid A \in B \} = A$. What about $\bigcup \emptyset$? Well, $\bigcup \emptyset = \{ x \in A \mid A \in \emptyset \}$. But there is no $A \in \emptyset$ so there is not $x \in \bigcup \emptyset$. Therefore $\bigcup \emptyset = \emptyset$.
+
+We can check the following facts:
+
+-  $A \cup \emptyset = A$
+
+$$\begin{split}
+   x \in A \cup \emptyset & \iff x \in A \lor x \in \emptyset \\
+   & \iff x \in A
+  \end{split}$$
+
+-  $A \cup B = B \cup A$
+
+$$\begin{split}
+   x \in A \cup B & \iff x \in A \lor x \in B \\
+   & \iff x \in B \lor x \in A \\
+   & \iff x \in B \cup A
+  \end{split}$$
+
+-  $A \cup A = A$
+
+$$\begin{split}
+   x \in A \cup A & \iff x \in A \lor x \in A \\
+   & \iff x \in A
+  \end{split}$$
+  
+-  $A \subseteq B$ if and only if $A \cup B = B$
+
+   -  Let $A \subseteq B$
+   
+      $$\begin{split}
+       x \in A \cup B & \iff x \in A \lor x \in B \\
+       & \iff x \in B \lor x \in B \\
+       & \iff x \in B 
+       \end{split}$$
+
+   -  Let $A \cup B = B$
+
+      $$\begin{split}
+      x \in A & \Longrightarrow x \in A \lor x \in B \\
+      & \Longrightarrow x \in B
+      \end{split}$$
+
+What about intersections? By @def-axiom-schema-of-specification we can define $A \cap B = \{ x \in A \mid x \in B \}$ where $P(x) = x \in B$. 
+
+We can check the following facts:
+
+-  $A \cap \emptyset = \emptyset$
+
+   -  Because $A \cap \emptyset = \{ x \in A \mid x \in \emptyset \}$ but there is no $x \in \emptyset$ so there is no $x \in A \cap \emptyset$. Therefore $A \cap \emptyset = \emptyset$.
+   
+-  $A \cap B = B \cap A$
+
+$$\begin{split}
+   x \in A \cap B & \iff x \in A \land x \in B \\
+   & \iff x \in B \land x \in A \\
+   & \iff x \in B \cap A
+  \end{split}$$
+  
+-  $A \cap A = A$
+
+$$\begin{split}
+   x \in A \cap A & \iff x \in A \land x \in A \\
+   & \iff x \in A
+  \end{split}$$
+
+-  $A \subseteq B$ if and only if $A \cap B = A$
+
+   -  Let $A \subseteq B$
+   
+      $$\begin{split}
+       x \in A \cap B & \iff x \in A \land x \in B \\
+       & \iff x \in A \land x \in A \\
+       & \iff x \in A 
+       \end{split}$$
+
+   -  Let $A \cap B = A$
+
+      $$\begin{split}
+      x \in A & \Longrightarrow x \in A \land x \in B \\
+      & \Longrightarrow x \in A
+      \end{split}$$
+
+Pairs of sets with an empty intersection occur frequently enough to justify the use of a special word. If $A \cap B = \emptyset$, the sets $A$ and $B$ are called *disjoint*. Also if in a collection of sets any two distinct sets of the collection are disjoint we may speak in such a situation of a *pairwise disjoint* collection [@halmos_naive_2017, p. 15].
+
+Let $B = \{ A_i \in C \mid A_i \in A \}$ then $B$ is *pairwise disjoint* if $i \neq j$ then $A_i \cap A_j = \emptyset$.
+
+We can define $\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}$. Once we define $\bigcap B$ we can have that $\bigcap B = \emptyset$ but $B$ is not necessary *pairwise disjoint*. For example let $B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}$ where we have that:
+
+-  $\{ a, b \} \cap \{ b, c \} = b$
+-  $\{ b, c \} \cap \{ a, c \} = c$
+-  $\{ a, b \} \cap \{ a, c \} = a$
+-  $\{ a, b \} \cap \{ b, c \} \cap \{ a, c \} = \emptyset$
+
+Therefore if a $B$ is a *pairwise disjoint* collections of sets it is *disjoint* but if $B$ is a *disjoint* collections of sets it is not necessary true that is *pairwise disjoint*.
+
+**Pending**: Include distributive laws identities [@halmos_naive_2017, p. 15] and solve the last exercise.
