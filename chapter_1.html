@@ -274,6 +274,7 @@ window.Quarto = {
   <li><a href="#axiom-schema-of-specification-or-separation" id="toc-axiom-schema-of-specification-or-separation" class="nav-link" data-scroll-target="#axiom-schema-of-specification-or-separation"><span class="header-section-number">1.3.2</span> Axiom schema of specification (or separation)</a></li>
   <li><a href="#axiom-of-pairing" id="toc-axiom-of-pairing" class="nav-link" data-scroll-target="#axiom-of-pairing"><span class="header-section-number">1.3.3</span> Axiom of pairing</a></li>
   </ul></li>
+  <li><a href="#axiom-of-union" id="toc-axiom-of-union" class="nav-link" data-scroll-target="#axiom-of-union"><span class="header-section-number">1.4</span> Axiom of union</a></li>
   </ul>
 </nav>
     </div>
@@ -2929,13 +2930,13 @@ Note&nbsp;1.4
 <p>Let <span class="math inline">\(A\)</span> be the set of all men. The sentence <span class="math inline">\(x\)</span> <em>is married</em> is true for some of the elements <span class="math inline">\(x \in A\)</span> and false for others. The principle we are illustrating is the one that justifies the passage from the given set <span class="math inline">\(A\)</span> to the subset (namely, the set of all married men) specified by the given sentence <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 4</a>)</span>.</p>
 <p>To indicate the generation of the subset, it is usually denoted by:</p>
 <p><span class="math display">\[\{ x \in A \mid x \text{ is married} \}\]</span></p>
-<div id="def-schema-of-specification" class="theorem definition">
+<div id="def-axiom-schema-of-specification" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.14 (Axiom schema of specification)</strong></span> If <span class="math inline">\(P\)</span> is a property then for every set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> that contains all those <span class="math inline">\(x \in A\)</span> that have the property <span class="math inline">\(P\)</span>.</p>
 <ul>
 <li>Observe that <span class="math inline">\(B \subseteq A\)</span> and that if <span class="math inline">\(A\)</span> exists then <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> exists</li>
 </ul>
 </div>
-<p>Lets see an amusing application of <a href="#def-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. Consider <span class="math inline">\(P(x)\)</span> as <span class="math inline">\((\neg (x \in x))\)</span> or more compact <span class="math inline">\(x \not \in x\)</span>. Therefore if <span class="math inline">\(A\)</span> is a set and <span class="math inline">\(B = \{ x \in A \mid x \not \in x \}\)</span> then:</p>
+<p>Lets see an amusing application of <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. Consider <span class="math inline">\(P(x)\)</span> as <span class="math inline">\((\neg (x \in x))\)</span> or more compact <span class="math inline">\(x \not \in x\)</span>. Therefore if <span class="math inline">\(A\)</span> is a set and <span class="math inline">\(B = \{ x \in A \mid x \not \in x \}\)</span> then:</p>
 <p><span id="eq-application-axiom-schema-of-specification"><span class="math display">\[y \in B \iff (y \in A \land y \not \in y) \tag{1.1}\]</span></span></p>
 <p>Can it be that <span class="math inline">\(B \in A\)</span>? Because <span class="math inline">\(B \subseteq A\)</span> then if <span class="math inline">\(B \in A\)</span> we have that <span class="math inline">\(B \in B\)</span> or <span class="math inline">\(B \not \in A\)</span> but not both:</p>
 <ul>
@@ -2943,9 +2944,148 @@ Note&nbsp;1.4
 <li><p>If <span class="math inline">\(B \not \in B\)</span> and because <span class="math inline">\(B \in A\)</span> then again by <a href="#eq-application-axiom-schema-of-specification" class="quarto-xref">Equation&nbsp;<span>1.1</span></a> <span class="math inline">\(B \in B\)</span>. However this is again a contradiction because <span class="math inline">\((B \in B) \land (B \not \in B)\)</span></p></li>
 </ul>
 <p>Because <span class="math inline">\(B \in A\)</span> generates a contradiction by <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> it must be the case that <span class="math inline">\(B \not \in A\)</span>. In simple words <em>nothing contains everything</em> or <em>there is no universe</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 6–7</a>)</span>. In older approaches to set theory, the existence of a universe was taken for granted, and the argument in the preceding paragraph was known as the <em>Russell paradox</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 7</a>)</span>.</p>
+<p>Let as assume that <em>there exists a set</em>. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. One consequence of this assumption is that there exists a set without any elements at all. By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> define <span class="math inline">\(B\)</span> using some false <span class="math inline">\(P(x)\)</span> like <span class="math inline">\(x \not = x\)</span>:</p>
+<p><span class="math display">\[B = \{ x \in A \mid x \not = x \}\]</span> Furthermore by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> <span class="math inline">\(B\)</span> is unique. This is because <span class="math inline">\((\forall x)(x \not \in B)\)</span> so if there is another <span class="math inline">\(B^*\)</span> such that <span class="math inline">\((\forall x)(x \not \in B^*)\)</span> then we have that:</p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(x \in B \Longrightarrow x \in B^*)\)</span> is true because <span class="math inline">\(x \in B\)</span> is false so <span class="math inline">\(B \subseteq B^*\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(x \in B^* \Longrightarrow x \in B)\)</span> is true because <span class="math inline">\(x \in B^*\)</span> is false so <span class="math inline">\(B^* \subseteq B\)</span></p></li>
+</ul>
+<p>Therefore <span class="math inline">\(B = B^*\)</span>. Because <span class="math inline">\(B\)</span> is unique we will use the symbol <span class="math inline">\(\emptyset\)</span> for this set. Also we know that <span class="math inline">\(\emptyset \subseteq \emptyset\)</span> but also we have that <span class="math inline">\(\emptyset \subseteq A\)</span> for any set <span class="math inline">\(A\)</span>. How could it be that the empty set is a subset of every set? To prove that something is true about the empty set, prove that it cannot be false <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. Assume <span class="math inline">\(\emptyset \not \subseteq A\)</span> for any set <span class="math inline">\(A\)</span>. But this will mean that there is some <span class="math inline">\(x\)</span> such that <span class="math inline">\(x \in \emptyset \land x \not \in A\)</span>. However this is not possible because <span class="math inline">\((\forall x)(x \not \in \emptyset)\)</span>. Therefore by <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> it must be the case that <span class="math inline">\((\forall A)(\emptyset \subseteq A)\)</span>.</p>
 </section>
 <section id="axiom-of-pairing" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="axiom-of-pairing"><span class="header-section-number">1.3.3</span> Axiom of pairing</h3>
+<p>The pairing axiom states that whenever we have two sets <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, there is a set <span class="math inline">\(A\)</span> whose only members are <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<div id="def-axiom-of-pairing" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.15 (Axiom of pairing)</strong></span> If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are sets there is a set <span class="math inline">\(A\)</span> such that it contains exactly <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+</div>
+<p>By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> we can specify <span class="math inline">\(P(x)\)</span> as <span class="math inline">\(x = a \lor x = b\)</span> and build <span class="math inline">\(A\)</span> as:</p>
+<p><span class="math display">\[A = \{ x \in C \mid x = a \lor x = b \}\]</span></p>
+<p>If there is another set <span class="math inline">\(B\)</span> such that <span class="math inline">\(\{ x \in C \mid x = a \lor x = b \}\)</span> then by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> <span class="math inline">\(A = B\)</span> so we can denote <span class="math inline">\(A\)</span> as <span class="math inline">\(\{ a, b\}\)</span>. In case <span class="math inline">\(a = b\)</span> we have that <span class="math inline">\(\{ a, a \}\)</span> but we can simply write <span class="math inline">\(\{ a\}\)</span> because <span class="math inline">\(\{ a, a \} \subseteq \{ a \}\)</span> and <span class="math inline">\(\{ a \} \subseteq \{ a, a \}\)</span> so <span class="math inline">\(\{ a, a \} = \{ a \}\)</span>. Also <span class="math inline">\(a \in A\)</span> is equivalent to <span class="math inline">\(\{ a \} \subseteq A\)</span> but be careful because <span class="math inline">\(a \not = \{ a \}\)</span>.</p>
+<p>Furthermore because <span class="math inline">\(\emptyset\)</span> exists we can build new sets:</p>
+<p><span class="math display">\[\{ \emptyset \}, \{ \{ \emptyset \} \}, \{ \{ \{ \emptyset \} \} \}, \ldots\]</span></p>
+<p>Or pairs of them like <span class="math inline">\(\{ \emptyset, \{ \emptyset \} \}\)</span>, <span class="math inline">\(\{ \{ \emptyset \}, \{ \{ \emptyset \} \} \}\)</span>. But we can still apply the same logic by creating new sets from the above sets like <span class="math inline">\(\{ \emptyset, \{ \emptyset, \{ \emptyset \} \} \}\)</span>.</p>
+<p>Because <span class="math inline">\(\{ a, b \} = \{ b, a \}\)</span> and using the above logic we can use those aspects to motive the definition of ordered pair as:</p>
+<p><span class="math display">\[(a, b) = \{ \{ a \}, \{ a, b\} \}\]</span> Where we can use it to define recursively an <span class="math inline">\(n\)</span>-tuple for <span class="math inline">\(n \geq 3\)</span> as:</p>
+<p><span class="math display">\[\begin{split}
+(a_1, a_2, a_3) &amp; = ((a_1, a_2), a_3) \\
+(a_1, a_2, a_3, a_4) &amp; = ((a_1, a_2, a_3), a_4) \\
+&amp; \;\; \vdots \\
+(a_1, \ldots , a_n) &amp; = ((a_1, \ldots, a_{n-1}), a_n)
+\end{split}\]</span></p>
+<p><span class="math inline">\((a, b) = \{ \{ a \}, \{ a, b\} \}\)</span> is defined an ordered pair because <span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span> if and only if <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span>. Why?</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li><p>If <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span> then <span class="math inline">\((a, b) = \{ \{ a^{'} \}, \{ b^{'}, a^{'}\} \}\)</span>. But <span class="math inline">\((a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}\)</span> so <span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span>.</p></li>
+<li><p>If <span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span> lets assume 2 cases <span class="citation" data-cites="forero_cuervo_matematica_2009">(<a href="references.html#ref-forero_cuervo_matematica_2009" role="doc-biblioref">Forero Cuervo 2009, 59</a>)</span>:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(a^{'} = b^{'}\)</span> then <span class="math inline">\((a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, a^{'}\} \} = \{ \{ a^{'} \}, \{ a^{'} \} \} = \{ \{ a^{'} \} \}\)</span>. Because <span class="math inline">\((a^{'}, b^{'}) = (a, b)\)</span> then <span class="math inline">\(\{ \{ a^{'} \} \} = \{ \{ a \}, \{ b, a \} \}\)</span>. Therefore <span class="math inline">\(b = a\)</span> and <span class="math inline">\(\{ \{ a \} \}\)</span> so <span class="math inline">\(a^{'} = a\)</span>. In particular <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(a^{'} \neq b^{'}\)</span> then because <span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span> we have that <span class="math inline">\(\{ \{ a \}, \{ a, b \} \} = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}\)</span>. Also <span class="math inline">\(a \neq b\)</span> because <span class="math inline">\(a^{'} \neq b^{'}\)</span>. Therefore <span class="math inline">\(a = a^{'}\)</span> and <span class="math inline">\(\{ a, b \} = \{ a^{'}, b^{'}\}\)</span>. But again <span class="math inline">\(a^{'} \neq b^{'}\)</span> so <span class="math inline">\(b = b^{'}\)</span>. We have that <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="axiom-of-union" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="axiom-of-union"><span class="header-section-number">1.4</span> Axiom of union</h2>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, it is sometimes natural to wish to unite their elements into one comprehensive set <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 12</a>)</span>.</p>
+<div id="def-axiom-of-union" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.16 (Axiom of union)</strong></span> For any set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \bigcup A\)</span>, the union of all elements of <span class="math inline">\(A\)</span>.</p>
+<p>In other words <span class="math inline">\(\bigcup A = \{ x \in C \mid \exists C\in A \}\)</span> or that <span class="math inline">\(x \in \bigcup A\)</span> if and only if <span class="math inline">\((\exists C \in A)(x \in C)\)</span>.</p>
+</div>
+<p>For example let <span class="math inline">\(A = \{ \{ a, b\}, \{ c \} \}\)</span> then <span class="math inline">\(\bigcup A = \{ a, b, c \}\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-of-pairing" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> we can generate the set <span class="math inline">\(\{ A, B \}\)</span> and apply <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> to obtain:</p>
+<p><span class="math display">\[\begin{split}
+   \bigcup \{ A, B \} &amp; = \{ x \in C \mid C = A \lor C = B \} \\
+   &amp; = A \cup B
+  \end{split}\]</span></p>
+<p>Also let <span class="math inline">\(B = \{ A \}\)</span> then <span class="math inline">\(\bigcup B = \{ x \in A \mid A \in B \} = A\)</span>. What about <span class="math inline">\(\bigcup \emptyset\)</span>? Well, <span class="math inline">\(\bigcup \emptyset = \{ x \in A \mid A \in \emptyset \}\)</span>. But there is no <span class="math inline">\(A \in \emptyset\)</span> so there is not <span class="math inline">\(x \in \bigcup \emptyset\)</span>. Therefore <span class="math inline">\(\bigcup \emptyset = \emptyset\)</span>.</p>
+<p>We can check the following facts:</p>
+<ul>
+<li><span class="math inline">\(A \cup \emptyset = A\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+   x \in A \cup \emptyset &amp; \iff x \in A \lor x \in \emptyset \\
+   &amp; \iff x \in A
+  \end{split}\]</span></p>
+<ul>
+<li><span class="math inline">\(A \cup B = B \cup A\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+   x \in A \cup B &amp; \iff x \in A \lor x \in B \\
+   &amp; \iff x \in B \lor x \in A \\
+   &amp; \iff x \in B \cup A
+  \end{split}\]</span></p>
+<ul>
+<li><span class="math inline">\(A \cup A = A\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+   x \in A \cup A &amp; \iff x \in A \lor x \in A \\
+   &amp; \iff x \in A
+  \end{split}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(A \subseteq B\)</span> if and only if <span class="math inline">\(A \cup B = B\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(A \subseteq B\)</span></p>
+<p><span class="math display">\[\begin{split}
+x \in A \cup B &amp; \iff x \in A \lor x \in B \\
+&amp; \iff x \in B \lor x \in B \\
+&amp; \iff x \in B
+\end{split}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A \cup B = B\)</span></p>
+<p><span class="math display">\[\begin{split}
+x \in A &amp; \Longrightarrow x \in A \lor x \in B \\
+&amp; \Longrightarrow x \in B
+\end{split}\]</span></p></li>
+</ul></li>
+</ul>
+<p>What about intersections? By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> we can define <span class="math inline">\(A \cap B = \{ x \in A \mid x \in B \}\)</span> where <span class="math inline">\(P(x) = x \in B\)</span>.</p>
+<p>We can check the following facts:</p>
+<ul>
+<li><p><span class="math inline">\(A \cap \emptyset = \emptyset\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(A \cap \emptyset = \{ x \in A \mid x \in \emptyset \}\)</span> but there is no <span class="math inline">\(x \in \emptyset\)</span> so there is no <span class="math inline">\(x \in A \cap \emptyset\)</span>. Therefore <span class="math inline">\(A \cap \emptyset = \emptyset\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\(A \cap B = B \cap A\)</span></p></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+   x \in A \cap B &amp; \iff x \in A \land x \in B \\
+   &amp; \iff x \in B \land x \in A \\
+   &amp; \iff x \in B \cap A
+  \end{split}\]</span></p>
+<ul>
+<li><span class="math inline">\(A \cap A = A\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+   x \in A \cap A &amp; \iff x \in A \land x \in A \\
+   &amp; \iff x \in A
+  \end{split}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(A \subseteq B\)</span> if and only if <span class="math inline">\(A \cap B = A\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(A \subseteq B\)</span></p>
+<p><span class="math display">\[\begin{split}
+x \in A \cap B &amp; \iff x \in A \land x \in B \\
+&amp; \iff x \in A \land x \in A \\
+&amp; \iff x \in A
+\end{split}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A \cap B = A\)</span></p>
+<p><span class="math display">\[\begin{split}
+x \in A &amp; \Longrightarrow x \in A \land x \in B \\
+&amp; \Longrightarrow x \in A
+\end{split}\]</span></p></li>
+</ul></li>
+</ul>
+<p>Pairs of sets with an empty intersection occur frequently enough to justify the use of a special word. If <span class="math inline">\(A \cap B = \emptyset\)</span>, the sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are called <em>disjoint</em>. Also if in a collection of sets any two distinct sets of the collection are disjoint we may speak in such a situation of a <em>pairwise disjoint</em> collection <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span>.</p>
+<p>Let <span class="math inline">\(B = \{ A_i \in C \mid A_i \in A \}\)</span> then <span class="math inline">\(B\)</span> is <em>pairwise disjoint</em> if <span class="math inline">\(i \neq j\)</span> then <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>.</p>
+<p>We can define <span class="math inline">\(\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}\)</span>. Once we define <span class="math inline">\(\bigcap B\)</span> we can have that <span class="math inline">\(\bigcap B = \emptyset\)</span> but <span class="math inline">\(B\)</span> is not necessary <em>pairwise disjoint</em>. For example let <span class="math inline">\(B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}\)</span> where we have that:</p>
+<ul>
+<li><span class="math inline">\(\{ a, b \} \cap \{ b, c \} = b\)</span></li>
+<li><span class="math inline">\(\{ b, c \} \cap \{ a, c \} = c\)</span></li>
+<li><span class="math inline">\(\{ a, b \} \cap \{ a, c \} = a\)</span></li>
+<li><span class="math inline">\(\{ a, b \} \cap \{ b, c \} \cap \{ a, c \} = \emptyset\)</span></li>
+</ul>
+<p>Therefore if a <span class="math inline">\(B\)</span> is a <em>pairwise disjoint</em> collections of sets it is <em>disjoint</em> but if <span class="math inline">\(B\)</span> is a <em>disjoint</em> collections of sets it is not necessary true that is <em>pairwise disjoint</em>.</p>
+<p><strong>Pending</strong>: Include distributive laws identities <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span> and solve the last exercise.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -2961,6 +3101,9 @@ Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Condi
 <div id="ref-fagin_reasoning_1995" class="csl-entry" role="listitem">
 Fagin, Ronald, ed. 1995. <em>Reasoning about Knowledge</em>. Cambridge, Mass: MIT Press.
 </div>
+<div id="ref-forero_cuervo_matematica_2009" class="csl-entry" role="listitem">
+Forero Cuervo, Andrés. 2009. <em>Matemática Estructural</em>. Universidad de los Andes, Colombia.
+</div>
 <div id="ref-halmos_naive_2017" class="csl-entry" role="listitem">
 Halmos, Paul Richard. 2017. <em>Naive Set Theory</em>. Dover edition. Mineola, New York: Dover Publications, Inc.
 </div>
@@ -2970,17 +3113,19 @@ Halmos, Paul Richard. 2017. <em>Naive Set Theory</em>. Dover edition. Mineola, N
 <div id="ref-mendelson_number_2008" class="csl-entry" role="listitem">
 Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.
 </div>
+<div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
+———. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
+</div>
 <div id="ref-wasilewska_logics_2018" class="csl-entry" role="listitem">
 Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
 </div>
 </div>
 </section>
-</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>See <span class="citation" data-cites="church_introduction_1996">(<a href="references.html#ref-church_introduction_1996" role="doc-biblioref">Church 1996, 70</a>)</span> for more details.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>This axioms are part of Hilbert proof systems. See <span class="citation" data-cites="wasilewska_logics_2018">(<a href="references.html#ref-wasilewska_logics_2018" role="doc-biblioref">Wasilewska 2018, chap. 5</a>)</span> for more details.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This axioms are part of Hilbert proof systems. See <span class="citation" data-cites="wasilewska_logics_2018">(<a href="references.html#ref-wasilewska_logics_2018" role="doc-biblioref">Wasilewska 2018, chap. 5</a>)</span> for more details and where these axioms where taken from <span class="citation" data-cites="mendelson_introduction_2015">(<a href="references.html#ref-mendelson_introduction_2015" role="doc-biblioref">Mendelson 2015, 28</a>)</span>. For an alternative check out <a href="https://us.metamath.org/mpeuni/mmset.html#axioms">Metamath Proof Explorer - The Axioms</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p><span class="math inline">\(\vdash ((\neg \alpha) \Longrightarrow (\alpha \Longrightarrow (\neg \beta)))\)</span> is equivalent to <span class="math inline">\(\{ (\neg \alpha), \alpha \} \vdash (\neg \beta)\)</span> and this result has already been prove in <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 1.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 3 and <a href="#thm-deduction-theorem" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a> <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \vdash (\alpha \Longrightarrow \beta)\)</span>. Also using a truth table it is possible to show that <span class="math inline">\(((\neg \beta) \Longrightarrow (\neg \alpha)) \models (\alpha \Longrightarrow \beta)\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>By <a href="#exr-application-deduction-theorem" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a> 12 <span class="math inline">\((\alpha \iff \beta) \vdash ((\neg \alpha) \iff (\neg \beta))\)</span>. Also using a truth table it is possible to show that <span class="math inline">\((\alpha \iff \beta) \models ((\neg \alpha) \iff (\neg \beta))\)</span>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
