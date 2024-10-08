@@ -2890,6 +2890,344 @@ Note&nbsp;1.4
 <p>By <a href="#thm-consistent-satisfiable-equivalence" class="quarto-xref">Theorem&nbsp;<span>1.5</span></a> every finite subset of <span class="math inline">\(\Gamma\)</span> is consistent if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is satisfiable.</p>
 <p>Therefore by the above results <span class="math inline">\(\Gamma\)</span> is satisfiable if and only if every finite subset of <span class="math inline">\(\Gamma\)</span> is satisfiable.</p>
 </div>
+<div id="exr-distributive-laws" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.12</strong></span> Show that:</p>
+<ol type="1">
+<li><p>(<span class="math inline">\((\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))\)</span>)</p></li>
+<li><p>(<span class="math inline">\((\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>)</p></li>
+</ol>
+</div>
+<div id="sol-distributive-laws" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.12</em>. </span></p>
+<ul>
+<li><p>Let’s use a truth table:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\alpha\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\beta\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\gamma\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\((\alpha \land (\beta \lor \gamma))\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(((\alpha \land \beta) \lor (\alpha \land \gamma))\)</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Therefore by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> because (<span class="math inline">\((\alpha \land (\beta \lor \gamma)) \models ((\alpha \land \beta) \lor (\alpha \land \gamma))\)</span>) then (<span class="math inline">\((\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))\)</span>)</li>
+</ul></li>
+<li><p>Let’s use a truth table:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\alpha\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\beta\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\gamma\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\((\alpha \lor (\beta \land \gamma))\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Therefore by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> because (<span class="math inline">\((\alpha \lor (\beta \land \gamma)) \models ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>) then (<span class="math inline">\((\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>)</li>
+</ul></li>
+</ul>
+</div>
 </section>
 </section>
 <section id="first-order-logic" class="level2" data-number="1.2">
@@ -3076,7 +3414,7 @@ x \in A &amp; \Longrightarrow x \in A \land x \in B \\
 </ul></li>
 </ul>
 <p>Pairs of sets with an empty intersection occur frequently enough to justify the use of a special word. If <span class="math inline">\(A \cap B = \emptyset\)</span>, the sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are called <em>disjoint</em>. Also if in a collection of sets any two distinct sets of the collection are disjoint we may speak in such a situation of a <em>pairwise disjoint</em> collection <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span>.</p>
-<p>Let <span class="math inline">\(B = \{ A_i \in C \mid A_i \in A \}\)</span> then <span class="math inline">\(B\)</span> is <em>pairwise disjoint</em> if <span class="math inline">\(i \neq j\)</span> then <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>.</p>
+<p>Let <span class="math inline">\(B = \{ A_i \in A \mid A_i \}\)</span> then <span class="math inline">\(B\)</span> is <em>pairwise disjoint</em> if <span class="math inline">\(i \neq j\)</span> then <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>.</p>
 <p>We can define <span class="math inline">\(\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}\)</span>. Once we define <span class="math inline">\(\bigcap B\)</span> we can have that <span class="math inline">\(\bigcap B = \emptyset\)</span> but <span class="math inline">\(B\)</span> is not necessary <em>pairwise disjoint</em>. For example let <span class="math inline">\(B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}\)</span> where we have that:</p>
 <ul>
 <li><span class="math inline">\(\{ a, b \} \cap \{ b, c \} = b\)</span></li>
@@ -3084,8 +3422,50 @@ x \in A &amp; \Longrightarrow x \in A \land x \in B \\
 <li><span class="math inline">\(\{ a, b \} \cap \{ a, c \} = a\)</span></li>
 <li><span class="math inline">\(\{ a, b \} \cap \{ b, c \} \cap \{ a, c \} = \emptyset\)</span></li>
 </ul>
-<p>Therefore if a <span class="math inline">\(B\)</span> is a <em>pairwise disjoint</em> collections of sets it is <em>disjoint</em> but if <span class="math inline">\(B\)</span> is a <em>disjoint</em> collections of sets it is not necessary true that is <em>pairwise disjoint</em>.</p>
-<p><strong>Pending</strong>: Include distributive laws identities <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span> and solve the last exercise.</p>
+<p>Therefore if <span class="math inline">\(B\)</span> is a <em>pairwise disjoint</em> collection of sets it is <em>disjoint</em> but if <span class="math inline">\(B\)</span> is a <em>disjoint</em> collection of sets it is not necessary true that is <em>pairwise disjoint</em>.</p>
+<p>Also there are two useful facts about unions and intersections known as <em>distributive laws</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)</span></p></li>
+<li><p><span class="math inline">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</span></p></li>
+</ul>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We can use <a href="#exr-distributive-laws" class="quarto-xref">Exercise&nbsp;<span>1.12</span></a> to prove these facts:</p>
+<p><span class="math display">\[\begin{split}
+  x \in A \cup (B \cap C) &amp; \iff x \in A \lor x \in (B \land C) \\
+  &amp; \iff (x \in A \lor x \in B) \land (x \in A \lor x \in C) \\
+  &amp; \iff x \in (A \cup B) \land x \in (A \cup C) \\
+  &amp; \iff x \in (A \cup B) \cap (A \cup C) \\
+  \end{split}\]</span></p>
+<p><span class="math display">\[\begin{split}
+  x \in A \cap (B \cup C) &amp; \iff x \in A \land x \in (B \lor C) \\
+  &amp; \iff (x \in A \land x \in B) \lor (x \in A \land x \in C) \\
+  &amp; \iff x \in (A \cap B) \lor x \in (A \cap C) \\
+  &amp; \iff x \in (A \cap B) \cup (A \cap C) \\
+  \end{split}\]</span></p>
+</div>
+<div id="exr-union-intersections-halmos" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.13</strong></span> Show that a necessary and sufficient condition that <span class="math inline">\((A \cap B) \cup C = A \cap (B \cup C)\)</span> is that <span class="math inline">\(C \subseteq A\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li>Assume <span class="math inline">\((A \cap B) \cup C = A \cap (B \cup C)\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+  x \in C &amp; \Longrightarrow x \in (A \cap B) \cup C \\
+  &amp; \Longrightarrow x \in A \cap (B \cup C) \\
+  &amp; \Longrightarrow x \in A
+  \end{split}\]</span></p>
+<ul>
+<li>Assume <span class="math inline">\(C \subseteq A\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+  x \in A \cap (B \cup C) &amp; \iff x \in (A \cap B) \cup (A \cap C) \\
+  &amp; \iff x \in (A \cap B) \lor x \in (A \cap C) \\
+  &amp; \iff x \in (A \cap B) \lor x \in C \\
+  &amp; \iff x \in (A \cap B) \cup C \\
+  \end{split}\]</span></p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
