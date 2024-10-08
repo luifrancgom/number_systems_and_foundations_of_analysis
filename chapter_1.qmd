@@ -1805,6 +1805,64 @@ By @thm-consistent-satisfiable-equivalence every finite subset of $\Gamma$ is co
 Therefore by the above results $\Gamma$ is satisfiable if and only if every finite subset of $\Gamma$ is satisfiable.
 :::
 
+::: {#exr-distributive-laws}
+
+Show that:
+
+1. ($(\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))$)
+
+2. ($(\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))$)
+
+:::
+
+::: {#sol-distributive-laws}
+
+-  Let's use a truth table:
+
+   ```{r}
+   #| results: asis
+   
+   distributive_law_1 <- tibble(
+    `$\\alpha$` = c("$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$"), 
+    `$\\beta$` = c("$T$", "$T$", "$F$", "$F$", "$T$", "$T$", "$F$", "$F$"),
+    `$\\gamma$` = c("$T$", "$F$", "$T$", "$F$", "$T$", "$F$", "$T$", "$F$"),
+    `$(\\alpha \\land (\\beta \\lor \\gamma))$` = c("$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$", "$F$"),
+    `$((\\alpha \\land \\beta) \\lor (\\alpha \\land \\gamma))$` = c("$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$", "$F$")
+   )
+   
+   kbl(distributive_law_1, escape = FALSE) |>
+    kable_styling() |> 
+    column_spec(column = 1:5, border_right = TRUE) |> 
+    row_spec(row = 0, extra_css = "border-right: 1px solid;") |>
+    cat()
+   ```
+
+   -  Therefore by @thm-completeness-theorem because ($(\alpha \land (\beta \lor \gamma)) \models ((\alpha \land \beta) \lor (\alpha \land \gamma))$) then ($(\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))$)
+
+-  Let's use a truth table:
+
+   ```{r}
+   #| results: asis
+   
+   distributive_law_2 <- tibble(
+    `$\\alpha$` = c("$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$"), 
+    `$\\beta$` = c("$T$", "$T$", "$F$", "$F$", "$T$", "$T$", "$F$", "$F$"),
+    `$\\gamma$` = c("$T$", "$F$", "$T$", "$F$", "$T$", "$F$", "$T$", "$F$"),
+    `$(\\alpha \\lor (\\beta \\land \\gamma))$` = c("$T$", "$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$"),
+    `$((\\alpha \\lor \\beta) \\land (\\alpha \\lor \\gamma))$` = c("$T$", "$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$")
+   )
+   
+   kbl(distributive_law_2, escape = FALSE) |>
+    kable_styling() |> 
+    column_spec(column = 1:5, border_right = TRUE) |> 
+    row_spec(row = 0, extra_css = "border-right: 1px solid;") |>
+    cat()
+   ```
+   -  Therefore by @thm-completeness-theorem because ($(\alpha \lor (\beta \land \gamma)) \models ((\alpha \lor \beta) \land (\alpha \lor \gamma))$) then ($(\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))$)
+
+:::
+
+
 ## First order logic
 
 
@@ -2056,7 +2114,7 @@ $$\begin{split}
 
 Pairs of sets with an empty intersection occur frequently enough to justify the use of a special word. If $A \cap B = \emptyset$, the sets $A$ and $B$ are called *disjoint*. Also if in a collection of sets any two distinct sets of the collection are disjoint we may speak in such a situation of a *pairwise disjoint* collection [@halmos_naive_2017, p. 15].
 
-Let $B = \{ A_i \in C \mid A_i \in A \}$ then $B$ is *pairwise disjoint* if $i \neq j$ then $A_i \cap A_j = \emptyset$.
+Let $B = \{ A_i \in A \mid A_i \}$ then $B$ is *pairwise disjoint* if $i \neq j$ then $A_i \cap A_j = \emptyset$.
 
 We can define $\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}$. Once we define $\bigcap B$ we can have that $\bigcap B = \emptyset$ but $B$ is not necessary *pairwise disjoint*. For example let $B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}$ where we have that:
 
@@ -2065,6 +2123,59 @@ We can define $\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}$. Once we defi
 -  $\{ a, b \} \cap \{ a, c \} = a$
 -  $\{ a, b \} \cap \{ b, c \} \cap \{ a, c \} = \emptyset$
 
-Therefore if a $B$ is a *pairwise disjoint* collections of sets it is *disjoint* but if $B$ is a *disjoint* collections of sets it is not necessary true that is *pairwise disjoint*.
+Therefore if $B$ is a *pairwise disjoint* collection of sets it is *disjoint* but if $B$ is a *disjoint* collection of sets it is not necessary true that is *pairwise disjoint*.
 
-**Pending**: Include distributive laws identities [@halmos_naive_2017, p. 15] and solve the last exercise.
+Also there are two useful facts about unions and intersections known as *distributive laws* [@halmos_naive_2017, p. 15]:
+
+-  $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+
+-  $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+
+::: {.proof}
+
+We can use @exr-distributive-laws to prove these facts:
+
+$$\begin{split}
+  x \in A \cup (B \cap C) & \iff x \in A \lor x \in (B \land C) \\
+  & \iff (x \in A \lor x \in B) \land (x \in A \lor x \in C) \\
+  & \iff x \in (A \cup B) \land x \in (A \cup C) \\ 
+  & \iff x \in (A \cup B) \cap (A \cup C) \\ 
+  \end{split}$$
+
+$$\begin{split}
+  x \in A \cap (B \cup C) & \iff x \in A \land x \in (B \lor C) \\
+  & \iff (x \in A \land x \in B) \lor (x \in A \land x \in C) \\
+  & \iff x \in (A \cap B) \lor x \in (A \cap C) \\ 
+  & \iff x \in (A \cap B) \cup (A \cap C) \\ 
+  \end{split}$$
+
+:::
+
+::: {#exr-union-intersections-halmos}
+
+Show that a necessary and sufficient condition that $(A \cap B) \cup C = A \cap (B \cup C)$ is that $C \subseteq A$
+
+:::
+
+::: {.proof}
+
+-  Assume $(A \cap B) \cup C = A \cap (B \cup C)$
+
+$$\begin{split}
+  x \in C & \Longrightarrow x \in (A \cap B) \cup C \\
+  & \Longrightarrow x \in A \cap (B \cup C) \\
+  & \Longrightarrow x \in A
+  \end{split}$$
+
+-  Assume $C \subseteq A$
+
+$$\begin{split}
+  x \in A \cap (B \cup C) & \iff x \in (A \cap B) \cup (A \cap C) \\
+  & \iff x \in (A \cap B) \lor x \in (A \cap C) \\
+  & \iff x \in (A \cap B) \lor x \in C \\
+  & \iff x \in (A \cap B) \cup C \\
+  \end{split}$$
+
+
+
+:::
