@@ -267,14 +267,19 @@ window.Quarto = {
   <li><a href="#deductions" id="toc-deductions" class="nav-link" data-scroll-target="#deductions"><span class="header-section-number">1.1.3</span> Deductions</a></li>
   <li><a href="#soundness-and-completeness" id="toc-soundness-and-completeness" class="nav-link" data-scroll-target="#soundness-and-completeness"><span class="header-section-number">1.1.4</span> Soundness and Completeness</a></li>
   </ul></li>
-  <li><a href="#first-order-logic" id="toc-first-order-logic" class="nav-link" data-scroll-target="#first-order-logic"><span class="header-section-number">1.2</span> First order logic</a></li>
+  <li><a href="#first-order-logic" id="toc-first-order-logic" class="nav-link" data-scroll-target="#first-order-logic"><span class="header-section-number">1.2</span> First order logic</a>
+  <ul class="collapse">
+  <li><a href="#language-1" id="toc-language-1" class="nav-link" data-scroll-target="#language-1"><span class="header-section-number">1.2.1</span> Language</a></li>
+  </ul></li>
   <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets"><span class="header-section-number">1.3</span> Sets</a>
   <ul class="collapse">
   <li><a href="#the-axiom-of-extensionality" id="toc-the-axiom-of-extensionality" class="nav-link" data-scroll-target="#the-axiom-of-extensionality"><span class="header-section-number">1.3.1</span> The axiom of extensionality</a></li>
   <li><a href="#axiom-schema-of-specification-or-separation" id="toc-axiom-schema-of-specification-or-separation" class="nav-link" data-scroll-target="#axiom-schema-of-specification-or-separation"><span class="header-section-number">1.3.2</span> Axiom schema of specification (or separation)</a></li>
   <li><a href="#axiom-of-pairing" id="toc-axiom-of-pairing" class="nav-link" data-scroll-target="#axiom-of-pairing"><span class="header-section-number">1.3.3</span> Axiom of pairing</a></li>
+  <li><a href="#axiom-of-union" id="toc-axiom-of-union" class="nav-link" data-scroll-target="#axiom-of-union"><span class="header-section-number">1.3.4</span> Axiom of union</a></li>
+  <li><a href="#axiom-of-power-set" id="toc-axiom-of-power-set" class="nav-link" data-scroll-target="#axiom-of-power-set"><span class="header-section-number">1.3.5</span> Axiom of power set</a></li>
+  <li><a href="#difference-and-complement" id="toc-difference-and-complement" class="nav-link" data-scroll-target="#difference-and-complement"><span class="header-section-number">1.3.6</span> Difference and complement</a></li>
   </ul></li>
-  <li><a href="#axiom-of-union" id="toc-axiom-of-union" class="nav-link" data-scroll-target="#axiom-of-union"><span class="header-section-number">1.4</span> Axiom of union</a></li>
   </ul>
 </nav>
     </div>
@@ -437,7 +442,7 @@ Figure&nbsp;1.1: Possible values of <span class="math inline">\(l(\alpha)\)</spa
 <ul>
 <li><p>Prove that <span class="math inline">\(S_{\mathcal{L}_p}^2, S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n\)</span> are denumerable sets.</p></li>
 <li><p>Prove that <span class="math inline">\(S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> is a denumerable set. That is, any denumerable union of denumerable sets is a countable set.</p></li>
-<li><p>Let <span class="math inline">\(F_{\mathcal{L}_p}\)</span> the set of formulas of <span class="math inline">\(\mathcal{L}_p\)</span>. Because <span class="math inline">\(F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> then <span class="math inline">\(F_{\mathcal{L}_p}\)</span> is countable.</p></li>
+<li><p>Let <span class="math inline">\(F_{\mathcal{L}_p}\)</span> the set of formulas of <span class="math inline">\(\mathcal{L}_p\)</span>. Because <span class="math inline">\(F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> then <span class="math inline">\(F_{\mathcal{L}_p}\)</span> is denumerable.</p></li>
 </ul>
 </div>
 <section id="sec-informal-conventions" class="level4" data-number="1.1.1.1">
@@ -3232,6 +3237,117 @@ Note&nbsp;1.4
 </section>
 <section id="first-order-logic" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="first-order-logic"><span class="header-section-number">1.2</span> First order logic</h2>
+<p>Propositional logic has obvious deficiencies as a tool for mathematical reasoning. First-order logic remedies enough of these to be adequate for formalizing most ordinary mathematics <span class="citation" data-cites="bilaniuk_problem_2009">(<a href="references.html#ref-bilaniuk_problem_2009" role="doc-biblioref">Bilaniuk 2009, 23</a>)</span>.</p>
+<section id="language-1" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="language-1"><span class="header-section-number">1.2.1</span> Language</h3>
+<p>First we will define the first-order language, <span class="math inline">\(\mathcal{L}\)</span>, by specifying the symbols and formulas.</p>
+<div id="def-symbols-l" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.13 (Symbols of <span class="math inline">\(\mathcal{L}\)</span>)</strong></span> The symbols of <span class="math inline">\(\mathcal{L}\)</span> are:</p>
+<ul>
+<li>Parentheses: <span class="math inline">\((\)</span> and <span class="math inline">\()\)</span></li>
+<li>Connectives: <span class="math inline">\(\neg\)</span> and <span class="math inline">\(\Longrightarrow\)</span></li>
+<li>Quantifier: <span class="math inline">\(\forall\)</span></li>
+<li>Variables: <span class="math inline">\(v_0, v_1, v_2, \ldots, v_n, \ldots\)</span></li>
+<li>Equality: <span class="math inline">\(=\)</span></li>
+<li>A, possibly empty, set of <em>constant</em> symbols</li>
+<li>For each <span class="math inline">\(k \geq 1\)</span> a, possibly empty, set of <span class="math inline">\(k\)</span>-<em>place function</em> symbols</li>
+<li>For each <span class="math inline">\(k \geq 1\)</span> a, possibly empty, set of <span class="math inline">\(k\)</span>-<em>place relation</em>, or <em>predicate</em>, symbols</li>
+</ul>
+<p>The first 5 symbols are the logical symbols of <span class="math inline">\(\mathcal{L}\)</span>, shared by every first-order language, and the rest are the non-logical symbols of <span class="math inline">\(\mathcal{L}\)</span>, which usually depend on what the language’s intended use.</p>
+<p><strong>Note</strong>: It is possible to define first-order languages without <span class="math inline">\(=\)</span>, so <span class="math inline">\(=\)</span> is considered a non-logical symbol by many authors. While such languages have some uses, they are uncommon in ordinary mathematics.</p>
+</div>
+<p>Any first-order language <span class="math inline">\(\mathcal{L}\)</span> has countably many logical symbols. It may have uncountably many symbols if it has uncountably many non-logical symbols. <em>Unless explicitly stated otherwise, we will assume that every first-order language we encounter has only countably many non-logical symbols.</em></p>
+<p>In <span class="math inline">\(\mathcal{L}\)</span> the parentheses are just punctuation while the connectives, <span class="math inline">\(\neg\)</span> and <span class="math inline">\(\Longrightarrow\)</span>, are intended to express <em>not</em> and <em>if … then</em>. The rest of the symbols are new and are intended to express ideas that cannot be handled by <span class="math inline">\(\mathcal{L}\)</span>:</p>
+<ul>
+<li><p>The quantifier symbol, <span class="math inline">\(\forall\)</span>, is meant to represent <em>for all</em>, and is intended to be used with the variable symbols, <span class="math inline">\(\forall v_4\)</span>.</p></li>
+<li><p><span class="math inline">\(=\)</span> is a special binary relation symbol intended to represent equality.</p></li>
+<li><p>The constant symbols are meant to be names for particular elements of the structure under discussion.</p></li>
+<li><p><span class="math inline">\(k\)</span>-<em>place function</em> symbols are meant to name particular functions which map <span class="math inline">\(k\)</span>-<em>tuples</em> of elements of the structure to elements of the structure.</p></li>
+<li><p><span class="math inline">\(k\)</span>-<em>place relation</em> symbols are intended to name particular <span class="math inline">\(k\)</span>-<em>place relations</em> among elements of the structure.</p></li>
+</ul>
+<div id="exm-language-elementary-number-theory" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.6</strong></span> A formal language for elementary number theory, call it <span class="math inline">\(\mathcal{L}_{NT}\)</span>, can be defined as follows:</p>
+<ul>
+<li>Constant symbols: <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</li>
+<li>Two <span class="math inline">\(2\)</span>-place function symbols: <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span>.</li>
+<li>Two binary relation symbols: <span class="math inline">\(&lt;\)</span> and <span class="math inline">\(\mid\)</span></li>
+</ul>
+<p><span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> are intended to be names for the numbers zero and one, <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span> names for the operations of addition and multiplications, and <span class="math inline">\(&lt;\)</span> and <span class="math inline">\(\mid\)</span> names for the relations <em>less than</em> and <em>divides</em>.</p>
+</div>
+<div id="exm-other-first-order-languages" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.7</strong></span> Here are some other first-order languages. Recall that we need only specify the non-logical symbols in each case.</p>
+<ol type="1">
+<li><p>The language of pure equality, <span class="math inline">\(\mathcal{L}_=\)</span>:</p>
+<ul>
+<li>No non-logical symbols at all.</li>
+</ul></li>
+<li><p>A language for fields, <span class="math inline">\(\mathcal{L}_F\)</span>:</p>
+<ul>
+<li>Constant symbols: <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>.</li>
+<li><span class="math inline">\(2\)</span>-place function symbols: <span class="math inline">\(+\)</span>, <span class="math inline">\(\cdot\)</span>.</li>
+</ul></li>
+<li><p>A language for set theory, <span class="math inline">\(\mathcal{L}_S\)</span>:</p>
+<ul>
+<li><span class="math inline">\(2\)</span>-place relation symbol: <span class="math inline">\(\in\)</span>.</li>
+</ul></li>
+<li><p>A language for linear orders, <span class="math inline">\(\mathcal{L}_O\)</span>:</p>
+<ul>
+<li><span class="math inline">\(2\)</span>-place relation symbol: <span class="math inline">\(&lt;\)</span>.</li>
+</ul></li>
+<li><p>Another language for elementary number theory, <span class="math inline">\(\mathcal{L}_N\)</span>:</p>
+<ul>
+<li><p>Constant symbol: <span class="math inline">\(0\)</span>.</p></li>
+<li><p><span class="math inline">\(1\)</span>-place function symbol: <span class="math inline">\(S\)</span>.<br>
+</p></li>
+<li><p><span class="math inline">\(2\)</span>-place function symbols: <span class="math inline">\(+\)</span>, <span class="math inline">\(\cdot\)</span>, <span class="math inline">\(E\)</span>.</p>
+<ul>
+<li>Here <span class="math inline">\(0\)</span> is intended to represent zero, <span class="math inline">\(S\)</span> the successor function, <span class="math inline">\(S(n) = n + 1\)</span>, and <span class="math inline">\(E\)</span> the exponential function, <span class="math inline">\(E(n, m) = nm\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>A <em>worst-case</em> countable language, <span class="math inline">\(\mathcal{L}_1\)</span>:</p></li>
+</ol>
+<ul>
+<li><p>Constant symbols: <span class="math inline">\(c_1, c_2, c_3, \dots\)</span>.</p></li>
+<li><p>For each <span class="math inline">\(k \geq 1\)</span>, <span class="math inline">\(k\)</span>-place function symbols: <span class="math inline">\(f_1^k, f_2^k, f_3^k, \ldots\)</span>.<br>
+</p></li>
+<li><p>For each <span class="math inline">\(k \geq 1\)</span>, <span class="math inline">\(k\)</span>-place relation symbols: <span class="math inline">\(P_1^k, P_2^k, P_3^k, \ldots\)</span>.</p>
+<ul>
+<li>This language has no use except as an abstract example.</li>
+</ul></li>
+</ul>
+</div>
+<p>It remains to specify how to form valid formulas from the symbols of a first-order language <span class="math inline">\(\mathcal{L}\)</span>. This will be more complicated than it was for <span class="math inline">\(\mathcal{L}_P\)</span> where we need to define what is a <em>term</em> which has no counterpart in <span class="math inline">\(\mathcal{L}_P\)</span>.</p>
+<div id="def-terms-l" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.14</strong></span> The <em>terms</em> of a first-order language <span class="math inline">\(\mathcal{L}\)</span> are those finite sequences of symbols of <span class="math inline">\(\mathcal{L}\)</span> which satisfy the following rules:</p>
+<ul>
+<li>Every variable symbol <span class="math inline">\(v_n\)</span> is a term.</li>
+<li>Every constant symbol <span class="math inline">\(c\)</span> is a term.</li>
+<li>If <span class="math inline">\(f\)</span> is a <span class="math inline">\(k\)</span>-place function symbol and <span class="math inline">\(t1, \ldots, tk\)</span> are terms then <span class="math inline">\(ft_1 \ldots t_k\)</span> is also a term.</li>
+<li>Nothing else is a term.</li>
+</ul>
+</div>
+<p>That is, a term is an expression which represents some (possibly indeterminate) element of the structure under discussion. For example, in <span class="math inline">\(\mathcal{L}_{NT}\)</span> or <span class="math inline">\(\mathcal{L}_{N}\)</span>, <span class="math inline">\(+v_0v_1\)</span>, informally <span class="math inline">\(v_0 + v_1\)</span>, is a term. Though precisely which natural number it represents depends on what values are assigned to the variables <span class="math inline">\(v_0\)</span> and <span class="math inline">\(v_1\)</span>.</p>
+<div id="exr-example-terms-first-order-languages" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.13</strong></span> Which of the following are terms of one of the languages defined in <a href="#exm-language-elementary-number-theory" class="quarto-xref">Example&nbsp;<span>1.6</span></a> and <a href="#exm-other-first-order-languages" class="quarto-xref">Example&nbsp;<span>1.7</span></a>? If so, which of these languages are they terms of, if not, why not?</p>
+<ol type="1">
+<li><span class="math inline">\(·v_2\)</span></li>
+<li><span class="math inline">\(+0\cdot+v_611\)</span></li>
+<li><span class="math inline">\(\mid1+v_30\)</span></li>
+<li><span class="math inline">\((&lt; E101 \Longrightarrow +11)\)</span></li>
+<li><span class="math inline">\(++\cdot+00000\)</span></li>
+<li><span class="math inline">\(f_4^3f_7^2c_4v_9c_1v_4\)</span></li>
+<li><span class="math inline">\(\cdot v_5(+1v_8)\)</span></li>
+<li><span class="math inline">\(&lt;v_6v_2\)</span></li>
+<li><span class="math inline">\(1+0\)</span></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="1">
+<li></li>
+</ol>
+</div>
+</section>
 </section>
 <section id="sets" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sets"><span class="header-section-number">1.3</span> Sets</h2>
@@ -3247,7 +3363,7 @@ Note&nbsp;1.4
 <p>The principal concept of set theory, the one that in completely axiomatic studies is the principal primitive (undefined) concept, is that of <em>belonging</em>. If <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(A\)</span>, we shall write <span class="math inline">\(x \in A\)</span>. Also if <span class="math inline">\(x\)</span> is not an element of <span class="math inline">\(A\)</span> we shall write <span class="math inline">\(x \not \in A\)</span>, <span class="math inline">\((\neg (x \in A))\)</span>.</p>
 <p>A possible relation between sets, more elementary than belonging, is equality. The equality of two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is written as <span class="math inline">\(A = B\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not equal is denoted as <span class="math inline">\(A \neq B\)</span>, <span class="math inline">\((\neg (A = B))\)</span>.</p>
 <div id="def-axiom-of-extension" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.13 (Axiom of extensionality)</strong></span> Two sets are equal if and only if they have the same elements.</p>
+<p><span class="theorem-title"><strong>Definition 1.15 (Axiom of extensionality)</strong></span> Two sets are equal if and only if they have the same elements.</p>
 <p><span class="math display">\[A = B \iff (\forall x)(x \in A \iff x \in B)\]</span></p>
 <p>The axiom expresses the basic idea that a set is determined by its elements:</p>
 <ul>
@@ -3259,22 +3375,22 @@ Note&nbsp;1.4
 <p><span class="math display">\[A \subseteq B \iff (\forall x)(x \in A \Longrightarrow x \in B)\]</span></p>
 <p>Because <span class="math inline">\(A = A\)</span> then <span class="math inline">\(A \subseteq A\)</span>. Any subset of <span class="math inline">\(A\)</span> which is from <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(A\)</span>. To denote that <span class="math inline">\(C\)</span> is a proper subset of <span class="math inline">\(A\)</span> we use the notation <span class="math inline">\(C \subset A\)</span>. Thus:</p>
 <p><span class="math display">\[C \subset A \iff (C \subseteq A \land C \neq A)\]</span></p>
-<p>If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B \subseteq C\)</span> then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements so by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> <span class="math inline">\(A = B\)</span>. Thus:</p>
+<p>If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B \subseteq C\)</span> then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements so by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(A = B\)</span>. Thus:</p>
 <p><span class="math display">\[A = B \iff (A \subseteq B \land B \subseteq A)\]</span></p>
 </section>
 <section id="axiom-schema-of-specification-or-separation" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="axiom-schema-of-specification-or-separation"><span class="header-section-number">1.3.2</span> Axiom schema of specification (or separation)</h3>
-<p>All the basic principles of set theory, except only <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> are designed to make new sets out of old ones. The first and most important of these basic principles is the axiom of secham of specification.</p>
+<p>All the basic principles of set theory, except only <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> are designed to make new sets out of old ones. The first and most important of these basic principles is the axiom of secham of specification.</p>
 <p>Let <span class="math inline">\(A\)</span> be the set of all men. The sentence <span class="math inline">\(x\)</span> <em>is married</em> is true for some of the elements <span class="math inline">\(x \in A\)</span> and false for others. The principle we are illustrating is the one that justifies the passage from the given set <span class="math inline">\(A\)</span> to the subset (namely, the set of all married men) specified by the given sentence <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 4</a>)</span>.</p>
 <p>To indicate the generation of the subset, it is usually denoted by:</p>
 <p><span class="math display">\[\{ x \in A \mid x \text{ is married} \}\]</span></p>
 <div id="def-axiom-schema-of-specification" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.14 (Axiom schema of specification)</strong></span> If <span class="math inline">\(P\)</span> is a property then for every set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> that contains all those <span class="math inline">\(x \in A\)</span> that have the property <span class="math inline">\(P\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.16 (Axiom schema of specification)</strong></span> If <span class="math inline">\(P\)</span> is a property then for every set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> that contains all those <span class="math inline">\(x \in A\)</span> that have the property <span class="math inline">\(P\)</span>.</p>
 <ul>
 <li>Observe that <span class="math inline">\(B \subseteq A\)</span> and that if <span class="math inline">\(A\)</span> exists then <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> exists</li>
 </ul>
 </div>
-<p>Lets see an amusing application of <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. Consider <span class="math inline">\(P(x)\)</span> as <span class="math inline">\((\neg (x \in x))\)</span> or more compact <span class="math inline">\(x \not \in x\)</span>. Therefore if <span class="math inline">\(A\)</span> is a set and <span class="math inline">\(B = \{ x \in A \mid x \not \in x \}\)</span> then:</p>
+<p>Lets see an amusing application of <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.16</span></a>. Consider <span class="math inline">\(P(x)\)</span> as <span class="math inline">\((\neg (x \in x))\)</span> or more compact <span class="math inline">\(x \not \in x\)</span>. Therefore if <span class="math inline">\(A\)</span> is a set and <span class="math inline">\(B = \{ x \in A \mid x \not \in x \}\)</span> then:</p>
 <p><span id="eq-application-axiom-schema-of-specification"><span class="math display">\[y \in B \iff (y \in A \land y \not \in y) \tag{1.1}\]</span></span></p>
 <p>Can it be that <span class="math inline">\(B \in A\)</span>? Because <span class="math inline">\(B \subseteq A\)</span> then if <span class="math inline">\(B \in A\)</span> we have that <span class="math inline">\(B \in B\)</span> or <span class="math inline">\(B \not \in A\)</span> but not both:</p>
 <ul>
@@ -3282,8 +3398,8 @@ Note&nbsp;1.4
 <li><p>If <span class="math inline">\(B \not \in B\)</span> and because <span class="math inline">\(B \in A\)</span> then again by <a href="#eq-application-axiom-schema-of-specification" class="quarto-xref">Equation&nbsp;<span>1.1</span></a> <span class="math inline">\(B \in B\)</span>. However this is again a contradiction because <span class="math inline">\((B \in B) \land (B \not \in B)\)</span></p></li>
 </ul>
 <p>Because <span class="math inline">\(B \in A\)</span> generates a contradiction by <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> it must be the case that <span class="math inline">\(B \not \in A\)</span>. In simple words <em>nothing contains everything</em> or <em>there is no universe</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 6–7</a>)</span>. In older approaches to set theory, the existence of a universe was taken for granted, and the argument in the preceding paragraph was known as the <em>Russell paradox</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 7</a>)</span>.</p>
-<p>Let as assume that <em>there exists a set</em>. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. One consequence of this assumption is that there exists a set without any elements at all. By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> define <span class="math inline">\(B\)</span> using some false <span class="math inline">\(P(x)\)</span> like <span class="math inline">\(x \not = x\)</span>:</p>
-<p><span class="math display">\[B = \{ x \in A \mid x \not = x \}\]</span> Furthermore by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> <span class="math inline">\(B\)</span> is unique. This is because <span class="math inline">\((\forall x)(x \not \in B)\)</span> so if there is another <span class="math inline">\(B^*\)</span> such that <span class="math inline">\((\forall x)(x \not \in B^*)\)</span> then we have that:</p>
+<p>Let as assume that <em>there exists a set</em>. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. One consequence of this assumption is that there exists a set without any elements at all. By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> define <span class="math inline">\(B\)</span> using some false <span class="math inline">\(P(x)\)</span> like <span class="math inline">\(x \not = x\)</span>:</p>
+<p><span class="math display">\[B = \{ x \in A \mid x \not = x \}\]</span> Furthermore by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(B\)</span> is unique. This is because <span class="math inline">\((\forall x)(x \not \in B)\)</span> so if there is another <span class="math inline">\(B^*\)</span> such that <span class="math inline">\((\forall x)(x \not \in B^*)\)</span> then we have that:</p>
 <ul>
 <li><p><span class="math inline">\((\forall x)(x \in B \Longrightarrow x \in B^*)\)</span> is true because <span class="math inline">\(x \in B\)</span> is false so <span class="math inline">\(B \subseteq B^*\)</span></p></li>
 <li><p><span class="math inline">\((\forall x)(x \in B^* \Longrightarrow x \in B)\)</span> is true because <span class="math inline">\(x \in B^*\)</span> is false so <span class="math inline">\(B^* \subseteq B\)</span></p></li>
@@ -3294,11 +3410,11 @@ Note&nbsp;1.4
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="axiom-of-pairing"><span class="header-section-number">1.3.3</span> Axiom of pairing</h3>
 <p>The pairing axiom states that whenever we have two sets <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, there is a set <span class="math inline">\(A\)</span> whose only members are <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
 <div id="def-axiom-of-pairing" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.15 (Axiom of pairing)</strong></span> If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are sets there is a set <span class="math inline">\(A\)</span> such that it contains exactly <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.17 (Axiom of pairing)</strong></span> If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are sets there is a set <span class="math inline">\(A\)</span> such that it contains exactly <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
 </div>
-<p>By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> we can specify <span class="math inline">\(P(x)\)</span> as <span class="math inline">\(x = a \lor x = b\)</span> and build <span class="math inline">\(A\)</span> as:</p>
+<p>By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> we can specify <span class="math inline">\(P(x)\)</span> as <span class="math inline">\(x = a \lor x = b\)</span> and build <span class="math inline">\(A\)</span> as:</p>
 <p><span class="math display">\[A = \{ x \in C \mid x = a \lor x = b \}\]</span></p>
-<p>If there is another set <span class="math inline">\(B\)</span> such that <span class="math inline">\(\{ x \in C \mid x = a \lor x = b \}\)</span> then by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> <span class="math inline">\(A = B\)</span> so we can denote <span class="math inline">\(A\)</span> as <span class="math inline">\(\{ a, b\}\)</span>. In case <span class="math inline">\(a = b\)</span> we have that <span class="math inline">\(\{ a, a \}\)</span> but we can simply write <span class="math inline">\(\{ a\}\)</span> because <span class="math inline">\(\{ a, a \} \subseteq \{ a \}\)</span> and <span class="math inline">\(\{ a \} \subseteq \{ a, a \}\)</span> so <span class="math inline">\(\{ a, a \} = \{ a \}\)</span>. Also <span class="math inline">\(a \in A\)</span> is equivalent to <span class="math inline">\(\{ a \} \subseteq A\)</span> but be careful because <span class="math inline">\(a \not = \{ a \}\)</span>.</p>
+<p>If there is another set <span class="math inline">\(B\)</span> such that <span class="math inline">\(\{ x \in C \mid x = a \lor x = b \}\)</span> then by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(A = B\)</span> so we can denote <span class="math inline">\(A\)</span> as <span class="math inline">\(\{ a, b\}\)</span>. In case <span class="math inline">\(a = b\)</span> we have that <span class="math inline">\(\{ a, a \}\)</span> but we can simply write <span class="math inline">\(\{ a\}\)</span> because <span class="math inline">\(\{ a, a \} \subseteq \{ a \}\)</span> and <span class="math inline">\(\{ a \} \subseteq \{ a, a \}\)</span> so <span class="math inline">\(\{ a, a \} = \{ a \}\)</span>. Also <span class="math inline">\(a \in A\)</span> is equivalent to <span class="math inline">\(\{ a \} \subseteq A\)</span> but be careful because <span class="math inline">\(a \not = \{ a \}\)</span>.</p>
 <p>Furthermore because <span class="math inline">\(\emptyset\)</span> exists we can build new sets:</p>
 <p><span class="math display">\[\{ \emptyset \}, \{ \{ \emptyset \} \}, \{ \{ \{ \emptyset \} \} \}, \ldots\]</span></p>
 <p>Or pairs of them like <span class="math inline">\(\{ \emptyset, \{ \emptyset \} \}\)</span>, <span class="math inline">\(\{ \{ \emptyset \}, \{ \{ \emptyset \} \} \}\)</span>. But we can still apply the same logic by creating new sets from the above sets like <span class="math inline">\(\{ \emptyset, \{ \emptyset, \{ \emptyset \} \} \}\)</span>.</p>
@@ -3323,15 +3439,14 @@ Note&nbsp;1.4
 </ul>
 </div>
 </section>
-</section>
-<section id="axiom-of-union" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="axiom-of-union"><span class="header-section-number">1.4</span> Axiom of union</h2>
+<section id="axiom-of-union" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="axiom-of-union"><span class="header-section-number">1.3.4</span> Axiom of union</h3>
 <p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, it is sometimes natural to wish to unite their elements into one comprehensive set <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 12</a>)</span>.</p>
 <div id="def-axiom-of-union" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.16 (Axiom of union)</strong></span> For any set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \bigcup A\)</span>, the union of all elements of <span class="math inline">\(A\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.18 (Axiom of union)</strong></span> For any set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \bigcup A\)</span>, the union of all elements of <span class="math inline">\(A\)</span>.</p>
 <p>In other words <span class="math inline">\(\bigcup A = \{ x \in C \mid \exists C\in A \}\)</span> or that <span class="math inline">\(x \in \bigcup A\)</span> if and only if <span class="math inline">\((\exists C \in A)(x \in C)\)</span>.</p>
 </div>
-<p>For example let <span class="math inline">\(A = \{ \{ a, b\}, \{ c \} \}\)</span> then <span class="math inline">\(\bigcup A = \{ a, b, c \}\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-of-pairing" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> we can generate the set <span class="math inline">\(\{ A, B \}\)</span> and apply <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> to obtain:</p>
+<p>For example let <span class="math inline">\(A = \{ \{ a, b\}, \{ c \} \}\)</span> then <span class="math inline">\(\bigcup A = \{ a, b, c \}\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-of-pairing" class="quarto-xref">Definition&nbsp;<span>1.17</span></a> we can generate the set <span class="math inline">\(\{ A, B \}\)</span> and apply <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.18</span></a> to obtain:</p>
 <p><span class="math display">\[\begin{split}
    \bigcup \{ A, B \} &amp; = \{ x \in C \mid C = A \lor C = B \} \\
    &amp; = A \cup B
@@ -3376,7 +3491,7 @@ x \in A &amp; \Longrightarrow x \in A \lor x \in B \\
 \end{split}\]</span></p></li>
 </ul></li>
 </ul>
-<p>What about intersections? By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> we can define <span class="math inline">\(A \cap B = \{ x \in A \mid x \in B \}\)</span> where <span class="math inline">\(P(x) = x \in B\)</span>.</p>
+<p>What about intersections? By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> we can define <span class="math inline">\(A \cap B = \{ x \in A \mid x \in B \}\)</span> where <span class="math inline">\(P(x) = x \in B\)</span>.</p>
 <p>We can check the following facts:</p>
 <ul>
 <li><p><span class="math inline">\(A \cap \emptyset = \emptyset\)</span></p>
@@ -3444,7 +3559,7 @@ x \in A &amp; \Longrightarrow x \in A \land x \in B \\
   \end{split}\]</span></p>
 </div>
 <div id="exr-union-intersections-halmos" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.13</strong></span> Show that a necessary and sufficient condition that <span class="math inline">\((A \cap B) \cup C = A \cap (B \cup C)\)</span> is that <span class="math inline">\(C \subseteq A\)</span></p>
+<p><span class="theorem-title"><strong>Exercise 1.14</strong></span> Show that a necessary and sufficient condition that <span class="math inline">\((A \cap B) \cup C = A \cap (B \cup C)\)</span> is that <span class="math inline">\(C \subseteq A\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
@@ -3466,6 +3581,78 @@ x \in A &amp; \Longrightarrow x \in A \land x \in B \\
   &amp; \iff x \in (A \cap B) \cup C \\
   \end{split}\]</span></p>
 </div>
+</section>
+<section id="axiom-of-power-set" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="axiom-of-power-set"><span class="header-section-number">1.3.5</span> Axiom of power set</h3>
+<p>Recall that <span class="math inline">\(B \subseteq A\)</span> means that <span class="math inline">\(B\)</span> is a subset of <span class="math inline">\(A\)</span>. That is, every element in <span class="math inline">\(B\)</span> is also an element of <span class="math inline">\(A\)</span>. Given any set <span class="math inline">\(A\)</span> , the axiom of power set ensures that one can form a set that consists of every subset of <span class="math inline">\(A\)</span> <span class="citation" data-cites="cunningham_set_2016">(<a href="references.html#ref-cunningham_set_2016" role="doc-biblioref">Cunningham 2016, 34</a>)</span>.</p>
+<div id="def-axiom-of-power-set" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.19 (Axiom of power set)</strong></span> For any <span class="math inline">\(A\)</span> there exists a set <span class="math inline">\(\mathscr{P}(A)\)</span>, the set of all subsets of <span class="math inline">\(A\)</span>.</p>
+</div>
+<p>In that sense <span class="math inline">\(\mathscr{P}(A) = \{ x \in C \mid x \subseteq A \}\)</span>. For example we have:</p>
+<ul>
+<li><span class="math inline">\(\mathscr{P}(\emptyset) = \{ \emptyset \}\)</span></li>
+<li><span class="math inline">\(\mathscr{P}(\{ a \}) = \{ \emptyset, \{ a \} \}\)</span></li>
+<li><span class="math inline">\(\mathscr{P}(\{ a,b \}) = \{ \emptyset, \{ a \}, \{ b \}, \{ a, b \} \}\)</span></li>
+<li><span class="math inline">\(\begin{aligned}
+  \mathscr{P}(\mathscr{P}(\{ a,b \})) = \{ &amp; \emptyset, \\
+  &amp; \{ \emptyset \}, \{ \{ a \} \}, \{ \{ b \} \}, \{ \{ a, b \} \}, \\
+  &amp; \{ \emptyset, \{ a \} \}, \{ \emptyset, \{ b \} \}, \{ \emptyset, \{ a, b \} \}, \{ \{ a \}, \{ b \} \}, \{ \{ a \}, \{ a, b \} \}, \{ \{ b \}, \{ a, b \} \}, \\
+  &amp; \{ \emptyset, \{ a \}, \{ b \} \}, \{ \emptyset, \{ a \}, \{ a, b \} \}, \{ \emptyset, \{ b \}, \{ a, b \} \}, \{ \{ a \}, \{ b \}, \{ a, b \} \}, \\
+  &amp; \{ \emptyset, \{ a \}, \{ b \}, \{ a, b \} \} \\
+  &amp; \}
+\end{aligned}\)</span></li>
+</ul>
+<p>Using <a href="#def-axiom-of-power-set" class="quarto-xref">Definition&nbsp;<span>1.19</span></a> we can define the following set know as the <em>product</em> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> where it is the set of all pairs <span class="math inline">\((x, y)\)</span> such that <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span>:</p>
+<p><span class="math display">\[A \times B = \{(x,y) \mid x \in A \land y \in B \}\]</span></p>
+<p>The product <span class="math inline">\(A \times B\)</span> can be defined because <span class="math inline">\(A \times B \subseteq \mathscr{P}(A \cup B)\)</span>. For example if <span class="math inline">\(A = \{ a \}\)</span> and <span class="math inline">\(B = \{ b \}\)</span> then <span class="math inline">\(\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} \subseteq \mathscr{P}(A \cup B)\)</span>.</p>
+<p>Further for <span class="math inline">\(n \geq 3\)</span> we can define:</p>
+<p><span class="math display">\[\begin{split}
+(A_1, A_2, A_3) &amp; = (A_1 \times A_2) \times A_3 \\
+(A_1, A_2, A_3, A_4) &amp; = (A_1, A_2, A_3) \times A_4 \\
+&amp; \;\; \vdots \\
+(A_1, \ldots , A_n) &amp; = (A_1 \times \ldots \times A_{n-1}) \times A_n
+\end{split}\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[(A_1 \times \ldots \times A_{n-1}) = \{ (x_1, \ldots, x_n): x_1 \in A_1 \land \ldots \land x_n \in A_n \}\]</span></p>
+<p>We also let,</p>
+<p><span class="math display">\[X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}\]</span></p>
+</section>
+<section id="difference-and-complement" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="difference-and-complement"><span class="header-section-number">1.3.6</span> Difference and complement</h3>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> we can define the difference between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> as:</p>
+<p><span class="math display">\[A - B = \{ x \in A \mid x \not \in B \}\]</span></p>
+<p>Note that in this definition it is not necessary to assume <span class="math inline">\(B \subseteq A\)</span> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 17</a>)</span>.</p>
+<p>Also if <span class="math inline">\(A \subseteq U\)</span> and <span class="math inline">\(U \neq \emptyset\)</span> we can define the complement of <span class="math inline">\(A\)</span> relative to <span class="math inline">\(U\)</span> as:</p>
+<p><span class="math display">\[A^{'} = \{ x \in U \mid x \not \in A \}\]</span></p>
+<p>We have the following useful facts about the complement <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 17</a>)</span>:</p>
+<ul>
+<li><span class="math inline">\((A^{'})^{'} = A\)</span></li>
+<li><span class="math inline">\(\emptyset^{'} = U\)</span></li>
+<li><span class="math inline">\(U^{'} = \emptyset\)</span></li>
+<li><span class="math inline">\(A \cap A^{'} = \emptyset\)</span></li>
+<li><span class="math inline">\(A \cup A^{'} = U\)</span></li>
+<li><span class="math inline">\(B \subseteq A\)</span> if and only if <span class="math inline">\(A^{'} \subseteq B^{'}\)</span></li>
+</ul>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For the following deductions it is assumed that <span class="math inline">\(x \in U\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\begin{aligned}
+x \in (A^{'})^{'} &amp; \iff x \not \in A^{'} \\
+&amp; \iff x \in A
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\emptyset^{'}\)</span> is defined as <span class="math inline">\(\emptyset^{'} = \{  x \in U \mid x \not \in \emptyset \}\)</span> so <span class="math inline">\(\emptyset^{'} = U\)</span></p></li>
+<li><p><span class="math inline">\(U^{'}\)</span> is defined as <span class="math inline">\(U^{'} = \{  x \in U \mid x \not \in U \}\)</span> so <span class="math inline">\(U^{'} = \emptyset\)</span> because there is no <span class="math inline">\(x\)</span> such that <span class="math inline">\(x \in U\)</span> and <span class="math inline">\(x \not \in U\)</span></p></li>
+<li><p><span class="math inline">\(A \cap A^{'}\)</span> is defined as <span class="math inline">\(A \cap A^{'} = \{ x \in A \mid x \in A^{'} \} = \{ x \in A \mid x \not \in A \}\)</span>. Therefore <span class="math inline">\(A \cap A^{'} = \emptyset\)</span> because there is no <span class="math inline">\(x\)</span> such that <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x \not \in A\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in A \cup A^{'}\)</span> by hypothesis we know that <span class="math inline">\(x \in U\)</span>. Therefore we need to show that <span class="math inline">\(U \subseteq A \cup A^{'}\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+x \in U &amp; \Longrightarrow x \in A \lor x \not \in A \\
+&amp; \Longrightarrow x \in A \lor x \in A^{'} \\
+&amp; \Longrightarrow x \in A \cup A^{'}
+\end{aligned}\)</span></li>
+</ul></li>
+</ul>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -3474,6 +3661,9 @@ Bilaniuk, Stefan. 2009. <em>A Problem Course in Mathematical Logic</em>. <a href
 </div>
 <div id="ref-church_introduction_1996" class="csl-entry" role="listitem">
 Church, Alonzo. 1996. <em>Introduction to Mathematical Logic</em>. 10th ed. Princeton Landmarks in Mathematics and Physics. Princeton, NJ Chichester, West Sussex: Princeton University Press.
+</div>
+<div id="ref-cunningham_set_2016" class="csl-entry" role="listitem">
+Cunningham, Daniel W. 2016. <em>Set Theory: A First Course</em>. Cambridge Mathematical Textbooks. New York, NY: Cambridge University Press.
 </div>
 <div id="ref-egre_logic_2021" class="csl-entry" role="listitem">
 Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Conditionals</span>.”</span> In <em>The <span>Stanford</span> <span>Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta, Winter 2021. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/">https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/</a>.
@@ -3500,6 +3690,7 @@ Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em
 Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
 </div>
 </div>
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
