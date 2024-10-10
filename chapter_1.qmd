@@ -173,7 +173,7 @@ Let $S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathca
 
 -  Prove that $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a countable set.
 
--  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ is countable.
+-  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ is denumerable.
 
 :::
 
@@ -1865,7 +1865,135 @@ Show that:
 
 ## First order logic
 
+Propositional logic has obvious deficiencies as a tool for mathematical reasoning. First-order logic remedies enough of these to be adequate for formalizing most ordinary mathematics [@bilaniuk_problem_2009, p. 23]. 
 
+### Language
+
+First we will define the first-order language, $\mathcal{L}$, by specifying the symbols and formulas.
+
+::: {#def-symbols-l}
+
+## Symbols of $\mathcal{L}$
+
+The symbols of $\mathcal{L}$ are:
+
+-   Parentheses: $($ and $)$
+-   Connectives: $\neg$ and $\Longrightarrow$
+-   Quantifier: $\forall$
+-   Variables: $v_0, v_1, v_2, \ldots, v_n, \ldots$
+-   Equality: $=$
+-   A, possibly empty, set of *constant* symbols
+-   For each $k \geq 1$ a, possibly empty, set of $k$-*place function* symbols
+-   For each $k \geq 1$ a, possibly empty, set of $k$-*place relation*, or *predicate*, symbols
+
+The first 5 symbols are the logical symbols of $\mathcal{L}$, shared by every first-order language, and the rest are the non-logical symbols of $\mathcal{L}$, which usually depend on what the language’s intended use.
+
+**Note**: It is possible to define first-order languages without $=$, so $=$ is considered a non-logical symbol by many authors. While such languages have some uses, they are uncommon in ordinary mathematics.
+
+:::
+
+Any first-order language $\mathcal{L}$ has countably many logical symbols. It may have uncountably many symbols if it has uncountably many non-logical symbols. *Unless explicitly stated otherwise, we will assume that every first-order language we encounter has only countably many non-logical symbols.*
+
+In $\mathcal{L}$ the parentheses are just punctuation while the connectives, $\neg$ and $\Longrightarrow$, are intended to express *not* and *if ... then*. The rest of the symbols are new and are intended to express ideas that cannot be handled by $\mathcal{L}$:
+
+-  The quantifier symbol, $\forall$, is meant to represent *for all*, and is intended to be used with the variable symbols, $\forall v_4$.
+
+-  $=$ is a special binary relation symbol intended to represent equality.
+
+-  The constant symbols are meant to be names for particular elements of the structure under discussion.
+
+-  $k$-*place function* symbols are meant to name particular functions which map $k$-*tuples* of elements of the structure to elements of the structure.
+
+-  $k$-*place relation* symbols are intended to name particular $k$-*place relations* among elements of the structure.
+
+::: {#exm-language-elementary-number-theory}
+
+A formal language for elementary number theory, call it $\mathcal{L}_{NT}$, can be defined as follows:
+
+-  Constant symbols: $0$ and $1$.
+-  Two $2$-place function symbols: $+$ and $\cdot$.
+-  Two binary relation symbols: $<$ and $\mid$
+
+$0$ and $1$ are intended to be names for the numbers zero and one, $+$ and $\cdot$ names for the operations of addition and multiplications, and $<$ and $\mid$ names for the relations *less than* and *divides*. 
+
+:::
+
+::: {#exm-other-first-order-languages}
+
+Here are some other first-order languages. Recall that we need only specify the non-logical symbols in each case.
+
+1. The language of pure equality, $\mathcal{L}_=$:
+
+   -  No non-logical symbols at all.
+   
+2. A language for fields, $\mathcal{L}_F$:
+
+   -  Constant symbols: $0$, $1$.
+   -  $2$-place function symbols: $+$, $\cdot$.
+   
+3. A language for set theory, $\mathcal{L}_S$:
+
+   -  $2$-place relation symbol: $\in$.
+
+4. A language for linear orders, $\mathcal{L}_O$:
+
+   -  $2$-place relation symbol: $<$.
+
+5. Another language for elementary number theory, $\mathcal{L}_N$:
+
+   -  Constant symbol: $0$.
+   -  $1$-place function symbol: $S$.  
+   -  $2$-place function symbols: $+$, $\cdot$, $E$.
+   
+      -  Here $0$ is intended to represent zero, $S$ the successor function, $S(n) = n + 1$, and $E$ the exponential function, $E(n, m) = nm$.
+
+6.  A *worst-case* countable language, $\mathcal{L}_1$:
+
+   -  Constant symbols: $c_1, c_2, c_3, \dots$.
+   -  For each $k \geq 1$, $k$-place function symbols: $f_1^k, f_2^k, f_3^k, \ldots$.  
+   -  For each $k \geq 1$, $k$-place relation symbols: $P_1^k, P_2^k, P_3^k, \ldots$.
+   
+      -  This language has no use except as an abstract example.
+
+:::
+
+It remains to specify how to form valid formulas from the symbols of a first-order language $\mathcal{L}$. This will be more complicated than it was for $\mathcal{L}_P$ where we need to define what is a *term* which has no counterpart in $\mathcal{L}_P$.
+
+::: {#def-terms-l}
+
+The *terms* of a first-order language $\mathcal{L}$ are those
+finite sequences of symbols of $\mathcal{L}$ which satisfy the following rules:
+
+-  Every variable symbol $v_n$ is a term.
+-  Every constant symbol $c$ is a term.
+-  If $f$ is a $k$-place function symbol and $t1, \ldots, tk$ are terms then $ft_1 \ldots t_k$ is also a term.
+-  Nothing else is a term.
+
+:::
+
+That is, a term is an expression which represents some (possibly indeterminate) element of the structure under discussion. For example, in $\mathcal{L}_{NT}$ or $\mathcal{L}_{N}$, $+v_0v_1$, informally $v_0 + v_1$, is a term. Though precisely which natural number it represents depends on what values are assigned to the variables $v_0$ and $v_1$.
+
+::: {#exr-example-terms-first-order-languages}
+
+Which of the following are terms of one of the languages defined in @exm-language-elementary-number-theory and @exm-other-first-order-languages? If so, which of these languages are they terms of, if not, why not?
+
+1. $·v_2$
+2. $+0\cdot+v_611$
+3. $\mid1+v_30$
+4. $(< E101 \Longrightarrow +11)$
+5. $++\cdot+00000$
+6. $f_4^3f_7^2c_4v_9c_1v_4$
+7. $\cdot v_5(+1v_8)$
+8. $<v_6v_2$
+9. $1+0$
+
+:::
+
+::: {.proof}
+
+1.  
+
+:::
 
 ## Sets
 
@@ -2008,7 +2136,7 @@ $(a, b) = \{ \{ a \}, \{ a, b\} \}$ is defined an ordered pair because $(a, b) =
 
 :::
 
-## Axiom of union
+### Axiom of union
 
 If $A$ and $B$ are sets, it is sometimes natural to wish to unite their elements into one comprehensive set [@halmos_naive_2017, p. 12].
 
@@ -2175,7 +2303,100 @@ $$\begin{split}
   & \iff x \in (A \cap B) \lor x \in C \\
   & \iff x \in (A \cap B) \cup C \\
   \end{split}$$
+ 
+:::
 
+### Axiom of power set
 
+Recall that $B \subseteq A$ means that $B$ is a subset of $A$. That is, every element in $B$ is also an element of $A$. Given any set $A$ , the axiom of power set ensures that one can form a set that consists of every subset of $A$ [@cunningham_set_2016, p. 34].
+
+::: {#def-axiom-of-power-set}
+
+## Axiom of power set
+
+For any $A$ there exists a set $\mathscr{P}(A)$, the set of all subsets of $A$.
+
+:::
+
+In that sense $\mathscr{P}(A) = \{ x \in C \mid x \subseteq A \}$. For example we have:
+
+- $\mathscr{P}(\emptyset) = \{ \emptyset \}$
+- $\mathscr{P}(\{ a \}) = \{ \emptyset, \{ a \} \}$
+- $\mathscr{P}(\{ a,b \}) = \{ \emptyset, \{ a \}, \{ b \}, \{ a, b \} \}$
+- $\begin{aligned}
+    \mathscr{P}(\mathscr{P}(\{ a,b \})) = \{ & \emptyset, \\ 
+    & \{ \emptyset \}, \{ \{ a \} \}, \{ \{ b \} \}, \{ \{ a, b \} \}, \\
+    & \{ \emptyset, \{ a \} \}, \{ \emptyset, \{ b \} \}, \{ \emptyset, \{ a, b \} \}, \{ \{ a \}, \{ b \} \}, \{ \{ a \}, \{ a, b \} \}, \{ \{ b \}, \{ a, b \} \}, \\
+    & \{ \emptyset, \{ a \}, \{ b \} \}, \{ \emptyset, \{ a \}, \{ a, b \} \}, \{ \emptyset, \{ b \}, \{ a, b \} \}, \{ \{ a \}, \{ b \}, \{ a, b \} \}, \\
+    & \{ \emptyset, \{ a \}, \{ b \}, \{ a, b \} \} \\
+    & \} 
+   \end{aligned}$
+
+Using @def-axiom-of-power-set we can define the following set know as the *product* of $A$ and $B$ where it is the set of all pairs $(x, y)$ such that $x \in A$ and $y \in B$:
+
+$$A \times B = \{(x,y) \mid x \in A \land y \in B \}$$
+
+The product $A \times B$ can be defined because $A \times B \subseteq \mathscr{P}(A \cup B)$. For example if $A = \{ a \}$ and $B = \{ b \}$ then $\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} \subseteq \mathscr{P}(A \cup B)$.
+
+Further for $n \geq 3$ we can define:
+
+$$\begin{split}
+ (A_1, A_2, A_3) & = (A_1 \times A_2) \times A_3 \\
+ (A_1, A_2, A_3, A_4) & = (A_1, A_2, A_3) \times A_4 \\
+ & \;\; \vdots \\
+ (A_1, \ldots , A_n) & = (A_1 \times \ldots \times A_{n-1}) \times A_n
+\end{split}$$
+
+Thus, 
+
+$$(A_1 \times \ldots \times A_{n-1}) = \{ (x_1, \ldots, x_n): x_1 \in A_1 \land \ldots \land x_n \in A_n \}$$
+
+We also let,
+
+$$X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}$$
+
+### Difference and complement
+
+If $A$ and $B$ are sets using @def-axiom-schema-of-specification we can define the difference between $A$ and $B$ as:
+
+$$A - B = \{ x \in A \mid x \not \in B \}$$
+
+Note that in this definition it is not necessary to assume $B \subseteq A$ [@halmos_naive_2017, p. 17].
+
+Also if $A \subseteq U$ and $U \neq \emptyset$ we can define the complement of $A$ relative to $U$ as:
+
+$$A^{'} = \{ x \in U \mid x \not \in A \}$$
+
+We have the following useful facts about the complement [@halmos_naive_2017, p. 17]:
+
+-  $(A^{'})^{'} = A$
+-  $\emptyset^{'} = U$
+-  $U^{'} = \emptyset$
+-  $A \cap A^{'} = \emptyset$
+-  $A \cup A^{'} = U$
+-  $B \subseteq A$ if and only if $A^{'} \subseteq B^{'}$
+
+::: {.proof}
+
+For the following deductions it is assumed that $x \in U$:
+
+-   $\begin{aligned}
+     x \in (A^{'})^{'} & \iff x \not \in A^{'} \\
+     & \iff x \in A
+     \end{aligned}$
+
+-   $\emptyset^{'}$ is defined as $\emptyset^{'} = \{  x \in U \mid x \not \in \emptyset \}$ so $\emptyset^{'} = U$
+
+-   $U^{'}$ is defined as $U^{'} = \{  x \in U \mid x \not \in U \}$ so $U^{'} = \emptyset$ because there is no $x$ such that $x \in U$ and $x \not \in U$
+
+-   $A \cap A^{'}$ is defined as $A \cap A^{'} = \{ x \in A \mid x \in A^{'} \} = \{ x \in A \mid x \not \in A \}$. Therefore $A \cap A^{'} = \emptyset$ because there is no $x$ such that $x \in A$ and $x \not \in A$
+
+-   If $x \in A \cup A^{'}$ by hypothesis we know that $x \in U$. Therefore we need to show that $U \subseteq A \cup A^{'}$:
+
+    -   $\begin{aligned}
+         x \in U & \Longrightarrow x \in A \lor x \not \in A \\
+         & \Longrightarrow x \in A \lor x \in A^{'} \\
+         & \Longrightarrow x \in A \cup A^{'}
+         \end{aligned}$
 
 :::
