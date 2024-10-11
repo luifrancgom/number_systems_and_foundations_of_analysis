@@ -1,1 +1,55 @@
 # Equality
+
+In most mathematical theories, equality is taken as a primitive undefined relation. In order to use the equality relation it suffices to postulate the following properties:
+
+-  **Assumption I** (Reflexivity): $\forall x (x = x)$
+-  **Assumption II** (Substitutivity): $\forall x \forall y (x = y \Longrightarrow (\mathscr{A}(x,x) \Longrightarrow \mathscr{A}(x,y)))$ 
+
+Here $\mathscr{A}(x,x)$ stands for any formula in the given theory and $\mathscr{A}(x,y)$ results from $\mathscr{A}(x,x)$ by replacing some, but not necessarily all, ocurrences of $x$ by $y$. Moreover $\mathscr{A}(x,x)$ may contain other variables in addition to $x$.
+
+::: {#thm-equality-symmetry}
+
+## Symmetry
+
+$x = y \Longrightarrow y = x$
+
+:::
+
+::: {.proof}
+
+Let $\mathscr{A}(x,x)$ be $x = x$ and $\mathscr{A}(x,y)$ be $y = x$ then $x = y \Longrightarrow (x = x \Longrightarrow y = x)$. Because $x = x$ and $x = y \Longrightarrow (x = x \Longrightarrow y = x)$ by @exr-exercise-proof-1 $x = y \Longrightarrow y = x$.   
+
+:::
+
+::: {#thm-equality-transitivity}
+
+## Transitivity
+
+$(x = y \land y = z) \Longrightarrow x = z$
+
+:::
+
+::: {.proof}
+
+Let $\mathscr{A}(y,y)$ be $y = z$ and $\mathscr{A}(y,x)$ be $x = z$ then $y = x \Longrightarrow (y = z \Longrightarrow x = z)$.
+
+Also we have that $x = y$ so by @thm-equality-symmetry $x = y \Longrightarrow y = x$. Because $x = y \Longrightarrow y = x$ and $y = x \Longrightarrow (y = z \Longrightarrow x = z)$ by @exm-example-proof-2 $x = y \Longrightarrow (y = z \Longrightarrow x = z)$. 
+
+Finally by @exr-relation-implies-and because $x = y \Longrightarrow (y = z \Longrightarrow x = z)$ then $(x = y \land y = z) \Longrightarrow x = z$. 
+
+:::
+
+::: {#thm-addition-equality}
+
+-  $x = y \Longrightarrow x + z = y + z$
+-  $x = y \Longrightarrow z + x = z + y$
+
+:::
+
+::: {.proof}
+
+-  Let $\mathscr{A}(x,x)$ be $x + z = x + z$ and $\mathscr{A}(x,y)$ be $x + z = y + z$ then $x = y \Longrightarrow (x + z = x + z \Longrightarrow x + z = y + z)$. Because $x + z = x + z$ and $x = y \Longrightarrow (x + z = x + z \Longrightarrow x + z = y + z)$ then by @exr-exercise-proof-1 $x = y \Longrightarrow x + z = y + z$.
+
+-  Let $\mathscr{A}(x,x)$ be $z + x = z + x$ and $\mathscr{A}(x,y)$ be $z + x = z + y$ then $x = y \Longrightarrow (z + x = z + x \Longrightarrow z + x = z + y)$. Because $z + x = z + x$ and $x = y \Longrightarrow (z + z = z + x \Longrightarrow z + x = z + y)$ then by @exr-exercise-proof-1 $x = y \Longrightarrow z + x = z + y$.
+
+:::

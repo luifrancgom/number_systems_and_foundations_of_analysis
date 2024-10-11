@@ -1809,9 +1809,9 @@ Therefore by the above results $\Gamma$ is satisfiable if and only if every fini
 
 Show that:
 
-1. ($(\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))$)
+1. $(\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))$
 
-2. ($(\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))$)
+2. $(\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))$
 
 :::
 
@@ -1858,7 +1858,40 @@ Show that:
     row_spec(row = 0, extra_css = "border-right: 1px solid;") |>
     cat()
    ```
-   -  Therefore by @thm-completeness-theorem because ($(\alpha \lor (\beta \land \gamma)) \models ((\alpha \lor \beta) \land (\alpha \lor \gamma))$) then ($(\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))$)
+   -  Therefore by @thm-completeness-theorem because $(\alpha \lor (\beta \land \gamma)) \models ((\alpha \lor \beta) \land (\alpha \lor \gamma))$ then $(\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))$.
+
+:::
+
+::: {#exr-relation-implies-and}
+
+Show that:
+
+$(\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \vdash ((\alpha \land \beta) \Longrightarrow \gamma)$
+
+:::
+
+::: {#sol-relation-implies-and}
+
+-  Let's use a truth table:
+
+   ```{r}
+   #| results: asis
+   
+   relation_implies_and <- tibble(
+    `$\\alpha$` = c("$T$", "$T$", "$T$", "$T$", "$F$", "$F$", "$F$", "$F$"), 
+    `$\\beta$` = c("$T$", "$T$", "$F$", "$F$", "$T$", "$T$", "$F$", "$F$"),
+    `$\\gamma$` = c("$T$", "$F$", "$T$", "$F$", "$T$", "$F$", "$T$", "$F$"),
+    `$(\\alpha \\Longrightarrow (\\beta \\Longrightarrow \\gamma))$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$"),
+    `$((\\alpha \\land \\beta) \\Longrightarrow \\gamma)$` = c("$T$", "$F$", "$T$", "$T$", "$T$", "$T$", "$T$", "$T$")
+   )
+   
+   kbl(relation_implies_and, escape = FALSE) |>
+    kable_styling() |> 
+    column_spec(column = 1:5, border_right = TRUE) |> 
+    row_spec(row = 0, extra_css = "border-right: 1px solid;") |>
+    cat()
+   ```
+   -  Therefore by @thm-completeness-theorem because $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \models ((\alpha \land \beta) \Longrightarrow \gamma)$ then $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \vdash ((\alpha \land \beta) \Longrightarrow \gamma)$
 
 :::
 
@@ -1989,11 +2022,41 @@ Which of the following are terms of one of the languages defined in @exm-languag
 
 :::
 
-::: {.proof}
+::: {#sol-example-terms-first-order-languages}
 
-1.  
+1.  $\cdot$ is a $2$-place function so $·v_2$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$.
+
+2.  $\cdot$ is a $2$-place function so $\cdot+v_611$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$. Therefore $+0\cdot+v_611$ is not a valid term for those cases. 
+
+3. $\mid1+v_30$ is a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$. It can be interpreted as $1 \mid (v_3 + 0)$.
+
+4. $(< E101 \Longrightarrow +11)$ is not a valid term because $\Longrightarrow$ is not a term.
+
+5. $+00000$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$ because $+$ is a $2$-place function. Therefore $++\cdot+00000$ is not a valid term for those cases.   
+
+6. $f_7^2c_4v_9c_1v_4$ is not a term for $\mathcal{L}_1$ because $f_7^2$ is a $2$-place function. Therefore $f_4^3f_7^2c_4v_9c_1v_4$ is also not a term for $\mathcal{L}_1$.
+
+7. $\cdot v_5(+1v_8)$ is not a valid term because $($ and $)$ are not terms.
+
+8. $<v_6v_2$ is a valid term for $\mathcal{L}_O$. It can be interpreted as $v_6 < v_2$.
+
+9. $+0$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$ because $+$ is a $2$-place function. Therefore $1+0$ is not a valid term for those cases.
 
 :::
+
+::: {#exr-example-terms-length}
+
+Choose one of the languages defined in @exm-language-elementary-number-theory and @exm-other-first-order-languages. Which has terms of length greater than one? Determine the possible lengths of terms of this language.
+
+:::
+
+::: {#sol-example-terms-length}
+
+
+
+:::
+
+
 
 ## Sets
 
