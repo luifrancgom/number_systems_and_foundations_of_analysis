@@ -1,9 +1,11 @@
 # Equality
 
-In most mathematical theories, equality is taken as a primitive undefined relation. In order to use the equality relation it suffices to postulate the following properties:
+In most mathematical theories, equality is taken as a primitive undefined relation. In order to use the equality relation it suffices to postulate the following properties[^appendix_a-1]:
 
 -  **Assumption I** (Reflexivity): $\forall x (x = x)$
--  **Assumption II** (Substitutivity): $\forall x \forall y (x = y \Longrightarrow (\mathscr{A}(x,x) \Longrightarrow \mathscr{A}(x,y)))$ 
+-  **Assumption II** (Substitutivity): $\forall x \forall y (x = y \Longrightarrow (\mathscr{A}(x,x) \Longrightarrow \mathscr{A}(x,y)))$
+
+[^appendix_a-1]: Check out [Metamath Proof Explorer - Appendix 2: Traditional Textbook Axioms of Predicate Calculus](https://us.metamath.org/mpeuni/mmset.html#traditional)
 
 Here $\mathscr{A}(x,x)$ stands for any formula in the given theory and $\mathscr{A}(x,y)$ results from $\mathscr{A}(x,x)$ by replacing some, but not necessarily all, ocurrences of $x$ by $y$. Moreover $\mathscr{A}(x,x)$ may contain other variables in addition to $x$.
 
