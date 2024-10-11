@@ -2898,8 +2898,8 @@ Note&nbsp;1.4
 <div id="exr-distributive-laws" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.12</strong></span> Show that:</p>
 <ol type="1">
-<li><p>(<span class="math inline">\((\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))\)</span>)</p></li>
-<li><p>(<span class="math inline">\((\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>)</p></li>
+<li><p><span class="math inline">\((\alpha \land (\beta \lor \gamma)) \vdash ((\alpha \land \beta) \lor (\alpha \land \gamma))\)</span></p></li>
+<li><p><span class="math inline">\((\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span></p></li>
 </ol>
 </div>
 <div id="sol-distributive-laws" class="proof solution">
@@ -3229,7 +3229,179 @@ Note&nbsp;1.4
 </tbody>
 </table>
 <ul>
-<li>Therefore by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> because (<span class="math inline">\((\alpha \lor (\beta \land \gamma)) \models ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>) then (<span class="math inline">\((\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>)</li>
+<li>Therefore by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> because <span class="math inline">\((\alpha \lor (\beta \land \gamma)) \models ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span> then <span class="math inline">\((\alpha \lor (\beta \land \gamma)) \vdash ((\alpha \lor \beta) \land (\alpha \lor \gamma))\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="exr-relation-implies-and" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.13</strong></span> Show that:</p>
+<p><span class="math inline">\((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \vdash ((\alpha \land \beta) \Longrightarrow \gamma)\)</span></p>
+</div>
+<div id="sol-relation-implies-and" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.13</em>. </span></p>
+<ul>
+<li><p>Let’s use a truth table:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\alpha\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\beta\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(\gamma\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\((\alpha \Longrightarrow (\beta \Longrightarrow \gamma))\)</span></p>
+</th>
+<th style="text-align:left;border-right: 1px solid;">
+<p><span class="math inline">\(((\alpha \land \beta) \Longrightarrow \gamma)\)</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(F\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<p><span class="math inline">\(T\)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Therefore by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> because <span class="math inline">\((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \models ((\alpha \land \beta) \Longrightarrow \gamma)\)</span> then <span class="math inline">\((\alpha \Longrightarrow (\beta \Longrightarrow \gamma)) \vdash ((\alpha \land \beta) \Longrightarrow \gamma)\)</span></li>
 </ul></li>
 </ul>
 </div>
@@ -3328,7 +3500,7 @@ Note&nbsp;1.4
 </div>
 <p>That is, a term is an expression which represents some (possibly indeterminate) element of the structure under discussion. For example, in <span class="math inline">\(\mathcal{L}_{NT}\)</span> or <span class="math inline">\(\mathcal{L}_{N}\)</span>, <span class="math inline">\(+v_0v_1\)</span>, informally <span class="math inline">\(v_0 + v_1\)</span>, is a term. Though precisely which natural number it represents depends on what values are assigned to the variables <span class="math inline">\(v_0\)</span> and <span class="math inline">\(v_1\)</span>.</p>
 <div id="exr-example-terms-first-order-languages" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.13</strong></span> Which of the following are terms of one of the languages defined in <a href="#exm-language-elementary-number-theory" class="quarto-xref">Example&nbsp;<span>1.6</span></a> and <a href="#exm-other-first-order-languages" class="quarto-xref">Example&nbsp;<span>1.7</span></a>? If so, which of these languages are they terms of, if not, why not?</p>
+<p><span class="theorem-title"><strong>Exercise 1.14</strong></span> Which of the following are terms of one of the languages defined in <a href="#exm-language-elementary-number-theory" class="quarto-xref">Example&nbsp;<span>1.6</span></a> and <a href="#exm-other-first-order-languages" class="quarto-xref">Example&nbsp;<span>1.7</span></a>? If so, which of these languages are they terms of, if not, why not?</p>
 <ol type="1">
 <li><span class="math inline">\(·v_2\)</span></li>
 <li><span class="math inline">\(+0\cdot+v_611\)</span></li>
@@ -3341,11 +3513,25 @@ Note&nbsp;1.4
 <li><span class="math inline">\(1+0\)</span></li>
 </ol>
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span></p>
+<div id="sol-example-terms-first-order-languages" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.14</em>. </span></p>
 <ol type="1">
-<li></li>
+<li><p><span class="math inline">\(\cdot\)</span> is a <span class="math inline">\(2\)</span>-place function so <span class="math inline">\(·v_2\)</span> is not a valid term for <span class="math inline">\(\mathcal{L}_{NT}\)</span>, <span class="math inline">\(\mathcal{L}_F\)</span> and <span class="math inline">\(\mathcal{L}_N\)</span>.</p></li>
+<li><p><span class="math inline">\(\cdot\)</span> is a <span class="math inline">\(2\)</span>-place function so <span class="math inline">\(\cdot+v_611\)</span> is not a valid term for <span class="math inline">\(\mathcal{L}_{NT}\)</span>, <span class="math inline">\(\mathcal{L}_F\)</span> and <span class="math inline">\(\mathcal{L}_N\)</span>. Therefore <span class="math inline">\(+0\cdot+v_611\)</span> is not a valid term for those cases.</p></li>
+<li><p><span class="math inline">\(\mid1+v_30\)</span> is a valid term for <span class="math inline">\(\mathcal{L}_{NT}\)</span>, <span class="math inline">\(\mathcal{L}_F\)</span> and <span class="math inline">\(\mathcal{L}_N\)</span>. It can be interpreted as <span class="math inline">\(1 \mid (v_3 + 0)\)</span>.</p></li>
+<li><p><span class="math inline">\((&lt; E101 \Longrightarrow +11)\)</span> is not a valid term because <span class="math inline">\(\Longrightarrow\)</span> is not a term.</p></li>
+<li><p><span class="math inline">\(+00000\)</span> is not a valid term for <span class="math inline">\(\mathcal{L}_{NT}\)</span>, <span class="math inline">\(\mathcal{L}_F\)</span> and <span class="math inline">\(\mathcal{L}_N\)</span> because <span class="math inline">\(+\)</span> is a <span class="math inline">\(2\)</span>-place function. Therefore <span class="math inline">\(++\cdot+00000\)</span> is not a valid term for those cases.</p></li>
+<li><p><span class="math inline">\(f_7^2c_4v_9c_1v_4\)</span> is not a term for <span class="math inline">\(\mathcal{L}_1\)</span> because <span class="math inline">\(f_7^2\)</span> is a <span class="math inline">\(2\)</span>-place function. Therefore <span class="math inline">\(f_4^3f_7^2c_4v_9c_1v_4\)</span> is also not a term for <span class="math inline">\(\mathcal{L}_1\)</span>.</p></li>
+<li><p><span class="math inline">\(\cdot v_5(+1v_8)\)</span> is not a valid term because <span class="math inline">\((\)</span> and <span class="math inline">\()\)</span> are not terms.</p></li>
+<li><p><span class="math inline">\(&lt;v_6v_2\)</span> is a valid term for <span class="math inline">\(\mathcal{L}_O\)</span>. It can be interpreted as <span class="math inline">\(v_6 &lt; v_2\)</span>.</p></li>
+<li><p><span class="math inline">\(+0\)</span> is not a valid term for <span class="math inline">\(\mathcal{L}_{NT}\)</span>, <span class="math inline">\(\mathcal{L}_F\)</span> and <span class="math inline">\(\mathcal{L}_N\)</span> because <span class="math inline">\(+\)</span> is a <span class="math inline">\(2\)</span>-place function. Therefore <span class="math inline">\(1+0\)</span> is not a valid term for those cases.</p></li>
 </ol>
+</div>
+<div id="exr-example-terms-length" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.15</strong></span> Choose one of the languages defined in <a href="#exm-language-elementary-number-theory" class="quarto-xref">Example&nbsp;<span>1.6</span></a> and <a href="#exm-other-first-order-languages" class="quarto-xref">Example&nbsp;<span>1.7</span></a>. Which has terms of length greater than one? Determine the possible lengths of terms of this language.</p>
+</div>
+<div id="sol-example-terms-length" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.15</em>. </span></p>
 </div>
 </section>
 </section>
@@ -3559,7 +3745,7 @@ x \in A &amp; \Longrightarrow x \in A \land x \in B \\
   \end{split}\]</span></p>
 </div>
 <div id="exr-union-intersections-halmos" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.14</strong></span> Show that a necessary and sufficient condition that <span class="math inline">\((A \cap B) \cup C = A \cap (B \cup C)\)</span> is that <span class="math inline">\(C \subseteq A\)</span></p>
+<p><span class="theorem-title"><strong>Exercise 1.16</strong></span> Show that a necessary and sufficient condition that <span class="math inline">\((A \cap B) \cup C = A \cap (B \cup C)\)</span> is that <span class="math inline">\(C \subseteq A\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
