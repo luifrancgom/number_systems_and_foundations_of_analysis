@@ -51,6 +51,7 @@ rsconnect/
 # Quarto
 /.quarto/
 /_book/
+/chapter_1_files/
 
 # Materials
 /materials/
