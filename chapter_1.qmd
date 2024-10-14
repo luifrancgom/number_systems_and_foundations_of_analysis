@@ -155,11 +155,11 @@ Also Polish notation is not ambiguous. For example:
 -   $(\alpha \Longrightarrow (\beta \Longrightarrow \gamma))$ is written as $\Longrightarrow \alpha \Longrightarrow \beta \gamma$
 :::
 
-::: {#exr-formulas-countable-lp}
+::: {#prp-formulas-countable-lp}
 Show that the set of formulas of $\mathcal{L}_P$ is countable.
 :::
 
-::: {#sol-formulas-countable-lp}
+::: {.proof}
 
 **Pending**
 
@@ -171,9 +171,9 @@ Let $S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathca
 
 -  Prove that $S_{\mathcal{L}_p}^2, S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n$ are denumerable sets.
 
--  Prove that $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a countable set.
+-  Prove that $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
 
--  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ is denumerable.
+-  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ is a denumerable set.
 
 :::
 
@@ -1684,7 +1684,7 @@ If $\gamma \not \in \Gamma$ and $\Gamma \cup \{ \gamma \}$ be inconsistent then 
 
 Otherwise, assume $\gamma \not \in \Gamma$ and $\Gamma \cup \{ \gamma \}$ be inconsistent. Therefore:
 
--  By @exr-formulas-countable-lp let $\psi_1, \psi_2,  \ldots, \psi_n, \ldots$ the formulas of $\mathcal{L}_p$.
+-  By @prp-formulas-countable-lp let $\psi_1, \psi_2,  \ldots, \psi_n, \ldots$ the formulas of $\mathcal{L}_p$.
 
 -  Let $\Delta_1 = \Gamma$ and $\Delta_{k+1}$ [@fagin_reasoning_1995, p. 55, Lemma 3.1.2]:
 
@@ -2026,9 +2026,9 @@ Which of the following are terms of one of the languages defined in @exm-languag
 
 1.  $\cdot$ is a $2$-place function so $·v_2$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$.
 
-2.  $\cdot$ is a $2$-place function so $\cdot+v_611$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$. Therefore $+0\cdot+v_611$ is not a valid term for those cases. 
+2.  $\cdot$ is a $2$-place function so $\cdot+v_611$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$. Therefore $+0\cdot+v_611$ is not a valid term for those cases. Remember that only if $f$ is a $k$-place function symbol and $t_1, \ldots, t_k$ terms then $ft_1 \ldots t_k$ is a term but not in the case for $k$-place relation symbols. 
 
-3. $\mid1+v_30$ is a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$. It can be interpreted as $1 \mid (v_3 + 0)$.
+3. $\mid1+v_30$ is not a valid term for $\mathcal{L}_{NT}$ because $\mid$ is a $2$-place relation symbol and not a $k$-place function symbol.
 
 4. $(< E101 \Longrightarrow +11)$ is not a valid term because $\Longrightarrow$ is not a term.
 
@@ -2038,7 +2038,7 @@ Which of the following are terms of one of the languages defined in @exm-languag
 
 7. $\cdot v_5(+1v_8)$ is not a valid term because $($ and $)$ are not terms.
 
-8. $<v_6v_2$ is a valid term for $\mathcal{L}_O$. It can be interpreted as $v_6 < v_2$.
+8. $<v_6v_2$ is not a valid term for $\mathcal{L}_O$ because $<$ is a $2$-place relation symbol and not a $k$-place function symbol. Remember that only if $f$ is a $k$-place function symbol and $t_1, \ldots, t_k$ terms then $ft_1 \ldots t_k$ is a term but not in the case for $k$-place relation symbols.  
 
 9. $+0$ is not a valid term for $\mathcal{L}_{NT}$, $\mathcal{L}_F$ and $\mathcal{L}_N$ because $+$ is a $2$-place function. Therefore $1+0$ is not a valid term for those cases.
 
@@ -2052,11 +2052,93 @@ Choose one of the languages defined in @exm-language-elementary-number-theory an
 
 ::: {#sol-example-terms-length}
 
+1.  For $\mathcal{L}_{NT}$ lets begin with $0, 1$ or $v_0, v_1, v_2, \ldots, v_n, \ldots$ then add a $2$-place function symbol and a constant or a variable, like $+0v_1$. Therefore the possible length terms of $\mathcal{L}_{NT}$ are $1 , 3, \ldots, 2n - 1, \ldots$ for $n \geq 1$.
 
+2.  For $\mathcal{L}_=$ the only possible terms are $v_0, v_1, v_2, \ldots, v_n, \ldots$. Therefore the possible length term of $\mathcal{L}_=$ is $1$.
+
+3.  For $\mathcal{L}_F$ lets begin with $0, 1$ or $v_0, v_1, v_2, \ldots, v_n, \ldots$ then add a $2$-place function symbol and a constant or a variable, like $\cdot 1 v_2$. Therefore the possible length terms of $\mathcal{L}_F$ are $1 , 3, \ldots, 2n - 1, \ldots$ for $n \geq 1$.
+
+4.  For $\mathcal{L}_S$ the only possible terms are $v_0, v_1, v_2, \ldots, v_n, \ldots$. Therefore the possible length term of $\mathcal{L}_S$ is $1$. 
+
+5.  For $\mathcal{L}_N$ lets begin with $0$ or $v_0, v_1, v_2, \ldots, v_n, \ldots$ then add a $1$-place or $2$-place function symbol and a constant or a variable, like $S0$ or $E0v_2$. Therefore the possible length terms of $\mathcal{L}_N$ are $1 , 2, \ldots, n, \ldots$ for $n \geq 1$.
+
+6.  For $\mathcal{L}_1$ lets begin with $c_1, c_2, \ldots, c_n, \ldots$ or $v_0, v_1, v_2, \ldots, v_n, \ldots$ then add a $k$-place function symbol and a constant or a variable, like $f_1^1v_3$. Therefore the possible length terms of $\mathcal{L}_1$ are $1 , 2, \ldots, n, \ldots$ for $n \geq 1$.  
 
 :::
 
+::: {#prp-set-terms-countable-first-order-language}
 
+The set of terms of a countable first-order language $\mathcal{L}$ is countable.
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+In a countable first-order language $\mathcal{L}$ the logical and non logical symbols of $\mathcal{L}$ are countable.
+
+Therefore for the terms of $\mathcal{L}$ the variables are countable, the set of constants are countable and the $k$-place function symbols are countable.
+
+Let $St_{\mathcal{L}}$ the set of symbols of $\mathcal{L}$ used to for terms:
+
+$$\begin{split}
+  St_{\mathcal{L}} = & \{ v_0, \ldots, v_n, \ldots, \} \\
+  & \cup \{ c_1, \ldots, c_n, \dots \} \\
+  & \cup \{ f_1^1, \ldots, f_n^1, \ldots \} \\
+  & \cup \{ f_1^2, \ldots, f_n^2, \ldots \} \\
+  & \; \vdots \\
+  & \cup \{ f_1^m, \ldots, f_n^m, \ldots \} \\ 
+  & \; \vdots
+  \end{split}$$
+
+-  Show that $St_{\mathcal{L}}$ is denumerable
+
+Let $St_{\mathcal{L}}(l(n)) = \underset{n \text{ times}}{\underbrace{St_{\mathcal{L}} \times \ldots \times St_{\mathcal{L}}}} = St_{\mathcal{L}}^n$ the strings of symbols of length $n$ build from $St_{\mathcal{L}}$.
+
+-  Prove that $St_{\mathcal{L}}^2, St_{\mathcal{L}}^3, \ldots, St_{\mathcal{L}}^n$ are denumerable sets.
+
+-  Prove that $St_{\mathcal{L}}^1 \cup St_{\mathcal{L}}^2 \cup \ldots \cup St_{\mathcal{L}}^n \cup \dots = \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
+
+-  Let $Ft_{\mathcal{L}}$ the set of terms of $\mathcal{L}$. Because $Ft_{\mathcal{L}} \subseteq \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i$ then $Ft_{\mathcal{L}}$ is a denumerable set.
+
+:::
+
+::: {#def-formulas-l}
+
+The formulas of a first-order language $\mathcal{L}$ are the finite sequences of the symbols of $\mathcal{L}$ satisfying the following rules:
+
+-  If $P$ is a $k$-place relation symbol and $t_1, \ldots , t_k$ are terms, then $Pt_1 \ldots t_k$ is a formula.
+-  If $t_1$ and $t_2$ are terms then $=t_1t_2$ is a formula.
+-  If $\alpha$ is a formula then $(\neg \alpha)$ is a formula.
+-  If $\alpha$ and $\beta$ are formulas then $(\alpha \Longrightarrow \beta)$ is a formula.
+-  If $\varphi$ is a formula and $v_n$ is a variable then $\forall v_n \varphi$ is a formula.
+-  Nothing else is a formula.
+
+:::
+
+The first 2 types of formulas are known as *atomic formulas* of $\mathcal{L}$
+
+::: {#exr-example-formulas-first-order-languages}
+
+Which of the following are formulas of one of the languages defined in @exm-language-elementary-number-theory and @exm-other-first-order-languages? If so, which of these languages are they terms of, if not, why not?
+
+1. $=0+v_7\cdot1v_3$
+2. $(\neg=v_1v_1)$
+3. $(\mid v_20 \Longrightarrow \cdot01)$
+4. $(\neg \forall v_5 (= v_5v_5))$
+5. $< +01 \mid v_1v_3$
+6. $(v_3 = v_3 \Longrightarrow \forall v_5 v_3 = v_5)$
+7. $\forall v_6 (= v_60 \Longrightarrow \forall v_9(¬ \mid v_9v_6))$
+8. $\forall v_8 < +11v_4$
+
+:::
+
+::: {#sol-example-formulas-first-order-languages}
+
+
+
+:::
 
 ## Sets
 
@@ -2084,7 +2166,7 @@ A possible relation between sets, more elementary than belonging, is equality. T
 Two sets are equal if and only if they have the same
 elements.
 
-$$A = B \iff (\forall x)(x \in A \iff x \in B)$$
+$$A = B \iff \forall x(x \in A \iff x \in B)$$
 
 The axiom expresses the basic idea that a set is determined by its elements:
 
@@ -2096,15 +2178,94 @@ The axiom expresses the basic idea that a set is determined by its elements:
 
 If $A$ and $B$ are sets then $A$ is *included* in $B$ or $A$ is a *subset* of $B$ if every element of $A$ is an element of $B$. If this is the case this situation is denoted as $A \subseteq B$. Thus:
 
-$$A \subseteq B \iff (\forall x)(x \in A \Longrightarrow x \in B)$$
+::: {#def-subset}
 
-Because $A = A$ then $A \subseteq A$. Any subset of $A$ which is from $A$ is called a *proper subset* of $A$. To denote that $C$ is a proper subset of $A$ we use the notation $C \subset A$. Thus:
+## Subset
 
-$$C \subset A \iff (C \subseteq A \land C \neq A)$$
+$$A \subseteq B \iff \forall x(x \in A \Longrightarrow x \in B)$$
 
-If $A \subseteq B$ and $B \subseteq C$ then $A$ and $B$ have the same elements so by @def-axiom-of-extension $A = B$. Thus:
+:::
+
+Because $A = A$ then $A \subseteq A$. If $\neg (A \subseteq B)$ then we write $A \not \subseteq B$. In this case $\neg \forall x(x \in A \Longrightarrow x \in B)$. 
+
+Any subset of $A$ different from $A$ is called a *proper subset* of $A$. To denote that $C$ is a proper subset of $A$ we use the notation $C \subset A$. Thus:
+
+::: {#def-propersubset}
+
+## Proper subset
+
+$$C \subset A \iff (C \subseteq A \land A \not \subseteq C)$$
+
+:::
+
+If $A \subseteq B$ and $B \subseteq A$ then $A$ and $B$ have the same elements so by @def-axiom-of-extension $A = B$. Thus:
 
 $$A = B \iff (A \subseteq B \land B \subseteq A)$$
+
+::: {#exr-axiom-of-extension}
+
+Proof the following assertions or answer the following questions:
+
+1. $\{ a \} = \{ a, a \}$
+
+2. ¿How many elements does the set $\{ 1, 2, 3 \}$ have?
+
+3. ¿How many elements does the set $\{ 1, \{ 2, 3 \} \}$ have?
+
+4. ¿Does $2 \in \{ 1, \{ 2\} \}$?
+
+5. ¿Does $\{ 2 \} \subseteq \{ 1, \{ 2\} \}$?
+
+6. $A \subseteq B \land B \subseteq C \Longrightarrow A \subseteq C$
+
+7. $B \subset A \iff (B \subseteq A \land \exists x (x \in A \land x \not \in B))$
+
+8. $\{ a \} = \{ b, c\}$ if and only if $(a = b \land b = c)$
+
+:::
+
+::: {#sol-axiom-of-extension}
+
+1. $\begin{aligned}
+   a \in \{ a \} & \iff a \in \{ a, a \} \\ 
+   \end{aligned}$
+
+2. The set $\{ 1, 2, 3 \}$ has 3 elements: $1, 2$ and $3$
+
+3. The set $\{ 1, \{2, 3\} \}$ has 2 elements: $1$ and $\{2, 3\}$ 
+
+4. No because the elements of $\{ 1, \{ 2\} \}$ are $1$ and $\{ 2\}$. Therefore $2$ is not an element of $\{ 1, \{ 2\} \}$.   
+ 
+5. No because $2 \in \{ 2\}$ and $2 \not \in \{ 1, \{ 2\} \}$.
+
+6. $\begin{aligned}
+   x \in A & \Longrightarrow x \in B \\
+   & \Longrightarrow x \in C
+   \end{aligned}$
+   
+7. $\begin{aligned}
+   B \subset A & \iff (C \subseteq A \land A \not \subseteq C) \\
+   & \iff (C \subseteq A \land \neg \forall x(x \in A \Longrightarrow x \in B)) \\
+   & \iff (C \subseteq A \land  \exists x \neg(x \in A \Longrightarrow x \in B)) \\ 
+   & \iff (C \subseteq A \land  \exists x \neg \neg (x \in A \land x \not \in B)) \\
+   & \iff (C \subseteq A \land  \exists x (x \in A \land x \not \in B)) \\
+   \end{aligned}$
+   
+8. We deduce this assertion in 2 parts:
+
+   -  Assume $(a = b \land b = c)$
+   
+      -  Then $\{ b, c \} = \{ a, a \} = \{ a \}$. Therefore $\{ a \} = \{ b, c \}$
+      
+   -  Assume $\{ a \} = \{ b, c \}$ then $\{ a \} \subseteq \{ b, c \}$ and $\{ b, c \} \subseteq \{ a \}$.
+   
+      -  If $\{ a \} \subseteq \{ b, c \}$ then $a \in \{ b, c \}$ so $a = b \lor a = c$.
+      
+      -  If $\{ b, c \} \subseteq \{ a \}$ then $b \in \{ a \}$ and $c \in \{ a \}$. Therefore $a = b \land a = c$.
+      
+      -  So we have that $a = b \land a = c$ taking into account that $a = b$ and $a = c$ must be true.
+
+:::
 
 ### Axiom schema of specification (or separation)
 
@@ -2141,13 +2302,24 @@ Because $B \in A$ generates a contradiction by @nte-proof-by-reductio-ad-absurdu
 Let as assume that *there exists a set*. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only [@halmos_naive_2017, p. 8]. One consequence of this assumption is that there exists a set without any elements at all. By @def-axiom-schema-of-specification define $B$ using some false $P(x)$ like $x \not = x$:
 
 $$B = \{ x \in A \mid x \not = x \}$$
-Furthermore by @def-axiom-of-extension $B$ is unique. This is because $(\forall x)(x \not \in B)$ so if there is another $B^*$ such that $(\forall x)(x \not \in B^*)$ then we have that:
+Furthermore by @def-axiom-of-extension $B$ is unique. This is because $\forall x(x \not \in B)$ so if there is another $B^*$ such that $\forall x(x \not \in B^*)$ then we have that:
 
--  $(\forall x)(x \in B \Longrightarrow x \in B^*)$ is true because $x \in B$ is false so $B \subseteq B^*$
+-  $\forall x(x \in B \Longrightarrow x \in B^*)$ is true because $x \in B$ is false so $B \subseteq B^*$
 
--  $(\forall x)(x \in B^* \Longrightarrow x \in B)$ is true because $x \in B^*$ is false so $B^* \subseteq B$
+-  $\forall x(x \in B^* \Longrightarrow x \in B)$ is true because $x \in B^*$ is false so $B^* \subseteq B$
 
-Therefore $B = B^*$. Because $B$ is unique we will use the symbol $\emptyset$ for this set. Also we know that $\emptyset \subseteq \emptyset$ but also we have that $\emptyset \subseteq A$ for any set $A$. How could it be that the empty set is a subset of every set? To prove that something is true about the empty set, prove that it cannot be false [@halmos_naive_2017, p. 8]. Assume $\emptyset \not \subseteq A$ for any set $A$. But this will mean that there is some $x$ such that $x \in \emptyset \land x \not \in A$. However this is not possible because $(\forall x)(x \not \in \emptyset)$. Therefore by @nte-proof-by-reductio-ad-absurdum it must be the case that $(\forall A)(\emptyset \subseteq A)$.
+Therefore $B = B^*$. Because $B$ is unique we will use the symbol $\emptyset$ for this set. Therefore $\emptyset$ has the following property:
+
+::: {#def-empty-set-property}
+
+## Empty set property
+
+$$\forall x (x \not \in \emptyset)$$
+**Note**: The above property is equivalent to $\neg \exists x (x \in \emptyset)$. So if $B \neq \emptyset$ then $\exists x (x \in B)$.
+
+:::
+
+We know that $\emptyset \subseteq \emptyset$ but we also have that $\emptyset \subseteq A$ for any set $A$. How could it be that the empty set is a subset of every set? To prove that something is true about the empty set, prove that it cannot be false [@halmos_naive_2017, p. 8]. Assume $\emptyset \not \subseteq A$ for any set $A$. But this will mean that there is some $x$ such that $x \in \emptyset \land x \not \in A$. However this is not possible because $(\forall x)(x \not \in \emptyset)$. Therefore by @nte-proof-by-reductio-ad-absurdum it must be the case that $(\forall A)(\emptyset \subseteq A)$.
 
 ### Axiom of pairing
 
@@ -2175,8 +2347,20 @@ Or pairs of them like $\{ \emptyset, \{ \emptyset \} \}$, $\{ \{ \emptyset \}, \
 
 Because $\{ a, b \} = \{ b, a \}$ and using the above logic we can use those aspects to motive the definition of ordered pair as:
 
+::: {#def-ordered-pair}
+
+## Ordered pair
+
 $$(a, b) = \{ \{ a \}, \{ a, b\} \}$$
-Where we can use it to define recursively an $n$-tuple for $n \geq 3$ as:
+**Note**: $(a, b) = \{ \{ a \}, \{ a, b\} \}$ is defined as an ordered pair because $(a, b) = (a^{'}, b^{'})$ if and only if $a = a^{'} \land b = b^{'}$ (See @exr-axiom-of-pairing).
+
+:::
+
+::: {#def-n-tuple}
+
+## $n$-tuple
+
+We can use @def-ordered-pair to define recursively an $n$-tuple for $n \geq 3$ as:
 
 $$\begin{split}
  (a_1, a_2, a_3) & = ((a_1, a_2), a_3) \\
@@ -2185,17 +2369,27 @@ $$\begin{split}
  (a_1, \ldots , a_n) & = ((a_1, \ldots, a_{n-1}), a_n)
 \end{split}$$
 
-$(a, b) = \{ \{ a \}, \{ a, b\} \}$ is defined an ordered pair because $(a, b) = (a^{'}, b^{'})$ if and only if $a = a^{'} \land b = b^{'}$. Why?
+:::
 
-::: {.proof}
+::: {#exr-axiom-of-pairing}
 
--  If $a = a^{'} \land b = b^{'}$ then $(a, b) = \{ \{ a^{'} \}, \{ b^{'}, a^{'}\} \}$. But $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$ so $(a, b) = (a^{'}, b^{'})$.
+Prove the following assertions:
 
--  If $(a, b) = (a^{'}, b^{'})$ lets assume 2 cases [@forero_cuervo_matematica_2009, p. 59]:
+1. $(a, b) = (a^{'}, b^{'})$ if and only if $a = a^{'} \land b = b^{'}$  
 
-   -  Assume $a^{'} = b^{'}$ then $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, a^{'}\} \} = \{ \{ a^{'} \}, \{ a^{'} \} \} = \{ \{ a^{'} \} \}$. Because $(a^{'}, b^{'}) = (a, b)$ then $\{ \{ a^{'} \} \} = \{ \{ a \}, \{ b, a \} \}$. Therefore $b = a$ and $\{ \{ a \} \}$ so $a^{'} = a$. In particular $a = a^{'} \land b = b^{'}$.
+:::
+
+::: {#sol-axiom-of-pairing}
+
+1. We deduce this assertion in 2 parts:  
+
+   -  If $a = a^{'} \land b = b^{'}$ then $(a, b) = \{ \{ a^{'} \}, \{ b^{'}, a^{'}\} \}$. But $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$ so $(a, b) = (a^{'}, b^{'})$.
+
+   -  If $(a, b) = (a^{'}, b^{'})$ lets assume 2 cases [@forero_cuervo_matematica_2009, p. 59]:
+
+      -  Assume $a^{'} = b^{'}$ then $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, a^{'}\} \} = \{ \{ a^{'} \}, \{ a^{'} \} \} = \{ \{ a^{'} \} \}$. Because $(a^{'}, b^{'}) = (a, b)$ then $\{ \{ a^{'} \} \} = \{ \{ a \}, \{ b, a \} \}$. Therefore $b = a$ and $\{ \{ a \} \}$ so $a^{'} = a$. In particular $a = a^{'} \land b = b^{'}$.
    
-   -  Assume $a^{'} \neq b^{'}$ then because $(a, b) = (a^{'}, b^{'})$ we have that $\{ \{ a \}, \{ a, b \} \} = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$. Also $a \neq b$ because $a^{'} \neq b^{'}$. Therefore $a = a^{'}$ and $\{ a, b \} = \{ a^{'}, b^{'}\}$. But again $a^{'} \neq b^{'}$ so $b = b^{'}$. We have that $a = a^{'} \land b = b^{'}$. 
+      -  Assume $a^{'} \neq b^{'}$ then because $(a, b) = (a^{'}, b^{'})$ we have that $\{ \{ a \}, \{ a, b \} \} = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$. Also $a \neq b$ because $a^{'} \neq b^{'}$. Therefore $a = a^{'}$ and $\{ a, b \} = \{ a^{'}, b^{'}\}$. But again $a^{'} \neq b^{'}$ so $b = b^{'}$. We have that $a = a^{'} \land b = b^{'}$. 
 
 :::
 
@@ -2215,158 +2409,272 @@ In other words $\bigcup A = \{ x \in C \mid \exists C\in A \}$ or that $x \in \b
 
 For example let $A = \{ \{ a, b\}, \{ c \} \}$ then $\bigcup A = \{ a, b, c \}$. Also if $A$ and $B$ are sets using @def-axiom-of-pairing we can generate the set $\{ A, B \}$ and apply @def-axiom-of-union to obtain:
 
+::: {#def-union-of-2-sets}
+
+## Union of 2 sets
+
 $$\begin{split}
    \bigcup \{ A, B \} & = \{ x \in C \mid C = A \lor C = B \} \\
    & = A \cup B
   \end{split}$$
+  
+**Note**: If $x \in A \cup B$ then $x \in A$ or $x \in B$.
+  
+:::
  
 Also let $B = \{ A \}$ then $\bigcup B = \{ x \in A \mid A \in B \} = A$. What about $\bigcup \emptyset$? Well, $\bigcup \emptyset = \{ x \in A \mid A \in \emptyset \}$. But there is no $A \in \emptyset$ so there is not $x \in \bigcup \emptyset$. Therefore $\bigcup \emptyset = \emptyset$.
 
-We can check the following facts:
+::: {#exr-unions}
 
--  $A \cup \emptyset = A$
+Prove the following assertions:
 
-$$\begin{split}
-   x \in A \cup \emptyset & \iff x \in A \lor x \in \emptyset \\
-   & \iff x \in A
-  \end{split}$$
+1.  $A \cup \emptyset = A$
 
--  $A \cup B = B \cup A$
+2.  $A \cup A = A$
 
-$$\begin{split}
-   x \in A \cup B & \iff x \in A \lor x \in B \\
-   & \iff x \in B \lor x \in A \\
-   & \iff x \in B \cup A
-  \end{split}$$
+3.  $A \cup B = B \cup A$
 
--  $A \cup A = A$
+4.  $A \subseteq A \cup B$
 
-$$\begin{split}
-   x \in A \cup A & \iff x \in A \lor x \in A \\
-   & \iff x \in A
-  \end{split}$$
-  
--  $A \subseteq B$ if and only if $A \cup B = B$
+5.  $(A \cup B) \cup C = A \cup (B \cup C)$
 
-   -  Let $A \subseteq B$
-   
-      $$\begin{split}
-       x \in A \cup B & \iff x \in A \lor x \in B \\
-       & \iff x \in B \lor x \in B \\
-       & \iff x \in B 
-       \end{split}$$
+6.  $A \subseteq B$ if and only if $A \cup B = B$
 
-   -  Let $A \cup B = B$
+:::
 
-      $$\begin{split}
+::: {#sol-unions}
+
+1.  $\begin{aligned}
+      x \in A \cup \emptyset & \iff x \in A \lor x \in \emptyset \\
+      & \iff x \in A
+      \end{aligned}$
+
+2.  $\begin{aligned}
+      x \in A \cup A & \iff x \in A \lor x \in A \\
+      & \iff x \in A
+      \end{aligned}$  
+
+3.  $\begin{aligned}
+      x \in A \cup B & \iff x \in A \lor x \in B \\
+      & \iff x \in B \lor x \in A \\
+      & \iff x \in B \cup A
+      \end{aligned}$
+
+4.  $\begin{aligned}
       x \in A & \Longrightarrow x \in A \lor x \in B \\
-      & \Longrightarrow x \in B
-      \end{split}$$
+      & \Longrightarrow x \in A \cup B
+      \end{aligned}$  
 
-What about intersections? By @def-axiom-schema-of-specification we can define $A \cap B = \{ x \in A \mid x \in B \}$ where $P(x) = x \in B$. 
+5.  $\begin{aligned}
+      x \in (A \cup B) \cup C & \iff x \in (A \cup B) \lor x \in C \\
+      & \iff (x \in A \lor x \in B) \lor x \in C \\
+      & \iff x \in A \lor (x \in B \lor x \in C) \\
+      & \iff x \in A \lor x \in (B \cup C) \\
+      & \iff x \in A \cup (B \cup C) \\
+      \end{aligned}$ 
 
-We can check the following facts:
+6.  We deduce this assertion in 2 parts:
 
--  $A \cap \emptyset = \emptyset$
-
-   -  Because $A \cap \emptyset = \{ x \in A \mid x \in \emptyset \}$ but there is no $x \in \emptyset$ so there is no $x \in A \cap \emptyset$. Therefore $A \cap \emptyset = \emptyset$.
+    -  Assume $A \subseteq B$
    
--  $A \cap B = B \cap A$
-
-$$\begin{split}
-   x \in A \cap B & \iff x \in A \land x \in B \\
-   & \iff x \in B \land x \in A \\
-   & \iff x \in B \cap A
-  \end{split}$$
-  
--  $A \cap A = A$
-
-$$\begin{split}
-   x \in A \cap A & \iff x \in A \land x \in A \\
-   & \iff x \in A
-  \end{split}$$
-
--  $A \subseteq B$ if and only if $A \cap B = A$
-
-   -  Let $A \subseteq B$
+       -  $\begin{aligned}
+           x \in A \cup B & \iff x \in A \lor x \in B \\
+           & \iff x \in B \lor x \in B \\
+           & \iff x \in B 
+           \end{aligned}$
+          
+    -  Assume $A \cup B = B$
    
-      $$\begin{split}
-       x \in A \cap B & \iff x \in A \land x \in B \\
-       & \iff x \in A \land x \in A \\
-       & \iff x \in A 
-       \end{split}$$
+       -  $\begin{aligned}
+           x \in A \cup B & \Longrightarrow x \in A \lor x \in B \\
+           & \Longrightarrow x \in B 
+           \end{aligned}$
+    
+:::
 
-   -  Let $A \cap B = A$
+What about intersections? By @def-axiom-schema-of-specification we can define the intersection of 2 sets with $P(x) = x \in B$ as:
 
-      $$\begin{split}
-      x \in A & \Longrightarrow x \in A \land x \in B \\
+::: {#def-intersection-of-2-sets}
+
+## Intersection of 2 sets
+
+$$A \cap B = \{ x \in A \mid x \in B \}$$
+**Note**: If $x \in A \cap B$ then $x \in A$ and $x \in B$.
+
+:::
+
+::: {#exr-intersections}
+
+Prove the following assertions:
+
+1.  $A \cap \emptyset = \emptyset$  
+
+2.  $A \cap A = A$
+
+3.  $A \cap B = B \cap A$
+
+4.  $A \cap B \subseteq A$
+
+5.  $(A \cap B) \cap C = A \cap (B \cap C)$
+
+6.  $A \subseteq B$ if and only if $A \cap B = A$
+
+:::
+
+::: {#sol-intersections}
+
+1.  $A \cap \emptyset = \{ x \in A \mid x \in \emptyset \}$ but there is no $x \in \emptyset$ so there is no $x \in A \cap \emptyset$. Therefore $A \cap \emptyset = \emptyset$.
+
+2.  $\begin{aligned}
+      x \in A \cap A & \iff x \in A \land x \in A \\
+      & \iff x \in A
+      \end{aligned}$
+
+3.  $\begin{aligned}
+      x \in A \cap B & \iff x \in A \land x \in B \\
+      & \iff x \in B \land x \in A \\
+      & \iff x \in B \cap A
+      \end{aligned}$
+
+4.  $\begin{aligned}
+      x \in A  \cap B & \Longrightarrow x \in A \land x \in B \\
       & \Longrightarrow x \in A
-      \end{split}$$
+      \end{aligned}$
+
+5.  $\begin{aligned}
+      x \in (A \cap B) \cap C & \iff x \in (A \cap B) \lor x \in C \\
+      & \iff (x \in A \land x \in B) \land x \in C \\
+      & \iff x \in A \land (x \in B \land x \in C) \\
+      & \iff x \in A \land x \in (B \cap C) \\
+      & \iff x \in A \cap (B \cap C) \\
+      \end{aligned}$
+
+6.  We deduce this assertion in 2 parts:
+
+    -  Assume $A \subseteq B$
+   
+       -  $\begin{aligned}
+           x \in A \cap B & \iff x \in A \land x \in B \\
+           & \iff x \in A \land x \in A \\
+           & \iff x \in A  
+           \end{aligned}$
+          
+    -  Assume $A \cap B = A$
+   
+       -  $\begin{aligned}
+           x \in A \cap B & \Longrightarrow x \in A \land x \in B \\
+           & \Longrightarrow x \in A 
+           \end{aligned}$
+
+:::
 
 Pairs of sets with an empty intersection occur frequently enough to justify the use of a special word. If $A \cap B = \emptyset$, the sets $A$ and $B$ are called *disjoint*. Also if in a collection of sets any two distinct sets of the collection are disjoint we may speak in such a situation of a *pairwise disjoint* collection [@halmos_naive_2017, p. 15].
 
-Let $B = \{ A_i \in A \mid A_i \}$ then $B$ is *pairwise disjoint* if $i \neq j$ then $A_i \cap A_j = \emptyset$.
+::: {#def-pairwaise-disjoint-collection}
 
-We can define $\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}$. Once we define $\bigcap B$ we can have that $\bigcap B = \emptyset$ but $B$ is not necessary *pairwise disjoint*. For example let $B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}$ where we have that:
+## Pairwaise disjoint collection
+
+Let $B = \{ A_i \in A \mid A_i \}$ then $B$ is a *pairwise disjoint* collection if $i \neq j$ then $A_i \cap A_j = \emptyset$.
+
+:::
+
+We can define $\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}$. Once we define $\bigcap B$ we can have that $\bigcap B = \emptyset$ but $B$ is not necessary a *pairwise disjoint* collection. For example let $B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}$ where we have that:
 
 -  $\{ a, b \} \cap \{ b, c \} = b$
 -  $\{ b, c \} \cap \{ a, c \} = c$
 -  $\{ a, b \} \cap \{ a, c \} = a$
 -  $\{ a, b \} \cap \{ b, c \} \cap \{ a, c \} = \emptyset$
 
-Therefore if $B$ is a *pairwise disjoint* collection of sets it is *disjoint* but if $B$ is a *disjoint* collection of sets it is not necessary true that is *pairwise disjoint*.
+Therefore if $B$ is a *pairwise disjoint* collection of sets it is *disjoint* but if $B$ is a *disjoint* collection of sets it is not necessary true that is a *pairwise disjoint* collection.
 
-Also there are two useful facts about unions and intersections known as *distributive laws* [@halmos_naive_2017, p. 15]:
+Also there are two useful facts about unions and intersections known as *distributive laws* [@halmos_naive_2017, p. 15] that can be prove using @exr-distributive-laws (See @exr-unions-intersections).
 
--  $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+::: {#exr-unions-intersections}
 
--  $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+Prove the following assertions:
 
-::: {.proof}
+1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
 
-We can use @exr-distributive-laws to prove these facts:
+2. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
 
-$$\begin{split}
-  x \in A \cup (B \cap C) & \iff x \in A \lor x \in (B \land C) \\
-  & \iff (x \in A \lor x \in B) \land (x \in A \lor x \in C) \\
-  & \iff x \in (A \cup B) \land x \in (A \cup C) \\ 
-  & \iff x \in (A \cup B) \cap (A \cup C) \\ 
-  \end{split}$$
+3. $(A \cap B) \cup C = A \cap (B \cup C)$ if and only if $C \subseteq A$
 
-$$\begin{split}
-  x \in A \cap (B \cup C) & \iff x \in A \land x \in (B \lor C) \\
-  & \iff (x \in A \land x \in B) \lor (x \in A \land x \in C) \\
-  & \iff x \in (A \cap B) \lor x \in (A \cap C) \\ 
-  & \iff x \in (A \cap B) \cup (A \cap C) \\ 
-  \end{split}$$
+4. $A \cap B = A \cup B$ if and only if $A = B$
+
+5. $A \cup C = B \cup C \land A \cap C = B \cap C$ then $A = B$
 
 :::
 
-::: {#exr-union-intersections-halmos}
+::: {#sol-unions-intersections}
 
-Show that a necessary and sufficient condition that $(A \cap B) \cup C = A \cap (B \cup C)$ is that $C \subseteq A$
+1.  $\begin{aligned}
+      x \in A \cup (B \cap C) & \iff x \in A \lor x \in (B \land C) \\
+      & \iff (x \in A \lor x \in B) \land (x \in A \lor x \in C) \\
+      & \iff x \in (A \cup B) \land x \in (A \cup C) \\ 
+      & \iff x \in (A \cup B) \cap (A \cup C)
+      \end{aligned}$  
 
-:::
+2.  $\begin{aligned}
+      x \in A \cap (B \cup C) & \iff x \in A \land x \in (B \lor C) \\
+      & \iff (x \in A \land x \in B) \lor (x \in A \land x \in C) \\
+      & \iff x \in (A \cap B) \lor x \in (A \cap C) \\ 
+      & \iff x \in (A \cap B) \cup (A \cap C)
+      \end{aligned}$
+      
+3.  We deduce this assertion in 2 parts:
 
-::: {.proof}
+    -  Assume $A \cap B = A \cup B$
+   
+       -  $\begin{aligned}
+           x \in A & \Longrightarrow x \in A \cup B \\
+           & \iff x \in A \cap B \\
+           & \Longrightarrow x \in B  
+           \end{aligned}$
+           
+       -  $\begin{aligned}
+           x \in B & \Longrightarrow x \in B \cup A \\
+           & \iff x \in A \cap B \\
+           & \Longrightarrow x \in A  
+           \end{aligned}$
+          
+    -  Assume $A = B$
+   
+       -  $\begin{aligned}
+           x \in A \cap (B \cup C) & \iff x \in (A \cap B) \cup (A \cap C) \\
+           & \iff x \in (A \cap B) \lor x \in (A \cap C) \\
+           & \iff x \in (A \cap B) \lor x \in C \\
+           & \iff x \in (A \cap B) \cup C 
+           \end{aligned}$    
 
--  Assume $(A \cap B) \cup C = A \cap (B \cup C)$
+4.  We deduce this assertion in 2 parts:
 
-$$\begin{split}
-  x \in C & \Longrightarrow x \in (A \cap B) \cup C \\
-  & \Longrightarrow x \in A \cap (B \cup C) \\
-  & \Longrightarrow x \in A
-  \end{split}$$
+    -  Assume $A \subseteq B$
+   
+       -  $\begin{aligned}
+           x \in A \cap B & \iff x \in A \land x \in B \\
+           & \iff x \in A \land x \in A \\
+           & \iff x \in A  
+           \end{aligned}$
+          
+    -  Assume $A \cap B = A$
+   
+       -  $\begin{aligned}
+           x \in A \cap B & \iff x \in A \cap A \\
+           & \iff x \in A \\
+           & \iff x \in A \cup A \\
+           & \iff x \in A \cup B
+           \end{aligned}$ 
 
--  Assume $C \subseteq A$
+5.  $\begin{aligned}
+      x \in A & \iff x \in A \cap (A \cup C) \\
+      & \iff x \in A \cap (B \cup C) \\
+      & \iff x \in (A \cap B) \cup (A \cap C) \\
+      & \iff x \in (B \cap A) \cup (B \cap C) \\
+      & \iff x \in B \cap (A \cup C) \\
+      & \iff x \in B \cap (B \cup C) \\
+      & \iff x \in B
+      \end{aligned}$ 
 
-$$\begin{split}
-  x \in A \cap (B \cup C) & \iff x \in (A \cap B) \cup (A \cap C) \\
-  & \iff x \in (A \cap B) \lor x \in (A \cap C) \\
-  & \iff x \in (A \cap B) \lor x \in C \\
-  & \iff x \in (A \cap B) \cup C \\
-  \end{split}$$
- 
 :::
 
 ### Axiom of power set
@@ -2397,11 +2705,20 @@ In that sense $\mathscr{P}(A) = \{ x \in C \mid x \subseteq A \}$. For example w
 
 Using @def-axiom-of-power-set we can define the following set know as the *product* of $A$ and $B$ where it is the set of all pairs $(x, y)$ such that $x \in A$ and $y \in B$:
 
+::: {#def-product-of-2-sets}
+
+## Product of 2 sets
+
 $$A \times B = \{(x,y) \mid x \in A \land y \in B \}$$
+:::
 
 The product $A \times B$ can be defined because $A \times B \subseteq \mathscr{P}(A \cup B)$. For example if $A = \{ a \}$ and $B = \{ b \}$ then $\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} \subseteq \mathscr{P}(A \cup B)$.
 
-Further for $n \geq 3$ we can define:
+::: {#def-product-of-n-sets}
+
+## Product of $n$-sets
+
+We can use @def-product-of-2-sets to define recursively the product of $n$-sets $n \geq 3$ as:
 
 $$\begin{split}
  (A_1, A_2, A_3) & = (A_1 \times A_2) \times A_3 \\
@@ -2412,54 +2729,262 @@ $$\begin{split}
 
 Thus, 
 
-$$(A_1 \times \ldots \times A_{n-1}) = \{ (x_1, \ldots, x_n): x_1 \in A_1 \land \ldots \land x_n \in A_n \}$$
+$$(A_1 \times \ldots \times A_{n-1})  \times A_n = \{ (x_1, \ldots, x_n): x_1 \in A_1 \land \ldots \land x_n \in A_n \}$$
 
-We also let,
+**Note**: We use the following notation $X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}$ when $A_i = X$ for $i = 1, \ldots n$
 
-$$X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}$$
+:::
+
+::: {#exr-power-set}
+
+Prove the following assertions or answer the following questions:
+
+1. $B \subseteq A$ if and only if $\mathscr{P}(B) \subseteq \mathscr{P}(A)$
+
+2. $\mathscr{P}(B) \cap \mathscr{P}(A) = \mathscr{P}(B \cap A)$
+
+3. Give a counterexample to show that $\mathscr{P}(B) \cup \mathscr{P}(A) = \mathscr{P}(B \cup A)$ is not always true.
+
+4. $\mathscr{P}(B) \cup \mathscr{P}(A) \subseteq \mathscr{P}(B \cup A)$
+
+5. $\mathscr{P}(B) = \mathscr{P}(A)$ then $A = B$
+
+6. If $A$ is finite and has $n$ elements prove that the power set $\mathscr{P}(A)$ has $2^n$ elements. **Hint**: In choosing a subset of $A$, there are 2 possibilities with respect to each of the $n$ elements, that is, it is in the set or not in it.
+
+:::
+
+::: {#sol-power-set}
+
+1.  We deduce this assertion in 2 parts:
+
+    -  Assume $B \subseteq A$
+   
+       -  $\begin{aligned}
+           x \in \mathscr{P}(B) & \iff x \subseteq B \\
+           & \Longrightarrow x \subseteq A \\
+           & \iff x \in \mathscr{P}(A)
+           \end{aligned}$
+          
+    -  Assume $\mathscr{P}(B) \subseteq \mathscr{P}(A)$
+   
+       -  $\begin{aligned}
+           x \in B & \iff \{ x \} \subseteq B \\
+           & \iff \{ x \} \in \mathscr{P}(B) \\
+           & \Longrightarrow \{ x \} \in \mathscr{P}(A) \\
+           & \iff \{ x \} \subseteq A \\
+           & \iff x \in A
+           \end{aligned}$ 
+
+2. $\begin{aligned}
+    x \in \mathscr{P}(B) \cap \mathscr{P}(A) & \iff x \in \mathscr{P}(B) \land x \in \mathscr{P}(A) \\
+    & \iff x \subseteq B \land x \subseteq A \\
+    & \iff x \subseteq B \cap A \\
+    & \iff x \in \mathscr{P}(B \cap A)
+    \end{aligned}$ 
+
+3. Let $B = \{ b \}$ and $A = \{ a \}$ then:
+
+    -  $\mathscr{P}(B) = \{ \emptyset, \{ b \} \}$
+    -  $\mathscr{P}(A) = \{ \emptyset, \{ a \} \}$
+    -  $\mathscr{P}(B) \cup \mathscr{P}(A) = \{ \emptyset, \{ b \}, \{ a \} \}$
+    -  $B \cup A = \{ b, a \}$
+    -  $\mathscr{P}(B \cup A) = \{ \emptyset, \{ b \}, \{ a \}, \{ b, a \} \}$
+    
+       -  Therefore $\mathscr{P}(B \cup A) \not \subseteq \mathscr{P}(B) \cup \mathscr{P}(A)$
+ 
+4. $\begin{aligned}
+    x \in \mathscr{P}(B) \cup \mathscr{P}(A) & \iff x \in \mathscr{P}(B) \lor x \in \mathscr{P}(A) \\
+    & \iff x \subseteq B \lor x \subseteq A \\
+    & \Longrightarrow x \subseteq B \text{ Assume this case without loss of generality} \\
+    & \Longrightarrow x \subseteq B \cup A \\
+    & \iff x \in \mathscr{P}(B \cup A) 
+    \end{aligned}$  
+
+5.
+
+:::
 
 ### Difference and complement
 
-If $A$ and $B$ are sets using @def-axiom-schema-of-specification we can define the difference between $A$ and $B$ as:
+If $A$ and $B$ are sets using @def-axiom-schema-of-specification we can define the difference between 2 sets as:
+
+::: {#def-difference-of-2-sets}
+
+## Difference of 2 sets
 
 $$A - B = \{ x \in A \mid x \not \in B \}$$
 
-Note that in this definition it is not necessary to assume $B \subseteq A$ [@halmos_naive_2017, p. 17].
+**Note**: In this definition it is not necessary to assume $B \subseteq A$ [@halmos_naive_2017, p. 17].
+
+:::
 
 Also if $A \subseteq U$ and $U \neq \emptyset$ we can define the complement of $A$ relative to $U$ as:
 
+::: {#def-complement-of-a-set-relative-to-u}
+
+## Complement of a set relative to $U$
+
 $$A^{'} = \{ x \in U \mid x \not \in A \}$$
+**Note**: Remember that $A \subseteq U$ and $U \neq \emptyset$.
 
-We have the following useful facts about the complement [@halmos_naive_2017, p. 17]:
+:::
 
--  $(A^{'})^{'} = A$
--  $\emptyset^{'} = U$
--  $U^{'} = \emptyset$
--  $A \cap A^{'} = \emptyset$
--  $A \cup A^{'} = U$
--  $B \subseteq A$ if and only if $A^{'} \subseteq B^{'}$
+::: {#exr-complement}
 
-::: {.proof}
+Prove the following assertions:
 
-For the following deductions it is assumed that $x \in U$:
+1. $(A^{'})^{'} = A$
 
--   $\begin{aligned}
+2. $\emptyset^{'} = U$
+
+3. $U^{'} = \emptyset$ 
+
+4. $A \cap A^{'} = \emptyset$
+
+5. $A \cup A^{'} = U$
+
+6. $B \subseteq A$ if and only if $A^{'} \subseteq B^{'}$
+
+7. $B \subseteq A$ if and only if $B - A = \emptyset$
+
+8. $(A \cap B)^{'} = A^{'} \cup B^{'}$
+
+9. $(A \cup B)^{'} = A^{'} \cap B^{'}$
+
+:::
+
+::: {#sol-complement}
+
+1.  $\begin{aligned}
      x \in (A^{'})^{'} & \iff x \not \in A^{'} \\
      & \iff x \in A
      \end{aligned}$
 
--   $\emptyset^{'}$ is defined as $\emptyset^{'} = \{  x \in U \mid x \not \in \emptyset \}$ so $\emptyset^{'} = U$
+2.  $\emptyset^{'}$ is defined as $\emptyset^{'} = \{  x \in U \mid x \not \in \emptyset \}$ so $\emptyset^{'} = U$
 
--   $U^{'}$ is defined as $U^{'} = \{  x \in U \mid x \not \in U \}$ so $U^{'} = \emptyset$ because there is no $x$ such that $x \in U$ and $x \not \in U$
+3.  $U^{'}$ is defined as $U^{'} = \{  x \in U \mid x \not \in U \}$ so $U^{'} = \emptyset$ because there is no $x$ such that $x \in U$ and $x \not \in U$
 
--   $A \cap A^{'}$ is defined as $A \cap A^{'} = \{ x \in A \mid x \in A^{'} \} = \{ x \in A \mid x \not \in A \}$. Therefore $A \cap A^{'} = \emptyset$ because there is no $x$ such that $x \in A$ and $x \not \in A$
+4.  $A \cap A^{'}$ is defined as $A \cap A^{'} = \{ x \in A \mid x \in A^{'} \} = \{ x \in A \mid x \not \in A \}$. Therefore $A \cap A^{'} = \emptyset$ because there is no $x$ such that $x \in A$ and $x \not \in A$
 
--   If $x \in A \cup A^{'}$ by hypothesis we know that $x \in U$. Therefore we need to show that $U \subseteq A \cup A^{'}$:
+5.  If $x \in A \cup A^{'}$ by hypothesis we know that $x \in U$. Therefore we need to show that $U \subseteq A \cup A^{'}$:
 
-    -   $\begin{aligned}
+    -  $\begin{aligned}
          x \in U & \Longrightarrow x \in A \lor x \not \in A \\
          & \Longrightarrow x \in A \lor x \in A^{'} \\
          & \Longrightarrow x \in A \cup A^{'}
          \end{aligned}$
 
+6.  $B \subseteq A$ is equivalent to $\forall x (x \in B \Longrightarrow x \in A)$. This last part is equivalent to $\forall x (x \not \in A \Longrightarrow x \not \in B)$ so we have that $\forall x (x \in A^{'} \Longrightarrow x \in B^{'})$. Therefore $B \subseteq A$ is equivalent to $A^{'} \subseteq B^{'}$.
+
+7.  We deduce this assertion in 2 parts:
+
+    -  If $B \subseteq A$ then $x \in B \Longrightarrow x \in A$. Therefore there is no $x$ such that $x \in B \land x \not \in A$. Therefore $B - A = \emptyset$. 
+    
+    -  If $B - A = \emptyset$ then $\neg \exists x (x \in B \land x \not \in A)$. Therefore $\forall x \neg (x \in B \land x \not \in A)$ which is equivalent to $\forall (x \in B \Longrightarrow x \in A)$. So $B \subseteq A$.
+
+8.  $\begin{aligned}
+     x \in (A \cap B)^{'} & \iff x \not \in A \cap B \\
+     & \iff \neg (x \in A \land x \in B) \\
+     & \iff x \not \in A \lor x \not \in B \\
+     & \iff x \in A^{'} \lor x \in B^{'} \\
+     & \iff x \in A^{'} \cup B^{'}
+     \end{aligned}$  
+
+9.  $\begin{aligned}
+     x \in (A \cup B)^{'} & \iff x \not \in A \cup B \\
+     & \iff \neg (x \in A \lor x \in B) \\
+     & \iff x \not \in A \land x \not \in B \\
+     & \iff x \in A^{'} \land x \in B^{'} \\
+     & \iff x \in A^{'} \cap B^{'}
+     \end{aligned}$  
+
 :::
+
+::: {#exr-difference}
+
+Prove the following assertions:
+
+1. $A - B = A \cap B^{'}$
+
+2. $A - (A - B) = A \cap B$
+
+3. $A \cap (B - C) = (A \cap B) - (A \cap C)$
+
+4. $A \cap B \subseteq (A \cap C) \cup (B \cap C^{'})$
+
+5. $(A \cup C) \cap (B \cup C^{'}) \subseteq A \cup B$
+
+6. $(A \cup B) - (A \cap B) = (A - B) \cup (B - A)$
+
+:::
+
+::: {#sol-difference}
+
+1.   $\begin{aligned}
+     x \in A - B & \iff x \in A \land x \not \in B \\
+     & \iff x \in A \land x \in B^{'} \\
+     & \iff x \in A \cap B^{'}
+     \end{aligned}$
+    
+2.   $\begin{aligned}
+     x \in A - (A - B) & \iff x \in A \land x \not \in (A - B) \\
+     & \iff x \in A \land (x \not \in A \lor x \in B) \\
+     & \iff (x \in A \land x \not \in A) \lor (x \in A \land x \in B) \\
+     & \iff (x \in A \land x \not \in A) \lor x \in (A \cap B) \\
+     & \iff x \in (A \cap B) 
+     \end{aligned}$
+
+3.   $\begin{aligned}
+     x \in A \cap (B - C) & \iff x \in A \land x \in (B - C) \\
+     & \iff x \in A \land (x \in B \land x \not \in C) \\
+     & \iff (x \in A \land x \in B) \land x \not \in C \\
+     & \iff (x \in A \land x \in B) \land (x \not \in A \lor x \not \in C) \\
+     & \iff x \in (A \cap B) \land x \not \in (A \cap C) \\
+     & \iff x \in (A \cap B) - (A \cap C)
+     \end{aligned}$
+
+4.  For $A \subseteq U$ we have that $A = A \cap U = A \cap (B \cup B^{'}) = (A \cap B) \cup (A \cap B^{'})$. Therefore:
+
+    -  $\begin{aligned}
+       (A \cap C) \cup (B \cap C^{'}) = & ((A \cap C) \cap B) \cup ((A \cap C) \cap B^{'}) \\
+       & \cup ((B \cap C^{'}) \cap A) \cup ((B \cap C^{'}) \cap A^{'}) \\
+        = & ((A \cap B) \cap C) \cup ((A \cap C) \cap B^{'}) \\
+       & \cup ((A \cap B) \cap C^{'}) \cup ((B \cap C^{'}) \cap A^{'}) \\
+        = & ((A \cap B) \cap C) \cup ((A \cap B) \cap C^{'}) \\
+       & \cup ((A \cap C) \cap B^{'}) \cup ((B \cap C^{'}) \cap A^{'}) \\
+        = & (A \cap B) \cup ((A \cap C) \cap B^{'}) \cup ((B \cap C^{'}) \cap A^{'}) \\
+       \end{aligned}$
+
+    -  So $A \cap B \subseteq (A \cap C) \cup (B \cap C^{'})$.
+
+5.  We deduce this assertion in 2 parts:
+
+    -  $\begin{aligned}
+        (A \cup C) \cap (B \cup C^{'}) & = ((A \cup C) \cap B) \cup ((A \cup C) \cap C^{'}) \\
+        & = ((A \cup C) \cap B) \cup ((A \cap C^{'}) \cup (C \cap C^{'})) \\
+        & = ((A \cup C) \cap B) \cup ((A \cap C^{'}) \cup \emptyset) \\
+        & = ((A \cup C) \cap B) \cup (A \cap C^{'}) \\
+        \end{aligned}$
+
+    -  $\begin{aligned}
+        x \in (A \cup C) \cap (B \cup C^{'}) & \iff x \in ((A \cup C) \cap B) \cup (A \cap C^{'}) \\
+        & \iff x \in ((A \cup C) \cap B) \lor x \in (A \cap C^{'}) \\
+        & \Longrightarrow x \in B \lor x \in A \\
+        & \iff x \in B \cup A \\
+        & \iff x \in A \cup B
+        \end{aligned}$
+
+6.   $\begin{aligned}
+     (A \cup B) - (A \cap B) & = (A \cup B) \cap (A \cap B)^{'} \\
+     & = (A \cup B) \cap (A^{'} \cup B^{'}) \\
+     & = ((A \cup B) \cap A^{'}) \cup ((A \cup B) \cap B^{'}) \\
+     & = ((A \cap A^{'}) \cup (B \cap A^{'})) \cup ((A \cap B^{'}) \cup (B \cap B^{'})) \\
+     & = (\emptyset \cup (B \cap A^{'})) \cup ((A \cap B^{'}) \cup \emptyset) \\
+     & = (B \cap A^{'}) \cup (A \cap B^{'}) \\
+     & = (B - A) \cup (A - B) \\
+     & = (A - B) \cup (B - A)
+     \end{aligned}$
+
+:::
+
+### Arbitrary unions and intersections
