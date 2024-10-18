@@ -1,0 +1,36 @@
+\begin{tikzpicture}[level distance=1.5cm,
+    level 1/.style={sibling distance=6cm},  
+    level 2/.style={sibling distance=3cm},
+    level 3/.style={sibling distance=1.5cm}],
+    level 4/.style={sibling distance=1cm}  
+  
+    \node {}
+      child {node {$a_1 \in S$} 
+        child {node {$a_2 \in S$}
+          child {node {$a_3 \in S$}
+            child {node[rotate=90] {$\{ a_1, a_2, a_3 \}$}}}
+          child {node {$a_3 \not \in S$}
+            child {node[rotate=90] {$\{ a_1, a_2 \}$}}}
+        }
+        child {node {$a_2 \not \in S$}
+          child {node {$a_3 \in S$}
+            child {node[rotate=90] {$\{ a_1, a_3 \}$}}}
+          child {node {$a_3 \not \in S$}
+            child {node[rotate=90] {$\{ a_1 \}$}}}
+        }
+      }
+      child {node {$a_1 \not \in S$}
+        child {node {$a_2 \in S$}
+          child {node {$a_3 \in S$}
+            child {node[rotate=90] {$\{ a_2, a_3 \}$}}}
+          child {node {$a_3 \not \in S$}
+             child {node[rotate=90] {$\{ a_2 \}$}}}
+        }
+        child {node {$a_2 \not \in S$}
+          child {node {$a_3 \in S$}
+            child {node[rotate=90] {$\{ a_3 \}$}}}
+          child {node {$a_3 \not \in S$}
+            child {node[rotate=90] {$\emptyset$}}}
+        }
+      };
+  \end{tikzpicture}

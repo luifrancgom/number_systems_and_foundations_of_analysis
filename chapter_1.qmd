@@ -2375,7 +2375,9 @@ $$\begin{split}
 
 Prove the following assertions:
 
-1. $(a, b) = (a^{'}, b^{'})$ if and only if $a = a^{'} \land b = b^{'}$  
+1. $(a, b) = (a^{'}, b^{'})$ if and only if $a = a^{'} \land b = b^{'}$
+
+2. $(a_1, \ldots, a_n) = (a_1^{'}, \ldots, a_n^{'})$ if and only if $a_1 = a_1^{'} \land \ldots \land a_n = a_n^{'}$
 
 :::
 
@@ -2389,7 +2391,31 @@ Prove the following assertions:
 
       -  Assume $a^{'} = b^{'}$ then $(a^{'}, b^{'}) = \{ \{ a^{'} \}, \{ a^{'}, a^{'}\} \} = \{ \{ a^{'} \}, \{ a^{'} \} \} = \{ \{ a^{'} \} \}$. Because $(a^{'}, b^{'}) = (a, b)$ then $\{ \{ a^{'} \} \} = \{ \{ a \}, \{ b, a \} \}$. Therefore $b = a$ and $\{ \{ a \} \}$ so $a^{'} = a$. In particular $a = a^{'} \land b = b^{'}$.
    
-      -  Assume $a^{'} \neq b^{'}$ then because $(a, b) = (a^{'}, b^{'})$ we have that $\{ \{ a \}, \{ a, b \} \} = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$. Also $a \neq b$ because $a^{'} \neq b^{'}$. Therefore $a = a^{'}$ and $\{ a, b \} = \{ a^{'}, b^{'}\}$. But again $a^{'} \neq b^{'}$ so $b = b^{'}$. We have that $a = a^{'} \land b = b^{'}$. 
+      -  Assume $a^{'} \neq b^{'}$ then because $(a, b) = (a^{'}, b^{'})$ we have that $\{ \{ a \}, \{ a, b \} \} = \{ \{ a^{'} \}, \{ a^{'}, b^{'}\} \}$. Also $a \neq b$ because $a^{'} \neq b^{'}$. Therefore $a = a^{'}$ and $\{ a, b \} = \{ a^{'}, b^{'}\}$. But again $a^{'} \neq b^{'}$ so $b = b^{'}$. We have that $a = a^{'} \land b = b^{'}$.
+      
+2. By strong induction on $n$:
+
+   -  Base step $(n = 2)$: We can use the proof of @exr-axiom-of-pairing exercise 1 to show that $(a_1, a_2) = (a_1^{'}, a_2^{'})$ if and only if $a_1 = a_1^{'} \land a_2 = a_2^{'}$.
+   
+   -  Induction hypothesis $(n \leq k)$: Assume that $(a_1, \ldots, a_n) = (a_1^{'}, \ldots, a_n^{'})$ if and only if $a_1 = a_1^{'} \land \ldots \land a_n = a_n^{'}$
+   
+   -  Induction step $(n = k + 1)$: 
+   
+      -  Assume $a_1 = a_1^{'} \land \ldots \land a_k \land a_{k+1} = a_{k+1}^{'}$. 
+      
+         -  We have that $(a_1, \ldots, a_k, a_{k+1}) = ((a_1, \ldots, a_k), a_{k+1}) = \{ \{ (a_1, \ldots, a_k) \}, \{ (a_1, \ldots, a_k), a_{k+1} \} \}$. 
+      
+         -  By the induction hypothesis $(a_1, \ldots, a_k) = (a_1^{'}, \ldots, a_k^{'})$. Also $a_{k+1} = a_{k+1}^{'}$.
+         
+         -  Therefore $(a_1, \ldots, a_k, a_{k+1}) = \{ \{ (a_1^{'}, \ldots, a_k^{'}) \}, \{ (a_1^{'}, \ldots, a_k^{'}), a_{k+1}^{'} \} \}$. So $(a_1, \ldots, a_k, a_{k+1}) = (a_1^{'}, \ldots, a_k^{'}, a_{k+1}^{'})$.
+         
+      -  Assume $(a_1, \ldots, a_k, a_{k+1}) = (a_1^{'}, \ldots, a_k^{'}, a_{k+1}^{'})$. 
+      
+         -  Then $((a_1, \ldots, a_k), a_{k+1}) = ((a_1^{'}, \ldots, a_k^{'}), a_{k+1}^{'})$. Therefore by the base step $(a_1, \ldots, a_k) = (a_1^{'}, \ldots, a_k^{'})$ and $a_{k+1} = a_{k+1}^{'}$. 
+      
+         -  By the induction hypothesis $a_1 = a_1^{'} \land \ldots \land a_k = a_k^{'}$. Also $a_{k+1} = a_{k+1}^{'}$.
+         
+         -  Therefore $a_1 = a_1^{'} \land \ldots \land a_k = a_k^{'} \land a_{k+1} = a_{k+1}^{'}$.
 
 :::
 
@@ -2403,7 +2429,7 @@ If $A$ and $B$ are sets, it is sometimes natural to wish to unite their elements
 
 For any set $A$ there exist a set $B = \bigcup A$, the union of all elements of $A$.
 
-In other words $\bigcup A = \{ x \in C \mid \exists C\in A \}$ or that $x \in \bigcup A$ if and only if $(\exists C \in A)(x \in C)$.
+In other words $\bigcup A = \{ x \in C \mid \exists C (C\in A) \}$ or that $x \in \bigcup A$ if and only if $\exists C (C\in A \land x \in C)$.
 
 :::
 
@@ -2702,39 +2728,7 @@ In that sense $\mathscr{P}(A) = \{ x \in C \mid x \subseteq A \}$. For example w
     & \{ \emptyset, \{ a \}, \{ b \}, \{ a, b \} \} \\
     & \} 
    \end{aligned}$
-
-Using @def-axiom-of-power-set we can define the following set know as the *product* of $A$ and $B$ where it is the set of all pairs $(x, y)$ such that $x \in A$ and $y \in B$:
-
-::: {#def-product-of-2-sets}
-
-## Product of 2 sets
-
-$$A \times B = \{(x,y) \mid x \in A \land y \in B \}$$
-:::
-
-The product $A \times B$ can be defined because $A \times B \subseteq \mathscr{P}(A \cup B)$. For example if $A = \{ a \}$ and $B = \{ b \}$ then $\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} \subseteq \mathscr{P}(A \cup B)$.
-
-::: {#def-product-of-n-sets}
-
-## Product of $n$-sets
-
-We can use @def-product-of-2-sets to define recursively the product of $n$-sets $n \geq 3$ as:
-
-$$\begin{split}
- (A_1, A_2, A_3) & = (A_1 \times A_2) \times A_3 \\
- (A_1, A_2, A_3, A_4) & = (A_1, A_2, A_3) \times A_4 \\
- & \;\; \vdots \\
- (A_1, \ldots , A_n) & = (A_1 \times \ldots \times A_{n-1}) \times A_n
-\end{split}$$
-
-Thus, 
-
-$$(A_1 \times \ldots \times A_{n-1})  \times A_n = \{ (x_1, \ldots, x_n): x_1 \in A_1 \land \ldots \land x_n \in A_n \}$$
-
-**Note**: We use the following notation $X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}$ when $A_i = X$ for $i = 1, \ldots n$
-
-:::
-
+   
 ::: {#exr-power-set}
 
 Prove the following assertions or answer the following questions:
@@ -2747,7 +2741,7 @@ Prove the following assertions or answer the following questions:
 
 4. $\mathscr{P}(B) \cup \mathscr{P}(A) \subseteq \mathscr{P}(B \cup A)$
 
-5. $\mathscr{P}(B) = \mathscr{P}(A)$ then $A = B$
+5. $\mathscr{P}(B) = \mathscr{P}(A)$ then $B = A$
 
 6. If $A$ is finite and has $n$ elements prove that the power set $\mathscr{P}(A)$ has $2^n$ elements. **Hint**: In choosing a subset of $A$, there are 2 possibilities with respect to each of the $n$ elements, that is, it is in the set or not in it.
 
@@ -2800,7 +2794,105 @@ Prove the following assertions or answer the following questions:
     & \iff x \in \mathscr{P}(B \cup A) 
     \end{aligned}$  
 
-5.
+5. $\begin{aligned}
+    x \in B & \iff \{ x \} \subseteq B \\
+    & \iff \{ x \} \in  \mathscr{P}(B) \\
+    & \iff \{ x \} \in  \mathscr{P}(A) \\
+    & \iff \{ x \} \subseteq A \\
+    & \iff x \in A
+    \end{aligned}$
+
+6. Assume initially that $A = \{ a_1, a_2, a_3 \}$ so $A$ has $3$ elements. We can list the elements of $\mathscr{P}(A)$ as it is shown in @fig-subset-k-3. First we can have subsets that include $a_1$ or don't include $a_1$, then we can have subsets that include $a_2$ or don't include $a_2$ and finally we can have subsets that include $a_3$ or don't include $a_3$. So there are $2 \times 2 \times 2 = 2^3 = 8$ possible subsets. In the case of $A = \{ a_1, \ldots, a_k \}$ we can proceed in the same way where there will be $\underset{k \text{ times}}{\underbrace{2 \times \ldots \times 2}} = 2^k$ possible subsets. 
+
+:::
+
+![Listing the elements of $\mathscr{P}(A)$ where $S \subseteq A$ when $A$ is finite and has 3 elements](images/fig-subset-k-3.png){#fig-subset-k-3 fig-align="center" width=70%}
+
+Using @def-axiom-of-power-set we can define the following set know as the *product* of $A$ and $B$ where it is the set of all pairs $(x, y)$ such that $x \in A$ and $y \in B$:
+
+::: {#def-product-of-2-sets}
+
+## Product of 2 sets
+
+$$A \times B = \{(x,y) \in S \mid x \in A \land y \in B \}$$
+**Note**: The product $A \times B$ can be defined because $(x,y) \in S \subseteq \mathscr{P}(\mathscr{P}(A \cup B))$. For example if $A = \{ a \}$ and $B = \{ b \}$ then $\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} = \{ (a, b), (b, a) \} \subseteq \mathscr{P}(\mathscr{P}(A \cup B))$. 
+
+:::
+
+::: {#def-product-of-n-sets}
+
+## Product of $n$-sets
+
+We can use @def-product-of-2-sets to define recursively the product of $n$-sets $n \geq 3$ as:
+
+$$\begin{split}
+ (A_1, A_2, A_3) & = (A_1 \times A_2) \times A_3 \\
+ (A_1, A_2, A_3, A_4) & = (A_1, A_2, A_3) \times A_4 \\
+ & \;\; \vdots \\
+ (A_1, \ldots , A_n) & = (A_1 \times \ldots \times A_{n-1}) \times A_n
+\end{split}$$
+
+Thus, 
+
+$$(A_1 \times \ldots \times A_{n-1})  \times A_n = \{ (x_1, \ldots, x_n): x_1 \in A_1 \land \ldots \land x_n \in A_n \}$$
+
+**Note**: We use the following notation $X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}$ when $A_i = X$ for $i = 1, \ldots n$
+
+:::
+
+::: {#exr-product-of-sets}
+
+Prove the following assertions or answer the following questions:
+
+1. Let $A = \{ a \}$ and $B = \{ c, d \}$. Find $A \times B$ and $B \times A$
+
+2. Let $A = \{ a, b \}$ and $B = \{ c, d \}$. Find $A \times B$
+
+3. If $A$ and $B$ are finite sets, A has $n$ elements, and $B$ has $k$ elements. How many elements has $A \times B$?
+
+4. Find $A \times \emptyset$ and $\emptyset \times A$
+
+5. Show that $A \times B = B \times A$ if and only $A = \emptyset \lor B = \emptyset \lor A = B$
+
+6. What is $(A_1 \times A_2) \times A_3$?
+
+:::
+
+::: {#sol-product-of-sets}
+
+1.  First we calculate $A \times B$ and then $B \times A$
+
+    -  $A \times B = \{ (a, c), (a, d) \}$
+    
+    -  $B \times A = \{ (c, a), (a, d) \}$
+
+2. $A \times B = \{ (a, c), (a, d), (b, c), (b, d) \}$    
+3. For the first position of the ordered pair we have $n$ possibilities to choose and for the second position we have $k$ possibilities. Therefore there are $n \times k$ possibilities for the ordered pair $(a, b)$ where $a \in A$ and $b \in B$.
+
+4. First we calculate $A \times \emptyset$ and then $\emptyset \times A$
+
+   -  $A \times \emptyset = \{ (x, y) \in S \mid x \in A \land \emptyset \in y \}$. But there is no $y$ such that $y \in \emptyset$. Therefore there is no $(x, y) \in A \times \emptyset$. So it must be the case that $A = \emptyset$ because $\emptyset$ is unique.
+   
+   -  $\emptyset \times A = \{ (x, y) \in S \mid x \in \emptyset \land A \in y \}$. But there is no $x$ such that $x \in \emptyset$. Therefore there is no $(x, y) \in \emptyset \times A$. So it must be the case that $\emptyset \times A = \emptyset$ because $\emptyset$ is unique.
+
+5. We deduce this assertion in 2 parts:
+
+    -  Assume $A = \emptyset \lor B = \emptyset \lor A = B$
+    
+       -  If $A = \emptyset \lor B = \emptyset$ by @exr-product-of-sets exercise 4 $A \times B = \emptyset = B \times A$. Also if $A = B$ then $A \times B = A \times A = B \times A$.
+    
+    -  Assume $A \times B = B \times A$
+    
+       -  One possibility is cover by @exr-product-of-sets exercise 4 where $A \times B = B \times A = \emptyset$ so $A = \emptyset \lor B = \emptyset$
+       
+       -  If $A \times B = B \times A \neq \emptyset$ then $(x, y) \in A \times B$ where $x \in A$ if and only if $(x, y) \in $B \times A$ where $x \in B$. Therefore $A \subseteq B$ and $B \subseteq A$ so $A = B$.
+       
+          -  Therefore $A = \emptyset \lor B = \emptyset \lor A = B$
+          
+6.  $\begin{aligned}
+    (A_1 \times A_2) \times A_3 & =  \{ ((a_1, a_2), a_3) \in S \mid (a_1, a_2) \in A_1 \times A_2 \land a_3 \in A_3 \} \\
+    & = \{ (a_1, a_2, a_3) \in S \mid a_1 \in A_1 \land a_2 \in A_1 \times A_2 \land a_3 \in A_3 \}
+    \end{aligned}$
 
 :::
 
@@ -2988,3 +3080,172 @@ Prove the following assertions:
 :::
 
 ### Arbitrary unions and intersections
+
+By @def-axiom-of-union $\bigcup \mathscr{F} = \{ x \in A \mid \exists A (A \in \mathscr{F}) \}$. Then we can use the following alternative notation $\bigcup_{A \in \mathscr{F}} A$ for $\bigcup \mathscr{F}$.
+
+Also we can define $\bigcup \mathscr{F}$ as $\bigcap \mathscr{F} = \{ x \in A \mid \forall A (A \in \mathscr{F}) \}$ and use in a similar way the alternative notation $\bigcap_{A \in \mathscr{F}} A$ for $\bigcap \mathscr{F}$. For example if $\mathscr{F} = \{ A, B, C \}$ then $\bigcup \mathscr{F} = \{ x \in A \mid x \in B \land x \in C \}$. 
+
+Therefore we have that:
+
+- $x \in \bigcup_{A \in \mathscr{F}} A$ if and only if $\exists A (A \in \mathscr{F} \land x \in A)$
+
+-  $x \in \bigcap_{A \in \mathscr{F}} A$ if and only if $\forall A (A \in \mathscr{F} \land x \in A)$
+
+::: {#exr-arbitrary-unions-intersections}
+
+1. If $B \in \mathscr{F}$ then $B \subseteq \bigcup_{A \in \mathscr{F}} A$
+
+2. If $B \in \mathscr{F}$ then $\bigcup_{A \in \mathscr{F}} A \subseteq B$
+
+3. If $\emptyset \in \mathscr{F}$ then $\bigcap_{A \in \mathscr{F}} A = \emptyset$
+
+4. If $\forall B (B \in \mathscr{F} \land C \subseteq B)$ then $C \subseteq \bigcap_{A \in \mathscr{F}} A$
+
+5. If $\forall B (B \in \mathscr{F} \land B \subseteq C)$ then $\bigcup_{A \in \mathscr{F}} A \subseteq C$
+
+6. Let $\mathscr{F}$ be the set of all sets of integers which contain either $1$ or $2$. Find $\bigcup_{A \in \mathscr{F}} A$ and $\bigcap_{A \in \mathscr{F}} A$
+
+7. Let $\mathscr{F}$ be the set of all infinite sets of integers. Find $\bigcup_{A \in \mathscr{F}} A$ and $\bigcap_{A \in \mathscr{F}} A$
+
+8. Consider $W \neq \emptyset$. Let $\mathscr{F}$ be the set of of all nonempty finite subsets of $W$. Find $\bigcup_{A \in \mathscr{F}} A$ and $\bigcap_{A \in \mathscr{F}} A$.  
+
+:::
+
+::: {#sol-arbitrary-unions-intersections}
+
+1. Let $x \in B$ and $B \in \mathscr{F}$ then $\exists B (B \in \mathscr{F} \land x \in B)$. Therefore $x \in \bigcup_{A \in \mathscr{F}} A$.
+
+2. Let $x \in \bigcup_{A \in \mathscr{F}} A$ and $B \in \mathscr{F}$. Then $\forall A (A \in \mathscr{F} \land x \in A)$ so it must be the case that $x \in B$.
+
+3. If $\emptyset \in \mathscr{F}$ then for $x \in \bigcup_{A \in \mathscr{F}} A$ it must be the case that $x \in \emptyset$. But there is not $x \in \emptyset$ so there is no $x \in \bigcup_{A \in \mathscr{F}} A$. Therefore $x \in \bigcup_{A \in \mathscr{F}} A = \emptyset$ because $\emptyset$ is unique.
+
+4. Let $x \in C$ then $\forall B (B \in \mathscr{F} \land x \in B)$. Therefore $x \in \bigcap_{A \in \mathscr{F}} A$. So $C \subseteq \bigcap_{A \in \mathscr{F}} A$.
+
+5. Let $x \in \bigcup_{A \in \mathscr{F}} A$ then $\exists B (x \in B \land B \in \mathscr{F})$. Therefore $x \in C$ and $\bigcup_{A \in \mathscr{F}} A \subseteq C$
+
+6. If $A \in \mathscr{F}$ then $A \subseteq \mathbb{Z} \land (1 \in A \lor 2 \in A)$
+
+    -  If we want to calculate $\bigcap_{A \in \mathscr{F}} A$ then $\{ 1 \} \in \mathscr{F}$ and $\{ 2 \} \in \mathscr{F}$ but $1 \not \in \{ 2 \}$. So there is some $A \in \mathscr{F}$ such that $x \not \in A$. Therefore $\bigcap_{A \in \mathscr{F}} A = \emptyset$
+    
+    -  If we want to calculate $\bigcup_{A \in \mathscr{F}} A$ we have that $\forall B (B \in \mathscr{F} \land B \subseteq \mathbb{Z})$. Therefore by @exr-arbitrary-unions-intersections 5 $\bigcup_{A \in \mathscr{F}} A \subseteq \mathbb{Z}$. Also we have that $\mathbb{Z} \in \mathscr{F}$ so by @exr-arbitrary-unions-intersections 1 $\mathbb{Z} \subseteq \bigcup_{A \in \mathscr{F}} A$. Therefore $\bigcup_{A \in \mathscr{F}} A = \mathbb{Z}$.
+
+7. If $A \in \mathscr{F}$ then $A \subseteq \mathbb{Z} \land A \neq \emptyset \land A$ is infinite. Therefore:
+
+    -  If we want to calculate $\bigcap_{A \in \mathscr{F}} A$ then $\{ 1 \} \in \mathscr{F}$ and $\{ 2 \} \in \mathscr{F}$ but $1 \not \in \{ 2 \}$. So there is some $A \in \mathscr{F}$ such that $x \not \in A$. Therefore $\bigcap_{A \in \mathscr{F}} A = \emptyset$
+
+    -  If we want to calculate $\bigcup_{A \in \mathscr{F}} A$ we have that $\forall B (B \in \mathscr{F} \land B \subseteq \mathbb{Z})$. Therefore by @exr-arbitrary-unions-intersections 5 $\bigcup_{A \in \mathscr{F}} A \subseteq \mathbb{Z}$. Also we have that $\mathbb{Z} \in \mathscr{F}$ so by @exr-arbitrary-unions-intersections 1 $\mathbb{Z} \subseteq \bigcup_{A \in \mathscr{F}} A$. Therefore $\bigcup_{A \in \mathscr{F}} A = \mathbb{Z}$. 
+    
+8.  If $A \in \mathscr{F}$ then $A \neq \emptyset \land A \subseteq W \land A$ is finite.
+
+    -  If we want to calculate $\bigcup_{A \in \mathscr{F}} A$ we have that if $x \in W$ then $\{ x \} \in \mathscr{F}$. Then by @exr-arbitrary-unions-intersections 5 $\{ x \} \subseteq \bigcup_{A \in \mathscr{F}} A$. Therefore $x \in \bigcup_{A \in \mathscr{F}} A$ and $W \subseteq \bigcup_{A \in \mathscr{F}} A$. Also if $y \in \bigcup_{A \in \mathscr{F}} A$ then $\exists A (A \in \mathscr{F} \land x \in A)$. So $y \in W$ because $A \subseteq W$. Therefore $\bigcup_{A \in \mathscr{F}} A = W$.
+
+    -  If we want to calculate $\bigcap_{A \in \mathscr{F}} A$ we have to cases:
+    
+       -  $W = \{ x \}$ so $\bigcap_{A \in \mathscr{F}} A = W$
+       
+       -  Let $x \neq y$ where $x \in W$ and $y \in W$ so $\{ x \} \in \mathscr{F}$ and $\{ y \} \in \mathscr{F}$. Therefore $y \not \in \{ x \}$ and there is some $A \in \mathscr{F}$ such that $y \not \in A$. Therefore $\bigcap_{A \in \mathscr{F}} A = \emptyset$. 
+
+:::
+
+### Relations
+
+In general a relation is a subset of $A_1 \times \ldots \times A_n$ as it is pointed out in @def-n-ary-relation
+
+::: {#def-n-ary-relation}
+
+## $n$-ary relation
+
+A $n$-ary relation $R$ on sets $A_1, \ldots, A_n$ is a subset of $A_1 \times \ldots \times A_n$. That is $R \subseteq A_1 \times \ldots \times A_n$
+
+:::
+
+However we are usually going to work with binary relations as it is defined in @def-binary-relation
+
+::: {#def-binary-relation}
+
+## Binary relation
+
+A binary relation $R$ on sets $A_1, A_2$ is a subset of $A_1 \times A_2$. That is $R \subseteq A_1 \times A_2$
+
+:::
+
+These are examples of binary relations:
+
+1. Let $R$ be the set of all ordered pairs $(b, c)$ such that $b$ is the father of $c$. $R$ is usually refereed as the fatherhood relation.
+
+2. Let $\in$ be the set of all ordered pairs $(a, A)$ such that $a$ is a member of $A$. $\in$ is usually refereed as the set membership relation.
+
+3. Let $\subseteq$ be the set of all ordered pairs $(S, A)$ such that $S$ is a subset of $A$. $\subseteq$ is usually refereed as the subset relation.
+
+4. Let $S$ be the set of all ordered pairs $(b, c)$ such that $b$ and $c$ are the same integers. $S$ is usually refereed as the identity relation.
+
+5. Let $<$ be the set of all ordered pairs $(b, c)$ such that $b$ is less than $c$. $<$ is usually refereed as the less than relation.
+
+::: {#def-domain-binary-relation}
+
+## Domain of binary relation
+
+If $R$ is a binary relation. The domain of $R$ is the set $\mathscr{D}(R)$ of all objects $x$ such that $(x, y) \in R$ for some $y$. Thus:
+
+$$\mathscr{D}(R) = \{ x \in A \mid \exists y ((x, y) \in R) \}$$
+
+:::
+
+::: {#def-range-binary-relation}
+
+## Range of binary relation
+
+If $R$ is a binary relation. The range of $R$ is the set $\mathscr{R}(R)$ of all objects $y$ such that $(x, y) \in R$ for some $x$. Thus:
+
+$$\mathscr{R}(R) = \{ y \in A \mid \exists x ((x, y) \in R) \}$$
+
+:::
+
+These are examples of $\mathscr{D}(R)$ and $\mathscr{R}(R)$:
+
+1.  Let $\mathbb{P}$ be the positive integers and $R = \{ (x, y) \mid x \in \mathbb{P} \land y \in \mathbb{P} \land x < y \}$ then $\mathscr{D}(R) = \mathbb{P}$ and $\mathscr{R}(R) = \mathbb{P} - \{ 1 \}$.
+
+2.  Let $\mathbb{R}$ be the real numbers and $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x^2 = y \}$ then $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \{ y \in \mathbb{R} \mid y \geq 0 \}$.
+
+::: {#exr-relations}
+
+1. Let $\mathbb{R}$ be the set of all real numbers. Determine the domain and range of the following relations:
+
+    a.  $R = \{ (x,y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = |x| \}$[^chapter_1-8]
+    
+    b.  $R = \{ (x,y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x + y = 0 \}$
+    
+    c.  $R = \{ (x,y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land |x| = |y| \}$
+
+    d.  $R = \{ (x,y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x < y \}$
+
+2. If $R$ is a binary relation show that $R \subseteq \mathscr{D}(R) \times \mathscr{R}(R)$. Why not $\mathscr{D}(R) \times \mathscr{R}(R) \subseteq R$?
+:::
+
+[^chapter_1-8]: $|x|$ is the absolute value of $x$: $$|x| = \begin{cases}
+            x, & \text{if } x \geq 0 \\
+            -x, & \text{if } x < 0
+            \end{cases}$$
+            
+::: {#sol-relations}
+
+1. For each case we calculate $\mathscr{D}(R)$ and $\mathscr{R}(R)$ in the following way:
+
+    a. $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \{ y \in \mathbb{R} \mid y \geq 0 \}$   
+    
+    b. Because $R = \{ (x, -x) \mid x \in \mathbb{R} \}$ then $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \mathbb{R}$  
+    
+    c. Because $R = \{ (x, -x) \mid x \in \mathbb{R} \} \cup \{ (x, x) \mid x \in \mathbb{R} \}$ then $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \mathbb{R}$ 
+    
+    d. Because $x < y = x + 1$ and $y - 1 = x < y$ then $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \mathbb{R}$ 
+    
+2. If $(x, y) \in R$ then for $x$ it $\exists y ((x,y) \in R)$ and for $y$ it $\exists x ((x,y) \in R)$. Therefore $x \in \mathscr{D}(R)$ and $y \in \mathscr{R}(R)$. So $(x, y) \in \mathscr{D}(R) \times \mathscr{R}(R)$. 
+
+   However $\mathscr{D}(R) \times \mathscr{R}(R) \subseteq R$ is not always true. For example:
+   
+      -  $R = \{ (1, 2), (3, 4) \}$
+      -  $\mathscr{D}(R) = \{ 1, 3 \}$
+      -  $\mathscr{R}(R) = \{ 2, 4 \}$
+      -  $\mathscr{D}(R) \times \mathscr{R}(R) = \{ (1, 2), (1, 4), (3, 2), (3, 4) \}$
+
+:::
