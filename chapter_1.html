@@ -4393,11 +4393,13 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <p><span class="theorem-title"><strong>Definition 1.36 (Range of binary relation)</strong></span> If <span class="math inline">\(R\)</span> is a binary relation. The range of <span class="math inline">\(R\)</span> is the set <span class="math inline">\(\mathscr{R}(R)\)</span> of all objects <span class="math inline">\(y\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(x\)</span>. Thus:</p>
 <p><span class="math display">\[\mathscr{R}(R) = \{ y \in A \mid \exists x ((x, y) \in R) \}\]</span></p>
 </div>
-<p>These are examples of <span class="math inline">\(\mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R)\)</span>:</p>
+<div id="exm-domain-range-binary-relation" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.8 (Examples of <span class="math inline">\(\mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R)\)</span>)</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Let <span class="math inline">\(\mathbb{P}\)</span> be the positive integers and <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{P} \land y \in \mathbb{P} \land x &lt; y \}\)</span> then <span class="math inline">\(\mathscr{D}(R) = \mathbb{P}\)</span> and <span class="math inline">\(\mathscr{R}(R) = \mathbb{P} - \{ 1 \}\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(\mathbb{R}\)</span> be the real numbers and <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x^2 = y \}\)</span> then <span class="math inline">\(\mathscr{D}(R) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(R) = \{ y \in \mathbb{R} \mid y \geq 0 \}\)</span>.</p></li>
 </ol>
+</div>
 <div id="exr-relations" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.26</strong></span> &nbsp;</p>
 <ol type="1">
@@ -4429,6 +4431,463 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <li><span class="math inline">\(\mathscr{R}(R) = \{ 2, 4 \}\)</span></li>
 <li><span class="math inline">\(\mathscr{D}(R) \times \mathscr{R}(R) = \{ (1, 2), (1, 4), (3, 2), (3, 4) \}\)</span></li>
 </ul></li>
+</ol>
+</div>
+<section id="inverse-and-composition-of-relations" class="level4" data-number="1.3.8.1">
+<h4 data-number="1.3.8.1" class="anchored" data-anchor-id="inverse-and-composition-of-relations"><span class="header-section-number">1.3.8.1</span> Inverse and composition of relations</h4>
+<div id="def-inverse-of-a-binary-relation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.37 (Inverse of a binary relation)</strong></span> Let <span class="math inline">\(R\)</span> by a binary relation. By the inverse of <span class="math inline">\(R\)</span>, <span class="math inline">\(R^{-1}\)</span>, we mean the set of all ordered pairs <span class="math inline">\((x, y)\)</span> for which <span class="math inline">\((y, x) \in R\)</span>. Thus:</p>
+<p><span class="math display">\[R^{-1} = \{ (x, y) \mid (y, x) \in R \}\]</span></p>
+</div>
+<div id="exm-inverse-of-a-binary-relation" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.9 (Examples of inverse relations:)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(\mathbb{R}\)</span> be the set of real numbers. Let <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x &lt; y \}\)</span>. <span class="math inline">\(R\)</span> is the less than relation. Then for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> that belongs to <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+  (x, y) \in R^{-1} &amp; \iff (y, x) \in R \\
+  &amp; \iff y &lt; x \\
+  &amp; \iff x &gt; y
+  \end{split}\]</span></p>
+<p>Thus <span class="math inline">\(R^{-1}\)</span> is the greater than relation.</p></li>
+<li><p>Let <span class="math inline">\(B\)</span> be the set of all people. Let <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x \text{ is the parent of } y \}\)</span>. Then for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> that belongs to <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+  (x, y) \in R^{-1} &amp; \iff (y, x) \in R \\
+  &amp; \iff y \text{ is the parent of } x \\
+  &amp; \iff x \text{ is the child of } y
+  \end{split}\]</span></p></li>
+<li><p>Let <span class="math inline">\(B\)</span> be the set of all people. Let <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x \text{ is the spouse of } y \}\)</span>. Then for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> that belongs to <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+  (x, y) \in R^{-1} &amp; \iff (y, x) \in R \\
+  &amp; \iff y \text{ is the spouse of } x \\
+  &amp; \iff x \text{ is the spouse of } y \\
+  &amp; \iff (x, y) \in R
+  \end{split}\]</span></p>
+<p>Thus in this special case <span class="math inline">\(R^{-1} = R\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{R}\)</span> be the set of real numbers. Let <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x + 1 \}\)</span>. <span class="math inline">\(R\)</span> is the less than relation. Then for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> that belongs to <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+  (x, y) \in R^{-1} &amp; \iff (y, x) \in R \\
+  &amp; \iff x = y + 1 \\
+  &amp; \iff y = x - 1 \\
+  \end{split}\]</span></p>
+<p>Thus <span class="math inline">\(R^{-1}\)</span> which is the subtraction of <span class="math inline">\(1\)</span> is the inverse of the addition of <span class="math inline">\(1\)</span>, <span class="math inline">\(R\)</span>.</p></li>
+</ol>
+</div>
+<p>From now on we introduce a traditional notation for binary relations. If <span class="math inline">\(R\)</span> is a binary relation then <span class="math inline">\(xRy\)</span> stands for <span class="math inline">\((x, y) \in R\)</span>. For example one usually writes <span class="math inline">\(x &lt; y\)</span> instead of <span class="math inline">\((x, y) \in &lt;\)</span>.</p>
+<div id="def-composition-of-binary-relations" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.38</strong></span> Consider any binary relations <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>. Then we can define a new relation, <span class="math inline">\(S \circ R\)</span>, called the composition of <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[S \circ R = \{ (x, y) \mid \exists x (xRz \land zSy) \}\]</span></p>
+<p>Thus, <span class="math inline">\(x(S \circ R)y\)</span> means that there is and intermediate object <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz\)</span> and <span class="math inline">\(zSy\)</span>.</p>
+<p><strong>Note</strong>: Take into account that <span class="math inline">\(R\)</span> is applied before <span class="math inline">\(S\)</span></p>
+</div>
+<div id="exm-composition-of-binary-relations" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.10 (Examples of composition of relations)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(A\)</span> be the set of people. Let <span class="math inline">\(F\)</span> be the fatherhood relation, <span class="math inline">\(M\)</span> the motherhood relation and <span class="math inline">\(P\)</span> the parenthood relation. Thus <span class="math inline">\(F = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the father of } y \}\)</span>, <span class="math inline">\(M = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the mother of } y \}\)</span> and <span class="math inline">\(P = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the parent of } y \}\)</span>. Then:</p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(x(F \circ P)y\)</span>. Therefore it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the parent of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the father of <span class="math inline">\(y\)</span>. Thus, <span class="math inline">\(F \circ P\)</span> is the relation of the paternal grandparent.</p></li>
+<li><p>Let <span class="math inline">\(x(P \circ F)y\)</span>. Therefore it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the father of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the parent of <span class="math inline">\(y\)</span>. Thus, <span class="math inline">\(P \circ F\)</span> is the grandfather relation.</p></li>
+<li><p>Let <span class="math inline">\(x(F \circ F)y\)</span>. Therefore it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the father of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the father of <span class="math inline">\(y\)</span>. Thus, <span class="math inline">\(F \circ F\)</span> is the relation of the paternal grandfather relation.</p></li>
+<li><p>Let <span class="math inline">\(x(P \circ P)y\)</span>. Therefore it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the parent of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the parent of <span class="math inline">\(y\)</span>. Thus, <span class="math inline">\(P \circ P\)</span> is the grandparent relation.</p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(\mathbb{Z}\)</span> be the set of integers. Let <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land y = x + 1 \}\)</span> and <span class="math inline">\(S = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land y = x^2 \}\)</span>. Then for any integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+  x(R \circ S)y &amp; \iff \exists z (xSz \land zRy) \\  
+  &amp; \iff \exists z (z = x^2 \land y = z + 1) \\
+  &amp; \iff y = x^2 + 1
+  \end{split}\]</span></p>
+<p>on the other hand,</p>
+<p><span class="math display">\[\begin{split}
+  x(S \circ R)y &amp; \iff \exists z (xRz \land zSy) \\  
+  &amp; \iff \exists z (z = x + 1 \land y = z^2) \\
+  &amp; \iff y = (x + 1)^2
+  \end{split}\]</span></p></li>
+</ol>
+</div>
+<div id="exr-inverse-composition-relations" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.27</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>As in <a href="#exm-composition-of-binary-relations" class="quarto-xref">Example&nbsp;<span>1.10</span></a> 1 let <span class="math inline">\(A\)</span> be the set of people. Also let <span class="math inline">\(F\)</span>, <span class="math inline">\(M\)</span>, <span class="math inline">\(P\)</span> be the fatherhood, motherhood, parenthood relations respectively. In addition let <span class="math inline">\(B\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> be the brother, sister, husband, wife relations:</p>
+<ol type="a">
+<li><p>Verify that <span class="math inline">\(P^{-1} \circ H\)</span> is the son in law relation.</p></li>
+<li><p>Find simple names if possible for:</p>
+<ol type="i">
+<li><p><span class="math inline">\(H^{-1}\)</span></p></li>
+<li><p><span class="math inline">\(F \cup M\)</span></p></li>
+<li><p><span class="math inline">\(H \cup W\)</span></p></li>
+<li><p><span class="math inline">\(M \circ F\)</span></p></li>
+<li><p><span class="math inline">\(F \circ M\)</span></p></li>
+<li><p><span class="math inline">\(P \circ M\)</span></p></li>
+<li><p><span class="math inline">\(M \circ P\)</span></p></li>
+<li><p><span class="math inline">\(P \circ B\)</span></p></li>
+<li><p><span class="math inline">\((H \cup W) \circ F\)</span></p></li>
+<li><p><span class="math inline">\((P \circ B) \cup ((P \circ S) \circ H)\)</span></p></li>
+</ol></li>
+<li><p>Express in symbols the following relations:</p>
+<ol type="i">
+<li><p>Child</p></li>
+<li><p>Sibling</p></li>
+<li><p>Grandchild</p></li>
+<li><p>Daughter in law</p></li>
+<li><p>Mother in law</p></li>
+</ol></li>
+</ol></li>
+<li><p>Show that if <span class="math inline">\(R\)</span> is a binary relation then:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span></p></li>
+</ol></li>
+<li><p>Show that if <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> are binary relations then:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\mathscr{D}(R \circ S) \subseteq \mathscr{D}(S)\)</span>. When <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span>?</p></li>
+<li><p><span class="math inline">\(\mathscr{R}(R \circ S) \subseteq \mathscr{R}(R)\)</span>. When <span class="math inline">\(\mathscr{R}(R \circ S) = \mathscr{R}(R)\)</span>?</p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(\mathbb{R}\)</span> be the set of real numbers. Let <span class="math inline">\(S = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x^2 \}\)</span>, <span class="math inline">\(W = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = -x \}\)</span> and <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x + 1 \}\)</span>:</p>
+<ol type="a">
+<li><p>Describe the following relations:</p>
+<ol type="i">
+<li><span class="math inline">\(S^{-1}\)</span></li>
+<li><span class="math inline">\(R^{-1}\)</span></li>
+<li><span class="math inline">\(W^{-1}\)</span></li>
+<li><span class="math inline">\(S \circ S\)</span></li>
+<li><span class="math inline">\(W \circ W\)</span></li>
+<li><span class="math inline">\(R \circ R\)</span></li>
+<li><span class="math inline">\(S \circ W\)</span></li>
+<li><span class="math inline">\(W \circ S\)</span></li>
+<li><span class="math inline">\(S \circ R\)</span></li>
+<li><span class="math inline">\(R \circ S\)</span></li>
+<li><span class="math inline">\(R \circ W\)</span></li>
+<li><span class="math inline">\(W \circ R\)</span></li>
+</ol></li>
+<li><p>Determine the domain and range of <span class="math inline">\(S\)</span>, <span class="math inline">\(W\)</span>, <span class="math inline">\(R\)</span> and of the relations in part a.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-inverse-composition-relations" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.27</em>. </span></p>
+<ol type="1">
+<li><p>Taking into account <a href="#exm-composition-of-binary-relations" class="quarto-xref">Example&nbsp;<span>1.10</span></a> 1 and exr-inverse-composition-relations 1:</p>
+<ol type="a">
+<li><p>If <span class="math inline">\(xP^{-1}y\)</span> then <span class="math inline">\(yPx\)</span> where <span class="math inline">\(y\)</span> is the father of <span class="math inline">\(x\)</span>. Therefore <span class="math inline">\(x\)</span> is the child of <span class="math inline">\(y\)</span>. Also if <span class="math inline">\(xHy\)</span> then <span class="math inline">\(x\)</span> is the husband of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\(x(P^{-1} \circ H)y\)</span> means that it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the husband of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the child of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\(x(P^{-1} \circ H)y\)</span> means that <span class="math inline">\(x\)</span> is the son in law of <span class="math inline">\(y\)</span>.</p></li>
+<li><p>The possible names are:</p>
+<ol type="i">
+<li><p>If <span class="math inline">\(xH^{-1}y\)</span> then <span class="math inline">\(yHx\)</span>. Therefore <span class="math inline">\(y\)</span> is the husband of <span class="math inline">\(x\)</span>. So <span class="math inline">\(H^{-1}\)</span> is the wife relation where <span class="math inline">\(x\)</span> is the wife of <span class="math inline">\(y\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x(F \cup M)y\)</span> then <span class="math inline">\(xFy \lor xMy\)</span> therefore <span class="math inline">\(x\)</span> is the mother or father of <span class="math inline">\(y\)</span>. So <span class="math inline">\(F \cup M\)</span> is the parenthood relation.</p></li>
+<li><p>If <span class="math inline">\(x(H \cup W)y\)</span> then <span class="math inline">\(xHy \lor xWy\)</span> therefore <span class="math inline">\(x\)</span> is the husband or wife of <span class="math inline">\(y\)</span>. So <span class="math inline">\(H \cup W\)</span> is the partner relation.</p></li>
+<li><p>If <span class="math inline">\(x(M \circ F)y\)</span> then it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the father of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the mother of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\((M \circ F)\)</span> is the grandfather relation.</p></li>
+<li><p>If <span class="math inline">\(x(F \circ M)y\)</span> then it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the mother of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the father of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\((F \circ M)\)</span> is the grandmother relation.</p></li>
+<li><p>If <span class="math inline">\(x(P \circ M)y\)</span> then it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the mother of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the parent of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\((P \circ M)\)</span> is the grandmother relation.</p></li>
+<li><p>If <span class="math inline">\(x(M \circ P)y\)</span> then it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the parent of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the mother of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\((M \circ P)\)</span> is the grandparent relation.</p></li>
+<li><p>If <span class="math inline">\(x(P \circ B)y\)</span> then it exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the brother of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the parent of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\((P \circ B)\)</span> is the uncle relation.</p></li>
+<li><p>If <span class="math inline">\(x((H \cup W) \circ F)y\)</span> then exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the father of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the partner of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\(x((H \cup W) \circ F)y\)</span> is the father in law relation.</p></li>
+<li><p>If <span class="math inline">\(x((P \circ B) \cup ((P \circ S) \circ H))y\)</span> then <span class="math inline">\(x(P \circ B)y\)</span> or <span class="math inline">\(x((P \circ S) \circ H)y\)</span>. If <span class="math inline">\(x((P \circ S) \circ H)y\)</span> then exists a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> is the husband of <span class="math inline">\(z\)</span> and <span class="math inline">\(z\)</span> is the aunt of <span class="math inline">\(y\)</span> so <span class="math inline">\(x\)</span> is the uncle in law of <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\(x\)</span> is the uncle or the uncle in law of <span class="math inline">\(y\)</span>.</p></li>
+</ol></li>
+<li><p>In symbols the following relations are:</p>
+<ol type="i">
+<li><p><span class="math inline">\(P^{-1}\)</span></p></li>
+<li><p><span class="math inline">\(B \cup S\)</span></p></li>
+<li><p><span class="math inline">\((P^{-1} \circ P^{-1})\)</span></p></li>
+<li><p><span class="math inline">\(F^{-1} \circ W\)</span></p></li>
+<li><p><span class="math inline">\(M \circ H\)</span></p></li>
+</ol></li>
+</ol></li>
+<li><p>Lets see the equivalence between the domains and ranges of <span class="math inline">\(R\)</span> and <span class="math inline">\(R^{-1}\)</span>:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\begin{aligned}
+\mathscr{D}(R^{-1}) &amp; = \{ x \mid \exists y (xR^{-1}y) \} \\
+&amp; = \{ x \mid \exists y (yRx) \} \\
+&amp; = \mathscr{R}(R)
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+\mathscr{R}(R^{-1}) &amp; = \{ y \mid \exists x (xR^{-1}y) \} \\
+&amp; = \{ y \mid \exists x (yRx) \} \\
+&amp; = \mathscr{D}(R)
+\end{aligned}\)</span></p></li>
+</ol></li>
+<li><p>Taking into account the definitions of <span class="math inline">\(\mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R)\)</span> when <span class="math inline">\(R\)</span> is a binary relation we have that:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\begin{aligned}
+x \in \mathscr{D}(R \circ S) &amp; \iff \exists y (x(R \circ S)y) \\
+&amp; \iff \exists y ( \exists z (xSz \land zRy)) \\
+&amp; \Longrightarrow \exists z (xSz) \\
+&amp; \iff x \in \mathscr{D}(S)
+\end{aligned}\)</span></p>
+<p>Why not <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{D}(R \circ S)\)</span>? For example, <span class="math inline">\(S = \{ (1, 2), (3, 4) \}\)</span>, <span class="math inline">\(R = \{ (2, 3) \}\)</span>. Then <span class="math inline">\(R \circ S = \{ (1,3) \}\)</span>. Therefore <span class="math inline">\(\mathscr{D}(S) = \{ 1, 3 \}\)</span> and <span class="math inline">\(\mathscr{D}(R \circ S) = \{ 1 \}\)</span> so <span class="math inline">\(\mathscr{D}(S) \not \subseteq \mathscr{D}(R \circ S)\)</span>.</p>
+<p>When <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span>? If <span class="math inline">\(\exists z (xSz)\)</span> then <span class="math inline">\(\exists y ( \exists z (xSz \land zRy))\)</span>. Therefore if <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(R)\)</span> then it is always the case that if <span class="math inline">\(\exists z (xSz)\)</span> then <span class="math inline">\(\exists y ( \exists z (xSz \land zRy))\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+y \in \mathscr{R}(R \circ S) &amp; \iff \exists x (x(R \circ S)y) \\
+&amp; \iff \exists x ( \exists z (xSz \land zRy)) \\
+&amp; \Longrightarrow \exists z (zRy) \\
+&amp; \iff y \in \mathscr{R}(R)
+\end{aligned}\)</span></p>
+<p>Why not <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{R}(R \circ S)\)</span>? For example, <span class="math inline">\(S = \{ (1, 2) \}\)</span>, <span class="math inline">\(R = \{ (2, 3), (3, 4) \}\)</span>. Then <span class="math inline">\(R \circ S = \{ (1,3) \}\)</span>. Therefore <span class="math inline">\(\mathscr{R}(R) = \{ 3, 4 \}\)</span> and <span class="math inline">\(\mathscr{R}(R \circ S) = \{ 3 \}\)</span> so <span class="math inline">\(\mathscr{R}(R) \not \subseteq \mathscr{R}(R \circ S)\)</span>.</p>
+<p>When <span class="math inline">\(\mathscr{R}(R \circ S) = \mathscr{R}(S)\)</span>? If <span class="math inline">\(\exists z (zRy)\)</span> then <span class="math inline">\(\exists x ( \exists z (xSz \land zRy))\)</span>. Therefore if <span class="math inline">\(\mathscr{D}(R) \subseteq \mathscr{R}(S)\)</span> then it is always the case that if <span class="math inline">\(\exists z (xSz)\)</span> then <span class="math inline">\(\exists y ( \exists z (xSz \land zRy))\)</span>.</p></li>
+</ol></li>
+<li><p>Taking into account the definitions of <span class="math inline">\(S\)</span>, <span class="math inline">\(W\)</span> and <span class="math inline">\(R\)</span> we have the following results</p>
+<ol type="a">
+<li><p>Describing the relations</p>
+<ol type="i">
+<li><p><span class="math inline">\(\begin{aligned}
+xS^{-1}y &amp; \iff ySx \\
+&amp; \iff x = y^2 \\
+&amp; \iff x^{\frac{1}{2}} = |y| \land x \geq 0 \\
+&amp; \iff |y| = x^{\frac{1}{2}} \land x \geq 0
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+xR^{-1}y &amp; \iff yRx \\
+&amp; \iff x = y + 1 \\
+&amp; \iff y = x - 1
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+xW^{-1}y &amp; \iff yWx \\
+&amp; \iff x = -y \\
+&amp; \iff y = -x
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  x(S \circ S)y &amp; \iff \exists z (xSz \land zSy) \\
+  &amp; \iff \exists z (z = x^2 \land y = z^2) \\
+  &amp; \iff y = (x^2)^2 \\
+  &amp; \iff y = x^4
+  \end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+   x(W \circ W)y &amp; \iff \exists z (xWz \land zWy) \\
+   &amp; \iff \exists z (z = -x \land y = -z) \\
+   &amp; \iff y = -(-x) \\
+   &amp; \iff y = x
+   \end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  x(R \circ R)y &amp; \iff \exists z (xRz \land zRy) \\
+  &amp; \iff \exists z (z = x + 1 \land y = z + 1) \\
+  &amp; \iff y = (x + 1) + 1 \\
+  &amp; \iff y = x + 2
+  \end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x(S \circ W)y &amp; \iff \exists z (xWz \land zSy) \\
+&amp; \iff \exists z (z = -x \land y = z^2) \\
+&amp; \iff y = (-x)^2 \\
+&amp; \iff y = x^2
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x(W \circ S)y &amp; \iff \exists z (xSz \land zWy) \\
+&amp; \iff \exists z (z = x^2 \land y = -z) \\
+&amp; \iff y = -x^2
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  x(S \circ R)y &amp; \iff \exists z (xRz \land zSy) \\
+  &amp; \iff \exists z (z = x + 1 \land y = z^2) \\
+  &amp; \iff y = (x + 1)^2
+  \end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  x(R \circ S)y &amp; \iff \exists z (xSz \land zRy) \\
+  &amp; \iff \exists z (z = x^2 \land y = z + 1) \\
+  &amp; \iff y = x^2 + 1
+  \end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x(R \circ W)y &amp; \iff \exists z (xWz \land zRy) \\
+&amp; \iff \exists z (z = -x \land y = z + 1) \\
+&amp; \iff y = -x + 1
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
+&amp; \iff \exists z (z = x + 1 \land y = -z) \\
+&amp; \iff y = -(x + 1) \\
+&amp; \iff y = -x - 1
+\end{aligned}\)</span></p></li>
+</ol></li>
+<li><p>Finding the domain and range</p>
+<ol type="i">
+<li><p><span class="math inline">\(\mathscr{D}(S) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(S) = \{ y \in \mathbb{R} \mid y \geq 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{D}(R) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(R) = \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{D}(W) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(W) = \mathbb{R}\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 2 <span class="math inline">\(\mathscr{D}(S^{-1}) = \mathscr{R}(S)\)</span> and <span class="math inline">\(\mathscr{R}(S^{-1}) = \mathscr{D}(S)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 2 <span class="math inline">\(\mathscr{D}(W^{-1}) = \mathscr{R}(W)\)</span> and <span class="math inline">\(\mathscr{R}(W^{-1}) = \mathscr{D}(W)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ S) = \mathscr{D}(S)\)</span> and <span class="math inline">\(\mathscr{R}(S \circ S) = \mathscr{R}(S)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ W) = \mathscr{D}(W)\)</span> and <span class="math inline">\(\mathscr{R}(W \circ W) = \mathscr{R}(W)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ R) = \mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R \circ R) = \mathscr{R}(R)\)</span></p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(W) \subseteq \mathscr{D}(S)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ W) = \mathscr{D}(W)\)</span>. Also because <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{R}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{R}(S \circ W) = \mathscr{R}(S)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ S) = \mathscr{D}(S)\)</span>. For <span class="math inline">\(\mathscr{R}(W \circ S) = \{ y \in \mathbb{R} \mid y \leq 0 \} \subseteq \mathscr{R}(W)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{D}(S)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ R) = \mathscr{D}(R)\)</span>. Also because <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{R}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{R}(S \circ R) = \mathscr{R}(S)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span>. For <span class="math inline">\(\mathscr{R}(R \circ S) = \{ y \in \mathbb{R} \mid y \geq 1 \} \subseteq \mathscr{R}(R)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(W) \subseteq \mathscr{D}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ W) = \mathscr{D}(W)\)</span>. Also because <span class="math inline">\(\mathscr{D}(R) \subseteq \mathscr{R}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{R}(R \circ W) = \mathscr{R}(R)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{D}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ R) = \mathscr{D}(R)\)</span>. Also because <span class="math inline">\(\mathscr{D}(W) \subseteq \mathscr{R}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{R}(W \circ R) = \mathscr{R}(W)\)</span>.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+</div>
+</section>
+<section id="reflexivity-symmetry-and-transitivity" class="level4" data-number="1.3.8.2">
+<h4 data-number="1.3.8.2" class="anchored" data-anchor-id="reflexivity-symmetry-and-transitivity"><span class="header-section-number">1.3.8.2</span> Reflexivity, symmetry and transitivity</h4>
+<p>A binary relation <span class="math inline">\(R\)</span> can have different properties.</p>
+<div id="def-binary-relation-reflexive" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.39 (Reflexive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is reflexive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x (x \in A \Longrightarrow xRx)\]</span></p>
+</div>
+<div id="def-binary-relation-irreflexive" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.40 (Irreflexive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is irreflexive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x (x \in A \Longrightarrow \neg(xRx))\]</span></p>
+</div>
+<div id="exm-binary-relation-reflexive-irreflexive" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.11 (Examples of reflexive, irreflexive and neither reflexive nor irreflexive relations)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(\mathbb{Z}\)</span> be the set of integers. Let:</p>
+<p><span class="math display">\[\begin{split}
+  R &amp; = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \} \\
+  S &amp; = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x &lt; y \} \\
+  W &amp; = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land y = x^2 \} \\
+  I_{\mathbb{Z}} &amp; = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x = y \}
+  \end{split}\]</span></p>
+<p>Then <span class="math inline">\(R\)</span> is reflexive in <span class="math inline">\(\mathbb{Z}\)</span> because <span class="math inline">\(x \leq x\)</span>, <span class="math inline">\(S\)</span> is irreflexive in <span class="math inline">\(\mathbb{Z}\)</span> because <span class="math inline">\(\neg(x &lt; x)\)</span>, <span class="math inline">\(W\)</span> is neither reflexive nor irreflexive in <span class="math inline">\(\mathbb{Z}\)</span> because <span class="math inline">\(1 = 1^2\)</span> and <span class="math inline">\(0 = 0^2\)</span> but if <span class="math inline">\(x \neq 1 \lor x \neq 0\)</span> then <span class="math inline">\(\neg(x = x^2)\)</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of people. Let:</p>
+<p><span class="math display">\[T = \{ (x, y) \mid x \in A \land y \in A \land x \text{ has the same height as } y \}\]</span></p>
+<p>Then <span class="math inline">\(T\)</span> is reflexive in <span class="math inline">\(A\)</span> because a persona has the same height as him or herself.</p></li>
+</ol>
+</div>
+<div id="def-binary-relation-symmetric" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.41 (Symmetric binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is symmetric in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x \forall y ((x \in A \land y \in A\land xRy) \Longrightarrow yRx))\]</span></p>
+</div>
+<p>In <a href="#exm-binary-relation-reflexive-irreflexive" class="quarto-xref">Example&nbsp;<span>1.11</span></a> 1 <span class="math inline">\(I_{\mathbb{Z}}\)</span> is symmetric because if <span class="math inline">\(x = y\)</span> then <span class="math inline">\(y = x\)</span> but <span class="math inline">\(R\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(W\)</span> are not symmetric.</p>
+<div id="exm-binary-relation-symmetric" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.12 (Examples of symmetric relations)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(A\)</span> be the set of people. The relations of father, mother, parent, brother, sister, husband and wife are not symmetric in <span class="math inline">\(A\)</span>. The following relations are symmetric in <span class="math inline">\(A\)</span>:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\{ (x, y) \mid x \in A \land x \in B \land x \text{ is the spouse of } y \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x, y) \mid x \in A \land x \in B \land x \text{ is in the same family as } y \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x, y) \mid x \in A \land x \in B \land x \text{ is a sibling of } y \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x, y) \mid x \in A \land x \in B \land x \text{ has the same father as } y \}\)</span></p></li>
+</ol></li>
+</ol>
+</div>
+<div id="def-binary-relation-transitive" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.42 (Transitive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is transitive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x \forall y \forall z ((x \in A \land y \in A \land z \in A \land xRy \land yRz) \Longrightarrow xRz)\]</span></p>
+</div>
+<p>In <a href="#exm-binary-relation-reflexive-irreflexive" class="quarto-xref">Example&nbsp;<span>1.11</span></a> 1 <span class="math inline">\(R\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(I_{\mathbb{Z}}\)</span> are transitive in <span class="math inline">\(A\)</span> but not <span class="math inline">\(W\)</span> because if <span class="math inline">\(x^2 = y\)</span> and <span class="math inline">\(y^2 = z\)</span> then <span class="math inline">\(x^4 = z\)</span> and <span class="math inline">\(\neg(x^2 = z)\)</span> when <span class="math inline">\(x \neq 1 \lor x \neq 0\)</span>.</p>
+<div id="exm-binary-relation-transitive" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.13 (Examples of transitive relations)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(T\)</span> be the set of triangles in a plane. Let:</p>
+<p><span class="math display">\[\begin{split}
+  R &amp; = \{ (x, y) \mid x \in T \land y \in T \land x \text{ is congruent to } y \} \\
+  S &amp; = \{  (x, y) \mid x \in T \land y \in T \land x \text{ is similar to } y \} \\
+  W &amp; = \{  (x, y) \mid x \in T \land y \in T \land x \text{ has smaller area than } y \}
+  \end{split}\]</span></p>
+<p>The <span class="math inline">\(R\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(W\)</span> are all transitive in <span class="math inline">\(T\)</span>. Also <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> are reflexive and symmetric but <span class="math inline">\(W\)</span> is neither reflexive nor symmetric.</p></li>
+</ol>
+</div>
+<div id="exr-reflexivity-symmetry-transitivity" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.28</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Determine whether each of the following relations <span class="math inline">\(R\)</span> is reflexive, symmetric or transitive in a given set.</p>
+<ol type="a">
+<li><p><span class="math inline">\(\mathbb{P}\)</span> is the set of positive integers.</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{P} \land y \in \mathbb{P} \land y \text{ is divisible by } x \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all line segments in a plane.</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is longer than } y \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all lines in a plane.</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is perpendicular to } y \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all subsets of a given set <span class="math inline">\(B\)</span>.</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land x \cap y = \emptyset \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all subsets of a given set <span class="math inline">\(B\)</span>.</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land x \subseteq y \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all people.</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the ancestor of } y \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is any set.</p>
+<p><span class="math inline">\(I_{A} = \{ (x, y) \mid x \in A \land y \in A \land x = y \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is any set.</p>
+<p><span class="math inline">\(I_{A} = \{ (x, y) \mid x \in A \land y \in A \land x \neq y \}\)</span></p></li>
+</ol></li>
+<li><p>A relation <span class="math inline">\(R\)</span> is said to be asymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(\forall x \forall y ((x \in A \land y \in A \land xRy) \Longrightarrow \neg(yRx))\)</span>. A relation <span class="math inline">\(R\)</span> is said to be antisymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(\forall x \forall y ((x \in A \land y \in A \land xRy \land yRx) \Longrightarrow x = y)\)</span></p>
+<ol type="a">
+<li><p>Give examples of relations <span class="math inline">\(R\)</span> and sets <span class="math inline">\(A\)</span> such that:</p>
+<ol type="i">
+<li><p><span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is not asymmetric in <span class="math inline">\(A\)</span>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is antisymmetric in <span class="math inline">\(A\)</span>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is not antisymmetric in <span class="math inline">\(A\)</span>.</p></li>
+</ol></li>
+<li><p>Prove that asymmetry implies antisymmetry.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the <span class="math inline">\(\leq\)</span> relation on the set of integers. Show that <span class="math inline">\(R\)</span> is antisymmetric but not asymmetric on the set of integers.</p></li>
+<li><p>If a relation <span class="math inline">\(R\)</span> is irreflexive in a set <span class="math inline">\(A\)</span> and transitive in <span class="math inline">\(A\)</span>, prove that <span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-reflexivity-symmetry-transitivity" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.28</em>. </span></p>
+<ol type="1">
+<li><p>We have the following results for each <span class="math inline">\(R\)</span>:</p>
+<ol type="a">
+<li><p>The relation <span class="math inline">\(y\)</span> is divisible by <span class="math inline">\(x\)</span> in <span class="math inline">\(\mathbb{P}\)</span>, denoted as <span class="math inline">\(x | y\)</span>, means that there exists some <span class="math inline">\(k \in \mathbb{P}\)</span> such that <span class="math inline">\(y = k*x\)</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(y = 1 * y\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is not symmetric because if <span class="math inline">\(y = k * x\)</span> and <span class="math inline">\(x = c * y\)</span> then <span class="math inline">\(y = k * c * y\)</span>. Therefore <span class="math inline">\(k = 1\)</span> and <span class="math inline">\(c = 1\)</span> so <span class="math inline">\(x = y\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(y = k * x\)</span> and <span class="math inline">\(z = c * y\)</span> then <span class="math inline">\(z = c * (k * x) = (c * k) * x\)</span> where <span class="math inline">\(c * k \in \mathbb{P}\)</span>.</li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x\)</span> is longer than <span class="math inline">\(y\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x\)</span> can not be longer that itself.</li>
+<li><span class="math inline">\(R\)</span> is not symmetric because if <span class="math inline">\(x\)</span> is longer that <span class="math inline">\(y\)</span> then <span class="math inline">\(y\)</span> can not be longer that <span class="math inline">\(x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x\)</span> is longer than <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> is longer than <span class="math inline">\(z\)</span> then <span class="math inline">\(x\)</span> is longer than <span class="math inline">\(z\)</span>.</li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x\)</span> is perpendicular to <span class="math inline">\(y\)</span> in <span class="math inline">\(A\)</span>, denoted as <span class="math inline">\(x \perp y\)</span>, we have that:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x\)</span> can not be perpendicular to itself.</li>
+<li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x\)</span> is perpendicular to <span class="math inline">\(y\)</span> then <span class="math inline">\(y\)</span> is perpendicular to <span class="math inline">\(x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is not transitive because <a href="#def-binary-relation-transitive" class="quarto-xref">Definition&nbsp;<span>1.42</span></a> doesn’t include that <span class="math inline">\(x \neq y \neq z\)</span>. Therefore if <span class="math inline">\(R\)</span> is transitive <span class="math inline">\(x \perp y\)</span> and <span class="math inline">\(y \perp x\)</span> then <span class="math inline">\(x \perp x\)</span> but this is not true. Therefore <span class="math inline">\(R\)</span> can not be transitive.</li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x \cap y = \emptyset\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x \cap x \neq \emptyset\)</span> when <span class="math inline">\(B \neq \emptyset\)</span>. It can be reflexive but only in the special case when <span class="math inline">\(B = \emptyset\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x \cap y = \emptyset\)</span> then <span class="math inline">\(y \cap x = \emptyset\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is not transitive. For example <span class="math inline">\(B = \{ 1, 2, 3 \}\)</span> so <span class="math inline">\(A = \{ \emptyset, \{ 1 \}, \{ 2 \}, \{ 3 \}, \{ 1, 2 \}, \{ 1, 3 \}, \{ 2, 3 \}, \{ 1, 2, 3 \}  \}\)</span>. So <span class="math inline">\(\{ 1 \} \cap \{ 2 \} = \emptyset\)</span> and <span class="math inline">\(\{ 2 \} \cap \{ 1, 3 \} = \emptyset\)</span> but it is not true that <span class="math inline">\(\{ 1 \} \cap \{ 1, 3 \} = \emptyset\)</span>.</li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x \subseteq y\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(x \subseteq x\)</span>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is not symmetric because if <span class="math inline">\(\emptyset \cap y\)</span> and <span class="math inline">\(y \neq \emptyset\)</span> then it is not true that <span class="math inline">\(y \subseteq \emptyset\)</span>. It can be reflexive but only in the special case when <span class="math inline">\(B = \emptyset\)</span>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \subseteq y\)</span> and <span class="math inline">\(y \subseteq z\)</span> then <span class="math inline">\(x \subseteq z\)</span>.</p></li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x \text{ is an ancestor of } y\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x\)</span> is not an ancestor of itself.</p></li>
+<li><p><span class="math inline">\(R\)</span> is not symmetric because if <span class="math inline">\(x\)</span> is and ancestor of <span class="math inline">\(y\)</span> then it is not true that <span class="math inline">\(y\)</span> is an ancestor of <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x\)</span> is ancestor of <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> is an ancestor of <span class="math inline">\(z\)</span> then <span class="math inline">\(x\)</span> is an ancestor of <span class="math inline">\(z\)</span>.</p></li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x = y\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(x = x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x = y\)</span> then <span class="math inline">\(y = x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x = y\)</span> and <span class="math inline">\(y = z\)</span> then <span class="math inline">\(x = z\)</span>.</li>
+</ul></li>
+<li><p>For the relation <span class="math inline">\(x \neq y\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not reflexive because it is not true that <span class="math inline">\(x \neq x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(y \neq x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \neq y\)</span> and <span class="math inline">\(y \neq z\)</span> then <span class="math inline">\(x \neq z\)</span>.</li>
+</ul></li>
+</ol></li>
+<li><p>Using the definition of asymmetric and antisymmetric pointed out in <a href="#exr-reflexivity-symmetry-transitivity" class="quarto-xref">Exercise&nbsp;<span>1.28</span></a> 2 the following questions are answered</p>
+<ol type="a">
+<li><p>These are the examples:</p>
+<ol type="i">
+<li><p>Let <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x &lt; y \}\)</span> then <span class="math inline">\(R\)</span> in <span class="math inline">\(\mathbb{Z}\)</span> is asymmetric because if <span class="math inline">\(x &lt; y\)</span> then <span class="math inline">\(\neg(y &lt; x)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of all people and <span class="math inline">\(R = \{ (x, y) \mid x \in A \land x \in B \land x \text{ is a sibling of } y \}\)</span> then <span class="math inline">\(R\)</span> in <span class="math inline">\(A\)</span> is not asymmetric because if <span class="math inline">\(x\)</span> is a sibling of <span class="math inline">\(y\)</span> then <span class="math inline">\(y\)</span> is a sibling of <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \}\)</span> then <span class="math inline">\(R\)</span> in <span class="math inline">\(\mathbb{Z}\)</span> is antisymmetric because if <span class="math inline">\(x \leq y\)</span> and <span class="math inline">\(y \leq x\)</span> then <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of all lines in a plane and <span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is perpendicular to } y \}\)</span> then <span class="math inline">\(R\)</span> in <span class="math inline">\(A\)</span> is not antisymmetric because if <span class="math inline">\(x\)</span> is perpendicular to <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> is perpendicular to <span class="math inline">\(x\)</span> then <span class="math inline">\(x \neq y\)</span>.</p></li>
+</ol></li>
+<li><p>We establish the following aspects:</p>
+<ol type="i">
+<li>Assume <span class="math inline">\(R\)</span> is asymmetric.</li>
+<li>We have also that <span class="math inline">\(x = y\)</span> or <span class="math inline">\(x \neq y\)</span> but not both.</li>
+<li>Let <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(y \in A\)</span>, <span class="math inline">\(xRy\)</span> and <span class="math inline">\(x = y\)</span> then because <span class="math inline">\(R\)</span> is asymmetric <span class="math inline">\(\neg(xRx)\)</span>. However this is a contradiction because <span class="math inline">\(x = y\)</span> and <span class="math inline">\(xRy\)</span>. Therefore if <span class="math inline">\(xRy\)</span> then <span class="math inline">\(x \neq y\)</span>.</li>
+<li>We can rewrite the definition of antisymmetry as <span class="math inline">\(\forall x \forall y (x \neq y \Longrightarrow (x \not \in A \lor y \not \in A \lor \neg(xRy) \lor \neg(yRx)))\)</span>.</li>
+<li>So if <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(y \in A\)</span>, <span class="math inline">\(xRy\)</span> and <span class="math inline">\(x \neq y\)</span> and because <span class="math inline">\(R\)</span> is asymmetric then <span class="math inline">\(\neg(yRx)\)</span></li>
+<li>Using the definition in iv. we have that <span class="math inline">\(R\)</span> is also antisymmetric.</li>
+</ol></li>
+<li><p>If <span class="math inline">\(x \leq y\)</span> and <span class="math inline">\(y \leq x\)</span> then <span class="math inline">\(x = y\)</span> so <span class="math inline">\(\leq\)</span> is antisymmetric in <span class="math inline">\(\mathbb{Z}\)</span> but <span class="math inline">\(\leq\)</span> is not asymmetric in <span class="math inline">\(\mathbb{Z}\)</span> because <span class="math inline">\(x \leq x\)</span> so it is not true that <span class="math inline">\(\neg(x \leq x)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be irreflexive and transitive. Now assume <span class="math inline">\(xRy\)</span> and <span class="math inline">\(yRx\)</span> then <span class="math inline">\(xRx\)</span> but <span class="math inline">\(R\)</span> is irreflexive. Therefore <span class="math inline">\(\neg(xRy \land yRx)\)</span> which is equivalent to <span class="math inline">\(\neg(xRy \land \neg(\neg(yRx)))\)</span> so <span class="math inline">\(xRy \Longrightarrow \neg(yRx)\)</span>. We conclude that <span class="math inline">\(R\)</span> is asymmetric.</p></li>
+</ol></li>
 </ol>
 </div>
 
@@ -4468,6 +4927,7 @@ Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em
 Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
