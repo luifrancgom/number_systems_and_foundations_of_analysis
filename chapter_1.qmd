@@ -3201,11 +3201,15 @@ $$\mathscr{R}(R) = \{ y \in A \mid \exists x ((x, y) \in R) \}$$
 
 :::
 
-These are examples of $\mathscr{D}(R)$ and $\mathscr{R}(R)$:
+::: {#exm-domain-range-binary-relation}
+
+## Examples of $\mathscr{D}(R)$ and $\mathscr{R}(R)$
 
 1.  Let $\mathbb{P}$ be the positive integers and $R = \{ (x, y) \mid x \in \mathbb{P} \land y \in \mathbb{P} \land x < y \}$ then $\mathscr{D}(R) = \mathbb{P}$ and $\mathscr{R}(R) = \mathbb{P} - \{ 1 \}$.
 
 2.  Let $\mathbb{R}$ be the real numbers and $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x^2 = y \}$ then $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \{ y \in \mathbb{R} \mid y \geq 0 \}$.
+
+:::
 
 ::: {#exr-relations}
 
@@ -3247,5 +3251,614 @@ These are examples of $\mathscr{D}(R)$ and $\mathscr{R}(R)$:
       -  $\mathscr{D}(R) = \{ 1, 3 \}$
       -  $\mathscr{R}(R) = \{ 2, 4 \}$
       -  $\mathscr{D}(R) \times \mathscr{R}(R) = \{ (1, 2), (1, 4), (3, 2), (3, 4) \}$
+
+:::
+
+#### Inverse and composition of relations
+
+::: {#def-inverse-of-a-binary-relation}
+
+## Inverse of a binary relation
+
+Let $R$ by a binary relation. By the inverse of $R$, $R^{-1}$, we mean the set of all ordered pairs $(x, y)$ for which $(y, x) \in R$. Thus:
+
+$$R^{-1} = \{ (x, y) \mid (y, x) \in R \}$$
+:::
+
+::: {#exm-inverse-of-a-binary-relation}
+
+## Examples of inverse relations:
+
+1. Let $\mathbb{R}$ be the set of real numbers. Let $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x < y \}$. $R$ is the less than relation. Then for any $x$ and $y$ that belongs to $\mathbb{R}$:
+
+   $$\begin{split}
+     (x, y) \in R^{-1} & \iff (y, x) \in R \\
+     & \iff y < x \\
+     & \iff x > y
+     \end{split}$$
+
+   Thus $R^{-1}$ is the greater than relation.
+   
+2. Let $B$ be the set of all people. Let $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x \text{ is the parent of } y \}$. Then for any $x$ and $y$ that belongs to $\mathbb{R}$:
+
+   $$\begin{split}
+     (x, y) \in R^{-1} & \iff (y, x) \in R \\
+     & \iff y \text{ is the parent of } x \\
+     & \iff x \text{ is the child of } y
+     \end{split}$$
+   
+3. Let $B$ be the set of all people. Let $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land x \text{ is the spouse of } y \}$. Then for any $x$ and $y$ that belongs to $\mathbb{R}$:
+
+   $$\begin{split}
+     (x, y) \in R^{-1} & \iff (y, x) \in R \\
+     & \iff y \text{ is the spouse of } x \\
+     & \iff x \text{ is the spouse of } y \\
+     & \iff (x, y) \in R
+     \end{split}$$
+
+   Thus in this special case $R^{-1} = R$.
+
+4. Let $\mathbb{R}$ be the set of real numbers. Let $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x + 1 \}$. $R$ is the less than relation. Then for any $x$ and $y$ that belongs to $\mathbb{R}$:
+
+   $$\begin{split}
+     (x, y) \in R^{-1} & \iff (y, x) \in R \\
+     & \iff x = y + 1 \\
+     & \iff y = x - 1 \\
+     \end{split}$$
+
+   Thus $R^{-1}$ which is the subtraction of $1$ is the inverse of the addition of $1$, $R$.
+
+:::
+   
+From now on we introduce a traditional notation for binary relations. If $R$ is a binary relation then $xRy$ stands for $(x, y) \in R$. For example one usually writes $x < y$ instead of $(x, y) \in <$.
+
+::: {#def-composition-of-binary-relations}
+
+Consider any binary relations $R$ and $S$. Then we can define a new relation, $S \circ R$, called the composition of $R$ and $S$:
+
+$$S \circ R = \{ (x, y) \mid \exists x (xRz \land zSy) \}$$
+
+Thus, $x(S \circ R)y$ means that there is and intermediate object $z$ such that $xRz$ and $zSy$.
+
+**Note**: Take into account that $R$ is applied before $S$
+
+:::
+
+::: {#exm-composition-of-binary-relations}
+
+## Examples of composition of relations
+
+1. Let $A$ be the set of people. Let $F$ be the fatherhood relation, $M$ the motherhood relation and $P$ the parenthood relation. Thus $F = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the father of } y \}$, $M = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the mother of } y \}$ and $P = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the parent of } y \}$. Then:
+
+    a. Let $x(F \circ P)y$. Therefore it exists a $z$ such that $x$ is the parent of $z$ and $z$ is the father of $y$. Thus, $F \circ P$ is the relation of the paternal grandparent.
+    
+    b. Let $x(P \circ F)y$. Therefore it exists a $z$ such that $x$ is the father of $z$ and $z$ is the parent of $y$. Thus, $P \circ F$ is the grandfather relation.
+    
+    c. Let $x(F \circ F)y$. Therefore it exists a $z$ such that $x$ is the father of $z$ and $z$ is the father of $y$. Thus, $F \circ F$ is the relation of the paternal grandfather relation.
+    
+    d. Let $x(P \circ P)y$. Therefore it exists a $z$ such that $x$ is the parent of $z$ and $z$ is the parent of $y$. Thus, $P \circ P$ is the grandparent relation.
+    
+2. Let $\mathbb{Z}$ be the set of integers. Let $R = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land y = x + 1 \}$ and $S = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land y = x^2 \}$. Then for any integers $x$ and $y$:
+
+   $$\begin{split}
+     x(R \circ S)y & \iff \exists z (xSz \land zRy) \\  
+     & \iff \exists z (z = x^2 \land y = z + 1) \\
+     & \iff y = x^2 + 1
+     \end{split}$$
+   
+   on the other hand,
+   
+   $$\begin{split}
+     x(S \circ R)y & \iff \exists z (xRz \land zSy) \\  
+     & \iff \exists z (z = x + 1 \land y = z^2) \\
+     & \iff y = (x + 1)^2
+     \end{split}$$
+
+:::
+
+::: {#exr-inverse-composition-relations}
+
+1. As in @exm-composition-of-binary-relations 1 let $A$ be the set of people. Also let $F$, $M$, $P$ be the fatherhood, motherhood, parenthood relations respectively. In addition let $B$, $S$, $H$ and $W$ be the brother, sister, husband, wife relations:
+
+    a.  Verify that $P^{-1} \circ H$ is the son in law relation.
+    
+    b.  Find simple names if possible for:
+    
+        i. $H^{-1}$
+        
+        ii. $F \cup M$
+        
+        iii. $H \cup W$
+        
+        iv. $M \circ F$
+        
+        v. $F \circ M$
+        
+        vi. $P \circ M$
+        
+        vii. $M \circ P$
+        
+        viii. $P \circ B$
+        
+        ix. $(H \cup W) \circ F$
+        
+        x. $(P \circ B) \cup ((P \circ S) \circ H)$
+        
+    c. Express in symbols the following relations:
+    
+        i.  Child
+        
+        ii. Sibling
+        
+        iii. Grandchild
+        
+        iv. Daughter in law
+        
+        v. Mother in law
+
+2. Show that if $R$ is a binary relation then:
+
+    a. $\mathscr{D}(R^{-1}) = \mathscr{R}(R)$
+    
+    b. $\mathscr{R}(R^{-1}) = \mathscr{D}(R)$
+    
+3.  Show that if $R$ and $S$ are binary relations then:
+
+    a. $\mathscr{D}(R \circ S) \subseteq \mathscr{D}(S)$. When $\mathscr{D}(R \circ S) = \mathscr{D}(S)$? 
+    
+    b. $\mathscr{R}(R \circ S) \subseteq \mathscr{R}(R)$. When $\mathscr{R}(R \circ S) = \mathscr{R}(R)$?
+
+4. Let $\mathbb{R}$ be the set of real numbers. Let $S = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x^2 \}$, $W = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = -x \}$ and $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x + 1 \}$:
+
+    a.  Describe the following relations:
+    
+        i. $S^{-1}$
+        ii. $R^{-1}$
+        iii. $W^{-1}$
+        iv. $S \circ S$
+        v. $W \circ W$
+        vi. $R \circ R$
+        vii. $S \circ W$
+        viii. $W \circ S$
+        ix. $S \circ R$
+        x. $R \circ S$
+        xi. $R \circ W$
+        xii. $W \circ R$
+
+    b.  Determine the domain and range of $S$, $W$, $R$ and of the relations in part a.
+
+:::
+
+::: {#sol-inverse-composition-relations}
+
+1.  Taking into account @exm-composition-of-binary-relations 1 and exr-inverse-composition-relations 1:
+
+    a. If $xP^{-1}y$ then $yPx$ where $y$ is the father of $x$. Therefore $x$ is the child of $y$. Also if $xHy$ then $x$ is the husband of $y$. Therefore $x(P^{-1} \circ H)y$ means that it exists a $z$ such that $x$ is the husband of $z$ and $z$ is the child of $y$. Therefore $x(P^{-1} \circ H)y$ means that $x$ is the son in law of $y$.
+    
+    b. The possible names are:
+    
+       i. If $xH^{-1}y$ then $yHx$. Therefore $y$ is the husband of $x$. So $H^{-1}$ is the wife relation where $x$ is the wife of $y$.
+       
+       ii. If $x(F \cup M)y$ then $xFy \lor xMy$ therefore $x$ is the mother or father of $y$. So $F \cup M$ is the parenthood relation.
+       
+       iii. If $x(H \cup W)y$ then $xHy \lor xWy$ therefore $x$ is the husband or wife of $y$. So $H \cup W$ is the partner relation.
+       
+       iv. If $x(M \circ F)y$ then it exists a $z$ such that $x$ is the father of $z$ and $z$ is the mother of $y$. Therefore $(M \circ F)$ is the grandfather relation.
+       
+       v.  If $x(F \circ M)y$ then it exists a $z$ such that $x$ is the mother of $z$ and $z$ is the father of $y$. Therefore $(F \circ M)$ is the grandmother relation. 
+
+       vi.  If $x(P \circ M)y$ then it exists a $z$ such that $x$ is the mother of $z$ and $z$ is the parent of $y$. Therefore $(P \circ M)$ is the grandmother relation.
+       
+       vii.  If $x(M \circ P)y$ then it exists a $z$ such that $x$ is the parent of $z$ and $z$ is the mother of $y$. Therefore $(M \circ P)$ is the grandparent relation.
+       
+       viii. If $x(P \circ B)y$  then it exists a $z$ such that $x$ is the brother of $z$ and $z$ is the parent of $y$. Therefore $(P \circ B)$ is the uncle relation.
+       
+       ix. If $x((H \cup W) \circ F)y$ then exists a $z$ such that $x$ is the father of $z$ and $z$ is the partner of $y$. Therefore $x((H \cup W) \circ F)y$ is the father in law relation.
+       
+       x. If $x((P \circ B) \cup ((P \circ S) \circ H))y$ then $x(P \circ B)y$ or $x((P \circ S) \circ H)y$. If $x((P \circ S) \circ H)y$ then exists a $z$ such that $x$ is the husband of $z$ and $z$ is the aunt of $y$ so $x$ is the uncle in law of $y$. Therefore $x$ is the uncle or the uncle in law of $y$.   
+
+    c. In symbols the following relations are:
+    
+        i.  $P^{-1}$
+        
+        ii. $B \cup S$
+        
+        iii. $(P^{-1} \circ P^{-1})$
+        
+        iv. $F^{-1} \circ W$
+        
+        v. $M \circ H$
+
+2. Lets see the equivalence between the domains and ranges of $R$ and $R^{-1}$:
+
+    a. $\begin{aligned}
+        \mathscr{D}(R^{-1}) & = \{ x \mid \exists y (xR^{-1}y) \} \\
+        & = \{ x \mid \exists y (yRx) \} \\
+        & = \mathscr{R}(R)
+        \end{aligned}$
+        
+    b. $\begin{aligned}
+        \mathscr{R}(R^{-1}) & = \{ y \mid \exists x (xR^{-1}y) \} \\
+        & = \{ y \mid \exists x (yRx) \} \\
+        & = \mathscr{D}(R)
+        \end{aligned}$
+
+3.  Taking into account the definitions of $\mathscr{D}(R)$ and $\mathscr{R}(R)$ when $R$ is a binary relation we have that:
+
+    a. $\begin{aligned}
+        x \in \mathscr{D}(R \circ S) & \iff \exists y (x(R \circ S)y) \\
+        & \iff \exists y ( \exists z (xSz \land zRy)) \\
+        & \Longrightarrow \exists z (xSz) \\
+        & \iff x \in \mathscr{D}(S)  
+        \end{aligned}$
+        
+       Why not $\mathscr{D}(S) \subseteq \mathscr{D}(R \circ S)$? For example, $S = \{ (1, 2), (3, 4) \}$, $R = \{ (2, 3) \}$. Then $R \circ S = \{ (1,3) \}$. Therefore $\mathscr{D}(S) = \{ 1, 3 \}$ and $\mathscr{D}(R \circ S) = \{ 1 \}$ so $\mathscr{D}(S) \not \subseteq \mathscr{D}(R \circ S)$.
+       
+       When $\mathscr{D}(R \circ S) = \mathscr{D}(S)$? If $\exists z (xSz)$ then $\exists y ( \exists z (xSz \land zRy))$. Therefore if $\mathscr{R}(S) \subseteq \mathscr{D}(R)$ then it is always the case that if $\exists z (xSz)$ then $\exists y ( \exists z (xSz \land zRy))$.  
+    
+    b. $\begin{aligned}
+        y \in \mathscr{R}(R \circ S) & \iff \exists x (x(R \circ S)y) \\
+        & \iff \exists x ( \exists z (xSz \land zRy)) \\
+        & \Longrightarrow \exists z (zRy) \\
+        & \iff y \in \mathscr{R}(R)  
+        \end{aligned}$
+
+       Why not $\mathscr{R}(R) \subseteq \mathscr{R}(R \circ S)$? For example, $S = \{ (1, 2) \}$, $R = \{ (2, 3), (3, 4) \}$. Then $R \circ S = \{ (1,3) \}$. Therefore $\mathscr{R}(R) = \{ 3, 4 \}$ and $\mathscr{R}(R \circ S) = \{ 3 \}$ so $\mathscr{R}(R) \not \subseteq \mathscr{R}(R \circ S)$.
+
+       When $\mathscr{R}(R \circ S) = \mathscr{R}(S)$? If $\exists z (zRy)$ then $\exists x ( \exists z (xSz \land zRy))$. Therefore if $\mathscr{D}(R) \subseteq \mathscr{R}(S)$ then it is always the case that if $\exists z (xSz)$ then $\exists y ( \exists z (xSz \land zRy))$.  
+
+4. Taking into account the definitions of $S$, $W$ and $R$ we have the following results
+
+    a.  Describing the relations
+    
+        i. $\begin{aligned}
+            xS^{-1}y & \iff ySx \\
+            & \iff x = y^2 \\
+            & \iff x^{\frac{1}{2}} = |y| \land x \geq 0 \\
+            & \iff |y| = x^{\frac{1}{2}} \land x \geq 0
+            \end{aligned}$
+            
+        ii. $\begin{aligned}
+            xR^{-1}y & \iff yRx \\
+            & \iff x = y + 1 \\
+            & \iff y = x - 1
+            \end{aligned}$
+
+        iii. $\begin{aligned}
+              xW^{-1}y & \iff yWx \\
+              & \iff x = -y \\
+              & \iff y = -x
+              \end{aligned}$
+
+        iv. $\begin{aligned}
+              x(S \circ S)y & \iff \exists z (xSz \land zSy) \\
+              & \iff \exists z (z = x^2 \land y = z^2) \\
+              & \iff y = (x^2)^2 \\
+              & \iff y = x^4
+              \end{aligned}$
+
+        v. $\begin{aligned}
+              x(W \circ W)y & \iff \exists z (xWz \land zWy) \\
+              & \iff \exists z (z = -x \land y = -z) \\
+              & \iff y = -(-x) \\
+              & \iff y = x
+              \end{aligned}$
+              
+        vi. $\begin{aligned}
+              x(R \circ R)y & \iff \exists z (xRz \land zRy) \\
+              & \iff \exists z (z = x + 1 \land y = z + 1) \\
+              & \iff y = (x + 1) + 1 \\
+              & \iff y = x + 2
+              \end{aligned}$
+              
+        vii. $\begin{aligned}
+              x(S \circ W)y & \iff \exists z (xWz \land zSy) \\
+              & \iff \exists z (z = -x \land y = z^2) \\
+              & \iff y = (-x)^2 \\
+              & \iff y = x^2
+              \end{aligned}$
+              
+        viii. $\begin{aligned}
+              x(W \circ S)y & \iff \exists z (xSz \land zWy) \\
+              & \iff \exists z (z = x^2 \land y = -z) \\
+              & \iff y = -x^2
+              \end{aligned}$
+              
+        ix. $\begin{aligned}
+              x(S \circ R)y & \iff \exists z (xRz \land zSy) \\
+              & \iff \exists z (z = x + 1 \land y = z^2) \\
+              & \iff y = (x + 1)^2
+              \end{aligned}$
+              
+        x. $\begin{aligned}
+             x(R \circ S)y & \iff \exists z (xSz \land zRy) \\
+             & \iff \exists z (z = x^2 \land y = z + 1) \\
+             & \iff y = x^2 + 1
+             \end{aligned}$
+        
+        xi. $\begin{aligned}
+             x(R \circ W)y & \iff \exists z (xWz \land zRy) \\
+             & \iff \exists z (z = -x \land y = z + 1) \\
+             & \iff y = -x + 1
+             \end{aligned}$
+        
+        xii. $\begin{aligned}
+             x(W \circ R)y & \iff \exists z (xRz \land zWy) \\
+             & \iff \exists z (z = x + 1 \land y = -z) \\
+             & \iff y = -(x + 1) \\
+             & \iff y = -x - 1
+             \end{aligned}$
+     
+    b. Finding the domain and range
+
+        i. $\mathscr{D}(S) = \mathbb{R}$ and $\mathscr{R}(S) = \{ y \in \mathbb{R} \mid y \geq 0 \}$  
+
+        ii. $\mathscr{D}(R) = \mathbb{R}$ and $\mathscr{R}(R) = \mathbb{R}$
+        
+        iii. $\mathscr{D}(W) = \mathbb{R}$ and $\mathscr{R}(W) = \mathbb{R}$
+
+        iv. By @exr-inverse-composition-relations 2 $\mathscr{D}(S^{-1}) = \mathscr{R}(S)$ and $\mathscr{R}(S^{-1}) = \mathscr{D}(S)$  
+
+        v. By @exr-inverse-composition-relations 2 $\mathscr{D}(R^{-1}) = \mathscr{R}(R)$ and $\mathscr{R}(R^{-1}) = \mathscr{D}(R)$
+        
+        vi. By @exr-inverse-composition-relations 2 $\mathscr{D}(W^{-1}) = \mathscr{R}(W)$ and $\mathscr{R}(W^{-1}) = \mathscr{D}(W)$
+
+        vii. By @exr-inverse-composition-relations 3 $\mathscr{D}(S \circ S) = \mathscr{D}(S)$ and $\mathscr{R}(S \circ S) = \mathscr{R}(S)$
+
+        viii. By @exr-inverse-composition-relations 3 $\mathscr{D}(W \circ W) = \mathscr{D}(W)$ and $\mathscr{R}(W \circ W) = \mathscr{R}(W)$
+        
+        ix. By @exr-inverse-composition-relations 3 $\mathscr{D}(R \circ R) = \mathscr{D}(R)$ and $\mathscr{R}(R \circ R) = \mathscr{R}(R)$
+        
+        x. Because $\mathscr{R}(W) \subseteq \mathscr{D}(S)$ by @exr-inverse-composition-relations 3 $\mathscr{D}(S \circ W) = \mathscr{D}(W)$. Also because $\mathscr{D}(S) \subseteq \mathscr{R}(W)$ by @exr-inverse-composition-relations 3 $\mathscr{R}(S \circ W) = \mathscr{R}(S)$.
+        
+        xi. Because $\mathscr{R}(S) \subseteq \mathscr{D}(W)$ by @exr-inverse-composition-relations 3 $\mathscr{D}(W \circ S) = \mathscr{D}(S)$. For $\mathscr{R}(W \circ S) = \{ y \in \mathbb{R} \mid y \leq 0 \} \subseteq \mathscr{R}(W)$.
+        
+        xii. Because $\mathscr{R}(R) \subseteq \mathscr{D}(S)$ by @exr-inverse-composition-relations 3 $\mathscr{D}(S \circ R) = \mathscr{D}(R)$. Also because $\mathscr{D}(S) \subseteq \mathscr{R}(R)$ by @exr-inverse-composition-relations 3 $\mathscr{R}(S \circ R) = \mathscr{R}(S)$.
+
+        xiii. Because $\mathscr{R}(S) \subseteq \mathscr{D}(R)$ by @exr-inverse-composition-relations 3 $\mathscr{D}(R \circ S) = \mathscr{D}(S)$. For $\mathscr{R}(R \circ S) = \{ y \in \mathbb{R} \mid y \geq 1 \} \subseteq \mathscr{R}(R)$.
+        
+        xiv. Because $\mathscr{R}(W) \subseteq \mathscr{D}(R)$ by @exr-inverse-composition-relations 3 $\mathscr{D}(R \circ W) = \mathscr{D}(W)$. Also because $\mathscr{D}(R) \subseteq \mathscr{R}(W)$ by @exr-inverse-composition-relations 3 $\mathscr{R}(R \circ W) = \mathscr{R}(R)$.
+
+        xiv. Because $\mathscr{R}(R) \subseteq \mathscr{D}(W)$ by @exr-inverse-composition-relations 3 $\mathscr{D}(W \circ R) = \mathscr{D}(R)$. Also because $\mathscr{D}(W) \subseteq \mathscr{R}(R)$ by @exr-inverse-composition-relations 3 $\mathscr{R}(W \circ R) = \mathscr{R}(W)$.
+
+:::
+
+#### Reflexivity, symmetry and transitivity
+
+A binary relation $R$ can have different properties.
+
+::: {#def-binary-relation-reflexive}
+
+## Reflexive binary relation
+
+If $A$ is a set a binary relation $R$ is reflexive in $A$ if and only if:
+
+$$\forall x (x \in A \Longrightarrow xRx)$$
+
+:::
+
+::: {#def-binary-relation-irreflexive}
+
+## Irreflexive binary relation
+
+If $A$ is a set a binary relation $R$ is irreflexive in $A$ if and only if:
+
+$$\forall x (x \in A \Longrightarrow \neg(xRx))$$
+
+:::
+
+::: {#exm-binary-relation-reflexive-irreflexive}
+
+## Examples of reflexive, irreflexive and neither reflexive nor irreflexive relations
+
+1. Let $\mathbb{Z}$ be the set of integers. Let:
+
+   $$\begin{split}
+     R & = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \} \\
+     S & = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x < y \} \\
+     W & = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land y = x^2 \} \\
+     I_{\mathbb{Z}} & = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x = y \}
+     \end{split}$$
+     
+   Then $R$ is reflexive in $\mathbb{Z}$ because $x \leq x$, $S$ is irreflexive in $\mathbb{Z}$ because $\neg(x < x)$, $W$ is neither reflexive nor irreflexive in $\mathbb{Z}$ because $1 = 1^2$ and $0 = 0^2$ but if $x \neq 1 \lor x \neq 0$ then $\neg(x = x^2)$     
+
+2. Let $A$ be the set of people. Let:
+
+   $$T = \{ (x, y) \mid x \in A \land y \in A \land x \text{ has the same height as } y \}$$
+   
+   Then $T$ is reflexive in $A$ because a persona has the same height as him or herself.
+
+:::
+
+::: {#def-binary-relation-symmetric}
+
+## Symmetric binary relation
+
+If $A$ is a set a binary relation $R$ is symmetric in $A$ if and only if:
+
+$$\forall x \forall y ((x \in A \land y \in A\land xRy) \Longrightarrow yRx))$$
+
+:::
+
+In @exm-binary-relation-reflexive-irreflexive 1 $I_{\mathbb{Z}}$ is symmetric because if $x = y$ then $y = x$ but $R$, $S$ and $W$ are not symmetric.
+
+::: {#exm-binary-relation-symmetric}
+
+## Examples of symmetric relations
+
+1. Let $A$ be the set of people. The relations of father, mother, parent, brother, sister, husband and wife are not symmetric in $A$. The following relations are symmetric in $A$:
+
+    a.  $\{ (x, y) \mid x \in A \land x \in B \land x \text{ is the spouse of } y \}$
+
+    b.  $\{ (x, y) \mid x \in A \land x \in B \land x \text{ is in the same family as } y \}$
+    
+    c.  $\{ (x, y) \mid x \in A \land x \in B \land x \text{ is a sibling of } y \}$
+
+    d.  $\{ (x, y) \mid x \in A \land x \in B \land x \text{ has the same father as } y \}$
+
+:::
+
+::: {#def-binary-relation-transitive}
+
+## Transitive binary relation
+
+If $A$ is a set a binary relation $R$ is transitive in $A$ if and only if:
+
+$$\forall x \forall y \forall z ((x \in A \land y \in A \land z \in A \land xRy \land yRz) \Longrightarrow xRz)$$
+
+:::
+
+In @exm-binary-relation-reflexive-irreflexive 1 $R$, $S$ and $I_{\mathbb{Z}}$ are transitive in $A$ but not $W$ because if $x^2 = y$ and $y^2 = z$ then $x^4 = z$ and $\neg(x^2 = z)$ when $x \neq 1 \lor x \neq 0$.
+
+::: {#exm-binary-relation-transitive}
+
+## Examples of transitive relations
+
+1. Let $T$ be the set of triangles in a plane. Let:
+
+   $$\begin{split}
+     R & = \{ (x, y) \mid x \in T \land y \in T \land x \text{ is congruent to } y \} \\
+     S & = \{  (x, y) \mid x \in T \land y \in T \land x \text{ is similar to } y \} \\
+     W & = \{  (x, y) \mid x \in T \land y \in T \land x \text{ has smaller area than } y \}
+     \end{split}$$
+   
+   The $R$, $S$ and $W$ are all transitive in $T$. Also $R$ and $S$ are reflexive and symmetric but $W$ is neither reflexive nor symmetric.  
+
+:::
+
+::: {#exr-reflexivity-symmetry-transitivity}
+
+1. Determine whether each of the following relations $R$ is reflexive, symmetric or transitive in a given set.
+
+    a.  $\mathbb{P}$ is the set of positive integers.
+        
+        $R = \{ (x, y) \mid x \in \mathbb{P} \land y \in \mathbb{P} \land y \text{ is divisible by } x \}$
+        
+    b.  $A$ is the set of all line segments in a plane.
+        
+        $R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is longer than } y \}$
+        
+    c.  $A$ is the set of all lines in a plane.
+        
+        $R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is perpendicular to } y \}$
+        
+    d.  $A$ is the set of all subsets of a given set $B$.
+        
+        $R = \{ (x, y) \mid x \in A \land y \in A \land x \cap y = \emptyset \}$
+        
+    e.  $A$ is the set of all subsets of a given set $B$.
+        
+        $R = \{ (x, y) \mid x \in A \land y \in A \land x \subseteq y \}$
+        
+    f.  $A$ is the set of all people.
+        
+        $R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is the ancestor of } y \}$
+
+    g.  $A$ is any set.
+        
+        $I_{A} = \{ (x, y) \mid x \in A \land y \in A \land x = y \}$
+
+    h.  $A$ is any set.
+        
+        $I_{A} = \{ (x, y) \mid x \in A \land y \in A \land x \neq y \}$
+
+2. A relation $R$ is said to be asymmetric in $A$ if and only if $\forall x \forall y ((x \in A \land y \in A \land xRy) \Longrightarrow \neg(yRx))$. A relation $R$ is said to be antisymmetric in $A$ if and only if $\forall x \forall y ((x \in A \land y \in A \land xRy \land yRx) \Longrightarrow x = y)$
+
+    a.  Give examples of relations $R$ and sets $A$ such that:
+    
+        i. $R$ is asymmetric in $A$.
+        
+        ii. $R$ is not asymmetric in $A$.
+        
+        iii. $R$ is antisymmetric in $A$.
+        
+        iv. $R$ is not antisymmetric in $A$.
+        
+    b. Prove that asymmetry implies antisymmetry.
+    
+    c. Let $R$ be the $\leq$ relation on the set of integers. Show that $R$ is antisymmetric but not asymmetric on the set of integers.
+    
+    d. If a relation $R$ is irreflexive in a set $A$ and transitive in $A$, prove that $R$ is asymmetric in $A$.
+        
+:::
+
+::: {#sol-reflexivity-symmetry-transitivity}
+
+1. We have the following results for each $R$:
+
+    a. The relation $y$ is divisible by $x$ in $\mathbb{P}$, denoted as $x | y$, means that there exists some $k \in \mathbb{P}$ such that $y = k*x$
+    
+        -  $R$ is reflexive because $y = 1 * y$.
+        -  $R$ is not symmetric because if $y = k * x$ and $x = c * y$ then $y = k * c * y$. Therefore $k = 1$ and $c = 1$ so $x = y$.
+        -  $R$ is transitive because if $y = k * x$ and $z = c * y$ then $z = c * (k * x) = (c * k) * x$ where $c * k \in \mathbb{P}$.
+
+    b. For the relation $x$ is longer than $y$ in $A$ we have that:
+    
+       -  $R$ is not reflexive because $x$ can not be longer that itself.
+       -  $R$ is not symmetric because if $x$ is longer that $y$ then $y$ can not be longer that $x$.
+       -  $R$ is transitive because if $x$ is longer than $y$ and $y$ is longer than $z$ then $x$ is longer than $z$.
+       
+    c. For the relation $x$ is perpendicular to $y$ in $A$, denoted as $x \perp y$, we have that:
+    
+       -  $R$ is not reflexive because $x$ can not be perpendicular to itself.
+       -  $R$ is symmetric because if $x$ is perpendicular to $y$ then $y$ is perpendicular to $x$.
+       -  $R$ is not transitive because @def-binary-relation-transitive doesn't include that $x \neq y \neq z$. Therefore if $R$ is transitive $x \perp y$ and $y \perp x$ then $x \perp x$ but this is not true. Therefore $R$ can not be transitive.
+
+    d. For the relation $x \cap y = \emptyset$ in $A$ we have that:
+    
+       -  $R$ is not reflexive because $x \cap x \neq \emptyset$ when $B \neq \emptyset$. It can be reflexive but only in the special case when $B = \emptyset$.
+       -  $R$ is symmetric because if $x \cap y = \emptyset$ then $y \cap x = \emptyset$.
+       -  $R$ is not transitive. For example $B = \{ 1, 2, 3 \}$ so $A = \{ \emptyset, \{ 1 \}, \{ 2 \}, \{ 3 \}, \{ 1, 2 \}, \{ 1, 3 \}, \{ 2, 3 \}, \{ 1, 2, 3 \}  \}$. So $\{ 1 \} \cap \{ 2 \} = \emptyset$ and $\{ 2 \} \cap \{ 1, 3 \} = \emptyset$ but it is not true that $\{ 1 \} \cap \{ 1, 3 \} = \emptyset$.
+
+    e. For the relation $x \subseteq y$ in $A$ we have that:
+    
+       -  $R$ is reflexive because $x \subseteq x$.
+       -  $R$ is not symmetric because if $\emptyset \cap y$ and $y \neq \emptyset$ then it is not true that $y \subseteq \emptyset$. It can be reflexive but only in the special case when $B = \emptyset$.
+       
+       -  $R$ is transitive because if $x \subseteq y$ and $y \subseteq z$ then $x \subseteq z$.
+
+    f. For the relation $x \text{ is an ancestor of } y$ in $A$ we have that:
+    
+       -  $R$ is not reflexive because $x$ is not an ancestor of itself.
+       -  $R$ is not symmetric because if $x$ is and ancestor of $y$ then it is not true that $y$ is an ancestor of $x$.
+       
+       -  $R$ is transitive because if $x$ is ancestor of $y$ and $y$ is an ancestor of $z$ then $x$ is an ancestor of $z$.
+
+    g. For the relation $x = y$ in $A$ we have that:
+    
+       -  $R$ is reflexive because $x = x$.
+       -  $R$ is symmetric because if $x = y$ then $y = x$.
+       -  $R$ is transitive because if $x = y$ and $y = z$ then $x = z$.
+       
+    h. For the relation $x \neq y$ in $A$ we have that:
+    
+       -  $R$ is not reflexive because it is not true that $x \neq x$.
+       -  $R$ is symmetric because if $x \neq y$ then $y \neq x$.
+       -  $R$ is transitive because if $x \neq y$ and $y \neq z$ then $x \neq z$.
+
+2. Using the definition of asymmetric and antisymmetric pointed out in @exr-reflexivity-symmetry-transitivity 2 the following questions are answered
+
+    a. These are the examples:
+    
+        i. Let $\mathbb{Z}$ and $R = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x < y \}$ then $R$ in $\mathbb{Z}$ is asymmetric because if $x < y$ then $\neg(y < x)$. 
+        
+        ii. Let $A$ be the set of all people and $R = \{ (x, y) \mid x \in A \land x \in B \land x \text{ is a sibling of } y \}$ then $R$ in $A$ is not asymmetric because if $x$ is a sibling of $y$ then $y$ is a sibling of $x$. 
+        
+        iii. Let $\mathbb{Z}$ and $R = \{ (x, y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \}$ then $R$ in $\mathbb{Z}$ is antisymmetric because if $x \leq y$ and $y \leq x$ then $x = y$. 
+        
+        iv. Let $A$ be the set of all lines in a plane and $R = \{ (x, y) \mid x \in A \land y \in A \land x \text{ is perpendicular to } y \}$ then $R$ in $A$ is not antisymmetric because if $x$ is perpendicular to $y$ and $y$ is perpendicular to $x$ then $x \neq y$. 
+        
+    b. We establish the following aspects:
+    
+        i. Assume $R$ is asymmetric.
+        ii. We have also that $x = y$ or $x \neq y$ but not both.
+        iii. Let $x \in A$, $y \in A$, $xRy$ and $x = y$ then because $R$ is asymmetric $\neg(xRx)$. However this is a contradiction because $x = y$ and $xRy$. Therefore if $xRy$ then $x \neq y$.
+        iv. We can rewrite the definition of antisymmetry as $\forall x \forall y (x \neq y \Longrightarrow (x \not \in A \lor y \not \in A \lor \neg(xRy) \lor \neg(yRx)))$.
+        v. So if $x \in A$, $y \in A$, $xRy$ and $x \neq y$ and because $R$ is asymmetric then $\neg(yRx)$
+        vii. Using the definition in iv. we have that $R$ is also antisymmetric.
+    
+    c. If $x \leq y$ and $y \leq x$ then $x = y$ so $\leq$ is antisymmetric in $\mathbb{Z}$ but $\leq$ is not asymmetric in $\mathbb{Z}$ because $x \leq x$ so it is not true that $\neg(x \leq x)$.   
+    
+    d. Let $R$ be irreflexive and transitive. Now assume $xRy$ and $yRx$ then $xRx$ but $R$ is irreflexive. Therefore $\neg(xRy \land yRx)$ which is equivalent to $\neg(xRy \land \neg(\neg(yRx)))$ so $xRy \Longrightarrow \neg(yRx)$. We conclude that $R$ is asymmetric.       
 
 :::
