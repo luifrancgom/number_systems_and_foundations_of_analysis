@@ -281,6 +281,7 @@ window.Quarto = {
   <li><a href="#difference-and-complement" id="toc-difference-and-complement" class="nav-link" data-scroll-target="#difference-and-complement"><span class="header-section-number">1.3.6</span> Difference and complement</a></li>
   <li><a href="#arbitrary-unions-and-intersections" id="toc-arbitrary-unions-and-intersections" class="nav-link" data-scroll-target="#arbitrary-unions-and-intersections"><span class="header-section-number">1.3.7</span> Arbitrary unions and intersections</a></li>
   <li><a href="#relations" id="toc-relations" class="nav-link" data-scroll-target="#relations"><span class="header-section-number">1.3.8</span> Relations</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">1.3.9</span> Functions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -4811,6 +4812,18 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <li><p>Let <span class="math inline">\(R\)</span> be the <span class="math inline">\(\leq\)</span> relation on the set of integers. Show that <span class="math inline">\(R\)</span> is antisymmetric but not asymmetric on the set of integers.</p></li>
 <li><p>If a relation <span class="math inline">\(R\)</span> is irreflexive in a set <span class="math inline">\(A\)</span> and transitive in <span class="math inline">\(A\)</span>, prove that <span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>.</p></li>
 </ol></li>
+<li><p>Show that a relation <span class="math inline">\(R\)</span> is reflexive in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(I_A \subseteq R\)</span> where <span class="math inline">\(I_A\)</span> is the identity relation on <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Show that a relation <span class="math inline">\(R\)</span> is irreflexive in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R\)</span> and <span class="math inline">\(I_A\)</span> are disjoint.</p></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is symmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R = R^{-1}\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is transitive in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R \circ R \subseteq R\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{Z}\)</span> be the set of integers. Find a relation <span class="math inline">\(R\)</span> which is:</p>
+<ol type="a">
+<li><p>Reflexive and symmetric in <span class="math inline">\(\mathbb{Z}\)</span> but not transitive in <span class="math inline">\(\mathbb{Z}\)</span>.</p></li>
+<li><p>Reflexive and transitive in <span class="math inline">\(\mathbb{Z}\)</span> but not symmetric in <span class="math inline">\(\mathbb{Z}\)</span>.</p></li>
+<li><p>Symmetric and transitive in <span class="math inline">\(\mathbb{Z}\)</span> but not reflexive in <span class="math inline">\(\mathbb{Z}\)</span>.</p></li>
+</ol></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R \cap R^{-1} = \emptyset\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is antisymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R \cap R^{-1} \subseteq I_A\)</span>.</p></li>
 </ol>
 </div>
 <div id="sol-reflexivity-symmetry-transitivity" class="proof solution">
@@ -4888,6 +4901,387 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <li><p>If <span class="math inline">\(x \leq y\)</span> and <span class="math inline">\(y \leq x\)</span> then <span class="math inline">\(x = y\)</span> so <span class="math inline">\(\leq\)</span> is antisymmetric in <span class="math inline">\(\mathbb{Z}\)</span> but <span class="math inline">\(\leq\)</span> is not asymmetric in <span class="math inline">\(\mathbb{Z}\)</span> because <span class="math inline">\(x \leq x\)</span> so it is not true that <span class="math inline">\(\neg(x \leq x)\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(R\)</span> be irreflexive and transitive. Now assume <span class="math inline">\(xRy\)</span> and <span class="math inline">\(yRx\)</span> then <span class="math inline">\(xRx\)</span> but <span class="math inline">\(R\)</span> is irreflexive. Therefore <span class="math inline">\(\neg(xRy \land yRx)\)</span> which is equivalent to <span class="math inline">\(\neg(xRy \land \neg(\neg(yRx)))\)</span> so <span class="math inline">\(xRy \Longrightarrow \neg(yRx)\)</span>. We conclude that <span class="math inline">\(R\)</span> is asymmetric.</p></li>
 </ol></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is reflexive</p>
+<ul>
+<li>We have that <span class="math inline">\(xI_Ax\)</span> and <span class="math inline">\(xRx\)</span> so <span class="math inline">\(I_A \subseteq R\)</span>.</li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(I_A \subseteq R\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(xI_Ax\)</span> then <span class="math inline">\(xRx\)</span> so <span class="math inline">\(R\)</span> is reflexive.</li>
+</ul></li>
+</ul></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is irreflexive</p>
+<ul>
+<li>(xRx) but <span class="math inline">\(xI_Ax\)</span> so <span class="math inline">\(R \cap I_A = \subseteq\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \cap I_A = \subseteq\)</span></p>
+<ul>
+<li>So <span class="math inline">\(\neg(xRx)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is symmetric</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+    xR^{1}y &amp; \iff yRx \\
+    &amp; \iff xRy
+    \end{aligned}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R = R^{-1}\)</span></p>
+<ul>
+<li>If <span class="math inline">\(yRx\)</span> then <span class="math inline">\(xR^{-1}y\)</span> but <span class="math inline">\(R = R^{-1}\)</span>. Therefore <span class="math inline">\(xRy\)</span> so R is symmetric.</li>
+</ul></li>
+</ul></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is transitive</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+    x(R \circ)Ry &amp; \iff \exists z (xRz \land zRy) \\
+    &amp; \Longrightarrow xRy
+    \end{aligned}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \circ R \subseteq R\)</span><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+    x(R \circ R)y &amp; \iff \exists z (xRz \land zRy) \\
+    &amp; \Longrightarrow \exists z (xRz \land zRy) \land xRy \\
+    &amp; \iff \exists z ((xRz \land zRy) \Longrightarrow xRy)
+    \end{aligned}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>We have the following examples:</p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(R = \{ (x,y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land |x - y| \leq 1 \}\)</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(|x - x| \leq 1\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(|x - y| \leq 1\)</span> then <span class="math inline">\(|y - x| \leq 1\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is not transitive because <span class="math inline">\(|1 - 2| \leq 1\)</span> and <span class="math inline">\(|2 - 3| \leq 1\)</span> but <span class="math inline">\(|1 - 3| = 2 &gt; 1\)</span>.</li>
+</ul></li>
+<li><p>Let <span class="math inline">\(R = \{ (x,y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x|y \}\)</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(x|x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is not symmetric because if <span class="math inline">\(x|y\)</span> then it is not the case that <span class="math inline">\(y|x\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x|y\)</span> and <span class="math inline">\(y|z\)</span> then <span class="math inline">\(x|z\)</span>.</li>
+</ul></li>
+<li><p>Let <span class="math inline">\(R = \{ (x,y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land xy &gt; 0 \}\)</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(0 \cdot 0 = 0\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(xy &gt; 0\)</span> then <span class="math inline">\(yx &gt; 0\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(xy &gt; 0\)</span> and <span class="math inline">\(yz &gt; 0\)</span> then <span class="math inline">\(xz &gt; 0\)</span>.</li>
+</ul></li>
+</ol></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is asymmetric</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+  yRx &amp; \Longrightarrow \neg(xRy) \land xR^{-1}y \\
+  &amp; \Longrightarrow (x,y) \not \in R \land (x,y) \in R^{-1} \\
+  &amp; \Longrightarrow R \cap R^{-1} = \emptyset
+  \end{aligned}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \cap R^{-1} = \emptyset\)</span></p>
+<ul>
+<li>Without loss of generality let <span class="math inline">\((x, y) \in R\)</span> and <span class="math inline">\((x, y) \not \in R^{-1}\)</span>. Therefore <span class="math inline">\(xRy\)</span> and <span class="math inline">\(\neg(xR^{-1}y)\)</span>. So <span class="math inline">\(xRy\)</span> and <span class="math inline">\(\neg(yRx)\)</span>. In conclusion we have that <span class="math inline">\(xRy \Longrightarrow \neg(yRx)\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is antisymmetric</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+  (x, y) \in R \cap R^{-1} &amp; \iff (x, y) \in R \land (x,y) \in R^{-1} \\
+  &amp; \iff xRy \land xR^{-1}y \\
+  &amp; \iff xRy \land yRx \\
+  &amp; \Longrightarrow x = y \\
+  &amp; \Longrightarrow xRx \\
+  &amp; \Longrightarrow xI_Ax
+  \end{aligned}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \cap R^{-1} \subseteq I_A\)</span></p>
+<ul>
+<li>Let <span class="math inline">\((x, y) \in R \cap R^{-1}\)</span> then <span class="math inline">\((x, y) \in I_A\)</span>. Therefore we have that <span class="math inline">\(xRy\)</span> and <span class="math inline">\(xR^{-1}y\)</span> then <span class="math inline">\(x = y\)</span>. So <span class="math inline">\(xRy\)</span> and <span class="math inline">\(yRx\)</span> then <span class="math inline">\(x = y\)</span>.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="negatively-transitivite-connected-and-total-strongly-connected-or-complete" class="level4" data-number="1.3.8.3">
+<h4 data-number="1.3.8.3" class="anchored" data-anchor-id="negatively-transitivite-connected-and-total-strongly-connected-or-complete"><span class="header-section-number">1.3.8.3</span> Negatively transitivite, connected and total, strongly connected or complete</h4>
+<div id="def-binary-relation-negatively-transitive" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.43 (Negatively transitive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is negatively transitive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x \forall y \forall z ((x \in A \land y \in A \land z \in A \land \neg(xRy) \land \neg(yRz)) \Longrightarrow \neg(xRz))\]</span></p>
+</div>
+<div id="def-binary-relation-connected" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.44 (Connected binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is connected in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x \forall y ((x \in A \land y \in A \land x \neq y) \Longrightarrow (xRy \lor yRx))\]</span></p>
+</div>
+<div id="def-binary-relation-total-strongly-connected-or-complete" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.45 (Total, strongly connected or complete binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is total, strongly connected or complete in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\forall x \forall y (x \in A \land y \in A \land (xRy \lor yRx))\]</span></p>
+</div>
+<div id="exr-negatively-transitive-connected-total-strongly-connected-or-complete" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.29</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Show that if <span class="math inline">\(R\)</span> is a binary relation that is asymmetric and negatively transitive then it is transitive.</p></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is total, strongly connected or complete in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R \cup R^{-1} = A \times A\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is negatively transitive in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R^{'}\)</span> is transitive in <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Show that if <span class="math inline">\(R\)</span> is a binary relation that is negatively transitive and complete then it is transitive.</p></li>
+</ol>
+</div>
+<div id="sol-negatively-transitive-connected-total-strongly-connected-or-complete" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.29</em>. </span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\begin{aligned}
+xRy \land yRz &amp; \Longrightarrow \neg(zRy) \land \neg(yRx) \\
+&amp; \Longrightarrow \neg(zRx) \\
+&amp; \Longrightarrow \neg \neg (xRz) \\
+&amp; \iff xRz
+\end{aligned}\)</span></p></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is total, strongly connected or complete</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+xRy \lor yRx &amp; \iff xRy \lor xR^{-1}y \\
+&amp; \iff (x,y) \in R \cup R^{-1} \\
+&amp; \iff (x,y) \in A \times A
+\end{aligned}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \cup R^{-1} = A \times A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+(x,y) \in A \times A &amp; \Longrightarrow (x,y) \in R \cup R^{-1} \\
+&amp; \iff xRy \lor xR^{-1}y \\
+&amp; \iff xRy \lor yRx
+\end{aligned}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>We deduce this assertion in 2 parts:</p>
+<ul>
+<li><p>Assume <span class="math inline">\(R\)</span> is negatively transitive</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+  (x,y) \not \in R \land (y,z) \not \in R &amp; \Longrightarrow (x,z) \not \in R \\
+  &amp; \Longrightarrow (x,y) \in R^{'} \land (y,z) \in R^{'} \land (x,z) \in R^{'} \\
+  &amp; \Longrightarrow xR^{'}y \land yR^{'}z \land xR^{'}z \\
+  &amp; \Longrightarrow ((xR^{'}y \land
+  yR^{'}z) \Longrightarrow xR^{'}z)
+  \end{aligned}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R^{'}\)</span> is transitive</p>
+<ul>
+<li><span class="math inline">\(\begin{aligned}
+  (x,y) \in R^{'} \land (y,z) \in R^{'} &amp; \Longrightarrow (x,z) \in R^{'} \\
+  &amp; \Longrightarrow (x,y) \not \in R \land (y,z) \not \in R \land (x,z) \not \in R^{'} \\
+  &amp; \Longrightarrow ((\neg(xRy) \land (\neg(yRz)) \Longrightarrow \neg(xRz))
+  \end{aligned}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(R\)</span> is negatively transitive so <span class="math inline">\(\neg(xRy) \land \neg(yRz) \Longrightarrow \neg(xRz)\)</span>. Because <span class="math inline">\(R\)</span> is complete <span class="math inline">\(zRy \land yRx \Longrightarrow zRx\)</span>. Therefore <span class="math inline">\(R\)</span> is transitive.</p></li>
+</ol>
+</div>
+</section>
+<section id="acyclic" class="level4" data-number="1.3.8.4">
+<h4 data-number="1.3.8.4" class="anchored" data-anchor-id="acyclic"><span class="header-section-number">1.3.8.4</span> Acyclic</h4>
+<div id="def-binary-relation-acyclic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.46 (Acyclic binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is acyclic in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="math display">\[\neg(\exists x_1 \ldots \exists x_n (x_1Rx_2  \land \ldots  \land x_nRx_1))\]</span> where <span class="math inline">\(n \in \mathbb{N} \land n &gt; 1\)</span></p>
+</div>
+<div id="exr-acyclic" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.30</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is acyclic in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R^n \cap I_A = \emptyset\)</span> where <span class="math inline">\(R^n = \underset{n \text{ times}}{\underbrace{R \circ \ldots \circ R}}\)</span>.</p></li>
+<li><p>Show that if <span class="math inline">\(R\)</span> is a binary relation that is acyclic then it is irreflexive.</p></li>
+</ol>
+</div>
+<div id="sol-acyclic" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.30</em>. </span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\begin{aligned}
+  R \text{ is acyclic} &amp; \iff (x,x) \not \in R^n \\
+  &amp; \iff (x,x) \not \in R^n \land (x,x) \in I_A \\
+  &amp; \iff R^n \cap I_A = \emptyset
+  \end{aligned}\)</span></p></li>
+<li><p>If <span class="math inline">\(R\)</span> is acyclic then for <span class="math inline">\(n = 2\)</span> we have that <span class="math inline">\(\neg(\exists x_1 \exists x_2 (x_1Rx_2 \land x_2Rx_1))\)</span>. Let <span class="math inline">\(x_1 = x_2 = x\)</span> then <span class="math inline">\(\neg(\exists x (xRx \land xRx))\)</span>. Therefore <span class="math inline">\(\neg(\exists x (xRx \land xRx))\)</span> which means that <span class="math inline">\(\neg(\exists x (xRx))\)</span>. So <span class="math inline">\(R\)</span> is irreflexive.</p></li>
+</ol>
+</div>
+</section>
+<section id="equivalence-relations" class="level4" data-number="1.3.8.5">
+<h4 data-number="1.3.8.5" class="anchored" data-anchor-id="equivalence-relations"><span class="header-section-number">1.3.8.5</span> Equivalence relations</h4>
+<div id="def-equivalence-relation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.47 (Equivalence relation)</strong></span> A relation <span class="math inline">\(R\)</span> is said to be and equivalence relation in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R\)</span> is reflexive, symmetric and transitive in <span class="math inline">\(A\)</span>.</p>
+</div>
+<div id="exm-equivalence-relation" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.14</strong></span> These are examples of equivalence binary relations:</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(A\)</span> be any set. Then the identity relation <span class="math inline">\(I_A = \{ (x,y) \mid x \in A \land y \in A \land x = y \}\)</span> is an equivalence relation in <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(T\)</span> be the set of triangles in a plane.</p>
+<ol type="a">
+<li><p>The congruence relation, <span class="math inline">\(R = \{ (x,y) \mid x \in T \land y \in T \land x \text{ is congruent to } y \}\)</span>, is an equivalence relation in <span class="math inline">\(T\)</span>.</p></li>
+<li><p>The similarity relation, <span class="math inline">\(S = \{ (x,y) \mid x \in T \land y \in T \land x \text{ is similar to } y \}\)</span>, is an equivalence relation in <span class="math inline">\(T\)</span>.</p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(P\)</span> be the set of people. Then the following are equivalence relations in <span class="math inline">\(P\)</span>.</p>
+<ol type="a">
+<li><p><span class="math inline">\(R = \{ (x,y) \mid x \in P \land y \in P \land x \text{ is the same height as } y \}\)</span></p></li>
+<li><p><span class="math inline">\(S = \{ (x,y) \mid x \in P \land y \in P \land x \text{ and } y \text{ has the same mother and father } \}\)</span></p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of integers. Let <span class="math inline">\(n\)</span> be a fixed integer greater than <span class="math inline">\(1\)</span>. Let <span class="math inline">\(R = \{ (x,y) \mid x \in A \land y \in A \land x - y \text{ is divisible by } n \}\)</span>. Then <span class="math inline">\(R\)</span> is an equivalence relation in <span class="math inline">\(A\)</span>. Later we will study this relation which is known as congruence modulo <span class="math inline">\(n\)</span>: <span class="math inline">\(x \equiv y \text{ mod } n\)</span> (<span class="math inline">\(x\)</span> is congruent to <span class="math inline">\(y\)</span> modulo <span class="math inline">\(n\)</span>).</p>
+<ol type="a">
+<li><span class="math inline">\(x \equiv x \text{ mod } n\)</span></li>
+<li>If <span class="math inline">\(x \equiv y \text{ mod } n\)</span> then <span class="math inline">\(y \equiv x \text{ mod } n\)</span></li>
+<li>If <span class="math inline">\(x \equiv y \text{ mod } n\)</span> and <span class="math inline">\(y \equiv z \text{ mod } n\)</span> then <span class="math inline">\(x \equiv z \text{ mod } n\)</span></li>
+</ol></li>
+</ol>
+</div>
+<div id="def-equivalence-class" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.48 (Equivalence class)</strong></span> Consider an equivalence relation <span class="math inline">\(R\)</span> in a set <span class="math inline">\(A\)</span>. Each <span class="math inline">\(x \in A\)</span> determines the set of all elements <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz\)</span>. This set is denoted <span class="math inline">\([x]\)</span> and called the equivalence class of <span class="math inline">\(x\)</span> (relative to the relation <span class="math inline">\(R\)</span>). Thus,</p>
+<p><span class="math display">\[[x] = \{ z \in A \mid xRz \}\]</span></p>
+<p><strong>Note</strong>: We should use the notation <span class="math inline">\([x]_R\)</span> instead of <span class="math inline">\([x]\)</span> in order to indicate the equivalence relation relative to which we are forming equivalence classes. However, we shall omit the subscript <span class="math inline">\(R\)</span> if we are talking about only one equivalence relation or it is obvious from the context which equivalence relation we are refering about.</p>
+</div>
+<div id="exm-equivalence-class" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.15</strong></span> These are examples of equivalence classes:</p>
+<ol type="1">
+<li><p>In <a href="#exm-equivalence-relation" class="quarto-xref">Example&nbsp;<span>1.14</span></a> 1 for any <span class="math inline">\(x \in A\)</span>:</p>
+<p><span class="math display">\[[x] = \{ z \in A \mid zI_Ax \}\]</span></p>
+<p>Hence <span class="math inline">\([x] = \{ x \}\)</span>. Thus, the equivalence classes in this example are the singletons <span class="math inline">\(\{ x \}\)</span> where <span class="math inline">\(x \in A\)</span>.</p></li>
+<li><p>In <a href="#exm-equivalence-relation" class="quarto-xref">Example&nbsp;<span>1.14</span></a> 4 for any <span class="math inline">\(x \in A\)</span>:</p>
+<p><span class="math display">\[[x] = \{ z \in A \mid z \equiv x \text{ mod } n \}\]</span></p>
+<p>Later we will prove that if <span class="math inline">\(z \equiv x \text{ mod } n\)</span> then <span class="math inline">\(z\)</span> and <span class="math inline">\(x\)</span> have the same remainder when diving by <span class="math inline">\(n\)</span>. That is <span class="math inline">\(z = q_z*n + r\)</span> and <span class="math inline">\(x = q_x*n + r\)</span>. Because <span class="math inline">\(0 \leq r &lt; n\)</span> then <span class="math inline">\(r\)</span> can take the values of <span class="math inline">\(0, 1, \ldots n-1\)</span>. Therefore we will show later that there are exactly <span class="math inline">\(n\)</span> distinct equivalence classes modulo <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+</div>
+<div id="thm-equality-equivalence-classes" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.8 (Equality between equivalence classes)</strong></span> Consider an equivalence relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span>. Then 2 elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> determine the same equivalence class if and only <span class="math inline">\(xRy\)</span>. That is,</p>
+<p><span class="math display">\[[x] = [y] \iff xRy\]</span></p>
+<p><strong>Note</strong>: If <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x \in [x]\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{split}
+  x \in [x] &amp; \iff x \in [y] \\
+  &amp; \iff yRx \\
+  &amp; \iff xRy
+  \end{split}\]</span></p>
+</div>
+<p>By <a href="#thm-equality-equivalence-classes" class="quarto-xref">Theorem&nbsp;<span>1.8</span></a> let <span class="math inline">\([x] \neq [y]\)</span> then <span class="math inline">\(\neg(xRy)\)</span> and <span class="math inline">\(\neg(yRx)\)</span>. Let any <span class="math inline">\(z \in [y]\)</span> then <span class="math inline">\(yRz\)</span>. Therefore <span class="math inline">\(\neg(zRx)\)</span> because if <span class="math inline">\(zRx\)</span> then <span class="math inline">\(yRx\)</span> but we know that <span class="math inline">\(\neg(yRx)\)</span>. So if <span class="math inline">\(\neg(zRx)\)</span> then <span class="math inline">\(z \not \in [x]\)</span> which means that <span class="math inline">\([x] \cap [y] = \emptyset\)</span> because <span class="math inline">\(z\)</span> is any <span class="math inline">\(z \in [y]\)</span>. In that sense, an equivalence relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> divides <span class="math inline">\(A\)</span> into a collection of nonempty and mutually exclusive subsets where each subset is an equivalence class.</p>
+<div id="exr-equivalence-classes" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.31</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>For each relation <span class="math inline">\(R\)</span> and a <span class="math inline">\(A\)</span>, determine whether <span class="math inline">\(R\)</span> is an equivalence relation in <span class="math inline">\(A\)</span>. If it is, describe the equivalence classes.</p>
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> is the set of lines in a plane</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land (x=y \text{ or } x \text{ is parallel to } y) \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all points inside a given circle, excluding the center of the circle.</p>
+<p><span class="math inline">\(\begin{aligned}
+R = \{ &amp;(x, y) \mid x \in A \land y \in A  \\
+&amp; \land (x=y \text{ or the line connecting } x \text{ and } y \text{ passes through the center of the circle}) \}
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all the subsets of integers</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land ((x - y) \cup (y - x) \text{ is finite }) \}\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all integers</p>
+<p><span class="math inline">\(R = \{ (x, y) \mid x \in A \land y \in A \land |x| = |y| \}\)</span></p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-equivalence-classes" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.31</em>. </span></p>
+<ol type="1">
+<li><p>For each relation <span class="math inline">\(R\)</span> and each set <span class="math inline">\(A\)</span> we have the following results.</p>
+<ol type="a">
+<li><p><span class="math inline">\(\neg(x \parallel x)\)</span> but <span class="math inline">\(x = x\)</span></p>
+<p>If <span class="math inline">\(x \parallel y\)</span> then <span class="math inline">\(y \parallel x\)</span></p>
+<p>If <span class="math inline">\(x \parallel y\)</span> and <span class="math inline">\(y \parallel z\)</span> then <span class="math inline">\(x \parallel z\)</span></p>
+<p><span class="math inline">\([x] = \{ z \in A \mid z = x \lor x \parallel z \}\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is not an equivalence relation because it is not transitive as it is show in <a href="#fig-sol-equivalence-classes-b" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> taking into account that <span class="math inline">\(zRx\)</span> and <span class="math inline">\(xRy\)</span> but <span class="math inline">\(\neg(zRy)\)</span></p></li>
+</ol>
+<div id="fig-sol-equivalence-classes-b" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sol-equivalence-classes-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-sol-equivalence-classes-b.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sol-equivalence-classes-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not transitive
+</figcaption>
+</figure>
+</div>
+<ol start="3" type="a">
+<li><p><span class="math inline">\((x - x) \cup (x - x) = \emptyset \cup \emptyset = \emptyset\)</span> so according to <a href="appendix_d.html#def-finite-set" class="quarto-xref">Definition&nbsp;<span>D.2</span></a> <span class="math inline">\((x - x) \cup (x - x)\)</span> is finite.</p>
+<p><span class="math inline">\((x - y) \cup (y - x) = (y - x) \cup (x - y)\)</span> so <span class="math inline">\((y - x) \cup (x - y)\)</span> is finite because <span class="math inline">\((x - y) \cup (y - x)\)</span> is finite.</p>
+<p>Let <span class="math inline">\((x - y) \cup (y - x)\)</span> finite and <span class="math inline">\((y - z) \cup (z - y)\)</span> finite. Is <span class="math inline">\((x - z) \cup (z - x)\)</span> finite?</p>
+<ul>
+<li><p><span class="math inline">\((x - z) \cap (z - x) = \emptyset\)</span> so if <span class="math inline">\(a \in (x - z) \cup (z - x)\)</span> then <span class="math inline">\(a \in (x - z)\)</span> or <span class="math inline">\(a \in (z - x)\)</span> but not both.</p>
+<ul>
+<li><p>Assume <span class="math inline">\(a \in (x - z)\)</span> then <span class="math inline">\(a \in x\)</span> and <span class="math inline">\(a \not \in z\)</span>. Also there are 2 possibilities: <span class="math inline">\(a \in y\)</span> or <span class="math inline">\(a \not \in y\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(a \in y\)</span> then <span class="math inline">\(a \in (y - z)\)</span> and <span class="math inline">\(a \in (y - z) \cup (z - y)\)</span> which is finite. Therefore <span class="math inline">\((x - z) \cup (z - x) \subseteq (y - z) \cup (z - y)\)</span> and by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\((x - z) \cup (z - x)\)</span> is finite.</p></li>
+<li><p>If <span class="math inline">\(a \not \in y\)</span> then <span class="math inline">\(a \in (x - y)\)</span> and <span class="math inline">\(a \in (x - y) \cup (y - x)\)</span> which is finite. Therefore <span class="math inline">\((x - z) \cup (z - x) \subseteq (x - y) \cup (y - x)\)</span> and by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\((x - z) \cup (z - x)\)</span> is finite.</p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(a \in (z - x)\)</span> then <span class="math inline">\(a \in z\)</span> and <span class="math inline">\(a \not \in x\)</span>. Also there are 2 possibilities: <span class="math inline">\(a \in y\)</span> or <span class="math inline">\(a \not \in y\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(a \in y\)</span> then <span class="math inline">\(a \in (y - x)\)</span> and <span class="math inline">\(a \in (x - y) \cup (y - x)\)</span> which is finite. Therefore <span class="math inline">\((x - z) \cup (z - x) \subseteq (x - y) \cup (y - x)\)</span> and by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\((x - z) \cup (z - x)\)</span> is finite.</p></li>
+<li><p>If <span class="math inline">\(a \not \in y\)</span> then <span class="math inline">\(a \in (z - y)\)</span> and <span class="math inline">\(a \in (y - z) \cup (z - y)\)</span> which is finite. Therefore <span class="math inline">\((x - z) \cup (z - x) \subseteq (y - z) \cup (z - y)\)</span> and by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\((x - z) \cup (z - x)\)</span> is finite.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\([x] = \{ z \in A \mid (x - z) \cup (z - x) \text{ is finite} \}\)</span></p></li>
+<li><p><span class="math inline">\(|x| = |x|\)</span></p>
+<p>If <span class="math inline">\(|x| = |y|\)</span> the |y| = |x|</p>
+<p>If <span class="math inline">\(|x| = |y|\)</span> and <span class="math inline">\(|y| = |z|\)</span> the <span class="math inline">\(|x| = |z|\)</span></p>
+<p><span class="math inline">\([x] = \{ z \in A \mid |x| = |z| \} = \{ x, -x \}\)</span></p></li>
+</ol></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="functions" class="level3" data-number="1.3.9">
+<h3 data-number="1.3.9" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.3.9</span> Functions</h3>
+<div id="def-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.49 (Function)</strong></span> By a function we mean a relation <span class="math inline">\(F\)</span> having the additional property:</p>
+<p><span class="math display">\[(xFy \land xFz) \Longrightarrow y = z\]</span></p>
+<p><strong>Note</strong>: This means that there can not be 2 ordered pairs in <span class="math inline">\(F\)</span> having the same first component but different second components.</p>
+</div>
+<p>A function <span class="math inline">\(F\)</span>, being a relation, has a domain, namely the set of first components or ordered pairs in <span class="math inline">\(F\)</span>. Notice that for each element <span class="math inline">\(x\)</span> of the domain of <span class="math inline">\(F\)</span>, there is one and only one object <span class="math inline">\(y\)</span> such that <span class="math inline">\(xFy\)</span>. This unique object <span class="math inline">\(y\)</span> shall be denoted <span class="math inline">\(F(x)\)</span>.</p>
+<p>Let us introduce the following notation for functions:</p>
+<p><span class="math display">\[F: A \longrightarrow B\]</span></p>
+<p>where it means that:</p>
+<ol type="i">
+<li><span class="math inline">\(F\)</span> is a function</li>
+<li>The domain of <span class="math inline">\(F\)</span> is <span class="math inline">\(A\)</span>: <span class="math inline">\(\mathscr{D}(F) = A\)</span>. Therefore:</li>
+</ol>
+<p><span class="math display">\[\mathscr{D}(F) = \{ x \in A \mid \exists y (F(x) = y)\}\]</span></p>
+<ol start="3" type="i">
+<li>The range of <span class="math inline">\(F\)</span> is a subset of <span class="math inline">\(B\)</span>: <span class="math inline">\(\mathscr{R}(F) \subseteq B\)</span>. Therefore:</li>
+</ol>
+<p><span class="math display">\[\mathscr{R}(F) = \{ y \in B \mid \exists x (F(x) = y)\}\]</span></p>
+<p>If <span class="math inline">\(F: A \longrightarrow B\)</span> we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into B.</p>
+<div id="exm-function" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.16</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Consider a set <span class="math inline">\(A\)</span>. The identity relation <span class="math inline">\(I_A = \{ (x,y) \mid x \in A \land y \in A \land x = y \}\)</span> is a function. If <span class="math inline">\(xI_Ay\)</span> and <span class="math inline">\(xI_Az\)</span> then <span class="math inline">\(x = y\)</span> and <span class="math inline">\(x = z\)</span> therefore <span class="math inline">\(y = z\)</span>. The domain of <span class="math inline">\(I_A\)</span> is <span class="math inline">\(A\)</span> and for each <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(I_A(x) = x\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of integers. Let <span class="math inline">\(F = \{ (x,y) \mid x \in A \land y \in A \land y = x + 1 \}\)</span>. Then <span class="math inline">\(F\)</span> is a function because if <span class="math inline">\(xFy\)</span> and <span class="math inline">\(xFz\)</span> then <span class="math inline">\(y = x + 1\)</span> and <span class="math inline">\(z = x + 1\)</span> so <span class="math inline">\(y = z\)</span>. The domain of <span class="math inline">\(F\)</span> is <span class="math inline">\(A\)</span> and for each <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(F(x) = x + 1\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers. Let <span class="math inline">\(F = \{ (x, y) \mid x \in A \land y \in A \land x = y^2 \}\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function because <span class="math inline">\(1F1\)</span> and <span class="math inline">\(1F-1\)</span> but <span class="math inline">\(1 \neq -1\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers. Let <span class="math inline">\(F = \{ (x, y) \mid x \in A \land y \in A \land y \geq 0 \land x = y^2 \}\)</span>. Therefore <span class="math inline">\(F\)</span> is a function because <span class="math inline">\(xFy\)</span> and <span class="math inline">\(xFz\)</span> then <span class="math inline">\(y^2 = z^2\)</span>. Therefore <span class="math inline">\(\sqrt{y^2} = \sqrt{z^2}\)</span> so <span class="math inline">\(|y| = |z|\)</span>. But <span class="math inline">\(y \geq 0\)</span> and <span class="math inline">\(z \geq 0\)</span> where we can conclude that <span class="math inline">\(y = z\)</span>. Because <span class="math inline">\(0 \leq y^2 = x\)</span> then the domain of <span class="math inline">\(F\)</span> is the set of all non negative real numbers, <span class="math inline">\(\mathbb{R}_{\geq 0}\)</span>. For each <span class="math inline">\(x \in \mathbb{R}_{\geq 0}\)</span>, <span class="math inline">\(F(x) = \sqrt{x}\)</span>.</p></li>
+<li><p>Very often a function <span class="math inline">\(F\)</span> is defined by giving a formula for an arbitrary value <span class="math inline">\(F(x)\)</span>. For example the function defined by <span class="math inline">\(F(x, y) = \sqrt{xy}\)</span> has as its domain the set of all ordered pairs <span class="math inline">\((x,y)\)</span> of real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> such that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> do not have different signs. That is, if one is positive the other is not negative.</p>
+<p><strong>Note</strong>: Strictly speaking we should write <span class="math inline">\(F((x, y)) = \sqrt{xy}\)</span> however is customary to drop the extra pair of parentheses.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers and let <span class="math inline">\(C\)</span> be the set of non negative real numbers. Let <span class="math inline">\(F = \{ (x,y) \mid x \in A \land y \in A \land y = x^2 \}\)</span>. Then <span class="math inline">\(F: A \longrightarrow A\)</span> where <span class="math inline">\(C = \mathscr{R}(F) \subseteq A\)</span> so the range of <span class="math inline">\(F\)</span> may or may not be all <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of non negative integers. Let <span class="math inline">\(F: A \times A \longrightarrow A\)</span> where <span class="math inline">\(F(x,y) = x^2 + y^2\)</span> for all non negative integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. However in this case it is not obvious how to give a simple characterization of the range of <span class="math inline">\(F\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-function" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.32</strong></span> &nbsp;</p>
+<ol type="1">
+<li></li>
+</ol>
+</div>
+<div id="sol-function" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.32</em>. </span></p>
+<ol type="1">
+<li></li>
 </ol>
 </div>
 
@@ -4929,7 +5323,6 @@ Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</spa
 </div>
 </section>
 </section>
-</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
@@ -4944,6 +5337,7 @@ Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</spa
         x, &amp; \text{if } x \geq 0 \\
         -x, &amp; \text{if } x &lt; 0
         \end{cases}\]</span><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>In the proof we use the following result <span class="math inline">\(\{ (\alpha \land \beta) \} \models (\alpha \Longrightarrow \beta)\)</span> where by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> <span class="math inline">\(\{ (\alpha \land \beta) \} \vdash (\alpha \Longrightarrow \beta)\)</span><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
