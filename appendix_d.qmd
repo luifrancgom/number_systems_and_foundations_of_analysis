@@ -1,1 +1,257 @@
 # Finite, Infinite and Denumerable Sets and Cardinal Numbers
+
+We say that sets $A$ and $B$ are equinumerous if and only if there is a one-one correspondence between $A$ and $B$, $F: A \xrightarrow[onto]{1-1} B$. We shall write $A \approx B$ to mean that $A$ and $B$ are equinumerous.
+
+::: {#thm-equinumerous-equivalence-relation}
+
+If $\mathscr{F}$ is an arbitrary collection of sets where $A \in \mathscr{F}$, $B \in \mathscr{F}$ and $C \in \mathscr{F}$ then $\approx$ is an equivalence relation on $\mathscr{F}$:
+
+a. $A \approx A$
+b. $A \approx B \Longrightarrow B \approx A$
+c. $(A \approx B \land B \approx C) \Longrightarrow A \approx C$
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+::: {#exr-equinumerous-relation}
+
+1. If $A \approx \emptyset$ prove that $A = \emptyset$
+
+2. Prove that $A \approx A \times {y}$ (Hint: Let $\theta(a) = (a,y)$ for all $a \in A$)
+
+:::
+
+::: {#sol-equinumerous-relation}
+
+1. **Pending**
+
+2.
+
+:::
+
+Two sets which are equinumerous are said to have the same cardinal number. We assume that each set $A$ has an associate cardinal number $\mathscr{K}(A)$. Hence, $\mathscr{K}(A) = \mathscr{K}(B) \iff A \approx B$.
+
+::: {#def-less-equal-than-and-less-than-relation-sets}
+
+If $\mathscr{F}$ is an arbitrary collection of sets where $A \in \mathscr{F}$ and $B \in \mathscr{F}$ the relations $\leq$ and $<$ on $\mathscr{F}$ are defined as:  
+
+a. $A \leq B \iff \exists F (F: A \xrightarrow[]{1-1} B)$
+
+b. $A < B \iff A \leq B \land A \not \approx B$
+
+**Note**: $A \not \approx B$ means $\neg(A \approx B)$. Therefore $A \leq B \land A \not \approx B$ means that it $\exists F (F: A \xrightarrow[]{1-1} B \land \neg(F: A \xrightarrow[onto]{} B))$ 
+
+:::
+
+::: {#thm-less-equal-than-and-less-than-relation-sets}
+
+If $\mathscr{F}$ is an arbitrary collection of sets where $A \in \mathscr{F}$, $B \in \mathscr{F}$ and $C \in \mathscr{F}$ then:
+
+a. $A \leq A$
+
+b. $A \leq B \land B \leq C \Longrightarrow A \leq C$
+
+c. $A \not < A$
+
+d. $B \subseteq A \Longrightarrow B \leq A$
+
+e. $A \leq B \iff (A < B \lor A \approx B)$
+
+f. $B \leq A \iff \exists W (W \subseteq A \land B \approx W)$
+
+g. $(A \leq B \land B \approx C) \Longrightarrow A \leq C$
+
+h. $(A \approx B \land B \leq C) \Longrightarrow A \leq C$
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+We can define an other relation $<_K$ on cardinal numbers. Let $\mathfrak{m}$ and $\mathfrak{n}$ be cardinal numbers. Take any sets $A$ and $B$ having cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$ respectively. By @thm-less-equal-than-and-less-than-relation-sets g and h it does not make any difference in these definitions which sets $A$ and $B$ we choose having cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$, respectively.  
+
+One can obtain theorems about cardinal numbers analogous to those proved above. For example, the analogue of @thm-less-equal-than-and-less-than-relation-sets b is $(\mathfrak{m} <_K \mathfrak{n} \land \mathfrak{n} <_K \mathfrak{p}) \Longrightarrow \mathfrak{m} <_K \mathfrak{p}$, for any cardinal numbers $\mathfrak{m}$, $\mathfrak{n}$ and $\mathfrak{p}$.
+
+::: {#thm-cantor-theorem}
+
+## Cantor theorem
+
+If $A$ is a set then:
+
+$$A < \mathscr{P}(A)$$
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+::: {#thm-schroder-bernstein-theorem}
+
+## Schröder-Bernstein theorem
+
+If $A$ and $B$ are sets then:
+
+$$(A \leq B \land B \leq A) \Longrightarrow A \approx B$$
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+::: {#cor-schroder-bernstein-theorem}
+
+a. $A \leq B \Longrightarrow B \not < A$
+
+b. $(A \leq B \land B < C) \Longrightarrow A < C$
+
+c. $(A < B \land B \leq C) \Longrightarrow A < C$
+
+d. $(A < B \land B < C) \Longrightarrow A < C$
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+All the results in @cor-schroder-bernstein-theorem and others formulated in terms of $\approx$, $\leq$ and $<$ can be reformulated in terms of cardinal numbers. For example @cor-schroder-bernstein-theorem a becomes $\mathfrak{m} \leq_K \mathfrak{n} \Longrightarrow \mathfrak{n} \not <_K \mathfrak{m}$ for any cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$.
+
+::: {#exr-schroder-bernstein-theorem}
+
+1. Prove that there is no universal set $U$ of all sets. (Hint: $\mathscr{P}(U) \leq U$ since $\mathscr{P}(U) \subseteq U$. Use @cor-schroder-bernstein-theorem a and @thm-cantor-theorem) 
+
+:::
+
+::: {#sol-schroder-bernstein-theorem}
+
+1. **Pending**
+
+:::
+
+Another apparently simple fact about sets is that, for any sets $A$ and $B$ either $A \leq B$ or $B \leq A$. This result is know as the Trichotomy Law and turns out to be equivalent to the Axiom of Choice.
+
+Lets us turn now to the study of finite sets. If $n$ is a positive number let:
+
+$$P_n = \{ k \in \mathbb{P} \mid k \leq n \}$$
+
+For example, $P_1 = \{ 1 \}, P_2 = \{ 1, 2 \}, \ldots P_n = \{ 1, \ldots, n \}$
+
+::: {#def-finite-set}
+
+## Finite set
+
+We say that a set $A$ is finite if and only if:
+
+$$A = \emptyset \lor \exists n (A \approx P_n)$$
+
+:::
+
+The notion in @def-finite-set should be distinguished from the notion of finite sequence. By a finite sequence we mean function $a: P_n \longrightarrow A$ for some positive number $n$. The number $n$ is called the length of the sequence and the values of the function, $a(k)$ where $k \leq n$, are called the terms of the sequence. Also it is traditional to write $a_k$ instead of $a(k)$.
+
+::: {#def-infinite-set}
+
+## Infinite set
+
+We say that a set $A$ is infinite if and only if it is not finite. That is:
+
+$$A \neq \emptyset \land \neg\exists n (A \approx P_n)$$
+
+:::
+
+::: {#lem-not-equinumerous-with-proper-subsets-pn}
+
+$P_n$ is not equinumerous with any of its propersubsets. That is:
+
+$$\forall A (A \subset P_n \Longrightarrow A \not \approx P_n)$$
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+::: {#thm-not-equinumerous-with-proper-subsets-finite-set}
+
+If $B$ is a finite set then $B$ is not equinumerous with any of its proper subsets.
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+::: {#cor-not-equinumerous-with-proper-subsets-finite-set}
+
+a. $n \neq k \Longrightarrow P_n \not \approx P_k$
+
+b. If $B$ is finite then either $B = \emptyset$ or there is a unique positive integer $n$ such that $B \approx P_n$ 
+
+:::
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+If $B \approx P_n$ we say that $B$ has $n$ elements or that $n$ is the number of elements in $B$. Also we assign the following cardinal numbers $\mathscr{K}(\emptyset) = 0$ and $\mathscr{K}(P_n) = n$. Thus if $B$ has $n$ elements $\mathscr{K}(B)=n$.
+
+::: {#thm-finite-set}
+
+a. If $B$ is finite so is $B \cup \{ y \}$.
+
+b. If $B$ is finite and $D \subseteq B$ then $D$ is finite.
+
+c. If $B$ is finite and $D \leq B$ then $D$ is finite.
+
+:::
+
+::: {.proof}
+
+a. **Pending**
+
+b.
+
+c.
+
+:::
+
+::: {#exr-finite-infinite-set}
+
+1. If $D$ is infinite and $D \subseteq B$ prove that $B$ is infinite.
+
+2. If $D$ is infinite and $D \leq B$ prove that $B$ is infinite. 
+
+3. Assume $B$ is finite, $D \subset B$, $\mathscr{K}(B) = n$ and $\mathscr{K}(D) = k$. Prove that $k < n$.  
+
+:::
+
+::: {#sol-finite-set}
+
+1. **Pending**
+
+2.
+
+3.
+
+:::

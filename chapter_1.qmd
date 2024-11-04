@@ -1,3 +1,4 @@
+
 ```{r}
 #| label: libraries
 
@@ -3779,7 +3780,27 @@ In @exm-binary-relation-reflexive-irreflexive 1 $R$, $S$ and $I_{\mathbb{Z}}$ ar
     c. Let $R$ be the $\leq$ relation on the set of integers. Show that $R$ is antisymmetric but not asymmetric on the set of integers.
     
     d. If a relation $R$ is irreflexive in a set $A$ and transitive in $A$, prove that $R$ is asymmetric in $A$.
-        
+
+3. Show that a relation $R$ is reflexive in a set $A$ if and only if $I_A \subseteq R$ where $I_A$ is the identity relation on $A$.
+
+4. Show that a relation $R$ is irreflexive in a set $A$ if and only if $R$ and $I_A$ are disjoint.
+
+5. Assume $R \subseteq A \times A$. Show that $R$ is symmetric in $A$ if and only if $R = R^{-1}$.
+
+6. Assume $R \subseteq A \times A$. Show that $R$ is transitive in $A$ if and only if $R \circ R \subseteq R$.
+
+7. Let $\mathbb{Z}$ be the set of integers. Find a relation $R$ which is:
+
+    a. Reflexive and symmetric in $\mathbb{Z}$ but not transitive in $\mathbb{Z}$.
+    
+    b. Reflexive and transitive in $\mathbb{Z}$ but not symmetric in $\mathbb{Z}$.
+    
+    c. Symmetric and transitive in $\mathbb{Z}$ but not reflexive in $\mathbb{Z}$.
+
+8.  Assume $R \subseteq A \times A$. Show that $R$ is asymmetric in $A$ if and only if $R \cap R^{-1} = \emptyset$.
+
+9.  Assume $R \subseteq A \times A$. Show that $R$ is antisymmetric in $A$ if and only if $R \cap R^{-1} \subseteq I_A$. 
+
 :::
 
 ::: {#sol-reflexivity-symmetry-transitivity}
@@ -3860,5 +3881,464 @@ In @exm-binary-relation-reflexive-irreflexive 1 $R$, $S$ and $I_{\mathbb{Z}}$ ar
     c. If $x \leq y$ and $y \leq x$ then $x = y$ so $\leq$ is antisymmetric in $\mathbb{Z}$ but $\leq$ is not asymmetric in $\mathbb{Z}$ because $x \leq x$ so it is not true that $\neg(x \leq x)$.   
     
     d. Let $R$ be irreflexive and transitive. Now assume $xRy$ and $yRx$ then $xRx$ but $R$ is irreflexive. Therefore $\neg(xRy \land yRx)$ which is equivalent to $\neg(xRy \land \neg(\neg(yRx)))$ so $xRy \Longrightarrow \neg(yRx)$. We conclude that $R$ is asymmetric.       
+
+3. We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is reflexive
+    
+       -  We have that $xI_Ax$ and $xRx$ so $I_A \subseteq R$.
+       
+    -  Assume $I_A \subseteq R$
+    
+       -  Because $xI_Ax$ then $xRx$ so $R$ is reflexive.
+       
+4. We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is irreflexive
+    
+       -  \neg(xRx) but $xI_Ax$ so $R \cap I_A = \subseteq$
+       
+    -  Assume $R \cap I_A = \subseteq$
+    
+       -  So $\neg(xRx)$
+       
+5. We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is symmetric
+    
+       -  $\begin{aligned}
+              xR^{1}y & \iff yRx \\
+              & \iff xRy
+              \end{aligned}$   
+
+    -  Assume $R = R^{-1}$ 
+    
+       -  If $yRx$ then $xR^{-1}y$ but $R = R^{-1}$. Therefore $xRy$ so R is symmetric.
+       
+6. We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is transitive
+    
+       -  $\begin{aligned}
+              x(R \circ)Ry & \iff \exists z (xRz \land zRy) \\
+              & \Longrightarrow xRy
+              \end{aligned}$
+              
+    -  Assume $R \circ R \subseteq R$[^chapter_1-9]
+    
+       -  $\begin{aligned}
+              x(R \circ R)y & \iff \exists z (xRz \land zRy) \\
+              & \Longrightarrow \exists z (xRz \land zRy) \land xRy \\
+              & \iff \exists z ((xRz \land zRy) \Longrightarrow xRy) 
+              \end{aligned}$
+
+7. We have the following examples:
+
+    a. Let $R = \{ (x,y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land |x - y| \leq 1 \}$
+    
+       -  $R$ is reflexive because $|x - x| \leq 1$.
+       -  $R$ is symmetric because if $|x - y| \leq 1$ then $|y - x| \leq 1$.
+       -  $R$ is not transitive because $|1 - 2| \leq 1$ and $|2 - 3| \leq 1$ but $|1 - 3| = 2 > 1$.
+    
+    b. Let $R = \{ (x,y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land x|y \}$
+    
+       -  $R$ is reflexive because $x|x$.
+       -  $R$ is not symmetric because if $x|y$ then it is not the case that $y|x$.
+       -  $R$ is transitive because if $x|y$ and $y|z$ then $x|z$.
+    
+    c. Let $R = \{ (x,y) \mid x \in \mathbb{Z} \land y \in \mathbb{Z} \land xy > 0 \}$
+    
+       -  $R$ is not reflexive because $0 \cdot 0 = 0$.
+       -  $R$ is symmetric because if $xy > 0$ then $yx > 0$.
+       -  $R$ is transitive because if $xy > 0$ and $yz > 0$ then $xz > 0$.
+
+8.  We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is asymmetric
+    
+       -  $\begin{aligned}
+            yRx & \Longrightarrow \neg(xRy) \land xR^{-1}y \\
+            & \Longrightarrow (x,y) \not \in R \land (x,y) \in R^{-1} \\
+            & \Longrightarrow R \cap R^{-1} = \emptyset
+            \end{aligned}$
+            
+    -  Assume $R \cap R^{-1} = \emptyset$
+    
+       -  Without loss of generality let $(x, y) \in R$ and $(x, y) \not \in R^{-1}$. Therefore $xRy$ and $\neg(xR^{-1}y)$. So $xRy$ and $\neg(yRx)$. In conclusion we have that $xRy \Longrightarrow \neg(yRx)$. 
+
+9.  We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is antisymmetric
+    
+       -  $\begin{aligned}
+            (x, y) \in R \cap R^{-1} & \iff (x, y) \in R \land (x,y) \in R^{-1} \\
+            & \iff xRy \land xR^{-1}y \\
+            & \iff xRy \land yRx \\
+            & \Longrightarrow x = y \\
+            & \Longrightarrow xRx \\
+            & \Longrightarrow xI_Ax 
+            \end{aligned}$  
+
+    -  Assume $R \cap R^{-1} \subseteq I_A$
+    
+       -  Let $(x, y) \in R \cap R^{-1}$ then $(x, y) \in I_A$. Therefore we have that $xRy$ and $xR^{-1}y$ then $x = y$. So $xRy$ and $yRx$ then $x = y$.
+       
+:::
+
+[^chapter_1-9]: In the proof we use the following result $\{ (\alpha \land \beta) \} \models (\alpha \Longrightarrow \beta)$ where by @thm-completeness-theorem $\{ (\alpha \land \beta) \} \vdash (\alpha \Longrightarrow \beta)$
+
+#### Negatively transitivite, connected and total, strongly connected or complete
+
+::: {#def-binary-relation-negatively-transitive}
+
+## Negatively transitive binary relation
+
+If $A$ is a set a binary relation $R$ is negatively transitive in $A$ if and only if:
+
+$$\forall x \forall y \forall z ((x \in A \land y \in A \land z \in A \land \neg(xRy) \land \neg(yRz)) \Longrightarrow \neg(xRz))$$
+
+:::
+
+::: {#def-binary-relation-connected}
+
+## Connected binary relation
+
+If $A$ is a set a binary relation $R$ is connected in $A$ if and only if:
+
+$$\forall x \forall y ((x \in A \land y \in A \land x \neq y) \Longrightarrow (xRy \lor yRx))$$
+
+:::
+
+::: {#def-binary-relation-total-strongly-connected-or-complete}
+
+## Total, strongly connected or complete binary relation
+
+If $A$ is a set a binary relation $R$ is total, strongly connected or complete in $A$ if and only if:
+
+$$\forall x \forall y (x \in A \land y \in A \land (xRy \lor yRx))$$
+
+:::
+
+::: {#exr-negatively-transitive-connected-total-strongly-connected-or-complete}
+
+1. Show that if $R$ is a binary relation that is asymmetric and negatively transitive then it is transitive.
+
+2. Assume $R \subseteq A \times A$. Show that $R$ is total, strongly connected or complete in $A$ if and only if $R \cup R^{-1} = A \times A$. 
+
+3. Assume $R \subseteq A \times A$. Show that $R$ is negatively transitive in $A$ if and only if $R^{'}$ is transitive in $A$.
+
+4. Show that if $R$ is a binary relation that is negatively transitive and complete then it is transitive.  
+
+:::
+
+::: {#sol-negatively-transitive-connected-total-strongly-connected-or-complete}
+
+1. $\begin{aligned}
+   xRy \land yRz & \Longrightarrow \neg(zRy) \land \neg(yRx) \\
+   & \Longrightarrow \neg(zRx) \\
+   & \Longrightarrow \neg \neg (xRz) \\
+   & \iff xRz
+   \end{aligned}$ 
+
+2. We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is total, strongly connected or complete
+    
+       -  $\begin{aligned}
+           xRy \lor yRx & \iff xRy \lor xR^{-1}y \\
+           & \iff (x,y) \in R \cup R^{-1} \\
+           & \iff (x,y) \in A \times A
+           \end{aligned}$
+           
+    -  Assume $R \cup R^{-1} = A \times A$
+    
+       -  $\begin{aligned}
+           (x,y) \in A \times A & \Longrightarrow (x,y) \in R \cup R^{-1} \\
+           & \iff xRy \lor xR^{-1}y \\
+           & \iff xRy \lor yRx
+           \end{aligned}$
+
+3.  We deduce this assertion in 2 parts:
+
+    -  Assume $R$ is negatively transitive 
+    
+       -  $\begin{aligned}
+            (x,y) \not \in R \land (y,z) \not \in R & \Longrightarrow (x,z) \not \in R \\
+            & \Longrightarrow (x,y) \in R^{'} \land (y,z) \in R^{'} \land (x,z) \in R^{'} \\
+            & \Longrightarrow xR^{'}y \land yR^{'}z \land xR^{'}z \\
+            & \Longrightarrow ((xR^{'}y \land
+            yR^{'}z) \Longrightarrow xR^{'}z)
+            \end{aligned}$
+
+    -  Assume $R^{'}$ is transitive 
+    
+       -  $\begin{aligned}
+            (x,y) \in R^{'} \land (y,z) \in R^{'} & \Longrightarrow (x,z) \in R^{'} \\
+            & \Longrightarrow (x,y) \not \in R \land (y,z) \not \in R \land (x,z) \not \in R^{'} \\
+            & \Longrightarrow ((\neg(xRy) \land (\neg(yRz)) \Longrightarrow \neg(xRz))
+            \end{aligned}$
+
+4.  Let $R$ is negatively transitive so $\neg(xRy) \land \neg(yRz) \Longrightarrow \neg(xRz)$. Because $R$ is complete $zRy \land yRx \Longrightarrow zRx$. Therefore $R$ is transitive. 
+
+:::
+
+#### Acyclic
+
+::: {#def-binary-relation-acyclic}
+
+## Acyclic binary relation
+
+If $A$ is a set a binary relation $R$ is acyclic in $A$ if and only if:
+
+$$\neg(\exists x_1 \ldots \exists x_n (x_1Rx_2  \land \ldots  \land x_nRx_1))$$
+where $n \in \mathbb{N} \land n > 1$
+
+:::
+
+::: {#exr-acyclic}
+
+1. Assume $R \subseteq A \times A$. Show that $R$ is acyclic in $A$ if and only if $R^n \cap I_A = \emptyset$ where $R^n = \underset{n \text{ times}}{\underbrace{R \circ \ldots \circ R}}$.
+
+2. Show that if $R$ is a binary relation that is acyclic then it is irreflexive.
+
+:::
+
+::: {#sol-acyclic}
+
+1.  $\begin{aligned}
+      R \text{ is acyclic} & \iff (x,x) \not \in R^n \\ 
+      & \iff (x,x) \not \in R^n \land (x,x) \in I_A \\
+      & \iff R^n \cap I_A = \emptyset
+      \end{aligned}$
+
+2.  If $R$ is acyclic then for $n = 2$ we have that $\neg(\exists x_1 \exists x_2 (x_1Rx_2 \land x_2Rx_1))$. Let $x_1 = x_2 = x$ then $\neg(\exists x (xRx \land xRx))$. Therefore $\neg(\exists x (xRx \land xRx))$ which means that $\neg(\exists x (xRx))$. So $R$ is irreflexive.   
+
+:::
+
+#### Equivalence relations
+
+::: {#def-equivalence-relation}
+
+## Equivalence relation
+
+A relation $R$ is said to be and equivalence relation in a set $A$ if and only if $R$ is reflexive, symmetric and transitive in $A$.
+
+:::
+
+::: {#exm-equivalence-relation}
+
+These are examples of equivalence binary relations:
+
+1. Let $A$ be any set. Then the identity relation $I_A = \{ (x,y) \mid x \in A \land y \in A \land x = y \}$ is an equivalence relation in $A$.
+
+2. Let $T$ be the set of triangles in a plane.
+
+    a.  The congruence relation, $R = \{ (x,y) \mid x \in T \land y \in T \land x \text{ is congruent to } y \}$, is an equivalence relation in $T$.
+    
+    b.  The similarity relation, $S = \{ (x,y) \mid x \in T \land y \in T \land x \text{ is similar to } y \}$, is an equivalence relation in $T$.
+
+3. Let $P$ be the set of people. Then the following are equivalence relations in $P$.
+
+    a.  $R = \{ (x,y) \mid x \in P \land y \in P \land x \text{ is the same height as } y \}$
+    
+    b.  $S = \{ (x,y) \mid x \in P \land y \in P \land x \text{ and } y \text{ has the same mother and father } \}$
+
+4.  Let $A$ be the set of integers. Let $n$ be a fixed integer greater than $1$. Let $R = \{ (x,y) \mid x \in A \land y \in A \land x - y \text{ is divisible by } n \}$. Then $R$ is an equivalence relation in $A$. Later we will study this relation which is known as congruence modulo $n$: $x \equiv y \text{ mod } n$ ($x$ is congruent to $y$ modulo $n$).
+
+    a. $x \equiv x \text{ mod } n$
+    b. If $x \equiv y \text{ mod } n$ then $y \equiv x \text{ mod } n$
+    c. If $x \equiv y \text{ mod } n$ and $y \equiv z \text{ mod } n$ then $x \equiv z \text{ mod } n$ 
+
+:::
+
+::: {#def-equivalence-class}
+
+## Equivalence class
+
+Consider an equivalence relation $R$ in a set $A$. Each $x \in A$ determines the set of all elements $z$ such that $xRz$. This set is denoted $[x]$ and called the equivalence class of $x$ (relative to the relation $R$). Thus,
+
+$$[x] = \{ z \in A \mid xRz \}$$
+
+**Note**: We should use the notation $[x]_R$ instead of $[x]$ in order to indicate the equivalence relation relative to which we are forming equivalence classes. However, we shall omit the subscript $R$ if we are talking about only one equivalence relation or it is obvious from the context which equivalence relation we are refering about.   
+
+:::
+
+::: {#exm-equivalence-class}
+
+These are examples of equivalence classes:
+
+1. In @exm-equivalence-relation 1 for any $x \in A$:
+
+   $$[x] = \{ z \in A \mid zI_Ax \}$$
+
+   Hence $[x] = \{ x \}$. Thus, the equivalence classes in this example are the singletons $\{ x \}$ where $x \in A$.
+   
+2. In @exm-equivalence-relation 4 for any $x \in A$:
+
+   $$[x] = \{ z \in A \mid z \equiv x \text{ mod } n \}$$
+   
+   Later we will prove that if $z \equiv x \text{ mod } n$ then $z$ and $x$ have the same remainder when diving by $n$. That is $z = q_z*n + r$ and $x = q_x*n + r$. Because $0 \leq r < n$ then $r$ can take the values of $0, 1, \ldots n-1$. Therefore we will show later that there are exactly $n$ distinct equivalence classes modulo $n$.
+   
+:::
+
+::: {#thm-equality-equivalence-classes}
+
+## Equality between equivalence classes
+
+Consider an equivalence relation $R$ on a set $A$. Then 2 elements $x$ and $y$ determine the same equivalence class if and only $xRy$. That is,
+
+$$[x] = [y] \iff xRy$$
+
+**Note**: If $x \in A$ then $x \in [x]$. 
+
+:::
+
+::: {.proof}
+
+$$\begin{split}
+  x \in [x] & \iff x \in [y] \\
+  & \iff yRx \\
+  & \iff xRy
+  \end{split}$$
+
+:::
+
+By @thm-equality-equivalence-classes let $[x] \neq [y]$ then $\neg(xRy)$ and $\neg(yRx)$. Let any $z \in [y]$ then $yRz$. Therefore $\neg(zRx)$ because if $zRx$ then $yRx$ but we know that $\neg(yRx)$. So if $\neg(zRx)$ then $z \not \in [x]$ which means that $[x] \cap [y] = \emptyset$ because $z$ is any $z \in [y]$. In that sense, an equivalence relation $R$ on a set $A$ divides $A$ into a collection of nonempty and mutually exclusive subsets where each subset is an equivalence class.
+
+::: {#exr-equivalence-classes}
+
+1.  For each relation $R$ and a $A$, determine whether $R$ is an equivalence relation in $A$. If it is, describe the equivalence classes.
+
+    a. $A$ is the set of lines in a plane
+       
+       $R = \{ (x, y) \mid x \in A \land y \in A \land (x=y \text{ or } x \text{ is parallel to } y) \}$
+       
+    b. $A$ is the set of all points inside a given circle, excluding the center of the circle.
+       
+       $\begin{aligned}
+        R = \{ &(x, y) \mid x \in A \land y \in A  \\
+        & \land (x=y \text{ or the line connecting } x \text{ and } y \text{ passes through the center of the circle}) \}
+        \end{aligned}$
+
+    c. $A$ is the set of all the subsets of integers
+       
+       $R = \{ (x, y) \mid x \in A \land y \in A \land ((x - y) \cup (y - x) \text{ is finite }) \}$
+       
+    d. $A$ is the set of all integers
+       
+       $R = \{ (x, y) \mid x \in A \land y \in A \land |x| = |y| \}$
+
+:::
+
+::: {#sol-equivalence-classes}
+
+1. For each relation $R$ and each set $A$ we have the following results.
+
+    a. $\neg(x \parallel x)$ but $x = x$
+       
+       If $x \parallel y$ then $y \parallel x$
+       
+       If $x \parallel y$ and $y \parallel z$ then $x \parallel z$
+       
+       $[x] = \{ z \in A \mid z = x \lor x \parallel z \}$
+
+    b. $R$ is not an equivalence relation because it is not transitive as it is show in @fig-sol-equivalence-classes-b taking into account that $zRx$ and $xRy$ but $\neg(zRy)$
+    
+    ![A case where $R$ is not transitive](images/fig-sol-equivalence-classes-b.png){#fig-sol-equivalence-classes-b fig-align="center" width=30%}
+
+    c. $(x - x) \cup (x - x) = \emptyset \cup \emptyset = \emptyset$ so according to @def-finite-set $(x - x) \cup (x - x)$ is finite.
+       
+       $(x - y) \cup (y - x) = (y - x) \cup (x - y)$ so $(y - x) \cup (x - y)$ is finite because $(x - y) \cup (y - x)$ is finite.
+       
+       Let $(x - y) \cup (y - x)$ finite and $(y - z) \cup (z - y)$ finite. Is $(x - z) \cup (z - x)$ finite? 
+       
+         - $(x - z) \cap (z - x) = \emptyset$ so if $a \in (x - z) \cup (z - x)$ then $a \in (x - z)$ or $a \in (z - x)$ but not both.
+          
+           - Assume $a \in (x - z)$ then $a \in x$ and $a \not \in z$. Also there are 2 possibilities: $a \in y$ or $a \not \in y$.
+          
+             - If $a \in y$ then $a \in (y - z)$ and $a \in (y - z) \cup (z - y)$ which is finite. Therefore $(x - z) \cup (z - x) \subseteq (y - z) \cup (z - y)$ and by @thm-finite-set $(x - z) \cup (z - x)$ is finite.
+             
+             - If $a \not \in y$ then $a \in (x - y)$ and $a \in (x - y) \cup (y - x)$ which is finite. Therefore $(x - z) \cup (z - x) \subseteq (x - y) \cup (y - x)$ and by @thm-finite-set $(x - z) \cup (z - x)$ is finite.
+             
+           - Assume $a \in (z - x)$ then $a \in z$ and $a \not \in x$. Also there are 2 possibilities: $a \in y$ or $a \not \in y$.
+
+             - If $a \in y$ then $a \in (y - x)$ and $a \in (x - y) \cup (y - x)$ which is finite. Therefore $(x - z) \cup (z - x) \subseteq (x - y) \cup (y - x)$ and by @thm-finite-set $(x - z) \cup (z - x)$ is finite.
+             
+             - If $a \not \in y$ then $a \in (z - y)$ and $a \in (y - z) \cup (z - y)$ which is finite. Therefore $(x - z) \cup (z - x) \subseteq (y - z) \cup (z - y)$ and by @thm-finite-set $(x - z) \cup (z - x)$ is finite.
+             
+       $[x] = \{ z \in A \mid (x - z) \cup (z - x) \text{ is finite} \}$
+
+    d. $|x| = |x|$
+       
+       If $|x| = |y|$ the |y| = |x|
+       
+       If $|x| = |y|$ and $|y| = |z|$ the $|x| = |z|$
+       
+       $[x] = \{ z \in A \mid |x| = |z| \} = \{ x, -x \}$
+
+:::
+
+### Functions
+
+::: {#def-function}
+
+## Function
+
+By a function we mean a relation $F$ having the additional property:
+
+$$(xFy \land xFz) \Longrightarrow y = z$$
+
+**Note**: This means that there can not be 2 ordered pairs in $F$ having the same first component but different second components.
+
+:::
+
+A function $F$, being a relation, has a domain, namely the set of first components or ordered pairs in $F$. Notice that for each element $x$ of the domain of $F$, there is one and only one object $y$ such that $xFy$. This unique object $y$ shall be denoted $F(x)$.
+
+Let us introduce the following notation for functions:
+
+$$F: A \longrightarrow B$$
+
+where it means that:
+
+i. $F$ is a function
+ii. The domain of $F$ is $A$: $\mathscr{D}(F) = A$. Therefore:
+
+   $$\mathscr{D}(F) = \{ x \in A \mid \exists y (F(x) = y)\}$$
+
+iii. The range of $F$ is a subset of $B$: $\mathscr{R}(F) \subseteq B$. Therefore:
+
+   $$\mathscr{R}(F) = \{ y \in B \mid \exists x (F(x) = y)\}$$
+
+If $F: A \longrightarrow B$ we shall say that $F$ is a function from $A$ into B.
+
+::: {#exm-function}
+
+1. Consider a set $A$. The identity relation $I_A = \{ (x,y) \mid x \in A \land y \in A \land x = y \}$ is a function. If $xI_Ay$ and $xI_Az$ then $x = y$ and $x = z$ therefore $y = z$. The domain of $I_A$ is $A$ and for each $x \in A$, $I_A(x) = x$.
+
+2. Let $A$ be the set of integers. Let $F = \{ (x,y) \mid x \in A \land y \in A \land y = x + 1 \}$. Then $F$ is a function because if $xFy$ and $xFz$ then $y = x + 1$ and $z = x + 1$ so $y = z$. The domain of $F$ is $A$ and for each $x \in A$, $F(x) = x + 1$.
+
+3. Let $A$ be the set of real numbers. Let $F = \{ (x, y) \mid x \in A \land y \in A \land x = y^2 \}$. Therefore $F$ is not a function because $1F1$ and $1F-1$ but $1 \neq -1$. 
+
+4. Let $A$ be the set of real numbers. Let $F = \{ (x, y) \mid x \in A \land y \in A \land y \geq 0 \land x = y^2 \}$. Therefore $F$ is a function because $xFy$ and $xFz$ then $y^2 = z^2$. Therefore $\sqrt{y^2} = \sqrt{z^2}$ so $|y| = |z|$. But $y \geq 0$ and $z \geq 0$ where we can conclude that $y = z$. Because $0 \leq y^2 = x$ then the domain of $F$ is the set of all non negative real numbers, $\mathbb{R}_{\geq 0}$. For each $x \in \mathbb{R}_{\geq 0}$, $F(x) = \sqrt{x}$.   
+
+5. Very often a function $F$ is defined by giving a formula for an arbitrary value $F(x)$. For example the function defined by $F(x, y) = \sqrt{xy}$ has as its domain the set of all ordered pairs $(x,y)$ of real numbers $x$ and $y$ such that $x$ and $y$ do not have different signs. That is, if one is positive the other is not negative.
+
+   **Note**: Strictly speaking we should write $F((x, y)) = \sqrt{xy}$ however is customary to drop the extra pair of parentheses.
+
+6. Let $A$ be the set of real numbers and let $C$ be the set of non negative real numbers. Let $F = \{ (x,y) \mid x \in A \land y \in A \land y = x^2 \}$. Then $F: A \longrightarrow A$ where $C = \mathscr{R}(F) \subseteq A$ so the range of $F$ may or may not be all $A$.
+
+7. Let $A$ be the set of non negative integers. Let $F: A \times A \longrightarrow A$ where $F(x,y) = x^2 + y^2$ for all non negative integers $x$ and $y$. However in this case it is not obvious how to give a simple characterization of the range of $F$.
+
+:::
+
+::: {#exr-function}
+
+1. 
+
+:::
+
+::: {#sol-function}
+
+1. 
 
 :::

@@ -5,7 +5,6 @@ project:
     port: 3001
     browser: true
     navigate: true
-
 book:
   title: Number Systems and the Foundations of Analysis
   subtitle: Mathematical Adventures
