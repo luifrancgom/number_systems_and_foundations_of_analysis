@@ -4333,12 +4333,150 @@ If $F: A \longrightarrow B$ we shall say that $F$ is a function from $A$ into B.
 
 ::: {#exr-function}
 
-1. 
+1. For each of the following relations $F$, determine whether it is a function. If it is, find its domain, and if possible, give an explicit formula for $F(x)$:
+
+    a.  Let $A$ be the set of real numbers and let:
+    
+        $$F = \{ (x, y) \mid x \in A \land \ y \in A \land x^2 + y^2 = 1 \}$$
+
+    b.  Let $A$ be the set of real numbers, and let
+    
+        $$F = \{ (x, y) \mid x \in A \land \ y \in A \land 2x + 3y = 12 \}$$
+        
+    c.  Same as b, except that $A$ is the set of positive integers.
+    
+    d.  Let $A$ be the set of integers, and let
+    
+        $$F = \{ (x, y) \mid x \in A \land \ y \in A \land x^2 = y^2 \}$$
+
+    e.  Same as d, except that $A$ is the set of positive integers.
+    
+    f.  Let $A$ be the set of real numbers, and let
+    
+        $$F = \{ (x, y) \mid x \in A \land \ y \in A \land x + 1 > y - 2 \}$$
+
+    g.  Let $A$ be the set of real numbers, and let
+    
+        $$F = \{ (x, y) \mid x \in A \land \ y \in A \land x + y = y^2 \}$$
+
+    h.  Let $A$ be the set of real numbers, and let
+    
+        $$F = \{ (x, y) \mid x \in A \land \ y \in A \land x = y^2 + 1 \}$$
+        
+    i.  Let $A$ be the set of real numbers, and let
+    
+        $$F = \{ ((x, y), z) \mid x \in A \land \ y \in A \land z \in A \land x + y + z = 0 \}$$
+
+    j.  Let $A$ be the set of real numbers, and let
+    
+        $$F = \{ ((x, y), z) \mid x \in A \land \ y \in A \land z \in A \land x^2 = y^2 + z^2 \}$$
+
+    k.  Same as j except that $z \in A$ is replaced by $z \in A \land z \geq 0$.
+
+    l.  $F = \{ (1,1), (2,4), (4, 16) \}$ 
+    
+    m.  $F = \{ (0,3), (1,4), (2, 6), (3,3) \}$
+    
+    n.  $F = \{ (0,3), (1,4), (2, 6), (0,5) \}$
+
+2. For each of the following formulas determining functions, find the domain assuming that $\mathscr{D}(F) \subseteq \mathbb{R}$ or $\mathscr{D}(F) \subseteq \mathbb{R}^2$:
+
+    a. $F(x) = \sqrt{x + 2}$ 
+    
+    b. $F(x) = \sqrt{x^2 - 1}$
+    
+    c. $F(x, y) = \sqrt{x + y} + 2$
+    
+    d. $F(x) = \sqrt{4 - x^2} + \sqrt{x^2 - 1}$
+
+3.  Consider any functions $F$ and $G$. Prove that if:
+
+    i. $\mathscr{D}(F) = \mathscr{D}(G)$
+    
+    ii. For any $x \in \mathscr{D}(F)$, $F(x) = G(x)$
+    
+    Then $F = G$.
+
+4.  Let $\mathscr{F}$ be any set of functions such that: 
+
+    $$\forall F \forall G ((F \in \mathscr{F} \land G \in \mathscr{F} \land F \neq G) \Longrightarrow \mathscr{D}(F) \cap \mathscr{D}(G) = \emptyset)$$
+
+    Prove that $S = \bigcup_{F \in \mathscr{F}} F$ is a function and $\mathscr{D}(S) = \bigcup_{F \in \mathscr{F}} \mathscr{D}(F)$.  
+
+5. Let $F: A \longrightarrow B$ where $A$ is a set with $n$ elements and $B$ a set with $m$ elements. How many distinct functions can be defined from set $A$ to $B$?  
 
 :::
 
 ::: {#sol-function}
 
-1. 
+1.  For each of the following relations $F$ we have that:
 
+    a.  $F$ is not a function because $|y| = \sqrt{x^2 + 1}$. So for example $1F\sqrt{2}$ and $1F-\sqrt{2}$ but $\sqrt{2} \neq -\sqrt{2}$.
+    
+    b.  Let $y = \frac{12}{3} - \frac{2}{3}x$. Assume $xRy_1$ and $xRy_2$ then $y_1 = \frac{12}{3} - \frac{2}{3}x$ and $y_2 = \frac{12}{3} - \frac{2}{3}x$. Therefore $y_1 = y_2$. Also $\mathscr{D}(F) = \mathbb{R}$.
+    
+    c.  We have that $y = \frac{12}{3} - \frac{2}{3}x = \frac{2}{3}(6 - x)$. Because $y \in A$ then at least $6 > x > 0$. So the possible candidates for $x$ are $1$, $2$, $3$, $4$ and $5$. But $\frac{2}{3}(6 - x)$ must also be a positive integer so $x$ must be $3$ and $y$ must be $2$. Therefore $F$ is a function where $\mathscr{D}(F) = \{ 3 \}$ and $\mathscr{R}(F) = \{ 2 \}$.   
+
+    d.  We have that $\sqrt{x^2} = \sqrt{y^2}$ so $|x| = |y|$. Because $x \in A$ we have that $1F1$ and $1F-1$ then $F$ is not a function.   
+
+    e. We have that $\sqrt{x^2} = \sqrt{y^2}$ so $|x| = |y|$. But $x \in A$ and $y \in A$ so $x = y$. Therefore if $xRy$ and $xRz$ then because $x = y$ and $x = z$ it must be the case that $y = z$. So $F$ is a function and $\mathscr{D}(F) = \mathbb{P}$.
+    
+    f.  We have that $x + 3 > y$ so $1R3$ and $1R2$. Therefore $F$ is not a function.
+    
+    g.  We have that $x = y(y - 1)$. Therefore $F$ is not a function because $0F0$ and $0F1$.
+    
+    h.  We have that $x = y^2 + 1$. Therefore $F$ is not a function because $2R1$ and $2R-1$.
+    
+    i.  We have that $x + y = -z$. Let $(x,y)Rz$ and $(x,y)Rw$ then $x + y = -z$ and $x + y = -w$. So $-z = -w$ and $z = w$. Therefore $F$ is a function and $\mathscr{D}(F) = \mathbb{R}^2$.
+
+    j.  We have that $x^2 - y^2= z^2$. Therefore $F$ is not a function because $(1,0)R1$ and $(1,0)R-1$.
+    
+    k.  We have that $\sqrt{x^2 - y^2}= \sqrt{z^2}$ and $\sqrt{x^2 - y^2}= |z|$. But $z \leq 0$ so $\sqrt{x^2 - y^2}= z$. Let $(x,y)Rz$ and $(x,y)Rw$ then $\sqrt{x^2 - y^2}= z$ and $\sqrt{x^2 - y^2}= w$. So $z = w$ which means that $F$ is a function. Also $\mathscr{D}(F) = \{ (x,y) \mid x \in \mathbb{R} \land x \in \mathbb{R} \land |x| \geq |y| \}$.
+    
+    l.  $F$ is a function where $y = x^2$ and $\mathscr{D}(F) = \{ x \mid x \in \{1, 2, 4\} \}$
+    
+    m.  $F$ is a function where $\mathscr{D}(F) = \{ x \mid x \in \{ 0, 1, 2, 3 \} \}$. To find an explicit formula find a polynomial of degree $3$ that passes throught the $4$ ordered pairs: $f(x) = a_3x^3 + a_2x^2 + a_1x + a_0$.
+    
+        We have that:
+        
+        -  $f(0) = a_0 = 3$
+        -  $f(1) = a_3 + a_2 + a_1 + a_0 = 4$ so $a_3 + a_2 + a_1 = 1$ 
+        -  $f(2) = a_3*8 + a_2*4 + a_1*2 + a_0 = 6$ so $a_3*8 + a_2*4 + a_1*2 = 3$  
+        -  $f(3) = a_3*27 + a_2*9 + a_1*3 + a_0 = 3$ so $a_3*9 + a_2*3 + a_1 = 0$
+        
+        Solving this system of equations we have that $a_3 = -1$, $a_2 = \frac{7}{2}$ and $a_1 = -\frac{3}{2}$. Therefore:
+        
+           $$F = \{ (x, y) \mid x \in \{ 0, 1, 2, 3 \} \land y = -x^3 + \frac{7}{2}x^2 -\frac{3}{2}x + 3 \}$$
+
+    n.  $F$ is not a function because $0F3$ and $0F5$.
+    
+2. For each $F$ we have that:
+
+    a. $\mathscr{D}(F) = \{ x \in \mathbb{R} \mid x \geq 2 \}$
+    
+    b. Because $x^2 - 1 = (x + 1)(x - 1)$ then  $\mathscr{D}(F) = \{ x \in \mathbb{R} \mid x \leq -1 \lor x \geq 1 \}$
+    
+    c. $\mathscr{D}(F) = \{ (x, y) \in \mathbb{R}^2 \mid x \geq -y \}$
+    
+    d. Because $4 - x^2 = (2 - x)(2 + x)$ and $x^2 - 1 = (x + 1)(x - 1)$ then $\mathscr{D}(F) = \{ x \in \mathbb{R} \mid -2 \leq x \leq -1 \lor 1 \leq x \leq 2 \}$
+    
+3. Because $F$ and $G$ are sets then $F = G$ if and only if $\forall x \forall y ((x,y) \in F \iff (x,y) \in G)$.
+
+    i.  By @nte-proof-by-reductio-ad-absurdum assume $\mathscr{D}(F) \neq \mathscr{D}(G)$. Without loss of generality assume $x \in \mathscr{D}(F)$ but $x \not \in \mathscr{D}(G)$ then there is some $y$ such that $(x, y) \in F$ and $(x, y) \not \in G$. However this is a contradiction because $\forall x \forall y ((x,y) \in F \iff (x,y) \in G)$. Therefore it must be the case that $\mathscr{D}(F) = \mathscr{D}(G)$.
+    
+    ii. Also if $x \in \mathscr{D}(F)$ it exists some $y$ such that $F(x) = y$ where $(x, y) \in F$. Because $\forall x \forall y ((x,y) \in F \iff (x,y) \in G)$ then $(x, y) \in G$. Therefore $G(x) = y$ which means that $F(x) = G(x)$. 
+
+4. Let $xSy$ and $xSz$ then it exists a unique $F$ such that $xFy$ and $xFz$ because for any 2 different functions in $\mathscr{F}$ we have that their domains are disjoint. Therefore $x$ can only belong to the domain of 1 function in $\mathscr{F}$. Because $F$ is a function $y = z$ so $S$ is a function.
+
+   Also we have that:
+   
+      $\begin{aligned}
+         x \in \mathscr{D}(S) & \iff \exists y (xSy) \\
+         & \iff \exists ! G (xGy) \\
+         & \iff \exists ! G (x \in \mathscr{D}(G)) \\
+         & \iff x \in \bigcup_{F \in \mathscr{F}} \mathscr{D}(F)
+      \end{aligned}$
+
+5. Let $F(a_i) = b_j$ where $a_i \in A$, $i = 1, \ldots, n$, $b_j \in B$ and $j = 1, \ldots, m$. For $F(a_1)$ we have $m$ options to assign to $a_1$, for $F(a_2)$ we have $m$ options to assign to $a_2$, $\ldots$, for $F(a_n)$ we have $m$ options to assign to $a_n$. Therefore we can define $\underset{n \text{ times}}{\underbrace{m \times \ldots \times m}} = m^n$ distinct functions from $A$ to $B$.     
+    
 :::
