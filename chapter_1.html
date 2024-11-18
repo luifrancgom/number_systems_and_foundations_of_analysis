@@ -5275,13 +5275,101 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <div id="exr-function" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.32</strong></span> &nbsp;</p>
 <ol type="1">
-<li></li>
+<li><p>For each of the following relations <span class="math inline">\(F\)</span>, determine whether it is a function. If it is, find its domain, and if possible, give an explicit formula for <span class="math inline">\(F(x)\)</span>:</p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers and let:</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in A \land \ y \in A \land x^2 + y^2 = 1 \}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in A \land \ y \in A \land 2x + 3y = 12 \}\]</span></p></li>
+<li><p>Same as b, except that <span class="math inline">\(A\)</span> is the set of positive integers.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of integers, and let</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in A \land \ y \in A \land x^2 = y^2 \}\]</span></p></li>
+<li><p>Same as d, except that <span class="math inline">\(A\)</span> is the set of positive integers.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in A \land \ y \in A \land x + 1 &gt; y - 2 \}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in A \land \ y \in A \land x + y = y^2 \}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in A \land \ y \in A \land x = y^2 + 1 \}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let</p>
+<p><span class="math display">\[F = \{ ((x, y), z) \mid x \in A \land \ y \in A \land z \in A \land x + y + z = 0 \}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let</p>
+<p><span class="math display">\[F = \{ ((x, y), z) \mid x \in A \land \ y \in A \land z \in A \land x^2 = y^2 + z^2 \}\]</span></p></li>
+<li><p>Same as j except that <span class="math inline">\(z \in A\)</span> is replaced by <span class="math inline">\(z \in A \land z \geq 0\)</span>.</p></li>
+<li><p><span class="math inline">\(F = \{ (1,1), (2,4), (4, 16) \}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{ (0,3), (1,4), (2, 6), (3,3) \}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{ (0,3), (1,4), (2, 6), (0,5) \}\)</span></p></li>
+</ol></li>
+<li><p>For each of the following formulas determining functions, find the domain assuming that <span class="math inline">\(\mathscr{D}(F) \subseteq \mathbb{R}\)</span> or <span class="math inline">\(\mathscr{D}(F) \subseteq \mathbb{R}^2\)</span>:</p>
+<ol type="a">
+<li><p><span class="math inline">\(F(x) = \sqrt{x + 2}\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = \sqrt{x^2 - 1}\)</span></p></li>
+<li><p><span class="math inline">\(F(x, y) = \sqrt{x + y} + 2\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = \sqrt{4 - x^2} + \sqrt{x^2 - 1}\)</span></p></li>
+</ol></li>
+<li><p>Consider any functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>. Prove that if:</p>
+<ol type="i">
+<li><p><span class="math inline">\(\mathscr{D}(F) = \mathscr{D}(G)\)</span></p></li>
+<li><p>For any <span class="math inline">\(x \in \mathscr{D}(F)\)</span>, <span class="math inline">\(F(x) = G(x)\)</span></p></li>
+</ol>
+<p>Then <span class="math inline">\(F = G\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathscr{F}\)</span> be any set of functions such that:</p>
+<p><span class="math display">\[\forall F \forall G ((F \in \mathscr{F} \land G \in \mathscr{F} \land F \neq G) \Longrightarrow \mathscr{D}(F) \cap \mathscr{D}(G) = \emptyset)\]</span></p>
+<p>Prove that <span class="math inline">\(S = \bigcup_{F \in \mathscr{F}} F\)</span> is a function and <span class="math inline">\(\mathscr{D}(S) = \bigcup_{F \in \mathscr{F}} \mathscr{D}(F)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F: A \longrightarrow B\)</span> where <span class="math inline">\(A\)</span> is a set with <span class="math inline">\(n\)</span> elements and <span class="math inline">\(B\)</span> a set with <span class="math inline">\(m\)</span> elements. How many distinct functions can be defined from set <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>?</p></li>
 </ol>
 </div>
 <div id="sol-function" class="proof solution">
 <p><span class="proof-title"><em>Solution 1.32</em>. </span></p>
 <ol type="1">
-<li></li>
+<li><p>For each of the following relations <span class="math inline">\(F\)</span> we have that:</p>
+<ol type="a">
+<li><p><span class="math inline">\(F\)</span> is not a function because <span class="math inline">\(|y| = \sqrt{x^2 + 1}\)</span>. So for example <span class="math inline">\(1F\sqrt{2}\)</span> and <span class="math inline">\(1F-\sqrt{2}\)</span> but <span class="math inline">\(\sqrt{2} \neq -\sqrt{2}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(y = \frac{12}{3} - \frac{2}{3}x\)</span>. Assume <span class="math inline">\(xRy_1\)</span> and <span class="math inline">\(xRy_2\)</span> then <span class="math inline">\(y_1 = \frac{12}{3} - \frac{2}{3}x\)</span> and <span class="math inline">\(y_2 = \frac{12}{3} - \frac{2}{3}x\)</span>. Therefore <span class="math inline">\(y_1 = y_2\)</span>. Also <span class="math inline">\(\mathscr{D}(F) = \mathbb{R}\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(y = \frac{12}{3} - \frac{2}{3}x = \frac{2}{3}(6 - x)\)</span>. Because <span class="math inline">\(y \in A\)</span> then at least <span class="math inline">\(6 &gt; x &gt; 0\)</span>. So the possible candidates for <span class="math inline">\(x\)</span> are <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span>. But <span class="math inline">\(\frac{2}{3}(6 - x)\)</span> must also be a positive integer so <span class="math inline">\(x\)</span> must be <span class="math inline">\(3\)</span> and <span class="math inline">\(y\)</span> must be <span class="math inline">\(2\)</span>. Therefore <span class="math inline">\(F\)</span> is a function where <span class="math inline">\(\mathscr{D}(F) = \{ 3 \}\)</span> and <span class="math inline">\(\mathscr{R}(F) = \{ 2 \}\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(\sqrt{x^2} = \sqrt{y^2}\)</span> so <span class="math inline">\(|x| = |y|\)</span>. Because <span class="math inline">\(x \in A\)</span> we have that <span class="math inline">\(1F1\)</span> and <span class="math inline">\(1F-1\)</span> then <span class="math inline">\(F\)</span> is not a function.</p></li>
+<li><p>We have that <span class="math inline">\(\sqrt{x^2} = \sqrt{y^2}\)</span> so <span class="math inline">\(|x| = |y|\)</span>. But <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in A\)</span> so <span class="math inline">\(x = y\)</span>. Therefore if <span class="math inline">\(xRy\)</span> and <span class="math inline">\(xRz\)</span> then because <span class="math inline">\(x = y\)</span> and <span class="math inline">\(x = z\)</span> it must be the case that <span class="math inline">\(y = z\)</span>. So <span class="math inline">\(F\)</span> is a function and <span class="math inline">\(\mathscr{D}(F) = \mathbb{P}\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(x + 3 &gt; y\)</span> so <span class="math inline">\(1R3\)</span> and <span class="math inline">\(1R2\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function.</p></li>
+<li><p>We have that <span class="math inline">\(x = y(y - 1)\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function because <span class="math inline">\(0F0\)</span> and <span class="math inline">\(0F1\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(x = y^2 + 1\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function because <span class="math inline">\(2R1\)</span> and <span class="math inline">\(2R-1\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(x + y = -z\)</span>. Let <span class="math inline">\((x,y)Rz\)</span> and <span class="math inline">\((x,y)Rw\)</span> then <span class="math inline">\(x + y = -z\)</span> and <span class="math inline">\(x + y = -w\)</span>. So <span class="math inline">\(-z = -w\)</span> and <span class="math inline">\(z = w\)</span>. Therefore <span class="math inline">\(F\)</span> is a function and <span class="math inline">\(\mathscr{D}(F) = \mathbb{R}^2\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(x^2 - y^2= z^2\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function because <span class="math inline">\((1,0)R1\)</span> and <span class="math inline">\((1,0)R-1\)</span>.</p></li>
+<li><p>We have that <span class="math inline">\(\sqrt{x^2 - y^2}= \sqrt{z^2}\)</span> and <span class="math inline">\(\sqrt{x^2 - y^2}= |z|\)</span>. But <span class="math inline">\(z \leq 0\)</span> so <span class="math inline">\(\sqrt{x^2 - y^2}= z\)</span>. Let <span class="math inline">\((x,y)Rz\)</span> and <span class="math inline">\((x,y)Rw\)</span> then <span class="math inline">\(\sqrt{x^2 - y^2}= z\)</span> and <span class="math inline">\(\sqrt{x^2 - y^2}= w\)</span>. So <span class="math inline">\(z = w\)</span> which means that <span class="math inline">\(F\)</span> is a function. Also <span class="math inline">\(\mathscr{D}(F) = \{ (x,y) \mid x \in \mathbb{R} \land x \in \mathbb{R} \land |x| \geq |y| \}\)</span>.</p></li>
+<li><p><span class="math inline">\(F\)</span> is a function where <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(\mathscr{D}(F) = \{ x \mid x \in \{1, 2, 4\} \}\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is a function where <span class="math inline">\(\mathscr{D}(F) = \{ x \mid x \in \{ 0, 1, 2, 3 \} \}\)</span>. To find an explicit formula find a polynomial of degree <span class="math inline">\(3\)</span> that passes throught the <span class="math inline">\(4\)</span> ordered pairs: <span class="math inline">\(f(x) = a_3x^3 + a_2x^2 + a_1x + a_0\)</span>.</p>
+<p>We have that:</p>
+<ul>
+<li><span class="math inline">\(f(0) = a_0 = 3\)</span></li>
+<li><span class="math inline">\(f(1) = a_3 + a_2 + a_1 + a_0 = 4\)</span> so <span class="math inline">\(a_3 + a_2 + a_1 = 1\)</span></li>
+<li><span class="math inline">\(f(2) = a_3*8 + a_2*4 + a_1*2 + a_0 = 6\)</span> so <span class="math inline">\(a_3*8 + a_2*4 + a_1*2 = 3\)</span><br>
+</li>
+<li><span class="math inline">\(f(3) = a_3*27 + a_2*9 + a_1*3 + a_0 = 3\)</span> so <span class="math inline">\(a_3*9 + a_2*3 + a_1 = 0\)</span></li>
+</ul>
+<p>Solving this system of equations we have that <span class="math inline">\(a_3 = -1\)</span>, <span class="math inline">\(a_2 = \frac{7}{2}\)</span> and <span class="math inline">\(a_1 = -\frac{3}{2}\)</span>. Therefore:</p>
+<p><span class="math display">\[F = \{ (x, y) \mid x \in \{ 0, 1, 2, 3 \} \land y = -x^3 + \frac{7}{2}x^2 -\frac{3}{2}x + 3 \}\]</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is not a function because <span class="math inline">\(0F3\)</span> and <span class="math inline">\(0F5\)</span>.</p></li>
+</ol></li>
+<li><p>For each <span class="math inline">\(F\)</span> we have that:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\mathscr{D}(F) = \{ x \in \mathbb{R} \mid x \geq 2 \}\)</span></p></li>
+<li><p>Because <span class="math inline">\(x^2 - 1 = (x + 1)(x - 1)\)</span> then <span class="math inline">\(\mathscr{D}(F) = \{ x \in \mathbb{R} \mid x \leq -1 \lor x \geq 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{D}(F) = \{ (x, y) \in \mathbb{R}^2 \mid x \geq -y \}\)</span></p></li>
+<li><p>Because <span class="math inline">\(4 - x^2 = (2 - x)(2 + x)\)</span> and <span class="math inline">\(x^2 - 1 = (x + 1)(x - 1)\)</span> then <span class="math inline">\(\mathscr{D}(F) = \{ x \in \mathbb{R} \mid -2 \leq x \leq -1 \lor 1 \leq x \leq 2 \}\)</span></p></li>
+</ol></li>
+<li><p>Because <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are sets then <span class="math inline">\(F = G\)</span> if and only if <span class="math inline">\(\forall x \forall y ((x,y) \in F \iff (x,y) \in G)\)</span>.</p>
+<ol type="i">
+<li><p>By <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume <span class="math inline">\(\mathscr{D}(F) \neq \mathscr{D}(G)\)</span>. Without loss of generality assume <span class="math inline">\(x \in \mathscr{D}(F)\)</span> but <span class="math inline">\(x \not \in \mathscr{D}(G)\)</span> then there is some <span class="math inline">\(y\)</span> such that <span class="math inline">\((x, y) \in F\)</span> and <span class="math inline">\((x, y) \not \in G\)</span>. However this is a contradiction because <span class="math inline">\(\forall x \forall y ((x,y) \in F \iff (x,y) \in G)\)</span>. Therefore it must be the case that <span class="math inline">\(\mathscr{D}(F) = \mathscr{D}(G)\)</span>.</p></li>
+<li><p>Also if <span class="math inline">\(x \in \mathscr{D}(F)\)</span> it exists some <span class="math inline">\(y\)</span> such that <span class="math inline">\(F(x) = y\)</span> where <span class="math inline">\((x, y) \in F\)</span>. Because <span class="math inline">\(\forall x \forall y ((x,y) \in F \iff (x,y) \in G)\)</span> then <span class="math inline">\((x, y) \in G\)</span>. Therefore <span class="math inline">\(G(x) = y\)</span> which means that <span class="math inline">\(F(x) = G(x)\)</span>.</p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(xSy\)</span> and <span class="math inline">\(xSz\)</span> then it exists a unique <span class="math inline">\(F\)</span> such that <span class="math inline">\(xFy\)</span> and <span class="math inline">\(xFz\)</span> because for any 2 different functions in <span class="math inline">\(\mathscr{F}\)</span> we have that their domains are disjoint. Therefore <span class="math inline">\(x\)</span> can only belong to the domain of 1 function in <span class="math inline">\(\mathscr{F}\)</span>. Because <span class="math inline">\(F\)</span> is a function <span class="math inline">\(y = z\)</span> so <span class="math inline">\(S\)</span> is a function.</p>
+<p>Also we have that:</p>
+<p><span class="math inline">\(\begin{aligned}
+      x \in \mathscr{D}(S) &amp; \iff \exists y (xSy) \\
+      &amp; \iff \exists ! G (xGy) \\
+      &amp; \iff \exists ! G (x \in \mathscr{D}(G)) \\
+      &amp; \iff x \in \bigcup_{F \in \mathscr{F}} \mathscr{D}(F)
+   \end{aligned}\)</span></p></li>
+<li><p>Let <span class="math inline">\(F(a_i) = b_j\)</span> where <span class="math inline">\(a_i \in A\)</span>, <span class="math inline">\(i = 1, \ldots, n\)</span>, <span class="math inline">\(b_j \in B\)</span> and <span class="math inline">\(j = 1, \ldots, m\)</span>. For <span class="math inline">\(F(a_1)\)</span> we have <span class="math inline">\(m\)</span> options to assign to <span class="math inline">\(a_1\)</span>, for <span class="math inline">\(F(a_2)\)</span> we have <span class="math inline">\(m\)</span> options to assign to <span class="math inline">\(a_2\)</span>, <span class="math inline">\(\ldots\)</span>, for <span class="math inline">\(F(a_n)\)</span> we have <span class="math inline">\(m\)</span> options to assign to <span class="math inline">\(a_n\)</span>. Therefore we can define <span class="math inline">\(\underset{n \text{ times}}{\underbrace{m \times \ldots \times m}} = m^n\)</span> distinct functions from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</p></li>
 </ol>
 </div>
 
