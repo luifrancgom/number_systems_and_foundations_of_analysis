@@ -4309,7 +4309,7 @@ iii. The range of $F$ is a subset of $B$: $\mathscr{R}(F) \subseteq B$. Therefor
 
    $$\mathscr{R}(F) = \{ y \in B \mid \exists x (F(x) = y)\}$$
 
-If $F: A \longrightarrow B$ we shall say that $F$ is a function from $A$ into B.
+If $F: A \longrightarrow B$ we shall say that $F$ is a function from $A$ into $B$.
 
 ::: {#exm-function}
 
@@ -4480,3 +4480,161 @@ If $F: A \longrightarrow B$ we shall say that $F$ is a function from $A$ into B.
 5. Let $F(a_i) = b_j$ where $a_i \in A$, $i = 1, \ldots, n$, $b_j \in B$ and $j = 1, \ldots, m$. For $F(a_1)$ we have $m$ options to assign to $a_1$, for $F(a_2)$ we have $m$ options to assign to $a_2$, $\ldots$, for $F(a_n)$ we have $m$ options to assign to $a_n$. Therefore we can define $\underset{n \text{ times}}{\underbrace{m \times \ldots \times m}} = m^n$ distinct functions from $A$ to $B$.     
     
 :::
+
+#### Functions from $A$ onto $B$ (Surjective functions)
+
+::: {#def-onto-function}
+
+## Function from $A$ onto $B$ (Surjective function)
+
+If $F$ is a function from $A$ into $B$, $F: A \longrightarrow B$, and the range of $F$ is all of $B$, $\mathscr{R}(F) = B$, then we shall say that $F$ is a function from $A$ onto $B$. This will be written as $F: A \xrightarrow[onto]{} B$. Thus:
+
+$$F: A \longrightarrow B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)$$
+
+**Note**: An alternative definition is that $F: A \longrightarrow B$ is a function from $A$ onto $B$ or surjective if $\forall y (y \in B \Longrightarrow \exists x(x \in A \land F(x) = y))$. 
+
+:::
+
+::: {#exm-onto-function}
+
+1. Let $A \subset B$. Consider the identity function $I_A$:
+
+   $$I_A(x) = x \text{ for all } x \in A$$
+   Then $I_A: A \longrightarrow B$ but $I_A$ is not a function from $A$ onto $B$. No element of $B - A$ is in the range of $I_A$.
+   
+2. Let $A$ be the set of non negative integers, that is $A = \mathbb{Z}_{\geq 0}$. Let $F(x, y, z , w) = x^2 + y^2 + z^2 + w^2$ for all $x$, $y$, $z$ and $w$ in $A$. Then $F: A^4 \longrightarrow A$ is a function from $A^4$ onto $A$.
+
+   According to *Lagrange four square theorem* [@seroul_programming_2000, pp. 207-208] every non negative integer can be represented as a sum of four non negative integer squares. Therefore according to this theorem we have that, $F: A^4 \xrightarrow[onto]{} A$.
+   
+3. Let $A$ be the set of non negative integers, that is $\mathbb{Z}_{\geq 0}$, and let $B$ be the set of positive integers, that is $\mathbb{P}$. Consider the function $F$ such that $F(x) = x + 1$ for all $x \in A$. Then $F: A \xrightarrow[onto]{} B$ because $1 \in B$ taking into account that $0 \in A$ and $F(0) = 1$. Also for some arbitrary $n \in B$ we have that $n - 1 \in A$ and $F(n-1) = n$.
+
+   However $F$ is not a function from $A$ onto $A$ taking into account that $0 \not \in \mathscr{R}(F)$ because $x + 1 = 0$ implies that $x = -1$ but $-1 \not \in A$.  
+
+:::
+
+::: {#exr-function}
+
+1. For each of the following functions $F$ and sets $A$ and $B$, determine whether $F$ is a function from $A$ onto $B$.
+
+    a. $A$ and $B$ are both set of integers. $F(x) = -x$ for each integer $x$.
+    
+    b. Let $A = C \times C$ and $B = C$ where $C$ is the set of non negative integers, that is $\mathbb{Z}_{\geq 0}$. Let $F(x,y) = 2^x(2y + 1)$.
+    
+    c. $A$ and $B$ are both equal to the set of real numbers. $F(x) = 3x$ for all $x \in A$.
+    
+    d. $C$ and $D$ are arbitrary sets. Let $A = C \times D$ and $B = D \times C$. $F(x, y) = (y, x)$ for all $(x, y) \in C \times D$.
+    
+    e. $A$ and $B$ are both equal to the set of real numbers. $F(x) = 2x + 1$ for all $x \in A$.
+    
+    f. Same as e, except that $A$ and $B$ are both equal to the set of integers.
+
+    g. Same as e, except that $A$ and $B$ are both equal to the set of nonnegative real numbers.
+
+:::
+
+::: {#sol-function}
+
+1. For each function $F$ and sets $A$ and $B$ where $F: A \longrightarrow B$ we have that:
+
+    a.  If $y = 0$ then $F(0) = -0 = 0$. In case where $y < 0$ and $y \in B$ then $F(-y) = -(-y) = y$ where $-y \in A$. Finally if $y > 0$ and $y \in B$ then $F(-y) = -(-y) = y$ where $-y \in A$. Therefore $F: A \xrightarrow[onto]{} B$.
+    
+    b.  Assume $2^x(2y + 1) = 0$ then $y = -\frac{1}{2}$ because $2^x > 0$. Therefore $F$ is not a function from $A$ onto $B$ taking into account that $0 \not \in B$.
+    
+    c.  If $y \in B$ then let $3x = y$ so $x = \frac{y}{3}$ where $x \in A$. Therefore $F: A \xrightarrow[onto]{} B$.
+    
+    d.  Let $(y, x) \in B$ then there is always $(x, y) \in A$. Therefore $F: A \xrightarrow[onto]{} B$.
+
+    e.  If $y \in B$ then let $2x + 1 = y$ so $x = \frac{y - 1}{2}$ where $x \in A$. Therefore $F: A \xrightarrow[onto]{} B$.
+    
+    f.  Let $2x + 1 = 0$ then $x = -\frac{1}{2}$ but $x \not \in A$. Therefore $F$ is not a function from $A$ onto $B$ taking into account that $0 \not \in B$. In particular there is no $x \in A$ when $y = 1$ or $y = 2n$ where $n \in \mathbb{P}$. That is $y$ is equal to $1$ or an even number.
+    
+    g.  Let $2x + 1 = y$ then $x = \frac{y - 1}{2}$ but $y \not \in B$ because $x = -\frac{1}{2}$ where $x \not \in A$. In particular if $0 \leq y < 1$ there is no $x \geq 0$.
+
+:::
+
+#### One-one functions (Injective functions)
+
+::: {#def-one-one-function}
+
+## One-one function (Injective function)
+
+$F$ is one-one (or $1-1$) if and only if for any distinct objects $x$ and $y$ of the domain $F$, $F(x) \neq F(y)$. In other words, $F$ takes different objects into different objects. This will be written as $F: A \xrightarrow[]{1-1} B$. Thus:
+
+$$F \text{ is one-one} \iff \forall x \forall x ((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))$$
+
+**Note**: Notice that the condition for $F$ to be one-one can be reformulated as $F(x) = F(y) \Longrightarrow x = y$ when $x \in \mathscr{D}(F) \land y \in \mathscr{D}(F)$. In other words, if $F$ takes $x$ and $y$ into the same object then $x = y$.
+
+:::
+
+::: {#exm-one-one-function}
+
+1. Let $A$ be any set and let $I_A$ be the identity function in $A$. Then $I_A: A \xrightarrow[]{1-1} A$ because $I_A(x) = I_A(y)$ means that $x = y$.
+
+2. Let $F$ be the function such that $F(x) = x + 1$ for all $x$ in the set $A$ of integers. Then $F: A \xrightarrow[]{1-1} B$ because if $x + 1 = y + 1$ then $x = y$. 
+
+3. Let $F$ be the function such that $F(x) = 3x + 1$ for all $x$ in the set $A$ of real numbers. Then $F: A \xrightarrow[]{1-1} B$ because if $3x + 1 = 3y + 1$ then $x = y$. 
+
+4. Let $F(x, y) = 2^x(2y + 1)$ for all $x$ and $y$ in the set $A$ of non negative integers. Then $F: A \xrightarrow[]{1-1} B$:
+
+   Why? Let $2^x(2y + 1) = 2^w(2z + 1)$ then $x = w$ or $x \neq w$:
+   
+      -  If $x = w$ then $2y + 1 = 2z + 1$ so $y = z$. Therefore $(x, y) = (w, z)$.
+      
+      -  If $x \neq w$ assume without loss of generality that $x > w$:
+      
+         -  Therefore $2^{x - w}(2y + 1) = 2z + 1$ so $2^{x - w}(2y + 1) = 2*2^{x - w - 1}(2y + 1)$. This means that $2^{x - w}(2y + 1)$ is even but $2z + 1$ is odd. We have a contradiction so it must be the case that $x = w$. By the first part we have also that $y = z$.
+         
+5. Consider any sets $A$ and $B$. Let $F(x, y) = (y, x)$ for all $(x, y) \in A \times B$. Then $F: A \times B \xrightarrow[]{1-1} B \times A$ taking into account that if $F(x, y) = F(w, z)$ then $(y, x) = (z, w)$ so $y = z$ and $x = w$. Therefore $(x, y) = (w, z)$. 
+
+6. Let $A$ be the set of non negative real numbers, that is $\mathbb{R}_{\geq 0}$. Let $F(x) = \sqrt{x}$ for all real numbers $x \in A$. Then $F: A \xrightarrow[]{1-1} A$. Why? Let $F(x) = F(y)$ then $\sqrt{x} = \sqrt{y}$. Therefore $|x| = |y|$ where this implies that $x = y$.
+
+7. Let $A$ be the set of real numbers and let $F(x) = x^2$ for all $x \in A$. Then $F$ is not one-one, since $F(1) = F(-1)$.
+
+:::
+
+Consider a function $F$. The inverse relation $F^{-1}$ need not be a function. For example, let $F(x) = x^2$ for all real numbers $x$. Clearly, $(1, 1) \in F$ and $(-1, 1) \in F$ so $(1, 1) \in F^{-1}$ and $(1, -1) \in F^{-1}$. Therefore $F^{-1}$ is not a function.
+
+::: {#thm-inverse-function-as-a-function}
+
+If $F$ is one-one function, then $F^{-1}$ must be a function. In fact, $F^{-1}$ is a one-one function.  
+
+:::
+
+::: {.proof}
+
+First we prove that $F^{-1}$ is a function:
+
+$$\begin{split}
+  (x, y) \in F^{-1} \land (x, z) \in F^{-1} & \iff (y, x) \in F \land (z, x) \in F \\
+  & \iff F(y) = x \land F(z) = x \\
+  & \iff F(y) = F(z) \\
+  & \Longrightarrow y = z
+  \end{split}$$
+  
+The we prove that $F^{-1}$ is one-one function:
+
+$$\begin{split}
+  F^{-1}(x) = F^{-1}(y) & \iff (x, z) \in F^{-1} \land (y, z) \in F^{-1} \\
+  & \iff (z, x) \in F \land (z, y) \in F \\
+  & \Longrightarrow x = y
+  \end{split}$$
+
+:::
+
+Notice that if $F: A \xrightarrow[]{1-1} B$ then $F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A$[^chapter_1-10]. According to @exr-inverse-composition-relations 2 $\mathscr{D}(R^{-1}) = \mathscr{R}(R)$ and $\mathscr{R}(R^{-1}) = \mathscr{D}(R)$ so $\mathscr{D}(F^{-1}) = \mathscr{R}(F)$ and $\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A$. In particular if $F: A \xrightarrow[onto]{1-1} B$ then $F^{-1}: B \xrightarrow[onto]{1-1} A$ because $\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B$.   
+
+[^chapter_1-10]: If $G: C \xrightarrow[]{1-1} D$ and $G: C \xrightarrow[onto]{} D$ we write $G: C \xrightarrow[onto]{1-1} D$.   
+
+::: {#exm-inverse-function-as-a-function}
+
+1. In @exm-one-one-function 1 $I_A = I_A^{-1}$ because $\mathscr{D}(I_A) = \mathscr{D}(I_A^{-1})$ and for any $x \in \mathscr{D}(I_A)$ we have that $I_A(x) = I_A^{-1}(x)$.
+
+2. In @exm-one-one-function 2 $F: A \xrightarrow[onto]{1-1} B$, $F^{-1}: B \xrightarrow[onto]{1-1} A$ and $F^{-1}(x) = x - 1$ for all $x \in A$.  
+
+3. In @exm-one-one-function 3 $F: A \xrightarrow[onto]{1-1} B$, $F^{-1}: B \xrightarrow[onto]{1-1} A$ and $F^{-1}(x) = \frac{x - 1}{3}$ for all $x \in A$.
+
+4. In @exm-one-one-function 5 
+
+:::
+
+When $F: A \xrightarrow[onto]{1-1} B$, we say that $F$ is a *one-one correspondence* between $A$ and $B$. If there is a one-one correspondence between $A$ and $B$, then $A$ and $B$ are said to be **equinumerous** because, in a certain case, each has a many elements as other.
