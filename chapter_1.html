@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cd7de1037569933fbb609f06423bd096.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -5258,7 +5258,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <li>The range of <span class="math inline">\(F\)</span> is a subset of <span class="math inline">\(B\)</span>: <span class="math inline">\(\mathscr{R}(F) \subseteq B\)</span>. Therefore:</li>
 </ol>
 <p><span class="math display">\[\mathscr{R}(F) = \{ y \in B \mid \exists x (F(x) = y)\}\]</span></p>
-<p>If <span class="math inline">\(F: A \longrightarrow B\)</span> we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into B.</p>
+<p>If <span class="math inline">\(F: A \longrightarrow B\)</span> we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>.</p>
 <div id="exm-function" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.16</strong></span> &nbsp;</p>
 <ol type="1">
@@ -5320,7 +5320,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-function" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.32</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.33</em>. </span></p>
 <ol type="1">
 <li><p>For each of the following relations <span class="math inline">\(F\)</span> we have that:</p>
 <ol type="a">
@@ -5372,6 +5372,112 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <li><p>Let <span class="math inline">\(F(a_i) = b_j\)</span> where <span class="math inline">\(a_i \in A\)</span>, <span class="math inline">\(i = 1, \ldots, n\)</span>, <span class="math inline">\(b_j \in B\)</span> and <span class="math inline">\(j = 1, \ldots, m\)</span>. For <span class="math inline">\(F(a_1)\)</span> we have <span class="math inline">\(m\)</span> options to assign to <span class="math inline">\(a_1\)</span>, for <span class="math inline">\(F(a_2)\)</span> we have <span class="math inline">\(m\)</span> options to assign to <span class="math inline">\(a_2\)</span>, <span class="math inline">\(\ldots\)</span>, for <span class="math inline">\(F(a_n)\)</span> we have <span class="math inline">\(m\)</span> options to assign to <span class="math inline">\(a_n\)</span>. Therefore we can define <span class="math inline">\(\underset{n \text{ times}}{\underbrace{m \times \ldots \times m}} = m^n\)</span> distinct functions from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</p></li>
 </ol>
 </div>
+<section id="functions-from-a-onto-b-surjective-functions" class="level4" data-number="1.3.9.1">
+<h4 data-number="1.3.9.1" class="anchored" data-anchor-id="functions-from-a-onto-b-surjective-functions"><span class="header-section-number">1.3.9.1</span> Functions from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> (Surjective functions)</h4>
+<div id="def-onto-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.50 (Function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> (Surjective function))</strong></span> If <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, <span class="math inline">\(F: A \longrightarrow B\)</span>, and the range of <span class="math inline">\(F\)</span> is all of <span class="math inline">\(B\)</span>, <span class="math inline">\(\mathscr{R}(F) = B\)</span>, then we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span>. This will be written as <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>. Thus:</p>
+<p><span class="math display">\[F: A \longrightarrow B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)\]</span></p>
+<p><strong>Note</strong>: An alternative definition is that <span class="math inline">\(F: A \longrightarrow B\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> or surjective if <span class="math inline">\(\forall y (y \in B \Longrightarrow \exists x(x \in A \land F(x) = y))\)</span>.</p>
+</div>
+<div id="exm-onto-function" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.17</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(A \subset B\)</span>. Consider the identity function <span class="math inline">\(I_A\)</span>:</p>
+<p><span class="math display">\[I_A(x) = x \text{ for all } x \in A\]</span> Then <span class="math inline">\(I_A: A \longrightarrow B\)</span> but <span class="math inline">\(I_A\)</span> is not a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span>. No element of <span class="math inline">\(B - A\)</span> is in the range of <span class="math inline">\(I_A\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of non negative integers, that is <span class="math inline">\(A = \mathbb{Z}_{\geq 0}\)</span>. Let <span class="math inline">\(F(x, y, z , w) = x^2 + y^2 + z^2 + w^2\)</span> for all <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> in <span class="math inline">\(A\)</span>. Then <span class="math inline">\(F: A^4 \longrightarrow A\)</span> is a function from <span class="math inline">\(A^4\)</span> onto <span class="math inline">\(A\)</span>.</p>
+<p>According to <em>Lagrange four square theorem</em> <span class="citation" data-cites="seroul_programming_2000">(<a href="references.html#ref-seroul_programming_2000" role="doc-biblioref">Seroul 2000, 207–8</a>)</span> every non negative integer can be represented as a sum of four non negative integer squares. Therefore according to this theorem we have that, <span class="math inline">\(F: A^4 \xrightarrow[onto]{} A\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of non negative integers, that is <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span>, and let <span class="math inline">\(B\)</span> be the set of positive integers, that is <span class="math inline">\(\mathbb{P}\)</span>. Consider the function <span class="math inline">\(F\)</span> such that <span class="math inline">\(F(x) = x + 1\)</span> for all <span class="math inline">\(x \in A\)</span>. Then <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span> because <span class="math inline">\(1 \in B\)</span> taking into account that <span class="math inline">\(0 \in A\)</span> and <span class="math inline">\(F(0) = 1\)</span>. Also for some arbitrary <span class="math inline">\(n \in B\)</span> we have that <span class="math inline">\(n - 1 \in A\)</span> and <span class="math inline">\(F(n-1) = n\)</span>.</p>
+<p>However <span class="math inline">\(F\)</span> is not a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(A\)</span> taking into account that <span class="math inline">\(0 \not \in \mathscr{R}(F)\)</span> because <span class="math inline">\(x + 1 = 0\)</span> implies that <span class="math inline">\(x = -1\)</span> but <span class="math inline">\(-1 \not \in A\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-function" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.33</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>For each of the following functions <span class="math inline">\(F\)</span> and sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, determine whether <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span>.</p>
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both set of integers. <span class="math inline">\(F(x) = -x\)</span> for each integer <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A = C \times C\)</span> and <span class="math inline">\(B = C\)</span> where <span class="math inline">\(C\)</span> is the set of non negative integers, that is <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span>. Let <span class="math inline">\(F(x,y) = 2^x(2y + 1)\)</span>.</p></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of real numbers. <span class="math inline">\(F(x) = 3x\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
+<li><p><span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> are arbitrary sets. Let <span class="math inline">\(A = C \times D\)</span> and <span class="math inline">\(B = D \times C\)</span>. <span class="math inline">\(F(x, y) = (y, x)\)</span> for all <span class="math inline">\((x, y) \in C \times D\)</span>.</p></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of real numbers. <span class="math inline">\(F(x) = 2x + 1\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
+<li><p>Same as e, except that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of integers.</p></li>
+<li><p>Same as e, except that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of nonnegative real numbers.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-function" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.33</em>. </span></p>
+<ol type="1">
+<li><p>For each function <span class="math inline">\(F\)</span> and sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> where <span class="math inline">\(F: A \longrightarrow B\)</span> we have that:</p>
+<ol type="a">
+<li><p>If <span class="math inline">\(y = 0\)</span> then <span class="math inline">\(F(0) = -0 = 0\)</span>. In case where <span class="math inline">\(y &lt; 0\)</span> and <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(F(-y) = -(-y) = y\)</span> where <span class="math inline">\(-y \in A\)</span>. Finally if <span class="math inline">\(y &gt; 0\)</span> and <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(F(-y) = -(-y) = y\)</span> where <span class="math inline">\(-y \in A\)</span>. Therefore <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(2^x(2y + 1) = 0\)</span> then <span class="math inline">\(y = -\frac{1}{2}\)</span> because <span class="math inline">\(2^x &gt; 0\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> taking into account that <span class="math inline">\(0 \not \in B\)</span>.</p></li>
+<li><p>If <span class="math inline">\(y \in B\)</span> then let <span class="math inline">\(3x = y\)</span> so <span class="math inline">\(x = \frac{y}{3}\)</span> where <span class="math inline">\(x \in A\)</span>. Therefore <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>.</p></li>
+<li><p>Let <span class="math inline">\((y, x) \in B\)</span> then there is always <span class="math inline">\((x, y) \in A\)</span>. Therefore <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>.</p></li>
+<li><p>If <span class="math inline">\(y \in B\)</span> then let <span class="math inline">\(2x + 1 = y\)</span> so <span class="math inline">\(x = \frac{y - 1}{2}\)</span> where <span class="math inline">\(x \in A\)</span>. Therefore <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(2x + 1 = 0\)</span> then <span class="math inline">\(x = -\frac{1}{2}\)</span> but <span class="math inline">\(x \not \in A\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> taking into account that <span class="math inline">\(0 \not \in B\)</span>. In particular there is no <span class="math inline">\(x \in A\)</span> when <span class="math inline">\(y = 1\)</span> or <span class="math inline">\(y = 2n\)</span> where <span class="math inline">\(n \in \mathbb{P}\)</span>. That is <span class="math inline">\(y\)</span> is equal to <span class="math inline">\(1\)</span> or an even number.</p></li>
+<li><p>Let <span class="math inline">\(2x + 1 = y\)</span> then <span class="math inline">\(x = \frac{y - 1}{2}\)</span> but <span class="math inline">\(y \not \in B\)</span> because <span class="math inline">\(x = -\frac{1}{2}\)</span> where <span class="math inline">\(x \not \in A\)</span>. In particular if <span class="math inline">\(0 \leq y &lt; 1\)</span> there is no <span class="math inline">\(x \geq 0\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+</section>
+<section id="one-one-functions-injective-functions" class="level4" data-number="1.3.9.2">
+<h4 data-number="1.3.9.2" class="anchored" data-anchor-id="one-one-functions-injective-functions"><span class="header-section-number">1.3.9.2</span> One-one functions (Injective functions)</h4>
+<div id="def-one-one-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.51 (One-one function (Injective function))</strong></span> <span class="math inline">\(F\)</span> is one-one (or <span class="math inline">\(1-1\)</span>) if and only if for any distinct objects <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of the domain <span class="math inline">\(F\)</span>, <span class="math inline">\(F(x) \neq F(y)\)</span>. In other words, <span class="math inline">\(F\)</span> takes different objects into different objects. This will be written as <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span>. Thus:</p>
+<p><span class="math display">\[F \text{ is one-one} \iff \forall x \forall x ((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))\]</span></p>
+<p><strong>Note</strong>: Notice that the condition for <span class="math inline">\(F\)</span> to be one-one can be reformulated as <span class="math inline">\(F(x) = F(y) \Longrightarrow x = y\)</span> when <span class="math inline">\(x \in \mathscr{D}(F) \land y \in \mathscr{D}(F)\)</span>. In other words, if <span class="math inline">\(F\)</span> takes <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> into the same object then <span class="math inline">\(x = y\)</span>.</p>
+</div>
+<div id="exm-one-one-function" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.18</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(A\)</span> be any set and let <span class="math inline">\(I_A\)</span> be the identity function in <span class="math inline">\(A\)</span>. Then <span class="math inline">\(I_A: A \xrightarrow[]{1-1} A\)</span> because <span class="math inline">\(I_A(x) = I_A(y)\)</span> means that <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F\)</span> be the function such that <span class="math inline">\(F(x) = x + 1\)</span> for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of integers. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> because if <span class="math inline">\(x + 1 = y + 1\)</span> then <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F\)</span> be the function such that <span class="math inline">\(F(x) = 3x + 1\)</span> for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of real numbers. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> because if <span class="math inline">\(3x + 1 = 3y + 1\)</span> then <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = 2^x(2y + 1)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A\)</span> of non negative integers. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span>:</p>
+<p>Why? Let <span class="math inline">\(2^x(2y + 1) = 2^w(2z + 1)\)</span> then <span class="math inline">\(x = w\)</span> or <span class="math inline">\(x \neq w\)</span>:</p>
+<ul>
+<li><p>If <span class="math inline">\(x = w\)</span> then <span class="math inline">\(2y + 1 = 2z + 1\)</span> so <span class="math inline">\(y = z\)</span>. Therefore <span class="math inline">\((x, y) = (w, z)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x \neq w\)</span> assume without loss of generality that <span class="math inline">\(x &gt; w\)</span>:</p>
+<ul>
+<li>Therefore <span class="math inline">\(2^{x - w}(2y + 1) = 2z + 1\)</span> so <span class="math inline">\(2^{x - w}(2y + 1) = 2*2^{x - w - 1}(2y + 1)\)</span>. This means that <span class="math inline">\(2^{x - w}(2y + 1)\)</span> is even but <span class="math inline">\(2z + 1\)</span> is odd. We have a contradiction so it must be the case that <span class="math inline">\(x = w\)</span>. By the first part we have also that <span class="math inline">\(y = z\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>Consider any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Let <span class="math inline">\(F(x, y) = (y, x)\)</span> for all <span class="math inline">\((x, y) \in A \times B\)</span>. Then <span class="math inline">\(F: A \times B \xrightarrow[]{1-1} B \times A\)</span> taking into account that if <span class="math inline">\(F(x, y) = F(w, z)\)</span> then <span class="math inline">\((y, x) = (z, w)\)</span> so <span class="math inline">\(y = z\)</span> and <span class="math inline">\(x = w\)</span>. Therefore <span class="math inline">\((x, y) = (w, z)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of non negative real numbers, that is <span class="math inline">\(\mathbb{R}_{\geq 0}\)</span>. Let <span class="math inline">\(F(x) = \sqrt{x}\)</span> for all real numbers <span class="math inline">\(x \in A\)</span>. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} A\)</span>. Why? Let <span class="math inline">\(F(x) = F(y)\)</span> then <span class="math inline">\(\sqrt{x} = \sqrt{y}\)</span>. Therefore <span class="math inline">\(|x| = |y|\)</span> where this implies that <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers and let <span class="math inline">\(F(x) = x^2\)</span> for all <span class="math inline">\(x \in A\)</span>. Then <span class="math inline">\(F\)</span> is not one-one, since <span class="math inline">\(F(1) = F(-1)\)</span>.</p></li>
+</ol>
+</div>
+<p>Consider a function <span class="math inline">\(F\)</span>. The inverse relation <span class="math inline">\(F^{-1}\)</span> need not be a function. For example, let <span class="math inline">\(F(x) = x^2\)</span> for all real numbers <span class="math inline">\(x\)</span>. Clearly, <span class="math inline">\((1, 1) \in F\)</span> and <span class="math inline">\((-1, 1) \in F\)</span> so <span class="math inline">\((1, 1) \in F^{-1}\)</span> and <span class="math inline">\((1, -1) \in F^{-1}\)</span>. Therefore <span class="math inline">\(F^{-1}\)</span> is not a function.</p>
+<div id="thm-inverse-function-as-a-function" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.9</strong></span> If <span class="math inline">\(F\)</span> is one-one function, then <span class="math inline">\(F^{-1}\)</span> must be a function. In fact, <span class="math inline">\(F^{-1}\)</span> is a one-one function.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>First we prove that <span class="math inline">\(F^{-1}\)</span> is a function:</p>
+<p><span class="math display">\[\begin{split}
+  (x, y) \in F^{-1} \land (x, z) \in F^{-1} &amp; \iff (y, x) \in F \land (z, x) \in F \\
+  &amp; \iff F(y) = x \land F(z) = x \\
+  &amp; \iff F(y) = F(z) \\
+  &amp; \Longrightarrow y = z
+  \end{split}\]</span></p>
+<p>The we prove that <span class="math inline">\(F^{-1}\)</span> is one-one function:</p>
+<p><span class="math display">\[\begin{split}
+  F^{-1}(x) = F^{-1}(y) &amp; \iff (x, z) \in F^{-1} \land (y, z) \in F^{-1} \\
+  &amp; \iff (z, x) \in F \land (z, y) \in F \\
+  &amp; \Longrightarrow x = y
+  \end{split}\]</span></p>
+</div>
+<p>Notice that if <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A\)</span><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. According to <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span> so <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F)\)</span> and <span class="math inline">\(\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A\)</span>. In particular if <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> because <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B\)</span>.</p>
+<div id="exm-inverse-function-as-a-function" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.19</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 1 <span class="math inline">\(I_A = I_A^{-1}\)</span> because <span class="math inline">\(\mathscr{D}(I_A) = \mathscr{D}(I_A^{-1})\)</span> and for any <span class="math inline">\(x \in \mathscr{D}(I_A)\)</span> we have that <span class="math inline">\(I_A(x) = I_A^{-1}(x)\)</span>.</p></li>
+<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 2 <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> and <span class="math inline">\(F^{-1}(x) = x - 1\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
+<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 3 <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> and <span class="math inline">\(F^{-1}(x) = \frac{x - 1}{3}\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
+<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 5</p></li>
+</ol>
+</div>
+<p>When <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, we say that <span class="math inline">\(F\)</span> is a <em>one-one correspondence</em> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. If there is a one-one correspondence between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are said to be <strong>equinumerous</strong> because, in a certain case, each has a many elements as other.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -5405,10 +5511,14 @@ Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em
 <div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
 ———. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
 </div>
+<div id="ref-seroul_programming_2000" class="csl-entry" role="listitem">
+Seroul, Raymond. 2000. <em>Programming for Mathematicians</em>. Universitext. Berlin ; New York: Springer.
+</div>
 <div id="ref-wasilewska_logics_2018" class="csl-entry" role="listitem">
 Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
@@ -5426,6 +5536,7 @@ Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</spa
         -x, &amp; \text{if } x &lt; 0
         \end{cases}\]</span><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9"><p>In the proof we use the following result <span class="math inline">\(\{ (\alpha \land \beta) \} \models (\alpha \Longrightarrow \beta)\)</span> where by <a href="#thm-completeness-theorem" class="quarto-xref">Theorem&nbsp;<span>1.6</span></a> <span class="math inline">\(\{ (\alpha \land \beta) \} \vdash (\alpha \Longrightarrow \beta)\)</span><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>If <span class="math inline">\(G: C \xrightarrow[]{1-1} D\)</span> and <span class="math inline">\(G: C \xrightarrow[onto]{} D\)</span> we write <span class="math inline">\(G: C \xrightarrow[onto]{1-1} D\)</span>.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -5512,8 +5623,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -5624,7 +5733,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
