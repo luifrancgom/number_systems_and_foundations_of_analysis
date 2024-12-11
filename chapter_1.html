@@ -261,18 +261,22 @@ window.Quarto = {
    
   <ul>
   <li><a href="#propositional-logic" id="toc-propositional-logic" class="nav-link active" data-scroll-target="#propositional-logic"><span class="header-section-number">1.1</span> Propositional logic</a>
+  <ul>
+  <li><a href="#language" id="toc-language" class="nav-link" data-scroll-target="#language"><span class="header-section-number">1.1.1</span> Language</a>
   <ul class="collapse">
-  <li><a href="#language" id="toc-language" class="nav-link" data-scroll-target="#language"><span class="header-section-number">1.1.1</span> Language</a></li>
+  <li><a href="#sec-informal-conventions" id="toc-sec-informal-conventions" class="nav-link" data-scroll-target="#sec-informal-conventions"><span class="header-section-number">1.1.1.1</span> Informal conventions</a></li>
+  <li><a href="#unique-readability" id="toc-unique-readability" class="nav-link" data-scroll-target="#unique-readability"><span class="header-section-number">1.1.1.2</span> Unique Readability</a></li>
+  </ul></li>
   <li><a href="#truth-assignments" id="toc-truth-assignments" class="nav-link" data-scroll-target="#truth-assignments"><span class="header-section-number">1.1.2</span> Truth Assignments</a></li>
   <li><a href="#deductions" id="toc-deductions" class="nav-link" data-scroll-target="#deductions"><span class="header-section-number">1.1.3</span> Deductions</a></li>
   <li><a href="#soundness-and-completeness" id="toc-soundness-and-completeness" class="nav-link" data-scroll-target="#soundness-and-completeness"><span class="header-section-number">1.1.4</span> Soundness and Completeness</a></li>
   </ul></li>
   <li><a href="#first-order-logic" id="toc-first-order-logic" class="nav-link" data-scroll-target="#first-order-logic"><span class="header-section-number">1.2</span> First order logic</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#language-1" id="toc-language-1" class="nav-link" data-scroll-target="#language-1"><span class="header-section-number">1.2.1</span> Language</a></li>
   </ul></li>
   <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets"><span class="header-section-number">1.3</span> Sets</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#the-axiom-of-extensionality" id="toc-the-axiom-of-extensionality" class="nav-link" data-scroll-target="#the-axiom-of-extensionality"><span class="header-section-number">1.3.1</span> The axiom of extensionality</a></li>
   <li><a href="#axiom-schema-of-specification-or-separation" id="toc-axiom-schema-of-specification-or-separation" class="nav-link" data-scroll-target="#axiom-schema-of-specification-or-separation"><span class="header-section-number">1.3.2</span> Axiom schema of specification (or separation)</a></li>
   <li><a href="#axiom-of-pairing" id="toc-axiom-of-pairing" class="nav-link" data-scroll-target="#axiom-of-pairing"><span class="header-section-number">1.3.3</span> Axiom of pairing</a></li>
@@ -280,8 +284,22 @@ window.Quarto = {
   <li><a href="#axiom-of-power-set" id="toc-axiom-of-power-set" class="nav-link" data-scroll-target="#axiom-of-power-set"><span class="header-section-number">1.3.5</span> Axiom of power set</a></li>
   <li><a href="#difference-and-complement" id="toc-difference-and-complement" class="nav-link" data-scroll-target="#difference-and-complement"><span class="header-section-number">1.3.6</span> Difference and complement</a></li>
   <li><a href="#arbitrary-unions-and-intersections" id="toc-arbitrary-unions-and-intersections" class="nav-link" data-scroll-target="#arbitrary-unions-and-intersections"><span class="header-section-number">1.3.7</span> Arbitrary unions and intersections</a></li>
-  <li><a href="#relations" id="toc-relations" class="nav-link" data-scroll-target="#relations"><span class="header-section-number">1.3.8</span> Relations</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">1.3.9</span> Functions</a></li>
+  <li><a href="#relations" id="toc-relations" class="nav-link" data-scroll-target="#relations"><span class="header-section-number">1.3.8</span> Relations</a>
+  <ul class="collapse">
+  <li><a href="#inverse-and-composition-of-relations" id="toc-inverse-and-composition-of-relations" class="nav-link" data-scroll-target="#inverse-and-composition-of-relations"><span class="header-section-number">1.3.8.1</span> Inverse and composition of relations</a></li>
+  <li><a href="#reflexivity-symmetry-and-transitivity" id="toc-reflexivity-symmetry-and-transitivity" class="nav-link" data-scroll-target="#reflexivity-symmetry-and-transitivity"><span class="header-section-number">1.3.8.2</span> Reflexivity, symmetry and transitivity</a></li>
+  <li><a href="#negatively-transitivite-connected-and-total-strongly-connected-or-complete" id="toc-negatively-transitivite-connected-and-total-strongly-connected-or-complete" class="nav-link" data-scroll-target="#negatively-transitivite-connected-and-total-strongly-connected-or-complete"><span class="header-section-number">1.3.8.3</span> Negatively transitivite, connected and total, strongly connected or complete</a></li>
+  <li><a href="#acyclic" id="toc-acyclic" class="nav-link" data-scroll-target="#acyclic"><span class="header-section-number">1.3.8.4</span> Acyclic</a></li>
+  <li><a href="#equivalence-relations" id="toc-equivalence-relations" class="nav-link" data-scroll-target="#equivalence-relations"><span class="header-section-number">1.3.8.5</span> Equivalence relations</a></li>
+  </ul></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">1.3.9</span> Functions</a>
+  <ul class="collapse">
+  <li><a href="#functions-from-a-onto-b-surjective-functions" id="toc-functions-from-a-onto-b-surjective-functions" class="nav-link" data-scroll-target="#functions-from-a-onto-b-surjective-functions"><span class="header-section-number">1.3.9.1</span> Functions from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> (Surjective functions)</a></li>
+  <li><a href="#one-one-functions-injective-functions" id="toc-one-one-functions-injective-functions" class="nav-link" data-scroll-target="#one-one-functions-injective-functions"><span class="header-section-number">1.3.9.2</span> One-one functions (Injective functions)</a></li>
+  <li><a href="#one-one-correspondences-bijective-functions" id="toc-one-one-correspondences-bijective-functions" class="nav-link" data-scroll-target="#one-one-correspondences-bijective-functions"><span class="header-section-number">1.3.9.3</span> One-one correspondences (Bijective functions)</a></li>
+  <li><a href="#composition-of-functions" id="toc-composition-of-functions" class="nav-link" data-scroll-target="#composition-of-functions"><span class="header-section-number">1.3.9.4</span> Composition of functions</a></li>
+  <li><a href="#operations" id="toc-operations" class="nav-link" data-scroll-target="#operations"><span class="header-section-number">1.3.9.5</span> Operations</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -4476,7 +4494,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <p>From now on we introduce a traditional notation for binary relations. If <span class="math inline">\(R\)</span> is a binary relation then <span class="math inline">\(xRy\)</span> stands for <span class="math inline">\((x, y) \in R\)</span>. For example one usually writes <span class="math inline">\(x &lt; y\)</span> instead of <span class="math inline">\((x, y) \in &lt;\)</span>.</p>
 <div id="def-composition-of-binary-relations" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.38</strong></span> Consider any binary relations <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>. Then we can define a new relation, <span class="math inline">\(S \circ R\)</span>, called the composition of <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>:</p>
-<p><span class="math display">\[S \circ R = \{ (x, y) \mid \exists x (xRz \land zSy) \}\]</span></p>
+<p><span class="math display">\[S \circ R = \{ (x, y) \mid \exists z (xRz \land zSy) \}\]</span></p>
 <p>Thus, <span class="math inline">\(x(S \circ R)y\)</span> means that there is and intermediate object <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz\)</span> and <span class="math inline">\(zSy\)</span>.</p>
 <p><strong>Note</strong>: Take into account that <span class="math inline">\(R\)</span> is applied before <span class="math inline">\(S\)</span></p>
 </div>
@@ -4539,8 +4557,8 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </ol></li>
 <li><p>Show that if <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> are binary relations then:</p>
 <ol type="a">
-<li><p><span class="math inline">\(\mathscr{D}(R \circ S) \subseteq \mathscr{D}(S)\)</span>. When <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span>?</p></li>
-<li><p><span class="math inline">\(\mathscr{R}(R \circ S) \subseteq \mathscr{R}(R)\)</span>. When <span class="math inline">\(\mathscr{R}(R \circ S) = \mathscr{R}(R)\)</span>?</p></li>
+<li><p><span class="math inline">\(\mathscr{D}(R \circ S) \subseteq \mathscr{D}(S)\)</span>. When <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(R \circ S) \subseteq \mathscr{R}(R)\)</span>. When <span class="math inline">\(\mathscr{R}(R \circ S) = \mathscr{R}(R)\)</span></p></li>
 </ol></li>
 <li><p>Let <span class="math inline">\(\mathbb{R}\)</span> be the set of real numbers. Let <span class="math inline">\(S = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x^2 \}\)</span>, <span class="math inline">\(W = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = -x \}\)</span> and <span class="math inline">\(R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x + 1 \}\)</span>:</p>
 <ol type="a">
@@ -4916,9 +4934,9 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <ul>
 <li><p>Assume <span class="math inline">\(R\)</span> is irreflexive</p>
 <ul>
-<li>(xRx) but <span class="math inline">\(xI_Ax\)</span> so <span class="math inline">\(R \cap I_A = \subseteq\)</span></li>
+<li><span class="math inline">\(\neg(xRx)\)</span> but <span class="math inline">\(xI_Ax\)</span> so <span class="math inline">\(R \cap I_A = \emptyset\)</span></li>
 </ul></li>
-<li><p>Assume <span class="math inline">\(R \cap I_A = \subseteq\)</span></p>
+<li><p>Assume <span class="math inline">\(R \cap I_A = \emptyset\)</span></p>
 <ul>
 <li>So <span class="math inline">\(\neg(xRx)\)</span></li>
 </ul></li>
@@ -5434,7 +5452,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <li><p>Let <span class="math inline">\(A\)</span> be any set and let <span class="math inline">\(I_A\)</span> be the identity function in <span class="math inline">\(A\)</span>. Then <span class="math inline">\(I_A: A \xrightarrow[]{1-1} A\)</span> because <span class="math inline">\(I_A(x) = I_A(y)\)</span> means that <span class="math inline">\(x = y\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(F\)</span> be the function such that <span class="math inline">\(F(x) = x + 1\)</span> for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of integers. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> because if <span class="math inline">\(x + 1 = y + 1\)</span> then <span class="math inline">\(x = y\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(F\)</span> be the function such that <span class="math inline">\(F(x) = 3x + 1\)</span> for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of real numbers. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> because if <span class="math inline">\(3x + 1 = 3y + 1\)</span> then <span class="math inline">\(x = y\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(F(x, y) = 2^x(2y + 1)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A\)</span> of non negative integers. Then <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span>:</p>
+<li><p>Let <span class="math inline">\(F(x, y) = 2^x(2y + 1)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A\)</span> of non negative integers. Then <span class="math inline">\(F: A \times A \xrightarrow[]{1-1} A\)</span>:</p>
 <p>Why? Let <span class="math inline">\(2^x(2y + 1) = 2^w(2z + 1)\)</span> then <span class="math inline">\(x = w\)</span> or <span class="math inline">\(x \neq w\)</span>:</p>
 <ul>
 <li><p>If <span class="math inline">\(x = w\)</span> then <span class="math inline">\(2y + 1 = 2z + 1\)</span> so <span class="math inline">\(y = z\)</span>. Therefore <span class="math inline">\((x, y) = (w, z)\)</span>.</p></li>
@@ -5451,6 +5469,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <p>Consider a function <span class="math inline">\(F\)</span>. The inverse relation <span class="math inline">\(F^{-1}\)</span> need not be a function. For example, let <span class="math inline">\(F(x) = x^2\)</span> for all real numbers <span class="math inline">\(x\)</span>. Clearly, <span class="math inline">\((1, 1) \in F\)</span> and <span class="math inline">\((-1, 1) \in F\)</span> so <span class="math inline">\((1, 1) \in F^{-1}\)</span> and <span class="math inline">\((1, -1) \in F^{-1}\)</span>. Therefore <span class="math inline">\(F^{-1}\)</span> is not a function.</p>
 <div id="thm-inverse-function-as-a-function" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1.9</strong></span> If <span class="math inline">\(F\)</span> is one-one function, then <span class="math inline">\(F^{-1}\)</span> must be a function. In fact, <span class="math inline">\(F^{-1}\)</span> is a one-one function.</p>
+<p><strong>Note</strong>: If <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A\)</span><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. According to <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span> so <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F)\)</span> and <span class="math inline">\(\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A\)</span>. In particular if <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> because <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>First we prove that <span class="math inline">\(F^{-1}\)</span> is a function:</p>
@@ -5467,17 +5486,289 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
   &amp; \Longrightarrow x = y
   \end{split}\]</span></p>
 </div>
-<p>Notice that if <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A\)</span><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. According to <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span> so <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F)\)</span> and <span class="math inline">\(\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A\)</span>. In particular if <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> because <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B\)</span>.</p>
 <div id="exm-inverse-function-as-a-function" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.19</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 1 <span class="math inline">\(I_A = I_A^{-1}\)</span> because <span class="math inline">\(\mathscr{D}(I_A) = \mathscr{D}(I_A^{-1})\)</span> and for any <span class="math inline">\(x \in \mathscr{D}(I_A)\)</span> we have that <span class="math inline">\(I_A(x) = I_A^{-1}(x)\)</span>.</p></li>
 <li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 2 <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> and <span class="math inline">\(F^{-1}(x) = x - 1\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
 <li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 3 <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> and <span class="math inline">\(F^{-1}(x) = \frac{x - 1}{3}\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
-<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 5</p></li>
+<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 5 <span class="math inline">\(F: A \times B \xrightarrow[onto]{1-1} B \times A\)</span>, <span class="math inline">\(F^{-1}: B \times A \xrightarrow[onto]{1-1} A \times B\)</span> and <span class="math inline">\(F^{-1}(y,x) = (x,y)\)</span> for all <span class="math inline">\((y,x) \in B \times A\)</span>.</p></li>
+<li><p>In <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 6 <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> and <span class="math inline">\(F^{-1}(x) = x^2\)</span> for all <span class="math inline">\(x \in A\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of all positive real numbers, <span class="math inline">\(\mathbb{R}_{&gt;0}\)</span>. Let <span class="math inline">\(F(x) = \frac{1}{x}\)</span> for all <span class="math inline">\(x \in A\)</span>. Then <span class="math inline">\(F: A \xrightarrow[onto]{1-1} A\)</span> because <span class="math inline">\(F(x) = F(y)\)</span> implies that <span class="math inline">\(y = x\)</span> and if <span class="math inline">\(y \in \mathbb{R}_{&gt;0}\)</span> then it always exists <span class="math inline">\(x =\frac{1}{y}\)</span> such that <span class="math inline">\(F \left(x = \frac{1}{y} \right) = y\)</span>.</p></li>
 </ol>
 </div>
-<p>When <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, we say that <span class="math inline">\(F\)</span> is a <em>one-one correspondence</em> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. If there is a one-one correspondence between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are said to be <strong>equinumerous</strong> because, in a certain case, each has a many elements as other.</p>
+<div id="exr-one-one-function" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.34</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Determine whether each of the following functions <span class="math inline">\(F\)</span> is one-one. If it is one-one, describe <span class="math inline">\(F^{-1}\)</span> by a formula if it is possible and find the domain of <span class="math inline">\(F^{-1}\)</span></p>
+<ol type="a">
+<li><p><span class="math inline">\(F(x) = |x|\)</span> for <span class="math inline">\(x \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = x^2 - 1\)</span></p></li>
+<li><p><span class="math inline">\(F = 7x + 3\)</span> for <span class="math inline">\(x \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(F = 7x + 3\)</span> for <span class="math inline">\(x \in \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(F(x, y) = \sqrt{x^2 + y^2}\)</span></p></li>
+<li><p><span class="math inline">\(F(x, y) = x + y\)</span></p></li>
+<li><p>Consider and equivalence relation <span class="math inline">\(R\)</span> in a set <span class="math inline">\(A\)</span>. Let <span class="math inline">\(F(x) = [x]\)</span> for <span class="math inline">\(x \in A\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-one-one-function" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.34</em>. </span></p>
+<ol type="1">
+<li><p>For each <span class="math inline">\(F\)</span> we have the following results</p>
+<ol type="a">
+<li><p><span class="math inline">\(F\)</span> is not one-one because <span class="math inline">\(F(1) = F(-1)\)</span> but <span class="math inline">\(1 \neq -1\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is not one-one because <span class="math inline">\(F(1) = F(-1)\)</span> but <span class="math inline">\(1 \neq -1\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is one-one because if <span class="math inline">\(F(x) = F(y)\)</span> then <span class="math inline">\(7x + 3 = 7y + 3\)</span> so <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>If <span class="math inline">\(F\)</span> is one-one when <span class="math inline">\(x \in \mathbb{R}\)</span> then it will be one-one when <span class="math inline">\(x \in \mathbb{Z}\)</span> because <span class="math inline">\(\mathbb{Z} \subset \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is not one-one because <span class="math inline">\(F(1, 1) = F(-1, -1)\)</span> but <span class="math inline">\((1,1) \neq (-1, -1)\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is not one-one because <span class="math inline">\(F(1, 2) = F(2, 1)\)</span> but <span class="math inline">\((1, 2) \neq (1, 2)\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is not one-one because <span class="math inline">\(F(x) = F(y)\)</span> implies that <span class="math inline">\([x] = [y]\)</span> but it is not necessarily true that <span class="math inline">\(x = y\)</span> for an arbitrary set <span class="math inline">\(A\)</span>.</p>
+<p>For example, let <span class="math inline">\(A = \{ 1, 2, 3 \}\)</span> and <span class="math inline">\(R = \{ (1, 1), (2, 2), (3, 3), (1, 2), (2, 1), (2, 3), (3, 2), (1, 3), (3, 1) \}\)</span> where <span class="math inline">\([1] = \{ 1, 2, 3 \}\)</span> and <span class="math inline">\([2] = \{ 1, 2, 3\}\)</span> but <span class="math inline">\(1 \neq 2\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+</section>
+<section id="one-one-correspondences-bijective-functions" class="level4" data-number="1.3.9.3">
+<h4 data-number="1.3.9.3" class="anchored" data-anchor-id="one-one-correspondences-bijective-functions"><span class="header-section-number">1.3.9.3</span> One-one correspondences (Bijective functions)</h4>
+<div id="def-one-one-correspondence" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.52 (One-one correspondence (Bijective function))</strong></span> If <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, we say that <span class="math inline">\(F\)</span> is a <em>one-one correspondence</em> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p><strong>Note</strong>: If there is a one-one correspondence between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are said to be <strong>equinumerous</strong> because, in a certain case, each has a many elements as other.</p>
+</div>
+<div id="exm-one-one-correspondence" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.20</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> be arbitrary sets. The <span class="math inline">\(C \times D\)</span> and <span class="math inline">\(D \times C\)</span> are equinumerous. Let <span class="math inline">\(F(c, d) = (d, c)\)</span> then <span class="math inline">\(F: C \times D \xrightarrow[onto]{1-1} D \times C\)</span>. If <span class="math inline">\(F(c, d) = F(e, f)\)</span> then <span class="math inline">\((c, d) = (e, f)\)</span>. Also if <span class="math inline">\((d, c) \in D \times C\)</span> it always exists <span class="math inline">\((c, d) \in C \times D\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span> the set of non negative integers and let <span class="math inline">\(\mathbb{P}\)</span> be the set of positive integers. The <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span> and <span class="math inline">\(\mathbb{P}\)</span> are equinumerous. Let <span class="math inline">\(F(x) = x + 1\)</span> for all <span class="math inline">\(x \in \mathbb{Z}_{\geq 0}\)</span></p></li>
+<li><p>Let <span class="math inline">\(\mathbb{Z}_{&gt; 0}\)</span> be the set of nonnegative integers. Let <span class="math inline">\(F(x, y) = 2^x(2y + 1) - 1\)</span> where <span class="math inline">\(x \in \mathbb{Z}_{&gt; 0}\)</span> and <span class="math inline">\(y \in \mathbb{Z}_{&gt; 0}\)</span>.</p>
+<p>By <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 4 we have that <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \times \mathbb{Z}_{&gt; 0} \xrightarrow[]{1-1} \mathbb{Z}_{&gt; 0}\)</span> taking into account that <span class="math inline">\(G(x, y) = 2^x(2y + 1)\)</span> is one-one where we can use this result to show that <span class="math inline">\(F(x, y) = 2^x(2y + 1) - 1\)</span> is one-one.</p>
+<p>To check if <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \times \mathbb{Z}_{&gt; 0} \xrightarrow[onto]{} \mathbb{Z}_{&gt; 0}\)</span> we proceed in the following way:</p>
+<ul>
+<li><p><span class="math inline">\(F(0, y) = 2^0(2y + 1) - 1 = 2y\)</span> where <span class="math inline">\(F(0, y) \in \{ 0, 2, 4, \ldots \}\)</span></p></li>
+<li><p>Let <span class="math inline">\(x &gt; 0\)</span> and take <span class="math inline">\(G(x, y) = 2^x(2y + 1)\)</span> then we can prove that every even number can by represented in that way. If we can prove that, then every odd number can be represented as <span class="math inline">\(2^x(2y + 1) - 1\)</span></p>
+<ul>
+<li><p>By the fundamental theorem of arithmetic <span class="citation" data-cites="dawson_why_2015">(<a href="references.html#ref-dawson_why_2015" role="doc-biblioref">Dawson 2015, 41</a>)</span> every positive integer <span class="math inline">\(n &gt; 1\)</span> can be represented as <span class="math inline">\(n = \prod_{i=1}^k p_i^{n_i}\)</span> where <span class="math inline">\(p_1 &lt; \ldots &lt; p_k\)</span> are primes and the <span class="math inline">\(n_i\)</span> are positive integers.</p></li>
+<li><p>Therefore if <span class="math inline">\(n\)</span> is even it can be represented as <span class="math inline">\(n = 2^{n_1}\)</span> or <span class="math inline">\(2^{n_1}\prod_{i=2}^k p_i^{n_i}\)</span></p>
+<ul>
+<li><p>In the first case <span class="math inline">\(n = 2^x(2*0 + 1)\)</span> where <span class="math inline">\(x = n_1\)</span> and <span class="math inline">\(y = 0\)</span></p></li>
+<li><p>In the second case <span class="math inline">\(\prod_{i=2}^k p_i^{n_i}\)</span> is an odd number because it is not divisible by <span class="math inline">\(2\)</span> so it can be represented as <span class="math inline">\(\prod_{i=2}^k p_i^{n_i} = (2y + 1)\)</span>. Therefore <span class="math inline">\(n\)</span> can be represented as <span class="math inline">\(n = 2^{n_1}\prod_{i=2}^k p_i^{n_i} = 2^x(2y + 1)\)</span> where <span class="math inline">\(x = n_1\)</span> and <span class="math inline">\(2y + 1 = \prod_{i=2}^k p_i^{n_i}\)</span>.</p></li>
+</ul></li>
+</ul></li>
+<li><p>Then <span class="math inline">\(F(x, y) \in \{ 1, 3, 5, \ldots \}\)</span> when <span class="math inline">\(x &gt; 1\)</span></p></li>
+<li><p>In general we have that <span class="math inline">\(F(x, y) \in \{ 0, 1, 2, 3, 4, \ldots \}\)</span></p></li>
+</ul>
+<p>We can conclude that <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \times \mathbb{Z}_{&gt; 0} \xrightarrow[onto]{1-1} \mathbb{Z}_{&gt; 0}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{Z}_{&gt; 0}\)</span> be the set of non negative integers and let <span class="math inline">\(\mathbb{Z}\)</span> be the set of all integers. We can enumerate <span class="math inline">\(\mathbb{Z}\)</span> as follows <span class="math inline">\(0, 1, -1, 2, -2, 3, -3, \ldots\)</span> More precisely we define:</p>
+<p><span class="math display">\[F(n) = \begin{cases}
+          \frac{n+1}{2} &amp; \text{ if } n \text{ is odd} \\
+          -\frac{n}{2} &amp; \text{ if } n \text{ is even}
+         \end{cases}\]</span></p>
+<p>Then <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \xrightarrow[onto]{1-1} \mathbb{Z}\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-one-one-correspondence" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.35</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>In each of the following cases, show that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equinumerous</p>
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> is the set of all even integers and <span class="math inline">\(B\)</span> is the set of all odd integers.</p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all even integers and <span class="math inline">\(B\)</span> is the set of all integers.</p></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all real numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> incluiding <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> and <span class="math inline">\(B\)</span> is the set of all real numbers between <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> incluiding <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-one-one-correspondence" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.35</em>. </span></p>
+<ol type="1">
+<li><p>For each case we have the following results:</p>
+<ol type="a">
+<li><p><span class="math inline">\(F(x) = x + 1\)</span> where <span class="math inline">\(x\)</span> belongs to the set of all even integers.</p></li>
+<li><p><span class="math inline">\(F(x) = \frac{x}{2}\)</span> where <span class="math inline">\(x\)</span> belongs to the set of all even integers.</p></li>
+<li><p>In general if you want to build a one-one correspondence between <span class="math inline">\([c, d]\)</span> and <span class="math inline">\([a,b]\)</span> where <span class="math inline">\(c &lt; d\)</span> and <span class="math inline">\(a &lt; b\)</span> you can proceed in the following way:</p>
+<ul>
+<li><p>Build a one-one correspondence between <span class="math inline">\([c, d]\)</span> and <span class="math inline">\([0, 1]\)</span></p>
+<ul>
+<li><p>Shift the values by fixing <span class="math inline">\(0\)</span> as a lower bound, <span class="math inline">\(x - c\)</span> where <span class="math inline">\(x \in [c, d]\)</span></p></li>
+<li><p>Scale to unit interval by dividing <span class="math inline">\(x - c\)</span> by <span class="math inline">\(d - c\)</span>, <span class="math inline">\(\frac{x - c}{d - c}\)</span></p></li>
+</ul></li>
+<li><p>Stretch or compress the interval <span class="math inline">\([0, 1]\)</span> by multiplying it with <span class="math inline">\((b - a)\)</span>, <span class="math inline">\(\frac{(b - a)(x - c)}{d - c}\)</span>. Therefore the new interval is <span class="math inline">\([0, b - a]\)</span></p></li>
+<li><p>Shift to the minimum <span class="math inline">\(a\)</span> and to the maximum <span class="math inline">\(b\)</span>, <span class="math inline">\(\frac{(b - a)(x - c)}{d - c} + a\)</span>. Therefore we obtain the interval <span class="math inline">\([a, b]\)</span></p></li>
+</ul>
+<p>So <span class="math inline">\(F(x) = 2x + 1\)</span> where <span class="math inline">\(x \in [0, 1]\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+</section>
+<section id="composition-of-functions" class="level4" data-number="1.3.9.4">
+<h4 data-number="1.3.9.4" class="anchored" data-anchor-id="composition-of-functions"><span class="header-section-number">1.3.9.4</span> Composition of functions</h4>
+<div id="thm-composition-functions" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.10</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are functions, then <span class="math inline">\(F \circ G\)</span> is a function.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(x(F \circ G)y\)</span> and <span class="math inline">\(x(F \circ G)z\)</span> then <span class="math inline">\(\exists w (xGw \land wFy)\)</span> and <span class="math inline">\(\exists v (xGv \land vFz)\)</span>. Therefore <span class="math inline">\(G(x) = w\)</span>, <span class="math inline">\(F(w) = y\)</span>, <span class="math inline">\(G(x) = v\)</span> and <span class="math inline">\(F(v) = z\)</span>. So <span class="math inline">\(F(G(x)) = y\)</span> and <span class="math inline">\(F(G(x)) = z\)</span> which implies that <span class="math inline">\(y = z\)</span>.</p>
+<p><strong>Note</strong>: Observe that <span class="math inline">\(\mathscr{D}(F \circ G)\)</span> is:</p>
+<p><span class="math display">\[\begin{split}
+  \mathscr{D}(F \circ G) &amp; = \{ x \mid \exists y ((F \circ G)(x) = y) \} \\
+  &amp; = \{ x \mid \exists y (x(F \circ G)y) \} \\
+  &amp; = \{ x \mid \exists y \exists z (xGz \land zFy) \} \\
+  &amp; = \{ x \mid \exists y \exists z (G(x) = z \land F(z) = y) \} \\
+  &amp; = \{ x \mid \exists y \exists z (G(x) = z \land F(G(x)) = y) \}
+  \end{split}\]</span></p>
+<p>Therefore <span class="math inline">\(x \in \mathscr{D}(F \circ G)\)</span> if and only if <span class="math inline">\(x \in \mathscr{D}(G)\)</span> and <span class="math inline">\(G(x) \in \mathscr{D}(F)\)</span>. Thus, the value of <span class="math inline">\((F \circ G)(x)\)</span> is obtained by first applying <span class="math inline">\(G\)</span> to <span class="math inline">\(x\)</span> and then applying <span class="math inline">\(F\)</span> to the result <span class="math inline">\(G(x)\)</span>.</p>
+</div>
+<div id="exm-composition-functions" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.21</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(F(x) = x + 1\)</span> for all real numbers <span class="math inline">\(x\)</span>, and let <span class="math inline">\(G(x) = \sqrt{x}\)</span> for all non negative numbers real numbers <span class="math inline">\(x\)</span> then:</p>
+<p><span class="math display">\[(F \circ G)(x) = F(G(x)) = F(\sqrt{x}) = \sqrt{x} + 1\]</span></p>
+<p>For all non negative real numbers <span class="math inline">\(x\)</span>. On the other hand,</p>
+<p><span class="math display">\[(G \circ F)(x) = G(F(x)) = G(x + 1) = \sqrt{x + 1}\]</span></p></li>
+<li><p>Let <span class="math inline">\(F(x) = sin x\)</span> for all real numbers <span class="math inline">\(x\)</span>, and <span class="math inline">\(G(x) = x^2\)</span> for all real numbers <span class="math inline">\(x\)</span>. Then:</p>
+<p><span class="math display">\[(F \circ G)(x) = F(G(x)) = F(x^2) = sin x^2\]</span></p>
+<p>For all real numbers <span class="math inline">\(x\)</span>. On the other hand,</p>
+<p><span class="math display">\[(G \circ F)(x) = G(F(x)) = G(sin x) = (sin x)^2\]</span></p>
+<p>In addition <span class="math inline">\((G \circ G)(x) = G(G(x)) = G(x^2) = x^4\)</span> and <span class="math inline">\((F \circ F)(x) = F(F(x)) = F(sin x) = sin (sin x)\)</span></p></li>
+</ol>
+</div>
+<div id="thm-composition-functions-notation" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.11</strong></span> Consider functions <span class="math inline">\(G: A \longrightarrow B\)</span> and <span class="math inline">\(F: B \longrightarrow C\)</span>. Then <span class="math inline">\(F \circ G: A \longrightarrow C\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By the note in the proof of <a href="#thm-composition-functions" class="quarto-xref">Theorem&nbsp;<span>1.10</span></a> <span class="math inline">\(x \in \mathscr{D}(F \circ G)\)</span> if and only if <span class="math inline">\(x \in \mathscr{D}(G)\)</span> and <span class="math inline">\(G(x) \in \mathscr{D}(F)\)</span>. Therefore <span class="math inline">\(\mathscr{D}(F \circ G) = \{ x \mid x \in A \land G(x) \in B \} = \{ x \mid x \in A \}\)</span>. On the other hand <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> and therefore <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq C\)</span>.</p>
+</div>
+<div id="thm-composition-functions-one-one" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.12</strong></span> If <span class="math inline">\(G: A \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(F: B \xrightarrow[]{1-1} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[]{1-1} C\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\((F \circ G)(x) = (F \circ G)(y)\)</span>. Then <span class="math inline">\(F(G(x)) = F(G(y))\)</span> but <span class="math inline">\(F\)</span> is one-one so <span class="math inline">\(G(x) = G(y)\)</span>. Also <span class="math inline">\(G\)</span> is one-one, therefore <span class="math inline">\(x = y\)</span>. We have that <span class="math inline">\(F \circ G\)</span> is one-one.</p>
+</div>
+<div id="thm-composition-functions-onto" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.13</strong></span> If <span class="math inline">\(G: A \xrightarrow[onto]{} B\)</span> and <span class="math inline">\(F: B \xrightarrow[onto]{} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[onto]{} C\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We need to prove that for any <span class="math inline">\(y \in C\)</span> there exists an <span class="math inline">\(x\)</span> such that <span class="math inline">\((F \circ G)(x) = y\)</span>. Let <span class="math inline">\(y \in C\)</span>. Because <span class="math inline">\(F\)</span> is onto it exist a <span class="math inline">\(z \in B\)</span> such that <span class="math inline">\(F(z) = y\)</span>. Also because <span class="math inline">\(G\)</span> is onto it exists an <span class="math inline">\(x\)</span> such that <span class="math inline">\(G(x) = z\)</span>. Therefore we have that <span class="math inline">\(F(z) = y\)</span> so <span class="math inline">\(F(G(x)) = y\)</span> and this means that <span class="math inline">\((F \circ G)(x) = y\)</span>.</p>
+</div>
+<div id="cor-composition-functions-one-one-correspondence" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.3</strong></span> If <span class="math inline">\(G: A \xrightarrow[onto]{1-1} B\)</span> and <span class="math inline">\(F: B \xrightarrow[onto]{1-1} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[onto]{1-1} C\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By applying <a href="#thm-composition-functions-one-one" class="quarto-xref">Theorem&nbsp;<span>1.12</span></a> and <a href="#thm-composition-functions-onto" class="quarto-xref">Theorem&nbsp;<span>1.13</span></a> we can prove <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a></p>
+</div>
+<div id="exr-composition-functions" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.36</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Assume <span class="math inline">\(F: A \longrightarrow B\)</span>, <span class="math inline">\(G: B \longrightarrow C\)</span> and <span class="math inline">\(H: C \longrightarrow D\)</span>. Show that <span class="math inline">\(H \circ (G \circ F) = (H \circ G) \circ F\)</span>. This is the associative law for composition functions.</p></li>
+<li><p>Assume <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>. Prove:</p>
+<ol type="a">
+<li><span class="math inline">\(F^{-1} \circ F = I_A\)</span></li>
+<li><span class="math inline">\(F \circ F^{-1} = I_B\)</span></li>
+<li><span class="math inline">\((F^{-1})^{-1} = F\)</span></li>
+</ol></li>
+<li><p>For each of the following functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>, determine the compositions <span class="math inline">\(F \circ G\)</span> and <span class="math inline">\(G \circ F\)</span>, and find their domains.</p>
+<ol type="a">
+<li><p><span class="math inline">\(F(x) = x + 5\)</span> for all integers <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(G(x) = x^3\)</span> for all integers <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(F(x) = x^2\)</span> for all real numbers <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(G(x) = \sqrt{x}\)</span> for all non negative real numbers <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(F(x) = -x\)</span> for all positive integers <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(G(x) = \sqrt{x}\)</span> for all positive integers <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(F(x) = \frac{x}{2}\)</span> for all integers <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(G(x) = 6x\)</span> for all integers <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(F(x) = -x\)</span> for all real numbers <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(G(x) = |x|\)</span> for all real numbers <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(F(x) = \frac{x}{x^2 + 1}\)</span> for all real numbers <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(G(x) = \frac{1}{x}\)</span> for all non zero real numbers <span class="math inline">\(x\)</span>.</p></li>
+</ol></li>
+<li><p>Assume <span class="math inline">\(G: A \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(F: B \xrightarrow[]{1-1} C\)</span>. Prove <span class="math inline">\((F \circ G)^{-1} = G^{-1} \circ F^{-1}\)</span></p></li>
+<li><p>Assume <span class="math inline">\(G: A \longrightarrow B\)</span> and <span class="math inline">\(F: B \longrightarrow C\)</span>.</p>
+<ol type="a">
+<li>If <span class="math inline">\(F \circ G\)</span> is one-one, prove that <span class="math inline">\(G\)</span> is one-one.</li>
+<li>If <span class="math inline">\(F \circ G: A \xrightarrow[onto]{} C\)</span>, prove that <span class="math inline">\(F: B \xrightarrow[onto]{} C\)</span>.</li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-composition-functions" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.36</em>. </span></p>
+<ol type="1">
+<li><p>We have that <span class="math inline">\(\mathscr{D}(H \circ (G \circ F)) = A = \mathscr{D}((H \circ G) \circ F)\)</span>. Also for any <span class="math inline">\(x\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+(H \circ (G \circ F))(x) &amp; = H((G \circ F)(x)) \\
+&amp; = H(G(F(x))) \\
+&amp; = (H \circ G)(F(x)) \\
+&amp; = ((H \circ G) \circ F)(x)
+\end{aligned}\)</span></p>
+<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(H \circ (G \circ F) = (H \circ G) \circ F\)</span></p></li>
+<li><p>If <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> we have the following results:</p>
+<ol type="a">
+<li><p><span class="math inline">\(F^{-1} \circ F: A \xrightarrow[onto]{1-1} A\)</span> by <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}(F^{-1} \circ F) = A = \mathscr{D}(I_A)\)</span>.Furthermore, <span class="math inline">\(I_A(x) = x\)</span> for all <span class="math inline">\(x \in A\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(xFy\)</span> and <span class="math inline">\(xI_Ax\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+(F^{-1} \circ F)(x) &amp; = F^{-1}(F(x)) \\
+&amp; = F^{-1}(y) \\
+&amp; = x \\
+&amp; = I_A(x)
+\end{aligned}\)</span></p>
+<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(F^{-1} \circ F = I_A\)</span>.</p></li>
+<li><p><span class="math inline">\(F \circ F^{-1}: B \xrightarrow[onto]{1-1} B\)</span> by <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> and <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}(F \circ F^{-1}) = B = \mathscr{D}(I_B)\)</span>.Furthermore, <span class="math inline">\(I_B(y) = y\)</span> for all <span class="math inline">\(y \in B\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(yF^{-1}x\)</span> and <span class="math inline">\(yI_By\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+(F \circ F^{-1})(y) &amp; = F(F^{-1}(y)) \\
+&amp; = F(x) \\
+&amp; = y \\
+&amp; = I_B(y)
+\end{aligned}\)</span></p>
+<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(F \circ F^{-1} = I_B\)</span>.</p></li>
+<li><p><span class="math inline">\((F^{-1})^{-1}: A \xrightarrow[onto]{1-1} B\)</span> by <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> and <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}((F^{-1})^{-1}) = A = \mathscr{D}(F)\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(x(F^{-1})^{-1}y\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+(F^{-1})^{-1}(x) = y &amp; \iff x(F^{-1})^{-1}y \\
+&amp; \iff yF^{-1}x \\
+&amp; \iff xFy \\
+&amp; \iff F(x) = y
+\end{aligned}\)</span></p>
+<p>Therefore <span class="math inline">\((F^{-1})^{-1}(x) = F(x)\)</span> for all <span class="math inline">\(x \in A\)</span>. By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\((F^{-1})^{-1} = F\)</span>.</p></li>
+</ol></li>
+<li><p>For each of the following functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> and its compositions we have that:</p>
+<ol type="a">
+<li><p><span class="math inline">\((F \circ G)(x) = x^3 + 5\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{Z}\)</span> and <span class="math inline">\((G \circ F)(x) = (x + 5)^3\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{Z}\)</span>.</p></li>
+<li><p><span class="math inline">\((F \circ G)(x) = (\sqrt{x})^2 = |x| = x\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{R}_{\geq 0}\)</span> and <span class="math inline">\((G \circ F)(x) = \sqrt{x^2} = |x|\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{R}\)</span>.</p></li>
+<li><p><span class="math inline">\((F \circ G)(x) = -\sqrt{x}\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{Z}_{&gt;0}\)</span> and <span class="math inline">\(G \circ F = \emptyset\)</span> taking into account that there is no <span class="math inline">\(z\)</span> such that <span class="math inline">\(xFz\)</span> and <span class="math inline">\(zGy\)</span> because <span class="math inline">\(\mathscr{R}(F) = \mathbb{Z}_{&lt;0}\)</span> and <span class="math inline">\(\mathscr{D}(G) = \mathbb{Z}_{&gt;0}\)</span> so <span class="math inline">\(\mathbb{Z}_{&lt;0} \cap \mathbb{Z}_{&gt;0} = \emptyset\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{Z}_{&gt;0}\)</span>.</p></li>
+<li><p><span class="math inline">\((F \circ G)(x) = \frac{6x}{2} = 3x\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{Z}\)</span> and <span class="math inline">\((G \circ F)(x) = \sqrt{x^2} = 6\frac{x}{2} = 3x\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{Z}\)</span>.</p></li>
+<li><p><span class="math inline">\((F \circ G)(x) = \frac{\frac{1}{x}}{\frac{1}{x^2} + 1} = \frac{x}{1 + x^2}\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{R} - \{ 0 \}\)</span> and <span class="math inline">\((G \circ F)(x) = \frac{\frac{1}{1}}{\frac{x}{x^2 + 1}} = \frac{x^2 + 1}{x}\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{R} - \{ 0 \}\)</span> because <span class="math inline">\(F(0) = 0\)</span> so <span class="math inline">\(0F0\)</span> but there is no <span class="math inline">\(y\)</span> such that <span class="math inline">\(0Gy\)</span> for <span class="math inline">\(y \in \mathbb{R}\)</span>.</p></li>
+</ol></li>
+<li><p>By <a href="#thm-composition-functions-one-one" class="quarto-xref">Theorem&nbsp;<span>1.12</span></a> and <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> <span class="math inline">\(F \circ G: A \xrightarrow[]{1-1} C\)</span> and <span class="math inline">\((F \circ G)^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A\)</span>. Also <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A\)</span> where <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 and <span class="math inline">\(\mathscr{R}(G) \subseteq B\)</span>. To apply <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 we need to:</p>
+<ul>
+<li><p>Restrict the domain the domain of <span class="math inline">\(F^{-1}\)</span> such that <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F \circ G)\)</span> so <span class="math inline">\(\mathscr{D}(G^{-1} \circ F^{-1}) = \mathscr{R}(F \circ G) = \mathscr{D}((F \circ G)^{-1})\)</span>.</p></li>
+<li><p>Restrict the range of <span class="math inline">\(F^{-1}\)</span> such that <span class="math inline">\(\mathscr{R}(F^{-1}) \subseteq \mathscr{R}(G)\)</span> so we can apply <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a> with <span class="math inline">\(F^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} \mathscr{R}(G)\)</span> and <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A\)</span> to obtain <span class="math inline">\(G^{-1} \circ F^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A\)</span>.</p></li>
+<li><p>Now if <span class="math inline">\(x \in \mathscr{R}(F \circ G)\)</span> and <span class="math inline">\(y \in A\)</span> we have that:</p>
+<p><span class="math inline">\(\begin{aligned}
+(G^{-1} \circ F^{-1})(x) = y &amp; \iff x(G^{-1} \circ F^{-1})y \\
+&amp; \iff \exists z (xF^{-1}z \land zG^{-1}y) \\
+&amp; \iff \exists z (yGz \land zFx) \\
+&amp; \iff y(F \circ G)x \\
+&amp; \iff x(F \circ G)^{-1}y \\
+&amp; \iff (F \circ G)^{-1}(x) = y
+\end{aligned}\)</span></p></li>
+<li><p>Therefore by <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 we can conclude that <span class="math inline">\(G^{-1} \circ F^{-1} = (F \circ G)^{-1}\)</span>.</p>
+<ul>
+<li><p>As an example let:</p>
+<ul>
+<li><p><span class="math inline">\(A = \{ 1, 2 \}\)</span>, <span class="math inline">\(B = \{ 3, 4, 5 \}\)</span> and <span class="math inline">\(C = \{ 6, 7, 8, 9 \}\)</span></p></li>
+<li><p><span class="math inline">\(G = \{ (1, 3), (2, 4) \}\)</span> and <span class="math inline">\(F = \{ (3, 6), (4, 7), (5, 8) \}\)</span></p></li>
+<li><p><span class="math inline">\(F \circ G = \{ (1,6), (2,7) \}\)</span> and <span class="math inline">\((F \circ G)^{-1} = \{ (6,1), (7,2) \}\)</span></p></li>
+<li><p><span class="math inline">\(G^{-1} = \{ (3,1), (4,2) \}\)</span>, <span class="math inline">\(F^{-1} = \{ (6,3), (7,4), (8,5) \}\)</span> and <span class="math inline">\(G^{-1} \circ F^{-1} = \{ (6,1), (7,2) \}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>In the case of <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> we have the following results:</p>
+<ol type="a">
+<li><p>Let use <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Assume <span class="math inline">\(F \circ G\)</span> is one-one and <span class="math inline">\(G\)</span> is not one-one. Then <span class="math inline">\(G(x) = G(y)\)</span> and <span class="math inline">\(x \neq y\)</span>. Therefore <span class="math inline">\(F(G(x)) = F(G(y))\)</span> because <span class="math inline">\(F\)</span> is a function, see <a href="#def-function" class="quarto-xref">Definition&nbsp;<span>1.49</span></a>, but <span class="math inline">\(F \circ G\)</span> is one-one so <span class="math inline">\(x = y\)</span>. We obtain a contradiction because <span class="math inline">\(x \neq y\)</span> and <span class="math inline">\(x = y\)</span> so it must be case that <span class="math inline">\(G\)</span> is one-one.</p>
+<p><strong>Note</strong>: We can have that <span class="math inline">\(F \circ G\)</span> is one-one, <span class="math inline">\(F\)</span> is not one-one and <span class="math inline">\(G\)</span> is one-one. For example <span class="math inline">\(F(x) = x^2\)</span> for <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(G(x) = \sqrt{x}\)</span> for <span class="math inline">\(x \in \mathbb{R}_{\geq 0}\)</span> and <span class="math inline">\((F \circ G)(x) = (\sqrt{x})^2 = |x| = x\)</span> for <span class="math inline">\(x \in \mathbb{R}_{\geq 0}\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(F \circ G\)</span> is onto we have that <span class="math inline">\(\mathscr{R}(F \circ G) = C\)</span>. Also by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> 3 <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> so <span class="math inline">\(C \subseteq \mathscr{R}(F)\)</span>. Furthermore <span class="math inline">\(\mathscr{R}(F) \subseteq C\)</span> which means that <span class="math inline">\(\mathscr{R}(F) = C\)</span>. Therefore <span class="math inline">\(F\)</span> is onto.</p>
+<p><strong>Note</strong>: We can have that <span class="math inline">\(F \circ G\)</span> is onto, <span class="math inline">\(F\)</span> is onto and <span class="math inline">\(G\)</span> is not onto. For example <span class="math inline">\((F \circ G)(x) = x\)</span> where <span class="math inline">\(F \circ G: \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}\)</span>, <span class="math inline">\(F(x) = x^2\)</span> where <span class="math inline">\(F: \mathbb{R} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}\)</span> and <span class="math inline">\(G(x) = \sqrt{x}\)</span> where <span class="math inline">\(G: \mathbb{R}_{\geq 0} \longrightarrow \mathbb{R}\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+</section>
+<section id="operations" class="level4" data-number="1.3.9.5">
+<h4 data-number="1.3.9.5" class="anchored" data-anchor-id="operations"><span class="header-section-number">1.3.9.5</span> Operations</h4>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -5489,6 +5780,9 @@ Church, Alonzo. 1996. <em>Introduction to Mathematical Logic</em>. 10th ed. Prin
 </div>
 <div id="ref-cunningham_set_2016" class="csl-entry" role="listitem">
 Cunningham, Daniel W. 2016. <em>Set Theory: A First Course</em>. Cambridge Mathematical Textbooks. New York, NY: Cambridge University Press.
+</div>
+<div id="ref-dawson_why_2015" class="csl-entry" role="listitem">
+Dawson, John W. 2015. <em>Why <span>Prove</span> It <span>Again</span>?: <span>Alternative</span> <span>Proofs</span> in <span>Mathematical</span> <span>Practice</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-17368-9">https://doi.org/10.1007/978-3-319-17368-9</a>.
 </div>
 <div id="ref-egre_logic_2021" class="csl-entry" role="listitem">
 Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Conditionals</span>.”</span> In <em>The <span>Stanford</span> <span>Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta, Winter 2021. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/">https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/</a>.
