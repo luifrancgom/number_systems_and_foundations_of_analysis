@@ -3317,7 +3317,7 @@ From now on we introduce a traditional notation for binary relations. If $R$ is 
 
 Consider any binary relations $R$ and $S$. Then we can define a new relation, $S \circ R$, called the composition of $R$ and $S$:
 
-$$S \circ R = \{ (x, y) \mid \exists x (xRz \land zSy) \}$$
+$$S \circ R = \{ (x, y) \mid \exists z (xRz \land zSy) \}$$
 
 Thus, $x(S \circ R)y$ means that there is and intermediate object $z$ such that $xRz$ and $zSy$.
 
@@ -3405,9 +3405,9 @@ Thus, $x(S \circ R)y$ means that there is and intermediate object $z$ such that 
     
 3.  Show that if $R$ and $S$ are binary relations then:
 
-    a. $\mathscr{D}(R \circ S) \subseteq \mathscr{D}(S)$. When $\mathscr{D}(R \circ S) = \mathscr{D}(S)$? 
+    a. $\mathscr{D}(R \circ S) \subseteq \mathscr{D}(S)$. When $\mathscr{D}(R \circ S) = \mathscr{D}(S)$ 
     
-    b. $\mathscr{R}(R \circ S) \subseteq \mathscr{R}(R)$. When $\mathscr{R}(R \circ S) = \mathscr{R}(R)$?
+    b. $\mathscr{R}(R \circ S) \subseteq \mathscr{R}(R)$. When $\mathscr{R}(R \circ S) = \mathscr{R}(R)$
 
 4. Let $\mathbb{R}$ be the set of real numbers. Let $S = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x^2 \}$, $W = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = -x \}$ and $R = \{ (x, y) \mid x \in \mathbb{R} \land y \in \mathbb{R} \land y = x + 1 \}$:
 
@@ -3896,9 +3896,9 @@ In @exm-binary-relation-reflexive-irreflexive 1 $R$, $S$ and $I_{\mathbb{Z}}$ ar
 
     -  Assume $R$ is irreflexive
     
-       -  \neg(xRx) but $xI_Ax$ so $R \cap I_A = \subseteq$
+       -  $\neg(xRx)$ but $xI_Ax$ so $R \cap I_A = \emptyset$
        
-    -  Assume $R \cap I_A = \subseteq$
+    -  Assume $R \cap I_A = \emptyset$
     
        -  So $\neg(xRx)$
        
@@ -4574,7 +4574,7 @@ $$F \text{ is one-one} \iff \forall x \forall x ((x \in \mathscr{D}(F) \land y \
 
 3. Let $F$ be the function such that $F(x) = 3x + 1$ for all $x$ in the set $A$ of real numbers. Then $F: A \xrightarrow[]{1-1} B$ because if $3x + 1 = 3y + 1$ then $x = y$. 
 
-4. Let $F(x, y) = 2^x(2y + 1)$ for all $x$ and $y$ in the set $A$ of non negative integers. Then $F: A \xrightarrow[]{1-1} B$:
+4. Let $F(x, y) = 2^x(2y + 1)$ for all $x$ and $y$ in the set $A$ of non negative integers. Then $F: A \times A \xrightarrow[]{1-1} A$:
 
    Why? Let $2^x(2y + 1) = 2^w(2z + 1)$ then $x = w$ or $x \neq w$:
    
@@ -4596,7 +4596,9 @@ Consider a function $F$. The inverse relation $F^{-1}$ need not be a function. F
 
 ::: {#thm-inverse-function-as-a-function}
 
-If $F$ is one-one function, then $F^{-1}$ must be a function. In fact, $F^{-1}$ is a one-one function.  
+If $F$ is one-one function, then $F^{-1}$ must be a function. In fact, $F^{-1}$ is a one-one function.
+
+**Note**: If $F: A \xrightarrow[]{1-1} B$ then $F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A$[^chapter_1-10]. According to @exr-inverse-composition-relations 2 $\mathscr{D}(R^{-1}) = \mathscr{R}(R)$ and $\mathscr{R}(R^{-1}) = \mathscr{D}(R)$ so $\mathscr{D}(F^{-1}) = \mathscr{R}(F)$ and $\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A$. In particular if $F: A \xrightarrow[onto]{1-1} B$ then $F^{-1}: B \xrightarrow[onto]{1-1} A$ because $\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B$.
 
 :::
 
@@ -4621,8 +4623,6 @@ $$\begin{split}
 
 :::
 
-Notice that if $F: A \xrightarrow[]{1-1} B$ then $F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A$[^chapter_1-10]. According to @exr-inverse-composition-relations 2 $\mathscr{D}(R^{-1}) = \mathscr{R}(R)$ and $\mathscr{R}(R^{-1}) = \mathscr{D}(R)$ so $\mathscr{D}(F^{-1}) = \mathscr{R}(F)$ and $\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A$. In particular if $F: A \xrightarrow[onto]{1-1} B$ then $F^{-1}: B \xrightarrow[onto]{1-1} A$ because $\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B$.   
-
 [^chapter_1-10]: If $G: C \xrightarrow[]{1-1} D$ and $G: C \xrightarrow[onto]{} D$ we write $G: C \xrightarrow[onto]{1-1} D$.   
 
 ::: {#exm-inverse-function-as-a-function}
@@ -4633,8 +4633,386 @@ Notice that if $F: A \xrightarrow[]{1-1} B$ then $F^{-1}: \mathscr{R}(F) \xright
 
 3. In @exm-one-one-function 3 $F: A \xrightarrow[onto]{1-1} B$, $F^{-1}: B \xrightarrow[onto]{1-1} A$ and $F^{-1}(x) = \frac{x - 1}{3}$ for all $x \in A$.
 
-4. In @exm-one-one-function 5 
+4. In @exm-one-one-function 5 $F: A \times B \xrightarrow[onto]{1-1} B \times A$, $F^{-1}: B \times A \xrightarrow[onto]{1-1} A \times B$ and $F^{-1}(y,x) = (x,y)$ for all $(y,x) \in B \times A$. 
+
+5. In @exm-one-one-function 6 $F: A \xrightarrow[onto]{1-1} B$, $F^{-1}: B \xrightarrow[onto]{1-1} A$ and $F^{-1}(x) = x^2$ for all $x \in A$.
+
+6. Let $A$ be the set of all positive real numbers, $\mathbb{R}_{>0}$. Let $F(x) = \frac{1}{x}$ for all $x \in A$. Then $F: A \xrightarrow[onto]{1-1} A$ because $F(x) = F(y)$ implies that $y = x$ and if $y \in \mathbb{R}_{>0}$ then it always exists $x =\frac{1}{y}$ such that $F \left(x = \frac{1}{y} \right) = y$.
 
 :::
 
-When $F: A \xrightarrow[onto]{1-1} B$, we say that $F$ is a *one-one correspondence* between $A$ and $B$. If there is a one-one correspondence between $A$ and $B$, then $A$ and $B$ are said to be **equinumerous** because, in a certain case, each has a many elements as other.
+::: {#exr-one-one-function}
+
+1. Determine whether each of the following functions $F$ is one-one. If it is one-one, describe $F^{-1}$ by a formula if it is possible and find the domain of $F^{-1}$
+
+    a. $F(x) = |x|$ for $x \in \mathbb{R}$
+    
+    b. $F(x) = x^2 - 1$
+    
+    c. $F = 7x + 3$ for $x \in \mathbb{R}$
+    
+    d. $F = 7x + 3$ for $x \in \mathbb{Z}$
+    
+    e. $F(x, y) = \sqrt{x^2 + y^2}$
+    
+    f. $F(x, y) = x + y$
+    
+    g. Consider and equivalence relation $R$ in a set $A$. Let $F(x) = [x]$ for $x \in A$.
+
+:::
+
+::: {#sol-one-one-function}
+
+1. For each $F$ we have the following results
+
+    a. $F$ is not one-one because $F(1) = F(-1)$ but $1 \neq -1$
+    
+    b. $F$ is not one-one because $F(1) = F(-1)$ but $1 \neq -1$
+    
+    c. $F$ is one-one because if $F(x) = F(y)$ then $7x + 3 = 7y + 3$ so $x = y$.
+    
+    d. If $F$ is one-one when $x \in \mathbb{R}$ then it will be one-one when $x \in \mathbb{Z}$ because $\mathbb{Z} \subset \mathbb{R}$
+    
+    e. $F$ is not one-one because $F(1, 1) = F(-1, -1)$ but $(1,1) \neq (-1, -1)$
+    
+    f. $F$ is not one-one because $F(1, 2) = F(2, 1)$ but $(1, 2) \neq (1, 2)$
+    
+    g. $F$ is not one-one because $F(x) = F(y)$ implies that $[x] = [y]$ but it is not necessarily true that $x = y$ for an arbitrary set $A$.
+    
+       For example, let $A = \{ 1, 2, 3 \}$ and $R = \{ (1, 1), (2, 2), (3, 3), (1, 2), (2, 1), (2, 3), (3, 2), (1, 3), (3, 1) \}$ where $[1] = \{ 1, 2, 3 \}$ and $[2] = \{ 1, 2, 3\}$ but $1 \neq 2$.
+
+:::
+
+#### One-one correspondences (Bijective functions)
+
+::: {#def-one-one-correspondence}
+
+## One-one correspondence (Bijective function)
+
+If $F: A \xrightarrow[onto]{1-1} B$, we say that $F$ is a *one-one correspondence* between $A$ and $B$.
+
+**Note**: If there is a one-one correspondence between $A$ and $B$, then $A$ and $B$ are said to be **equinumerous** because, in a certain case, each has a many elements as other.
+
+:::
+
+::: {#exm-one-one-correspondence}
+
+1.  Let $C$ and $D$ be arbitrary sets. The $C \times D$ and $D \times C$ are equinumerous. Let $F(c, d) = (d, c)$ then $F: C \times D \xrightarrow[onto]{1-1} D \times C$. If $F(c, d) = F(e, f)$ then $(c, d) = (e, f)$. Also if $(d, c) \in D \times C$ it always exists $(c, d) \in C \times D$.
+
+2.  Let $\mathbb{Z}_{\geq 0}$ the set of non negative integers and let $\mathbb{P}$ be the set of positive integers. The $\mathbb{Z}_{\geq 0}$ and $\mathbb{P}$ are equinumerous. Let $F(x) = x + 1$ for all $x \in \mathbb{Z}_{\geq 0}$
+
+3. Let $\mathbb{Z}_{> 0}$ be the set of nonnegative integers. Let $F(x, y) = 2^x(2y + 1) - 1$ where $x \in \mathbb{Z}_{> 0}$ and $y \in \mathbb{Z}_{> 0}$.
+
+   By @exm-one-one-function 4 we have that $F: \mathbb{Z}_{> 0} \times \mathbb{Z}_{> 0} \xrightarrow[]{1-1} \mathbb{Z}_{> 0}$ taking into account that $G(x, y) = 2^x(2y + 1)$ is one-one where we can use this result to show that $F(x, y) = 2^x(2y + 1) - 1$ is one-one.
+   
+   To check if $F: \mathbb{Z}_{> 0} \times \mathbb{Z}_{> 0} \xrightarrow[onto]{} \mathbb{Z}_{> 0}$ we proceed in the following way:
+   
+      -  $F(0, y) = 2^0(2y + 1) - 1 = 2y$ where $F(0, y) \in \{ 0, 2, 4, \ldots \}$
+      
+      -  Let $x > 0$ and take $G(x, y) = 2^x(2y + 1)$ then we can prove that every even number can by represented in that way. If we can prove that, then every odd number can be represented as $2^x(2y + 1) - 1$
+      
+         -  By the fundamental theorem of arithmetic [@dawson_why_2015, p. 41] every positive integer $n > 1$ can be represented as $n = \prod_{i=1}^k p_i^{n_i}$ where $p_1 < \ldots < p_k$ are primes and the $n_i$ are positive integers.
+         
+         -  Therefore if $n$ is even it can be represented as $n = 2^{n_1}$ or $2^{n_1}\prod_{i=2}^k p_i^{n_i}$
+         
+            -  In the first case $n = 2^x(2*0 + 1)$ where $x = n_1$ and $y = 0$
+         
+            -  In the second case $\prod_{i=2}^k p_i^{n_i}$ is an odd number because it is not divisible by $2$ so it can be represented as $\prod_{i=2}^k p_i^{n_i} = (2y + 1)$. Therefore $n$ can be represented as $n = 2^{n_1}\prod_{i=2}^k p_i^{n_i} = 2^x(2y + 1)$ where $x = n_1$ and $2y + 1 = \prod_{i=2}^k p_i^{n_i}$.  
+
+      -  Then $F(x, y) \in \{ 1, 3, 5, \ldots \}$ when $x > 1$
+      
+      -  In general we have that $F(x, y) \in \{ 0, 1, 2, 3, 4, \ldots \}$ 
+
+   We can conclude that $F: \mathbb{Z}_{> 0} \times \mathbb{Z}_{> 0} \xrightarrow[onto]{1-1} \mathbb{Z}_{> 0}$.
+
+4.  Let $\mathbb{Z}_{> 0}$ be the set of non negative integers and let $\mathbb{Z}$ be the set of all integers. We can enumerate $\mathbb{Z}$ as follows $0, 1, -1, 2, -2, 3, -3, \ldots$ More precisely we define:
+
+    $$F(n) = \begin{cases}
+              \frac{n+1}{2} & \text{ if } n \text{ is odd} \\
+              -\frac{n}{2} & \text{ if } n \text{ is even} 
+             \end{cases}$$
+             
+    Then $F: \mathbb{Z}_{> 0} \xrightarrow[onto]{1-1} \mathbb{Z}$.
+
+:::
+
+::: {#exr-one-one-correspondence}
+
+1. In each of the following cases, show that $A$ and $B$ are equinumerous
+
+    a. $A$ is the set of all even integers and $B$ is the set of all odd integers. 
+    
+    b. $A$ is the set of all even integers and $B$ is the set of all integers.
+    
+    c. $A$ is the set of all real numbers between $0$ and $1$ incluiding $0$ and $1$ and $B$ is the set of all real numbers between $1$ and $3$ incluiding $1$ and $3$. 
+
+:::
+
+::: {#sol-one-one-correspondence}
+
+1. For each case we have the following results:
+
+    a. $F(x) = x + 1$ where $x$ belongs to the set of all even integers.
+    
+    b. $F(x) = \frac{x}{2}$ where $x$ belongs to the set of all even integers.
+    
+    c. In general if you want to build a one-one correspondence between $[c, d]$ and $[a,b]$ where $c < d$ and $a < b$ you can proceed in the following way:
+    
+       -  Build a one-one correspondence between $[c, d]$ and $[0, 1]$
+       
+          -  Shift the values by fixing $0$ as a lower bound, $x - c$ where $x \in [c, d]$
+          
+          -  Scale to unit interval by dividing $x - c$ by $d - c$, $\frac{x - c}{d - c}$
+          
+        -  Stretch or compress the interval $[0, 1]$ by multiplying it with $(b - a)$, $\frac{(b - a)(x - c)}{d - c}$. Therefore the new interval is $[0, b - a]$
+          
+        -  Shift to the minimum $a$ and to the maximum $b$, $\frac{(b - a)(x - c)}{d - c} + a$. Therefore we obtain the interval $[a, b]$ 
+
+       So $F(x) = 2x + 1$ where $x \in [0, 1]$.
+
+:::
+
+#### Composition of functions
+
+::: {#thm-composition-functions}
+
+If $F$ and $G$ are functions, then $F \circ G$ is a function. 
+
+:::
+
+::: {.proof} 
+
+Assume $x(F \circ G)y$ and $x(F \circ G)z$ then $\exists w (xGw \land wFy)$ and $\exists v (xGv \land vFz)$. Therefore $G(x) = w$, $F(w) = y$, $G(x) = v$ and $F(v) = z$. So $F(G(x)) = y$ and $F(G(x)) = z$ which implies that $y = z$.
+
+**Note**: Observe that $\mathscr{D}(F \circ G)$ is:
+
+$$\begin{split}
+  \mathscr{D}(F \circ G) & = \{ x \mid \exists y ((F \circ G)(x) = y) \} \\
+  & = \{ x \mid \exists y (x(F \circ G)y) \} \\
+  & = \{ x \mid \exists y \exists z (xGz \land zFy) \} \\
+  & = \{ x \mid \exists y \exists z (G(x) = z \land F(z) = y) \} \\
+  & = \{ x \mid \exists y \exists z (G(x) = z \land F(G(x)) = y) \}
+  \end{split}$$
+  
+Therefore $x \in \mathscr{D}(F \circ G)$ if and only if $x \in \mathscr{D}(G)$ and $G(x) \in \mathscr{D}(F)$. Thus, the value of $(F \circ G)(x)$ is obtained by first applying $G$ to $x$ and then applying $F$ to the result $G(x)$. 
+
+:::
+
+::: {#exm-composition-functions}
+
+1.  Let $F(x) = x + 1$ for all real numbers $x$, and let $G(x) = \sqrt{x}$ for all non negative numbers real numbers $x$ then:
+    
+    $$(F \circ G)(x) = F(G(x)) = F(\sqrt{x}) = \sqrt{x} + 1$$
+    
+    For all non negative real numbers $x$. On the other hand,
+    
+    $$(G \circ F)(x) = G(F(x)) = G(x + 1) = \sqrt{x + 1}$$
+
+2.  Let $F(x) = sin x$ for all real numbers $x$, and $G(x) = x^2$ for all real numbers $x$. Then:
+
+    $$(F \circ G)(x) = F(G(x)) = F(x^2) = sin x^2$$
+    
+    For all real numbers $x$. On the other hand,
+    
+    $$(G \circ F)(x) = G(F(x)) = G(sin x) = (sin x)^2$$
+    
+    In addition $(G \circ G)(x) = G(G(x)) = G(x^2) = x^4$ and $(F \circ F)(x) = F(F(x)) = F(sin x) = sin (sin x)$  
+
+:::
+
+::: {#thm-composition-functions-notation}
+
+Consider functions $G: A \longrightarrow B$ and $F: B \longrightarrow C$. Then $F \circ G: A \longrightarrow C$. 
+
+:::
+
+::: {.proof}
+
+By the note in the proof of @thm-composition-functions $x \in \mathscr{D}(F \circ G)$ if and only if $x \in \mathscr{D}(G)$ and $G(x) \in \mathscr{D}(F)$. Therefore $\mathscr{D}(F \circ G) = \{ x \mid x \in A \land G(x) \in B \} = \{ x \mid x \in A \}$. On the other hand $\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)$ and therefore $\mathscr{R}(F \circ G) \subseteq C$. 
+
+:::
+
+::: {#thm-composition-functions-one-one}
+
+If $G: A \xrightarrow[]{1-1} B$ and $F: B \xrightarrow[]{1-1} C$, then $F \circ G: A \xrightarrow[]{1-1} C$
+
+:::
+
+::: {.proof}
+
+Let $(F \circ G)(x) = (F \circ G)(y)$. Then  $F(G(x)) = F(G(y))$ but $F$ is one-one so $G(x) = G(y)$. Also $G$ is one-one, therefore $x = y$. We have that $F \circ G$ is one-one. 
+
+:::
+
+::: {#thm-composition-functions-onto}
+
+If $G: A \xrightarrow[onto]{} B$ and $F: B \xrightarrow[onto]{} C$, then $F \circ G: A \xrightarrow[onto]{} C$
+
+:::
+
+::: {.proof}
+
+We need to prove that for any $y \in C$ there exists an $x$ such that $(F \circ G)(x) = y$. Let $y \in C$. Because $F$ is onto it exist a $z \in B$ such that $F(z) = y$. Also because $G$ is onto it exists an $x$ such that $G(x) = z$. Therefore we have that $F(z) = y$ so $F(G(x)) = y$ and this means that $(F \circ G)(x) = y$.
+
+:::
+
+::: {#cor-composition-functions-one-one-correspondence}
+
+If $G: A \xrightarrow[onto]{1-1} B$ and $F: B \xrightarrow[onto]{1-1} C$, then $F \circ G: A \xrightarrow[onto]{1-1} C$
+
+:::
+
+::: {.proof}
+
+By applying @thm-composition-functions-one-one and @thm-composition-functions-onto we can prove @cor-composition-functions-one-one-correspondence
+
+:::
+
+::: {#exr-composition-functions}
+
+1.  Assume $F: A \longrightarrow B$, $G: B \longrightarrow C$ and $H: C \longrightarrow D$. Show that $H \circ (G \circ F) = (H \circ G) \circ F$. This is the associative law for composition functions.
+
+2.  Assume $F: A \xrightarrow[onto]{1-1} B$. Prove:
+
+    a.  $F^{-1} \circ F = I_A$
+    b.  $F \circ F^{-1} = I_B$
+    c.  $(F^{-1})^{-1} = F$
+
+3.  For each of the following functions $F$ and $G$, determine the compositions $F \circ G$ and $G \circ F$, and find their domains.
+
+    a.  $F(x) = x + 5$ for all integers $x$.
+    
+        $G(x) = x^3$ for all integers $x$.
+        
+    b.  $F(x) = x^2$ for all real numbers $x$.
+    
+        $G(x) = \sqrt{x}$ for all non negative real numbers $x$.
+
+    c.  $F(x) = -x$ for all positive integers $x$.
+    
+        $G(x) = \sqrt{x}$ for all positive integers $x$.
+        
+    d.  $F(x) = \frac{x}{2}$ for all integers $x$.
+    
+        $G(x) = 6x$ for all integers $x$.
+        
+    e.  $F(x) = -x$ for all real numbers $x$.
+    
+        $G(x) = |x|$ for all real numbers $x$.
+        
+    f.  $F(x) = \frac{x}{x^2 + 1}$ for all real numbers $x$.
+    
+        $G(x) = \frac{1}{x}$ for all non zero real numbers $x$.
+
+ 4.  Assume $G: A \xrightarrow[]{1-1} B$ and $F: B \xrightarrow[]{1-1} C$. Prove $(F \circ G)^{-1} = G^{-1} \circ F^{-1}$
+ 
+5.  Assume $G: A \longrightarrow B$ and $F: B \longrightarrow C$.
+
+    a. If $F \circ G$ is one-one, prove that $G$ is one-one. 
+    b. If $F \circ G: A \xrightarrow[onto]{} C$, prove that $F: B \xrightarrow[onto]{} C$.
+
+:::
+
+::: {#sol-composition-functions}
+
+1.  We have that $\mathscr{D}(H \circ (G \circ F)) = A = \mathscr{D}((H \circ G) \circ F)$. Also for any $x$:
+
+    $\begin{aligned}
+    (H \circ (G \circ F))(x) & = H((G \circ F)(x)) \\
+    & = H(G(F(x))) \\
+    & = (H \circ G)(F(x)) \\
+    & = ((H \circ G) \circ F)(x)
+    \end{aligned}$
+    
+    By @exr-function 3 $H \circ (G \circ F) = (H \circ G) \circ F$ 
+
+2.  If $F: A \xrightarrow[onto]{1-1} B$ we have the following results:
+
+    a. $F^{-1} \circ F: A \xrightarrow[onto]{1-1} A$ by @cor-composition-functions-one-one-correspondence. So $\mathscr{D}(F^{-1} \circ F) = A = \mathscr{D}(I_A)$.Furthermore, $I_A(x) = x$ for all $x \in A$. Also for any $x \in A$ and $y \in B$ such that $xFy$ and $xI_Ax$:
+    
+       $\begin{aligned}
+       (F^{-1} \circ F)(x) & = F^{-1}(F(x)) \\
+       & = F^{-1}(y) \\
+       & = x \\
+       & = I_A(x)
+       \end{aligned}$
+       
+       By @exr-function 3 $F^{-1} \circ F = I_A$. 
+    
+    b. $F \circ F^{-1}: B \xrightarrow[onto]{1-1} B$ by @thm-inverse-function-as-a-function and @cor-composition-functions-one-one-correspondence. So $\mathscr{D}(F \circ F^{-1}) = B = \mathscr{D}(I_B)$.Furthermore, $I_B(y) = y$ for all $y \in B$. Also for any $x \in A$ and $y \in B$ such that $yF^{-1}x$ and $yI_By$:
+    
+       $\begin{aligned}
+       (F \circ F^{-1})(y) & = F(F^{-1}(y)) \\
+       & = F(x) \\
+       & = y \\
+       & = I_B(y)
+       \end{aligned}$
+
+       By @exr-function 3 $F \circ F^{-1} = I_B$. 
+    
+    c. $(F^{-1})^{-1}: A \xrightarrow[onto]{1-1} B$ by @thm-inverse-function-as-a-function and @cor-composition-functions-one-one-correspondence. So $\mathscr{D}((F^{-1})^{-1}) = A = \mathscr{D}(F)$. Also for any $x \in A$ and $y \in B$ such that $x(F^{-1})^{-1}y$:
+    
+       $\begin{aligned}
+       (F^{-1})^{-1}(x) = y & \iff x(F^{-1})^{-1}y \\
+       & \iff yF^{-1}x \\
+       & \iff xFy \\
+       & \iff F(x) = y
+       \end{aligned}$
+       
+       Therefore $(F^{-1})^{-1}(x) = F(x)$ for all $x \in A$. By @exr-function 3 $(F^{-1})^{-1} = F$.
+
+3.  For each of the following functions $F$ and $G$ and its compositions we have that:
+
+    a. $(F \circ G)(x) = x^3 + 5$ where $\mathscr{D}(F \circ G) = \mathbb{Z}$ and $(G \circ F)(x) = (x + 5)^3$ where $\mathscr{D}(G \circ F) = \mathbb{Z}$.
+
+    b. $(F \circ G)(x) = (\sqrt{x})^2 = |x| = x$ where $\mathscr{D}(F \circ G) = \mathbb{R}_{\geq 0}$ and $(G \circ F)(x) = \sqrt{x^2} = |x|$ where $\mathscr{D}(G \circ F) = \mathbb{R}$.
+    
+    c. $(F \circ G)(x) = -\sqrt{x}$ where $\mathscr{D}(F \circ G) = \mathbb{Z}_{>0}$ and $G \circ F = \emptyset$ taking into account that there is no $z$ such that $xFz$ and $zGy$ because $\mathscr{R}(F) = \mathbb{Z}_{<0}$ and $\mathscr{D}(G) = \mathbb{Z}_{>0}$ so $\mathbb{Z}_{<0} \cap \mathbb{Z}_{>0} = \emptyset$ where $\mathscr{D}(G \circ F) = \mathbb{Z}_{>0}$.
+
+    e. $(F \circ G)(x) = \frac{6x}{2} = 3x$ where $\mathscr{D}(F \circ G) = \mathbb{Z}$ and $(G \circ F)(x) = \sqrt{x^2} = 6\frac{x}{2} = 3x$ where $\mathscr{D}(G \circ F) = \mathbb{Z}$.
+    
+    f. $(F \circ G)(x) = \frac{\frac{1}{x}}{\frac{1}{x^2} + 1} = \frac{x}{1 + x^2}$ where $\mathscr{D}(F \circ G) = \mathbb{R} - \{ 0 \}$ and $(G \circ F)(x) = \frac{\frac{1}{1}}{\frac{x}{x^2 + 1}} = \frac{x^2 + 1}{x}$ where $\mathscr{D}(G \circ F) = \mathbb{R} - \{ 0 \}$ because $F(0) = 0$ so $0F0$ but there is no $y$ such that $0Gy$ for $y \in \mathbb{R}$.
+
+4.  By @thm-composition-functions-one-one and @thm-inverse-function-as-a-function $F \circ G: A \xrightarrow[]{1-1} C$ and $(F \circ G)^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A$. Also $F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} B$, $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A$ where $\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)$ by @exr-inverse-composition-relations 3 and $\mathscr{R}(G) \subseteq B$. To apply @exr-function 3 we need to:
+
+    -  Restrict the domain the domain of $F^{-1}$ such that $\mathscr{D}(F^{-1}) = \mathscr{R}(F \circ G)$ so $\mathscr{D}(G^{-1} \circ F^{-1}) = \mathscr{R}(F \circ G) = \mathscr{D}((F \circ G)^{-1})$.
+    
+    -  Restrict the range of $F^{-1}$ such that $\mathscr{R}(F^{-1}) \subseteq \mathscr{R}(G)$ so we can apply @cor-composition-functions-one-one-correspondence with $F^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} \mathscr{R}(G)$ and $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A$ to obtain $G^{-1} \circ F^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A$.
+    
+    -  Now if $x \in \mathscr{R}(F \circ G)$ and $y \in A$ we have that:
+    
+       $\begin{aligned}
+       (G^{-1} \circ F^{-1})(x) = y & \iff x(G^{-1} \circ F^{-1})y \\
+       & \iff \exists z (xF^{-1}z \land zG^{-1}y) \\
+       & \iff \exists z (yGz \land zFx) \\
+       & \iff y(F \circ G)x \\
+       & \iff x(F \circ G)^{-1}y \\
+       & \iff (F \circ G)^{-1}(x) = y
+       \end{aligned}$
+    
+    -  Therefore by @exr-function 3 we can conclude that $G^{-1} \circ F^{-1} = (F \circ G)^{-1}$.
+    
+       -  As an example let:
+       
+          -  $A = \{ 1, 2 \}$, $B = \{ 3, 4, 5 \}$ and $C = \{ 6, 7, 8, 9 \}$
+          
+          -  $G = \{ (1, 3), (2, 4) \}$ and $F = \{ (3, 6), (4, 7), (5, 8) \}$
+          
+          -  $F \circ G = \{ (1,6), (2,7) \}$ and $(F \circ G)^{-1} = \{ (6,1), (7,2) \}$
+          
+          -  $G^{-1} = \{ (3,1), (4,2) \}$, $F^{-1} = \{ (6,3), (7,4), (8,5) \}$ and $G^{-1} \circ F^{-1} = \{ (6,1), (7,2) \}$ 
+
+5. In the case of $G$ and $F$ we have the following results:
+
+    a.  Let use @nte-proof-by-reductio-ad-absurdum. Assume $F \circ G$ is one-one and $G$ is not one-one. Then $G(x) = G(y)$ and $x \neq y$. Therefore $F(G(x)) = F(G(y))$ because $F$ is a function, see @def-function, but $F \circ G$ is one-one so $x = y$. We obtain a contradiction because $x \neq y$ and $x = y$ so it must be case that $G$ is one-one.
+    
+        **Note**: We can have that $F \circ G$ is one-one, $F$ is not one-one and $G$ is one-one. For example $F(x) = x^2$ for $x \in \mathbb{R}$, $G(x) = \sqrt{x}$ for $x \in \mathbb{R}_{\geq 0}$ and $(F \circ G)(x) = (\sqrt{x})^2 = |x| = x$ for $x \in \mathbb{R}_{\geq 0}$. 
+
+    b. Because $F \circ G$ is onto we have that $\mathscr{R}(F \circ G) = C$. Also by @exr-inverse-composition-relations 3 $\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)$ so $C \subseteq \mathscr{R}(F)$. Furthermore $\mathscr{R}(F) \subseteq C$ which means that $\mathscr{R}(F) = C$. Therefore $F$ is onto.    
+
+        **Note**: We can have that $F \circ G$ is onto, $F$ is onto and $G$ is not onto. For example $(F \circ G)(x) = x$ where $F \circ G: \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}$, $F(x) = x^2$ where $F: \mathbb{R} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}$ and $G(x) = \sqrt{x}$ where $G: \mathbb{R}_{\geq 0} \longrightarrow \mathbb{R}$.
+:::
+
+
+
+#### Operations
