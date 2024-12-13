@@ -5013,6 +5013,183 @@ By applying @thm-composition-functions-one-one and @thm-composition-functions-on
         **Note**: We can have that $F \circ G$ is onto, $F$ is onto and $G$ is not onto. For example $(F \circ G)(x) = x$ where $F \circ G: \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}$, $F(x) = x^2$ where $F: \mathbb{R} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}$ and $G(x) = \sqrt{x}$ where $G: \mathbb{R}_{\geq 0} \longrightarrow \mathbb{R}$.
 :::
 
-
-
 #### Operations
+
+::: {#def-singulary-operation}
+
+## Singulary operation
+
+Let $A$ be a set. By a singulary operation on $A$ we mean a function $F$ from $A$ into $A$. Thus, $F$ is a singulary operation on $A$ if and only if $F: A \longrightarrow A$. This means that the values of $F$ as well as its arguments must belong to $A$. 
+
+:::
+
+::: {#exm-singulary-operation}
+
+1.  Let $F(x) = 2x$ for all integers $x$. $F$ is a singulary operation because $F: \mathbb{Z} \xrightarrow[]{1-1} \mathbb{Z}$ where $\mathscr{R}(F) \subset \mathbb{Z}$ and specifically $\mathscr{R}(F)$ are all the even integers.
+
+2.  Let $F(x) = \frac{x}{2}$ for all integers $x$. $F$ is not a singulary operation because $\mathscr{R}(F) \not \subseteq \mathbb{Z}$. For example if $F(3) = \frac{3}{2}$ where $\frac{3}{2} \not \in \mathbb{Z}$.
+
+3.  Let $F(x) = \frac{x}{2}$ for all rationals $x$. $F$ is a singulary operation because $F: \mathbb{Q} \xrightarrow[onto]{1-1} \mathbb{Q}$.
+
+4.  Let $F(x) = x + 1$ for all positive integers $x$. Then $F$ is a singulary operation because $F: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}$ where $\mathscr{R}(F) \subset \mathbb{P}$.
+
+5.  Let $F(x) = x - 1$ for all positive integers $x$. Then $F$ is not a singulary operation because $\mathscr{R}(F) \not \subseteq \mathbb{P}$. For example if $F(1) = 0$ where $0 \not \in \mathbb{P}$. 
+
+:::
+
+::: {#def-binary-operation}
+
+## Binary operation
+
+Let $A$ be a set. By a binary operation on $A$ we mean a function $F$ from $A \times A$ into $A$. Thus, $F$ is a binary operation on $A$ if and only if $F: A \times A \longrightarrow A$.
+
+:::
+
+::: {#exm-binary-operation}
+
+1.  Let $F(x, y) = x + y$ for all positive integers $x$ and $y$. $F$ is a binary operation because $F: \mathbb{P} \times \mathbb{P} \longrightarrow \mathbb{P}$ where $\mathscr{R}(F) \subset \mathbb{P}$. 
+
+2.  Let $F(x, y) = x - y$ for all positive integers $x$ and $y$. Then $F$ is not a binary operation because $\mathscr{R}(F) \not \subseteq \mathbb{P}$. For example if $F(1,1) = 0$ where $0 \not \in \mathbb{P}$.
+
+3.  Let $F(x, y) = \frac{x}{y}$ for all non zero integers $x$ and $y$.  Then $F$ is not a binary operation because $\mathscr{R}(F) \not \subseteq \mathbb{P} - \{ 0 \}$. For example if $F(2,3) = \frac{2}{3}$ where $\frac{2}{3} \not \in \mathbb{P} - \{ 0 \}$.
+
+4.  Let $F(x, y) = \frac{x + y}{2}$ for any real numbers $x$ and $y$. $F$ is a binary operation because $F: \mathbb{R} \times \mathbb{R} \xrightarrow[onto]{} \mathbb{R}$.
+
+5.  Let $F(x, y) = x + y$ for all integers $x > 2$ and $y > 2$. $F$ is a binary operation because $F: \mathbb{Z}_{> 2} \times \mathbb{Z}_{> 2} \longrightarrow \mathbb{Z}_{> 2}$ where $\mathscr{R}(F) = \mathbb{Z}_{> 4} \subset \mathbb{Z}_{> 2}$.
+
+6.  Let $F(x, y) = x \times y$ for all integers $0 \leq x \leq 1$ and $0 \leq y \leq 1$. $F$ is a binary operation because $F: \mathbb{R}_{0 \leq x \leq 1} \times \mathbb{R}_{0 \leq y \leq 1} \xrightarrow[onto]{} \mathbb{R}_{0 \leq z \leq 1}$ because $0 \leq xy \leq y \leq 1$ and for any $y \in \mathbb{R}_{0 \leq z \leq 1}$ we have that $0 \leq 1y = y \leq 1$.
+
+:::
+
+We could go on to define ternary, quarternary and so on operations. For example, $F$ is a ternary operation on $A$ if and only if $F: A^3 \longrightarrow A$. However such operations will be of little importance in @mendelson_introduction_2015.
+
+::: {#exr-binary-operation}
+
+1.  If $F$ is a binary operation on $A$, and $C \subseteq A$, we say that $C$ is closed under $F$ if and only if $F(x, y) \in C$ whenever $x \in C$ and $y \in C$. In each of the following cases, determine whether $C$ is closed under $F$.
+
+    a.  $F(x,y) = x - y$ for all integers $x$ and $y$.
+    
+        i.   $C$ is the set of all integers
+        ii.  $C$ is the set of all non negative integers
+        iii. $C$ is the set of all even integers
+        iv.  $C$ is the set of all odd integers
+        v.   $C = \{-1, 0, 1 \}$
+        
+    b.  $F(x,y) = x \times y$ for all real numbers $x$ and $y$.
+    
+        i.    $C = \{ 0, 1 \}$
+        ii.   $C$ is the set of positive real numbers
+        iii.  $C$ is the set of all non negative real numbers
+        iv.   $C$ is the set of all negative real numbers
+        v.    $C$ is the set of all real numbers $x$ such that $-1 \leq x \leq 1$
+        vi.   $C$ is the set of all integers
+        vii.  $C$ is the set of all rational numbers
+        viii. $C$ is the set of all rational numbers of the form $\frac{k}{2^n}$, where $k$ and $n$ are integers
+        ix.   $C$ is the set of all real numbers of the form $a + b\sqrt{2}$, where $a$ and $b$ are integers
+
+    c.  $F(x,y) = \frac{x}{y}$ for all non zero real numbers $x$ and $y$.
+
+        i.    $C$ is the set of all none zero rational numbers
+        ii.   $C$ is the set of all none zero integers
+        iii.  $C$ is the set of all positive rational numbers
+        iv.   $C$ is the set of all rational numbers of the form $2^n$, where $n$ is any integer
+
+2. In each of the following cases, determine whether the given function $F$ is a singulary or binary operation on the given set $A$:
+
+    i.   $F(x) = \frac{1}{x}$ for all $x$ in the set $A$ of non zero integers
+    ii.  $F(x, y) = x + y - 1$ for all $x$ and $y$ in the set of the positive integers
+    iii. $F(x, y) = (x \times y) - (x + y)$ for all integers $x$ and $y$ such that $x \geq 2$ and $y \geq 2$ and $A = \{ x \in \mathbb{Z} \mid x \geq 2 \}$
+    iv.  $F(x, y) = (x \times y) - (x + y)$ for all integers $x$ and $y$ in the set $A$ of integers.
+    v.   $F(x, y) = x \times y$ for all $x$ and $y$ in the set $A = \{ x \mid x = a + b\sqrt{3} \text{ where } a \in \mathbb{Q} \text{ and } b \in \mathbb{Q} \}$
+    vi.  $F(x, y) = x \times y$ for all $x$ and $y$ in the set $A = \{ x \mid x = a + b\sqrt{2} \text{ where } a \text{ and } b \text{ are integers which are not both } 0 \}$
+    vii. Same as vi, except that $a$ and $b$ are rational numbers instead of integers. 
+
+3.  Consider a binary operation $F$ on a set $A$
+
+    $$F: A \times A \longrightarrow A$$
+    
+    Assume $C \subseteq A$. By the restriction of the operation $F$ to $C$, we mean a function $G$ such that $\mathscr{D}(G) = C \times C$ and $G(x,y) = F(x,y)$ for all $x$ and $y$ in $C$.
+    
+    a. Prove that the restriction $G$ of $F$ to $C$ is an operation on $C$ if and only if $C$ is closed under $F$.
+    
+    b. Let $F(x, y) = (x \times y) - |x||y|$ for all real numbers $x$ and $y$. $F$ is a binary operation on the set of real numbers. What is the restriction of $F$ to the set of all non negative real numbers?
+
+:::
+
+:::  {#sol-binary-operation}
+
+1. In each of the following cases we have:
+
+    a.  For $F(x,y) = x - y$ where $F: \mathbb{Z} \times \mathbb{Z} \longrightarrow \mathbb{Z}$
+    
+        i. If $C = \mathbb{Z}$, $x \in C$, $y \in C$ then $x - y \in C$. Therefore $C$ is closed under $F$.
+        
+        ii. If $C = \mathbb{Z}_{\geq 0}$, $x \in C$, $y \in C$ then $x - y \not \in C$ when $x < y$. Therefore $C$ is not closed under $F$.
+        
+        iii. If $C = \{ c \in \mathbb{Z} \mid c = 2n \text{ where } n \in \mathbb{Z} \}$ then $x \in C$, $y \in C$ where $x = 2n$ and $y = 2m$ then $x - y = 2n - 2m = 2(n-m) \in C$. Therefore $C$ is closed under $F$.
+        
+        iv. If $C = \{ c \in \mathbb{Z} \mid c = 2n + 1 \text{ where } n \in \mathbb{Z} \}$, $x \in C$, $y \in C$ where $x = 2n + 1$ and $y = 2m + 1$ then $x - y = 2n + 1 - 2m - 1 = 2(n-m) \not \in C$. Therefore $C$ is not closed under $F$.
+        
+        v. If $C = \{-1, 0, 1 \}$, $x \in C$, $y \in C$ then $x - y \not \in C$. For example $F(-1, 1) = -1 - 1 = -2 \not \in \{-1, 0, 1 \}$. Therefore $C$ is not closed under $F$.
+
+    b.  $F(x,y) = x \times y$ where $F: \mathbb{R} \times \mathbb{R} \longrightarrow \mathbb{R}$
+    
+        i.    If $C = \{ 0, 1 \}$, $x \in C$, $y \in C$ then $x \times y \in C$. Therefore $C$ is closed under $F$.
+
+        ii.   If $C = \mathbb{R}_{>0}$, $x \in C$, $y \in C$ then $x \times y \in C$. Therefore $C$ is closed under $F$.
+        
+        iii.  If $C = \mathbb{R}_{\geq 0}$, $x \in C$, $y \in C$ then $x \times y \in C$. Therefore $C$ is closed under $F$.
+
+        iv.   If $C = \mathbb{R}_{< 0}$, $x \in C$, $y \in C$ then $x \times y \not \in C$. For example $F(-1, -1) = -1 \times -1 = 1 \not \in \mathbb{R}_{< 0}$. Therefore $C$ is not closed under $F$.
+        
+        v.    If $C = \mathbb{R}_{0 \leq x \leq 1}$, $x \in C$, $y \in C$ then $x \times y \in C$ taking into account that if $y \geq 0$ then $-1 \leq -y \leq xy \leq y \leq 1$ or $y < 0$ then $1 \geq -y \geq xy \geq y \geq -1$. Therefore $C$ is closed under $F$.
+        
+        vi.   If $C = \mathbb{Z}$, $x \in C$, $y \in C$ then $x \times y \in C$. Therefore $C$ is closed under $F$.
+        
+        vii.  If $C = \mathbb{Q} = \{ x \mid x = \frac{a}{b} \text{ where } a \in \mathbb{Z} \text{ and } b \in \mathbb{Z} - \{ 0 \} \}$, $x \in C$, $y \in C$ where $x = \frac{a}{b}$ and $y = \frac{c}{d}$ then $x \times y = \frac{ac}{bd} \in C$. Therefore $C$ is closed under $F$.
+
+        viii. If $C = \{ x \mid x = \frac{k}{2^n} \text{ where } k \in \mathbb{Z} \text{ and } n \in \mathbb{Z} \}$, $x \in C$, $y \in C$ where $x = \frac{k}{2^n}$ and $y = \frac{s}{2^m}$ then $x \times y = \frac{ks}{2^{m+n}} \in C$. Therefore $C$ is closed under $F$.
+        
+        ix.   If $C = \{ x \mid x = a + b\sqrt{2} \text{ where } a \in \mathbb{Z} \text{ and } b \in \mathbb{Z} \}$, $x \in C$, $y \in C$ where $x = a + b\sqrt{2}$ and $y = c + d\sqrt{2}$ then $x \times y = (a + b\sqrt{2})(c + d\sqrt{2}) = (ac + 2bd) + (ad + bc)\sqrt{2} \in C$. Therefore $C$ is closed under $F$.
+
+    c.  $F(x,y) = \frac{x}{y}$ where $F: \mathbb{R} - \{ 0 \} \times \mathbb{R} - \{0 \} \longrightarrow \mathbb{R} - \{0 \}$.
+
+        i.    If $C = \{ x \mid x = \frac{a}{b} \text{ where } a \in \mathbb{Z} - \{ 0 \} \text{ and } b \in \mathbb{Z} - \{ 0 \} \}$, $x \in C$, $y \in C$ where $x = \frac{a}{b}$ and $y = \frac{c}{d}$ then $\frac{x}{y} = \frac{ad}{bc} \in C$. Therefore $C$ is closed under $F$.
+
+        ii.   If $C = \mathbb{Z} - \{ 0 \}$, $x \in C$, $y \in C$ then $\frac{x}{y} \not \in C$. For example $\frac{1}{2} \not \in \mathbb{Z} - \{ 0 \}$. Therefore $C$ is not closed under $F$.
+        
+        iii.  If $C = \mathbb{Q}_{> 0} = \{ x \in \mathbb{Q} \mid x > 0 \}$, $x \in C$, $y \in C$ where $x = \frac{a}{b} > 0$ and $y = \frac{c}{d} > 0$ then $\frac{x}{y} = \frac{ad}{cd} \in C$. Therefore $C$ is closed under $F$.
+
+        iv.   If $C = \{ x \in \mathbb{Q} \mid x = 2^n \text{ where } n \in \mathbb{Z} \}$, $x \in C$, $y \in C$ where $x = 2^n$ and $y = 2^m$ then $\frac{x}{y} = 2^{n - m} \in C$. Therefore $C$ is closed under $F$.
+
+2. In each of the following cases we have:
+
+    i.   $F$ is neither singulary nor binary operation on $A = \mathbb{Z} - \{ 0 \}$ because $\mathscr{R}(F) \not \subseteq \mathbb{Z} - \{ 0 \}$. For example, $\frac{1}{2} \not \in \mathscr{R}(F)$
+    
+    ii.  $F$ is a binary operation on $A = \mathbb{Z}_{>0}$ because $F: \mathbb{Z}_{>0} \times \mathbb{Z}_{>0} \xrightarrow[onto]{} \mathbb{Z}_{>0}$
+    
+    iii. $F$ is neither singulary nor binary operation on $A = \mathbb{Z}_{\geq 2}$ because $\mathscr{R}(F) \not \subseteq \mathbb{Z}_{\geq 2}$. For example, $2 \times 2 - (2 + 2) = 0 \not \in \mathscr{R}(F)$ 
+
+    iv.  $F$ is a binary operation on $A = \mathbb{Z}$ because $F: \mathbb{Z} \times \mathbb{Z} \xrightarrow[onto]{} \mathbb{Z}$.
+    
+    v.   $F$ is a binary operation on $A$ because $F: A \times A \xrightarrow[onto]{} A$. Let $x = a + b\sqrt{3}$ and $y = c + d\sqrt{3}$ so $x \times y = (a + b\sqrt{3})(c + d\sqrt{3}) = (ac + 3bd) + (ad + bc)\sqrt{3} \in A$. Furthermore, if $d = 0$ and $c = 1$ we obtain $a + b\sqrt{3}$.  
+
+    vi.  $F$ is neither singulary nor binary operation on $A$ because $\mathscr{R}(F) \not \subseteq A$. For example, if $x = a + b\sqrt{2}$ and $y = c + d\sqrt{2}$ with $a = b = c = d$ then $\frac{x}{y} = \frac{a + b\sqrt{2}}{c + d\sqrt{2}} = 1$ where $1 \not \in \mathscr{R}(F)$ because it is not the case that $a + b\sqrt{2} = 1$. If we assume that $a + b\sqrt{2} = 1$ then $\sqrt{2} = \frac{1 - a}{b}$ but $\sqrt{2}$ is not a rational number.
+    
+    vii. Same as vi, where $\mathscr{R}(F) \not \subseteq A$ because $1 \not \in \mathscr{R}(F)$.
+
+3.  For $G$ we have the following results:
+
+    a.  We prove the result in 2 parts 
+    
+        -  If $G$ is a restriction of the operation $F$ to $C$ and is an operation on $C$ then $G: C \times C \longrightarrow C$ and $G(x, y) = F(x, y)$ for all $x$ and $y$ in $C$
+        
+           -  Because $G(x,y) \in \mathscr{R}(G) \subseteq C$ and $G(x, y) = F(x, y)$ then $F(x, y) \in C$. Therefore $C$ is closed under $F$
+           
+        -  If $C$ is closed under $F$ then $F(x, y) \in C$ for all $x$ and $y$ in $C$.
+        
+           -  We can define a function $G = {F|}_{C \times C}$ such that $G: C \times C \longrightarrow C$ where $G$ is the restriction of $F$ to the domain $C \times C$ [See @stoll_sets_1974, p. 40]. Also we have that $G(x, y) = F(x, y)$ for all $x$ and $y$ in $C$. Therefore $G$ is a restriction of the operation $F$ to $C$ and is an operation on $C$.
+
+    b.  If $G$ is the restriction of the operation $F$ to $\mathbb{R}_{\geq 0}$ then $G(x, y) = 0$ where $G: \mathbb{R}_{\geq 0} \times \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \{ 0 \}$ because $x$ and $y$ are in $\mathbb{R}_{\geq 0}$. For example $G(1,2) = 0$ or $G(3,4) = 0$.
+    
+:::
