@@ -5769,6 +5769,146 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </section>
 <section id="operations" class="level4" data-number="1.3.9.5">
 <h4 data-number="1.3.9.5" class="anchored" data-anchor-id="operations"><span class="header-section-number">1.3.9.5</span> Operations</h4>
+<div id="def-singulary-operation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.53 (Singulary operation)</strong></span> Let <span class="math inline">\(A\)</span> be a set. By a singulary operation on <span class="math inline">\(A\)</span> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math inline">\(F\)</span> is a singulary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A \longrightarrow A\)</span>. This means that the values of <span class="math inline">\(F\)</span> as well as its arguments must belong to <span class="math inline">\(A\)</span>.</p>
+</div>
+<div id="exm-singulary-operation" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.22</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(F(x) = 2x\)</span> for all integers <span class="math inline">\(x\)</span>. <span class="math inline">\(F\)</span> is a singulary operation because <span class="math inline">\(F: \mathbb{Z} \xrightarrow[]{1-1} \mathbb{Z}\)</span> where <span class="math inline">\(\mathscr{R}(F) \subset \mathbb{Z}\)</span> and specifically <span class="math inline">\(\mathscr{R}(F)\)</span> are all the even integers.</p></li>
+<li><p>Let <span class="math inline">\(F(x) = \frac{x}{2}\)</span> for all integers <span class="math inline">\(x\)</span>. <span class="math inline">\(F\)</span> is not a singulary operation because <span class="math inline">\(\mathscr{R}(F) \not \subseteq \mathbb{Z}\)</span>. For example if <span class="math inline">\(F(3) = \frac{3}{2}\)</span> where <span class="math inline">\(\frac{3}{2} \not \in \mathbb{Z}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x) = \frac{x}{2}\)</span> for all rationals <span class="math inline">\(x\)</span>. <span class="math inline">\(F\)</span> is a singulary operation because <span class="math inline">\(F: \mathbb{Q} \xrightarrow[onto]{1-1} \mathbb{Q}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x) = x + 1\)</span> for all positive integers <span class="math inline">\(x\)</span>. Then <span class="math inline">\(F\)</span> is a singulary operation because <span class="math inline">\(F: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}\)</span> where <span class="math inline">\(\mathscr{R}(F) \subset \mathbb{P}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x) = x - 1\)</span> for all positive integers <span class="math inline">\(x\)</span>. Then <span class="math inline">\(F\)</span> is not a singulary operation because <span class="math inline">\(\mathscr{R}(F) \not \subseteq \mathbb{P}\)</span>. For example if <span class="math inline">\(F(1) = 0\)</span> where <span class="math inline">\(0 \not \in \mathbb{P}\)</span>.</p></li>
+</ol>
+</div>
+<div id="def-binary-operation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.54 (Binary operation)</strong></span> Let <span class="math inline">\(A\)</span> be a set. By a binary operation on <span class="math inline">\(A\)</span> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A \times A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A \times A \longrightarrow A\)</span>.</p>
+</div>
+<div id="exm-binary-operation" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.23</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(F(x, y) = x + y\)</span> for all positive integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. <span class="math inline">\(F\)</span> is a binary operation because <span class="math inline">\(F: \mathbb{P} \times \mathbb{P} \longrightarrow \mathbb{P}\)</span> where <span class="math inline">\(\mathscr{R}(F) \subset \mathbb{P}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = x - y\)</span> for all positive integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Then <span class="math inline">\(F\)</span> is not a binary operation because <span class="math inline">\(\mathscr{R}(F) \not \subseteq \mathbb{P}\)</span>. For example if <span class="math inline">\(F(1,1) = 0\)</span> where <span class="math inline">\(0 \not \in \mathbb{P}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = \frac{x}{y}\)</span> for all non zero integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Then <span class="math inline">\(F\)</span> is not a binary operation because <span class="math inline">\(\mathscr{R}(F) \not \subseteq \mathbb{P} - \{ 0 \}\)</span>. For example if <span class="math inline">\(F(2,3) = \frac{2}{3}\)</span> where <span class="math inline">\(\frac{2}{3} \not \in \mathbb{P} - \{ 0 \}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = \frac{x + y}{2}\)</span> for any real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. <span class="math inline">\(F\)</span> is a binary operation because <span class="math inline">\(F: \mathbb{R} \times \mathbb{R} \xrightarrow[onto]{} \mathbb{R}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = x + y\)</span> for all integers <span class="math inline">\(x &gt; 2\)</span> and <span class="math inline">\(y &gt; 2\)</span>. <span class="math inline">\(F\)</span> is a binary operation because <span class="math inline">\(F: \mathbb{Z}_{&gt; 2} \times \mathbb{Z}_{&gt; 2} \longrightarrow \mathbb{Z}_{&gt; 2}\)</span> where <span class="math inline">\(\mathscr{R}(F) = \mathbb{Z}_{&gt; 4} \subset \mathbb{Z}_{&gt; 2}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = x \times y\)</span> for all integers <span class="math inline">\(0 \leq x \leq 1\)</span> and <span class="math inline">\(0 \leq y \leq 1\)</span>. <span class="math inline">\(F\)</span> is a binary operation because <span class="math inline">\(F: \mathbb{R}_{0 \leq x \leq 1} \times \mathbb{R}_{0 \leq y \leq 1} \xrightarrow[onto]{} \mathbb{R}_{0 \leq z \leq 1}\)</span> because <span class="math inline">\(0 \leq xy \leq y \leq 1\)</span> and for any <span class="math inline">\(y \in \mathbb{R}_{0 \leq z \leq 1}\)</span> we have that <span class="math inline">\(0 \leq 1y = y \leq 1\)</span>.</p></li>
+</ol>
+</div>
+<p>We could go on to define ternary, quarternary and so on operations. For example, <span class="math inline">\(F\)</span> is a ternary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A^3 \longrightarrow A\)</span>. However such operations will be of little importance in <span class="citation" data-cites="mendelson_introduction_2015">Mendelson (<a href="references.html#ref-mendelson_introduction_2015" role="doc-biblioref">2015</a>)</span>.</p>
+<div id="exr-binary-operation" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.37</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span>, and <span class="math inline">\(C \subseteq A\)</span>, we say that <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span> if and only if <span class="math inline">\(F(x, y) \in C\)</span> whenever <span class="math inline">\(x \in C\)</span> and <span class="math inline">\(y \in C\)</span>. In each of the following cases, determine whether <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p>
+<ol type="a">
+<li><p><span class="math inline">\(F(x,y) = x - y\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<ol type="i">
+<li><span class="math inline">\(C\)</span> is the set of all integers</li>
+<li><span class="math inline">\(C\)</span> is the set of all non negative integers</li>
+<li><span class="math inline">\(C\)</span> is the set of all even integers</li>
+<li><span class="math inline">\(C\)</span> is the set of all odd integers</li>
+<li><span class="math inline">\(C = \{-1, 0, 1 \}\)</span></li>
+</ol></li>
+<li><p><span class="math inline">\(F(x,y) = x \times y\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<ol type="i">
+<li><span class="math inline">\(C = \{ 0, 1 \}\)</span></li>
+<li><span class="math inline">\(C\)</span> is the set of positive real numbers</li>
+<li><span class="math inline">\(C\)</span> is the set of all non negative real numbers</li>
+<li><span class="math inline">\(C\)</span> is the set of all negative real numbers</li>
+<li><span class="math inline">\(C\)</span> is the set of all real numbers <span class="math inline">\(x\)</span> such that <span class="math inline">\(-1 \leq x \leq 1\)</span></li>
+<li><span class="math inline">\(C\)</span> is the set of all integers</li>
+<li><span class="math inline">\(C\)</span> is the set of all rational numbers</li>
+<li><span class="math inline">\(C\)</span> is the set of all rational numbers of the form <span class="math inline">\(\frac{k}{2^n}\)</span>, where <span class="math inline">\(k\)</span> and <span class="math inline">\(n\)</span> are integers</li>
+<li><span class="math inline">\(C\)</span> is the set of all real numbers of the form <span class="math inline">\(a + b\sqrt{2}\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are integers</li>
+</ol></li>
+<li><p><span class="math inline">\(F(x,y) = \frac{x}{y}\)</span> for all non zero real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<ol type="i">
+<li><span class="math inline">\(C\)</span> is the set of all none zero rational numbers</li>
+<li><span class="math inline">\(C\)</span> is the set of all none zero integers</li>
+<li><span class="math inline">\(C\)</span> is the set of all positive rational numbers</li>
+<li><span class="math inline">\(C\)</span> is the set of all rational numbers of the form <span class="math inline">\(2^n\)</span>, where <span class="math inline">\(n\)</span> is any integer</li>
+</ol></li>
+</ol></li>
+<li><p>In each of the following cases, determine whether the given function <span class="math inline">\(F\)</span> is a singulary or binary operation on the given set <span class="math inline">\(A\)</span>:</p>
+<ol type="i">
+<li><span class="math inline">\(F(x) = \frac{1}{x}\)</span> for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of non zero integers</li>
+<li><span class="math inline">\(F(x, y) = x + y - 1\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set of the positive integers</li>
+<li><span class="math inline">\(F(x, y) = (x \times y) - (x + y)\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> such that <span class="math inline">\(x \geq 2\)</span> and <span class="math inline">\(y \geq 2\)</span> and <span class="math inline">\(A = \{ x \in \mathbb{Z} \mid x \geq 2 \}\)</span></li>
+<li><span class="math inline">\(F(x, y) = (x \times y) - (x + y)\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A\)</span> of integers.</li>
+<li><span class="math inline">\(F(x, y) = x \times y\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A = \{ x \mid x = a + b\sqrt{3} \text{ where } a \in \mathbb{Q} \text{ and } b \in \mathbb{Q} \}\)</span></li>
+<li><span class="math inline">\(F(x, y) = x \times y\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A = \{ x \mid x = a + b\sqrt{2} \text{ where } a \text{ and } b \text{ are integers which are not both } 0 \}\)</span></li>
+<li>Same as vi, except that <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are rational numbers instead of integers.</li>
+</ol></li>
+<li><p>Consider a binary operation <span class="math inline">\(F\)</span> on a set <span class="math inline">\(A\)</span></p>
+<p><span class="math display">\[F: A \times A \longrightarrow A\]</span></p>
+<p>Assume <span class="math inline">\(C \subseteq A\)</span>. By the restriction of the operation <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span>, we mean a function <span class="math inline">\(G\)</span> such that <span class="math inline">\(\mathscr{D}(G) = C \times C\)</span> and <span class="math inline">\(G(x,y) = F(x,y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(C\)</span>.</p>
+<ol type="a">
+<li><p>Prove that the restriction <span class="math inline">\(G\)</span> of <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span> is an operation on <span class="math inline">\(C\)</span> if and only if <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(F(x, y) = (x \times y) - |x||y|\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. <span class="math inline">\(F\)</span> is a binary operation on the set of real numbers. What is the restriction of <span class="math inline">\(F\)</span> to the set of all non negative real numbers?</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-binary-operation" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.37</em>. </span></p>
+<ol type="1">
+<li><p>In each of the following cases we have:</p>
+<ol type="a">
+<li><p>For <span class="math inline">\(F(x,y) = x - y\)</span> where <span class="math inline">\(F: \mathbb{Z} \times \mathbb{Z} \longrightarrow \mathbb{Z}\)</span></p>
+<ol type="i">
+<li><p>If <span class="math inline">\(C = \mathbb{Z}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x - y \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{Z}_{\geq 0}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x - y \not \in C\)</span> when <span class="math inline">\(x &lt; y\)</span>. Therefore <span class="math inline">\(C\)</span> is not closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \{ c \in \mathbb{Z} \mid c = 2n \text{ where } n \in \mathbb{Z} \}\)</span> then <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = 2n\)</span> and <span class="math inline">\(y = 2m\)</span> then <span class="math inline">\(x - y = 2n - 2m = 2(n-m) \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \{ c \in \mathbb{Z} \mid c = 2n + 1 \text{ where } n \in \mathbb{Z} \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = 2n + 1\)</span> and <span class="math inline">\(y = 2m + 1\)</span> then <span class="math inline">\(x - y = 2n + 1 - 2m - 1 = 2(n-m) \not \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is not closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \{-1, 0, 1 \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x - y \not \in C\)</span>. For example <span class="math inline">\(F(-1, 1) = -1 - 1 = -2 \not \in \{-1, 0, 1 \}\)</span>. Therefore <span class="math inline">\(C\)</span> is not closed under <span class="math inline">\(F\)</span>.</p></li>
+</ol></li>
+<li><p><span class="math inline">\(F(x,y) = x \times y\)</span> where <span class="math inline">\(F: \mathbb{R} \times \mathbb{R} \longrightarrow \mathbb{R}\)</span></p>
+<ol type="i">
+<li><p>If <span class="math inline">\(C = \{ 0, 1 \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x \times y \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{R}_{&gt;0}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x \times y \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{R}_{\geq 0}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x \times y \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{R}_{&lt; 0}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x \times y \not \in C\)</span>. For example <span class="math inline">\(F(-1, -1) = -1 \times -1 = 1 \not \in \mathbb{R}_{&lt; 0}\)</span>. Therefore <span class="math inline">\(C\)</span> is not closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{R}_{0 \leq x \leq 1}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x \times y \in C\)</span> taking into account that if <span class="math inline">\(y \geq 0\)</span> then <span class="math inline">\(-1 \leq -y \leq xy \leq y \leq 1\)</span> or <span class="math inline">\(y &lt; 0\)</span> then <span class="math inline">\(1 \geq -y \geq xy \geq y \geq -1\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{Z}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(x \times y \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{Q} = \{ x \mid x = \frac{a}{b} \text{ where } a \in \mathbb{Z} \text{ and } b \in \mathbb{Z} - \{ 0 \} \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = \frac{a}{b}\)</span> and <span class="math inline">\(y = \frac{c}{d}\)</span> then <span class="math inline">\(x \times y = \frac{ac}{bd} \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \{ x \mid x = \frac{k}{2^n} \text{ where } k \in \mathbb{Z} \text{ and } n \in \mathbb{Z} \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = \frac{k}{2^n}\)</span> and <span class="math inline">\(y = \frac{s}{2^m}\)</span> then <span class="math inline">\(x \times y = \frac{ks}{2^{m+n}} \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \{ x \mid x = a + b\sqrt{2} \text{ where } a \in \mathbb{Z} \text{ and } b \in \mathbb{Z} \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = a + b\sqrt{2}\)</span> and <span class="math inline">\(y = c + d\sqrt{2}\)</span> then <span class="math inline">\(x \times y = (a + b\sqrt{2})(c + d\sqrt{2}) = (ac + 2bd) + (ad + bc)\sqrt{2} \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+</ol></li>
+<li><p><span class="math inline">\(F(x,y) = \frac{x}{y}\)</span> where <span class="math inline">\(F: \mathbb{R} - \{ 0 \} \times \mathbb{R} - \{0 \} \longrightarrow \mathbb{R} - \{0 \}\)</span>.</p>
+<ol type="i">
+<li><p>If <span class="math inline">\(C = \{ x \mid x = \frac{a}{b} \text{ where } a \in \mathbb{Z} - \{ 0 \} \text{ and } b \in \mathbb{Z} - \{ 0 \} \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = \frac{a}{b}\)</span> and <span class="math inline">\(y = \frac{c}{d}\)</span> then <span class="math inline">\(\frac{x}{y} = \frac{ad}{bc} \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{Z} - \{ 0 \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> then <span class="math inline">\(\frac{x}{y} \not \in C\)</span>. For example <span class="math inline">\(\frac{1}{2} \not \in \mathbb{Z} - \{ 0 \}\)</span>. Therefore <span class="math inline">\(C\)</span> is not closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \mathbb{Q}_{&gt; 0} = \{ x \in \mathbb{Q} \mid x &gt; 0 \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = \frac{a}{b} &gt; 0\)</span> and <span class="math inline">\(y = \frac{c}{d} &gt; 0\)</span> then <span class="math inline">\(\frac{x}{y} = \frac{ad}{cd} \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(C = \{ x \in \mathbb{Q} \mid x = 2^n \text{ where } n \in \mathbb{Z} \}\)</span>, <span class="math inline">\(x \in C\)</span>, <span class="math inline">\(y \in C\)</span> where <span class="math inline">\(x = 2^n\)</span> and <span class="math inline">\(y = 2^m\)</span> then <span class="math inline">\(\frac{x}{y} = 2^{n - m} \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p></li>
+</ol></li>
+</ol></li>
+<li><p>In each of the following cases we have:</p>
+<ol type="i">
+<li><p><span class="math inline">\(F\)</span> is neither singulary nor binary operation on <span class="math inline">\(A = \mathbb{Z} - \{ 0 \}\)</span> because <span class="math inline">\(\mathscr{R}(F) \not \subseteq \mathbb{Z} - \{ 0 \}\)</span>. For example, <span class="math inline">\(\frac{1}{2} \not \in \mathscr{R}(F)\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A = \mathbb{Z}_{&gt;0}\)</span> because <span class="math inline">\(F: \mathbb{Z}_{&gt;0} \times \mathbb{Z}_{&gt;0} \xrightarrow[onto]{} \mathbb{Z}_{&gt;0}\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is neither singulary nor binary operation on <span class="math inline">\(A = \mathbb{Z}_{\geq 2}\)</span> because <span class="math inline">\(\mathscr{R}(F) \not \subseteq \mathbb{Z}_{\geq 2}\)</span>. For example, <span class="math inline">\(2 \times 2 - (2 + 2) = 0 \not \in \mathscr{R}(F)\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A = \mathbb{Z}\)</span> because <span class="math inline">\(F: \mathbb{Z} \times \mathbb{Z} \xrightarrow[onto]{} \mathbb{Z}\)</span>.</p></li>
+<li><p><span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span> because <span class="math inline">\(F: A \times A \xrightarrow[onto]{} A\)</span>. Let <span class="math inline">\(x = a + b\sqrt{3}\)</span> and <span class="math inline">\(y = c + d\sqrt{3}\)</span> so <span class="math inline">\(x \times y = (a + b\sqrt{3})(c + d\sqrt{3}) = (ac + 3bd) + (ad + bc)\sqrt{3} \in A\)</span>. Furthermore, if <span class="math inline">\(d = 0\)</span> and <span class="math inline">\(c = 1\)</span> we obtain <span class="math inline">\(a + b\sqrt{3}\)</span>.</p></li>
+<li><p><span class="math inline">\(F\)</span> is neither singulary nor binary operation on <span class="math inline">\(A\)</span> because <span class="math inline">\(\mathscr{R}(F) \not \subseteq A\)</span>. For example, if <span class="math inline">\(x = a + b\sqrt{2}\)</span> and <span class="math inline">\(y = c + d\sqrt{2}\)</span> with <span class="math inline">\(a = b = c = d\)</span> then <span class="math inline">\(\frac{x}{y} = \frac{a + b\sqrt{2}}{c + d\sqrt{2}} = 1\)</span> where <span class="math inline">\(1 \not \in \mathscr{R}(F)\)</span> because it is not the case that <span class="math inline">\(a + b\sqrt{2} = 1\)</span>. If we assume that <span class="math inline">\(a + b\sqrt{2} = 1\)</span> then <span class="math inline">\(\sqrt{2} = \frac{1 - a}{b}\)</span> but <span class="math inline">\(\sqrt{2}\)</span> is not a rational number.</p></li>
+<li><p>Same as vi, where <span class="math inline">\(\mathscr{R}(F) \not \subseteq A\)</span> because <span class="math inline">\(1 \not \in \mathscr{R}(F)\)</span>.</p></li>
+</ol></li>
+<li><p>For <span class="math inline">\(G\)</span> we have the following results:</p>
+<ol type="a">
+<li><p>We prove the result in 2 parts</p>
+<ul>
+<li><p>If <span class="math inline">\(G\)</span> is a restriction of the operation <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span> and is an operation on <span class="math inline">\(C\)</span> then <span class="math inline">\(G: C \times C \longrightarrow C\)</span> and <span class="math inline">\(G(x, y) = F(x, y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(C\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(G(x,y) \in \mathscr{R}(G) \subseteq C\)</span> and <span class="math inline">\(G(x, y) = F(x, y)\)</span> then <span class="math inline">\(F(x, y) \in C\)</span>. Therefore <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span> then <span class="math inline">\(F(x, y) \in C\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(C\)</span>.</p>
+<ul>
+<li>We can define a function <span class="math inline">\(G = {F|}_{C \times C}\)</span> such that <span class="math inline">\(G: C \times C \longrightarrow C\)</span> where <span class="math inline">\(G\)</span> is the restriction of <span class="math inline">\(F\)</span> to the domain <span class="math inline">\(C \times C\)</span> <span class="citation" data-cites="stoll_sets_1974">(See <a href="references.html#ref-stoll_sets_1974" role="doc-biblioref">Stoll 1974, 40</a>)</span>. Also we have that <span class="math inline">\(G(x, y) = F(x, y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(C\)</span>. Therefore <span class="math inline">\(G\)</span> is a restriction of the operation <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span> and is an operation on <span class="math inline">\(C\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(G\)</span> is the restriction of the operation <span class="math inline">\(F\)</span> to <span class="math inline">\(\mathbb{R}_{\geq 0}\)</span> then <span class="math inline">\(G(x, y) = 0\)</span> where <span class="math inline">\(G: \mathbb{R}_{\geq 0} \times \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \{ 0 \}\)</span> because <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are in <span class="math inline">\(\mathbb{R}_{\geq 0}\)</span>. For example <span class="math inline">\(G(1,2) = 0\)</span> or <span class="math inline">\(G(3,4) = 0\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -5807,6 +5947,9 @@ Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em
 </div>
 <div id="ref-seroul_programming_2000" class="csl-entry" role="listitem">
 Seroul, Raymond. 2000. <em>Programming for Mathematicians</em>. Universitext. Berlin ; New York: Springer.
+</div>
+<div id="ref-stoll_sets_1974" class="csl-entry" role="listitem">
+Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
 </div>
 <div id="ref-wasilewska_logics_2018" class="csl-entry" role="listitem">
 Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
