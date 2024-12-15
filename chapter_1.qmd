@@ -5188,7 +5188,7 @@ We could go on to define ternary, quarternary and so on operations. For example,
            
         -  If $C$ is closed under $F$ then $F(x, y) \in C$ for all $x$ and $y$ in $C$.
         
-           -  We can define a function $G = {F|}_{C \times C}$ such that $G: C \times C \longrightarrow C$ where $G$ is the restriction of $F$ to the domain $C \times C$ [See @stoll_sets_1974, p. 40]. Also we have that $G(x, y) = F(x, y)$ for all $x$ and $y$ in $C$. Therefore $G$ is a restriction of the operation $F$ to $C$ and is an operation on $C$.
+           -  We can define a function $G = {F \mid}_{C \times C}$ such that $G: C \times C \longrightarrow C$ where $G$ is the restriction of $F$ to the domain $C \times C$ [See @stoll_sets_1974, p. 40]. Also we have that $G(x, y) = F(x, y)$ for all $x$ and $y$ in $C$. Therefore $G$ is a restriction of the operation $F$ to $C$ and is an operation on $C$.
 
     b.  If $G$ is the restriction of the operation $F$ to $\mathbb{R}_{\geq 0}$ then $G(x, y) = 0$ where $G: \mathbb{R}_{\geq 0} \times \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \{ 0 \}$ because $x$ and $y$ are in $\mathbb{R}_{\geq 0}$. For example $G(1,2) = 0$ or $G(3,4) = 0$.
     

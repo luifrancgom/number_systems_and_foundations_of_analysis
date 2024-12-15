@@ -14,7 +14,11 @@ c. $(A \approx B \land B \approx C) \Longrightarrow A \approx C$
 
 ::: {.proof}
 
-**Pending**
+a. Let $I_A: A \longrightarrow A$ be the identity function on $A$ where $I_A(x) = x$ for all $x \in A$. Because $I_A: A \xrightarrow[onto]{1-1} A$ then $A \approx A$.
+
+b. If $A \approx B$ then there is a $F$ such that $F: A \xrightarrow[onto]{1-1} B$. By @thm-inverse-function-as-a-function $F^{-1}: B \xrightarrow[onto]{1-1} A$ so $B \approx A$.
+
+c. If $A \approx B$ and $B \approx C$ there exist $F$ and $G$ such that $F: A \xrightarrow[onto]{1-1} B$ and $G: B \xrightarrow[onto]{1-1} C$. By @cor-composition-functions-one-one-correspondence $G \circ F: A \xrightarrow[onto]{1-1} C$, so $A \approx C$. 
 
 :::
 
@@ -28,9 +32,9 @@ c. $(A \approx B \land B \approx C) \Longrightarrow A \approx C$
 
 ::: {#sol-equinumerous-relation}
 
-1. **Pending**
+1. If $A \approx \emptyset$ then $F: A \xrightarrow[onto]{1-1} \emptyset$. Because $\mathscr{D}(F) = A$ we have that $\mathscr{D}(F) = \{ x \mid \exists y (F(x) = y)\}$ where $y \in \mathscr{R}(F)$. However $\mathscr{R}(F) \subseteq \emptyset$ so $\mathscr{R}(F) = \emptyset$. Therefore there is no $y$ such that $F(x) = y$, which means that $A$ has no elements. So, $A = \emptyset$.
 
-2.
+2. Let $\theta(a) = (a,y)$ for all $a \in A$. First assume that $\theta(a) = \theta(b)$ then $(a, y) = (b, y)$. By @exr-axiom-of-pairing 1 $a = b$ so $\theta(a)$ is one-one. Now let any $(a,y) \in A \times \{ y \}$ then $a \in A$ and $\theta(a) = (a,y)$ so $\theta(a)$ is onto. Therefore $\theta(a): A \xrightarrow[onto]{1-1} A \times \{ y \}$, so $A \approx A \times \{ y \}$.   
 
 :::
 
@@ -44,7 +48,7 @@ a. $A \leq B \iff \exists F (F: A \xrightarrow[]{1-1} B)$
 
 b. $A < B \iff A \leq B \land A \not \approx B$
 
-**Note**: $A \not \approx B$ means $\neg(A \approx B)$. Therefore $A \leq B \land A \not \approx B$ means that it $\exists F (F: A \xrightarrow[]{1-1} B \land \neg(F: A \xrightarrow[onto]{} B))$ 
+**Note**: $A \not \approx B$ means $\neg(A \approx B)$. Therefore $A \leq B \land A \not \approx B$ means that $\exists F (F: A \xrightarrow[]{1-1} B \land \neg(F: A \xrightarrow[onto]{} B))$ 
 
 :::
 
@@ -72,11 +76,35 @@ h. $(A \approx B \land B \leq C) \Longrightarrow A \leq C$
 
 ::: {.proof}
 
-**Pending**
+a. Because $A \approx A$ then there is some $F: A \xrightarrow[onto]{1-1} A$. Therefore $F$ is one-one which means that $A \leq A$.
+
+b. If $A \leq B$ and $B \leq C$ then there exist $F$ and $G$ such that $F: A \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[]{1-1} C$. By @thm-composition-functions-one-one $G \circ F: A \xrightarrow[]{1-1} C$ so $A \leq C$.
+
+c. $A \not < A$ means that $\neg (A < A)$. By @def-less-equal-than-and-less-than-relation-sets b it means that $\neg (A \leq A) \lor \neg(A \not \approx A)$. Therefore we have that $\neg (A \leq A) \lor (A \approx A)$. We know by @thm-less-equal-than-and-less-than-relation-sets that $\neg (A \leq A)$ is false and by @thm-equinumerous-equivalence-relation that $A \approx A$ is true. Therefore $\neg (A \leq A) \lor (A \approx A)$ is true, which means that $A \not < A$ is true.   
+
+d.  By @thm-equinumerous-equivalence-relation $I_A: A \xrightarrow[onto]{1-1} A$. Therefore ${I_A \mid}_{B}: B \xrightarrow[]{1-1} A$ where ${I_A \mid}_{B}$ is the restriction of $I_A$ to the domain $B$ [See @stoll_sets_1974, p. 40]. So $B \leq A$.
+
+e.  $\begin{aligned}
+     A \leq B & \iff \exists F (F: A \xrightarrow[]{1-1} B) \\
+     & \iff \exists F (F: A \xrightarrow[]{1-1} B) \land (\exists F (F: A \xrightarrow[onto]{} B) \lor \neg \exists F (F: A \xrightarrow[onto]{} B)) \\
+     & \iff (\exists F (F: A \xrightarrow[]{1-1} B) \land \exists F (F: A \xrightarrow[onto]{} B)) \lor (\exists F (F: A \xrightarrow[]{1-1} B) \land \neg \exists F (F: A \xrightarrow[onto]{} B)) \\
+     & \iff A \approx B \lor A < B
+     \end{aligned}$
+
+f. $\begin{aligned}
+     B \leq A & \iff \exists F (F: B \xrightarrow[]{1-1} A) \\
+     & \iff \exists F (F: B \xrightarrow[]{1-1} A \land W = \mathscr{R}(F) \subseteq A) \\
+     & \iff \exists F (F: B \xrightarrow[onto]{1-1} W \land W \subseteq A) \\ 
+     & \iff \exists W (B \approx W \land W \subseteq A)
+     \end{aligned}$. 
+
+g. If $A \leq B$ and $B \approx C$ there exist $F$ and $G$ such that $F: A \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[onto]{1-1} C$. By @thm-composition-functions-one-one $G \circ F: A \xrightarrow[]{1-1} C$, so $A \leq C$. 
+
+h. If $A \approx B$ and $B \leq C$ there exist $F$ and $G$ such that $F: A \xrightarrow[onto]{1-1} B$ and $G: B \xrightarrow[]{1-1} C$. By @thm-composition-functions-one-one $G \circ F: A \xrightarrow[]{1-1} C$, so $A \leq C$. 
 
 :::
 
-We can define an other relation $<_K$ on cardinal numbers. Let $\mathfrak{m}$ and $\mathfrak{n}$ be cardinal numbers. Take any sets $A$ and $B$ having cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$ respectively. By @thm-less-equal-than-and-less-than-relation-sets g and h it does not make any difference in these definitions which sets $A$ and $B$ we choose having cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$, respectively.  
+We can define an order relation $<_K$ on cardinal numbers. Let $\mathfrak{m}$ and $\mathfrak{n}$ be cardinal numbers. Take any sets $A$ and $B$ having cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$ respectively. By @thm-less-equal-than-and-less-than-relation-sets g and h it does not make any difference in these definitions which sets $A$ and $B$ we choose having cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$, respectively.  
 
 One can obtain theorems about cardinal numbers analogous to those proved above. For example, the analogue of @thm-less-equal-than-and-less-than-relation-sets b is $(\mathfrak{m} <_K \mathfrak{n} \land \mathfrak{n} <_K \mathfrak{p}) \Longrightarrow \mathfrak{m} <_K \mathfrak{p}$, for any cardinal numbers $\mathfrak{m}$, $\mathfrak{n}$ and $\mathfrak{p}$.
 
@@ -87,12 +115,23 @@ One can obtain theorems about cardinal numbers analogous to those proved above. 
 If $A$ is a set then:
 
 $$A < \mathscr{P}(A)$$
-
 :::
 
 ::: {.proof}
 
-**Pending**
+If $A < \mathscr{P}(A)$ by @def-less-equal-than-and-less-than-relation-sets b we need to prove that $A \leq \mathscr{P}(A) \land A \not \approx \mathscr{P}(A)$.
+
+First, define $F$ such that $F(a) = \{ a \}$ for all $a \in A$ then $F: A \xrightarrow[]{1-1} \mathscr{P}(A)$ becuase if $F(a) = F(b)$ then $\{ a \} = \{ b \}$ so $a = b$. Therefore, $A \leq \mathscr{P}(A)$.
+
+Second, using @nte-proof-by-reductio-ad-absurdum assume $A \approx \mathscr{P}(A)$ so there is some $G$ such that $G: A \xrightarrow[onto]{1-1} \mathscr{P}(A)$. Let $B = \{ b \in A \mid b \not \in G(b) \}$. Because $B \subseteq A$ then $B \in \mathscr{P}(A)$ therefore because $G$ is onto it exists some $a \in A$ such that $G(a) = B$. There are 2 possibilities $a \in B$ or $a \not \in B$:
+
+i.  If $a \in B$ then $a \not \in G(a)$. But $G(a) = B$ so we have also that $a \in G(a)$.
+
+ii. If $a \not \in B$ then because $G(a) = B$ we have that $a \not \in G(a)$. However this means that $a \in B$.
+
+In any case there is a contradiction so it is not the case that $A \approx \mathscr{P}(A)$. Therefore it must be the case that $A \not \approx \mathscr{P}(A)$.
+
+Because $A \leq \mathscr{P}(A)$ and $A \not \approx \mathscr{P}(A)$ we have that $A < \mathscr{P}(A)$.
 
 :::
 
@@ -108,9 +147,13 @@ $$(A \leq B \land B \leq A) \Longrightarrow A \approx B$$
 
 ::: {.proof}
 
-**Pending**
+Assume $A \cap B = \emptyset$. If it is not the case we can define $A_1 = A \times \{ 0 \}$ and $B_1 = B \times \{ 1 \}$ where by @exr-equinumerous-relation 2 $A \approx A_1$ and $B \approx B_1$ and we can use @thm-less-equal-than-and-less-than-relation-sets g, h to still prove @thm-schroder-bernstein-theorem. 
+
+By a B-thread (See @fig-b-thread) we mean a function $f$ from the set $\mathbb{P}$ of positive integers into $A \cup B$ such that $y_1 = f(1) \in B - \mathscr{R}(F)$, $f(n) \in B \Longrightarrow f(n+1) = G(f(n))$, $f(n) \in A \Longrightarrow f(n+1) = F(f(n))$.   
 
 :::
+
+![B-thread](images/fig-b-thread.png){#fig-b-thread fig-align="center" width=40%}
 
 ::: {#cor-schroder-bernstein-theorem}
 
