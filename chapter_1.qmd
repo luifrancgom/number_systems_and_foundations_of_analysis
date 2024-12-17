@@ -3228,8 +3228,8 @@ $$\mathscr{R}(R) = \{ y \in A \mid \exists x ((x, y) \in R) \}$$
 :::
 
 [^chapter_1-8]: $|x|$ is the absolute value of $x$: $$|x| = \begin{cases}
-            x, & \text{if } x \geq 0 \\
-            -x, & \text{if } x < 0
+            \phantom{-}x & \text{if } x \geq 0 \\
+            -x & \text{if } x < 0
             \end{cases}$$
             
 ::: {#sol-relations}

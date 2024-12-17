@@ -147,13 +147,107 @@ $$(A \leq B \land B \leq A) \Longrightarrow A \approx B$$
 
 ::: {.proof}
 
-Assume $A \cap B = \emptyset$. If it is not the case we can define $A_1 = A \times \{ 0 \}$ and $B_1 = B \times \{ 1 \}$ where by @exr-equinumerous-relation 2 $A \approx A_1$ and $B \approx B_1$ and we can use @thm-less-equal-than-and-less-than-relation-sets g, h to still prove @thm-schroder-bernstein-theorem. 
+## Based on [@mendelson_introduction_2015, pp. 295-296]
 
-By a B-thread (See @fig-b-thread) we mean a function $f$ from the set $\mathbb{P}$ of positive integers into $A \cup B$ such that $y_1 = f(1) \in B - \mathscr{R}(F)$, $f(n) \in B \Longrightarrow f(n+1) = G(f(n))$, $f(n) \in A \Longrightarrow f(n+1) = F(f(n))$.   
+Assume $A \cap B = \emptyset$. If it is not the case we can define $A_1 = A \times \{ 0 \}$ and $B_1 = B \times \{ 1 \}$ where by @exr-equinumerous-relation 2 $A \approx A_1$ and $B \approx B_1$ and we can use @thm-less-equal-than-and-less-than-relation-sets g, h to still prove @thm-schroder-bernstein-theorem.  
 
+Let us assume $F: A \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[]{1-1} A$. By a B-thread (See @fig-b-thread) we mean a function $f$ from the set $\mathbb{P}$ of positive integers into $A \cup B$, $f: \mathbb{P} \longrightarrow A \cup B$, such that:
+
+-  $y_1 = f(1) \in B - \mathscr{R}(F)$
+-  $f(n) \in B \Longrightarrow f(n+1) = G(f(n))$
+-  $f(n) \in A \Longrightarrow f(n+1) = F(f(n))$
+
+Therefore $f(1) = y_1 \in B - \mathscr{R}(F)$, $f(2) = G(f(1)) \in A$, $f(3) = F(f(2)) \in B$, $f(4) = F(f(3)) \in A, \ldots$, $f(2n) = G(f(2n - 1)) \in A$, $f(2n+1) = F(f(2n)) \in B, \ldots$. 
+
+Thus, a B-thread is an infinite sequence of points starting with a point $y_1$, which is not in the range of $F$, and then using the functions $G$ and $F$ alternately.
+
+Let $W = \{ w \in A \mid w \in \mathscr{R}(f) \}$. Then the desired one-one correspondence $H$ between $A$ and $B$ is given by:
+
+$$H(x) = \begin{cases}
+          {G^{-1} \mid}_{W}(x) & \text{if } x \in W \\
+          {F \mid}_{A - W}(x) & \text{if } x \in W - A
+            \end{cases}$$
+
+Where ${G^{-1} \mid}_{W}$ is the restriction of $G^{-1}$, that is $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} B$, to the domain $W$ and ${F \mid}_{W - A}$ is the restriction of $F$ to the domain $A - W$ [See @stoll_sets_1974, p. 40].
+
+We have that:
+
+$$\begin{split}
+   \mathscr{D}(H) & = \{ x \mid \exists y (H(x) = y) \} \\
+   & = \{ x \mid \exists y ({G^{-1} \mid}_{W}(x) = y \lor {F \mid}_{A - W}(x) = y) \} \\
+   & = \{ x \mid \exists y ({G^{-1} \mid}_{W}(x) = y) \lor \exists y ({F \mid}_{A - W}(x) = y) \} \\
+   & = \{ x \mid \exists y ({G^{-1} \mid}_{W}(x) = y) \} \cup \{ x \mid \exists y (F(x) = y) \} \\
+   & = \mathscr{D}({G^{-1} \mid}_{W}) \cup \mathscr{D}({F \mid}_{A - W}) \\
+   & = W \cup W - A \\
+   & = A
+   \end{split}$$
+
+Also because ${G^{-1} \mid}_{W}: W \xrightarrow[]{1-1} B$ where $\mathscr{R}({G^{-1} \mid}_{W}) \subseteq B$ and ${F \mid}_{A - W}: A - W \xrightarrow[]{1-1} B$ where $\mathscr{R}({F \mid}_{A - w}) \subseteq B$, we have also that:
+
+$$\begin{split}
+   \mathscr{R}(H) & = \{ y \mid \exists x (H(x) = y) \} \\
+   & = \{ y \mid \exists x ({G^{-1} \mid}_{W}(x) = y \lor {F \mid}_{A - W}(x) = y) \} \\
+   & = \{ y \mid \exists x ({G^{-1} \mid}_{W}(x) = y) \lor \exists x ({F \mid}_{A - W}(x) = y) \} \\
+   & = \{ y \mid \exists x ({G^{-1} \mid}_{W}(x) = y) \} \cup \{ y \mid \exists x (F(x) = y) \} \\
+   & = \mathscr{R}({G^{-1} \mid}_{W}) \cup \mathscr{R}({F \mid}_{A - W}) \\
+   & \Longrightarrow \mathscr{R}(H) \subseteq B
+   \end{split}$$
+
+Furthermore, if $xHy$ and $xHz$ then $x{G^{-1} \mid}_{W}y$ and $x{G^{-1} \mid}_{W}z$ or $x{F \mid}_{A - W}y$ and $x{F \mid}_{A - W}z$ but not both. Because ${G^{-1} \mid}_{W}$ and ${F \mid}_{A - W}$ are functions we have that $y = z$. So $H$ is also a function. Therefore $H: A \longrightarrow B$ where now we need to prove that is a one-one correspondence.
+
+-  First we prove that $H$ is onto. Let $b \in B$ then $G(b) \in W$ or $G(b) \in A - W$.
+
+    -  If $G(b) \in W$ then $H(G(b)) = {G^{-1} \mid}_{W}(G(b)) = b$ taking into account that $G: B \xrightarrow[]{1-1} A$, $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} B$, ${G^{-1} \mid}_{W}: W \xrightarrow[]{1-1} B$ and $W \subseteq \mathscr{R}(G) \subseteq A$.
+    
+    -  If $G(b) \in A - W$ then $G(b) \in A$ and $G(b) \not \in W$. Also $H(G(b)) = F(G(b))$ and it must be the case that $F(G(b)) = b$. Why? If this is not the case then $b \in B - \mathscr{R}(F)$ so there will be a B-thread such that $f(1) = b$ where $G(b) = f(2) \in A$. Therefore $G(b) = f(2) \in W$ but we have assume that $G(b) \not \in W$. 
+
+-  Second we prove that $H$ is one-one. Using @nte-proof-by-reductio-ad-absurdum assume that $H(x) = H(y)$ and $x \neq y$
+
+    -  $x$ and $y$ can not be both in $W$ because ${G^{-1} \mid}_{W}$ is one-one
+    -  $x$ and $y$ can not be both in $A - W$ because ${F \mid}_{A - W}$ is one-one
+    -  Let $x \in W$ and $y \in A - W$. Then $x = {G^{-1} \mid}_{W}(x) = {F \mid}_{A - W}(y)$, so $x = G({G^{-1} \mid}_{W}(x)) = G({F \mid}_{A - W}(y))$ because ${G^{-1} \mid}_{W} : W \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[]{1-1} A$. Therefore, $G({F \mid}_{A - W}(y)) = x$ and $G({F \mid}_{A - W}(y)) \in W$ but this means that $y$ is also in the same B-thread as $x$. So, $y \in W$ but we have also that $y \in A - W$ which means that $y \not \in W$. Taking into account that we arrive to a contradiction it must be the case that $H$ is one-one.   
+        
 :::
 
 ![B-thread](images/fig-b-thread.png){#fig-b-thread fig-align="center" width=40%}
+
+::: {.proof}
+
+## Based on [@peloquin_cantor-schroeder-bernstein_2016] and [@enderton_elements_2009, pp. 147-148]
+
+Let $G: B \longrightarrow A$ and $C \subseteq B$ then $G[C] = \mathscr{R}({G \mid}_{C}) = \{ G(c) \mid c \in C \}$ where ${G \mid}_{C}$ is the restriction of $G$ to the domain $C$ [See @stoll_sets_1974, p. 40].
+
+Let $F: A \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[]{1-1} A$. Also define $A_1 = A - G[B]$, $A_{n+1} = (G \circ F)[A_n]$ and $A_{\infty} = \bigcup_{n = 1}^{\infty} A_n$ (See @fig-schroder-bernstein-theorem-mirrors).
+
+Now define $H: A \longrightarrow B$ to be:
+
+$$H(x) = \begin{cases}
+          F(x) &  \text{if } x \in A_{\infty} \\
+          G^{-1}(x) & \text{if } x \in A - A_{\infty}
+            \end{cases}$$
+
+Now we need to prove that $H$ is a one-one correspondence.
+
+- Lets prove that $H$ is one-one, that is if $H(x) = H(y)$ then $x = y$
+
+    -  If $x$ and $y$ are in $A_{\infty}$ because $F$ is one-one then $H(x) = F(x)$ and $H(y) = F(y)$ so $F(x) = F(y)$ implies that $x = y$
+    
+    -  If $x$ and $y$ are in $A - A_{\infty}$ by @thm-inverse-function-as-a-function $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} B$. So $G^{-1}$ is one-one, which means that $H(x) = G^{-1}(x)$ and $H(y) = G^{-1}(y)$ so $G^{-1}(x) = G^{-1}(y)$ implies that $x = y$.
+    
+    -  If $x \in A_{\infty}$, $y \in A - A_{\infty}$ and $H(x) = H(y)$ then $F(x) = G^{-1}(y)$. Therefore $G(F(x)) = G(G^{-1}(y)) = y$, so $G(F(x)) = y$. Because $x \in A_{\infty}$ then $x$ belongs to some $A_n$ so $G(F(x)) \in A_{n + 1}$. Therefore $y \in A_{n + 1}$ and $y \in A_{\infty}$. However this is a contradiction because we assume that $y \in A - A_{\infty}$. This means that we need to discard this case.
+    
+  Therefore $H$ is one-one.
+
+- Lets prove that $H$ is onto, that is for any $b \in B$ it exists $a \in A$ such that $H(a) = b$. Because $G: B \xrightarrow[]{1-1} A$ then $G(b) \in A - A_{\infty}$ or $G(b) \in A_{\infty}$.  
+
+    -  If $G(b) \in A_{\infty}$ then $H(G(b)) = G^{-1}(G(b)) = b$. So $H(G(b)) = b$ where $G(b) \in A$
+    
+    -  If $G(b) \in A_{\infty}$ then $G(b)$ belongs to some $A_n$. It can not be $A_1 = A - G[B]$ because $G(b) \in G[B]$. So $G(b)$ must belong to some $A_{n+1} = (G \circ F)[A_n]$. Therefore we have that $G(b) = G(F(a))$ for some $a \in A_n$, so $a \in A_{\infty}$. Then we have that $b = G^{-1}(G(b)) = G^{-1}(G(F(a))) = F(a) = H(a)$ because $a \in A_{\infty}$. So $H(a) = b$ where $a \in A$.
+    
+  Therefore $H$ is onto.
+:::
+
+![Schröder-Bernstein theorem proof using mirrors](images/fig-schroder-bernstein-theorem-mirrors.png){#fig-schroder-bernstein-theorem-mirrors fig-align="center" width=90%}  
 
 ::: {#cor-schroder-bernstein-theorem}
 
