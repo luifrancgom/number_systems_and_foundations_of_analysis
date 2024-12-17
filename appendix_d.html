@@ -378,8 +378,54 @@ A \leq B &amp; \iff \exists F (F: A \xrightarrow[]{1-1} B) \\
 <p><span class="math display">\[(A \leq B \land B \leq A) \Longrightarrow A \approx B\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(A \cap B = \emptyset\)</span>. If it is not the case we can define <span class="math inline">\(A_1 = A \times \{ 0 \}\)</span> and <span class="math inline">\(B_1 = B \times \{ 1 \}\)</span> where by <a href="#exr-equinumerous-relation" class="quarto-xref">Exercise&nbsp;<span>D.1</span></a> 2 <span class="math inline">\(A \approx A_1\)</span> and <span class="math inline">\(B \approx B_1\)</span> and we can use <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> g, h to still prove <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a>.</p>
-<p>By a B-thread (See <a href="#fig-b-thread" class="quarto-xref">Figure&nbsp;<span>D.1</span></a>) we mean a function <span class="math inline">\(f\)</span> from the set <span class="math inline">\(\mathbb{P}\)</span> of positive integers into <span class="math inline">\(A \cup B\)</span> such that <span class="math inline">\(y_1 = f(1) \in B - \mathscr{R}(F)\)</span>, <span class="math inline">\(f(n) \in B \Longrightarrow f(n+1) = G(f(n))\)</span>, <span class="math inline">\(f(n) \in A \Longrightarrow f(n+1) = F(f(n))\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em> (Based on <span class="citation" data-cites="mendelson_introduction_2015">(<a href="references.html#ref-mendelson_introduction_2015" role="doc-biblioref">Mendelson 2015, 295–96</a>)</span>). </span>Assume <span class="math inline">\(A \cap B = \emptyset\)</span>. If it is not the case we can define <span class="math inline">\(A_1 = A \times \{ 0 \}\)</span> and <span class="math inline">\(B_1 = B \times \{ 1 \}\)</span> where by <a href="#exr-equinumerous-relation" class="quarto-xref">Exercise&nbsp;<span>D.1</span></a> 2 <span class="math inline">\(A \approx A_1\)</span> and <span class="math inline">\(B \approx B_1\)</span> and we can use <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> g, h to still prove <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a>.</p>
+<p>Let us assume <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span>. By a B-thread (See <a href="#fig-b-thread" class="quarto-xref">Figure&nbsp;<span>D.1</span></a>) we mean a function <span class="math inline">\(f\)</span> from the set <span class="math inline">\(\mathbb{P}\)</span> of positive integers into <span class="math inline">\(A \cup B\)</span>, <span class="math inline">\(f: \mathbb{P} \longrightarrow A \cup B\)</span>, such that:</p>
+<ul>
+<li><span class="math inline">\(y_1 = f(1) \in B - \mathscr{R}(F)\)</span></li>
+<li><span class="math inline">\(f(n) \in B \Longrightarrow f(n+1) = G(f(n))\)</span></li>
+<li><span class="math inline">\(f(n) \in A \Longrightarrow f(n+1) = F(f(n))\)</span></li>
+</ul>
+<p>Therefore <span class="math inline">\(f(1) = y_1 \in B - \mathscr{R}(F)\)</span>, <span class="math inline">\(f(2) = G(f(1)) \in A\)</span>, <span class="math inline">\(f(3) = F(f(2)) \in B\)</span>, <span class="math inline">\(f(4) = F(f(3)) \in A, \ldots\)</span>, <span class="math inline">\(f(2n) = G(f(2n - 1)) \in A\)</span>, <span class="math inline">\(f(2n+1) = F(f(2n)) \in B, \ldots\)</span>.</p>
+<p>Thus, a B-thread is an infinite sequence of points starting with a point <span class="math inline">\(y_1\)</span>, which is not in the range of <span class="math inline">\(F\)</span>, and then using the functions <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> alternately.</p>
+<p>Let <span class="math inline">\(W = \{ w \in A \mid w \in \mathscr{R}(f) \}\)</span>. Then the desired one-one correspondence <span class="math inline">\(H\)</span> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is given by:</p>
+<p><span class="math display">\[H(x) = \begin{cases}
+          {G^{-1} \mid}_{W}(x) &amp; \text{if } x \in W \\
+          {F \mid}_{A - W}(x) &amp; \text{if } x \in W - A
+            \end{cases}\]</span></p>
+<p>Where <span class="math inline">\({G^{-1} \mid}_{W}\)</span> is the restriction of <span class="math inline">\(G^{-1}\)</span>, that is <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} B\)</span>, to the domain <span class="math inline">\(W\)</span> and <span class="math inline">\({F \mid}_{W - A}\)</span> is the restriction of <span class="math inline">\(F\)</span> to the domain <span class="math inline">\(A - W\)</span> <span class="citation" data-cites="stoll_sets_1974">(See <a href="references.html#ref-stoll_sets_1974" role="doc-biblioref">Stoll 1974, 40</a>)</span>.</p>
+<p>We have that:</p>
+<p><span class="math display">\[\begin{split}
+   \mathscr{D}(H) &amp; = \{ x \mid \exists y (H(x) = y) \} \\
+   &amp; = \{ x \mid \exists y ({G^{-1} \mid}_{W}(x) = y \lor {F \mid}_{A - W}(x) = y) \} \\
+   &amp; = \{ x \mid \exists y ({G^{-1} \mid}_{W}(x) = y) \lor \exists y ({F \mid}_{A - W}(x) = y) \} \\
+   &amp; = \{ x \mid \exists y ({G^{-1} \mid}_{W}(x) = y) \} \cup \{ x \mid \exists y (F(x) = y) \} \\
+   &amp; = \mathscr{D}({G^{-1} \mid}_{W}) \cup \mathscr{D}({F \mid}_{A - W}) \\
+   &amp; = W \cup W - A \\
+   &amp; = A
+   \end{split}\]</span></p>
+<p>Also because <span class="math inline">\({G^{-1} \mid}_{W}: W \xrightarrow[]{1-1} B\)</span> where <span class="math inline">\(\mathscr{R}({G^{-1} \mid}_{W}) \subseteq B\)</span> and <span class="math inline">\({F \mid}_{A - W}: A - W \xrightarrow[]{1-1} B\)</span> where <span class="math inline">\(\mathscr{R}({F \mid}_{A - w}) \subseteq B\)</span>, we have also that:</p>
+<p><span class="math display">\[\begin{split}
+   \mathscr{R}(H) &amp; = \{ y \mid \exists x (H(x) = y) \} \\
+   &amp; = \{ y \mid \exists x ({G^{-1} \mid}_{W}(x) = y \lor {F \mid}_{A - W}(x) = y) \} \\
+   &amp; = \{ y \mid \exists x ({G^{-1} \mid}_{W}(x) = y) \lor \exists x ({F \mid}_{A - W}(x) = y) \} \\
+   &amp; = \{ y \mid \exists x ({G^{-1} \mid}_{W}(x) = y) \} \cup \{ y \mid \exists x (F(x) = y) \} \\
+   &amp; = \mathscr{R}({G^{-1} \mid}_{W}) \cup \mathscr{R}({F \mid}_{A - W}) \\
+   &amp; \Longrightarrow \mathscr{R}(H) \subseteq B
+   \end{split}\]</span></p>
+<p>Furthermore, if <span class="math inline">\(xHy\)</span> and <span class="math inline">\(xHz\)</span> then <span class="math inline">\(x{G^{-1} \mid}_{W}y\)</span> and <span class="math inline">\(x{G^{-1} \mid}_{W}z\)</span> or <span class="math inline">\(x{F \mid}_{A - W}y\)</span> and <span class="math inline">\(x{F \mid}_{A - W}z\)</span> but not both. Because <span class="math inline">\({G^{-1} \mid}_{W}\)</span> and <span class="math inline">\({F \mid}_{A - W}\)</span> are functions we have that <span class="math inline">\(y = z\)</span>. So <span class="math inline">\(H\)</span> is also a function. Therefore <span class="math inline">\(H: A \longrightarrow B\)</span> where now we need to prove that is a one-one correspondence.</p>
+<ul>
+<li><p>First we prove that <span class="math inline">\(H\)</span> is onto. Let <span class="math inline">\(b \in B\)</span> then <span class="math inline">\(G(b) \in W\)</span> or <span class="math inline">\(G(b) \in A - W\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(G(b) \in W\)</span> then <span class="math inline">\(H(G(b)) = {G^{-1} \mid}_{W}(G(b)) = b\)</span> taking into account that <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span>, <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\({G^{-1} \mid}_{W}: W \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(W \subseteq \mathscr{R}(G) \subseteq A\)</span>.</p></li>
+<li><p>If <span class="math inline">\(G(b) \in A - W\)</span> then <span class="math inline">\(G(b) \in A\)</span> and <span class="math inline">\(G(b) \not \in W\)</span>. Also <span class="math inline">\(H(G(b)) = F(G(b))\)</span> and it must be the case that <span class="math inline">\(F(G(b)) = b\)</span>. Why? If this is not the case then <span class="math inline">\(b \in B - \mathscr{R}(F)\)</span> so there will be a B-thread such that <span class="math inline">\(f(1) = b\)</span> where <span class="math inline">\(G(b) = f(2) \in A\)</span>. Therefore <span class="math inline">\(G(b) = f(2) \in W\)</span> but we have assume that <span class="math inline">\(G(b) \not \in W\)</span>.</p></li>
+</ul></li>
+<li><p>Second we prove that <span class="math inline">\(H\)</span> is one-one. Using <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume that <span class="math inline">\(H(x) = H(y)\)</span> and <span class="math inline">\(x \neq y\)</span></p>
+<ul>
+<li><span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> can not be both in <span class="math inline">\(W\)</span> because <span class="math inline">\({G^{-1} \mid}_{W}\)</span> is one-one</li>
+<li><span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> can not be both in <span class="math inline">\(A - W\)</span> because <span class="math inline">\({F \mid}_{A - W}\)</span> is one-one</li>
+<li>Let <span class="math inline">\(x \in W\)</span> and <span class="math inline">\(y \in A - W\)</span>. Then <span class="math inline">\(x = {G^{-1} \mid}_{W}(x) = {F \mid}_{A - W}(y)\)</span>, so <span class="math inline">\(x = G({G^{-1} \mid}_{W}(x)) = G({F \mid}_{A - W}(y))\)</span> because <span class="math inline">\({G^{-1} \mid}_{W} : W \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span>. Therefore, <span class="math inline">\(G({F \mid}_{A - W}(y)) = x\)</span> and <span class="math inline">\(G({F \mid}_{A - W}(y)) \in W\)</span> but this means that <span class="math inline">\(y\)</span> is also in the same B-thread as <span class="math inline">\(x\)</span>. So, <span class="math inline">\(y \in W\)</span> but we have also that <span class="math inline">\(y \in A - W\)</span> which means that <span class="math inline">\(y \not \in W\)</span>. Taking into account that we arrive to a contradiction it must be the case that <span class="math inline">\(H\)</span> is one-one.</li>
+</ul></li>
+</ul>
 </div>
 <div id="fig-b-thread" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -388,6 +434,41 @@ A \leq B &amp; \iff \exists F (F: A \xrightarrow[]{1-1} B) \\
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-b-thread-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;D.1: B-thread
+</figcaption>
+</figure>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Based on <span class="citation" data-cites="peloquin_cantor-schroeder-bernstein_2016">(<a href="references.html#ref-peloquin_cantor-schroeder-bernstein_2016" role="doc-biblioref">Peloquin 2016</a>)</span> and <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 147–48</a>)</span>). </span>Let <span class="math inline">\(G: B \longrightarrow A\)</span> and <span class="math inline">\(C \subseteq B\)</span> then <span class="math inline">\(G[C] = \mathscr{R}({G \mid}_{C}) = \{ G(c) \mid c \in C \}\)</span> where <span class="math inline">\({G \mid}_{C}\)</span> is the restriction of <span class="math inline">\(G\)</span> to the domain <span class="math inline">\(C\)</span> <span class="citation" data-cites="stoll_sets_1974">(See <a href="references.html#ref-stoll_sets_1974" role="doc-biblioref">Stoll 1974, 40</a>)</span>.</p>
+<p>Let <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span>. Also define <span class="math inline">\(A_1 = A - G[B]\)</span>, <span class="math inline">\(A_{n+1} = (G \circ F)[A_n]\)</span> and <span class="math inline">\(A_{\infty} = \bigcup_{n = 1}^{\infty} A_n\)</span> (See <a href="#fig-schroder-bernstein-theorem-mirrors" class="quarto-xref">Figure&nbsp;<span>D.2</span></a>).</p>
+<p>Now define <span class="math inline">\(H: A \longrightarrow B\)</span> to be:</p>
+<p><span class="math display">\[H(x) = \begin{cases}
+          F(x) &amp;  \text{if } x \in A_{\infty} \\
+          G^{-1}(x) &amp; \text{if } x \in A - A_{\infty}
+            \end{cases}\]</span></p>
+<p>Now we need to prove that <span class="math inline">\(H\)</span> is a one-one correspondence.</p>
+<ul>
+<li><p>Lets prove that <span class="math inline">\(H\)</span> is one-one, that is if <span class="math inline">\(H(x) = H(y)\)</span> then <span class="math inline">\(x = y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are in <span class="math inline">\(A_{\infty}\)</span> because <span class="math inline">\(F\)</span> is one-one then <span class="math inline">\(H(x) = F(x)\)</span> and <span class="math inline">\(H(y) = F(y)\)</span> so <span class="math inline">\(F(x) = F(y)\)</span> implies that <span class="math inline">\(x = y\)</span></p></li>
+<li><p>If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are in <span class="math inline">\(A - A_{\infty}\)</span> by <a href="chapter_1.html#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} B\)</span>. So <span class="math inline">\(G^{-1}\)</span> is one-one, which means that <span class="math inline">\(H(x) = G^{-1}(x)\)</span> and <span class="math inline">\(H(y) = G^{-1}(y)\)</span> so <span class="math inline">\(G^{-1}(x) = G^{-1}(y)\)</span> implies that <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x \in A_{\infty}\)</span>, <span class="math inline">\(y \in A - A_{\infty}\)</span> and <span class="math inline">\(H(x) = H(y)\)</span> then <span class="math inline">\(F(x) = G^{-1}(y)\)</span>. Therefore <span class="math inline">\(G(F(x)) = G(G^{-1}(y)) = y\)</span>, so <span class="math inline">\(G(F(x)) = y\)</span>. Because <span class="math inline">\(x \in A_{\infty}\)</span> then <span class="math inline">\(x\)</span> belongs to some <span class="math inline">\(A_n\)</span> so <span class="math inline">\(G(F(x)) \in A_{n + 1}\)</span>. Therefore <span class="math inline">\(y \in A_{n + 1}\)</span> and <span class="math inline">\(y \in A_{\infty}\)</span>. However this is a contradiction because we assume that <span class="math inline">\(y \in A - A_{\infty}\)</span>. This means that we need to discard this case.</p></li>
+</ul>
+<p>Therefore <span class="math inline">\(H\)</span> is one-one.</p></li>
+<li><p>Lets prove that <span class="math inline">\(H\)</span> is onto, that is for any <span class="math inline">\(b \in B\)</span> it exists <span class="math inline">\(a \in A\)</span> such that <span class="math inline">\(H(a) = b\)</span>. Because <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span> then <span class="math inline">\(G(b) \in A - A_{\infty}\)</span> or <span class="math inline">\(G(b) \in A_{\infty}\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(G(b) \in A_{\infty}\)</span> then <span class="math inline">\(H(G(b)) = G^{-1}(G(b)) = b\)</span>. So <span class="math inline">\(H(G(b)) = b\)</span> where <span class="math inline">\(G(b) \in A\)</span></p></li>
+<li><p>If <span class="math inline">\(G(b) \in A_{\infty}\)</span> then <span class="math inline">\(G(b)\)</span> belongs to some <span class="math inline">\(A_n\)</span>. It can not be <span class="math inline">\(A_1 = A - G[B]\)</span> because <span class="math inline">\(G(b) \in G[B]\)</span>. So <span class="math inline">\(G(b)\)</span> must belong to some <span class="math inline">\(A_{n+1} = (G \circ F)[A_n]\)</span>. Therefore we have that <span class="math inline">\(G(b) = G(F(a))\)</span> for some <span class="math inline">\(a \in A_n\)</span>, so <span class="math inline">\(a \in A_{\infty}\)</span>. Then we have that <span class="math inline">\(b = G^{-1}(G(b)) = G^{-1}(G(F(a))) = F(a) = H(a)\)</span> because <span class="math inline">\(a \in A_{\infty}\)</span>. So <span class="math inline">\(H(a) = b\)</span> where <span class="math inline">\(a \in A\)</span>.</p></li>
+</ul>
+<p>Therefore <span class="math inline">\(H\)</span> is onto.</p></li>
+</ul>
+</div>
+<div id="fig-schroder-bernstein-theorem-mirrors" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-schroder-bernstein-theorem-mirrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-schroder-bernstein-theorem-mirrors.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schroder-bernstein-theorem-mirrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </figcaption>
 </figure>
 </div>
@@ -488,6 +569,15 @@ Figure&nbsp;D.1: B-thread
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
+Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
+</div>
+<div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
+Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
+</div>
+<div id="ref-peloquin_cantor-schroeder-bernstein_2016" class="csl-entry" role="listitem">
+Peloquin, John. 2016. <span>“The <span>Cantor</span>-<span>Schroeder</span>-<span>Bernstein</span> <span>Theorem</span>.”</span> <a href="https://www.youtube.com/watch?v=IkoKttTDuxE">https://www.youtube.com/watch?v=IkoKttTDuxE</a>.
+</div>
 <div id="ref-stoll_sets_1974" class="csl-entry" role="listitem">
 Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
 </div>
