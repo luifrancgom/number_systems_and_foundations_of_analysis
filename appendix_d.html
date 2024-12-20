@@ -423,7 +423,7 @@ A \leq B &amp; \iff \exists F (F: A \xrightarrow[]{1-1} B) \\
 <ul>
 <li><span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> can not be both in <span class="math inline">\(W\)</span> because <span class="math inline">\({G^{-1} \mid}_{W}\)</span> is one-one</li>
 <li><span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> can not be both in <span class="math inline">\(A - W\)</span> because <span class="math inline">\({F \mid}_{A - W}\)</span> is one-one</li>
-<li>Let <span class="math inline">\(x \in W\)</span> and <span class="math inline">\(y \in A - W\)</span>. Then <span class="math inline">\(x = {G^{-1} \mid}_{W}(x) = {F \mid}_{A - W}(y)\)</span>, so <span class="math inline">\(x = G({G^{-1} \mid}_{W}(x)) = G({F \mid}_{A - W}(y))\)</span> because <span class="math inline">\({G^{-1} \mid}_{W} : W \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span>. Therefore, <span class="math inline">\(G({F \mid}_{A - W}(y)) = x\)</span> and <span class="math inline">\(G({F \mid}_{A - W}(y)) \in W\)</span> but this means that <span class="math inline">\(y\)</span> is also in the same B-thread as <span class="math inline">\(x\)</span>. So, <span class="math inline">\(y \in W\)</span> but we have also that <span class="math inline">\(y \in A - W\)</span> which means that <span class="math inline">\(y \not \in W\)</span>. Taking into account that we arrive to a contradiction it must be the case that <span class="math inline">\(H\)</span> is one-one.</li>
+<li>Let <span class="math inline">\(x \in W\)</span> and <span class="math inline">\(y \in A - W\)</span>. Then <span class="math inline">\(x = {G^{-1} \mid}_{W}(x) = {F \mid}_{A - W}(y)\)</span>, so <span class="math inline">\(x = G({G^{-1} \mid}_{W}(x)) = G({F \mid}_{A - W}(y))\)</span> because <span class="math inline">\({G^{-1} \mid}_{W} : W \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(G: B \xrightarrow[]{1-1} A\)</span>. Therefore, <span class="math inline">\(G({F \mid}_{A - W}(y)) = x\)</span> and <span class="math inline">\(G({F \mid}_{A - W}(y)) \in W\)</span> but this means that <span class="math inline">\(y\)</span> is also in the same B-thread as <span class="math inline">\(x\)</span>. So, <span class="math inline">\(y \in W\)</span> but we have also that <span class="math inline">\(y \in A - W\)</span> which means that <span class="math inline">\(y \not \in W\)</span>. Taking into account that we arrive to a contradiction it must be the case that <span class="math inline">\(H\)</span> is one-one.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul></li>
 </ul>
 </div>
@@ -472,6 +472,34 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </figcaption>
 </figure>
 </div>
+<div id="exm-schroder-bernstein-theorem" class="theorem example">
+<p><span class="theorem-title"><strong>Example D.1</strong></span> Let <span class="math inline">\(F: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}\)</span> where <span class="math inline">\(F(n) = n + 1\)</span> and <span class="math inline">\(G: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}\)</span> where <span class="math inline">\(G(n) = n + 2\)</span>. Then <span class="math inline">\(g[\mathbb{P}] = \{ 3, 4, 5, \ldots \}\)</span>, so:</p>
+<ul>
+<li><span class="math inline">\(A_1 = \mathbb{P} - g[\mathbb{P}] = \{ 1, 2 \}\)</span></li>
+</ul>
+<p>Also we have that <span class="math inline">\(G(F(1)) = G(2) = 4\)</span>, <span class="math inline">\(G(F(2)) = G(3) = 5\)</span>, so:</p>
+<ul>
+<li><span class="math inline">\(A_2 = (G \circ F)[A_1] = \{ 4, 5 \}\)</span></li>
+</ul>
+<p>Furthermore <span class="math inline">\(G(F(4)) = G(2) = 7\)</span>, <span class="math inline">\(G(F(5)) = G(3) = 8\)</span>, so:</p>
+<ul>
+<li><span class="math inline">\(A_3 = (G \circ F)[A_2] = \{ 7, 8 \}\)</span></li>
+</ul>
+<p>In general, we have that:</p>
+<ul>
+<li><span class="math inline">\(A_n = (G \circ F)[A_{n - 1}] = \{ 3n - 2, 3n - 1 \}\)</span></li>
+</ul>
+<p>Therefore, we have that:</p>
+<ul>
+<li><p><span class="math inline">\(A_{\infty} = \bigcup_{n = 1}^{\infty} A_n = \bigcup_{n = 1}^{\infty} \{ 3n - 2, 3n - 1 \} = \{ 1, 2, 4, 5, 7, 8, \ldots, 3n - 2, 3n - 1, \ldots \}\)</span></p></li>
+<li><p><span class="math inline">\(A - A_{\infty} = \{ 3, 6, 9, \ldots, 3n, \ldots \}\)</span></p></li>
+</ul>
+<p>Finally we have that <span class="math inline">\(H\)</span> is defined as:</p>
+<p><span class="math display">\[H(n) = \begin{cases}
+          n + 1 &amp;  \text{if } n = 3m - 2 \text{ or } n = 3m - 1 \text{ for some } m \in \mathbb{P} \\
+          n - 2 &amp; \text{if } n = 3m \text{ for some } m \in \mathbb{P}
+            \end{cases}\]</span></p>
+</div>
 <div id="cor-schroder-bernstein-theorem" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary D.1</strong></span> &nbsp;</p>
 <ol type="a">
@@ -482,7 +510,19 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </ol>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>Using <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume that <span class="math inline">\(A \leq B \land \neg(B \not &lt; A)\)</span> then <span class="math inline">\(A \leq B \land B &lt; A)\)</span>. By <a href="#def-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Definition&nbsp;<span>D.1</span></a> b <span class="math inline">\(A \leq B \land (B \leq A \land B \not \approx A))\)</span> and by <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> <span class="math inline">\(B \approx A \land B \not \approx A\)</span>. Because there is a contradiction we have that <span class="math inline">\(A \leq B \Longrightarrow B \not &lt; A\)</span> is true.</p></li>
+<li><p>If <span class="math inline">\(A \leq B\)</span> and <span class="math inline">\(B &lt; C\)</span> then by <a href="#def-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Definition&nbsp;<span>D.1</span></a> b <span class="math inline">\(B \leq C\)</span> and <span class="math inline">\(B \not \approx C\)</span>. Because <span class="math inline">\(A \leq B\)</span> and <span class="math inline">\(B \leq C\)</span> by <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> <span class="math inline">\(A \leq C\)</span>.</p>
+<p>Now using <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume that <span class="math inline">\(A \approx C\)</span> then <span class="math inline">\(C \leq A\)</span>. Because <span class="math inline">\(A \leq B\)</span> then again by <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> <span class="math inline">\(C \leq B\)</span>. Because we have also that <span class="math inline">\(B \leq C\)</span> by <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> <span class="math inline">\(B \approx C\)</span> but <span class="math inline">\(B \not \approx C\)</span>. Because there is a contradiction it must be that <span class="math inline">\(A \not \approx C\)</span>.</p>
+<p>We have that <span class="math inline">\(A \leq C\)</span> and <span class="math inline">\(A \not \approx C\)</span> so by <a href="#def-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Definition&nbsp;<span>D.1</span></a> b <span class="math inline">\(A &lt; C\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(A &lt; B\)</span> then <span class="math inline">\(A \leq B\)</span>. Also because <span class="math inline">\(B \leq C\)</span> then <span class="math inline">\(A \leq C\)</span>.</p>
+<p>Let use <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Assume <span class="math inline">\(A \approx C\)</span> then <span class="math inline">\(C \approx A\)</span> and because <span class="math inline">\(B \leq C\)</span> by <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> g <span class="math inline">\(B \leq A\)</span>. But by <a href="#cor-schroder-bernstein-theorem" class="quarto-xref">Corollary&nbsp;<span>D.1</span></a> <span class="math inline">\(A \not &lt; B\)</span>. However, <span class="math inline">\(A &lt; B\)</span>, so there is a contradiction and it must be the case that <span class="math inline">\(A \not \approx C\)</span>.</p>
+<p>Because <span class="math inline">\(A \leq C\)</span> and <span class="math inline">\(A \not \approx C\)</span> then <span class="math inline">\(A &lt; C\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A &lt; B\)</span> and <span class="math inline">\(B &lt; C\)</span> then <span class="math inline">\(A \leq B\)</span> and <span class="math inline">\(B \leq C\)</span>. Therefore <span class="math inline">\(A \leq C\)</span>.</p>
+<p>Let use <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Assume <span class="math inline">\(A \approx C\)</span> then <span class="math inline">\(C \approx A\)</span> so <span class="math inline">\(C \leq A\)</span>. Because <span class="math inline">\(A \leq B\)</span> then <span class="math inline">\(C \leq B\)</span>, so by <a href="#cor-schroder-bernstein-theorem" class="quarto-xref">Corollary&nbsp;<span>D.1</span></a> <span class="math inline">\(B \not &lt; C\)</span>. But <span class="math inline">\(B &lt; C\)</span>, so there is a contradiction and it must be the case that <span class="math inline">\(A \not \approx C\)</span>.</p>
+<p>Because <span class="math inline">\(A \leq C\)</span> and <span class="math inline">\(A \not \approx C\)</span> then <span class="math inline">\(A &lt; C\)</span>.</p></li>
+</ol>
 </div>
 <p>All the results in <a href="#cor-schroder-bernstein-theorem" class="quarto-xref">Corollary&nbsp;<span>D.1</span></a> and others formulated in terms of <span class="math inline">\(\approx\)</span>, <span class="math inline">\(\leq\)</span> and <span class="math inline">\(&lt;\)</span> can be reformulated in terms of cardinal numbers. For example <a href="#cor-schroder-bernstein-theorem" class="quarto-xref">Corollary&nbsp;<span>D.1</span></a> a becomes <span class="math inline">\(\mathfrak{m} \leq_K \mathfrak{n} \Longrightarrow \mathfrak{n} \not &lt;_K \mathfrak{m}\)</span> for any cardinal numbers <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span>.</p>
 <div id="exr-schroder-bernstein-theorem" class="theorem exercise">
@@ -494,10 +534,12 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div id="sol-schroder-bernstein-theorem" class="proof solution">
 <p><span class="proof-title"><em>Solution D.2</em>. </span></p>
 <ol type="1">
-<li><strong>Pending</strong></li>
+<li>Let use <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. If there is a universal set <span class="math inline">\(U\)</span> then <span class="math inline">\(\mathscr{P}(U) \subseteq U\)</span>. By <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> d <span class="math inline">\(\mathscr{P}(U) \leq U\)</span> but by <a href="#cor-schroder-bernstein-theorem" class="quarto-xref">Corollary&nbsp;<span>D.1</span></a> a <span class="math inline">\(U \not &lt; \mathscr{P}(U)\)</span>. However, by <a href="#thm-cantor-theorem" class="quarto-xref">Theorem&nbsp;<span>D.3</span></a> <span class="math inline">\(U &lt; \mathscr{P}(U)\)</span>, so there is a contradiction and it must be the case that there is no universal set <span class="math inline">\(U\)</span>.</li>
 </ol>
 </div>
-<p>Another apparently simple fact about sets is that, for any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> either <span class="math inline">\(A \leq B\)</span> or <span class="math inline">\(B \leq A\)</span>. This result is know as the Trichotomy Law and turns out to be equivalent to the Axiom of Choice.</p>
+<p>Another apparently simple fact about sets is that, for any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> either <span class="math inline">\(A \leq B\)</span> or <span class="math inline">\(B \leq A\)</span>. This result is know as the Trichotomy Law<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and turns out to be equivalent to the Axiom of Choice.</p>
+<p>The Axiom of Choice states that if <span class="math inline">\(A\)</span> is any set of non empty sets, then there is a function <span class="math inline">\(F\)</span> with domain <span class="math inline">\(A\)</span>, <span class="math inline">\(\mathscr{D}(F) = A\)</span> such that <span class="math inline">\(F(B) \in B\)</span> for every set <span class="math inline">\(B\)</span> in <span class="math inline">\(A\)</span>.</p>
+<p>The interest reader can check out <span class="citation" data-cites="mendelson_introduction_2015">(<a href="references.html#ref-mendelson_introduction_2015" role="doc-biblioref">Mendelson 2015, 282–84</a>)</span> for a discussion of the Axiom of Choice and its proof of its equivalence with the Trichotomy Law.</p>
 <p>Lets us turn now to the study of finite sets. If <span class="math inline">\(n\)</span> is a positive number let:</p>
 <p><span class="math display">\[P_n = \{ k \in \mathbb{P} \mid k \leq n \}\]</span></p>
 <p>For example, <span class="math inline">\(P_1 = \{ 1 \}, P_2 = \{ 1, 2 \}, \ldots P_n = \{ 1, \ldots, n \}\)</span></p>
@@ -572,6 +614,9 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
 Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
 </div>
+<div id="ref-halevi_fraenkel_abstract_1961" class="csl-entry" role="listitem">
+Halevi Fraenkel, Abraham Adolf. 1961. <em>Abstract Set Theory</em>. 2nd ed. Vol. 12. Studies in <span>Logic</span> and the <span>Foundations</span> of <span>Mathematics</span>. Amsterdam: North Holland Publishing Company.
+</div>
 <div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
 Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
 </div>
@@ -582,6 +627,13 @@ Peloquin, John. 2016. <span>“The <span>Cantor</span>-<span>Schroeder</span>-<s
 Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
 </div>
 </div>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>For another proof of <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> check out <span class="citation" data-cites="halevi_fraenkel_abstract_1961">(<a href="references.html#ref-halevi_fraenkel_abstract_1961" role="doc-biblioref">Halevi Fraenkel 1961, 12:73–77</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In the case of cardinal numbers if <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> are cardinal numbers then <span class="math inline">\(\mathfrak{m} {\leq}_K \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{m} {\geq}_K \mathfrak{n}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
