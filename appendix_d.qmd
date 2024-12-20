@@ -205,9 +205,11 @@ Furthermore, if $xHy$ and $xHz$ then $x{G^{-1} \mid}_{W}y$ and $x{G^{-1} \mid}_{
 
     -  $x$ and $y$ can not be both in $W$ because ${G^{-1} \mid}_{W}$ is one-one
     -  $x$ and $y$ can not be both in $A - W$ because ${F \mid}_{A - W}$ is one-one
-    -  Let $x \in W$ and $y \in A - W$. Then $x = {G^{-1} \mid}_{W}(x) = {F \mid}_{A - W}(y)$, so $x = G({G^{-1} \mid}_{W}(x)) = G({F \mid}_{A - W}(y))$ because ${G^{-1} \mid}_{W} : W \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[]{1-1} A$. Therefore, $G({F \mid}_{A - W}(y)) = x$ and $G({F \mid}_{A - W}(y)) \in W$ but this means that $y$ is also in the same B-thread as $x$. So, $y \in W$ but we have also that $y \in A - W$ which means that $y \not \in W$. Taking into account that we arrive to a contradiction it must be the case that $H$ is one-one.   
+    -  Let $x \in W$ and $y \in A - W$. Then $x = {G^{-1} \mid}_{W}(x) = {F \mid}_{A - W}(y)$, so $x = G({G^{-1} \mid}_{W}(x)) = G({F \mid}_{A - W}(y))$ because ${G^{-1} \mid}_{W} : W \xrightarrow[]{1-1} B$ and $G: B \xrightarrow[]{1-1} A$. Therefore, $G({F \mid}_{A - W}(y)) = x$ and $G({F \mid}_{A - W}(y)) \in W$ but this means that $y$ is also in the same B-thread as $x$. So, $y \in W$ but we have also that $y \in A - W$ which means that $y \not \in W$. Taking into account that we arrive to a contradiction it must be the case that $H$ is one-one.[^appendix_d-1]   
         
 :::
+
+[^appendix_d-1]: For another proof of @thm-schroder-bernstein-theorem check out [@halevi_fraenkel_abstract_1961, pp. 73-77]
 
 ![B-thread](images/fig-b-thread.png){#fig-b-thread fig-align="center" width=40%}
 
@@ -247,7 +249,40 @@ Now we need to prove that $H$ is a one-one correspondence.
   Therefore $H$ is onto.
 :::
 
-![Schröder-Bernstein theorem proof using mirrors](images/fig-schroder-bernstein-theorem-mirrors.png){#fig-schroder-bernstein-theorem-mirrors fig-align="center" width=90%}  
+![Schröder-Bernstein theorem proof using mirrors](images/fig-schroder-bernstein-theorem-mirrors.png){#fig-schroder-bernstein-theorem-mirrors fig-align="center" width=90%}
+
+::: {#exm-schroder-bernstein-theorem}
+
+Let $F: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}$ where $F(n) = n + 1$ and $G: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}$ where $G(n) = n + 2$. Then $g[\mathbb{P}] = \{ 3, 4, 5, \ldots \}$, so:
+
+- $A_1 = \mathbb{P} - g[\mathbb{P}] = \{ 1, 2 \}$
+
+Also we have that $G(F(1)) = G(2) = 4$, $G(F(2)) = G(3) = 5$, so:
+
+- $A_2 = (G \circ F)[A_1] = \{ 4, 5 \}$
+
+Furthermore $G(F(4)) = G(2) = 7$, $G(F(5)) = G(3) = 8$, so:
+
+- $A_3 = (G \circ F)[A_2] = \{ 7, 8 \}$
+
+In general, we have that:
+
+- $A_n = (G \circ F)[A_{n - 1}] = \{ 3n - 2, 3n - 1 \}$
+
+Therefore, we have that:
+
+- $A_{\infty} = \bigcup_{n = 1}^{\infty} A_n = \bigcup_{n = 1}^{\infty} \{ 3n - 2, 3n - 1 \} = \{ 1, 2, 4, 5, 7, 8, \ldots, 3n - 2, 3n - 1, \ldots \}$
+
+- $A - A_{\infty} = \{ 3, 6, 9, \ldots, 3n, \ldots \}$
+
+Finally we have that $H$ is defined as:
+
+$$H(n) = \begin{cases}
+          n + 1 &  \text{if } n = 3m - 2 \text{ or } n = 3m - 1 \text{ for some } m \in \mathbb{P} \\
+          n - 2 & \text{if } n = 3m \text{ for some } m \in \mathbb{P}
+            \end{cases}$$
+
+:::
 
 ::: {#cor-schroder-bernstein-theorem}
 
@@ -263,7 +298,25 @@ d. $(A < B \land B < C) \Longrightarrow A < C$
 
 ::: {.proof}
 
-**Pending**
+a. Using @nte-proof-by-reductio-ad-absurdum assume that $A \leq B \land \neg(B \not < A)$ then $A \leq B \land B < A)$. By @def-less-equal-than-and-less-than-relation-sets b $A \leq B \land (B \leq A \land B \not \approx A))$ and by @thm-schroder-bernstein-theorem $B \approx A \land B \not \approx A$. Because there is a contradiction we have that $A \leq B \Longrightarrow B \not < A$ is true.
+
+b. If $A \leq B$ and $B < C$ then by @def-less-equal-than-and-less-than-relation-sets b $B \leq C$ and $B \not \approx C$. Because $A \leq B$ and $B \leq C$ by @thm-less-equal-than-and-less-than-relation-sets $A \leq C$. 
+
+   Now using @nte-proof-by-reductio-ad-absurdum assume that $A \approx C$ then $C \leq A$. Because $A \leq B$ then again by @thm-less-equal-than-and-less-than-relation-sets $C \leq B$. Because we have also that $B \leq C$ by @thm-schroder-bernstein-theorem $B \approx C$ but $B \not \approx C$. Because there is a contradiction it must be that $A \not \approx C$.
+   
+   We have that $A \leq C$ and $A \not \approx C$ so by @def-less-equal-than-and-less-than-relation-sets b $A < C$.
+   
+c. Because $A < B$ then $A \leq B$. Also because $B \leq C$ then $A \leq C$. 
+
+   Let use @nte-proof-by-reductio-ad-absurdum. Assume $A \approx C$ then $C \approx A$ and because $B \leq C$ by @thm-less-equal-than-and-less-than-relation-sets g $B \leq A$. But by @cor-schroder-bernstein-theorem $A \not < B$. However, $A < B$, so there is a contradiction and it must be the case that $A \not \approx C$.
+   
+   Because $A \leq C$ and $A \not \approx C$ then $A < C$.
+   
+d. If $A < B$ and $B < C$ then $A \leq B$ and $B \leq C$. Therefore $A \leq C$.
+
+   Let use @nte-proof-by-reductio-ad-absurdum. Assume $A \approx C$ then $C \approx A$ so $C \leq A$. Because $A \leq B$ then $C \leq B$, so by @cor-schroder-bernstein-theorem $B \not < C$. But $B < C$, so there is a contradiction and it must be the case that $A \not \approx C$.
+   
+   Because $A \leq C$ and $A \not \approx C$ then $A < C$. 
 
 :::
 
@@ -277,11 +330,17 @@ All the results in @cor-schroder-bernstein-theorem and others formulated in term
 
 ::: {#sol-schroder-bernstein-theorem}
 
-1. **Pending**
+1. Let use @nte-proof-by-reductio-ad-absurdum. If there is a universal set $U$ then $\mathscr{P}(U) \subseteq U$. By @thm-less-equal-than-and-less-than-relation-sets d $\mathscr{P}(U) \leq U$ but by @cor-schroder-bernstein-theorem a $U \not < \mathscr{P}(U)$. However, by @thm-cantor-theorem $U < \mathscr{P}(U)$, so there is a contradiction and it must be the case that there is no universal set $U$.
 
 :::
 
-Another apparently simple fact about sets is that, for any sets $A$ and $B$ either $A \leq B$ or $B \leq A$. This result is know as the Trichotomy Law and turns out to be equivalent to the Axiom of Choice.
+Another apparently simple fact about sets is that, for any sets $A$ and $B$ either $A \leq B$ or $B \leq A$. This result is know as the Trichotomy Law[^appendix_d-2] and turns out to be equivalent to the Axiom of Choice.
+
+[^appendix_d-2]: In the case of cardinal numbers if $\mathfrak{m}$ and $\mathfrak{n}$ are cardinal numbers then $\mathfrak{m} {\leq}_K \mathfrak{n}$ or $\mathfrak{m} {\geq}_K \mathfrak{n}$. 
+
+The Axiom of Choice states that if $A$ is any set of non empty sets, then there is a function $F$ with domain $A$, $\mathscr{D}(F) = A$ such that $F(B) \in B$ for every set $B$ in $A$.
+
+The interest reader can check out [@mendelson_introduction_2015, pp. 282-284] for a discussion of the Axiom of Choice and its proof of its equivalence with the Trichotomy Law. 
 
 Lets us turn now to the study of finite sets. If $n$ is a positive number let:
 
