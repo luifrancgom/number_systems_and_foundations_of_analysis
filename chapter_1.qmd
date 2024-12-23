@@ -4560,7 +4560,7 @@ $$F: A \longrightarrow B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)$
 
 $F$ is one-one (or $1-1$) if and only if for any distinct objects $x$ and $y$ of the domain $F$, $F(x) \neq F(y)$. In other words, $F$ takes different objects into different objects. This will be written as $F: A \xrightarrow[]{1-1} B$. Thus:
 
-$$F \text{ is one-one} \iff \forall x \forall x ((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))$$
+$$F \text{ is one-one} \iff \forall x \forall y ((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))$$
 
 **Note**: Notice that the condition for $F$ to be one-one can be reformulated as $F(x) = F(y) \Longrightarrow x = y$ when $x \in \mathscr{D}(F) \land y \in \mathscr{D}(F)$. In other words, if $F$ takes $x$ and $y$ into the same object then $x = y$.
 

@@ -368,11 +368,13 @@ We say that a set $A$ is infinite if and only if it is not finite. That is:
 
 $$A \neq \emptyset \land \neg\exists n (A \approx P_n)$$
 
+**Note**: $A \neq \emptyset \land \neg\exists n (A \approx P_n)$ is also equivalent to $A \neq \emptyset \land \forall n (A \not \approx P_n)$.  
+
 :::
 
 ::: {#lem-not-equinumerous-with-proper-subsets-pn}
 
-$P_n$ is not equinumerous with any of its propersubsets. That is:
+$P_n$ is not equinumerous with any of its proper subsets. That is:
 
 $$\forall A (A \subset P_n \Longrightarrow A \not \approx P_n)$$
 
@@ -380,8 +382,34 @@ $$\forall A (A \subset P_n \Longrightarrow A \not \approx P_n)$$
 
 ::: {.proof}
 
-**Pending**
+The result will be prove by strong induction on $n$. 
 
+*Base step* $(n = 1)$: If $P_1 = \{ 1 \}$ then $\emptyset \subset P_1$. Let $F: \emptyset \longrightarrow P_1$ where this function is well defined because $F = \{ (x,y) \mid x \in \emptyset \land y \in P_1 \} = \emptyset$. Also if $x \emptyset y$ and $x \emptyset z$ then $y = z$ is true because $x \emptyset y$ and $x \emptyset z$ is false.
+
+Furthermore by @def-one-one-function $F$ is one-one because $\mathscr{D}(F) = \emptyset$ so $x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y$ is false and $(x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))$ is true.
+
+However, by @def-onto-function $F$ is not onto because $\mathscr{D}(F) = \emptyset$ so $\exists x(x \in \emptyset \land F(x) = y)$ is false so $\forall y (y \in P_1 \Longrightarrow \exists x(x \in \emptyset \land F(x) = y))$ is false.
+
+Therefore $\emptyset \not \approx P_1$ because we have only that $F: \emptyset \xrightarrow[]{1-1} P_1$ but not $F: \emptyset \xrightarrow[onto]{} P_1$.
+
+*Induction hypothesis* $(n \leq k)$: $\forall A (A \subset P_k \Longrightarrow A \not \approx P_k)$
+
+*Induction step* $(n = k + 1)$: Let use @nte-proof-by-reductio-ad-absurdum. Suppose that $\neg \forall A (A \subset P_{k+1} \Longrightarrow A \not \approx P_{k+1})$, so $\exists A (A \subset P_{k+1} \land A \approx P_{k+1})$. By @thm-equinumerous-equivalence-relation $\exists A (A \subset P_{k+1} \land P_{k+1} \approx A)$. Therefore, it exist some $G$ such that $G: P_{k+1} \xrightarrow[onto]{1-1} A$. Then we have 2 cases:
+
+- *Case 1* $G(k+1) = k + 1$: Then ${G \mid}_{P_k}: P_k \xrightarrow[onto]{1-1} A - \{ k + 1 \}$ where ${G \mid}_{P_k}$ is the restriction of $G$ to the domain $P_k$ [See @stoll_sets_1974, p. 40]. Therefore $P_k \approx A - \{ k + 1 \}$, so $A - \{ k + 1 \} \approx P_k$. Since $A \subset P_{k+1}$ then $A - \{ k + 1 \} \subset P_k$ where there is a contradiction taking into account the *Induction hypothesis*. So it must be the case that $A \not \approx P_{k+1}$
+
+- *Case 2* $G(k + 1) \neq k + 1$: Then $k + 1 \not \in A$ or $k + 1 \in A$
+
+    - If $k + 1 \not \in A$ then ${G \mid}_{P_k}: P_k \xrightarrow[onto]{1-1} A - G(k + 1)$ where ${G \mid}_{P_k}$ is the restriction of $G$ to the domain $P_k$ [See @stoll_sets_1974, p. 40]. Therefore $P_k \approx A - G(k + 1)$, so $A - G(k + 1) \approx P_k$. Because $k + 1 \not \in A$ and $G(k + 1) \in A$ then $A - G(k + 1) \subset P_k$ where there is a contradiction taking into account the *Induction hypothesis*. So it must be the case that $A \not \approx P_{n+1}$  
+
+    - If $k + 1 \in A$ then there is some $i \in P_n$ such that $G(k + 1) = i$ and some $j \in P_n$ such that $G(j) = k + 1$. Therefore we can define a function $F: P_k \xrightarrow[onto]{1-1} A - \{k + 1\}$ as:
+    
+      $$F(x) = \begin{cases}
+                G(x) & \text{ if } x \neq k + 1 \lor x \neq j \\
+                i & \text{ if } x = j
+                \end{cases}$$
+
+      Therefore $P_k \approx A - \{ k + 1 \}$, so $A - \{ k + 1 \} \approx P_k$. Since $A \subset P_{k+1}$ then $A - \{ k + 1 \} \subset P_k$ where there is a contradiction taking into account the *Induction hypothesis*. So it must be the case that $A \not \approx P_{k+1}$
 :::
 
 ::: {#thm-not-equinumerous-with-proper-subsets-finite-set}
@@ -392,8 +420,13 @@ If $B$ is a finite set then $B$ is not equinumerous with any of its proper subse
 
 ::: {.proof}
 
-**Pending**
+If $B = \emptyset$ then $B$ has no proper subsets.
 
+If $B \neq \emptyset$ then $B \approx P_n$. Therefore there is some $F: B \xrightarrow[onto]{1-1} P_n$. Let an arbitrary $C \subset B$ and $F[C] = \mathscr{R}({F \mid}_{C}) \subset P_n$. So $C \approx F[C]$ because ${F \mid}_{C}: C \xrightarrow[onto]{1-1} \mathscr{R}({F \mid}_{C})$ and by @lem-not-equinumerous-with-proper-subsets-pn $F[C] \not \approx P_n$.
+
+Therefore because $C \approx F[C]$ and $F[C] \not \approx P_n$ it must be the case that $C \not \approx P_n$. Furthermore because $B \approx P_n$ then $P_n \approx B$, so it must be the case that $C \not \approx B$.
+
+**Note**: The property pointed out in @thm-not-equinumerous-with-proper-subsets-finite-set is a characteristic of the finite sets.
 :::
 
 ::: {#cor-not-equinumerous-with-proper-subsets-finite-set}
@@ -406,7 +439,9 @@ b. If $B$ is finite then either $B = \emptyset$ or there is a unique positive in
 
 ::: {.proof}
 
-**Pending**
+a. Assume without loss of generality that $n < k$ then $P_n \subset P_k$. By @lem-not-equinumerous-with-proper-subsets-pn $P_n \not \approx P_k$.
+
+b. If $B$ is finite then $B = \emptyset$ or $B \approx P_n$ for some $n$. Assume there is another $m \neq n$ such that $B \approx P_m$. But by @cor-not-equinumerous-with-proper-subsets-finite-set there will be a contradiction so it must be the case that $m = n$. Therefore there is a unique $n$ such that $B \approx P_n$.
 
 :::
 
@@ -424,11 +459,36 @@ c. If $B$ is finite and $D \leq B$ then $D$ is finite.
 
 ::: {.proof}
 
-a. **Pending**
+a. If $B$ is finite then $B = \emptyset$ or $B \approx P_n$ for some $n$. Therefore:
 
-b.
+    - $\emptyset \cup \{ y \} = \{ y \}$ so $\{ y \} \approx P_1$.
+    
+    - $F: B \xrightarrow[onto]{1-1} P_n$ so $G: B \cup \{ y \} \xrightarrow[onto]{1-1} P_{n + 1}$ where
+    
+      $$G(x) = \begin{cases}
+                F(x) & \text{ if } x \neq y \\
+                n + 1 & \text{ if } x = y
+                \end{cases}$$    
 
-c.
+b. First we prove the following partial result $\forall D (D \subseteq P_n \Longrightarrow D \text{ is finite})$ by strong induction on $n$.
+
+   *Base step* $(n = 1)$: If $D \subseteq P_1$ then $D = \emptyset$ so $D$ is finite or $D = \{ 1 \}$ so $D \approx P_1$ so $D$ is also finite.
+   
+   *Induction hypothesis* $(n \leq k)$: $\forall D (D \subseteq P_k \Longrightarrow D \text{ is finite})$
+
+   *Induction step* $(n = k + 1)$: Let $D \subseteq P_{n + 1}$ and $D^* = D - \{ n + 1 \} \subseteq P_n$. Therefore by the *Induction hypothesis* $D^*$ is finite and $D = D^*$ or $D = D^* \cup \{ n + 1 \}$. By @thm-finite-set $D$ is finite.
+   
+   Second, if $B$ is finite and $D \subseteq B$ then $B = \emptyset$ or $B \approx P_n$.
+   
+   - If $B = \emptyset$ then $D = \emptyset$ and $D$ is finite.
+   
+   - If $B \approx P_n$ then it exists some $F: B \xrightarrow[onto]{1-1} P_n$. So, ${F \mid }_{D}: D \xrightarrow[onto]{1-1} \mathscr{R}({F \mid }_{D})$ where $\mathscr{R}({F \mid }_{D}) \subseteq P_n$ which means that $D \approx \mathscr{R}({F \mid }_{D})$ and $\mathscr{R}({F \mid }_{D})$ is finite by the above partial result.
+   
+     Because $\mathscr{R}({F \mid }_{D})$ is finite then $\mathscr{R}({F \mid }_{D}) = \emptyset$ or there is a unique positive integer $m$ such that $\mathscr{R}({F \mid }_{D}) \approx P_m$ by @cor-not-equinumerous-with-proper-subsets-finite-set b. Because $D \approx \mathscr{R}({F \mid }_{D})$ and $\mathscr{R}({F \mid }_{D}) \approx P_m$ then $D \approx P_m$ so $D$ is finite.
+
+c. If $D \leq B$ then $F: D \xrightarrow[]{1-1} B$ where $\mathscr{R}(F) \subseteq B$, so $F: D \xrightarrow[onto]{1-1} \mathscr{R}(F)$ and $D \approx \mathscr{R}(F)$. By @thm-finite-set b because $B$ is finite and $\mathscr{R}(F) \subseteq B$ we have that $\mathscr{R}(F)$ is finite.
+
+   Because $\mathscr{R}(F)$ is finite by @cor-not-equinumerous-with-proper-subsets-finite-set b $\mathscr{R}(F) = \emptyset$ or there is a unique positive integer $m$ such that $\mathscr{R}(F) \approx P_m$. Taking into account that $\mathscr{R}(F) = \emptyset$ or $D \approx \mathscr{R}(F)$ and $\mathscr{R}(F) \approx P_m$ then $D = \emptyset$ by @exr-equinumerous-relation 1 or $D \approx P_m$ by @thm-equinumerous-equivalence-relation c. Therefore, $D$ is also finite.  
 
 :::
 
@@ -444,10 +504,22 @@ c.
 
 ::: {#sol-finite-set}
 
-1. **Pending**
+1. Using @thm-finite-set b we can use its contraposition and @def-infinite-set. That is, $D$ is infinite then $B$ is infinite or $D \not \subseteq B$. But $D \subseteq B$ so it must be the case that $B$ is infinite. 
 
-2.
+2. Using @thm-finite-set c we can use its contraposition and @def-infinite-set. That is, $D$ is infinite then $B$ is infinite or $D \not \leq B$. But $D \leq B$ so it must be the case that $B$ is infinite.
 
-3.
+3. We have that $n = k$, $n < k$ or $n > k$. 
+
+    - Because $B$ is finite and $D \subset B$ by @thm-not-equinumerous-with-proper-subsets-finite-set it can not be that $n = k$.
+    
+    - Because $\mathscr{K}(P_n) = n$ and $\mathscr{K}(P_k) = k$ if $n < k$ then $P_n \subset P_k$. Therefore, let $F: P_n \xrightarrow[]{1-1} P_k$ where $F(x) = x$ then $P_n \leq P_k$.
+    
+      Furthermore, because $B \approx P_n$, $P_n \leq P_k$, and $P_k \approx D$ then $B \leq P_n$, $P_n \leq P_k$, and $P_k \leq D$. By @thm-less-equal-than-and-less-than-relation-sets $B \leq D$. 
+    
+      Also by @thm-not-equinumerous-with-proper-subsets-finite-set $D \not \approx B$. Additionally, let $F: D \xrightarrow[]{1-1} B$ where $G(x) = x$ then $D \leq B$.
+      
+      Therefore we have that $D \not \approx B$, $D \leq B$ and $B \leq D$. But then $D \not \approx B$ and by @thm-schroder-bernstein-theorem $D \approx B$ which is a contradiction. So it can not be that $n < k$.
+      
+    - Because it is not possible that $n = k$ and $n < k$ then it must be the case that $n > k$. 
 
 :::
