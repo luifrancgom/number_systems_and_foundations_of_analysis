@@ -551,19 +551,42 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div id="def-infinite-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition D.3 (Infinite set)</strong></span> We say that a set <span class="math inline">\(A\)</span> is infinite if and only if it is not finite. That is:</p>
 <p><span class="math display">\[A \neq \emptyset \land \neg\exists n (A \approx P_n)\]</span></p>
+<p><strong>Note</strong>: <span class="math inline">\(A \neq \emptyset \land \neg\exists n (A \approx P_n)\)</span> is also equivalent to <span class="math inline">\(A \neq \emptyset \land \forall n (A \not \approx P_n)\)</span>.</p>
 </div>
 <div id="lem-not-equinumerous-with-proper-subsets-pn" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma D.1</strong></span> <span class="math inline">\(P_n\)</span> is not equinumerous with any of its propersubsets. That is:</p>
+<p><span class="theorem-title"><strong>Lemma D.1</strong></span> <span class="math inline">\(P_n\)</span> is not equinumerous with any of its proper subsets. That is:</p>
 <p><span class="math display">\[\forall A (A \subset P_n \Longrightarrow A \not \approx P_n)\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
+<p><span class="proof-title"><em>Proof</em>. </span>The result will be prove by strong induction on <span class="math inline">\(n\)</span>.</p>
+<p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: If <span class="math inline">\(P_1 = \{ 1 \}\)</span> then <span class="math inline">\(\emptyset \subset P_1\)</span>. Let <span class="math inline">\(F: \emptyset \longrightarrow P_1\)</span> where this function is well defined because <span class="math inline">\(F = \{ (x,y) \mid x \in \emptyset \land y \in P_1 \} = \emptyset\)</span>. Also if <span class="math inline">\(x \emptyset y\)</span> and <span class="math inline">\(x \emptyset z\)</span> then <span class="math inline">\(y = z\)</span> is true because <span class="math inline">\(x \emptyset y\)</span> and <span class="math inline">\(x \emptyset z\)</span> is false.</p>
+<p>Furthermore by <a href="chapter_1.html#def-one-one-function" class="quarto-xref">Definition&nbsp;<span>1.51</span></a> <span class="math inline">\(F\)</span> is one-one because <span class="math inline">\(\mathscr{D}(F) = \emptyset\)</span> so <span class="math inline">\(x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y\)</span> is false and <span class="math inline">\((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))\)</span> is true.</p>
+<p>However, by <a href="chapter_1.html#def-onto-function" class="quarto-xref">Definition&nbsp;<span>1.50</span></a> <span class="math inline">\(F\)</span> is not onto because <span class="math inline">\(\mathscr{D}(F) = \emptyset\)</span> so <span class="math inline">\(\exists x(x \in \emptyset \land F(x) = y)\)</span> is false so <span class="math inline">\(\forall y (y \in P_1 \Longrightarrow \exists x(x \in \emptyset \land F(x) = y))\)</span> is false.</p>
+<p>Therefore <span class="math inline">\(\emptyset \not \approx P_1\)</span> because we have only that <span class="math inline">\(F: \emptyset \xrightarrow[]{1-1} P_1\)</span> but not <span class="math inline">\(F: \emptyset \xrightarrow[onto]{} P_1\)</span>.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: <span class="math inline">\(\forall A (A \subset P_k \Longrightarrow A \not \approx P_k)\)</span></p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Let use <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Suppose that <span class="math inline">\(\neg \forall A (A \subset P_{k+1} \Longrightarrow A \not \approx P_{k+1})\)</span>, so <span class="math inline">\(\exists A (A \subset P_{k+1} \land A \approx P_{k+1})\)</span>. By <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> <span class="math inline">\(\exists A (A \subset P_{k+1} \land P_{k+1} \approx A)\)</span>. Therefore, it exist some <span class="math inline">\(G\)</span> such that <span class="math inline">\(G: P_{k+1} \xrightarrow[onto]{1-1} A\)</span>. Then we have 2 cases:</p>
+<ul>
+<li><p><em>Case 1</em> <span class="math inline">\(G(k+1) = k + 1\)</span>: Then <span class="math inline">\({G \mid}_{P_k}: P_k \xrightarrow[onto]{1-1} A - \{ k + 1 \}\)</span> where <span class="math inline">\({G \mid}_{P_k}\)</span> is the restriction of <span class="math inline">\(G\)</span> to the domain <span class="math inline">\(P_k\)</span> <span class="citation" data-cites="stoll_sets_1974">(See <a href="references.html#ref-stoll_sets_1974" role="doc-biblioref">Stoll 1974, 40</a>)</span>. Therefore <span class="math inline">\(P_k \approx A - \{ k + 1 \}\)</span>, so <span class="math inline">\(A - \{ k + 1 \} \approx P_k\)</span>. Since <span class="math inline">\(A \subset P_{k+1}\)</span> then <span class="math inline">\(A - \{ k + 1 \} \subset P_k\)</span> where there is a contradiction taking into account the <em>Induction hypothesis</em>. So it must be the case that <span class="math inline">\(A \not \approx P_{k+1}\)</span></p></li>
+<li><p><em>Case 2</em> <span class="math inline">\(G(k + 1) \neq k + 1\)</span>: Then <span class="math inline">\(k + 1 \not \in A\)</span> or <span class="math inline">\(k + 1 \in A\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(k + 1 \not \in A\)</span> then <span class="math inline">\({G \mid}_{P_k}: P_k \xrightarrow[onto]{1-1} A - G(k + 1)\)</span> where <span class="math inline">\({G \mid}_{P_k}\)</span> is the restriction of <span class="math inline">\(G\)</span> to the domain <span class="math inline">\(P_k\)</span> <span class="citation" data-cites="stoll_sets_1974">(See <a href="references.html#ref-stoll_sets_1974" role="doc-biblioref">Stoll 1974, 40</a>)</span>. Therefore <span class="math inline">\(P_k \approx A - G(k + 1)\)</span>, so <span class="math inline">\(A - G(k + 1) \approx P_k\)</span>. Because <span class="math inline">\(k + 1 \not \in A\)</span> and <span class="math inline">\(G(k + 1) \in A\)</span> then <span class="math inline">\(A - G(k + 1) \subset P_k\)</span> where there is a contradiction taking into account the <em>Induction hypothesis</em>. So it must be the case that <span class="math inline">\(A \not \approx P_{n+1}\)</span></p></li>
+<li><p>If <span class="math inline">\(k + 1 \in A\)</span> then there is some <span class="math inline">\(i \in P_n\)</span> such that <span class="math inline">\(G(k + 1) = i\)</span> and some <span class="math inline">\(j \in P_n\)</span> such that <span class="math inline">\(G(j) = k + 1\)</span>. Therefore we can define a function <span class="math inline">\(F: P_k \xrightarrow[onto]{1-1} A - \{k + 1\}\)</span> as:</p>
+<p><span class="math display">\[F(x) = \begin{cases}
+          G(x) &amp; \text{ if } x \neq k + 1 \lor x \neq j \\
+          i &amp; \text{ if } x = j
+          \end{cases}\]</span></p>
+<p>Therefore <span class="math inline">\(P_k \approx A - \{ k + 1 \}\)</span>, so <span class="math inline">\(A - \{ k + 1 \} \approx P_k\)</span>. Since <span class="math inline">\(A \subset P_{k+1}\)</span> then <span class="math inline">\(A - \{ k + 1 \} \subset P_k\)</span> where there is a contradiction taking into account the <em>Induction hypothesis</em>. So it must be the case that <span class="math inline">\(A \not \approx P_{k+1}\)</span></p></li>
+</ul></li>
+</ul>
 </div>
 <div id="thm-not-equinumerous-with-proper-subsets-finite-set" class="theorem">
 <p><span class="theorem-title"><strong>Theorem D.5</strong></span> If <span class="math inline">\(B\)</span> is a finite set then <span class="math inline">\(B\)</span> is not equinumerous with any of its proper subsets.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(B = \emptyset\)</span> then <span class="math inline">\(B\)</span> has no proper subsets.</p>
+<p>If <span class="math inline">\(B \neq \emptyset\)</span> then <span class="math inline">\(B \approx P_n\)</span>. Therefore there is some <span class="math inline">\(F: B \xrightarrow[onto]{1-1} P_n\)</span>. Let an arbitrary <span class="math inline">\(C \subset B\)</span> and <span class="math inline">\(F[C] = \mathscr{R}({F \mid}_{C}) \subset P_n\)</span>. So <span class="math inline">\(C \approx F[C]\)</span> because <span class="math inline">\({F \mid}_{C}: C \xrightarrow[onto]{1-1} \mathscr{R}({F \mid}_{C})\)</span> and by <a href="#lem-not-equinumerous-with-proper-subsets-pn" class="quarto-xref">Lemma&nbsp;<span>D.1</span></a> <span class="math inline">\(F[C] \not \approx P_n\)</span>.</p>
+<p>Therefore because <span class="math inline">\(C \approx F[C]\)</span> and <span class="math inline">\(F[C] \not \approx P_n\)</span> it must be the case that <span class="math inline">\(C \not \approx P_n\)</span>. Furthermore because <span class="math inline">\(B \approx P_n\)</span> then <span class="math inline">\(P_n \approx B\)</span>, so it must be the case that <span class="math inline">\(C \not \approx B\)</span>.</p>
+<p><strong>Note</strong>: The property pointed out in <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> is a characteristic of the finite sets.</p>
 </div>
 <div id="cor-not-equinumerous-with-proper-subsets-finite-set" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary D.2</strong></span> &nbsp;</p>
@@ -573,7 +596,11 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </ol>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>Assume without loss of generality that <span class="math inline">\(n &lt; k\)</span> then <span class="math inline">\(P_n \subset P_k\)</span>. By <a href="#lem-not-equinumerous-with-proper-subsets-pn" class="quarto-xref">Lemma&nbsp;<span>D.1</span></a> <span class="math inline">\(P_n \not \approx P_k\)</span>.</p></li>
+<li><p>If <span class="math inline">\(B\)</span> is finite then <span class="math inline">\(B = \emptyset\)</span> or <span class="math inline">\(B \approx P_n\)</span> for some <span class="math inline">\(n\)</span>. Assume there is another <span class="math inline">\(m \neq n\)</span> such that <span class="math inline">\(B \approx P_m\)</span>. But by <a href="#cor-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Corollary&nbsp;<span>D.2</span></a> there will be a contradiction so it must be the case that <span class="math inline">\(m = n\)</span>. Therefore there is a unique <span class="math inline">\(n\)</span> such that <span class="math inline">\(B \approx P_n\)</span>.</p></li>
+</ol>
 </div>
 <p>If <span class="math inline">\(B \approx P_n\)</span> we say that <span class="math inline">\(B\)</span> has <span class="math inline">\(n\)</span> elements or that <span class="math inline">\(n\)</span> is the number of elements in <span class="math inline">\(B\)</span>. Also we assign the following cardinal numbers <span class="math inline">\(\mathscr{K}(\emptyset) = 0\)</span> and <span class="math inline">\(\mathscr{K}(P_n) = n\)</span>. Thus if <span class="math inline">\(B\)</span> has <span class="math inline">\(n\)</span> elements <span class="math inline">\(\mathscr{K}(B)=n\)</span>.</p>
 <div id="thm-finite-set" class="theorem">
@@ -587,9 +614,27 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <ol type="a">
-<li><p><strong>Pending</strong></p></li>
-<li></li>
-<li></li>
+<li><p>If <span class="math inline">\(B\)</span> is finite then <span class="math inline">\(B = \emptyset\)</span> or <span class="math inline">\(B \approx P_n\)</span> for some <span class="math inline">\(n\)</span>. Therefore:</p>
+<ul>
+<li><p><span class="math inline">\(\emptyset \cup \{ y \} = \{ y \}\)</span> so <span class="math inline">\(\{ y \} \approx P_1\)</span>.</p></li>
+<li><p><span class="math inline">\(F: B \xrightarrow[onto]{1-1} P_n\)</span> so <span class="math inline">\(G: B \cup \{ y \} \xrightarrow[onto]{1-1} P_{n + 1}\)</span> where</p>
+<p><span class="math display">\[G(x) = \begin{cases}
+          F(x) &amp; \text{ if } x \neq y \\
+          n + 1 &amp; \text{ if } x = y
+          \end{cases}\]</span></p></li>
+</ul></li>
+<li><p>First we prove the following partial result <span class="math inline">\(\forall D (D \subseteq P_n \Longrightarrow D \text{ is finite})\)</span> by strong induction on <span class="math inline">\(n\)</span>.</p>
+<p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: If <span class="math inline">\(D \subseteq P_1\)</span> then <span class="math inline">\(D = \emptyset\)</span> so <span class="math inline">\(D\)</span> is finite or <span class="math inline">\(D = \{ 1 \}\)</span> so <span class="math inline">\(D \approx P_1\)</span> so <span class="math inline">\(D\)</span> is also finite.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: <span class="math inline">\(\forall D (D \subseteq P_k \Longrightarrow D \text{ is finite})\)</span></p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Let <span class="math inline">\(D \subseteq P_{n + 1}\)</span> and <span class="math inline">\(D^* = D - \{ n + 1 \} \subseteq P_n\)</span>. Therefore by the <em>Induction hypothesis</em> <span class="math inline">\(D^*\)</span> is finite and <span class="math inline">\(D = D^*\)</span> or <span class="math inline">\(D = D^* \cup \{ n + 1 \}\)</span>. By <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\(D\)</span> is finite.</p>
+<p>Second, if <span class="math inline">\(B\)</span> is finite and <span class="math inline">\(D \subseteq B\)</span> then <span class="math inline">\(B = \emptyset\)</span> or <span class="math inline">\(B \approx P_n\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(B = \emptyset\)</span> then <span class="math inline">\(D = \emptyset\)</span> and <span class="math inline">\(D\)</span> is finite.</p></li>
+<li><p>If <span class="math inline">\(B \approx P_n\)</span> then it exists some <span class="math inline">\(F: B \xrightarrow[onto]{1-1} P_n\)</span>. So, <span class="math inline">\({F \mid }_{D}: D \xrightarrow[onto]{1-1} \mathscr{R}({F \mid }_{D})\)</span> where <span class="math inline">\(\mathscr{R}({F \mid }_{D}) \subseteq P_n\)</span> which means that <span class="math inline">\(D \approx \mathscr{R}({F \mid }_{D})\)</span> and <span class="math inline">\(\mathscr{R}({F \mid }_{D})\)</span> is finite by the above partial result.</p>
+<p>Because <span class="math inline">\(\mathscr{R}({F \mid }_{D})\)</span> is finite then <span class="math inline">\(\mathscr{R}({F \mid }_{D}) = \emptyset\)</span> or there is a unique positive integer <span class="math inline">\(m\)</span> such that <span class="math inline">\(\mathscr{R}({F \mid }_{D}) \approx P_m\)</span> by <a href="#cor-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Corollary&nbsp;<span>D.2</span></a> b. Because <span class="math inline">\(D \approx \mathscr{R}({F \mid }_{D})\)</span> and <span class="math inline">\(\mathscr{R}({F \mid }_{D}) \approx P_m\)</span> then <span class="math inline">\(D \approx P_m\)</span> so <span class="math inline">\(D\)</span> is finite.</p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(D \leq B\)</span> then <span class="math inline">\(F: D \xrightarrow[]{1-1} B\)</span> where <span class="math inline">\(\mathscr{R}(F) \subseteq B\)</span>, so <span class="math inline">\(F: D \xrightarrow[onto]{1-1} \mathscr{R}(F)\)</span> and <span class="math inline">\(D \approx \mathscr{R}(F)\)</span>. By <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b because <span class="math inline">\(B\)</span> is finite and <span class="math inline">\(\mathscr{R}(F) \subseteq B\)</span> we have that <span class="math inline">\(\mathscr{R}(F)\)</span> is finite.</p>
+<p>Because <span class="math inline">\(\mathscr{R}(F)\)</span> is finite by <a href="#cor-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Corollary&nbsp;<span>D.2</span></a> b <span class="math inline">\(\mathscr{R}(F) = \emptyset\)</span> or there is a unique positive integer <span class="math inline">\(m\)</span> such that <span class="math inline">\(\mathscr{R}(F) \approx P_m\)</span>. Taking into account that <span class="math inline">\(\mathscr{R}(F) = \emptyset\)</span> or <span class="math inline">\(D \approx \mathscr{R}(F)\)</span> and <span class="math inline">\(\mathscr{R}(F) \approx P_m\)</span> then <span class="math inline">\(D = \emptyset\)</span> by <a href="#exr-equinumerous-relation" class="quarto-xref">Exercise&nbsp;<span>D.1</span></a> 1 or <span class="math inline">\(D \approx P_m\)</span> by <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> c.&nbsp;Therefore, <span class="math inline">\(D\)</span> is also finite.</p></li>
 </ol>
 </div>
 <div id="exr-finite-infinite-set" class="theorem exercise">
@@ -603,9 +648,17 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div id="sol-finite-set" class="proof solution">
 <p><span class="proof-title"><em>Solution D.3</em>. </span></p>
 <ol type="1">
-<li><p><strong>Pending</strong></p></li>
-<li></li>
-<li></li>
+<li><p>Using <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b we can use its contraposition and <a href="#def-infinite-set" class="quarto-xref">Definition&nbsp;<span>D.3</span></a>. That is, <span class="math inline">\(D\)</span> is infinite then <span class="math inline">\(B\)</span> is infinite or <span class="math inline">\(D \not \subseteq B\)</span>. But <span class="math inline">\(D \subseteq B\)</span> so it must be the case that <span class="math inline">\(B\)</span> is infinite.</p></li>
+<li><p>Using <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> c we can use its contraposition and <a href="#def-infinite-set" class="quarto-xref">Definition&nbsp;<span>D.3</span></a>. That is, <span class="math inline">\(D\)</span> is infinite then <span class="math inline">\(B\)</span> is infinite or <span class="math inline">\(D \not \leq B\)</span>. But <span class="math inline">\(D \leq B\)</span> so it must be the case that <span class="math inline">\(B\)</span> is infinite.</p></li>
+<li><p>We have that <span class="math inline">\(n = k\)</span>, <span class="math inline">\(n &lt; k\)</span> or <span class="math inline">\(n &gt; k\)</span>.</p>
+<ul>
+<li><p>Because <span class="math inline">\(B\)</span> is finite and <span class="math inline">\(D \subset B\)</span> by <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> it can not be that <span class="math inline">\(n = k\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{K}(P_n) = n\)</span> and <span class="math inline">\(\mathscr{K}(P_k) = k\)</span> if <span class="math inline">\(n &lt; k\)</span> then <span class="math inline">\(P_n \subset P_k\)</span>. Therefore, let <span class="math inline">\(F: P_n \xrightarrow[]{1-1} P_k\)</span> where <span class="math inline">\(F(x) = x\)</span> then <span class="math inline">\(P_n \leq P_k\)</span>.</p>
+<p>Furthermore, because <span class="math inline">\(B \approx P_n\)</span>, <span class="math inline">\(P_n \leq P_k\)</span>, and <span class="math inline">\(P_k \approx D\)</span> then <span class="math inline">\(B \leq P_n\)</span>, <span class="math inline">\(P_n \leq P_k\)</span>, and <span class="math inline">\(P_k \leq D\)</span>. By <a href="#thm-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Theorem&nbsp;<span>D.2</span></a> <span class="math inline">\(B \leq D\)</span>.</p>
+<p>Also by <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> <span class="math inline">\(D \not \approx B\)</span>. Additionally, let <span class="math inline">\(F: D \xrightarrow[]{1-1} B\)</span> where <span class="math inline">\(G(x) = x\)</span> then <span class="math inline">\(D \leq B\)</span>.</p>
+<p>Therefore we have that <span class="math inline">\(D \not \approx B\)</span>, <span class="math inline">\(D \leq B\)</span> and <span class="math inline">\(B \leq D\)</span>. But then <span class="math inline">\(D \not \approx B\)</span> and by <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> <span class="math inline">\(D \approx B\)</span> which is a contradiction. So it can not be that <span class="math inline">\(n &lt; k\)</span>.</p></li>
+<li><p>Because it is not possible that <span class="math inline">\(n = k\)</span> and <span class="math inline">\(n &lt; k\)</span> then it must be the case that <span class="math inline">\(n &gt; k\)</span>.</p></li>
+</ul></li>
 </ol>
 </div>
 
