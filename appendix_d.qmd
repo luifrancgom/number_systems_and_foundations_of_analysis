@@ -504,9 +504,9 @@ c. If $D \leq B$ then $F: D \xrightarrow[]{1-1} B$ where $\mathscr{R}(F) \subset
 
 ::: {#sol-finite-set}
 
-1. Using @thm-finite-set b we can use its contraposition and @def-infinite-set. That is, $D$ is infinite then $B$ is infinite or $D \not \subseteq B$. But $D \subseteq B$ so it must be the case that $B$ is infinite. 
+1. Using @thm-finite-set b we can use its contraposition and @def-infinite-set. That is, $B$ is finite then $B$ is finite or $D \not \subseteq B$. But $D \subseteq B$ so it must be the case that $B$ is finite. 
 
-2. Using @thm-finite-set c we can use its contraposition and @def-infinite-set. That is, $D$ is infinite then $B$ is infinite or $D \not \leq B$. But $D \leq B$ so it must be the case that $B$ is infinite.
+2. Using @thm-finite-set c we can use its contraposition and @def-infinite-set. That is, $B$ is finite then $D$ is finite or $D \not \leq B$. But $D \leq B$ so it must be the case that $B$ is finite.
 
 3. We have that $n = k$, $n < k$ or $n > k$. 
 

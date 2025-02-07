@@ -4489,7 +4489,7 @@ If $F: A \longrightarrow B$ we shall say that $F$ is a function from $A$ into $B
 
 If $F$ is a function from $A$ into $B$, $F: A \longrightarrow B$, and the range of $F$ is all of $B$, $\mathscr{R}(F) = B$, then we shall say that $F$ is a function from $A$ onto $B$. This will be written as $F: A \xrightarrow[onto]{} B$. Thus:
 
-$$F: A \longrightarrow B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)$$
+$$F: A \xrightarrow[onto]{} B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)$$
 
 **Note**: An alternative definition is that $F: A \longrightarrow B$ is a function from $A$ onto $B$ or surjective if $\forall y (y \in B \Longrightarrow \exists x(x \in A \land F(x) = y))$. 
 
