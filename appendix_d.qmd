@@ -523,3 +523,21 @@ c. If $D \leq B$ then $F: D \xrightarrow[]{1-1} B$ where $\mathscr{R}(F) \subset
     - Because it is not possible that $n = k$ and $n < k$ then it must be the case that $n > k$. 
 
 :::
+
+::: {#thm-positive-integers-equinumerous-proper-subset}
+
+The set $\mathbb{P}$ of positive integers is equinumerous with a proper subset of itself.
+
+:::
+
+::: {.proof}
+
+Let $\mathbb{P} - \{ 1 \} \subset \mathbb{P}$ and $\varphi(n) = n + 1$ where $\varphi: \mathbb{P} \longrightarrow \mathbb{P} - \{ 1 \}$ then:
+
+- If $\varphi(n) = \varphi(m)$ then $n + 1 = m + 1$. So $n = m$ and $\varphi$ is one-one function. 
+
+- Also if $n \in \mathbb{P}$ it always exists $n + 1 \in \mathbb{P} - \{ 1 \}$. So $\varphi$ is an onto function.
+
+Therefore $\varphi: \mathbb{P} \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}$, which means that $\mathbb{P} \approx \mathbb{P} - \{ 1 \}$.  
+
+:::
