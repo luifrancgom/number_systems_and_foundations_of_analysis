@@ -388,7 +388,7 @@ The result will be prove by strong induction on $n$.
 
 Furthermore by @def-one-one-function $F$ is one-one because $\mathscr{D}(F) = \emptyset$ so $x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y$ is false and $(x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))$ is true.
 
-However, by @def-onto-function $F$ is not onto because $\mathscr{D}(F) = \emptyset$ so $\exists x(x \in \emptyset \land F(x) = y)$ is false so $\forall y (y \in P_1 \Longrightarrow \exists x(x \in \emptyset \land F(x) = y))$ is false.
+However, by @def-onto-function $F$ is not onto because $\mathscr{R}(F) = \emptyset$ so $\exists x(x \in \emptyset \land F(x) = y)$ is false so $\forall y (y \in P_1 \Longrightarrow \exists x(x \in \emptyset \land F(x) = y))$ is false.
 
 Therefore $\emptyset \not \approx P_1$ because we have only that $F: \emptyset \xrightarrow[]{1-1} P_1$ but not $F: \emptyset \xrightarrow[onto]{} P_1$.
 
@@ -402,10 +402,10 @@ Therefore $\emptyset \not \approx P_1$ because we have only that $F: \emptyset \
 
     - If $k + 1 \not \in A$ then ${G \mid}_{P_k}: P_k \xrightarrow[onto]{1-1} A - G(k + 1)$ where ${G \mid}_{P_k}$ is the restriction of $G$ to the domain $P_k$ [See @stoll_sets_1974, p. 40]. Therefore $P_k \approx A - G(k + 1)$, so $A - G(k + 1) \approx P_k$. Because $k + 1 \not \in A$ and $G(k + 1) \in A$ then $A - G(k + 1) \subset P_k$ where there is a contradiction taking into account the *Induction hypothesis*. So it must be the case that $A \not \approx P_{n+1}$  
 
-    - If $k + 1 \in A$ then there is some $i \in P_n$ such that $G(k + 1) = i$ and some $j \in P_n$ such that $G(j) = k + 1$. Therefore we can define a function $F: P_k \xrightarrow[onto]{1-1} A - \{k + 1\}$ as:
+    - If $k + 1 \in A$ then there is some $i \in P_n$ such that $G(i) = k + 1$ and some $j \in P_n$ such that $G(j) = k + 1$. Therefore we can define a function $F: P_k \xrightarrow[onto]{1-1} A - \{k + 1\}$ as:
     
       $$F(x) = \begin{cases}
-                G(x) & \text{ if } x \neq k + 1 \lor x \neq j \\
+                G(x) & \text{ if } x \neq i \lor x \neq j \\
                 i & \text{ if } x = j
                 \end{cases}$$
 
