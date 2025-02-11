@@ -541,3 +541,15 @@ Let $\mathbb{P} - \{ 1 \} \subset \mathbb{P}$ and $\varphi(n) = n + 1$ where $\v
 Therefore $\varphi: \mathbb{P} \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}$, which means that $\mathbb{P} \approx \mathbb{P} - \{ 1 \}$.  
 
 :::
+
+::: {#cor-positive-integers-infinite-set}
+
+The set $\mathbb{P}$ of positive integers is infinite
+
+:::
+
+::: {.proof}
+
+By @thm-positive-integers-equinumerous-proper-subset $\mathbb{P}$ is equinumerous with a proper subset of itself. Therefore by the contrapositive of @thm-not-equinumerous-with-proper-subsets-finite-set $\mathbb{P}$ must be infinite. 
+
+:::
