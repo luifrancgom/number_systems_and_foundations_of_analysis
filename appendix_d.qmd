@@ -553,3 +553,28 @@ The set $\mathbb{P}$ of positive integers is infinite
 By @thm-positive-integers-equinumerous-proper-subset $\mathbb{P}$ is equinumerous with a proper subset of itself. Therefore by the contrapositive of @thm-not-equinumerous-with-proper-subsets-finite-set $\mathbb{P}$ must be infinite. 
 
 :::
+
+::: {def-denumerable set}
+
+## Denumerable set
+
+A set $B$ is said to be denumerable if and only if $B \approx \mathbb{P}$
+
+**Note**: Any set $A$ that is equinumerous with a denumerable set $B$ is denumerable becuase $A \approx B$ and $B \approx \mathbb{P}$ by @thm-equinumerous-equivalence-relation c. implies $A \approx \mathbb{P}$. 
+
+Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \subset B$. Furthermore because $B$ is denumerable it exists $F$ such that $F: B \xrightarrow[onto]{1-1} \mathbb{P}$. Lets define ${F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}$. Therefore $B^* \approx \mathbb{P} - \{ 1 \}$ but $\mathbb{P} - \{ 1 \} \approx \mathbb{P}$ and $\mathbb{P} \approx B$, which means that $B^* \approx B$. So by @thm-positive-integers-equinumerous-proper-subset, @cor-positive-integers-infinite-set and the contrapositive of @thm-not-equinumerous-with-proper-subsets-finite-set every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite[^appendix_d-2]. 
+:::
+
+[^appendix_d-2]: A denumerable set must be distinguished from a **denumerable sequence**. The latter is a function $a: \mathbb{P} \xrightarrow[onto]{1-1} A$
+
+::: {#exr-denumerable-sets}
+
+1. Prove that any infinite set $B$ contains a denumerable set. (Hint: This requieres the Axiom of Choice), which provides a function $\psi$ such that $\psi(D) \in D$ for all non empty subsets $D$ of $B$. Define by the Iteration Theorem **Pending reference Chapter 2**, a function $\theta: \mathbb{P} \xrightarrow[]{1-1} B$ and $\mathscr{R}(\theta)$ is a denumerable subset of $B$.
+
+2. Show that any infinite set $B$ is equinumerous with a proper subset of itself. (Hint: By @exr-denumerable-sets 1. let $D$ be an infinite denumerable subset of $B$. Let $\varphi$ be a one-one correspondance between $D$ and a proper subset of $D$. Extend $\varphi$ to a function $\varphi^*$ defined on $B$ by letting $\varphi^*(u) = u$ for any $u \in B - D$. The $\varphi^*$ is a one-one correspondence between $B$ and a proper subset of itself.)
+
+:::
+
+::: {#sol-denumerable-sets}
+
+:::
