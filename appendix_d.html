@@ -255,8 +255,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#denumerable-set" id="toc-denumerable-set" class="nav-link active" data-scroll-target="#denumerable-set"><span class="header-section-number">D.1</span> Denumerable set</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -678,6 +684,22 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-positive-integers-equinumerous-proper-subset" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> <span class="math inline">\(\mathbb{P}\)</span> is equinumerous with a proper subset of itself. Therefore by the contrapositive of <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> <span class="math inline">\(\mathbb{P}\)</span> must be infinite.</p>
 </div>
+<p>::: {def-denumerable set}</p>
+<section id="denumerable-set" class="level2" data-number="D.1">
+<h2 data-number="D.1" class="anchored" data-anchor-id="denumerable-set"><span class="header-section-number">D.1</span> Denumerable set</h2>
+<p>A set <span class="math inline">\(B\)</span> is said to be denumerable if and only if <span class="math inline">\(B \approx \mathbb{P}\)</span></p>
+<p><strong>Note</strong>: Any set <span class="math inline">\(A\)</span> that is equinumerous with a denumerable set <span class="math inline">\(B\)</span> is denumerable becuase <span class="math inline">\(A \approx B\)</span> and <span class="math inline">\(B \approx \mathbb{P}\)</span> by <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> c.&nbsp;implies <span class="math inline">\(A \approx \mathbb{P}\)</span>.</p>
+<p>Also if <span class="math inline">\(B\)</span> is denumerable let <span class="math inline">\(B^* = B - \{ x \}\)</span> where <span class="math inline">\(x \in B\)</span>. So <span class="math inline">\(B^* \subset B\)</span>. Furthermore because <span class="math inline">\(B\)</span> is denumerable it exists <span class="math inline">\(F\)</span> such that <span class="math inline">\(F: B \xrightarrow[onto]{1-1} \mathbb{P}\)</span>. Lets define <span class="math inline">\({F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}\)</span>. Therefore <span class="math inline">\(B^* \approx \mathbb{P} - \{ 1 \}\)</span> but <span class="math inline">\(\mathbb{P} - \{ 1 \} \approx \mathbb{P}\)</span> and <span class="math inline">\(\mathbb{P} \approx B\)</span>, which means that <span class="math inline">\(B^* \approx B\)</span>. So by <a href="#thm-positive-integers-equinumerous-proper-subset" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a>, <a href="#cor-positive-integers-infinite-set" class="quarto-xref">Corollary&nbsp;<span>D.3</span></a> and the contrapositive of <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. :::</p>
+<div id="exr-denumerable-sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise D.4</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Prove that any infinite set <span class="math inline">\(B\)</span> contains a denumerable set. (Hint: This requieres the Axiom of Choice), which provides a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi(D) \in D\)</span> for all non empty subsets <span class="math inline">\(D\)</span> of <span class="math inline">\(B\)</span>. Define by the Iteration Theorem <strong>Pending reference Chapter 2</strong>, a function <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(\mathscr{R}(\theta)\)</span> is a denumerable subset of <span class="math inline">\(B\)</span>.</p></li>
+<li><p>Show that any infinite set <span class="math inline">\(B\)</span> is equinumerous with a proper subset of itself. (Hint: By <a href="#exr-denumerable-sets" class="quarto-xref">Exercise&nbsp;<span>D.4</span></a> 1. let <span class="math inline">\(D\)</span> be an infinite denumerable subset of <span class="math inline">\(B\)</span>. Let <span class="math inline">\(\varphi\)</span> be a one-one correspondance between <span class="math inline">\(D\)</span> and a proper subset of <span class="math inline">\(D\)</span>. Extend <span class="math inline">\(\varphi\)</span> to a function <span class="math inline">\(\varphi^*\)</span> defined on <span class="math inline">\(B\)</span> by letting <span class="math inline">\(\varphi^*(u) = u\)</span> for any <span class="math inline">\(u \in B - D\)</span>. The <span class="math inline">\(\varphi^*\)</span> is a one-one correspondence between <span class="math inline">\(B\)</span> and a proper subset of itself.)</p></li>
+</ol>
+</div>
+<div id="sol-denumerable-sets" class="proof solution">
+<p><span class="proof-title"><em>Solution D.4</em>. </span></p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -697,11 +719,13 @@ Peloquin, John. 2016. <span>“The <span>Cantor</span>-<span>Schroeder</span>-<s
 Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
 </div>
 </div>
+</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>For another proof of <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> check out <span class="citation" data-cites="halevi_fraenkel_abstract_1961">(<a href="references.html#ref-halevi_fraenkel_abstract_1961" role="doc-biblioref">Halevi Fraenkel 1961, 12:73–77</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>In the case of cardinal numbers if <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> are cardinal numbers then <span class="math inline">\(\mathfrak{m} {\leq}_K \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{m} {\geq}_K \mathfrak{n}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>A denumerable set must be distinguished from a <strong>denumerable sequence</strong>. The latter is a function <span class="math inline">\(a: \mathbb{P} \xrightarrow[onto]{1-1} A\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>A denumerable set must be distinguished from a <strong>denumerable sequence</strong>. The latter is a function <span class="math inline">\(a: \mathbb{P} \xrightarrow[onto]{1-1} A\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
