@@ -1,3 +1,26 @@
 # The Natural Numbers
 
+In this chapter natural numbers will by synonym of the positive integers, $\mathbb{P}$. That is, $1, 2, 3, \ldots$, where are one of the most familiar mathematical objects. 
+
+The objective of this chapter is to develop an axiomatic theory of the natural numbers following [@mendelson_introduction_2015, chap. 2].
+
+## Peano systems
+
+::: {#def-peano-system}
+
+A **Peano system** is triple $(\mathbb{P}, 1, S)$ where $\mathbb{P}$ is a non empty set where $1 \in \mathbb{P}$ and $S$ is a singulary operation on$\mathbb{P}$, $S: \mathbb{P} \longrightarrow \mathbb{P}$, such that the following axioms are satisfied:
+
+i. $1$ is not the successor $S(x)$ of any object $x \in \mathbb{P}$. In symbols, $\forall x(S(x) \neq 1)$ or $1 \not \in \mathscr{R}(S)$.
+
+ii. Different objects in $\mathbb{P}$ have different successors. This can be formulated as follows:
+
+    $$\forall x \forall y (x \neq y \Longrightarrow S(x) \neq (S(y)))$$
+    
+iii. Principle of Mathematical Induction: Any subset of $\mathbb{P}$ containing $1$ and closed under the successor operation (See @exr-binary-operation 1. and applied for a singulary operation) must be identical to $\mathbb{P}$. This can be formulated as follows:
+    
+     $$\forall B ((B \subseteq \mathbb{P} \land 1 \in B \land \forall x(x \in B \Longrightarrow S(x) \in B)) \Longrightarrow \mathbb{P} = B)$$
+
+**Note**: In the triple $(\mathbb{P}, 1, S)$ the set $\mathbb{P}$ is called the underlying  set, $S$ the successor operation, and $1$ the distinguished element. The distinguished element $1$ need not have anything to do with the ordinary integer $1$. 
+
+:::
 
