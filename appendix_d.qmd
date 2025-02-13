@@ -569,7 +569,7 @@ Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \sub
 
 ::: {#exr-denumerable-sets}
 
-1. Prove that any infinite set $B$ contains a denumerable set. (Hint: This requieres the Axiom of Choice), which provides a function $\psi$ such that $\psi(D) \in D$ for all non empty subsets $D$ of $B$. Define by the Iteration Theorem **Pending reference Chapter 2**, a function $\theta: \mathbb{P} \xrightarrow[]{1-1} B$ and $\mathscr{R}(\theta)$ is a denumerable subset of $B$.
+1. Prove that any infinite set $B$ contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function $\psi$ such that $\psi(D) \in D$ for all non empty subsets $D$ of $B$. Define, by the Iteration Theorem **Pending reference Chapter 2**, a function $\theta: \mathbb{P} \longrightarrow B$ such that $\theta(1) = \psi(B)$ and $\theta(n+1) = \psi(B - \theta(n))$. Then $\theta: \mathbb{P} \xrightarrow[]{1-1} B$ and $\mathscr{R}(\theta)$ is a denumerable subset of $B$).
 
 2. Show that any infinite set $B$ is equinumerous with a proper subset of itself. (Hint: By @exr-denumerable-sets 1. let $D$ be an infinite denumerable subset of $B$. Let $\varphi$ be a one-one correspondance between $D$ and a proper subset of $D$. Extend $\varphi$ to a function $\varphi^*$ defined on $B$ by letting $\varphi^*(u) = u$ for any $u \in B - D$. The $\varphi^*$ is a one-one correspondence between $B$ and a proper subset of itself.)
 
