@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -235,8 +255,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#peano-systems" id="toc-peano-systems" class="nav-link active" data-scroll-target="#peano-systems"><span class="header-section-number">2.1</span> Peano systems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -260,8 +286,29 @@ window.Quarto = {
 </header>
 
 
+<p>In this chapter natural numbers will by synonym of the positive integers, <span class="math inline">\(\mathbb{P}\)</span>. That is, <span class="math inline">\(1, 2, 3, \ldots\)</span>, where are one of the most familiar mathematical objects.</p>
+<p>The objective of this chapter is to develop an axiomatic theory of the natural numbers following <span class="citation" data-cites="mendelson_introduction_2015">(<a href="references.html#ref-mendelson_introduction_2015" role="doc-biblioref">Mendelson 2015, chap. 2</a>)</span>.</p>
+<section id="peano-systems" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="peano-systems"><span class="header-section-number">2.1</span> Peano systems</h2>
+<div id="def-peano-system" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A <strong>Peano system</strong> is triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> where <span class="math inline">\(\mathbb{P}\)</span> is a non empty set where <span class="math inline">\(1 \in \mathbb{P}\)</span> and <span class="math inline">\(S\)</span> is a singulary operation on<span class="math inline">\(\mathbb{P}\)</span>, <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span>, such that the following axioms are satisfied:</p>
+<ol type="i">
+<li><p><span class="math inline">\(1\)</span> is not the successor <span class="math inline">\(S(x)\)</span> of any object <span class="math inline">\(x \in \mathbb{P}\)</span>. In symbols, <span class="math inline">\(\forall x(S(x) \neq 1)\)</span> or <span class="math inline">\(1 \not \in \mathscr{R}(S)\)</span>.</p></li>
+<li><p>Different objects in <span class="math inline">\(\mathbb{P}\)</span> have different successors. This can be formulated as follows:</p>
+<p><span class="math display">\[\forall x \forall y (x \neq y \Longrightarrow S(x) \neq (S(y)))\]</span></p></li>
+<li><p>Principle of Mathematical Induction: Any subset of <span class="math inline">\(\mathbb{P}\)</span> containing <span class="math inline">\(1\)</span> and closed under the successor operation (See <a href="chapter_1.html#exr-binary-operation" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 1. and applied for a singulary operation) must be identical to <span class="math inline">\(\mathbb{P}\)</span>. This can be formulated as follows:</p>
+<p><span class="math display">\[\forall B ((B \subseteq \mathbb{P} \land 1 \in B \land \forall x(x \in B \Longrightarrow S(x) \in B)) \Longrightarrow \mathbb{P} = B)\]</span></p></li>
+</ol>
+<p><strong>Note</strong>: In the triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> the set <span class="math inline">\(\mathbb{P}\)</span> is called the underlying set, <span class="math inline">\(S\)</span> the successor operation, and <span class="math inline">\(1\)</span> the distinguished element. The distinguished element <span class="math inline">\(1\)</span> need not have anything to do with the ordinary integer <span class="math inline">\(1\)</span>.</p>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
+Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

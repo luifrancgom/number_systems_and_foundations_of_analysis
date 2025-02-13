@@ -60,6 +60,26 @@
     ]
   },
   {
+    "objectID": "chapter_2.html",
+    "href": "chapter_2.html",
+    "title": "2  The Natural Numbers",
+    "section": "",
+    "text": "2.1 Peano systems\nIn this chapter natural numbers will by synonym of the positive integers, \\(\\mathbb{P}\\). That is, \\(1, 2, 3, \\ldots\\), where are one of the most familiar mathematical objects.\nThe objective of this chapter is to develop an axiomatic theory of the natural numbers following (Mendelson 2015, chap. 2).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Natural Numbers</span>"
+    ]
+  },
+  {
+    "objectID": "chapter_2.html#peano-systems",
+    "href": "chapter_2.html#peano-systems",
+    "title": "2  The Natural Numbers",
+    "section": "",
+    "text": "Definition 2.1 A Peano system is triple \\((\\mathbb{P}, 1, S)\\) where \\(\\mathbb{P}\\) is a non empty set where \\(1 \\in \\mathbb{P}\\) and \\(S\\) is a singulary operation on\\(\\mathbb{P}\\), \\(S: \\mathbb{P} \\longrightarrow \\mathbb{P}\\), such that the following axioms are satisfied:\n\n\\(1\\) is not the successor \\(S(x)\\) of any object \\(x \\in \\mathbb{P}\\). In symbols, \\(\\forall x(S(x) \\neq 1)\\) or \\(1 \\not \\in \\mathscr{R}(S)\\).\nDifferent objects in \\(\\mathbb{P}\\) have different successors. This can be formulated as follows:\n\\[\\forall x \\forall y (x \\neq y \\Longrightarrow S(x) \\neq (S(y)))\\]\nPrinciple of Mathematical Induction: Any subset of \\(\\mathbb{P}\\) containing \\(1\\) and closed under the successor operation (See Exercise 1.37 1. and applied for a singulary operation) must be identical to \\(\\mathbb{P}\\). This can be formulated as follows:\n\\[\\forall B ((B \\subseteq \\mathbb{P} \\land 1 \\in B \\land \\forall x(x \\in B \\Longrightarrow S(x) \\in B)) \\Longrightarrow \\mathbb{P} = B)\\]\n\nNote: In the triple \\((\\mathbb{P}, 1, S)\\) the set \\(\\mathbb{P}\\) is called the underlying set, \\(S\\) the successor operation, and \\(1\\) the distinguished element. The distinguished element \\(1\\) need not have anything to do with the ordinary integer \\(1\\).\n\n\n\n\n\nMendelson, Elliott. 2015. Introduction to Mathematical Logic. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor & Francis Group.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Natural Numbers</span>"
+    ]
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
