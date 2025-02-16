@@ -291,7 +291,7 @@ window.Quarto = {
 <section id="peano-systems" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="peano-systems"><span class="header-section-number">2.1</span> Peano systems</h2>
 <div id="def-peano-system" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A <strong>Peano system</strong> is triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> where <span class="math inline">\(\mathbb{P}\)</span> is a non empty set where <span class="math inline">\(1 \in \mathbb{P}\)</span> and <span class="math inline">\(S\)</span> is a singulary operation on<span class="math inline">\(\mathbb{P}\)</span>, <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span>, such that the following axioms are satisfied:</p>
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A <strong>Peano system</strong> is triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> where <span class="math inline">\(\mathbb{P}\)</span> is a non empty set where <span class="math inline">\(1 \in \mathbb{P}\)</span> and <span class="math inline">\(S\)</span> is a singulary operation on <span class="math inline">\(\mathbb{P}\)</span>, <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span>, such that the following axioms are satisfied:</p>
 <ol type="i">
 <li><p><span class="math inline">\(1\)</span> is not the successor <span class="math inline">\(S(x)\)</span> of any object <span class="math inline">\(x \in \mathbb{P}\)</span>. In symbols, <span class="math inline">\(\forall x(S(x) \neq 1)\)</span> or <span class="math inline">\(1 \not \in \mathscr{R}(S)\)</span>.</p></li>
 <li><p>Different objects in <span class="math inline">\(\mathbb{P}\)</span> have different successors. This can be formulated as follows:</p>
@@ -300,6 +300,51 @@ window.Quarto = {
 <p><span class="math display">\[\forall B ((B \subseteq \mathbb{P} \land 1 \in B \land \forall x(x \in B \Longrightarrow S(x) \in B)) \Longrightarrow \mathbb{P} = B)\]</span></p></li>
 </ol>
 <p><strong>Note</strong>: In the triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> the set <span class="math inline">\(\mathbb{P}\)</span> is called the underlying set, <span class="math inline">\(S\)</span> the successor operation, and <span class="math inline">\(1\)</span> the distinguished element. The distinguished element <span class="math inline">\(1\)</span> need not have anything to do with the ordinary integer <span class="math inline">\(1\)</span>.</p>
+</div>
+<div id="exm-peano-systems" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.1</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(\mathbb{P}\)</span> be the set of natural numbers. <span class="math inline">\(1\)</span> is to denote the ordinary integer <span class="math inline">\(1\)</span>. <span class="math inline">\(S\)</span> is the operation of adding <span class="math inline">\(1\)</span>: <span class="math inline">\(S(x) = x + 1\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span>. This example will be called the standard Peano system.</p>
+<p>If <span class="math inline">\(x \in \mathbb{P}\)</span> then <span class="math inline">\(x + 1 \neq 1\)</span>. Also if <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(x + 1 \neq y + 1\)</span>. Furthermore, let <span class="math inline">\(B \subseteq \mathbb{P}\)</span>, <span class="math inline">\(1 \in B\)</span> and if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x + 1 \in B\)</span>. Therefore <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{P}\)</span> be the set of all integers greater than or equal to <span class="math inline">\(1000\)</span>. <span class="math inline">\(1\)</span> is to denote the integer <span class="math inline">\(1000\)</span>. <span class="math inline">\(S\)</span> is the operation of adding the ordinary integer <span class="math inline">\(1\)</span>. Thus <span class="math inline">\(S(1000) = 1001\)</span>, <span class="math inline">\(S(1001) = 1002\)</span> and so on.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{P}\)</span> be the set of negative integers. <span class="math inline">\(1\)</span> is to denote the integer <span class="math inline">\(-1\)</span> and <span class="math inline">\(S\)</span> is the operation of subtracting <span class="math inline">\(1\)</span>. Thus <span class="math inline">\(S(-1) = -2\)</span>, <span class="math inline">\(S(-2) = -3\)</span> and so on.</p></li>
+<li><p>Let <span class="math inline">\(\mathbb{P}\)</span> be the set of even positive integers. Let <span class="math inline">\(1\)</span> denote the integer <span class="math inline">\(2\)</span>. <span class="math inline">\(S\)</span> is to be the operation of adding <span class="math inline">\(2\)</span>. Thus, <span class="math inline">\(S(2) = 4\)</span>, <span class="math inline">\(S(4)\)</span> and so on.</p></li>
+</ol>
+</div>
+<div id="thm-x-different-1-is-a-successor" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> Every element different from <span class="math inline">\(1\)</span> is a successor. This can be formulated as:</p>
+<p><span class="math display">\[\forall x (x = 1 \lor \exists y (x = S(y)))\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B = \{ x \in \mathbb{P}: x = 1 \lor \exists y (x = S(y)) \}\)</span>. Then we must show that <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+<p>We have that <span class="math inline">\(1 \in B\)</span>. Now assume <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in \mathbb{P}\)</span>. Because <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span> then <span class="math inline">\(S(x) \in \mathbb{P}\)</span> where <span class="math inline">\(S(x) \neq 1\)</span>. So if <span class="math inline">\(x = y\)</span> it exists some <span class="math inline">\(y\)</span> such that <span class="math inline">\(S(x) = S(y)\)</span>. Therefore <span class="math inline">\(S(x) \in B\)</span> which means that <span class="math inline">\(B = \mathbb{P}\)</span> by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
+</div>
+<div id="thm-no-object-is-its-own-successor" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.2</strong></span> No object is its own successor, that is, <span class="math inline">\(\forall x (S(x) \neq x)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B = \{ x \in \mathbb{P}: S(x) \neq x \}\)</span>. Then we must show that <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+<p>We have that <span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(S(1) \neq 1\)</span> by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i. Also let <span class="math inline">\(x \in B\)</span> so <span class="math inline">\(x \in \mathbb{P}\)</span> and <span class="math inline">\(S(x) \neq x\)</span>. Furthermore <span class="math inline">\(S(x) \in \mathbb{P}\)</span> because <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span>. By <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> ii <span class="math inline">\(S(S(x)) \neq S(x)\)</span> so <span class="math inline">\(S(x) \in B\)</span>. Finally <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+</div>
+<div id="exr-peano-systems" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Prove that every object different from <span class="math inline">\(1\)</span> is the successor for a unique object, that is,</p>
+<p><span class="math display">\[\forall x (x = 1 \lor \exists !y (x = S(y)))\]</span></p></li>
+<li><p>Prove <span class="math inline">\(\forall x (x = 1 \lor x = S(1) \lor \exists y (x = S(S(y))))\)</span></p></li>
+</ol>
+</div>
+<div id="sol-peano-systems" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.1</em>. </span></p>
+<ol type="1">
+<li><p>By <a href="#thm-no-object-is-its-own-successor" class="quarto-xref">Theorem&nbsp;<span>2.2</span></a> we have that:</p>
+<p><span class="math display">\[\forall x (x = 1 \lor \exists y (x = S(y)))\]</span> Now assume that <span class="math inline">\(x = S(y)\)</span> and <span class="math inline">\(x = S(w)\)</span> so <span class="math inline">\(S(y) = S(w)\)</span>. By <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> ii <span class="math inline">\(y = w\)</span>. Therefore:</p>
+<p><span class="math display">\[\forall x (x = 1 \lor \exists !y (x = S(y)))\]</span></p></li>
+<li><p>We have that <span class="math inline">\(1 \in B\)</span>. Now assume <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(y \in \mathbb{P}\)</span>. Because <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span> then <span class="math inline">\(S(y) \in \mathbb{P}\)</span> where <span class="math inline">\(S(y) \neq 1\)</span>. Furthermore by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> ii <span class="math inline">\(S(S(y)) \neq S(1)\)</span>.</p>
+<p>If <span class="math inline">\(y = 1\)</span> then <span class="math inline">\(S(1) \neq 1\)</span> and by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(x = S(1)\)</span>.</p>
+<p>Also if <span class="math inline">\(S(S(y))\)</span> and <span class="math inline">\(y \neq 1\)</span> by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(\exists y (x = S(S(y)))\)</span>. Therefore:</p>
+<p><span class="math display">\[\forall x (x = 1 \lor x = S(1) \lor \exists y (x = S(S(y))))\]</span></p></li>
+</ol>
 </div>
 
 
