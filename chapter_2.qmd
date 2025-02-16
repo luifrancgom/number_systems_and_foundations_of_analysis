@@ -8,7 +8,7 @@ The objective of this chapter is to develop an axiomatic theory of the natural n
 
 ::: {#def-peano-system}
 
-A **Peano system** is triple $(\mathbb{P}, 1, S)$ where $\mathbb{P}$ is a non empty set where $1 \in \mathbb{P}$ and $S$ is a singulary operation on$\mathbb{P}$, $S: \mathbb{P} \longrightarrow \mathbb{P}$, such that the following axioms are satisfied:
+A **Peano system** is triple $(\mathbb{P}, 1, S)$ where $\mathbb{P}$ is a non empty set where $1 \in \mathbb{P}$ and $S$ is a singulary operation on $\mathbb{P}$, $S: \mathbb{P} \longrightarrow \mathbb{P}$, such that the following axioms are satisfied:
 
 i. $1$ is not the successor $S(x)$ of any object $x \in \mathbb{P}$. In symbols, $\forall x(S(x) \neq 1)$ or $1 \not \in \mathscr{R}(S)$.
 
@@ -24,3 +24,75 @@ iii. Principle of Mathematical Induction: Any subset of $\mathbb{P}$ containing 
 
 :::
 
+::: {#exm-peano-systems}
+
+1. Let $\mathbb{P}$ be the set of natural numbers. $1$ is to denote the ordinary integer $1$. $S$ is the operation of adding $1$: $S(x) = x + 1$ for all $x \in \mathbb{P}$. This example will be called the standard Peano system. 
+
+   If $x \in \mathbb{P}$ then $x + 1 \neq 1$. Also if $x \neq y$ then $x + 1 \neq y + 1$. Furthermore, let $B \subseteq \mathbb{P}$, $1 \in B$ and if $x \in B$ then $x + 1 \in B$. Therefore $B = \mathbb{P}$.
+   
+2. Let $\mathbb{P}$ be the set of all integers greater than or equal to $1000$. $1$ is to denote the integer $1000$. $S$ is the operation of adding the ordinary integer $1$. Thus $S(1000) = 1001$, $S(1001) = 1002$ and so on.
+
+3. Let $\mathbb{P}$ be the set of negative integers. $1$ is to denote the integer $-1$ and $S$ is the operation of subtracting $1$.  Thus $S(-1) = -2$, $S(-2) = -3$ and so on.  
+
+4. Let $\mathbb{P}$ be the set of even positive integers. Let $1$ denote the integer $2$. $S$ is to be the operation of adding $2$. Thus, $S(2) = 4$, $S(4)$ and so on.
+
+:::
+
+::: {#thm-x-different-1-is-a-successor}
+
+Every element different from $1$ is a successor. This can be formulated as:
+
+$$\forall x (x = 1 \lor \exists y (x = S(y)))$$
+
+:::
+
+::: {.proof}
+
+Let $B = \{ x \in \mathbb{P}: x = 1 \lor \exists y (x = S(y)) \}$. Then we must show that $B = \mathbb{P}$.
+
+We have that $1 \in B$. Now assume $x \in B$ then $x \in \mathbb{P}$. Because $S: \mathbb{P} \longrightarrow \mathbb{P}$ then $S(x) \in \mathbb{P}$ where $S(x) \neq 1$. So if $x = y$ it exists some $y$ such that $S(x) = S(y)$. Therefore $S(x) \in B$ which means that $B = \mathbb{P}$ by @def-peano-system iii.
+
+:::
+
+::: {#thm-no-object-is-its-own-successor}
+
+No object is its own successor, that is, $\forall x (S(x) \neq x)$.
+
+:::
+
+::: {.proof}
+
+Let $B = \{ x \in \mathbb{P}: S(x) \neq x \}$. Then we must show that $B = \mathbb{P}$.
+
+We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x \in B$ so $x \in \mathbb{P}$ and $S(x) \neq x$. Furthermore $S(x) \in \mathbb{P}$ because $S: \mathbb{P} \longrightarrow \mathbb{P}$. By @def-peano-system ii $S(S(x)) \neq S(x)$ so $S(x) \in B$. Finally @def-peano-system iii $B = \mathbb{P}$. 
+
+:::
+
+::: {#exr-peano-systems}
+
+1. Prove that every object different from $1$ is the successor for a unique object, that is, 
+
+   $$\forall x (x = 1 \lor \exists !y (x = S(y)))$$
+
+2. Prove $\forall x (x = 1 \lor x = S(1) \lor \exists y (x = S(S(y))))$
+ 
+:::
+
+::: {#sol-peano-systems}
+
+1. By @thm-no-object-is-its-own-successor we have that:
+
+   $$\forall x (x = 1 \lor \exists y (x = S(y)))$$
+   Now assume that $x = S(y)$ and $x = S(w)$ so $S(y) = S(w)$. By @def-peano-system ii $y = w$. Therefore:
+   
+   $$\forall x (x = 1 \lor \exists !y (x = S(y)))$$
+
+2. We have that $1 \in B$. Now assume $y \in B$ then $y \in \mathbb{P}$. Because $S: \mathbb{P} \longrightarrow \mathbb{P}$ then $S(y) \in \mathbb{P}$ where $S(y) \neq 1$. Furthermore by @def-peano-system ii $S(S(y)) \neq S(1)$. 
+
+   If $y = 1$ then $S(1) \neq 1$ and by @thm-x-different-1-is-a-successor $x = S(1)$.
+   
+   Also if $S(S(y))$ and $y \neq 1$ by @thm-x-different-1-is-a-successor $\exists y (x = S(S(y)))$. Therefore:
+   
+   $$\forall x (x = 1 \lor x = S(1) \lor \exists y (x = S(S(y))))$$
+
+:::
