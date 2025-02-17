@@ -291,7 +291,7 @@ window.Quarto = {
 <section id="peano-systems" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="peano-systems"><span class="header-section-number">2.1</span> Peano systems</h2>
 <div id="def-peano-system" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A <strong>Peano system</strong> is triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> where <span class="math inline">\(\mathbb{P}\)</span> is a non empty set where <span class="math inline">\(1 \in \mathbb{P}\)</span> and <span class="math inline">\(S\)</span> is a singulary operation on <span class="math inline">\(\mathbb{P}\)</span>, <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span>, such that the following axioms are satisfied:</p>
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A <strong>Peano system</strong> is a triple <span class="math inline">\((\mathbb{P}, 1, S)\)</span> where <span class="math inline">\(\mathbb{P}\)</span> is a non empty set where <span class="math inline">\(1 \in \mathbb{P}\)</span> and <span class="math inline">\(S\)</span> is a singulary operation on <span class="math inline">\(\mathbb{P}\)</span>, <span class="math inline">\(S: \mathbb{P} \longrightarrow \mathbb{P}\)</span>, such that the following axioms are satisfied:</p>
 <ol type="i">
 <li><p><span class="math inline">\(1\)</span> is not the successor <span class="math inline">\(S(x)\)</span> of any object <span class="math inline">\(x \in \mathbb{P}\)</span>. In symbols, <span class="math inline">\(\forall x(S(x) \neq 1)\)</span> or <span class="math inline">\(1 \not \in \mathscr{R}(S)\)</span>.</p></li>
 <li><p>Different objects in <span class="math inline">\(\mathbb{P}\)</span> have different successors. This can be formulated as follows:</p>
@@ -332,6 +332,11 @@ window.Quarto = {
 <li><p>Prove that every object different from <span class="math inline">\(1\)</span> is the successor for a unique object, that is,</p>
 <p><span class="math display">\[\forall x (x = 1 \lor \exists !y (x = S(y)))\]</span></p></li>
 <li><p>Prove <span class="math inline">\(\forall x (x = 1 \lor x = S(1) \lor \exists y (x = S(S(y))))\)</span></p></li>
+<li><p>Determine whether or not the following structures <span class="math inline">\((\mathbb{P}, S, 1)\)</span> are Peano Systems:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\mathbb{P}\)</span> is a set of all integers greater than <span class="math inline">\(9\)</span>. <span class="math inline">\(1\)</span> stands for the integer <span class="math inline">\(10\)</span>. <span class="math inline">\(S(u) = u + 1\)</span> for any <span class="math inline">\(u \in P\)</span>, that is <span class="math inline">\(S\)</span> is the operation of adding the ordinary integer <span class="math inline">\(1\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}\)</span> is a set of all integers. <span class="math inline">\(1\)</span> stands for the ordinary integer <span class="math inline">\(1\)</span>. <span class="math inline">\(S(u) = u + 1\)</span> for any <span class="math inline">\(u \in P\)</span>.</p></li>
+</ol></li>
 </ol>
 </div>
 <div id="sol-peano-systems" class="proof solution">
@@ -344,6 +349,27 @@ window.Quarto = {
 <p>If <span class="math inline">\(y = 1\)</span> then <span class="math inline">\(S(1) \neq 1\)</span> and by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(x = S(1)\)</span>.</p>
 <p>Also if <span class="math inline">\(S(S(y))\)</span> and <span class="math inline">\(y \neq 1\)</span> by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(\exists y (x = S(S(y)))\)</span>. Therefore:</p>
 <p><span class="math display">\[\forall x (x = 1 \lor x = S(1) \lor \exists y (x = S(S(y))))\]</span></p></li>
+<li><p>In each <span class="math inline">\((\mathbb{P}, S, 1)\)</span> we have the following results</p>
+<ol type="a">
+<li><p>Because <span class="math inline">\(\mathbb{P} = \{ u : u &gt; 9 \land u \text{ is an integer} \}\)</span>.</p>
+<ul>
+<li><p>First <span class="math inline">\(S(u) = u + 1\)</span> where <span class="math inline">\(u \in \mathbb{P}\)</span> then <span class="math inline">\(S(u) \neq 10\)</span>. Because if <span class="math inline">\(u + 1 = 10\)</span> then <span class="math inline">\(u = 9\)</span> but <span class="math inline">\(9 \not \in \mathbb{P}\)</span>.</p></li>
+<li><p>Also let <span class="math inline">\(S(u) = S(v)\)</span> so <span class="math inline">\(u + 1 = v + 1\)</span> which means that <span class="math inline">\(u = v\)</span>.</p></li>
+<li><p>Finally let <span class="math inline">\(10 \in B \subseteq \mathbb{P}\)</span> and if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(u + 1 \in B\)</span>.</p>
+<ul>
+<li><p>Let <span class="math inline">\(v \in \mathbb{P}\)</span> so we need to prove that <span class="math inline">\(v \in B\)</span>. Define <span class="math inline">\(A = \{ x \in \mathbb{P} : 10 \leq x \leq v \}\)</span> and let <span class="math inline">\(B \cap A\)</span></p>
+<ul>
+<li><p>First, we have that <span class="math inline">\(B \cap A \subseteq A\)</span> so by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\(B \cap A\)</span> must be finite. Furthermore <span class="math inline">\(B \cap A \neq \emptyset\)</span> because <span class="math inline">\(10 \in B\)</span> and <span class="math inline">\(10 \in A\)</span>.</p></li>
+<li><p>Second, because <span class="math inline">\(B \cap A\)</span> is finite and <span class="math inline">\(B \cap A \neq \emptyset\)</span> it must have a greatest element <span class="math inline">\(k\)</span>. <strong>Pending reference Appendix D</strong></p>
+<ul>
+<li><p>If <span class="math inline">\(k = v\)</span> then <span class="math inline">\(v \in B\)</span></p></li>
+<li><p>If <span class="math inline">\(k &lt; v\)</span> and because <span class="math inline">\(k \in B \cap A\)</span> then <span class="math inline">\(k \in B\)</span>. Because of the properties of <span class="math inline">\(B\)</span> then <span class="math inline">\(k + 1 \in B\)</span>. Also this means that <span class="math inline">\(k + 1 \leq v\)</span> so <span class="math inline">\(k + 1 \in A\)</span> but this will mean that <span class="math inline">\(k + 1 \in B \cap A\)</span>. However <span class="math inline">\(k + 1 &gt; k\)</span> so <span class="math inline">\(k\)</span> will not be the greates element. Because we arrive to a contradiction we discard that <span class="math inline">\(k &lt; v\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>The proof is similar to <a href="#sol-peano-systems" class="quarto-xref">Solution&nbsp;<span>2.1</span></a> 3 a but with <span class="math inline">\(1\)</span> instead of <span class="math inline">\(10\)</span> and <span class="math inline">\(\mathbb{P} = \{ u : u &gt; 0 \land x \text{ is an integer} \}\)</span></p></li>
+</ol></li>
 </ol>
 </div>
 
