@@ -554,7 +554,7 @@ By @thm-positive-integers-equinumerous-proper-subset $\mathbb{P}$ is equinumerou
 
 :::
 
-::: {def-denumerable set}
+::: {def-denumerable-set}
 
 ## Denumerable set
 
