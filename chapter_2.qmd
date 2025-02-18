@@ -81,6 +81,16 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
     a. $\mathbb{P}$ is a set of all integers greater than $9$. $1$ stands for the integer $10$. $S(u) = u + 1$ for any $u \in P$, that is $S$ is the operation of adding the ordinary integer $1$.
     
     b. $\mathbb{P}$ is a set of all integers. $1$ stands for the ordinary integer $1$. $S(u) = u + 1$ for any $u \in P$.
+    
+    c. $\mathbb{P}$ is the set of all integers. $1$ stands for the ordinary integer $0$ and S(x) is defined us:
+        
+       $$S(u) = \begin{cases}
+                 1      & \text{if} u = 0 \\
+                 -u     & \text{if} u > 0 \\
+                 -(u-1) & \text{if} u < 0
+                \end{cases}$$
+                
+       ![$S(u)$ for $\mathbb{Z}$](images/fig-successor-integers.png){#fig-successor-integers fig-align="center" width=40%}
  
 :::
 
@@ -121,6 +131,14 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
             
                     - If $k < v$ and because $k \in B \cap A$ then $k \in B$. Because of the properties of $B$ then $k + 1 \in B$. Also this means that $k + 1 \leq v$ so $k + 1 \in A$ but this will mean that $k + 1 \in B \cap A$. However $k + 1 > k$ so $k$ will not be the greates element. Because we arrive to a contradiction we discard that $k < v$. 
 
-    b. The proof is similar to @sol-peano-systems 3 a but with $1$ instead of $10$ and $\mathbb{P} = \{ u : u > 0 \land x \text{ is an integer} \}$  
+    b. The proof is similar to @sol-peano-systems 3 a but with $1$ instead of $10$ and $\mathbb{P} = \{ u : u > 0 \land x \text{ is an integer} \}$
+    
+    c. Let $\mathbb{P} = \mathbb{Z}$
+    
+        - Because $S(u) = 1, S(u) = -u < 0$ or $S(u) = -(u - 1) > 1$ then $S(u) \neq 0$
+    
+        - Also if $S(u) = S(v)$ then $1 = 1$ so $u = v = 0$, $-u = -v$ so $u = v$ or $-(u - 1) = -(v - 1)$ so $u = v$.
+       
+        - Finally let $0 \in B \subseteq \mathbb{P}$ and if $u \in B$ then $S(u) \in B$.
 
 :::
