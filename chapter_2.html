@@ -336,6 +336,22 @@ window.Quarto = {
 <ol type="a">
 <li><p><span class="math inline">\(\mathbb{P}\)</span> is a set of all integers greater than <span class="math inline">\(9\)</span>. <span class="math inline">\(1\)</span> stands for the integer <span class="math inline">\(10\)</span>. <span class="math inline">\(S(u) = u + 1\)</span> for any <span class="math inline">\(u \in P\)</span>, that is <span class="math inline">\(S\)</span> is the operation of adding the ordinary integer <span class="math inline">\(1\)</span>.</p></li>
 <li><p><span class="math inline">\(\mathbb{P}\)</span> is a set of all integers. <span class="math inline">\(1\)</span> stands for the ordinary integer <span class="math inline">\(1\)</span>. <span class="math inline">\(S(u) = u + 1\)</span> for any <span class="math inline">\(u \in P\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}\)</span> is the set of all integers. <span class="math inline">\(1\)</span> stands for the ordinary integer <span class="math inline">\(0\)</span> and S(x) is defined us:</p>
+<p><span class="math display">\[S(u) = \begin{cases}
+          1      &amp; \text{if} u = 0 \\
+          -u     &amp; \text{if} u &gt; 0 \\
+          -(u-1) &amp; \text{if} u &lt; 0
+         \end{cases}\]</span></p>
+<div id="fig-successor-integers" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-successor-integers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-successor-integers.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-successor-integers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: <span class="math inline">\(S(u)\)</span> for <span class="math inline">\(\mathbb{Z}\)</span>
+</figcaption>
+</figure>
+</div></li>
 </ol></li>
 </ol>
 </div>
@@ -369,6 +385,12 @@ window.Quarto = {
 </ul></li>
 </ul></li>
 <li><p>The proof is similar to <a href="#sol-peano-systems" class="quarto-xref">Solution&nbsp;<span>2.1</span></a> 3 a but with <span class="math inline">\(1\)</span> instead of <span class="math inline">\(10\)</span> and <span class="math inline">\(\mathbb{P} = \{ u : u &gt; 0 \land x \text{ is an integer} \}\)</span></p></li>
+<li><p>Let <span class="math inline">\(\mathbb{P} = \mathbb{Z}\)</span></p>
+<ul>
+<li><p>Because <span class="math inline">\(S(u) = 1, S(u) = -u &lt; 0\)</span> or <span class="math inline">\(S(u) = -(u - 1) &gt; 1\)</span> then <span class="math inline">\(S(u) \neq 0\)</span></p></li>
+<li><p>Also if <span class="math inline">\(S(u) = S(v)\)</span> then <span class="math inline">\(1 = 1\)</span> so <span class="math inline">\(u = v = 0\)</span>, <span class="math inline">\(-u = -v\)</span> so <span class="math inline">\(u = v\)</span> or <span class="math inline">\(-(u - 1) = -(v - 1)\)</span> so <span class="math inline">\(u = v\)</span>.</p></li>
+<li><p>Finally let <span class="math inline">\(0 \in B \subseteq \mathbb{P}\)</span> and if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(S(u) \in B\)</span>.</p></li>
+</ul></li>
 </ol></li>
 </ol>
 </div>
