@@ -121,15 +121,15 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
       
         - Finally let $10 \in B \subseteq \mathbb{P}$ and if $u \in B$ then $u + 1 \in B$. 
       
-            - Let $v \in \mathbb{P}$ so we need to prove that $v \in B$. Define $A = \{ x \in \mathbb{P} : 10 \leq x \leq v \}$ and let $B \cap A$
+            - Let $v \in \mathbb{P}$ so we need to prove that $v \in B$. Define $A = \{ x \in \mathbb{P} \mid 10 \leq x \leq v \}$ and let $B \cap A$
          
-                - First, we have that $B \cap A \subseteq A$ so by @thm-finite-set $B \cap A$ must be finite. Furthermore $B \cap A \neq \emptyset$ because $10 \in B$ and $10 \in A$.
+                - First, we have that $B \cap A \subseteq A$ so by @thm-finite-set b $B \cap A$ must be finite. Furthermore $B \cap A \neq \emptyset$ because $10 \in B$ and $10 \in A$.
          
                 - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a greatest element $k$. **Pending reference Appendix D** 
          
                     - If $k = v$ then $v \in B$
             
-                    - If $k < v$ and because $k \in B \cap A$ then $k \in B$. Because of the properties of $B$ then $k + 1 \in B$. Also this means that $k + 1 \leq v$ so $k + 1 \in A$ but this will mean that $k + 1 \in B \cap A$. However $k + 1 > k$ so $k$ will not be the greates element. Because we arrive to a contradiction we discard that $k < v$. 
+                    - If $k < v$ and because $k \in B \cap A$ then $k \in B$. Because of the properties of $B$ then $k + 1 \in B$. Also this means that $k + 1 \leq v$ so $k + 1 \in A$ but this will mean that $k + 1 \in B \cap A$. However $k + 1 > k$ so $k$ will not be the greatest element. Because we arrive to a contradiction we discard that $k < v$. 
 
     b. The proof is similar to @sol-peano-systems 3 a but with $1$ instead of $10$ and $\mathbb{P} = \{ u : u > 0 \land x \text{ is an integer} \}$
     
@@ -139,6 +139,26 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
     
         - Also if $S(u) = S(v)$ then $1 = 1$ so $u = v = 0$, $-u = -v$ so $u = v$ or $-(u - 1) = -(v - 1)$ so $u = v$.
        
-        - Finally let $0 \in B \subseteq \mathbb{P}$ and if $u \in B$ then $S(u) \in B$.
+        - Finally let $0 \in B \subseteq \mathbb{P}$ and if $u \in B$ then $S(u) \in B$. 
+        
+           - Let $v \in \mathbb{P}$ so we need to prove that $v \in B$. Lets define the set $A$ in the following way:
+        
+             $$A = \begin{cases}
+                    \{x \in \mathbb{P} \mid -(v - 1) \leq x \leq v \} & \text{ if } v > 0 \\
+                    \{x \in \mathbb{P} \mid v \leq x \leq -v \} & \text{ if } v \leq 0
+                   \end{cases}$$
+
+              - First, we have that $B \cap A \subseteq A$ so by @thm-finite-set b $B \cap A$ must be finite. Furthermore $B \cap A \neq \emptyset$ because $0 \in B$ and $0 \in A$.
+              
+              - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a greatest element $k$ and a least element $l$.
+              
+                 - If $k = v > 0$ or $l = v \leq 0$ then $v \in B$
+                 
+                 - If $k < v$ and $v > 0$ because $k \in B \cap A$ then $k \in B$. Because of the properties of $B$ then $S(k) \in B$. 
+                 
+                    - If $k = 0$ then $S(k) = 1 \in B$ and $-(v - 1) \leq k + 1 \leq v$ so $1 \in A$ but this will mean that $1 \in B \cap A$. However $1 > 0$ so $0$ will not be the greatest element. Because we arrive to a contradiction we discard that $k < v$ when $k = 0$.
+                    
+                    - If $k > 0$ then $S(k) = -k \in B$ and $S(-k) = -(-k - 1) = k + 1 \in B$. Therefore $-(v - 1) \leq k + 1 \leq v$ so $k+1 \in A$ but this will mean that $k+1 \in B \cap A$. However $k+1 > k$ so $k$ will not be the greatest element. Because we arrive to a contradiction we discard that $k < v$ when $k > 0$.
+                    - If $k < 0$ then $S(k) = -(k - 1) = -k + 1 \in B$ and $-(v - 1) \leq -k + 1 \leq v$ so $-k + 1 \in A$ but this will mean that $-k + 1 \in B \cap A$. However $-k + 1 > k$ so $k$ will not be the greatest element. Because we arrive to a contradiction we discard that $k < v$ when $k < 0$. 
 
 :::
