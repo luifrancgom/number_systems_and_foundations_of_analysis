@@ -373,13 +373,13 @@ Figure&nbsp;2.1: <span class="math inline">\(S(u)\)</span> for <span class="math
 <li><p>Also let <span class="math inline">\(S(u) = S(v)\)</span> so <span class="math inline">\(u + 1 = v + 1\)</span> which means that <span class="math inline">\(u = v\)</span>.</p></li>
 <li><p>Finally let <span class="math inline">\(10 \in B \subseteq \mathbb{P}\)</span> and if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(u + 1 \in B\)</span>.</p>
 <ul>
-<li><p>Let <span class="math inline">\(v \in \mathbb{P}\)</span> so we need to prove that <span class="math inline">\(v \in B\)</span>. Define <span class="math inline">\(A = \{ x \in \mathbb{P} : 10 \leq x \leq v \}\)</span> and let <span class="math inline">\(B \cap A\)</span></p>
+<li><p>Let <span class="math inline">\(v \in \mathbb{P}\)</span> so we need to prove that <span class="math inline">\(v \in B\)</span>. Define <span class="math inline">\(A = \{ x \in \mathbb{P} \mid 10 \leq x \leq v \}\)</span> and let <span class="math inline">\(B \cap A\)</span></p>
 <ul>
-<li><p>First, we have that <span class="math inline">\(B \cap A \subseteq A\)</span> so by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> <span class="math inline">\(B \cap A\)</span> must be finite. Furthermore <span class="math inline">\(B \cap A \neq \emptyset\)</span> because <span class="math inline">\(10 \in B\)</span> and <span class="math inline">\(10 \in A\)</span>.</p></li>
+<li><p>First, we have that <span class="math inline">\(B \cap A \subseteq A\)</span> so by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b <span class="math inline">\(B \cap A\)</span> must be finite. Furthermore <span class="math inline">\(B \cap A \neq \emptyset\)</span> because <span class="math inline">\(10 \in B\)</span> and <span class="math inline">\(10 \in A\)</span>.</p></li>
 <li><p>Second, because <span class="math inline">\(B \cap A\)</span> is finite and <span class="math inline">\(B \cap A \neq \emptyset\)</span> it must have a greatest element <span class="math inline">\(k\)</span>. <strong>Pending reference Appendix D</strong></p>
 <ul>
 <li><p>If <span class="math inline">\(k = v\)</span> then <span class="math inline">\(v \in B\)</span></p></li>
-<li><p>If <span class="math inline">\(k &lt; v\)</span> and because <span class="math inline">\(k \in B \cap A\)</span> then <span class="math inline">\(k \in B\)</span>. Because of the properties of <span class="math inline">\(B\)</span> then <span class="math inline">\(k + 1 \in B\)</span>. Also this means that <span class="math inline">\(k + 1 \leq v\)</span> so <span class="math inline">\(k + 1 \in A\)</span> but this will mean that <span class="math inline">\(k + 1 \in B \cap A\)</span>. However <span class="math inline">\(k + 1 &gt; k\)</span> so <span class="math inline">\(k\)</span> will not be the greates element. Because we arrive to a contradiction we discard that <span class="math inline">\(k &lt; v\)</span>.</p></li>
+<li><p>If <span class="math inline">\(k &lt; v\)</span> and because <span class="math inline">\(k \in B \cap A\)</span> then <span class="math inline">\(k \in B\)</span>. Because of the properties of <span class="math inline">\(B\)</span> then <span class="math inline">\(k + 1 \in B\)</span>. Also this means that <span class="math inline">\(k + 1 \leq v\)</span> so <span class="math inline">\(k + 1 \in A\)</span> but this will mean that <span class="math inline">\(k + 1 \in B \cap A\)</span>. However <span class="math inline">\(k + 1 &gt; k\)</span> so <span class="math inline">\(k\)</span> will not be the greatest element. Because we arrive to a contradiction we discard that <span class="math inline">\(k &lt; v\)</span>.</p></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -389,7 +389,27 @@ Figure&nbsp;2.1: <span class="math inline">\(S(u)\)</span> for <span class="math
 <ul>
 <li><p>Because <span class="math inline">\(S(u) = 1, S(u) = -u &lt; 0\)</span> or <span class="math inline">\(S(u) = -(u - 1) &gt; 1\)</span> then <span class="math inline">\(S(u) \neq 0\)</span></p></li>
 <li><p>Also if <span class="math inline">\(S(u) = S(v)\)</span> then <span class="math inline">\(1 = 1\)</span> so <span class="math inline">\(u = v = 0\)</span>, <span class="math inline">\(-u = -v\)</span> so <span class="math inline">\(u = v\)</span> or <span class="math inline">\(-(u - 1) = -(v - 1)\)</span> so <span class="math inline">\(u = v\)</span>.</p></li>
-<li><p>Finally let <span class="math inline">\(0 \in B \subseteq \mathbb{P}\)</span> and if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(S(u) \in B\)</span>.</p></li>
+<li><p>Finally let <span class="math inline">\(0 \in B \subseteq \mathbb{P}\)</span> and if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(S(u) \in B\)</span>.</p>
+<ul>
+<li><p>Let <span class="math inline">\(v \in \mathbb{P}\)</span> so we need to prove that <span class="math inline">\(v \in B\)</span>. Lets define the set <span class="math inline">\(A\)</span> in the following way:</p>
+<p><span class="math display">\[A = \begin{cases}
+       \{x \in \mathbb{P} \mid -(v - 1) \leq x \leq v \} &amp; \text{ if } v &gt; 0 \\
+       \{x \in \mathbb{P} \mid v \leq x \leq -v \} &amp; \text{ if } v \leq 0
+      \end{cases}\]</span></p>
+<ul>
+<li><p>First, we have that <span class="math inline">\(B \cap A \subseteq A\)</span> so by <a href="appendix_d.html#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b <span class="math inline">\(B \cap A\)</span> must be finite. Furthermore <span class="math inline">\(B \cap A \neq \emptyset\)</span> because <span class="math inline">\(0 \in B\)</span> and <span class="math inline">\(0 \in A\)</span>.</p></li>
+<li><p>Second, because <span class="math inline">\(B \cap A\)</span> is finite and <span class="math inline">\(B \cap A \neq \emptyset\)</span> it must have a greatest element <span class="math inline">\(k\)</span> and a least element <span class="math inline">\(l\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(k = v &gt; 0\)</span> or <span class="math inline">\(l = v \leq 0\)</span> then <span class="math inline">\(v \in B\)</span></p></li>
+<li><p>If <span class="math inline">\(k &lt; v\)</span> and <span class="math inline">\(v &gt; 0\)</span> because <span class="math inline">\(k \in B \cap A\)</span> then <span class="math inline">\(k \in B\)</span>. Because of the properties of <span class="math inline">\(B\)</span> then <span class="math inline">\(S(k) \in B\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(k = 0\)</span> then <span class="math inline">\(S(k) = 1 \in B\)</span> and <span class="math inline">\(-(v - 1) \leq k + 1 \leq v\)</span> so <span class="math inline">\(1 \in A\)</span> but this will mean that <span class="math inline">\(1 \in B \cap A\)</span>. However <span class="math inline">\(1 &gt; 0\)</span> so <span class="math inline">\(0\)</span> will not be the greatest element. Because we arrive to a contradiction we discard that <span class="math inline">\(k &lt; v\)</span> when <span class="math inline">\(k = 0\)</span>.</p></li>
+<li><p>If <span class="math inline">\(k &gt; 0\)</span> then <span class="math inline">\(S(k) = -k \in B\)</span> and <span class="math inline">\(S(-k) = -(-k - 1) = k + 1 \in B\)</span>. Therefore <span class="math inline">\(-(v - 1) \leq k + 1 \leq v\)</span> so <span class="math inline">\(k+1 \in A\)</span> but this will mean that <span class="math inline">\(k+1 \in B \cap A\)</span>. However <span class="math inline">\(k+1 &gt; k\)</span> so <span class="math inline">\(k\)</span> will not be the greatest element. Because we arrive to a contradiction we discard that <span class="math inline">\(k &lt; v\)</span> when <span class="math inline">\(k &gt; 0\)</span>.</p></li>
+<li><p>If <span class="math inline">\(k &lt; 0\)</span> then <span class="math inline">\(S(k) = -(k - 1) = -k + 1 \in B\)</span> and <span class="math inline">\(-(v - 1) \leq -k + 1 \leq v\)</span> so <span class="math inline">\(-k + 1 \in A\)</span> but this will mean that <span class="math inline">\(-k + 1 \in B \cap A\)</span>. However <span class="math inline">\(-k + 1 &gt; k\)</span> so <span class="math inline">\(k\)</span> will not be the greatest element. Because we arrive to a contradiction we discard that <span class="math inline">\(k &lt; v\)</span> when <span class="math inline">\(k &lt; 0\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ol></li>
 </ol>
