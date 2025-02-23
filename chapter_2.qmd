@@ -64,7 +64,7 @@ No object is its own successor, that is, $\forall x (S(x) \neq x)$.
 
 Let $B = \{ x \in \mathbb{P}: S(x) \neq x \}$. Then we must show that $B = \mathbb{P}$.
 
-We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x \in B$ so $x \in \mathbb{P}$ and $S(x) \neq x$. Furthermore $S(x) \in \mathbb{P}$ because $S: \mathbb{P} \longrightarrow \mathbb{P}$. By @def-peano-system ii $S(S(x)) \neq S(x)$ so $S(x) \in B$. Finally @def-peano-system iii $B = \mathbb{P}$. 
+We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x \in B$ so $x \in \mathbb{P}$ and $S(x) \neq x$. Furthermore $S(x) \in \mathbb{P}$ because $S: \mathbb{P} \longrightarrow \mathbb{P}$. By @def-peano-system ii $S(S(x)) \neq S(x)$ so $S(x) \in B$. Finally by @def-peano-system iii $B = \mathbb{P}$. 
 
 :::
 
@@ -203,3 +203,6 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
         
            - By @exr-peano-systems 3 b $B = \{ 1, 2, 3, \ldots \}$ where $B \neq \mathbb{P}$. 
 :::
+
+## The iteration theorem
+
