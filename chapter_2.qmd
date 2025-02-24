@@ -204,5 +204,83 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
            - By @exr-peano-systems 3 b $B = \{ 1, 2, 3, \ldots \}$ where $B \neq \mathbb{P}$. 
 :::
 
+## Diagramatic interpretation of peano system axioms
+
+Following [@enderton_elements_2009, p. 70] we can specify different interpretations of the axioms presented in @def-peano-system. 
+
+In the case of the first axiom @def-peano-system i if $\mathbb{P} = \{ 1, 2, 3 \}$, $S(1) = 2$, $S(2) = 3$ and $S(3) = 1$ a representation of the violation of this axiom is represented in @fig-peano-axiom-1-violation:
+
+![Violation of the first peano axiom](images/fig-peano-axiom-1-violation.png){#fig-peano-axiom-1-violation fig-align="center" width=20%}
+
+The axiom pointed out in @def-peano-system i avoid that you can return to the origin $1$ using the successor function $S$.
+
+In the case of the second axiom @def-peano-system ii if $\mathbb{P} = \{ 1, 2, 3 \}$, $S(1) = 2$, $S(2) = 3$ and $S(3) = 2$ a representation of the violation of this axiom is represented in @fig-peano-axiom-2-violation:
+
+![Violation of the second peano axiom](images/fig-peano-axiom-2-violation.png){#fig-peano-axiom-2-violation fig-align="center" width=20%}
+
+The axiom pointed out in @def-peano-system ii avoid that you can have loops using the successor function $S$.
+
+In the case of the third axiom @def-peano-system iii if $\mathbb{P} = \{ 1, 2, 3, \ldots \} \cup \{ \omega \}$ where $\{ 1, 2, 3, \ldots \} \cap \{ \omega \} = \emptyset$ , $S(1) = 2$, $S(2) = 3$, $\ldots$, $\omega = S(\omega)$ a representation of the violation of this axiom is represented in @fig-peano-axiom-3-violation:
+
+![Violation of the third peano axiom](images/fig-peano-axiom-3-violation.png){#fig-peano-axiom-3-violation fig-align="center" width=30%}
+
+The axiom pointed out in @def-peano-system iii avoid that you can not reach an element in $\mathbb{P}$ using the successor function $S$ and beginning at the origin $1$.
+
 ## The iteration theorem
 
+Any arithmetical notions such as $+$ and $\times$ are not mentioned in @def-peano-system. These notions will be defined by induction. The idea of the definition by induction is different from that of proof by mathematical induction pointed out in @def-peano-system iii.
+
+When we define a function $f$ by induction, we first specify $f(1)$ and then indicate a rule for obtaining $f(S(x))$ from the previous value $f(x)$. This determines a unique function $f$ defined on $\mathbb{P}$.
+
+::: {#thm-iteration-theorem}
+
+## Iteration theorem
+
+Consider any peano system $(\mathbb{P}, S, 1)$. Let $W$ be an arbitrary set, let $c$ be a fixed element of $W$, and let $g$ be a singulary operation on $W$, that is $g: W \longrightarrow W$. Then, there is a unique function $F: P \longrightarrow W$ such that:
+
+a. $F(1) = c$
+b. $F(S(x)) = g(F(x))$ for all $x \in \mathbb{P}$
+
+:::
+
+::: {.proof}
+
+- Existence of a suitable function $F$
+
+  Take any $n \in \mathbb{P}$. A function $f: A \longrightarrow W$ is said to be $n$-admissible if and only if:
+  
+    i. $A \subseteq \mathbb{P}$
+  
+    ii. $1 \in A$
+    
+    iii. $n \in A$
+    
+    iv. $\forall u (S(u) \in A \Longrightarrow u \in A)$
+    
+    v. $f(1) = c$
+    
+    vi. $\forall u (S(u) \in A \Longrightarrow f(S(u)) = g(f(u)))$
+    
+        a. If $f$ is $S(n)$-admissible, then $f$ is $n$-admissible
+        
+           If conditions i, ii and iv-vi are fulfill for $S(n)$ they are also fulfill for $n$. The only condition that we need to check is iii, that is $n \in A$. Because $f$ is $S(n)$-admissible by iii $S(n) \in A$. Therefore by iv $n \in A$.
+           
+        b. For any $n \in \mathbb{P}$ there exists at least one $n$-admissible function.
+        
+           We shall prove this by mathematical induction using @def-peano-system i. Let $B$ be the set of all members $n \in P$  for which there exists at least one $n$-admissible function.
+           
+           We must show that $B = \mathbb{P}$. First, lets build a $1$-admissible function. Let $A = \{ 1 \}$ then $\{ 1 \} \subseteq \mathbb{P}$, $1 \in \{ 1 \}$, $S(1) \neq \{ 1 \}$ and $f(1) = c$. Therefore $f: \{ 1 \} \longrightarrow W$ is $1$-admissible.
+           
+           Second, assume $n \in B$. Then by assumption there is some $n$-admissible function $f$ such that $f: A \longrightarrow W$.
+           
+           Third, define a function $f^*$ such that for any $x \in A$ $f^*(x) = f(x)$ and if $S(n) \not \in A$ let $f^*(S(n)) = g(f(n))$. Note that if $S(n) \in A$ then by vi $f(S(u)) = g(f(u))$. Therefore, $f^*: A^* \longrightarrow W$ such that $A^* = A \cup \{ S(n) \}$ where $A \subseteq A^*$. So $A^* \subseteq \mathbb{P}$, $1 \in A^*$, $n \in A^*$, if $S(n) \not \in A$ then $S(n) \in A^*$ then $n \in A^*$, $f^*(1) = f(1) = c$ and if $S(n) \not \in A$ then $S(n) \in A^*$ implies that $f^*(S(n)) = g(f(n))$. This means that $f^*$ is $S(n)$-admissible.
+           
+           Thus, $S(n) \in B$. We have shown that if $n \in B$ then $S(n) \in B$. By @def-peano-system iii $B = \mathbb{P}$.
+
+        c. 
+
+- Uniqueness of $F$
+
+
+
+:::
