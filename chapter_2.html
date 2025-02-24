@@ -261,7 +261,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#peano-systems" id="toc-peano-systems" class="nav-link active" data-scroll-target="#peano-systems"><span class="header-section-number">2.1</span> Peano systems</a></li>
-  <li><a href="#the-iteration-theorem" id="toc-the-iteration-theorem" class="nav-link" data-scroll-target="#the-iteration-theorem"><span class="header-section-number">2.2</span> The iteration theorem</a></li>
+  <li><a href="#diagramatic-interpretation-of-peano-system-axioms" id="toc-diagramatic-interpretation-of-peano-system-axioms" class="nav-link" data-scroll-target="#diagramatic-interpretation-of-peano-system-axioms"><span class="header-section-number">2.2</span> Diagramatic interpretation of peano system axioms</a></li>
+  <li><a href="#the-iteration-theorem" id="toc-the-iteration-theorem" class="nav-link" data-scroll-target="#the-iteration-theorem"><span class="header-section-number">2.3</span> The iteration theorem</a></li>
   </ul>
 </nav>
     </div>
@@ -453,11 +454,90 @@ Figure&nbsp;2.1: <span class="math inline">\(S(u)\)</span> for <span class="math
 </ol>
 </div>
 </section>
-<section id="the-iteration-theorem" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="the-iteration-theorem"><span class="header-section-number">2.2</span> The iteration theorem</h2>
+<section id="diagramatic-interpretation-of-peano-system-axioms" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="diagramatic-interpretation-of-peano-system-axioms"><span class="header-section-number">2.2</span> Diagramatic interpretation of peano system axioms</h2>
+<p>Following <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 70</a>)</span> we can specify different interpretations of the axioms presented in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a>.</p>
+<p>In the case of the first axiom <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i if <span class="math inline">\(\mathbb{P} = \{ 1, 2, 3 \}\)</span>, <span class="math inline">\(S(1) = 2\)</span>, <span class="math inline">\(S(2) = 3\)</span> and <span class="math inline">\(S(3) = 1\)</span> a representation of the violation of this axiom is represented in <a href="#fig-peano-axiom-1-violation" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>:</p>
+<div id="fig-peano-axiom-1-violation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-peano-axiom-1-violation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-peano-axiom-1-violation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-peano-axiom-1-violation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Violation of the first peano axiom
+</figcaption>
+</figure>
+</div>
+<p>The axiom pointed out in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i avoid that you can return to the origin <span class="math inline">\(1\)</span> using the successor function <span class="math inline">\(S\)</span>.</p>
+<p>In the case of the second axiom <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> ii if <span class="math inline">\(\mathbb{P} = \{ 1, 2, 3 \}\)</span>, <span class="math inline">\(S(1) = 2\)</span>, <span class="math inline">\(S(2) = 3\)</span> and <span class="math inline">\(S(3) = 2\)</span> a representation of the violation of this axiom is represented in <a href="#fig-peano-axiom-2-violation" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>:</p>
+<div id="fig-peano-axiom-2-violation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-peano-axiom-2-violation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-peano-axiom-2-violation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-peano-axiom-2-violation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Violation of the second peano axiom
+</figcaption>
+</figure>
+</div>
+<p>The axiom pointed out in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> ii avoid that you can have loops using the successor function <span class="math inline">\(S\)</span>.</p>
+<p>In the case of the third axiom <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii if <span class="math inline">\(\mathbb{P} = \{ 1, 2, 3, \ldots \} \cup \{ \omega \}\)</span> where <span class="math inline">\(\{ 1, 2, 3, \ldots \} \cap \{ \omega \} = \emptyset\)</span> , <span class="math inline">\(S(1) = 2\)</span>, <span class="math inline">\(S(2) = 3\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(\omega = S(\omega)\)</span> a representation of the violation of this axiom is represented in <a href="#fig-peano-axiom-3-violation" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>:</p>
+<div id="fig-peano-axiom-3-violation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-peano-axiom-3-violation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-peano-axiom-3-violation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-peano-axiom-3-violation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Violation of the third peano axiom
+</figcaption>
+</figure>
+</div>
+<p>The axiom pointed out in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii avoid that you can not reach an element in <span class="math inline">\(\mathbb{P}\)</span> using the successor function <span class="math inline">\(S\)</span> and beginning at the origin <span class="math inline">\(1\)</span>.</p>
+</section>
+<section id="the-iteration-theorem" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="the-iteration-theorem"><span class="header-section-number">2.3</span> The iteration theorem</h2>
+<p>Any arithmetical notions such as <span class="math inline">\(+\)</span> and <span class="math inline">\(\times\)</span> are not mentioned in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a>. These notions will be defined by induction. The idea of the definition by induction is different from that of proof by mathematical induction pointed out in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
+<p>When we define a function <span class="math inline">\(f\)</span> by induction, we first specify <span class="math inline">\(f(1)\)</span> and then indicate a rule for obtaining <span class="math inline">\(f(S(x))\)</span> from the previous value <span class="math inline">\(f(x)\)</span>. This determines a unique function <span class="math inline">\(f\)</span> defined on <span class="math inline">\(\mathbb{P}\)</span>.</p>
+<div id="thm-iteration-theorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.3 (Iteration theorem)</strong></span> Consider any peano system <span class="math inline">\((\mathbb{P}, S, 1)\)</span>. Let <span class="math inline">\(W\)</span> be an arbitrary set, let <span class="math inline">\(c\)</span> be a fixed element of <span class="math inline">\(W\)</span>, and let <span class="math inline">\(g\)</span> be a singulary operation on <span class="math inline">\(W\)</span>, that is <span class="math inline">\(g: W \longrightarrow W\)</span>. Then, there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that:</p>
+<ol type="a">
+<li><span class="math inline">\(F(1) = c\)</span></li>
+<li><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ul>
+<li><p>Existence of a suitable function <span class="math inline">\(F\)</span></p>
+<p>Take any <span class="math inline">\(n \in \mathbb{P}\)</span>. A function <span class="math inline">\(f: A \longrightarrow W\)</span> is said to be <span class="math inline">\(n\)</span>-admissible if and only if:</p>
+<ol type="i">
+<li><p><span class="math inline">\(A \subseteq \mathbb{P}\)</span></p></li>
+<li><p><span class="math inline">\(1 \in A\)</span></p></li>
+<li><p><span class="math inline">\(n \in A\)</span></p></li>
+<li><p><span class="math inline">\(\forall u (S(u) \in A \Longrightarrow u \in A)\)</span></p></li>
+<li><p><span class="math inline">\(f(1) = c\)</span></p></li>
+<li><p><span class="math inline">\(\forall u (S(u) \in A \Longrightarrow f(S(u)) = g(f(u)))\)</span></p>
+<ol type="a">
+<li><p>If <span class="math inline">\(f\)</span> is <span class="math inline">\(S(n)\)</span>-admissible, then <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-admissible</p>
+<p>If conditions i, ii and iv-vi are fulfill for <span class="math inline">\(S(n)\)</span> they are also fulfill for <span class="math inline">\(n\)</span>. The only condition that we need to check is iii, that is <span class="math inline">\(n \in A\)</span>. Because <span class="math inline">\(f\)</span> is <span class="math inline">\(S(n)\)</span>-admissible by iii <span class="math inline">\(S(n) \in A\)</span>. Therefore by iv <span class="math inline">\(n \in A\)</span>.</p></li>
+<li><p>For any <span class="math inline">\(n \in \mathbb{P}\)</span> there exists at least one <span class="math inline">\(n\)</span>-admissible function.</p>
+<p>We shall prove this by mathematical induction using <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i. Let <span class="math inline">\(B\)</span> be the set of all members <span class="math inline">\(n \in P\)</span> for which there exists at least one <span class="math inline">\(n\)</span>-admissible function.</p>
+<p>We must show that <span class="math inline">\(B = \mathbb{P}\)</span>. First, lets build a <span class="math inline">\(1\)</span>-admissible function. Let <span class="math inline">\(A = \{ 1 \}\)</span> then <span class="math inline">\(\{ 1 \} \subseteq \mathbb{P}\)</span>, <span class="math inline">\(1 \in \{ 1 \}\)</span>, <span class="math inline">\(S(1) \neq \{ 1 \}\)</span> and <span class="math inline">\(f(1) = c\)</span>. Therefore <span class="math inline">\(f: \{ 1 \} \longrightarrow W\)</span> is <span class="math inline">\(1\)</span>-admissible.</p>
+<p>Second, assume <span class="math inline">\(n \in B\)</span>. Then by assumption there is some <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span> such that <span class="math inline">\(f: A \longrightarrow W\)</span>.</p>
+<p>Third, define a function <span class="math inline">\(f^*\)</span> such that for any <span class="math inline">\(x \in A\)</span> <span class="math inline">\(f^*(x) = f(x)\)</span> and if <span class="math inline">\(S(n) \not \in A\)</span> let <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span>. Note that if <span class="math inline">\(S(n) \in A\)</span> then by vi <span class="math inline">\(f(S(u)) = g(f(u))\)</span>. Therefore, <span class="math inline">\(f^*: A^* \longrightarrow W\)</span> such that <span class="math inline">\(A^* = A \cup \{ S(n) \}\)</span> where <span class="math inline">\(A \subseteq A^*\)</span>. So <span class="math inline">\(A^* \subseteq \mathbb{P}\)</span>, <span class="math inline">\(1 \in A^*\)</span>, <span class="math inline">\(n \in A^*\)</span>, if <span class="math inline">\(S(n) \not \in A\)</span> then <span class="math inline">\(S(n) \in A^*\)</span> then <span class="math inline">\(n \in A^*\)</span>, <span class="math inline">\(f^*(1) = f(1) = c\)</span> and if <span class="math inline">\(S(n) \not \in A\)</span> then <span class="math inline">\(S(n) \in A^*\)</span> implies that <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span>. This means that <span class="math inline">\(f^*\)</span> is <span class="math inline">\(S(n)\)</span>-admissible.</p>
+<p>Thus, <span class="math inline">\(S(n) \in B\)</span>. We have shown that if <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(S(n) \in B\)</span>. By <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
+<li></li>
+</ol></li>
+</ol></li>
+<li><p>Uniqueness of <span class="math inline">\(F\)</span></p></li>
+</ul>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
+Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
+</div>
 <div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
 Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
 </div>
