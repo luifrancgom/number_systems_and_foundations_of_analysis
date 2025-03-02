@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ce9fc9ac8b614e7ffef13962cc12eaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a34d670291f06f286357e447776a572a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -499,7 +499,7 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p>Any arithmetical notions such as <span class="math inline">\(+\)</span> and <span class="math inline">\(\times\)</span> are not mentioned in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a>. These notions will be defined by induction. The idea of the definition by induction is different from that of proof by mathematical induction pointed out in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
 <p>When we define a function <span class="math inline">\(f\)</span> by induction, we first specify <span class="math inline">\(f(1)\)</span> and then indicate a rule for obtaining <span class="math inline">\(f(S(x))\)</span> from the previous value <span class="math inline">\(f(x)\)</span>. This determines a unique function <span class="math inline">\(f\)</span> defined on <span class="math inline">\(\mathbb{P}\)</span>.</p>
 <div id="thm-iteration-theorem" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.3 (Iteration theorem)</strong></span> Consider any peano system <span class="math inline">\((\mathbb{P}, S, 1)\)</span>. Let <span class="math inline">\(W\)</span> be an arbitrary set, let <span class="math inline">\(c\)</span> be a fixed element of <span class="math inline">\(W\)</span>, and let <span class="math inline">\(g\)</span> be a singulary operation on <span class="math inline">\(W\)</span>, that is <span class="math inline">\(g: W \longrightarrow W\)</span>. Then, there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that:</p>
+<p><span class="theorem-title"><strong>Theorem 2.3 (Iteration theorem)</strong></span> Consider any peano system <span class="math inline">\((\mathbb{P}, S, 1)\)</span>. Let <span class="math inline">\(W\)</span> be an arbitrary set, let <span class="math inline">\(c\)</span> be a fixed element of <span class="math inline">\(W\)</span>, and let <span class="math inline">\(g\)</span> be a singulary operation on <span class="math inline">\(W\)</span>, that is <span class="math inline">\(g: W \longrightarrow W\)</span>. Then, there is a unique function <span class="math inline">\(F: \mathbb{P} \longrightarrow W\)</span> such that:</p>
 <ol type="a">
 <li><span class="math inline">\(F(1) = c\)</span></li>
 <li><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span></li>
@@ -526,10 +526,26 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p>Second, assume <span class="math inline">\(n \in B\)</span>. Then by assumption there is some <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span> such that <span class="math inline">\(f: A \longrightarrow W\)</span>.</p>
 <p>Third, define a function <span class="math inline">\(f^*\)</span> such that for any <span class="math inline">\(x \in A\)</span> <span class="math inline">\(f^*(x) = f(x)\)</span> and if <span class="math inline">\(S(n) \not \in A\)</span> let <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span>. Note that if <span class="math inline">\(S(n) \in A\)</span> then by vi <span class="math inline">\(f(S(u)) = g(f(u))\)</span>. Therefore, <span class="math inline">\(f^*: A^* \longrightarrow W\)</span> such that <span class="math inline">\(A^* = A \cup \{ S(n) \}\)</span> where <span class="math inline">\(A \subseteq A^*\)</span>. So <span class="math inline">\(A^* \subseteq \mathbb{P}\)</span>, <span class="math inline">\(1 \in A^*\)</span>, <span class="math inline">\(n \in A^*\)</span>, if <span class="math inline">\(S(n) \not \in A\)</span> then <span class="math inline">\(S(n) \in A^*\)</span> then <span class="math inline">\(n \in A^*\)</span>, <span class="math inline">\(f^*(1) = f(1) = c\)</span> and if <span class="math inline">\(S(n) \not \in A\)</span> then <span class="math inline">\(S(n) \in A^*\)</span> implies that <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span>. This means that <span class="math inline">\(f^*\)</span> is <span class="math inline">\(S(n)\)</span>-admissible.</p>
 <p>Thus, <span class="math inline">\(S(n) \in B\)</span>. We have shown that if <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(S(n) \in B\)</span>. By <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
-<li></li>
+<li><p>If <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-admissible and <span class="math inline">\(h\)</span> is <span class="math inline">\(n\)</span>-admissible then <span class="math inline">\(f(n) = h(n)\)</span>.</p>
+<p>We shall prove this by mathematical induction. Let <span class="math inline">\(Y = \{ n \in \mathbb{P} \mid (\forall f) (\forall g) (((f \text{ is } n\text{-admissible} \land (g \text{ is } n\text{-admissible} )) \Longrightarrow f(n) = g(n)) \}\)</span>. We must show that <span class="math inline">\(Y = \mathbb{P}\)</span> using <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
+<p>First, <span class="math inline">\(1 \in Y\)</span> because <span class="math inline">\(1 \in \mathbb{P}\)</span> and if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are <span class="math inline">\(1\)</span>-admissible then <span class="math inline">\(f(1) = c = g(1)\)</span>.</p>
+<p>Second, assume <span class="math inline">\(n \in Y\)</span>.</p>
+<p>Third, let <span class="math inline">\(f\)</span> and <span class="math inline">\(h\)</span> be <span class="math inline">\(S(n)\)</span>-admissible. Then by a. <span class="math inline">\(f\)</span> and <span class="math inline">\(h\)</span> are <span class="math inline">\(n\)</span>-admissible. Because <span class="math inline">\(n \in Y\)</span> then <span class="math inline">\(f(n) = h(n)\)</span>. By vi. <span class="math inline">\(f(S(n)) = g(f(n))\)</span> but <span class="math inline">\(f(n) = h(n)\)</span> so <span class="math inline">\(f(S(n)) = g(h(n))\)</span>. Again by vi. <span class="math inline">\(f(S(n)) = h(S(n))\)</span>.Therefore <span class="math inline">\(S(n) \in Y\)</span> so <span class="math inline">\(Y = \mathbb{P}\)</span></p></li>
+<li><p>For any <span class="math inline">\(n \in \mathbb{P}\)</span> by b. it exists an <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span>.</p>
+<p>Let us define <span class="math inline">\(F(n) = f(n)\)</span>. By c.&nbsp;the value of <span class="math inline">\(F(n)\)</span> does not depend upon the particular choice of the <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span>.</p>
+<p>Because we choose any <span class="math inline">\(n \in \mathbb{P}\)</span> then <span class="math inline">\(\mathscr{D}(F) = \mathbb{P}\)</span>. Also, <span class="math inline">\(F(1) = f(1)\)</span> for some <span class="math inline">\(1\)</span>-admissible function <span class="math inline">\(f\)</span>. But, <span class="math inline">\(f(1) = c\)</span>. Hence we have that <span class="math inline">\(F(1) = c\)</span>.</p>
+<p>In addition, <span class="math inline">\(F(S(n)) = f(S(n))\)</span> for some <span class="math inline">\(S(n)\)</span>-admissible function <span class="math inline">\(f\)</span>. By a. <span class="math inline">\(f\)</span> is also <span class="math inline">\(n\)</span>-admissible where <span class="math inline">\(F(n) = f(n)\)</span>. Also since <span class="math inline">\(f\)</span> is <span class="math inline">\(S(n)\)</span>-admissible, <span class="math inline">\(f(S(n)) = g(f(n))\)</span> we have that <span class="math inline">\(F(S(n)) = g(F(n))\)</span>.</p>
+<p>Therefore conditions a. and b. in <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> are satisfied by <span class="math inline">\(F\)</span>.</p>
+<p>We must still show that the range of <span class="math inline">\(F\)</span> is included in <span class="math inline">\(W\)</span>. Because for any <span class="math inline">\(n \in \mathbb{P}\)</span>, <span class="math inline">\(F(n) = f(n)\)</span> for some <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span>. Since <span class="math inline">\(\mathscr{R}(f) \subseteq W\)</span>, it follows that <span class="math inline">\(F(n) \in W\)</span> for any <span class="math inline">\(n \in \mathbb{P}\)</span>.</p></li>
 </ol></li>
 </ol></li>
-<li><p>Uniqueness of <span class="math inline">\(F\)</span></p></li>
+<li><p>Uniqueness of <span class="math inline">\(F\)</span></p>
+<p>Assume <span class="math inline">\(F_1\)</span> and <span class="math inline">\(F_2\)</span> are functions from <span class="math inline">\(\mathbb{P}\)</span> into <span class="math inline">\(W\)</span> satisfying conditions a. and b. in <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>.</p>
+<p>Let <span class="math inline">\(K = \{ n \in \mathbb{P} \mid \land F_1(n) = F_2(n) \}\)</span>.</p>
+<p>First, <span class="math inline">\(1 \in K\)</span> because <span class="math inline">\(F_1(1) = c = F_2(1)\)</span>.</p>
+<p>Second, assume <span class="math inline">\(n \in K\)</span> so <span class="math inline">\(F_1(n) = F_2(n)\)</span>.</p>
+<p>Third, let <span class="math inline">\(F_1(S(n))\)</span> then <span class="math inline">\(F_1(S(n)) = g(F_1(n))\)</span>. Therefore <span class="math inline">\(g(F_1(n)) = g(F_2(n))\)</span> which means that <span class="math inline">\(g(F_2(n)) = F_2(S(n))\)</span>. So <span class="math inline">\(F_1(S(n)) = F_2(S(n))\)</span>.</p>
+<p>By <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii <span class="math inline">\(K = \mathbb{P}\)</span> so for all <span class="math inline">\(n \in \mathbb{P}\)</span> we have that <span class="math inline">\(F_1(S(n)) = F_2(S(n))\)</span>. Also <span class="math inline">\(\mathscr{D}(F_1) = \mathscr{D}(F_2)\)</span> so by <a href="chapter_1.html#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(F_1 = F_2\)</span>.</p></li>
 </ul>
 </div>
 
