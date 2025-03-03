@@ -554,7 +554,7 @@ By @thm-positive-integers-equinumerous-proper-subset $\mathbb{P}$ is equinumerou
 
 :::
 
-::: {def-denumerable-set}
+::: {#def-denumerable-set}
 
 ## Denumerable set
 
@@ -562,14 +562,15 @@ A set $B$ is said to be denumerable if and only if $B \approx \mathbb{P}$
 
 **Note**: Any set $A$ that is equinumerous with a denumerable set $B$ is denumerable becuase $A \approx B$ and $B \approx \mathbb{P}$ by @thm-equinumerous-equivalence-relation c. implies $A \approx \mathbb{P}$. 
 
-Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \subset B$. Furthermore because $B$ is denumerable it exists $F$ such that $F: B \xrightarrow[onto]{1-1} \mathbb{P}$. Lets define ${F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}$. Therefore $B^* \approx \mathbb{P} - \{ 1 \}$ but $\mathbb{P} - \{ 1 \} \approx \mathbb{P}$ and $\mathbb{P} \approx B$, which means that $B^* \approx B$. So by @thm-positive-integers-equinumerous-proper-subset, @cor-positive-integers-infinite-set and the contrapositive of @thm-not-equinumerous-with-proper-subsets-finite-set every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite[^appendix_d-2]. 
+Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \subset B$. Furthermore because $B$ is denumerable it exists $F$ such that $F: B \xrightarrow[onto]{1-1} \mathbb{P}$. Lets define ${F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}$. Therefore $B^* \approx \mathbb{P} - \{ 1 \}$ but $\mathbb{P} - \{ 1 \} \approx \mathbb{P}$ and $\mathbb{P} \approx B$, which means that $B^* \approx B$. So by @thm-positive-integers-equinumerous-proper-subset, @cor-positive-integers-infinite-set and the contrapositive of @thm-not-equinumerous-with-proper-subsets-finite-set every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite[^appendix_d-3].
+
 :::
 
-[^appendix_d-2]: A denumerable set must be distinguished from a **denumerable sequence**. The latter is a function $a: \mathbb{P} \xrightarrow[onto]{1-1} A$
+[^appendix_d-3]: A denumerable set must be distinguished from a **denumerable sequence**. The latter is a function $a: \mathbb{P} \xrightarrow[onto]{1-1} A$
 
 ::: {#exr-denumerable-sets}
 
-1. Prove that any infinite set $B$ contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function $\psi$ such that $\psi(D) \in D$ for all non empty subsets $D$ of $B$. Define, by the Iteration Theorem **Pending reference Chapter 2**, a function $\theta: \mathbb{P} \longrightarrow B$ such that $\theta(1) = \psi(B)$ and $\theta(n+1) = \psi(B - \theta(n))$. Then $\theta: \mathbb{P} \xrightarrow[]{1-1} B$ and $\mathscr{R}(\theta)$ is a denumerable subset of $B$).
+1. Prove that any infinite set $B$ contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function $\psi$ such that $\psi(D) \in D$ for all non empty subsets $D$ of $B$. Define, by @thm-iteration-theorem, a function $\theta: \mathbb{P} \longrightarrow B$ such that $\theta(1) = \psi(B)$ and $\theta(n+1) = \psi(B - \theta(n))$. Then $\theta: \mathbb{P} \xrightarrow[]{1-1} B$ and $\mathscr{R}(\theta)$ is a denumerable subset of $B$).
 
 2. Show that any infinite set $B$ is equinumerous with a proper subset of itself. (Hint: By @exr-denumerable-sets 1. let $D$ be an infinite denumerable subset of $B$. Let $\varphi$ be a one-one correspondance between $D$ and a proper subset of $D$. Extend $\varphi$ to a function $\varphi^*$ defined on $B$ by letting $\varphi^*(u) = u$ for any $u \in B - D$. The $\varphi^*$ is a one-one correspondence between $B$ and a proper subset of itself.)
 
@@ -577,4 +578,35 @@ Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \sub
 
 ::: {#sol-denumerable-sets}
 
+1. There is a problem with the hint because $B - \theta(n)$ is not well define. But the general idea of the hint is correct. 
+
+   By the axiom of choice let $S = \{D \subseteq B \mid D \neq \emptyset \}$. So there exists a function $\psi$ such that $\psi: S \longrightarrow \bigcup S$ where $\psi(D) \in D$ and $\bigcup S \subseteq B$.
+
+   By @thm-iteration-theorem define a function $\theta: \mathbb{P} \longrightarrow B$ such that:
+  
+     a. $\theta(1) = \psi(B)$ where $\psi(B) \in B$
+     b. $\theta(n + 1) = g(\theta(n)) = \psi(B - \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq n \})$
+  
+   Then $\theta: \mathbb{P} \longrightarrow B$. 
+   Let's prove $\theta$ is one-one. Assume $\theta(n) = \theta(m)$ and $n \neq m$. Without loss of generality assume $n < m$. Therefore $\theta(m) = \psi(B - \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \})$ so $\theta(m) \not \in \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \}$. However $n \leq m-1$ so $\theta(n) \in \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \}$. But $\theta(n) = \theta(m)$ so there is a contradiction because we also have that $\theta(m) \in \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \}$. Therefore is must be the case that $\theta(n) = \theta(m) \Longrightarrow n = m)$ or that $\theta$ is one-one. That is, $\theta: \mathbb{P} \xrightarrow[]{1-1} B$.
+
+   Using the above result $\theta: \mathbb{P} \xrightarrow[onto]{1-1} \mathscr{R}(\theta)$ where $\mathscr{R}(\theta) \subseteq B$ so $\mathscr{R}(\theta)$ is a denumerable set.
+
+2. If $B$ is infinite then by @exr-denumerable-sets 1 there is denumerable subset $D$ such that $D \subseteq B$.
+
+   In case $D = B$ the $D \approx B$ so $B$ is denumerable and by @def-denumerable-set there is some $C \subset B$ such that $C \approx B$.
+   
+   In case $D \subset B$ then by @def-denumerable-set there is some $C$ such that $C \subset D$ and some function $\varphi$ such that $\varphi: C \xrightarrow[onto]{1-1} D$. Now let $\varphi^*$ such that:
+   
+   $$\varphi^*(u) = \begin{cases}
+                    \varphi(u) & \text{if } u \in C \\
+                    u          & \text{if } u \in B - D
+                    \end{cases}$$
+   
+   First, $\varphi^*$ is one-one because if $\varphi^*(u) = \varphi^*(v)$ then $\varphi(u) = \varphi(v)$ but $\varphi$ is one-one so $u = v$ or $u = v$. Therefore in any case $u = v$.
+   
+   Second, $\varphi^*$ is onto because if $u \in B$ then $u \in D$ or $u \in B - D$. So if $u \in D$ because $\varphi$ is onto there exist some $c \in C$ such that $\varphi(c) = u$. Also if $u \in B - D$ then $\varphi^*(u) = u$.
+   
+   Therefore we have that $\varphi^*(u): C \cup (B - D) \xrightarrow[onto]{1-1} B$ where $C \cup (B - D) \subset B$.
+  
 :::
