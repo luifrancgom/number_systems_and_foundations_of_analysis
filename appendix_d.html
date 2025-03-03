@@ -255,14 +255,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#denumerable-set" id="toc-denumerable-set" class="nav-link active" data-scroll-target="#denumerable-set"><span class="header-section-number">D.1</span> Denumerable set</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -684,21 +678,41 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-positive-integers-equinumerous-proper-subset" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> <span class="math inline">\(\mathbb{P}\)</span> is equinumerous with a proper subset of itself. Therefore by the contrapositive of <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> <span class="math inline">\(\mathbb{P}\)</span> must be infinite.</p>
 </div>
-<section id="denumerable-set" class="level2 {def-denumerable-set}" data-number="D.1">
-<h2 data-number="D.1" class="anchored" data-anchor-id="denumerable-set"><span class="header-section-number">D.1</span> Denumerable set</h2>
-<p>A set <span class="math inline">\(B\)</span> is said to be denumerable if and only if <span class="math inline">\(B \approx \mathbb{P}\)</span></p>
+<div id="def-denumerable-set" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition D.4 (Denumerable set)</strong></span> A set <span class="math inline">\(B\)</span> is said to be denumerable if and only if <span class="math inline">\(B \approx \mathbb{P}\)</span></p>
 <p><strong>Note</strong>: Any set <span class="math inline">\(A\)</span> that is equinumerous with a denumerable set <span class="math inline">\(B\)</span> is denumerable becuase <span class="math inline">\(A \approx B\)</span> and <span class="math inline">\(B \approx \mathbb{P}\)</span> by <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> c.&nbsp;implies <span class="math inline">\(A \approx \mathbb{P}\)</span>.</p>
 <p>Also if <span class="math inline">\(B\)</span> is denumerable let <span class="math inline">\(B^* = B - \{ x \}\)</span> where <span class="math inline">\(x \in B\)</span>. So <span class="math inline">\(B^* \subset B\)</span>. Furthermore because <span class="math inline">\(B\)</span> is denumerable it exists <span class="math inline">\(F\)</span> such that <span class="math inline">\(F: B \xrightarrow[onto]{1-1} \mathbb{P}\)</span>. Lets define <span class="math inline">\({F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}\)</span>. Therefore <span class="math inline">\(B^* \approx \mathbb{P} - \{ 1 \}\)</span> but <span class="math inline">\(\mathbb{P} - \{ 1 \} \approx \mathbb{P}\)</span> and <span class="math inline">\(\mathbb{P} \approx B\)</span>, which means that <span class="math inline">\(B^* \approx B\)</span>. So by <a href="#thm-positive-integers-equinumerous-proper-subset" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a>, <a href="#cor-positive-integers-infinite-set" class="quarto-xref">Corollary&nbsp;<span>D.3</span></a> and the contrapositive of <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
-</section>
+</div>
 <div id="exr-denumerable-sets" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise D.4</strong></span> &nbsp;</p>
 <ol type="1">
-<li><p>Prove that any infinite set <span class="math inline">\(B\)</span> contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi(D) \in D\)</span> for all non empty subsets <span class="math inline">\(D\)</span> of <span class="math inline">\(B\)</span>. Define, by the Iteration Theorem <strong>Pending reference Chapter 2</strong>, a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that <span class="math inline">\(\theta(1) = \psi(B)\)</span> and <span class="math inline">\(\theta(n+1) = \psi(B - \theta(n))\)</span>. Then <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(\mathscr{R}(\theta)\)</span> is a denumerable subset of <span class="math inline">\(B\)</span>).</p></li>
+<li><p>Prove that any infinite set <span class="math inline">\(B\)</span> contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi(D) \in D\)</span> for all non empty subsets <span class="math inline">\(D\)</span> of <span class="math inline">\(B\)</span>. Define, by <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>, a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that <span class="math inline">\(\theta(1) = \psi(B)\)</span> and <span class="math inline">\(\theta(n+1) = \psi(B - \theta(n))\)</span>. Then <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(\mathscr{R}(\theta)\)</span> is a denumerable subset of <span class="math inline">\(B\)</span>).</p></li>
 <li><p>Show that any infinite set <span class="math inline">\(B\)</span> is equinumerous with a proper subset of itself. (Hint: By <a href="#exr-denumerable-sets" class="quarto-xref">Exercise&nbsp;<span>D.4</span></a> 1. let <span class="math inline">\(D\)</span> be an infinite denumerable subset of <span class="math inline">\(B\)</span>. Let <span class="math inline">\(\varphi\)</span> be a one-one correspondance between <span class="math inline">\(D\)</span> and a proper subset of <span class="math inline">\(D\)</span>. Extend <span class="math inline">\(\varphi\)</span> to a function <span class="math inline">\(\varphi^*\)</span> defined on <span class="math inline">\(B\)</span> by letting <span class="math inline">\(\varphi^*(u) = u\)</span> for any <span class="math inline">\(u \in B - D\)</span>. The <span class="math inline">\(\varphi^*\)</span> is a one-one correspondence between <span class="math inline">\(B\)</span> and a proper subset of itself.)</p></li>
 </ol>
 </div>
 <div id="sol-denumerable-sets" class="proof solution">
 <p><span class="proof-title"><em>Solution D.4</em>. </span></p>
+<ol type="1">
+<li><p>There is a problem with the hint because <span class="math inline">\(B - \theta(n)\)</span> is not well define. But the general idea of the hint is correct.</p>
+<p>By the axiom of choice let <span class="math inline">\(S = \{D \subseteq B \mid D \neq \emptyset \}\)</span>. So there exists a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi: S \longrightarrow \bigcup S\)</span> where <span class="math inline">\(\psi(D) \in D\)</span> and <span class="math inline">\(\bigcup S \subseteq B\)</span>.</p>
+<p>By <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> define a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that:</p>
+<ol type="a">
+<li><span class="math inline">\(\theta(1) = \psi(B)\)</span> where <span class="math inline">\(\psi(B) \in B\)</span></li>
+<li><span class="math inline">\(\theta(n + 1) = g(\theta(n)) = \psi(B - \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq n \})\)</span></li>
+</ol>
+<p>Then <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span>. Let’s prove <span class="math inline">\(\theta\)</span> is one-one. Assume <span class="math inline">\(\theta(n) = \theta(m)\)</span> and <span class="math inline">\(n \neq m\)</span>. Without loss of generality assume <span class="math inline">\(n &lt; m\)</span>. Therefore <span class="math inline">\(\theta(m) = \psi(B - \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \})\)</span> so <span class="math inline">\(\theta(m) \not \in \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \}\)</span>. However <span class="math inline">\(n \leq m-1\)</span> so <span class="math inline">\(\theta(n) \in \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \}\)</span>. But <span class="math inline">\(\theta(n) = \theta(m)\)</span> so there is a contradiction because we also have that <span class="math inline">\(\theta(m) \in \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq m-1 \}\)</span>. Therefore is must be the case that <span class="math inline">\(\theta(n) = \theta(m) \Longrightarrow n = m)\)</span> or that <span class="math inline">\(\theta\)</span> is one-one. That is, <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[]{1-1} B\)</span>.</p>
+<p>Using the above result <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[onto]{1-1} \mathscr{R}(\theta)\)</span> where <span class="math inline">\(\mathscr{R}(\theta) \subseteq B\)</span> so <span class="math inline">\(\mathscr{R}(\theta)\)</span> is a denumerable set.</p></li>
+<li><p>If <span class="math inline">\(B\)</span> is infinite then by <a href="#exr-denumerable-sets" class="quarto-xref">Exercise&nbsp;<span>D.4</span></a> 1 there is denumerable subset <span class="math inline">\(D\)</span> such that <span class="math inline">\(D \subseteq B\)</span>.</p>
+<p>In case <span class="math inline">\(D = B\)</span> the <span class="math inline">\(D \approx B\)</span> so <span class="math inline">\(B\)</span> is denumerable and by <a href="#def-denumerable-set" class="quarto-xref">Definition&nbsp;<span>D.4</span></a> there is some <span class="math inline">\(C \subset B\)</span> such that <span class="math inline">\(C \approx B\)</span>.</p>
+<p>In case <span class="math inline">\(D \subset B\)</span> then by <a href="#def-denumerable-set" class="quarto-xref">Definition&nbsp;<span>D.4</span></a> there is some <span class="math inline">\(C\)</span> such that <span class="math inline">\(C \subset D\)</span> and some function <span class="math inline">\(\varphi\)</span> such that <span class="math inline">\(\varphi: C \xrightarrow[onto]{1-1} D\)</span>. Now let <span class="math inline">\(\varphi^*\)</span> such that:</p>
+<p><span class="math display">\[\varphi^*(u) = \begin{cases}
+                 \varphi(u) &amp; \text{if } u \in C \\
+                 u          &amp; \text{if } u \in B - D
+                 \end{cases}\]</span></p>
+<p>First, <span class="math inline">\(\varphi^*\)</span> is one-one because if <span class="math inline">\(\varphi^*(u) = \varphi^*(v)\)</span> then <span class="math inline">\(\varphi(u) = \varphi(v)\)</span> but <span class="math inline">\(\varphi\)</span> is one-one so <span class="math inline">\(u = v\)</span> or <span class="math inline">\(u = v\)</span>. Therefore in any case <span class="math inline">\(u = v\)</span>.</p>
+<p>Second, <span class="math inline">\(\varphi^*\)</span> is onto because if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(u \in D\)</span> or <span class="math inline">\(u \in B - D\)</span>. So if <span class="math inline">\(u \in D\)</span> because <span class="math inline">\(\varphi\)</span> is onto there exist some <span class="math inline">\(c \in C\)</span> such that <span class="math inline">\(\varphi(c) = u\)</span>. Also if <span class="math inline">\(u \in B - D\)</span> then <span class="math inline">\(\varphi^*(u) = u\)</span>.</p>
+<p>Therefore we have that <span class="math inline">\(\varphi^*(u): C \cup (B - D) \xrightarrow[onto]{1-1} B\)</span> where <span class="math inline">\(C \cup (B - D) \subset B\)</span>.</p></li>
+</ol>
 </div>
 
 
@@ -723,7 +737,7 @@ Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San 
 <hr>
 <ol>
 <li id="fn1"><p>For another proof of <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> check out <span class="citation" data-cites="halevi_fraenkel_abstract_1961">(<a href="references.html#ref-halevi_fraenkel_abstract_1961" role="doc-biblioref">Halevi Fraenkel 1961, 12:73–77</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>A denumerable set must be distinguished from a <strong>denumerable sequence</strong>. The latter is a function <span class="math inline">\(a: \mathbb{P} \xrightarrow[onto]{1-1} A\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In the case of cardinal numbers if <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> are cardinal numbers then <span class="math inline">\(\mathfrak{m} {\leq}_K \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{m} {\geq}_K \mathfrak{n}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>A denumerable set must be distinguished from a <strong>denumerable sequence</strong>. The latter is a function <span class="math inline">\(a: \mathbb{P} \xrightarrow[onto]{1-1} A\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
