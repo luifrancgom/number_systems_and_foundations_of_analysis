@@ -714,6 +714,29 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <p>Therefore we have that <span class="math inline">\(\varphi^*(u): C \cup (B - D) \xrightarrow[onto]{1-1} B\)</span> where <span class="math inline">\(C \cup (B - D) \subset B\)</span>.</p></li>
 </ol>
 </div>
+<div id="thm-finite-set-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem D.8</strong></span> Assume that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are finite. Then</p>
+<ol type="a">
+<li><span class="math inline">\(A \cap B\)</span> is finite</li>
+<li><span class="math inline">\(A \cup B\)</span> is finite</li>
+<li><span class="math inline">\(A \times B\)</span> is finite</li>
+<li><span class="math inline">\(\mathscr{P}(A)\)</span> is finite</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>Because <span class="math inline">\(A \cap B \subseteq A\)</span> and <span class="math inline">\(A\)</span> is finite then by <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b <span class="math inline">\(A \cap B\)</span> is finite.</p></li>
+<li><p>Let <span class="math inline">\(A\)</span> be finite. Then <span class="math inline">\(B = \emptyset\)</span> or <span class="math inline">\(B \approx P_n\)</span>.</p>
+<p>If <span class="math inline">\(B = \emptyset\)</span> then <span class="math inline">\(A \cap B = \emptyset\)</span> so <span class="math inline">\(A \cap B\)</span> is finite.</p>
+<p>If <span class="math inline">\(B \approx P_n\)</span> then we use <a href="chapter_2.html#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
+<ul>
+<li><p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: Then <span class="math inline">\(B = \{ y \}\)</span> for some <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\(A \cup B = A \cup \{ y \}\)</span>. By <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> a <span class="math inline">\(A \cup B\)</span> is finite.</p></li>
+<li><p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume that <span class="math inline">\(B \approx P_k\)</span> then if <span class="math inline">\(A \cup B\)</span> is finite.</p></li>
+<li><p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Let <span class="math inline">\(B \approx P_{k+1}\)</span>. Therefore there is some <span class="math inline">\(\theta: B \xrightarrow[onto]{1-1} P_{k+1}\)</span>. By <a href="chapter_1.html#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> <span class="math inline">\(\theta^{-1}: P_{k+1} \xrightarrow[onto]{1-1} B\)</span>. Therefore we can define <span class="math inline">\(B^* = B - \{ \theta^{-1}(k+1)\}\)</span> so <span class="math inline">\(B^* \approx P_k\)</span> and <span class="math inline">\(A \cup B^*\)</span> is finite by the induction hypothesis. By <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> a because <span class="math inline">\(A \cup B = (A \cup B^*) \cup \{ \theta^{-1}(k+1)\}\)</span> then <span class="math inline">\(A \cup B\)</span> is finite.</p></li>
+</ul></li>
+</ol>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
