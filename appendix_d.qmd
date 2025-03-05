@@ -610,3 +610,32 @@ Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \sub
    Therefore we have that $\varphi^*(u): C \cup (B - D) \xrightarrow[onto]{1-1} B$ where $C \cup (B - D) \subset B$.
   
 :::
+
+::: {#thm-finite-set-2}
+
+Assume that $A$ and $B$ are finite. Then
+
+a. $A \cap B$ is finite
+b. $A \cup B$ is finite
+c. $A \times B$ is finite
+d. $\mathscr{P}(A)$ is finite
+
+:::
+
+::: {.proof}
+
+a. Because $A \cap B \subseteq A$ and $A$ is finite then by @thm-finite-set b $A \cap B$ is finite.
+
+b. Let $A$ be finite. Then $B = \emptyset$ or $B \approx P_n$.
+
+   If $B = \emptyset$ then $A \cap B = \emptyset$ so $A \cap B$ is finite.
+   
+   If $B \approx P_n$ then we use @def-peano-system iii.
+   
+     - *Base step* $(n = 1)$: Then $B = \{ y \}$ for some $y$. Therefore $A \cup B = A \cup \{ y \}$. By @thm-finite-set a $A \cup B$ is finite.
+     
+     - *Induction hypothesis* $(n \leq k)$: Assume that $B \approx P_k$ then if $A \cup B$ is finite.
+     
+     - *Induction step* $(n = k + 1)$: Let $B \approx P_{k+1}$. Therefore there is some $\theta: B \xrightarrow[onto]{1-1} P_{k+1}$. By @thm-inverse-function-as-a-function $\theta^{-1}: P_{k+1} \xrightarrow[onto]{1-1} B$. Therefore we can define $B^* = B - \{ \theta^{-1}(k+1)\}$ so $B^* \approx P_k$ and $A \cup B^*$ is finite by the induction hypothesis. By @thm-finite-set a because $A \cup B = (A \cup B^*) \cup \{ \theta^{-1}(k+1)\}$ then $A \cup B$ is finite. 
+
+:::
