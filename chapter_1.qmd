@@ -4282,13 +4282,19 @@ By @thm-equality-equivalence-classes let $[x] \neq [y]$ then $\neg(xRy)$ and $\n
 
 ::: {#def-function}
 
-## Function
+## Function 
 
-By a function we mean a relation $F$ having the additional property:
+If $X$ and $Y$ are sets, a function from $X$ to $Y$ is a relation $F \subseteq X \times Y$ with $\mathscr{D}(F) = X$ such that (See [@halmos_naive_2017, p. 30] and [@enderton_elements_2009, pp. 42-43]:
 
-$$(xFy \land xFz) \Longrightarrow y = z$$
+1. $\forall x (x \in X \Longrightarrow \exists y (y \in Y \land (x, y) \in F))$
 
-**Note**: This means that there can not be 2 ordered pairs in $F$ having the same first component but different second components.
+2. $\forall x \forall y \forall z ((x \in X \land y \in Y \land z \in Y \land (x, y) \in F \land (x, z) \in F) \Longrightarrow y = z)$
+
+**Note 1**: The first part refers to existence and the second part refers to uniqueness.
+
+**Note 2**: This means that $F: X \longrightarrow \emptyset$ where $X \neq \emptyset$ is not a function because for $x \in X$ there is no $y \in Y$ such that $(x, y) \in Y$.
+
+**Note 3**: This means that there can not be 2 ordered pairs in $F$ having the same first component but different second components.
 
 :::
 
