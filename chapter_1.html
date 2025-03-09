@@ -5259,9 +5259,14 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="functions" class="level3" data-number="1.3.9">
 <h3 data-number="1.3.9" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.3.9</span> Functions</h3>
 <div id="def-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.49 (Function)</strong></span> By a function we mean a relation <span class="math inline">\(F\)</span> having the additional property:</p>
-<p><span class="math display">\[(xFy \land xFz) \Longrightarrow y = z\]</span></p>
-<p><strong>Note</strong>: This means that there can not be 2 ordered pairs in <span class="math inline">\(F\)</span> having the same first component but different second components.</p>
+<p><span class="theorem-title"><strong>Definition 1.49 (Function)</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are sets, a function from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> is a relation <span class="math inline">\(F \subseteq X \times Y\)</span> with <span class="math inline">\(\mathscr{D}(F) = X\)</span> such that (See <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 30</a>)</span> and <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 42–43</a>)</span>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\forall x (x \in X \Longrightarrow \exists y (y \in Y \land (x, y) \in F))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \forall y \forall z ((x \in X \land y \in Y \land z \in Y \land (x, y) \in F \land (x, z) \in F) \Longrightarrow y = z)\)</span></p></li>
+</ol>
+<p><strong>Note 1</strong>: The first part refers to existence and the second part refers to uniqueness.</p>
+<p><strong>Note 2</strong>: This means that <span class="math inline">\(F: X \longrightarrow \emptyset\)</span> where <span class="math inline">\(X \neq \emptyset\)</span> is not a function because for <span class="math inline">\(x \in X\)</span> there is no <span class="math inline">\(y \in Y\)</span> such that <span class="math inline">\((x, y) \in Y\)</span>.</p>
+<p><strong>Note 3</strong>: This means that there can not be 2 ordered pairs in <span class="math inline">\(F\)</span> having the same first component but different second components.</p>
 </div>
 <p>A function <span class="math inline">\(F\)</span>, being a relation, has a domain, namely the set of first components or ordered pairs in <span class="math inline">\(F\)</span>. Notice that for each element <span class="math inline">\(x\)</span> of the domain of <span class="math inline">\(F\)</span>, there is one and only one object <span class="math inline">\(y\)</span> such that <span class="math inline">\(xFy\)</span>. This unique object <span class="math inline">\(y\)</span> shall be denoted <span class="math inline">\(F(x)\)</span>.</p>
 <p>Let us introduce the following notation for functions:</p>
@@ -5926,6 +5931,9 @@ Dawson, John W. 2015. <em>Why <span>Prove</span> It <span>Again</span>?: <span>A
 </div>
 <div id="ref-egre_logic_2021" class="csl-entry" role="listitem">
 Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Conditionals</span>.”</span> In <em>The <span>Stanford</span> <span>Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta, Winter 2021. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/">https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/</a>.
+</div>
+<div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
+Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
 </div>
 <div id="ref-fagin_reasoning_1995" class="csl-entry" role="listitem">
 Fagin, Ronald, ed. 1995. <em>Reasoning about Knowledge</em>. Cambridge, Mass: MIT Press.
