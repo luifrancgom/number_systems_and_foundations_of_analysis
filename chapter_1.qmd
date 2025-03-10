@@ -4284,7 +4284,7 @@ By @thm-equality-equivalence-classes let $[x] \neq [y]$ then $\neg(xRy)$ and $\n
 
 ## Function 
 
-If $X$ and $Y$ are sets, a function from $X$ to $Y$ is a relation $F \subseteq X \times Y$ with $\mathscr{D}(F) = X$ such that (See [@halmos_naive_2017, p. 30] and [@enderton_elements_2009, pp. 42-43]:
+If $X$ and $Y$ are sets, a function from $X$ to $Y$ is a relation $F \subseteq X \times Y$ with $\mathscr{D}(F) = X$ such that (See [@halmos_naive_2017, p. 30], [@enderton_elements_2009, pp. 42-43] and [@bourbaki_theory_2004, pp. 75-82]:
 
 1. $\forall x (x \in X \Longrightarrow \exists y (y \in Y \land (x, y) \in F))$
 
