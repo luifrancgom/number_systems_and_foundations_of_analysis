@@ -502,7 +502,7 @@ c. If $D \leq B$ then $F: D \xrightarrow[]{1-1} B$ where $\mathscr{R}(F) \subset
 
 :::
 
-::: {#sol-finite-set}
+::: {#sol-finite-infinite-set}
 
 1. Using @thm-finite-set b we can use its contraposition and @def-infinite-set. That is, $B$ is finite then $B$ is finite or $D \not \subseteq B$. But $D \subseteq B$ so it must be the case that $B$ is finite. 
 
@@ -662,6 +662,76 @@ d. Let $A$ be finite. Then $A = \emptyset$ or $A \approx P_n$.
 
      - *Induction step* $(n = k + 1)$: Let $A \approx P_{k+1}$. Therefore there is some $\theta: A \xrightarrow[onto]{1-1} P_{k+1}$. By @thm-inverse-function-as-a-function $\theta^{-1}: P_{k+1} \xrightarrow[onto]{1-1} A$. Therefore we can define $A^* = A - \{ \theta^{-1}(k+1)\}$ so $A^* \approx P_k$. By the inductive hypothesis $\mathscr{P}(A^*)$ is finite.
        
-       Let $B = \mathscr{P}(A) - \mathscr{P}(A^*)$. So the sets in $B$ are those subsets of $A$ containing $\theta^{-1}(k+1)$. 
+       Let $B = \mathscr{P}(A) - \mathscr{P}(A^*)$. So the sets in $B$ are those subsets of $A$ containing $\theta^{-1}(k+1)$. We can define the function $\Psi$ from $\mathscr{P}(A^*)$ to $B$ is the following way, $\Psi(C) = C \cup \{ \theta^{-1}(k+1)\}$ for $C \in \mathscr{P}(A^*)$. 
+       
+          - Therefore if $\Psi(C) = \Psi(D)$ then $C \cup \{ \theta^{-1}(k+1) \} = D \cup \{ \theta^{-1}(k+1)\}$. But $\theta^{-1}(k+1) \not \in C$ and $\theta^{-1}(k+1) \not \in D$ so $C = D$. Also if $C \cup \{ \theta^{-1}(k+1) \} \in B$ there is always a $C \in \mathscr{P}(A^*)$ such that $\Psi(C) = C \cup \{ \theta^{-1}(k+1) \}$.
+          
+          - So, $\Psi: \mathscr{P}(A^*) \xrightarrow[onto]{1-1} B$. But $\mathscr{P}(A^*) \approx P_n$ which means that $B \approx P_n$.
+
+       Because $B$ is finite, $\mathscr{P}(A^*)$ is finite and $\mathscr{P}(A) = \mathscr{P}(A^*) \cup B$ by @thm-finite-set-2 $\mathscr{P}(A)$ is also finite.
+:::
+
+::: {#def-set-all-functions}
+
+## Set of all functions from $B$ into $A$
+
+For any sets $A$ and $B$, let:
+
+$$A^B = \{ f \mid f: B \longrightarrow A \}$$
+Thus, $A^B$ is the set of all functions from $B$ into $A$
+
+:::
+
+::: {#cor-set-all-functions}
+
+If $A$ and $B$ are finite, so is $A^B$
+
+:::
+
+::: {.proof}
+
+If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \times A)$. Therefore $A^B \subseteq \mathscr{P}(B \times A)$. Because $B$ and $A$ is finite by @thm-finite-set-2 c $B \times A$ is finite so by @thm-finite-set-2 d $\mathscr{P}(B \times A)$ is also finite. Furthermore, because $A^B \subseteq \mathscr{P}(B \times A)$ by @thm-finite-set b $A^B$ is finite.
+
+**Note**: See @exr-function 5 for the number of functions from $B$ to $A$ when $B$ and $A$ are finite.
+
+:::
+
+::: {#exr-finite-sets}
+
+1. Assume that $A$ is a set of sets. Prove that $A$ is a finite set whose elements are finite sets if and only if $\bigcup_{B \in A} B$ is finite.
+
+2. If $\mathscr{P}(A)$ is finite, prove that $A$ is finite.
+
+3. If $A$ is finite and $B$ is any set prove the trichotomy property: $A \leq B$ or $A \geq B$.
+
+:::
+
+::: {#sol-finite-sets}
+
+1. We prove the result in 2 parts
+
+    - If $A$ is finite and $A \neq \emptyset$ then $A \approx P_n$. Also if $B \in A$ then $B \approx P_m$.
+    
+      So if $A \approx P_1$ then $A = \{ B_1 \}$ are $\bigcup_{B \in A} B = B_1$ will be finite
+      
+      If $A \approx P_n$ such that $n > 1$ then we can apply multiple times @thm-finite-set-2 b.
+    
+    - If $\bigcup_{B \in A} B$ then $B \subseteq \bigcup_{B \in A} B$ for each $B \in A$. Because $\bigcup_{B \in A} B$ is finite by @thm-finite-set b each $B \in A$ is finite.
+    
+      However there is a mistake in @exr-finite-sets because if  $\bigcup_{B \in A} B$ is finite $A$ need not to be finite. As a counterexample let $A = \{ B_i \mid B_i = \{ 1 \} \land i \in \mathbb{P} \}$ so $\bigcup_{B \in A} B = \{ 1 \}$ but $A$ is not finite.      
+
+2. Lets build a one-one function from $A$ into $\mathscr{P}(A)$ such that $F(a) = \{ a \}$ where $a \in A$. Therefore if $F(a) = F(b)$ then $\{ a \} = \{ b \}$ so $a = b$. This means that $A \leq \mathscr{P}(A)$ and because $\mathscr{P}(A)$ is finite by @thm-finite-set c $A$ is also finite.
+
+3. Because $A$ is finite then $A = \emptyset$ or $A \approx P_n$ for $n \in \mathbb{P}$.
+
+   We prove the result in 3 parts:
+   
+     - If $A = \emptyset$ then by @def-one-one-function we always have that $F: \emptyset \xrightarrow[]{1-1} B$ because the antecedent in the definition is always false. Therefore $\emptyset \leq B$.
+     
+       In case $B = emptyset$ then $\mathscr{R}(F) = \emptyset$ because $\mathscr{R}(F) = \{ y \mid \exists x ((x, y) \in F) \}$. But $F \subseteq \emptyset \times B = \emptyset$ so $F = \emptyset$. Also $F$ is a function because the antecedent in @def-function is always false. Therefore there is not $x$ such that $(x, y) \in F$ because $F = \emptyset$ so $\mathscr{R}(F) = \emptyset$. This means that in this case $F: \emptyset \xrightarrow[onto]{1-1} \emptyset$ so $\emtpyset \approx \emtpyset$. 
+     
+     - If $A \neq \emptyset$ and $B$ is finite
+     
+       
 
 :::
