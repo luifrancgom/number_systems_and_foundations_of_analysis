@@ -724,14 +724,18 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
 3. Because $A$ is finite then $A = \emptyset$ or $A \approx P_n$ for $n \in \mathbb{P}$.
 
-   We prove the result in 3 parts:
+   We prove the result in 4 parts:
    
      - If $A = \emptyset$ then by @def-one-one-function we always have that $F: \emptyset \xrightarrow[]{1-1} B$ because the antecedent in the definition is always false. Therefore $\emptyset \leq B$.
      
-       In case $B = emptyset$ then $\mathscr{R}(F) = \emptyset$ because $\mathscr{R}(F) = \{ y \mid \exists x ((x, y) \in F) \}$. But $F \subseteq \emptyset \times B = \emptyset$ so $F = \emptyset$. Also $F$ is a function because the antecedent in @def-function is always false. Therefore there is not $x$ such that $(x, y) \in F$ because $F = \emptyset$ so $\mathscr{R}(F) = \emptyset$. This means that in this case $F: \emptyset \xrightarrow[onto]{1-1} \emptyset$ so $\emtpyset \approx \emtpyset$. 
-     
-     - If $A \neq \emptyset$ and $B$ is finite
-     
+       In case $B = \emptyset$ then $\mathscr{R}(F) = \emptyset$ because $\mathscr{R}(F) = \{ y \mid \exists x ((x, y) \in F) \}$. But $F \subseteq \emptyset \times B = \emptyset$ so $F = \emptyset$. Also $F$ is a function because the antecedents in @def-function are always false. This means that in this case $F: \emptyset \xrightarrow[onto]{1-1} \emptyset$ so $\emptyset \approx \emptyset$.
        
+     - If $A \neq \emptyset$ and $B = \emptyset$ we discard this case because $F: A \longrightarrow \emptyset$ is not a function by @def-function
+     
+     - If $A \neq \emptyset$, $B$ is finite and $B \neq \emptyset$ then $B \approx P_m$. Therefore depending if $n \leq m$ or $n \geq m$ we have that $A \leq B$ or $A \geq B$
+     
+     - If $A \neq \emptyset$ and $B$ is infinite then by @exr-denumerable-sets 1 there exist a denumerable set such that $D \subseteq$. Therefore we can select $n$ elements from $B$, $b_1, b_2, \ldots, b_n$ such that $F(a_i) = b_i$ where $a_i \in A$, $a_i = G(i)$, $i \in P_n$ and $G: P_n \xrightarrow[onto]{1-1} A$. Therefore $A \leq B$.
+
+4. See @sol-finite-sets 3
 
 :::
