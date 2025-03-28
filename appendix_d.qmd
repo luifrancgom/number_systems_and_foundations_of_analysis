@@ -704,6 +704,14 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
 3. If $A$ is finite and $B$ is any set prove the trichotomy property: $A \leq B$ or $A \geq B$.
 
+4. If $A$ is finite and $B$ is finite, prove that $A \leq B$.
+
+5. Prove the following statements:
+
+    a. Prove that a set $A$ is finite if and only if every non empty subset of $\mathscr{P}(A)$ has a minimal elements (with respect to $\subseteq$)
+    
+    b. Prove that a set $A$ is finite if and only if every nomempty subset of $\mathscr{P}(A)$ has a maximal elements (with respect to $\subseteq$)
+
 :::
 
 ::: {#sol-finite-sets}
@@ -712,7 +720,7 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
     - If $A$ is finite and $A \neq \emptyset$ then $A \approx P_n$. Also if $B \in A$ then $B \approx P_m$.
     
-      So if $A \approx P_1$ then $A = \{ B_1 \}$ are $\bigcup_{B \in A} B = B_1$ will be finite
+      So if $A \approx P_1$ and $A = \{ B_1 \}$ then $\bigcup_{B \in A} B = B_1$ will be finite
       
       If $A \approx P_n$ such that $n > 1$ then we can apply multiple times @thm-finite-set-2 b.
     
@@ -738,4 +746,41 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
 4. See @sol-finite-sets 3
 
+5. This definitions of finite set are known as Tarski-finite sets [@tarski_sur_1924, pp. 48-58]
+
+    a. Let $M \in \mathscr{P}(\mathscr{P}(A))$ such that $M \neq \emptyset$. Then $s \in M$ is $\subseteq$-minimal if $\forall m (m \in M \land m \subseteq s \Longrightarrow m = s)$
+    
+       First, assume that $A$ is finite. Then $\mathscr{P}(A)$ is finite by @thm-finite-set-2 d. If $M$ is a non empty subset of $\mathscr{P}(A)$ then $M \subseteq (\mathscr{P}(A)$ so by @thm-finite-set b $M$ is also finite. Furthermore if $m \in M$ then $m\subseteq A$ because $m \in \mathscr{P}(A)$ then by @thm-finite-set b every element in $M$ is a finite set. Now we prove that any $M$ that is a non empty subset of $\mathscr{P}(A)$ has a $s$ that is $\subseteq$-minimal by induction on the cardinal number of $M$. Assume $B = \{ n \in \mathbb{P} \mid \mathscr{K}(M) = n \land \exists s (s \in M \land s \text{ is } \subseteq \text{-minimal}) \}$  
+       
+          - *Base step* $(n = 1)$: Then $M = \{ m_1 \}$ so $m_1$ is $\subseteq$-minimal because $m_1 \subseteq m_1$ and $m_1 = m_1$ so $1 \in B$
+          
+          - *Induction hypothesis* $(n = k)$: Assume $k \in B$ so $\mathscr{K}(M) = k$ and has an $s$ that is $\subseteq$-minimal.
+          
+          - *Induction step* $(n = k + 1)$: Because $M = \{ m_1, \ldots, m_k, m_{k+1} \}$ then $M = M^* \cup \{ m_{k+1} \}$ where $M^* = \{ m_1, \ldots, m_k \}$. By the induction hypothesis $M^*$ has a $s^*$ that is $\subseteq$-minimal.
+          
+            Also we have that $s^* \subseteq  m_k$, $m_k \subseteq s^*$ or $s^* \not \subseteq  m_k \land m_k \not \subseteq s^*$. If $s^* \subseteq  m_k$ then $s^*$ is $\subseteq$-minimal of $M$, if $m_k \subseteq s^*$ then $m_k$ is $\subseteq$-minimal of $M$ and if $s^* \not \subseteq  m_k \land m_k \not \subseteq s^*$ then $s^*$ is $\subseteq$-minimal of $M$.
+            
+            Therefore by @def-peano-system iii we have that $B = \mathbb{P}$. So if $\mathscr{K}(A) = n$ every non empty subset of $\mathscr{P}(A)$ has a $\subseteq$-minimal element.
+
+       Second, assume that every non empty subset of $\mathscr{P}(A)$ has a $\subseteq$-minimal element. We can use the following result pointed out in [@herrlich_axiom_2006, p. 45].
+       
+          - If every non empty subset of $\mathscr{P}(A)$ has a $\subseteq$-minimal element then this statement is equivalent to:
+          
+             - If $\mathscr{U} \subseteq \mathscr{P}(A)$ satisfies $\emptyset \in \mathscr{U}$, $U \in \mathscr{U}$ and $a \in A$ implies $U \cup \{ a\} \in \mathscr{U}$ then $A \in \mathscr{U}$
+
+       Why? Let the collection $\mathscr{B} = \{ A - U \mid U \in \mathscr{U} \}$. Because $\mathscr{B} \subseteq \mathscr{P}(A)$ and $\emptyset \in \mathscr{U}$ so $A - \emptyset = A \in \mathscr{B}$ then $\mathscr{B}$ has a minimal element $B$. Because $B \in \mathscr{B}$ then $A - B \in \mathscr{U}$ and $A - B$ is a maximal element of $\mathscr{U}$.
+       
+          - $A - B$ must be a maximal element of $\mathscr{U}$ becuase if it was not the case there would be a $C$ such that $A - B \subseteq C$. This will mean that $A - C \subseteq A - (A - B) = B$. Therefore $C = B$ or $B$ will not be a minimal element of $\mathscr{B}$.
+          
+       Taking into account that $A - B$ is a maximal element of $\mathscr{U}$ where $A - B \in \mathscr{U}$ and that for any $U \in \mathscr{U}$ and $a \in A$ implies $U \cup \{ a \} \in \mathscr{U}$ it must be the case that $A - B = A$. Therefore $A \in \mathscr{U}$
+       
+          - The last result applies becuase if $b \in B$ then $A - B \cup \{ b\} \in \mathscr{U}$ and $A - B$ will not be a maximal element of $\mathscr{U}$.
+          
+       With this result we can use @nte-proof-by-reductio-ad-absurdum by assuming that that every non empty subset of $\mathscr{P}(A)$ has a $\subseteq$-minimal element and $A$ is infinite.
+       
+       Then let $\mathscr{U}$ be the finite subsets of $A$ because $\emptyset \in \mathscr{U}$  and if $U$ is finite then by @thm-finite-set a $U \cup \{ a \}$ where $a \in A$ is also finite so $A \in \mathscr{U}$. But we assume that $A$ is infinite, therefore there is a contradiction so it must be the case that $A$ is finite.
+       
+    b. Let $M \in \mathscr{P}(\mathscr{P}(A))$ such that $M \neq \emptyset$. Then $s \in M$ is $\subseteq$-maximal if $\forall m (m \in M \land s \subseteq m \Longrightarrow m = s)$
+
 :::
+ 
