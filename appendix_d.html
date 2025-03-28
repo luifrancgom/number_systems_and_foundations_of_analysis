@@ -776,6 +776,12 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <li><p>Assume that <span class="math inline">\(A\)</span> is a set of sets. Prove that <span class="math inline">\(A\)</span> is a finite set whose elements are finite sets if and only if <span class="math inline">\(\bigcup_{B \in A} B\)</span> is finite.</p></li>
 <li><p>If <span class="math inline">\(\mathscr{P}(A)\)</span> is finite, prove that <span class="math inline">\(A\)</span> is finite.</p></li>
 <li><p>If <span class="math inline">\(A\)</span> is finite and <span class="math inline">\(B\)</span> is any set prove the trichotomy property: <span class="math inline">\(A \leq B\)</span> or <span class="math inline">\(A \geq B\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> is finite and <span class="math inline">\(B\)</span> is finite, prove that <span class="math inline">\(A \leq B\)</span>.</p></li>
+<li><p>Prove the following statements:</p>
+<ol type="a">
+<li><p>Prove that a set <span class="math inline">\(A\)</span> is finite if and only if every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a minimal elements (with respect to <span class="math inline">\(\subseteq\)</span>)</p></li>
+<li><p>Prove that a set <span class="math inline">\(A\)</span> is finite if and only if every nomempty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a maximal elements (with respect to <span class="math inline">\(\subseteq\)</span>)</p></li>
+</ol></li>
 </ol>
 </div>
 <div id="sol-finite-sets" class="proof solution">
@@ -784,7 +790,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <li><p>We prove the result in 2 parts</p>
 <ul>
 <li><p>If <span class="math inline">\(A\)</span> is finite and <span class="math inline">\(A \neq \emptyset\)</span> then <span class="math inline">\(A \approx P_n\)</span>. Also if <span class="math inline">\(B \in A\)</span> then <span class="math inline">\(B \approx P_m\)</span>.</p>
-<p>So if <span class="math inline">\(A \approx P_1\)</span> then <span class="math inline">\(A = \{ B_1 \}\)</span> are <span class="math inline">\(\bigcup_{B \in A} B = B_1\)</span> will be finite</p>
+<p>So if <span class="math inline">\(A \approx P_1\)</span> and <span class="math inline">\(A = \{ B_1 \}\)</span> then <span class="math inline">\(\bigcup_{B \in A} B = B_1\)</span> will be finite</p>
 <p>If <span class="math inline">\(A \approx P_n\)</span> such that <span class="math inline">\(n &gt; 1\)</span> then we can apply multiple times <a href="#thm-finite-set-2" class="quarto-xref">Theorem&nbsp;<span>D.8</span></a> b.</p></li>
 <li><p>If <span class="math inline">\(\bigcup_{B \in A} B\)</span> then <span class="math inline">\(B \subseteq \bigcup_{B \in A} B\)</span> for each <span class="math inline">\(B \in A\)</span>. Because <span class="math inline">\(\bigcup_{B \in A} B\)</span> is finite by <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b each <span class="math inline">\(B \in A\)</span> is finite.</p>
 <p>However there is a mistake in <a href="#exr-finite-sets" class="quarto-xref">Exercise&nbsp;<span>D.5</span></a> because if <span class="math inline">\(\bigcup_{B \in A} B\)</span> is finite <span class="math inline">\(A\)</span> need not to be finite. As a counterexample let <span class="math inline">\(A = \{ B_i \mid B_i = \{ 1 \} \land i \in \mathbb{P} \}\)</span> so <span class="math inline">\(\bigcup_{B \in A} B = \{ 1 \}\)</span> but <span class="math inline">\(A\)</span> is not finite.</p></li>
@@ -800,6 +806,36 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <li><p>If <span class="math inline">\(A \neq \emptyset\)</span> and <span class="math inline">\(B\)</span> is infinite then by <a href="#exr-denumerable-sets" class="quarto-xref">Exercise&nbsp;<span>D.4</span></a> 1 there exist a denumerable set such that <span class="math inline">\(D \subseteq\)</span>. Therefore we can select <span class="math inline">\(n\)</span> elements from <span class="math inline">\(B\)</span>, <span class="math inline">\(b_1, b_2, \ldots, b_n\)</span> such that <span class="math inline">\(F(a_i) = b_i\)</span> where <span class="math inline">\(a_i \in A\)</span>, <span class="math inline">\(a_i = G(i)\)</span>, <span class="math inline">\(i \in P_n\)</span> and <span class="math inline">\(G: P_n \xrightarrow[onto]{1-1} A\)</span>. Therefore <span class="math inline">\(A \leq B\)</span>.</p></li>
 </ul></li>
 <li><p>See <a href="#sol-finite-sets" class="quarto-xref">Solution&nbsp;<span>D.5</span></a> 3</p></li>
+<li><p>This definitions of finite set are known as Tarski-finite sets <span class="citation" data-cites="tarski_sur_1924">(<a href="references.html#ref-tarski_sur_1924" role="doc-biblioref">Tarski 1924, 48–58</a>)</span></p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(M \in \mathscr{P}(\mathscr{P}(A))\)</span> such that <span class="math inline">\(M \neq \emptyset\)</span>. Then <span class="math inline">\(s \in M\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal if <span class="math inline">\(\forall m (m \in M \land m \subseteq s \Longrightarrow m = s)\)</span></p>
+<p>First, assume that <span class="math inline">\(A\)</span> is finite. Then <span class="math inline">\(\mathscr{P}(A)\)</span> is finite by <a href="#thm-finite-set-2" class="quarto-xref">Theorem&nbsp;<span>D.8</span></a> d.&nbsp;If <span class="math inline">\(M\)</span> is a non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> then <span class="math inline">\(M \subseteq (\mathscr{P}(A)\)</span> so by <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b <span class="math inline">\(M\)</span> is also finite. Furthermore if <span class="math inline">\(m \in M\)</span> then <span class="math inline">\(m\subseteq A\)</span> because <span class="math inline">\(m \in \mathscr{P}(A)\)</span> then by <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> b every element in <span class="math inline">\(M\)</span> is a finite set. Now we prove that any <span class="math inline">\(M\)</span> that is a non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(s\)</span> that is <span class="math inline">\(\subseteq\)</span>-minimal by induction on the cardinal number of <span class="math inline">\(M\)</span>. Assume <span class="math inline">\(B = \{ n \in \mathbb{P} \mid \mathscr{K}(M) = n \land \exists s (s \in M \land s \text{ is } \subseteq \text{-minimal}) \}\)</span></p>
+<ul>
+<li><p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: Then <span class="math inline">\(M = \{ m_1 \}\)</span> so <span class="math inline">\(m_1\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal because <span class="math inline">\(m_1 \subseteq m_1\)</span> and <span class="math inline">\(m_1 = m_1\)</span> so <span class="math inline">\(1 \in B\)</span></p></li>
+<li><p><em>Induction hypothesis</em> <span class="math inline">\((n = k)\)</span>: Assume <span class="math inline">\(k \in B\)</span> so <span class="math inline">\(\mathscr{K}(M) = k\)</span> and has an <span class="math inline">\(s\)</span> that is <span class="math inline">\(\subseteq\)</span>-minimal.</p></li>
+<li><p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Because <span class="math inline">\(M = \{ m_1, \ldots, m_k, m_{k+1} \}\)</span> then <span class="math inline">\(M = M^* \cup \{ m_{k+1} \}\)</span> where <span class="math inline">\(M^* = \{ m_1, \ldots, m_k \}\)</span>. By the induction hypothesis <span class="math inline">\(M^*\)</span> has a <span class="math inline">\(s^*\)</span> that is <span class="math inline">\(\subseteq\)</span>-minimal.</p>
+<p>Also we have that <span class="math inline">\(s^* \subseteq  m_k\)</span>, <span class="math inline">\(m_k \subseteq s^*\)</span> or <span class="math inline">\(s^* \not \subseteq  m_k \land m_k \not \subseteq s^*\)</span>. If <span class="math inline">\(s^* \subseteq  m_k\)</span> then <span class="math inline">\(s^*\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal of <span class="math inline">\(M\)</span>, if <span class="math inline">\(m_k \subseteq s^*\)</span> then <span class="math inline">\(m_k\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal of <span class="math inline">\(M\)</span> and if <span class="math inline">\(s^* \not \subseteq  m_k \land m_k \not \subseteq s^*\)</span> then <span class="math inline">\(s^*\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal of <span class="math inline">\(M\)</span>.</p>
+<p>Therefore by <a href="chapter_2.html#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii we have that <span class="math inline">\(B = \mathbb{P}\)</span>. So if <span class="math inline">\(\mathscr{K}(A) = n\)</span> every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element.</p></li>
+</ul>
+<p>Second, assume that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element. We can use the following result pointed out in <span class="citation" data-cites="herrlich_axiom_2006">(<a href="references.html#ref-herrlich_axiom_2006" role="doc-biblioref">Herrlich 2006, 1876:45</a>)</span>.</p>
+<ul>
+<li><p>If every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element then this statement is equivalent to:</p>
+<ul>
+<li>If <span class="math inline">\(\mathscr{U} \subseteq \mathscr{P}(A)\)</span> satisfies <span class="math inline">\(\emptyset \in \mathscr{U}\)</span>, <span class="math inline">\(U \in \mathscr{U}\)</span> and <span class="math inline">\(a \in A\)</span> implies <span class="math inline">\(U \cup \{ a\} \in \mathscr{U}\)</span> then <span class="math inline">\(A \in \mathscr{U}\)</span></li>
+</ul></li>
+</ul>
+<p>Why? Let the collection <span class="math inline">\(\mathscr{B} = \{ A - U \mid U \in \mathscr{U} \}\)</span>. Because <span class="math inline">\(\mathscr{B} \subseteq \mathscr{P}(A)\)</span> and <span class="math inline">\(\emptyset \in \mathscr{U}\)</span> so <span class="math inline">\(A - \emptyset = A \in \mathscr{B}\)</span> then <span class="math inline">\(\mathscr{B}\)</span> has a minimal element <span class="math inline">\(B\)</span>. Because <span class="math inline">\(B \in \mathscr{B}\)</span> then <span class="math inline">\(A - B \in \mathscr{U}\)</span> and <span class="math inline">\(A - B\)</span> is a maximal element of <span class="math inline">\(\mathscr{U}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(A - B\)</span> must be a maximal element of <span class="math inline">\(\mathscr{U}\)</span> becuase if it was not the case there would be a <span class="math inline">\(C\)</span> such that <span class="math inline">\(A - B \subseteq C\)</span>. This will mean that <span class="math inline">\(A - C \subseteq A - (A - B) = B\)</span>. Therefore <span class="math inline">\(C = B\)</span> or <span class="math inline">\(B\)</span> will not be a minimal element of <span class="math inline">\(\mathscr{B}\)</span>.</li>
+</ul>
+<p>Taking into account that <span class="math inline">\(A - B\)</span> is a maximal element of <span class="math inline">\(\mathscr{U}\)</span> where <span class="math inline">\(A - B \in \mathscr{U}\)</span> and that for any <span class="math inline">\(U \in \mathscr{U}\)</span> and <span class="math inline">\(a \in A\)</span> implies <span class="math inline">\(U \cup \{ a \} \in \mathscr{U}\)</span> it must be the case that <span class="math inline">\(A - B = A\)</span>. Therefore <span class="math inline">\(A \in \mathscr{U}\)</span></p>
+<ul>
+<li>The last result applies becuase if <span class="math inline">\(b \in B\)</span> then <span class="math inline">\(A - B \cup \{ b\} \in \mathscr{U}\)</span> and <span class="math inline">\(A - B\)</span> will not be a maximal element of <span class="math inline">\(\mathscr{U}\)</span>.</li>
+</ul>
+<p>With this result we can use <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> by assuming that that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element and <span class="math inline">\(A\)</span> is infinite.</p>
+<p>Then let <span class="math inline">\(\mathscr{U}\)</span> be the finite subsets of <span class="math inline">\(A\)</span> because <span class="math inline">\(\emptyset \in \mathscr{U}\)</span> and if <span class="math inline">\(U\)</span> is finite then by <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> a <span class="math inline">\(U \cup \{ a \}\)</span> where <span class="math inline">\(a \in A\)</span> is also finite so <span class="math inline">\(A \in \mathscr{U}\)</span>. But we assume that <span class="math inline">\(A\)</span> is infinite, therefore there is a contradiction so it must be the case that <span class="math inline">\(A\)</span> is finite.</p></li>
+<li><p>Let <span class="math inline">\(M \in \mathscr{P}(\mathscr{P}(A))\)</span> such that <span class="math inline">\(M \neq \emptyset\)</span>. Then <span class="math inline">\(s \in M\)</span> is <span class="math inline">\(\subseteq\)</span>-maximal if <span class="math inline">\(\forall m (m \in M \land s \subseteq m \Longrightarrow m = s)\)</span></p></li>
+</ol></li>
 </ol>
 </div>
 
@@ -811,6 +847,9 @@ Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digit
 <div id="ref-halevi_fraenkel_abstract_1961" class="csl-entry" role="listitem">
 Halevi Fraenkel, Abraham Adolf. 1961. <em>Abstract Set Theory</em>. 2nd ed. Vol. 12. Studies in <span>Logic</span> and the <span>Foundations</span> of <span>Mathematics</span>. Amsterdam: North Holland Publishing Company.
 </div>
+<div id="ref-herrlich_axiom_2006" class="csl-entry" role="listitem">
+Herrlich, Horst. 2006. <em>Axiom of <span>Choice</span></em>. 1st ed. Vol. 1876. Lecture <span>Notes</span> in <span>Mathematics</span>. Berlin/Heidelberg: Springer-Verlag. <a href="https://doi.org/10.1007/11601562">https://doi.org/10.1007/11601562</a>.
+</div>
 <div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
 Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
 </div>
@@ -819,6 +858,9 @@ Peloquin, John. 2016. <span>“The <span>Cantor</span>-<span>Schroeder</span>-<s
 </div>
 <div id="ref-stoll_sets_1974" class="csl-entry" role="listitem">
 Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
+</div>
+<div id="ref-tarski_sur_1924" class="csl-entry" role="listitem">
+Tarski, Alfred. 1924. <span>“Sur Les Ensembles Finis.”</span> <em>Fundamenta Mathematicae</em> 6: 45–95. <a href="https://doi.org/10.4064/fm-6-1-45-95">https://doi.org/10.4064/fm-6-1-45-95</a>.
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
