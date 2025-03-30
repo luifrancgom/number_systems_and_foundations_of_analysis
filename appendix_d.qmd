@@ -712,6 +712,8 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
     
     b. Prove that a set $A$ is finite if and only if every nomempty subset of $\mathscr{P}(A)$ has a maximal elements (with respect to $\subseteq$)
 
+6. If $A \subseteq \mathbb{P}$ and $A$ is finite, prove that $A$ has a greatest element.
+
 :::
 
 ::: {#sol-finite-sets}
@@ -781,6 +783,14 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
        Then let $\mathscr{U}$ be the finite subsets of $A$ because $\emptyset \in \mathscr{U}$  and if $U$ is finite then by @thm-finite-set a $U \cup \{ a \}$ where $a \in A$ is also finite so $A \in \mathscr{U}$. But we assume that $A$ is infinite, therefore there is a contradiction so it must be the case that $A$ is finite.
        
     b. Let $M \in \mathscr{P}(\mathscr{P}(A))$ such that $M \neq \emptyset$. Then $s \in M$ is $\subseteq$-maximal if $\forall m (m \in M \land s \subseteq m \Longrightarrow m = s)$
+    
+       First, assume that every non empty subset of $\mathscr{P}(A)$ has a minimal element with respect to $\subseteq$. Let $\mathscr{B} \subseteq \mathscr{P}(A)$, $\mathscr{B} \neq \emptyset$ and $\mathscr{U} = \{ A - B \mid B \in \mathscr{B} \}$. Because $\mathscr{B} \neq \emptyset$ then $\mathscr{U} \neq \emptyset$. Also $\mathscr{U} \subseteq \mathscr{P}(A)$ therefore $\mathscr{U}$ has a minimal element $U$ and $A - U$ is a maximal element of $\mathscr{B}$. Because $\mathscr{B}$ non empty subset of $\mathscr{P}(A)$ we show that every non empty subset of $\mathscr{P}(A)$ has also a maximal element with respect to $\subseteq$.
+       
+       Second, assume that every non empty subset of $\mathscr{P}(A)$ has a maximal element with respect to $\subseteq$. Then we proceed in a similar way and we can prove that every non empty subset of $\mathscr{P}(A)$ has also a minimal element with respect to $\subseteq$.
+       
+       Third, because every non empty subset of $\mathscr{P}(A)$ has a minimal element with respect to $\subseteq$ is equivalent to every non empty subset of $\mathscr{P}(A)$ has a minimal element with respect to $\subseteq$ we can use @exr-finite-sets a to prove @exr-finite-sets b.    
 
+6. 
+       
 :::
  
