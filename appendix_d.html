@@ -783,6 +783,12 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <li><p>Prove that a set <span class="math inline">\(A\)</span> is finite if and only if every nomempty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a maximal elements (with respect to <span class="math inline">\(\subseteq\)</span>)</p></li>
 </ol></li>
 <li><p>If <span class="math inline">\(A \subseteq \mathbb{P}\)</span> and <span class="math inline">\(A\)</span> is finite, prove that <span class="math inline">\(A\)</span> has a greatest element.</p></li>
+<li><p>Prove that:</p>
+<ol type="i">
+<li><p><span class="math inline">\(A^{ \emptyset } = \{ \emptyset \}\)</span></p></li>
+<li><p><span class="math inline">\(A \approx A^{\{x\}}\)</span> (Hint: For any <span class="math inline">\(a \in A\)</span>, let <span class="math inline">\(\Phi(a) = \{ (x, a) \}\)</span>. Then <span class="math inline">\(\Phi(a): A \xrightarrow[onto]{1-1} A^{\{x\}}\)</span>)</p></li>
+<li><p><span class="math inline">\(B \neq \emptyset \Longrightarrow \emptyset^{ B } = \emptyset\)</span></p></li>
+</ol></li>
 </ol>
 </div>
 <div id="sol-finite-sets" class="proof solution">
@@ -840,7 +846,22 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <p>Second, assume that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a maximal element with respect to <span class="math inline">\(\subseteq\)</span>. Then we proceed in a similar way and we can prove that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has also a minimal element with respect to <span class="math inline">\(\subseteq\)</span>.</p>
 <p>Third, because every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a minimal element with respect to <span class="math inline">\(\subseteq\)</span> is equivalent to every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a minimal element with respect to <span class="math inline">\(\subseteq\)</span> we can use <a href="#exr-finite-sets" class="quarto-xref">Exercise&nbsp;<span>D.5</span></a> a to prove <a href="#exr-finite-sets" class="quarto-xref">Exercise&nbsp;<span>D.5</span></a> b.</p></li>
 </ol></li>
-<li></li>
+<li><p>If <span class="math inline">\(A \subseteq \mathbb{P}\)</span> then <span class="math inline">\(a \in A\)</span> is a greatest element of <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(\forall b (b \in A \land a \leq b \Longrightarrow a = b)\)</span></p>
+<p>First, let <span class="math inline">\(A = \emptyset\)</span> then <span class="math inline">\(A\)</span> has a greatest element because <span class="math inline">\(a \in \emptyset\)</span> is false to <span class="math inline">\(b \in A \land a \leq b \Longrightarrow a = b\)</span> is true.</p>
+<p>Second, assume <span class="math inline">\(A \neq \emptyset\)</span> and let <span class="math inline">\(B = \{ n \in \mathbb{P} \mid \mathscr{K}(A) = n \land A \subseteq \mathbb{P} \land A \text{ has a greatest element} \}\)</span></p>
+<ul>
+<li><p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: Then <span class="math inline">\(A = \{ a_1 \}\)</span> where <span class="math inline">\(a_1 \in \mathbb{P}\)</span>. So <span class="math inline">\(a_1\)</span> is the greatest element of <span class="math inline">\(A\)</span>.</p></li>
+<li><p><em>Induction hypothesis</em> <span class="math inline">\((n = k)\)</span>: Assume <span class="math inline">\(k \in B\)</span> so <span class="math inline">\(\mathscr{K}(A) = k\)</span> and <span class="math inline">\(A\)</span> has a maximal element <span class="math inline">\(a_k\)</span> where <span class="math inline">\(A \subseteq \mathbb{P}\)</span>.</p></li>
+<li><p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Because <span class="math inline">\(A = \{ a_1, \ldots, a_k, a_{k+1} \}\)</span> then <span class="math inline">\(A = A^* \cup \{ a_{k+1} \}\)</span> where <span class="math inline">\(A^* = \{ a_1, \ldots, a_k \}\)</span>. By the induction hypothesis <span class="math inline">\(A^*\)</span> has a <span class="math inline">\(a^*\)</span> that is a greatest element. Also <span class="math inline">\(a^* &lt; a_k\)</span>, <span class="math inline">\(a^* = a_k\)</span> or <span class="math inline">\(a^* &gt; a_k\)</span> so <span class="math inline">\(a_k\)</span> or <span class="math inline">\(a^*\)</span> is the greatest element of <span class="math inline">\(A\)</span>.</p></li>
+</ul>
+<p>Therefore by <a href="chapter_2.html#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii we have that <span class="math inline">\(B = \mathbb{P}\)</span>. So if <span class="math inline">\(\mathscr{K}(A) = n\)</span> and <span class="math inline">\(A \subseteq \mathbb{P}\)</span> then <span class="math inline">\(A\)</span> has a greatest element.</p></li>
+<li><p>For each statement we have:</p>
+<ol type="i">
+<li><p><span class="math inline">\(A^{ \emptyset } = \{ f \mid f: \emptyset \longrightarrow A \}\)</span>. Because <span class="math inline">\(f\)</span> is a relation in this case <span class="math inline">\(f \subseteq \emptyset \times A = \emptyset\)</span>. Therefore <span class="math inline">\(f = \emptyset\)</span>. So <span class="math inline">\(A^{ \emptyset } = \{ \emptyset \}\)</span>.</p></li>
+<li><p><span class="math inline">\(A^{\{x\}} = \{ f \mid f: \{ x \} \longrightarrow A \}\)</span>. Therefore if <span class="math inline">\(f \in A^{\{x\}}\)</span> then <span class="math inline">\(f(x) = a\)</span> where <span class="math inline">\(a \in A\)</span>. So <span class="math inline">\(f = \{ (x, a) \mid x \in \{x\} \land a \in A \}\)</span>. Furthermore using the hint <span class="math inline">\(\Phi(a) = \{ (x, a) \}\)</span> we can prove that <span class="math inline">\(\Phi\)</span> is one-one and onto.</p>
+<p>If <span class="math inline">\(\Phi(a) = \Phi(b)\)</span> then <span class="math inline">\(\{ (x, a) \} = \{ (x, b) \}\)</span> so <span class="math inline">\(a = b\)</span>. Also if <span class="math inline">\(\{ (x, a) \} \in A^{\{x\}}\)</span> then it always exist <span class="math inline">\(a \in A\)</span>.</p></li>
+<li><p><span class="math inline">\(\emptyset^{ B } = \{ f \mid f: B \longrightarrow \emptyset \}\)</span> and <span class="math inline">\(B \neq \emptyset\)</span>. If <span class="math inline">\(f \in \emptyset^{ B }\)</span> then <span class="math inline">\(f = \{ (b, x) \mid b \in B \land x \in \emptyset \}\)</span>. Therefore <span class="math inline">\(\emptyset^{ B } = \emptyset\)</span> by <a href="chapter_1.html#def-function" class="quarto-xref">Definition&nbsp;<span>1.49</span></a> <strong>Note 2</strong> because <span class="math inline">\(f\)</span> is not a function.</p></li>
+</ol></li>
 </ol>
 </div>
 
