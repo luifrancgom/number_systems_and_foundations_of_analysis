@@ -714,6 +714,14 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
 6. If $A \subseteq \mathbb{P}$ and $A$ is finite, prove that $A$ has a greatest element.
 
+7. Prove that:
+
+    i. $A^{ \emptyset } = \{ \emptyset \}$
+    
+    ii. $A \approx A^{\{x\}}$ (Hint: For any $a \in A$, let $\Phi(a) = \{ (x, a) \}$. Then $\Phi(a): A \xrightarrow[onto]{1-1} A^{\{x\}}$)
+    
+    iii. $B \neq \emptyset \Longrightarrow \emptyset^{ B } = \emptyset$
+
 :::
 
 ::: {#sol-finite-sets}
@@ -790,7 +798,30 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
        
        Third, because every non empty subset of $\mathscr{P}(A)$ has a minimal element with respect to $\subseteq$ is equivalent to every non empty subset of $\mathscr{P}(A)$ has a minimal element with respect to $\subseteq$ we can use @exr-finite-sets a to prove @exr-finite-sets b.    
 
-6. 
-       
+6. If $A \subseteq \mathbb{P}$ then $a \in A$ is a greatest element of $A$ if and only if $\forall b (b \in A \land a \leq b \Longrightarrow a = b)$
+
+   First, let $A = \emptyset$ then $A$ has a greatest element because $a \in \emptyset$ is false to $b \in A \land a \leq b \Longrightarrow a = b$ is true.
+   
+   Second, assume $A \neq \emptyset$ and let $B = \{ n \in \mathbb{P} \mid \mathscr{K}(A) = n \land A \subseteq \mathbb{P} \land A \text{ has a greatest element} \}$
+   
+     - *Base step* $(n = 1)$: Then $A = \{ a_1 \}$ where $a_1 \in \mathbb{P}$. So $a_1$ is the greatest element of $A$. 
+
+     - *Induction hypothesis* $(n = k)$: Assume $k \in B$ so $\mathscr{K}(A) = k$ and $A$ has a maximal element $a_k$ where $A \subseteq \mathbb{P}$.
+
+     - *Induction step* $(n = k + 1)$: Because $A = \{ a_1, \ldots, a_k, a_{k+1} \}$ then $A = A^* \cup \{ a_{k+1} \}$ where $A^* = \{ a_1, \ldots, a_k \}$. By the induction hypothesis $A^*$ has a $a^*$ that is a greatest element. Also $a^* < a_k$, $a^* = a_k$ or $a^* > a_k$ so $a_k$ or $a^*$ is the greatest element of $A$.
+     
+   Therefore by @def-peano-system iii we have that $B = \mathbb{P}$. So if $\mathscr{K}(A) = n$ and $A \subseteq \mathbb{P}$ then $A$ has a greatest element.
+
+7. For each statement we have:
+
+    i. $A^{ \emptyset } = \{ f \mid f: \emptyset \longrightarrow A \}$. Because $f$ is a relation in this case $f \subseteq \emptyset \times A = \emptyset$. Therefore $f = \emptyset$. So $A^{ \emptyset } = \{ \emptyset \}$.
+    
+    ii. $A^{\{x\}} = \{ f \mid f: \{ x \} \longrightarrow A \}$. Therefore if $f \in A^{\{x\}}$ then $f(x) = a$ where $a \in A$. So $f = \{ (x, a) \mid x \in \{x\} \land a \in A \}$. Furthermore using the hint $\Phi(a) = \{ (x, a) \}$ we can prove that $\Phi$ is one-one and onto.
+        
+        If $\Phi(a) = \Phi(b)$ then $\{ (x, a) \} = \{ (x, b) \}$ so $a = b$. Also if $\{ (x, a) \} \in A^{\{x\}}$ then it always exist $a \in A$.
+
+    iii. $\emptyset^{ B } = \{ f \mid f: B \longrightarrow \emptyset \}$ and $B \neq \emptyset$. If $f \in \emptyset^{ B }$ then $f = \{ (b, x) \mid b \in B \land x \in \emptyset \}$. Therefore $\emptyset^{ B } = \emptyset$ by @def-function **Note 2** because $f$ is not a function.
+
 :::
+
  
