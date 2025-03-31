@@ -824,4 +824,18 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
 :::
 
- 
+::: {#lem-equinumerous-properties}
+
+Assume $A \approx B$ and $C \approx D$. Then:
+
+a. $A \times C \approx B \times D$
+b. $A^C \approx B^D$
+c. If $A \cap C = \emptyset$ and $B \cap D = \emptyset$ then $A \cup C \approx B \cup D$
+
+:::
+
+::: {.proof}
+
+i. 
+
+:::
