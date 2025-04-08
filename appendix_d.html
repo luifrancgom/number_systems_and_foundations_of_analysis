@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,7 +57,7 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-a34d670291f06f286357e447776a572a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -837,7 +837,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </ul>
 <p>Taking into account that <span class="math inline">\(A - B\)</span> is a maximal element of <span class="math inline">\(\mathscr{U}\)</span> where <span class="math inline">\(A - B \in \mathscr{U}\)</span> and that for any <span class="math inline">\(U \in \mathscr{U}\)</span> and <span class="math inline">\(a \in A\)</span> implies <span class="math inline">\(U \cup \{ a \} \in \mathscr{U}\)</span> it must be the case that <span class="math inline">\(A - B = A\)</span>. Therefore <span class="math inline">\(A \in \mathscr{U}\)</span></p>
 <ul>
-<li>The last result applies becuase if <span class="math inline">\(b \in B\)</span> then <span class="math inline">\(A - B \cup \{ b\} \in \mathscr{U}\)</span> and <span class="math inline">\(A - B\)</span> will not be a maximal element of <span class="math inline">\(\mathscr{U}\)</span>.</li>
+<li>The last result applies because if <span class="math inline">\(b \in B\)</span> then <span class="math inline">\(A - B \cup \{ b\} \in \mathscr{U}\)</span> and <span class="math inline">\(A - B\)</span> will not be a maximal element of <span class="math inline">\(\mathscr{U}\)</span>.</li>
 </ul>
 <p>With this result we can use <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> by assuming that that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element and <span class="math inline">\(A\)</span> is infinite.</p>
 <p>Then let <span class="math inline">\(\mathscr{U}\)</span> be the finite subsets of <span class="math inline">\(A\)</span> because <span class="math inline">\(\emptyset \in \mathscr{U}\)</span> and if <span class="math inline">\(U\)</span> is finite then by <a href="#thm-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a> a <span class="math inline">\(U \cup \{ a \}\)</span> where <span class="math inline">\(a \in A\)</span> is also finite so <span class="math inline">\(A \in \mathscr{U}\)</span>. But we assume that <span class="math inline">\(A\)</span> is infinite, therefore there is a contradiction so it must be the case that <span class="math inline">\(A\)</span> is finite.</p></li>
@@ -873,8 +873,75 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </ol>
 </div>
 <div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> and <span class="math inline">\(G: C \xrightarrow[onto]{1-1} D\)</span>:</p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(H(a, c) = (F(a), G(c))\)</span> where <span class="math inline">\(a \in A\)</span>, <span class="math inline">\(c \in C\)</span>, <span class="math inline">\(b \in B\)</span> and <span class="math inline">\(d \in D\)</span>. Then <span class="math inline">\(H\)</span> is a one-one function because if <span class="math inline">\(H(a, c) = H(m, n)\)</span> then <span class="math inline">\((F(a), G(c)) = (F(m), G(n))\)</span> so <span class="math inline">\(F(a) = F(m)\)</span> and <span class="math inline">\(G(c) = G(n)\)</span>. But <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are one-one functions which means that <span class="math inline">\((a, c) = (m, n)\)</span>. Also because <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are onto functions then for any <span class="math inline">\(b \in B\)</span> and <span class="math inline">\(d \in D\)</span> it exists <span class="math inline">\(a \in A\)</span> and <span class="math inline">\(c \in C\)</span> such that <span class="math inline">\(F(a) = b\)</span> and <span class="math inline">\(G(c) = d\)</span>. Therefore for any <span class="math inline">\((b, d) \in B \times D\)</span> it always exists <span class="math inline">\((a, c) \in A \times C\)</span> such that <span class="math inline">\(H(a, c) = (b, d)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(A^C = \{ f \mid f: C \longrightarrow A \}\)</span> and <span class="math inline">\(B^D = \{ g \mid g: D \longrightarrow B \}\)</span> lets define <span class="math inline">\(\Psi(f) = F \circ (f \circ G^{-1})\)</span> where <span class="math inline">\(G^{-1}: D \xrightarrow[onto]{1-1} C\)</span> by <a href="chapter_1.html#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> and <span class="math inline">\(\Psi: A^C \longrightarrow B^D\)</span>.</p>
+<p>Because <span class="math inline">\(G^{-1}\)</span>, <span class="math inline">\(f\)</span> and <span class="math inline">\(F\)</span> are functions by <a href="chapter_1.html#thm-composition-functions" class="quarto-xref">Theorem&nbsp;<span>1.10</span></a> <span class="math inline">\(\Psi\)</span> is a function.</p>
+<p>Furthermore <span class="math inline">\(f \circ G^{-1}: D \longrightarrow A\)</span></p>
+<p>Also <span class="math inline">\(F \circ (f \circ G^{-1}) = \{ (d, b) \mid \exists a ((f \circ G^{-1})(d) = a \land F(a) = b) \}\)</span>.</p>
+<p>First, assume <span class="math inline">\(\Psi(f) = \Psi(h)\)</span>. We have that <span class="math inline">\(\mathscr{D}(f) = C = \mathscr{D}(h)\)</span>. Also take any <span class="math inline">\(a \in A\)</span> then <span class="math inline">\(F \circ (f \circ G^{-1})(a) = F \circ (h \circ G^{-1})(a)\)</span> so <span class="math inline">\(F(f(G^{-1}(a))) = F(h(G^{-1}(a)))\)</span>. But <span class="math inline">\(F\)</span> is one-one and <span class="math inline">\(G^{-1}(a) = c \in C\)</span> so <span class="math inline">\(f(c) = h(c)\)</span> for any <span class="math inline">\(c \in C\)</span>. By <a href="chapter_1.html#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(f = h\)</span> which means that <span class="math inline">\(\Psi\)</span> is one-one function.</p>
+<p>Second, assume <span class="math inline">\(g \in D^B\)</span> therefore <span class="math inline">\(g: D \longrightarrow B\)</span> such that <span class="math inline">\(g(d) = b\)</span> for some <span class="math inline">\(d \in D\)</span> and <span class="math inline">\(b \in B\)</span>. Because <span class="math inline">\(b \in B\)</span> and <span class="math inline">\(F\)</span> is onto then <span class="math inline">\(F(a) = b\)</span> for some <span class="math inline">\(a \in A\)</span>. Furthermore, it must exist some <span class="math inline">\(f(c) = a\)</span> where <span class="math inline">\(f \in A^C\)</span>. Also because <span class="math inline">\(G^{-1}\)</span> is onto function it must exist some <span class="math inline">\(d \in D\)</span> such that <span class="math inline">\(G^{-1}(d) = c\)</span>. So <span class="math inline">\(g(d) = F(a) = F(f(c)) = F(f(G^{-1}(d))) = \Psi(f(G^{-1}(d)))\)</span>. Therefore for any <span class="math inline">\(g \in B^D\)</span> it exists some <span class="math inline">\(f \in A^C\)</span> such that <span class="math inline">\(g = \Psi(f)\)</span>.</p>
+<p>Third, we have that <span class="math inline">\(\Psi: A^C \xrightarrow[onto]{1-1} B^D\)</span> so <span class="math inline">\(A^C \approx B^D\)</span>.</p></li>
+<li><p>Lets define:</p>
+<p><span class="math display">\[\Phi(u) = \begin{cases}
+              F(u) &amp; \text{ if } u \in A \\
+              G(u) &amp; \text{ if } u \in A
+             \end{cases}\]</span></p>
+<p>Where <span class="math inline">\(\Phi\)</span> is a one-one correspondence because <span class="math inline">\(A \cap C = \emptyset\)</span>, <span class="math inline">\(B \cap D = \emptyset\)</span>, <span class="math inline">\(F\)</span> is a one-one correspondence and <span class="math inline">\(G\)</span> is a one-one correspondence.</p></li>
+</ol>
+</div>
+<div id="exr-equinumerous-properties" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise D.6</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p>Prove that <span class="math inline">\(A \times B \approx B \times A\)</span></p></li>
+<li><p>Prove that <span class="math inline">\(A \times (B \times C) \approx (A \times B) \times C\)</span></p></li>
+</ol>
+</div>
+<div id="sol-equinumerous-properties" class="proof solution">
+<p><span class="proof-title"><em>Solution D.6</em>. </span></p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(\Phi(a, b) = (b, a)\)</span> then <span class="math inline">\(\Phi: A \times B \xrightarrow[onto]{1-1} B \times A\)</span></p></li>
+<li><p>Because <span class="math inline">\(A \times (B \times C) = (A \times B) \times C\)</span> then by <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> a <span class="math inline">\(A \times (B \times C) \approx (A \times B) \times C\)</span></p></li>
+</ol>
+</div>
+<div id="lem-equinumerous-properties-2" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma D.3</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p><span class="math inline">\(A \cap B = \emptyset \Longrightarrow C^{A \cup B} \approx C^A \times C^B\)</span></p></li>
+<li><p><span class="math inline">\((A^B)^C \approx A^{B \times C}\)</span></p></li>
+</ol>
+</div>
+<div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
-<ol type="i">
+<ol type="a">
+<li><p>Because <span class="math inline">\(C^{A \cup B} = \{ f \mid f: A \cup B \longrightarrow C \}\)</span> and <span class="math inline">\(C^A \times C^B = \{ (g, h) \mid g: A \longrightarrow C \land h: B \longrightarrow C \}\)</span>. Let <span class="math inline">\(\Psi(f): C^{A \cup B} \longrightarrow C^A \times C^B\)</span> such that <span class="math inline">\(\Psi(f) = ({f \mid}_A, {f \mid}_B)\)</span>.</p>
+<p>First, let <span class="math inline">\(\Psi(f) = \Psi(g)\)</span> then <span class="math inline">\(({f \mid}_A, {f \mid}_B) = ({g \mid}_A, {g \mid}_B)\)</span> so <span class="math inline">\({f \mid}_A = {g \mid}_A\)</span> and <span class="math inline">\({f \mid}_B = {g \mid}_B\)</span>. Because <span class="math inline">\(\mathscr{D}(f) = A \cup B = \mathscr{D}(g)\)</span> then <span class="math inline">\(f = g\)</span></p>
+<p>Second, because <span class="math inline">\((g, h) \in C^A \times C^B\)</span> and <span class="math inline">\(A \cap B = \emptyset\)</span> then <span class="math inline">\(\mathscr{D}(g) \neq \mathscr{D}(h)\)</span>. For example, we can fix <span class="math inline">\(({f \mid}_A, {f \mid}_B)\)</span> where <span class="math inline">\({f \mid}_A \neq {f \mid}_B\)</span>. Therefore <span class="math inline">\(g = {f \mid}_A\)</span> and <span class="math inline">\(h = {f \mid}_B\)</span> so it always exists some <span class="math inline">\(f\)</span> such that <span class="math inline">\(\Psi(f) = (g, h)\)</span>.</p>
+<p>Third, this means that <span class="math inline">\(\Psi(f): C^{A \cup B} \xrightarrow[onto]{1-1} C^A \times C^B\)</span>.</p></li>
+<li><p>Because <span class="math inline">\((A^B)^C = \{ f \mid f: C \longrightarrow A^B \}\)</span> such that <span class="math inline">\(A^B = \{ g \mid g: B \longrightarrow A \}\)</span> so <span class="math inline">\(f(c) = g\)</span> where <span class="math inline">\(c \in C\)</span> and <span class="math inline">\(A^{B \times C} = \{ h \mid h: B \times C \longrightarrow A \}\)</span> such that <span class="math inline">\(h(b, c) = a\)</span>.</p>
+<p>First, let <span class="math inline">\(\Theta: (A^B)^C \longrightarrow A^{B \times C}\)</span> then we have to build an explicit <span class="math inline">\(\Theta(f) = h\)</span>.</p>
+<p>Second, let <span class="math inline">\(f \in (A^B)^C\)</span> then <span class="math inline">\(f(c) = g\)</span> where <span class="math inline">\(c \in C\)</span> and <span class="math inline">\(g \in A^B\)</span>. Also <span class="math inline">\((f(c))(b) = g(b)\)</span> where <span class="math inline">\(b \in B\)</span>. Therefore it must exist some <span class="math inline">\(a \in A\)</span> such that <span class="math inline">\((f(c))(b) = a\)</span>.</p>
+<p>Third, let <span class="math inline">\(h \in A^{B \times C}\)</span> then <span class="math inline">\(h(b, c)\)</span> where it must exist <span class="math inline">\(a \in A\)</span> such that <span class="math inline">\(h(b, c) = a\)</span></p>
+<p>Fourth, we can build <span class="math inline">\(\Theta(f) = h\)</span> such that <span class="math inline">\(\Theta(f)(b, c) \equiv (f(c))(b) = h(b, c)\)</span> for all <span class="math inline">\(c \in C\)</span> and <span class="math inline">\(b \in B\)</span>.</p>
+<p>Fifth, if <span class="math inline">\(\Theta(f) = \Theta(s)\)</span> then <span class="math inline">\((f(c))(b) = (s(c))(b)\)</span>. Therefore is must exist <span class="math inline">\(g \in A^B\)</span> and <span class="math inline">\(j \in A^B\)</span> such that <span class="math inline">\((f(c))(b) = g(b) = j(b) 0 (s(c))(b)\)</span> for all <span class="math inline">\(b \in B\)</span> where <span class="math inline">\(\mathscr{D}(g) = B = \mathscr{D}(j)\)</span>. By <a href="chapter_1.html#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(g = j\)</span>. So <span class="math inline">\(f(c) = s(c)\)</span> for all <span class="math inline">\(c \in C\)</span> where <span class="math inline">\(\mathscr{D}(f) = B = \mathscr{D}(s)\)</span>. Again by <a href="chapter_1.html#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 3 <span class="math inline">\(f = s\)</span>, which means that <span class="math inline">\(\Theta\)</span> is a one-one function.</p>
+<p>Sixth, let <span class="math inline">\(h \in A^{B \times C}\)</span> then <span class="math inline">\((f(c))(b) = h(b, c)\)</span> so there is some <span class="math inline">\(f \in (A^B)^C\)</span> such that <span class="math inline">\(\Theta(f) = h\)</span>, which means that <span class="math inline">\(\Theta\)</span> is a onto function.</p>
+<p>Seventh, we conclude that <span class="math inline">\(\Theta: (A^B)^C \xrightarrow[onto]{1-1} A^{B \times C}\)</span> so <span class="math inline">\((A^B)^C \approx A^{B \times C}\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-less-equal-than-and-less-than-relation-sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise D.7</strong></span> Assume <span class="math inline">\(A \leq B\)</span> and <span class="math inline">\(C \leq D\)</span>. Prove:</p>
+<ol type="1">
+<li><p><span class="math inline">\(B \cap D = \emptyset \Longrightarrow A \cup C \leq B \cup D\)</span></p></li>
+<li><p><span class="math inline">\(A \times C \leq B \times D\)</span></p></li>
+<li><p><span class="math inline">\(A \cup B \cup C \neq \emptyset \Longrightarrow A^C \leq B^D\)</span></p></li>
+</ol>
+</div>
+<div id="sol-less-equal-than-and-less-than-relation-sets" class="proof solution">
+<p><span class="proof-title"><em>Solution D.7</em>. </span></p>
+<ol type="1">
+<li></li>
+<li></li>
 <li></li>
 </ol>
 </div>
