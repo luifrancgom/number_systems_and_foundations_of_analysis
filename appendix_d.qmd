@@ -784,7 +784,7 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
           
        Taking into account that $A - B$ is a maximal element of $\mathscr{U}$ where $A - B \in \mathscr{U}$ and that for any $U \in \mathscr{U}$ and $a \in A$ implies $U \cup \{ a \} \in \mathscr{U}$ it must be the case that $A - B = A$. Therefore $A \in \mathscr{U}$
        
-          - The last result applies becuase if $b \in B$ then $A - B \cup \{ b\} \in \mathscr{U}$ and $A - B$ will not be a maximal element of $\mathscr{U}$.
+          - The last result applies because if $b \in B$ then $A - B \cup \{ b\} \in \mathscr{U}$ and $A - B$ will not be a maximal element of $\mathscr{U}$.
           
        With this result we can use @nte-proof-by-reductio-ad-absurdum by assuming that that every non empty subset of $\mathscr{P}(A)$ has a $\subseteq$-minimal element and $A$ is infinite.
        
@@ -836,6 +836,105 @@ c. If $A \cap C = \emptyset$ and $B \cap D = \emptyset$ then $A \cup C \approx B
 
 ::: {.proof}
 
-i. 
+Let $F: A \xrightarrow[onto]{1-1} B$ and $G: C \xrightarrow[onto]{1-1} D$: 
+
+a. Let $H(a, c) = (F(a), G(c))$ where $a \in A$, $c \in C$, $b \in B$ and $d \in D$. Then $H$ is a one-one function because if $H(a, c) = H(m, n)$ then $(F(a), G(c)) = (F(m), G(n))$ so $F(a) = F(m)$ and $G(c) = G(n)$. But $F$ and $G$ are one-one functions which means that $(a, c) = (m, n)$. Also because $F$ and $G$ are onto functions then for any $b \in B$ and $d \in D$ it exists $a \in A$ and $c \in C$ such that $F(a) = b$ and $G(c) = d$. Therefore for any $(b, d) \in B \times D$ it always exists $(a, c) \in A \times C$ such that $H(a, c) = (b, d)$.
+
+b. Because $A^C = \{ f \mid f: C \longrightarrow A \}$ and $B^D = \{ g \mid g: D \longrightarrow B \}$ lets define $\Psi(f) = F \circ (f \circ G^{-1})$ where $G^{-1}: D \xrightarrow[onto]{1-1} C$ by @thm-inverse-function-as-a-function and $\Psi: A^C \longrightarrow B^D$.
+
+   Because $G^{-1}$, $f$ and $F$ are functions by @thm-composition-functions $\Psi$ is a function.
+   
+   Furthermore $f \circ G^{-1}: D \longrightarrow A$
+   
+   Also $F \circ (f \circ G^{-1}) = \{ (d, b) \mid \exists a ((f \circ G^{-1})(d) = a \land F(a) = b) \}$.
+   
+   First, assume $\Psi(f) = \Psi(h)$. We have that $\mathscr{D}(f) = C = \mathscr{D}(h)$. Also take any $a \in A$ then $F \circ (f \circ G^{-1})(a) = F \circ (h \circ G^{-1})(a)$ so $F(f(G^{-1}(a))) = F(h(G^{-1}(a)))$. But $F$ is one-one and $G^{-1}(a) = c \in C$ so $f(c) = h(c)$ for any $c \in C$. By @exr-function 3 $f = h$ which means that $\Psi$ is one-one function.
+   
+   Second, assume $g \in D^B$ therefore $g: D \longrightarrow B$ such that $g(d) = b$ for some $d \in D$ and $b \in B$. Because $b \in B$ and $F$ is onto then $F(a) = b$ for some $a \in A$. Furthermore, it must exist some $f(c) = a$ where $f \in A^C$. Also because $G^{-1}$ is onto function it must exist some $d \in D$ such that $G^{-1}(d) = c$. So $g(d) = F(a) = F(f(c)) = F(f(G^{-1}(d))) = \Psi(f(G^{-1}(d)))$. Therefore for any $g \in B^D$ it exists some $f \in A^C$ such that $g = \Psi(f)$.
+   
+   Third, we have that $\Psi: A^C \xrightarrow[onto]{1-1} B^D$ so $A^C \approx B^D$.
+
+c. Lets define:
+
+    $$\Phi(u) = \begin{cases}
+                 F(u) & \text{ if } u \in A \\
+                 G(u) & \text{ if } u \in A 
+                \end{cases}$$
+                
+   Where $\Phi$ is a one-one correspondence because $A \cap C = \emptyset$, $B \cap D = \emptyset$, $F$ is a one-one correspondence and $G$ is a one-one correspondence. 
+
+:::
+
+::: {#exr-equinumerous-properties}
+
+a. Prove that $A \times B \approx B \times A$
+
+b. Prove that $A \times (B \times C) \approx (A \times B) \times C$
+
+:::
+
+::: {#sol-equinumerous-properties}
+
+a. Let $\Phi(a, b) = (b, a)$ then $\Phi: A \times B \xrightarrow[onto]{1-1} B \times A$
+
+b. Because $A \times (B \times C) = (A \times B) \times C$ then by @thm-equinumerous-equivalence-relation a $A \times (B \times C) \approx (A \times B) \times C$
+
+:::
+
+::: {#lem-equinumerous-properties-2}
+
+a. $A \cap B = \emptyset \Longrightarrow C^{A \cup B} \approx C^A \times C^B$
+
+b. $(A^B)^C \approx A^{B \times C}$
+
+:::
+
+::: {.proof}
+
+a. Because $C^{A \cup B} = \{ f \mid f: A \cup B \longrightarrow C \}$ and $C^A \times C^B = \{ (g, h) \mid g: A \longrightarrow C \land h: B \longrightarrow C \}$. Let $\Psi(f): C^{A \cup B} \longrightarrow C^A \times C^B$ such that $\Psi(f) = ({f \mid}_A, {f \mid}_B)$.
+
+   First, let $\Psi(f) = \Psi(g)$ then $({f \mid}_A, {f \mid}_B) = ({g \mid}_A, {g \mid}_B)$ so ${f \mid}_A = {g \mid}_A$ and ${f \mid}_B = {g \mid}_B$. Because $\mathscr{D}(f) = A \cup B = \mathscr{D}(g)$ then $f = g$
+   
+   Second, because $(g, h) \in C^A \times C^B$ and $A \cap B = \emptyset$ then $\mathscr{D}(g) \neq \mathscr{D}(h)$. For example, we can fix $({f \mid}_A, {f \mid}_B)$ where ${f \mid}_A \neq {f \mid}_B$. Therefore $g = {f \mid}_A$ and $h = {f \mid}_B$ so it always exists some $f$ such that $\Psi(f) = (g, h)$.
+   
+   Third, this means that $\Psi(f): C^{A \cup B} \xrightarrow[onto]{1-1} C^A \times C^B$.
+
+b. Because $(A^B)^C = \{ f \mid f: C \longrightarrow A^B \}$ such that $A^B = \{ g \mid g: B \longrightarrow A \}$ so $f(c) = g$ where $c \in C$ and $A^{B \times C} = \{ h \mid h: B \times C \longrightarrow A \}$ such that $h(b, c) = a$.
+
+   First, let $\Theta: (A^B)^C \longrightarrow A^{B \times C}$ then we have to build an explicit $\Theta(f) = h$.
+   
+   Second, let $f \in (A^B)^C$ then $f(c) = g$ where $c \in C$ and $g \in A^B$. Also $(f(c))(b) = g(b)$ where $b \in B$. Therefore it must exist some $a \in A$ such that $(f(c))(b) = a$.
+   
+   Third, let $h \in A^{B \times C}$ then $h(b, c)$ where it must exist $a \in A$ such that $h(b, c) = a$
+   
+   Fourth, we can build $\Theta(f) = h$ such that $\Theta(f)(b, c) \equiv (f(c))(b) = h(b, c)$ for all $c \in C$ and $b \in B$.
+   
+   Fifth, if $\Theta(f) = \Theta(s)$ then $(f(c))(b) = (s(c))(b)$. Therefore is must exist $g \in A^B$ and $j \in A^B$ such that $(f(c))(b) = g(b) = j(b) 0 (s(c))(b)$ for all $b \in B$ where $\mathscr{D}(g) = B = \mathscr{D}(j)$. By @exr-function 3 $g = j$. So $f(c) = s(c)$ for all $c \in C$ where $\mathscr{D}(f) = B = \mathscr{D}(s)$. Again by @exr-function 3 $f = s$, which means that $\Theta$ is a one-one function.
+   
+   Sixth, let $h \in A^{B \times C}$ then $(f(c))(b) = h(b, c)$ so there is some $f \in (A^B)^C$ such that $\Theta(f) = h$, which means that $\Theta$ is a onto function.
+   
+   Seventh, we conclude that $\Theta: (A^B)^C \xrightarrow[onto]{1-1} A^{B \times C}$ so $(A^B)^C \approx A^{B \times C}$.
+
+:::
+
+::: {#exr-less-equal-than-and-less-than-relation-sets}
+
+Assume $A \leq B$ and $C \leq D$. Prove:
+
+1. $B \cap D = \emptyset \Longrightarrow A \cup C \leq B \cup D$
+
+2. $A \times C \leq B \times D$
+
+3. $A \cup B \cup C \neq \emptyset \Longrightarrow A^C \leq B^D$
+
+:::
+
+::: {#sol-less-equal-than-and-less-than-relation-sets}
+
+1.
+
+2. 
+
+3. 
 
 :::
