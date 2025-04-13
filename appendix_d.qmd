@@ -848,7 +848,13 @@ b. Because $A^C = \{ f \mid f: C \longrightarrow A \}$ and $B^D = \{ g \mid g: D
    
    Also $F \circ (f \circ G^{-1}) = \{ (d, b) \mid \exists a ((f \circ G^{-1})(d) = a \land F(a) = b) \}$.
    
-   First, assume $\Psi(f) = \Psi(h)$. We have that $\mathscr{D}(f) = C = \mathscr{D}(h)$. Also take any $a \in A$ then $F \circ (f \circ G^{-1})(a) = F \circ (h \circ G^{-1})(a)$ so $F(f(G^{-1}(a))) = F(h(G^{-1}(a)))$. But $F$ is one-one and $G^{-1}(a) = c \in C$ so $f(c) = h(c)$ for any $c \in C$. By @exr-function 3 $f = h$ which means that $\Psi$ is one-one function.
+   First, assume $\Psi(f) = \Psi(h)$. We have that $F \circ (f \circ G^{-1}) = F \circ (h \circ G^{-1})$. Because $F$ is one-one function then $f \circ G^{-1} = h \circ G^{-1}$. 
+   
+     - By @exr-function 3 $\mathscr{D}(f \circ G^{-1}) = \mathscr{D}(h \circ G^{-1})$ but $\mathscr{D}(f) = \mathscr{D}(f \circ G^{-1})$ and $\mathscr{D}(h) = \mathscr{D}(h \circ G^{-1})$ so $\mathscr{D}(f) = \mathscr{D}(h)$. 
+     
+     - Also by @exr-function 3 $f(G^{-1}(d)) = h(G^{-1}(d))$ for all $d \in D$ and because $G^{-1}$ is onto for all $c \in C$ it exists some $d \in D$ such that $G^{-1}(d) = c$. Therefore $f(c) = h(c)$ for all $c \in C$
+     
+     - By @exr-function 3 $f = h$ which means that $\Psi$ is a one-one function. 
    
    Second, assume $g \in D^B$ therefore $g: D \longrightarrow B$ such that $g(d) = b$ for some $d \in D$ and $b \in B$. Because $b \in B$ and $F$ is onto then $F(a) = b$ for some $a \in A$. Furthermore, it must exist some $f(c) = a$ where $f \in A^C$. Also because $G^{-1}$ is onto function it must exist some $d \in D$ such that $G^{-1}(d) = c$. So $g(d) = F(a) = F(f(c)) = F(f(G^{-1}(d))) = \Psi(f(G^{-1}(d)))$. Therefore for any $g \in B^D$ it exists some $f \in A^C$ such that $g = \Psi(f)$.
    
@@ -931,10 +937,29 @@ Assume $A \leq B$ and $C \leq D$. Prove:
 
 ::: {#sol-less-equal-than-and-less-than-relation-sets}
 
-1.
+Because it exists $F: A \xrightarrow[]{1-1} B$ and $G: C \xrightarrow[]{1-1} D$ then:
 
-2. 
+1. Let:
 
-3. 
+   $$H(x) = \begin{cases}
+             F(x) & \text{ if } x \in A \\
+             G(x) & \text{ if } x \in C - A
+            \end{cases}$$
+   
+   Because $A \cap (C - A) = \emptyset$ then $H$ is a well defined function. If $A \cap C \neq \emptyset$ then it will not be clear how to assign $x$ to an element in $\mathscr{R}(H)$.
+   
+   Also $H$ is one-one because $B \cup D \subseteq \mathscr{R}(H)$ and $B \cap D = \emptyset$. In that way $\mathscr{R}(B) \cap \mathscr{R}(D)$.
+
+2. Let $H(a, c) = (F(a), G(c))$ then $H$ is one-one because if $H(a, c) = H(a^*, c^*)$ then $(F(a), G(c)) = (F(a^*), G(c^*))$ so $(a, c) = (a^*, c^*)$ taking into account that $F$ and $G$ are one-one functions. 
+
+3. Because $A^C = \{ f \mid f: C \longrightarrow A \}$ and $B^D = \{ g \mid f: D \longrightarrow B \}$ we first build a function $\Theta: A^C \longrightarrow B^D$:
+
+   We have that $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} C$, $f: C \longrightarrow A$ and $F: A \xrightarrow[]{1-1} B$. Therefore we can define $F \circ (f \circ G^{-1}) = \{ (d, b) \mid \exists a ((f \circ G^{-1})(d) = a \land F(a) = b)\}$.
+   
+   Then we can build $\Theta(f) = g$ such that $\Theta(f) = F \circ (f \circ G^{-1})$ where $F(f(G^{-1}(d))) = b$
+   
+   Let $\Theta(f) = \Theta(h)$ then $F \circ (f \circ G^{-1}) = F \circ (h \circ G^{-1})$. Because $F$ is one-one function $f \circ G^{-1} = h \circ G^{-1}$.
+   
+   Furthermore, because $G^{-1}$ is an onto function then by the proof in @ 
 
 :::
