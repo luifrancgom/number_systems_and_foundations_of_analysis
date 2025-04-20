@@ -952,14 +952,18 @@ Because it exists $F: A \xrightarrow[]{1-1} B$ and $G: C \xrightarrow[]{1-1} D$ 
 
 2. Let $H(a, c) = (F(a), G(c))$ then $H$ is one-one because if $H(a, c) = H(a^*, c^*)$ then $(F(a), G(c)) = (F(a^*), G(c^*))$ so $(a, c) = (a^*, c^*)$ taking into account that $F$ and $G$ are one-one functions. 
 
-3. Because $A^C = \{ f \mid f: C \longrightarrow A \}$ and $B^D = \{ g \mid f: D \longrightarrow B \}$ we first build a function $\Theta: A^C \longrightarrow B^D$:
+3. Because $A^C = \{ f \mid f: C \longrightarrow A \}$ and $B^D = \{ g \mid g: D \longrightarrow B \}$ we first build a function $\Theta: A^C \longrightarrow B^D$:
 
    We have that $G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} C$, $f: C \longrightarrow A$ and $F: A \xrightarrow[]{1-1} B$. Therefore we can define $F \circ (f \circ G^{-1}) = \{ (d, b) \mid \exists a ((f \circ G^{-1})(d) = a \land F(a) = b)\}$.
    
    Then we can build $\Theta(f) = g$ such that $\Theta(f) = F \circ (f \circ G^{-1})$ where $F(f(G^{-1}(d))) = b$
    
-   Let $\Theta(f) = \Theta(h)$ then $F \circ (f \circ G^{-1}) = F \circ (h \circ G^{-1})$. Because $F$ is one-one function $f \circ G^{-1} = h \circ G^{-1}$.
+      - Let $\Theta(f) = \Theta(h)$ then $F \circ (f \circ G^{-1}) = F \circ (h \circ G^{-1})$. Because $F$ is one-one function $f \circ G^{-1} = h \circ G^{-1}$. Furthermore, because $G^{-1}$ is an onto function then by the proof in @lem-equinumerous-properties b we have that $f \circ G^{-1} = h \circ G^{-1}$ implies $f = h$. So, we have that if $\Theta(f) = \Theta(h)$ then $f = h$ where $\Theta$ is one-one.
+      
+      - Because $\Theta$ is one-one then $A^C \leq B^D$.
    
-   Furthermore, because $G^{-1}$ is an onto function then by the proof in @ 
+   Why $A \cup B \cup C \neq \emptyset$? We need to avoid that $A$, $B$ and $C$ are all empty. Assume $A = B = C = \emptyset$ then $A^C = \{ \emptyset \}$ because the only $f: C \longrightarrow A$ that exists is the empty function. Furthermore if $D \neq \emptyset$ then $B^D = \emptyset$ because there is not $g$ such that $g: D \longrightarrow B$ by @def-function.
+   
+   Therefore because $A^C = \{ \emptyset \}$ and $B^D = \emptyset$ by @def-function there is no function $\Theta: A^C \longrightarrow B^D$.
 
 :::

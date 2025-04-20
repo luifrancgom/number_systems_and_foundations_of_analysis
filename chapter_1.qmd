@@ -4518,7 +4518,7 @@ $$F: A \xrightarrow[onto]{} B \iff (F: A \longrightarrow B \land \mathscr{R}(F) 
 
 :::
 
-::: {#exr-function}
+::: {#exr-function-2}
 
 1. For each of the following functions $F$ and sets $A$ and $B$, determine whether $F$ is a function from $A$ onto $B$.
 
@@ -4538,7 +4538,7 @@ $$F: A \xrightarrow[onto]{} B \iff (F: A \longrightarrow B \land \mathscr{R}(F) 
 
 :::
 
-::: {#sol-function}
+::: {#sol-function-2}
 
 1. For each function $F$ and sets $A$ and $B$ where $F: A \longrightarrow B$ we have that:
 
