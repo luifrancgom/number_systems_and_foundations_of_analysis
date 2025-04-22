@@ -967,3 +967,44 @@ Because it exists $F: A \xrightarrow[]{1-1} B$ and $G: C \xrightarrow[]{1-1} D$ 
    Therefore because $A^C = \{ \emptyset \}$ and $B^D = \emptyset$ by @def-function there is no function $\Theta: A^C \longrightarrow B^D$.
 
 :::
+
+::: {#thm-characteristic-function}
+
+$\{ 0, 1 \}^A \approx \mathscr{P}(A)$
+
+:::
+
+::: {.proof}
+
+Because $\{ 0, 1 \}^A = \{ f \mid f: A \longrightarrow \{ 0, 1 \} \}$ we need to find at least some $\Psi: \mathscr{P}(A) \longrightarrow \{ 0, 1 \}^A$ that is a one-one correspondence.
+
+Let $\Psi(B) = f$ where $B \subseteq A$ then we can define $\Psi(B)(a) = f(a)$ in the following way:
+
+$$\Psi(B)(a) = \begin{cases}
+               1 & \text{ if } a \in B \\
+               0 & \text{ if } a \not \in B
+               \end{cases}$$
+
+First, assume that $\Psi(B) = \Psi(C)$ then $f = g$ for $f, g \in \{ 0, 1 \}^A$. Therefore for every $b \in B$ it must be the case that $1 = \Psi(B)(b) = \Psi(C)(b)$, which means that $b \in C$. Similarly, if $c \in C$ we have that $\Psi(B)(c) = \Psi(C)(c) = 1$ so $c \in B$. This means that $B = C$ so $\Psi$ is a one-one function.
+
+Second, assume $f \in \{ 0, 1 \}^A$. Now define $B = \{ a \in A \mid f(a) = 1 \}$ then $B \subseteq A$ so there is some $B \in \mathscr{P}(A)$ such that $\Psi(B) = f$.
+
+Third, we have that $\Psi: \mathscr{P}(A) \xrightarrow[onto]{1-1} \{ 0, 1 \}^A$ so $\{ 0, 1 \}^A \approx \mathscr{P}(A)$.
+
+:::
+
+::: {#lem-denumerable-set-1}
+
+$A \subseteq \mathbb{P} \Longrightarrow A \text{ is finite of denumerable}$
+
+:::
+
+::: {.proof}
+
+Assume $A \subseteq \mathbb{P}$. Also every set is finite or infinite but not both.
+
+First, if $A$ is finite the result is fulfill.
+
+Second, assume $A$ is infinite so we have to proof that it is denumerable, $A \approx \mathbb{P}$. 
+
+:::
