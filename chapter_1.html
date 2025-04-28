@@ -60,7 +60,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a34d670291f06f286357e447776a572a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-292c0866b2e53f8190c286d1fd533ef9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -5545,9 +5545,9 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <ol type="1">
 <li><p>Let <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> be arbitrary sets. The <span class="math inline">\(C \times D\)</span> and <span class="math inline">\(D \times C\)</span> are equinumerous. Let <span class="math inline">\(F(c, d) = (d, c)\)</span> then <span class="math inline">\(F: C \times D \xrightarrow[onto]{1-1} D \times C\)</span>. If <span class="math inline">\(F(c, d) = F(e, f)\)</span> then <span class="math inline">\((c, d) = (e, f)\)</span>. Also if <span class="math inline">\((d, c) \in D \times C\)</span> it always exists <span class="math inline">\((c, d) \in C \times D\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span> the set of non negative integers and let <span class="math inline">\(\mathbb{P}\)</span> be the set of positive integers. The <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span> and <span class="math inline">\(\mathbb{P}\)</span> are equinumerous. Let <span class="math inline">\(F(x) = x + 1\)</span> for all <span class="math inline">\(x \in \mathbb{Z}_{\geq 0}\)</span></p></li>
-<li><p>Let <span class="math inline">\(\mathbb{Z}_{&gt; 0}\)</span> be the set of nonnegative integers. Let <span class="math inline">\(F(x, y) = 2^x(2y + 1) - 1\)</span> where <span class="math inline">\(x \in \mathbb{Z}_{&gt; 0}\)</span> and <span class="math inline">\(y \in \mathbb{Z}_{&gt; 0}\)</span>.</p>
-<p>By <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 4 we have that <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \times \mathbb{Z}_{&gt; 0} \xrightarrow[]{1-1} \mathbb{Z}_{&gt; 0}\)</span> taking into account that <span class="math inline">\(G(x, y) = 2^x(2y + 1)\)</span> is one-one where we can use this result to show that <span class="math inline">\(F(x, y) = 2^x(2y + 1) - 1\)</span> is one-one.</p>
-<p>To check if <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \times \mathbb{Z}_{&gt; 0} \xrightarrow[onto]{} \mathbb{Z}_{&gt; 0}\)</span> we proceed in the following way:</p>
+<li><p>Let <span class="math inline">\(\mathbb{Z}_{\geq 0}\)</span> be the set of nonnegative integers. Let <span class="math inline">\(F(x, y) = 2^x(2y + 1) - 1\)</span> where <span class="math inline">\(x \in \mathbb{Z}_{\geq 0}\)</span> and <span class="math inline">\(y \in \mathbb{Z}_{\geq 0}\)</span>.</p>
+<p>By <a href="#exm-one-one-function" class="quarto-xref">Example&nbsp;<span>1.18</span></a> 4 we have that <span class="math inline">\(F: \mathbb{Z}_{\geq 0} \times \mathbb{Z}_{\geq 0} \xrightarrow[]{1-1} \mathbb{Z}_{&gt; 0}\)</span> taking into account that <span class="math inline">\(G(x, y) = 2^x(2y + 1)\)</span> is one-one where we can use this result to show that <span class="math inline">\(F(x, y) = 2^x(2y + 1) - 1\)</span> is one-one.</p>
+<p>To check if <span class="math inline">\(F: \mathbb{Z}_{\geq 0} \times \mathbb{Z}_{\geq 0} \xrightarrow[onto]{} \mathbb{Z}_{\geq 0}\)</span> we proceed in the following way:</p>
 <ul>
 <li><p><span class="math inline">\(F(0, y) = 2^0(2y + 1) - 1 = 2y\)</span> where <span class="math inline">\(F(0, y) \in \{ 0, 2, 4, \ldots \}\)</span></p></li>
 <li><p>Let <span class="math inline">\(x &gt; 0\)</span> and take <span class="math inline">\(G(x, y) = 2^x(2y + 1)\)</span> then we can prove that every even number can by represented in that way. If we can prove that, then every odd number can be represented as <span class="math inline">\(2^x(2y + 1) - 1\)</span></p>
@@ -5562,7 +5562,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <li><p>Then <span class="math inline">\(F(x, y) \in \{ 1, 3, 5, \ldots \}\)</span> when <span class="math inline">\(x &gt; 1\)</span></p></li>
 <li><p>In general we have that <span class="math inline">\(F(x, y) \in \{ 0, 1, 2, 3, 4, \ldots \}\)</span></p></li>
 </ul>
-<p>We can conclude that <span class="math inline">\(F: \mathbb{Z}_{&gt; 0} \times \mathbb{Z}_{&gt; 0} \xrightarrow[onto]{1-1} \mathbb{Z}_{&gt; 0}\)</span>.</p></li>
+<p>We can conclude that <span class="math inline">\(F: \mathbb{Z}_{\geq 0} \times \mathbb{Z}_{\geq 0} \xrightarrow[onto]{1-1} \mathbb{Z}_{\geq 0}\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(\mathbb{Z}_{&gt; 0}\)</span> be the set of non negative integers and let <span class="math inline">\(\mathbb{Z}\)</span> be the set of all integers. We can enumerate <span class="math inline">\(\mathbb{Z}\)</span> as follows <span class="math inline">\(0, 1, -1, 2, -2, 3, -3, \ldots\)</span> More precisely we define:</p>
 <p><span class="math display">\[F(n) = \begin{cases}
           \frac{n+1}{2} &amp; \text{ if } n \text{ is odd} \\

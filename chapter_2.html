@@ -60,7 +60,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a34d670291f06f286357e447776a572a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-292c0866b2e53f8190c286d1fd533ef9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -499,7 +499,7 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p>Any arithmetical notions such as <span class="math inline">\(+\)</span> and <span class="math inline">\(\times\)</span> are not mentioned in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a>. These notions will be defined by induction. The idea of the definition by induction is different from that of proof by mathematical induction pointed out in <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
 <p>When we define a function <span class="math inline">\(f\)</span> by induction, we first specify <span class="math inline">\(f(1)\)</span> and then indicate a rule for obtaining <span class="math inline">\(f(S(x))\)</span> from the previous value <span class="math inline">\(f(x)\)</span>. This determines a unique function <span class="math inline">\(f\)</span> defined on <span class="math inline">\(\mathbb{P}\)</span>.</p>
 <div id="thm-iteration-theorem" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.3 (Iteration theorem)</strong></span> Consider any peano system <span class="math inline">\((\mathbb{P}, S, 1)\)</span>. Let <span class="math inline">\(W\)</span> be an arbitrary set, let <span class="math inline">\(c\)</span> be a fixed element of <span class="math inline">\(W\)</span>, and let <span class="math inline">\(g\)</span> be a singulary operation on <span class="math inline">\(W\)</span>, that is <span class="math inline">\(g: W \longrightarrow W\)</span>. Then, there is a unique function <span class="math inline">\(F: \mathbb{P} \longrightarrow W\)</span> such that:</p>
+<p><span class="theorem-title"><strong>Theorem 2.3 (Iteration theorem<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>)</strong></span> Consider any peano system <span class="math inline">\((\mathbb{P}, S, 1)\)</span>. Let <span class="math inline">\(W\)</span> be an arbitrary set, let <span class="math inline">\(c\)</span> be a fixed element of <span class="math inline">\(W\)</span>, and let <span class="math inline">\(g\)</span> be a singulary operation on <span class="math inline">\(W\)</span>, that is <span class="math inline">\(g: W \longrightarrow W\)</span>. Then, there is a unique function <span class="math inline">\(F: \mathbb{P} \longrightarrow W\)</span> such that:</p>
 <ol type="a">
 <li><span class="math inline">\(F(1) = c\)</span></li>
 <li><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span></li>
@@ -551,6 +551,9 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-dedekind_essays_1963" class="csl-entry" role="listitem">
+Dedekind, Richard, and Wooster Woodruff Beman. 1963. <em>Essays on the Theory of Numbers</em>. Braunschweig.
+</div>
 <div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
 Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
 </div>
@@ -558,6 +561,12 @@ Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digit
 Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Also known as the recursion theorem (See <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 73–74</a>)</span>) where it can be found in <span class="citation" data-cites="dedekind_essays_1963">(<a href="references.html#ref-dedekind_essays_1963" role="doc-biblioref">Dedekind and Beman 1963, 85–86</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
