@@ -234,7 +234,7 @@ When we define a function $f$ by induction, we first specify $f(1)$ and then ind
 
 ::: {#thm-iteration-theorem}
 
-## Iteration theorem
+## Iteration theorem[^chapter_2-1]
 
 Consider any peano system $(\mathbb{P}, S, 1)$. Let $W$ be an arbitrary set, let $c$ be a fixed element of $W$, and let $g$ be a singulary operation on $W$, that is $g: W \longrightarrow W$. Then, there is a unique function $F: \mathbb{P} \longrightarrow W$ such that:
 
@@ -242,6 +242,8 @@ a. $F(1) = c$
 b. $F(S(x)) = g(F(x))$ for all $x \in \mathbb{P}$
 
 :::
+
+[^chapter_2-1]: Also known as the recursion theorem (See [@enderton_elements_2009, pp. 73-74]) where it can be found in [@dedekind_essays_1963, pp. 85-86]
 
 ::: {.proof}
 

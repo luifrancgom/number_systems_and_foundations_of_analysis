@@ -4707,11 +4707,11 @@ If $F: A \xrightarrow[onto]{1-1} B$, we say that $F$ is a *one-one correspondenc
 
 2.  Let $\mathbb{Z}_{\geq 0}$ the set of non negative integers and let $\mathbb{P}$ be the set of positive integers. The $\mathbb{Z}_{\geq 0}$ and $\mathbb{P}$ are equinumerous. Let $F(x) = x + 1$ for all $x \in \mathbb{Z}_{\geq 0}$
 
-3. Let $\mathbb{Z}_{> 0}$ be the set of nonnegative integers. Let $F(x, y) = 2^x(2y + 1) - 1$ where $x \in \mathbb{Z}_{> 0}$ and $y \in \mathbb{Z}_{> 0}$.
+3. Let $\mathbb{Z}_{\geq 0}$ be the set of nonnegative integers. Let $F(x, y) = 2^x(2y + 1) - 1$ where $x \in \mathbb{Z}_{\geq 0}$ and $y \in \mathbb{Z}_{\geq 0}$.
 
-   By @exm-one-one-function 4 we have that $F: \mathbb{Z}_{> 0} \times \mathbb{Z}_{> 0} \xrightarrow[]{1-1} \mathbb{Z}_{> 0}$ taking into account that $G(x, y) = 2^x(2y + 1)$ is one-one where we can use this result to show that $F(x, y) = 2^x(2y + 1) - 1$ is one-one.
+   By @exm-one-one-function 4 we have that $F: \mathbb{Z}_{\geq 0} \times \mathbb{Z}_{\geq 0} \xrightarrow[]{1-1} \mathbb{Z}_{> 0}$ taking into account that $G(x, y) = 2^x(2y + 1)$ is one-one where we can use this result to show that $F(x, y) = 2^x(2y + 1) - 1$ is one-one.
    
-   To check if $F: \mathbb{Z}_{> 0} \times \mathbb{Z}_{> 0} \xrightarrow[onto]{} \mathbb{Z}_{> 0}$ we proceed in the following way:
+   To check if $F: \mathbb{Z}_{\geq 0} \times \mathbb{Z}_{\geq 0} \xrightarrow[onto]{} \mathbb{Z}_{\geq 0}$ we proceed in the following way:
    
       -  $F(0, y) = 2^0(2y + 1) - 1 = 2y$ where $F(0, y) \in \{ 0, 2, 4, \ldots \}$
       
@@ -4729,7 +4729,7 @@ If $F: A \xrightarrow[onto]{1-1} B$, we say that $F$ is a *one-one correspondenc
       
       -  In general we have that $F(x, y) \in \{ 0, 1, 2, 3, 4, \ldots \}$ 
 
-   We can conclude that $F: \mathbb{Z}_{> 0} \times \mathbb{Z}_{> 0} \xrightarrow[onto]{1-1} \mathbb{Z}_{> 0}$.
+   We can conclude that $F: \mathbb{Z}_{\geq 0} \times \mathbb{Z}_{\geq 0} \xrightarrow[onto]{1-1} \mathbb{Z}_{\geq 0}$.
 
 4.  Let $\mathbb{Z}_{> 0}$ be the set of non negative integers and let $\mathbb{Z}$ be the set of all integers. We can enumerate $\mathbb{Z}$ as follows $0, 1, -1, 2, -2, 3, -3, \ldots$ More precisely we define:
 

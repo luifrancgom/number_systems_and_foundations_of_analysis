@@ -1005,6 +1005,81 @@ Assume $A \subseteq \mathbb{P}$. Also every set is finite or infinite but not bo
 
 First, if $A$ is finite the result is fulfill.
 
-Second, assume $A$ is infinite so we have to proof that it is denumerable, $A \approx \mathbb{P}$. 
+Second, assume $A$ is infinite so we have to proof that it is denumerable, $A \approx \mathbb{P}$. By @thm-iteration-theorem let $(\mathbb{P}, S, 1)$, $W = A \subseteq \mathbb{P}$, $c \in A$ equal to $c = \min{(A)}$ where $c$ is the least element of $A$ and $g: A \longrightarrow A$ such that $g(a) = a^*$ where $a < a^* = \min{(A - \{ x \in A \mid x \leq a \})}$, that is $a^*$ is the least element in $A$ greater than $a$. Then there is a function $f$ such that:
+
+a. $f(1) = c$
+b. $f(n + 1) = g(f(n))$ for all $n \in \mathbb{P}$
+
+Then $f: \mathbb{P} \longrightarrow A$. Let $f(n) = f(n^*)$ then we can use @def-peano-system iii:
+
+*Base step* $(n = 1)$: If $f(1) = f(n^*)$ then $f(n^*) = c$. Assume that $n^* = s + 1 > 1$ then $f(n^*) = g(f(s))$. This will mean that $c = g(f(s))$ but $c \not \in \mathscr{R}(g)$ because $c = \min{(A)}$ and there is not $a' < c$ where $a' \in A$. Therefore $n^* = 1$ and $f(n) = f(n^*)$.
+
+*Induction hypothesis* $(n \leq k)$: If $f(k) = f(n^*)$ for $n \leq k$ then $k = n^*$.
+
+*Induction step* $(n = k + 1)$: Let $f(k + 1) = f(n^* + 1)$ then $g(f(k)) = g(f(n^*))$. However $g$ is a one-one function. If this was not the case assume without loss of generality that $f(k) < f(n^*)$ then $f(k) < f(n^*) < g(f(n^*))$. Therefore $g(f(k)) \leq f(n^*) < g(f(n^*))$ and $g(f(k)) < g(f(n^*))$ which contradicts that $g(f(k)) = g(f(n^*))$. Then we have that $f(k) = f(n^*)$ but by the induction hypothesis $k = n^*$, which means that $k + 1 = n^* + 1$.
+
+By induction we can conclude that $f$ is a one-one function
+
+Also $f$ is onto function, that is $\mathscr{R}(f) = A$. Assume that this is not the case where $\mathscr{R}(f)) \subset A$. Let $k = \min{(A - \mathscr{R}(f))}$ and because $c \in \mathscr{R}(f))$ where $c = \min{(A)}$ then $c < k$. Therefore there is some $k' \in A$ such that $g(k') = k$ where $k' < k$, which means that $k' \in \mathscr{R}(f))$ because $k = \min{(A - \mathscr{R}(f))}$.
+
+So it must exist some $n' \in \mathbb{P}$ such that $f(n') = k'$. Furthermore $g(f(n')) = k$ and $f(n' + 1) = g(f(n')) = k$. But this mean that $k \in \mathscr{R}(f)$ because there is $n' + 1$ such that $f(n' + 1) = k$. But we have assume that $k \not \in \mathscr{R}(f)$ so it must be the case that $\mathscr{R}(f) = A$.
+
+Taking into account the above results $f: \mathbb{P} \xrightarrow[onto]{1-1} A$ so $\mathbb{P} \approx A$. By @def-denumerable-set $A$ is denumerable.
 
 :::
+
+::: {#cor-denumerable-set-1}
+
+Any subset of a denumerable set is either finite or denumerable.
+
+:::
+
+::: {.proof}
+
+Let $B \subseteq A$ and $A \approx \mathbb{P}$. Then there is some $F: A \xrightarrow[onto]{1-1} \mathbb{P}$. 
+
+In case $B = \emptyset$ then by @def-finite-set $B$ is finite. So assume $B \neq \emptyset$. In case $B \neq \emptyset$ lets define ${F \mid}_{B}: B \xrightarrow[onto]{1-1} \mathscr{R}({F \mid}_{B})$ and $\mathscr{R}({F \mid}_{B}) \subseteq \mathbb{P}$. Therefore $B \approx \mathscr{R}({F \mid}_{B})$
+
+By @lem-denumerable-set-1 $\mathscr{R}({F \mid}_{B})$ is finite or denumerable. 
+
+- If $\mathscr{R}({F \mid}_{B})$ is finite by @def-finite-set there is some $P_n$ such that $\mathscr{R}({F \mid}_{B}) \approx P_n$. Because $B \approx \mathscr{R}({F \mid}_{B})$ and $\mathscr{R}({F \mid}_{B}) \approx P_n$ by @thm-equinumerous-equivalence-relation c $B \approx P_n$, so $B$ is also finite. 
+    
+- If $\mathscr{R}({F \mid}_{B})$ is denumerable then $\mathscr{R}({F \mid}_{B}) \approx \mathbb{P}$ so again by @thm-equinumerous-equivalence-relation c $B \approx \mathbb{P}$. Therefore $B$ is denumerable.
+
+:::
+
+::: {#exr-denumerable-set-1}
+
+1. Prove that, if $A$ is denumerable and $B < A$, then B is finite. 
+
+:::
+
+::: {#sol-denumerable-set-1}
+
+1. If $A$ is denumerable then $A \approx \mathbb{P}$, so it exists $F$ such that $F: A \xrightarrow[onto]{1-1} \mathbb{P}$. Also if $B < A$ then there is some $G$ such that $G: B \xrightarrow[]{1-1} A$ but it is not the case that $G: B \xrightarrow[onto]{} A$. Therefore $\mathscr{R}(G) \subset A$.
+   
+   Therefore we have that $B \approx \mathscr{R}(G)$. Also because $\mathscr{R}(G) \subset A$ let ${F \mid}_{\mathscr{R}(G)}: \mathscr{R}(G) \xrightarrow[]{1-1} \mathbb{P}$ then ${F \mid}_{\mathscr{R}(G)}: B \xrightarrow[onto]{1-1} \mathscr{R}\left({F \mid}_{\mathscr{R}(G)}\right)$ where $\mathscr{R}({F \mid}_{B}) \subseteq \mathbb{P}$. By @lem-denumerable-set-1 $\mathscr{R}\left({F \mid}_{\mathscr{R}(G)}\right)$ is finite or denumerable.
+   
+   If $\mathscr{R}\left({F \mid}_{\mathscr{R}(G)}\right)$ is denumerable then $\mathscr{R}\left({F \mid}_{\mathscr{R}(G)}\right) \approx \mathbb{P}$. But also $B \approx \mathscr{R}\left({F \mid}_{\mathscr{R}(G)}\right)$ so by @thm-equinumerous-equivalence-relation c we will have that $B \approx \mathbb{P}$. However by @thm-equinumerous-equivalence-relation b because $A \approx \mathbb{P}$ we will have that $\mathbb{P} \approx A$ and again by @thm-equinumerous-equivalence-relation c $B \approx A$, which is not the case.
+   
+   Therefore the only possibility is that $B$ is finite by @lem-denumerable-set-1.
+
+:::
+
+::: {#thm-p-times-p-denumerable}
+
+$\mathbb{P} \times \mathbb{P}$ is denumerable
+
+:::
+
+::: {.proof}
+
+First, we can use the result pointed out in @exm-one-one-function 4 but for positive integers. That is, $F(x, y) = 2^x(2y + 1)$ where $F: \mathbb{P} \times \mathbb{P} \xrightarrow[]{1-1} \mathbb{P}$
+
+Second, let $G(x) = (x, 1)$ where $G: \mathbb{P} \xrightarrow[]{1-1} \mathbb{P} \times \mathbb{P}$ taking into account that if $G(x) = G(y)$ then $(x, 1) = (y, 1)$. Therefore we have that $x = y$.
+
+Third, by @thm-schroder-bernstein-theorem we have that $\mathbb{P} \approx \mathbb{P} \times \mathbb{P}$ taking into account that $\mathbb{P} \leq \mathbb{P} \times \mathbb{P}$ and $\mathbb{P} \times \mathbb{P} \leq \mathbb{P}$.
+
+:::
+
+**Pending Cantor Pairing Function**
