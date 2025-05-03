@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{matrix, arrows.meta}
+
+\begin{document}
+
+\begin{tikzpicture}[>=Latex]
+\matrix[matrix of math nodes, row sep=1cm, column sep=1.5cm] (m) {
+a_{11} & a_{12} & \cdots & a_{1m} & \cdots \\
+a_{21} & a_{22} & \cdots & a_{2m} & \cdots \\
+\vdots & \vdots & \cdots & \vdots & \cdots \\
+a_{n1} & a_{n2} & \cdots & a_{nm} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \vdots \\
+};
+
+% Draw arrows diagonally down-left: from (i,j) to (i+1,j-1)
+\foreach \i in {1,2,3} { % up to n-1 (here n=4 for visibility)
+  \foreach \j in {2,3,4} { % from column 2 to m (here m=4 for visibility)
+    \pgfmathtruncatemacro{\ii}{\i + 1}
+    \pgfmathtruncatemacro{\jj}{\j - 1}
+    \draw[->] (m-\i-\j) -- (m-\ii-\jj);
+  }
+}
+\end{tikzpicture}
+\]
+
+\end{document}
