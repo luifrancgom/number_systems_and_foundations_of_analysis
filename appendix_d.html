@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,10 +58,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1bc3b17e7a2c2828f435aa750fb76336.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6e4858b4921ffe5a9c7d897cee0e5447.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1136,9 +1136,115 @@ Figure&nbsp;D.4: Denumerable set of denumerable sets
 <p>Finally by <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> <span class="math inline">\(\bigcup_{A_i \in A} A_i \approx \mathbb{P}\)</span>.</p></li>
 </ol>
 </div>
+<div id="thm-denumerable-sets" class="theorem">
+<p><span class="theorem-title"><strong>Theorem D.11</strong></span> The following sets are denumerable:</p>
+<ol type="a">
+<li>The set <span class="math inline">\(\mathbb{Z}\)</span> of all integers</li>
+<li>The set <span class="math inline">\(\mathbb{Q}^+\)</span> of all positive rational integers</li>
+<li>The set <span class="math inline">\(\mathbb{Q}\)</span> of all rational numbers</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>Using the idea pointed out in <a href="chapter_1.html#exm-one-one-correspondence" class="quarto-xref">Example&nbsp;<span>1.20</span></a> 4 we can build <span class="math inline">\(F\)</span> such that <span class="math inline">\(F: \mathbb{Z} \xrightarrow[onto]{1-1} \mathbb{P}\)</span> where:</p>
+<p><span class="math display">\[F(n) = \begin{cases}
+          1 &amp; \text{ if } n = 0 \\
+          2n &amp; \text{ if } n &gt; 0 \\
+          -2n + 1 &amp; \text{ if } n &lt; 0
+         \end{cases}\]</span></p></li>
+<li><p>For this proof check out <span class="citation" data-cites="aigner_proofs_2018">(<a href="references.html#ref-aigner_proofs_2018" role="doc-biblioref">Aigner and Ziegler 2018, chap. 19</a>)</span> which explains the Calkin–Wilf listing. Create the following tree (See <a href="#fig-calkin-wilf-listing-as-a-tree" class="quarto-xref">Figure&nbsp;<span>D.5</span></a>):</p>
+<div id="fig-calkin-wilf-listing-as-a-tree" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-calkin-wilf-listing-as-a-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-calkin–wilf-listing-as-a-tree.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-calkin-wilf-listing-as-a-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;D.5: Calkin–Wilf listing as a tree
+</figcaption>
+</figure>
+</div>
+<p>Where <span class="math inline">\(\frac{1}{1}\)</span> is at the top of the tree and every node <span class="math inline">\(\frac{i}{j}\)</span> has 2 sons:</p>
+<ul>
+<li>The left son is <span class="math inline">\(\frac{i}{i + j}\)</span></li>
+<li>The right son is <span class="math inline">\(\frac{i + j}{j}\)</span></li>
+</ul>
+<p>Therefore we can generate the list <span class="math inline">\(\frac{1}{1}, \frac{1}{2}, \frac{2}{1}, \frac{1}{3}, \frac{3}{2}, \frac{2}{3}, \frac{3}{1}, \frac{1}{4}, \frac{4}{3}, \frac{3}{5}, \frac{5}{2}, \frac{2}{5}, \frac{5}{3}, \frac{3}{4}, \frac{4}{1} \ldots\)</span></p>
+<p>Also we have the following properties:</p>
+<ul>
+<li><p>All fractions in the tree are reduced, that is if <span class="math inline">\(gcd(i, j) = 1\)</span> then <span class="math inline">\(gcd(i, i + j) = 1\)</span> and <span class="math inline">\(gcd(i + j, j) = 1\)</span> where <span class="math inline">\(gcd\)</span> is the greatest common divisor and is defined as <span class="math inline">\(gcd(i,j) = max\{ d \in \mathbb{Z}_{&gt;0} \mid d | i \land d | j \}\)</span></p></li>
+<li><p>Every reduced fraction appears at least once. If <span class="math inline">\(\frac{i}{j} \neq 1\)</span> then <span class="math inline">\(i &gt; j\)</span> or <span class="math inline">\(i &lt; j\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(i &gt; j\)</span> then it is the right son of <span class="math inline">\(\frac{i - j}{j}\)</span> where <span class="math inline">\(gcd(i - j, j) = 1\)</span></li>
+<li>If <span class="math inline">\(i &lt; j\)</span> then it is the left son of <span class="math inline">\(\frac{i}{j - i}\)</span> where <span class="math inline">\(gcd(i, j - i) = 1\)</span></li>
+</ul>
+<p>Therefore, by applying this rule leads as back to <span class="math inline">\(\frac{1}{1}\)</span>. This provides a unique finite path back to the root.</p></li>
+<li><p>Every reduced fraction appears exactly once. If <span class="math inline">\(\frac{i}{j} \neq 1\)</span> then <span class="math inline">\(i &gt; j\)</span> or <span class="math inline">\(i &lt; j\)</span>. Therefore <span class="math inline">\(\frac{i}{j}\)</span> can only have one unique parent:</p>
+<ul>
+<li>If <span class="math inline">\(i &gt; j\)</span> then the unique parent is <span class="math inline">\(\frac{i - j}{j}\)</span></li>
+<li>If <span class="math inline">\(i &lt; j\)</span> then the unique parent is <span class="math inline">\(\frac{i}{j - i}\)</span></li>
+</ul></li>
+</ul>
+<p>So we can obtain the sequence using <a href="#fig-calkin-wilf-listing-as-a-tree" class="quarto-xref">Figure&nbsp;<span>D.5</span></a> by starting at the root and then visiting all nodes at each level from left to right:</p>
+<p><span class="math display">\[\frac{1}{1}, \frac{1}{2}, \frac{2}{1}, \frac{1}{3}, \frac{3}{2}, \frac{2}{3}, \frac{3}{1}, \frac{1}{4}, \frac{4}{3}, \frac{3}{5}, \frac{5}{2}, \frac{2}{5}, \frac{5}{3}, \frac{3}{4}, \frac{4}{1}, \ldots\]</span></p>
+<ul>
+<li><p>The denominator of the <span class="math inline">\(n\)</span>-th fraction equals the numerator of the <span class="math inline">\(n+1\)</span>-th fraction in the above list.</p>
+<ul>
+<li><p>It is true for the first and second position in the list</p></li>
+<li><p>If <span class="math inline">\(\frac{i}{j}\)</span> is a left son the father is <span class="math inline">\(\frac{i}{j-i}\)</span> and the right son is <span class="math inline">\(\frac{j}{j-i}\)</span></p></li>
+<li><p>If <span class="math inline">\(\frac{i}{j}\)</span> is a right son and at the right boundary then <span class="math inline">\(j=1\)</span> and the next fraction in the list is at the left boundary where the numerator is <span class="math inline">\(1\)</span></p></li>
+<li><p>If <span class="math inline">\(\frac{i}{j}\)</span> is a right son and at the interior where the next fraction is <span class="math inline">\(\frac{i^{'}}{j^{'}}\)</span> then the father of <span class="math inline">\(\frac{i}{j}\)</span> is <span class="math inline">\(\frac{i-j}{j}\)</span> and the father of <span class="math inline">\(\frac{i^{'}}{j^{'}}\)</span> is <span class="math inline">\(\frac{i^{'}}{j^{'}-i^{'}}\)</span>.</p>
+<ul>
+<li>In this case we apply an argument by induction where in the case of the fathers we have that <span class="math inline">\(j = i^{'}\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>But how we can obtain a function <span class="math inline">\(S(y)\)</span> as described in <a href="chapter_2.html#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> where <span class="math inline">\(y \in \mathbb{Q}_{&gt;0}\)</span>?</p>
+<p>In our tree we have that:</p>
+<div id="fig-calkin-wilf-branch" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-calkin-wilf-branch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-calkin–wilf-branch.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-calkin-wilf-branch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;D.6: Calkin–Wilf branch
+</figcaption>
+</figure>
+</div>
+<p>If <span class="math inline">\(x = \frac{i}{j}\)</span> then <span class="math inline">\(x + 1 = \frac{i+j}{j}\)</span>. Also <span class="math inline">\(x + 1 = \frac{\frac{i+j}{i}}{\frac{j}{i}} = \frac{\frac{i+j}{i}}{\frac{1}{x}}\)</span> so <span class="math inline">\(\frac{x+1}{x} = \frac{i+j}{i}\)</span> and <span class="math inline">\(\frac{x}{x+1} = \frac{i}{i+j}\)</span>.</p>
+<p>Therefore we have that:</p>
+<div id="fig-calkin-wilf-branch-rational" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-calkin-wilf-branch-rational-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-calkin–wilf-branch-rational.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-calkin-wilf-branch-rational-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;D.7: Calkin–Wilf alternative branch representation
+</figcaption>
+</figure>
+</div>
+<p>In that way we can expand the tree to identify which is the next fraction in the list in the following way for the <span class="math inline">\(k\)</span> level:</p>
+<div id="fig-calkin-wilf-branch-rational-expansion" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-calkin-wilf-branch-rational-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-calkin–wilf-branch-rational-expansion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-calkin-wilf-branch-rational-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;D.8: Calkin–Wilf alternative branch representation expansion
+</figcaption>
+</figure>
+</div>
+<p>Therefore, if <span class="math inline">\(y = \frac{x}{x+1} + k\)</span> then <span class="math inline">\(k = \left\lfloor y \right\rfloor\)</span> is the integral part of <span class="math inline">\(y\)</span> and <span class="math inline">\(\frac{x}{x+1} = \{y\}\)</span> is fractional part of <span class="math inline">\(y\)</span> where <span class="math inline">\(y = \{y\} + \left\lfloor y \right\rfloor\)</span>.</p>
+<p>So <span class="math inline">\(\frac{x + 1}{kx + (k+1)} = \frac{x + 1}{1 + k(x+1)} = \frac{1}{\frac{1}{x+1} + k} = \frac{1}{1 - \frac{x}{x+1} + k} = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor}\)</span>.</p>
+<p>This means that <span class="math inline">\(S(y) = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor}\)</span>.</p></li>
+</ol>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-aigner_proofs_2018" class="csl-entry" role="listitem">
+Aigner, Martin, and Günter M. Ziegler. 2018. <em>Proofs from <span>THE</span> <span>BOOK</span></em>. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-57265-8">https://doi.org/10.1007/978-3-662-57265-8</a>.
+</div>
 <div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
 Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
 </div>
