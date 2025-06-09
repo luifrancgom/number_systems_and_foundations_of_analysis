@@ -1,0 +1,66 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  sibling distance=18mm,
+  level distance=14mm,
+  every node/.style={scale=1},
+  edge from parent/.style={draw, -{Stealth}},
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=10mm},
+  level 4/.style={sibling distance=6mm}
+]
+
+\node {$\frac{1}{1}$}
+  child {node {$\frac{1}{2}$}
+    child {node {$\frac{1}{3}$}
+      child {node {$\frac{1}{4}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+      child {node {$\frac{4}{3}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+    }
+    child {node {$\frac{3}{2}$}
+      child {node {$\frac{3}{5}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+      child {node {$\frac{5}{2}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+    }
+  }
+  child {node {$\frac{2}{1}$}
+    child {node {$\frac{2}{3}$}
+      child {node {$\frac{2}{5}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+      child {node {$\frac{5}{3}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+    }
+    child {node {$\frac{3}{1}$}
+      child {node {$\frac{3}{4}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+      child {node {$\frac{4}{1}$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+    }
+  };
+
+\end{tikzpicture}
+
+\end{document}

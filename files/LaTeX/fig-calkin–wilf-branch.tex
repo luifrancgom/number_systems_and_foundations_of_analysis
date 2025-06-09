@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\node {$\frac{i}{j}$}
+    child {node {$\frac{i}{i+j}$}}
+    child {node {$\frac{i+j}{j}$}};
+\end{tikzpicture}
+
+\end{document}

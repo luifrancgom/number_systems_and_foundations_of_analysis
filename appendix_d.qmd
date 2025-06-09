@@ -1211,3 +1211,89 @@ Then $F: A \cup B \xrightarrow[onto]{1-1} A \times B$.
    Finally by @thm-schroder-bernstein-theorem $\bigcup_{A_i \in A} A_i \approx \mathbb{P}$.
    
 :::
+
+::: {#thm-denumerable-sets}
+
+The following sets are denumerable:
+
+a. The set $\mathbb{Z}$ of all integers
+b. The set $\mathbb{Q}^+$ of all positive rational integers
+c. The set $\mathbb{Q}$ of all rational numbers
+
+:::
+
+::: {.proof}
+
+a. Using the idea pointed out in @exm-one-one-correspondence 4 we can build $F$ such that $F: \mathbb{Z} \xrightarrow[onto]{1-1} \mathbb{P}$ where:
+
+   $$F(n) = \begin{cases}
+             1 & \text{ if } n = 0 \\
+             2n & \text{ if } n > 0 \\
+             -2n + 1 & \text{ if } n < 0
+            \end{cases}$$
+
+b. For this proof check out [@aigner_proofs_2018, chap. 19] which explains the Calkin–Wilf listing. Create the following tree (See @fig-calkin-wilf-listing-as-a-tree):
+
+   ![Calkin–Wilf listing as a tree](images/fig-calkin–wilf-listing-as-a-tree.png){#fig-calkin-wilf-listing-as-a-tree fig-align="center" width=70%}
+   
+   Where $\frac{1}{1}$ is at the top of the tree and every node $\frac{i}{j}$ has 2 sons:
+   
+      - The left son is $\frac{i}{i + j}$
+      - The right son is $\frac{i + j}{j}$
+   
+   Therefore we can generate the list $\frac{1}{1}, \frac{1}{2}, \frac{2}{1}, \frac{1}{3}, \frac{3}{2}, \frac{2}{3}, \frac{3}{1}, \frac{1}{4}, \frac{4}{3}, \frac{3}{5}, \frac{5}{2}, \frac{2}{5}, \frac{5}{3}, \frac{3}{4}, \frac{4}{1} \ldots$
+   
+   Also we have the following properties:
+   
+      - All fractions in the tree are reduced, that is if $gcd(i, j) = 1$ then $gcd(i, i + j) = 1$ and $gcd(i + j, j) = 1$ where $gcd$ is the greatest common divisor and is defined as $gcd(i,j) = max\{ d \in \mathbb{Z}_{>0} \mid d | i \land d | j \}$
+      
+      - Every reduced fraction appears at least once. If $\frac{i}{j} \neq 1$ then $i > j$ or $i < j$.
+      
+          - If $i > j$ then it is the right son of $\frac{i - j}{j}$ where $gcd(i - j, j) = 1$
+          - If $i < j$ then it is the left son of $\frac{i}{j - i}$ where $gcd(i, j - i) = 1$
+          
+        Therefore, by applying this rule leads as back to $\frac{1}{1}$. This provides a unique finite path back to the root.
+      
+      - Every reduced fraction appears exactly once. If $\frac{i}{j} \neq 1$ then $i > j$ or $i < j$. Therefore $\frac{i}{j}$ can only have one unique parent:
+      
+          - If $i > j$ then the unique parent is $\frac{i - j}{j}$
+          - If $i < j$ then the unique parent is $\frac{i}{j - i}$
+          
+   So we can obtain the sequence using [@fig-calkin-wilf-listing-as-a-tree] by starting at the root and then visiting all nodes at each level from left to right:
+   
+   $$\frac{1}{1}, \frac{1}{2}, \frac{2}{1}, \frac{1}{3}, \frac{3}{2}, \frac{2}{3}, \frac{3}{1}, \frac{1}{4}, \frac{4}{3}, \frac{3}{5}, \frac{5}{2}, \frac{2}{5}, \frac{5}{3}, \frac{3}{4}, \frac{4}{1}, \ldots$$
+         
+    - The denominator of the $n$-th fraction equals the numerator of the $n+1$-th fraction in the above list.
+    
+       - It is true for the first and second position in the list
+       - If $\frac{i}{j}$ is a left son the father is $\frac{i}{j-i}$ and the right son is $\frac{j}{j-i}$ 
+       
+       - If $\frac{i}{j}$ is a right son and at the right boundary then $j=1$ and the next fraction in the list is at the left boundary where the numerator is $1$
+       
+       - If $\frac{i}{j}$ is a right son and at the interior where the next fraction is $\frac{i^{'}}{j^{'}}$ then the father of $\frac{i}{j}$ is $\frac{i-j}{j}$ and the father of $\frac{i^{'}}{j^{'}}$ is $\frac{i^{'}}{j^{'}-i^{'}}$.
+       
+          - In this case we apply an argument by induction where in the case of the fathers we have that $j = i^{'}$   
+   
+   But how we can obtain a function $S(y)$ as described in [@def-peano-system] where $y \in \mathbb{Q}_{>0}$?
+   
+   In our tree we have that:
+   
+   ![Calkin–Wilf branch](images/fig-calkin–wilf-branch.png){#fig-calkin-wilf-branch fig-align="center" width=20%}
+   
+   If $x = \frac{i}{j}$ then $x + 1 = \frac{i+j}{j}$. Also $x + 1 = \frac{\frac{i+j}{i}}{\frac{j}{i}} = \frac{\frac{i+j}{i}}{\frac{1}{x}}$ so $\frac{x+1}{x} = \frac{i+j}{i}$ and $\frac{x}{x+1} = \frac{i}{i+j}$.
+   
+   Therefore we have that:
+   
+   ![Calkin–Wilf alternative branch representation](images/fig-calkin–wilf-branch-rational.png){#fig-calkin-wilf-branch-rational fig-align="center" width=20%}
+   
+   In that way we can expand the tree to identify which is the next fraction in the list in the following way for the $k$ level:
+   
+   ![Calkin–Wilf alternative branch representation expansion](images/fig-calkin–wilf-branch-rational-expansion.png){#fig-calkin-wilf-branch-rational-expansion fig-align="center" width=70%}
+
+   Therefore, if $y = \frac{x}{x+1} + k$ then $k = \left\lfloor y \right\rfloor$ is the integral part of $y$ and $\frac{x}{x+1} = \{y\}$ is fractional part of $y$ where $y = \{y\} + \left\lfloor y \right\rfloor$.
+   
+   So $\frac{x + 1}{kx + (k+1)} = \frac{x + 1}{1 + k(x+1)} = \frac{1}{\frac{1}{x+1} + k} = \frac{1}{1 - \frac{x}{x+1} + k} = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor}$.
+   
+   This means that $S(y) = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor}$.
+  
+:::
