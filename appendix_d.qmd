@@ -1294,6 +1294,71 @@ b. For this proof check out [@aigner_proofs_2018, chap. 19] which explains the C
    
    So $\frac{x + 1}{kx + (k+1)} = \frac{x + 1}{1 + k(x+1)} = \frac{1}{\frac{1}{x+1} + k} = \frac{1}{1 - \frac{x}{x+1} + k} = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor}$.
    
-   This means that $S(y) = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor}$.
+   This means that $S(y) = \frac{1}{1 - \{y\} + \left\lfloor y \right\rfloor} = \frac{1}{2\left\lfloor y \right\rfloor - y + 1}$ or alternatively $y_1 = \frac{1}{1}$ and $y_{n+1} = \frac{1}{2\left\lfloor y_n \right\rfloor - y_n + 1}$.
+   
+   Now, how you can obtain the position $k$ in the list using the Calkin–Wilf tree?
+   
+   Think of each branch as left $(0)$ or right $(1)$ where the root, $\frac{1}{1}$, is associated with $1$. So for example to reach $\frac{5}{2}$ we can represent it as $RLRR$ or $1011$ where $\frac{5}{2}$ is in the position $11$ in the tree and the representation of $11$ in base 2 is $1011$
+   
+   So the function will be as follows:
+   
+      - $r_0 = \frac{0}{1}$
+      - $r_n = \begin{cases}
+               \frac{i}{i + j} & \text{ if } k_2(n) = 0 \\
+               \frac{i + j}{j} & \text{ if } k_2(n) = 1
+               \end{cases}$
+      
+      Where, $0 < n \leq k$, $r_{n-1} = \frac{i}{j}$, $k_2$ is the binary representation of $k$ and $k_2(n)$ is the $n$ element from left to right in the binary representation of $k$.
+      
+      For example let $k = 4$ and $n = 2$. So $4_2 = 100$, $k_4(2) = 0$ and $r_2 = \frac{1}{2}$ where $r_1 = \frac{1}{1}$. In that way if you want to know $r_4$ you use $r_0$ to calculate $r_1$, $r_1$ to calculate $r_2$, $r_2$ to calculate $r_3$ and $r_3$ to finally calculate $r_4$.
+      
+      In @lst-n-rational-number-calkin-wilf-tree it is pointed out a possible way to find the $k$ position in the Calkin–Wilf tree using the R programming language.
+   
+   ```{r}
+   #| lst-label: lst-n-rational-number-calkin-wilf-tree
+   #| lst-cap: Finding the position of the k rational number in the Calkin–Wilf tree
+   #| echo: true
+
+   n_rational <- function(position) {
+ 
+   # Function to find the binary representation
+   decimal_to_binary <- function(decimal_num) {
+   
+     binary_num <- integer(0)
   
+     while (decimal_num > 0) {
+     remainder <- decimal_num %% 2
+     binary_num <- c(remainder, binary_num) # Add at the beginning
+     decimal_num <- decimal_num %/% 2
+     
+     }
+  
+     return(binary_num)
+  
+    }
+ 
+    # Binary representation of the position
+    position_to_binary <- decimal_to_binary(decimal_num = position)
+    # Root
+    frac <- c(0,1)
+ 
+    for (i in position_to_binary) {
+  
+      if (i == 0) {
+      frac[2] <- frac[1] + frac[2] 
+      } else {
+        frac[1] <- frac[1] + frac[2] 
+      }
+  
+     }
+ 
+    return(frac)
+ 
+    }
+
+    # Test with k=4
+    n_rational(position = 4)
+   ```
+c. Test
+
 :::

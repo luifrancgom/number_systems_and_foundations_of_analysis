@@ -35,6 +35,7 @@ format:
     theme: cosmo
     toc: true
     toc-depth: 4
+    code-fold: true
     
 knitr: 
  opts_chunk:
