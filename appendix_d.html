@@ -1049,7 +1049,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div id="exr-denumerable-set-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise D.8</strong></span> &nbsp;</p>
 <ol type="1">
-<li>Prove that, if <span class="math inline">\(A\)</span> is denumerable and <span class="math inline">\(B &lt; A\)</span>, then B is finite.</li>
+<li>Prove that, if <span class="math inline">\(A\)</span> is denumerable and <span class="math inline">\(B &lt; A\)</span>, then <span class="math inline">\(B\)</span> is finite.</li>
 </ol>
 </div>
 <div id="sol-denumerable-set-1" class="proof solution">
@@ -1182,12 +1182,46 @@ Figure&nbsp;D.4: Denumerable set of denumerable sets
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <ol type="a">
-<li><p>Using the idea pointed out in <a href="chapter_1.html#exm-one-one-correspondence" class="quarto-xref">Example&nbsp;<span>1.20</span></a> 4 we can build <span class="math inline">\(F\)</span> such that <span class="math inline">\(F: \mathbb{Z} \xrightarrow[onto]{1-1} \mathbb{P}\)</span> where:</p>
-<p><span class="math display">\[F(n) = \begin{cases}
-          1 &amp; \text{ if } n = 0 \\
-          2n &amp; \text{ if } n &gt; 0 \\
-          -2n + 1 &amp; \text{ if } n &lt; 0
-         \end{cases}\]</span></p></li>
+<li><p>We can build <span class="math inline">\(F\)</span> such that <span class="math inline">\(F: \mathbb{P} \xrightarrow[onto]{1-1} \mathbb{Z}\)</span> where:</p>
+<p><span class="math display">\[F(p) = \begin{cases}
+           0             &amp; \text{ if } p = 1 \\
+           \frac{p}{2}   &amp; \text{ if } p = 2k \\
+          -\frac{p-1}{2} &amp; \text{ if } p = 2k + 1
+         \end{cases}\]</span></p>
+<p>In code using the R programming language:</p>
+<div class="cell">
+<div id="lst-p-to-z" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-p-to-z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;D.1: Bijection between <span class="math inline">\(\mathbb{P}\)</span> and <span class="math inline">\(\mathbb{Z}\)</span>
+</figcaption>
+<div aria-describedby="lst-p-to-z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>p_to_z <span class="ot">&lt;-</span> <span class="cf">function</span>(p) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (p <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   z <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (p <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   z <span class="ot">=</span> p <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   z <span class="ot">=</span> <span class="sc">-</span>((p <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a> <span class="fu">return</span>(z)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with p = 9</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">p_to_z</span>(<span class="at">p =</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</figure>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -4</code></pre>
+</div>
+</div></li>
 <li><p>For this proof check out <span class="citation" data-cites="aigner_proofs_2018">(<a href="references.html#ref-aigner_proofs_2018" role="doc-biblioref">Aigner and Ziegler 2018, chap. 19</a>)</span> which explains the Calkin–Wilf listing. Create the following tree (See <a href="#fig-calkin-wilf-listing-as-a-tree" class="quarto-xref">Figure&nbsp;<span>D.5</span></a>):</p>
 <div id="fig-calkin-wilf-listing-as-a-tree" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1284,55 +1318,55 @@ Figure&nbsp;D.8: Calkin–Wilf alternative branch representation expansion
 </ul>
 <p>Where, <span class="math inline">\(0 &lt; n \leq k\)</span>, <span class="math inline">\(r_{n-1} = \frac{i}{j}\)</span>, <span class="math inline">\(k_2\)</span> is the binary representation of <span class="math inline">\(k\)</span> and <span class="math inline">\(k_2(n)\)</span> is the <span class="math inline">\(n\)</span> element from left to right in the binary representation of <span class="math inline">\(k\)</span>.</p>
 <p>For example let <span class="math inline">\(k = 4\)</span> and <span class="math inline">\(n = 2\)</span>. So <span class="math inline">\(4_2 = 100\)</span>, <span class="math inline">\(k_4(2) = 0\)</span> and <span class="math inline">\(r_2 = \frac{1}{2}\)</span> where <span class="math inline">\(r_1 = \frac{1}{1}\)</span>. In that way if you want to know <span class="math inline">\(r_4\)</span> you use <span class="math inline">\(r_0\)</span> to calculate <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_1\)</span> to calculate <span class="math inline">\(r_2\)</span>, <span class="math inline">\(r_2\)</span> to calculate <span class="math inline">\(r_3\)</span> and <span class="math inline">\(r_3\)</span> to finally calculate <span class="math inline">\(r_4\)</span>.</p>
-<p>In <a href="#lst-n-rational-number-calkin-wilf-tree" class="quarto-xref">Listing&nbsp;<span>D.1</span></a> it is pointed out a possible way to find the <span class="math inline">\(k\)</span> position in the Calkin–Wilf tree using the R programming language.</p>
+<p>In <a href="#lst-p-to-q-positive" class="quarto-xref">Listing&nbsp;<span>D.2</span></a> it is pointed out a possible way to find the <span class="math inline">\(k\)</span> position in the Calkin–Wilf tree using the R programming language.</p>
 <div class="cell">
-<div id="lst-n-rational-number-calkin-wilf-tree" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<div id="lst-p-to-q-positive" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
 <figure class="quarto-float quarto-float-lst figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-n-rational-number-calkin-wilf-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;D.1: Finding the position of the k rational number in the Calkin–Wilf tree
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-p-to-q-positive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;D.2: Finding the position of the k rational number in the Calkin–Wilf tree
 </figcaption>
-<div aria-describedby="lst-n-rational-number-calkin-wilf-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="lst-p-to-q-positive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n_rational <span class="ot">&lt;-</span> <span class="cf">function</span>(position) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to find the binary representation</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>decimal_to_binary <span class="ot">&lt;-</span> <span class="cf">function</span>(decimal_num) {</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  binary_num <span class="ot">&lt;-</span> <span class="fu">integer</span>(<span class="dv">0</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (decimal_num <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  remainder <span class="ot">&lt;-</span> decimal_num <span class="sc">%%</span> <span class="dv">2</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  binary_num <span class="ot">&lt;-</span> <span class="fu">c</span>(remainder, binary_num) <span class="co"># Add at the beginning</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  decimal_num <span class="ot">&lt;-</span> decimal_num <span class="sc">%/%</span> <span class="dv">2</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(binary_num)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="co"># Binary representation of the position</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a> position_to_binary <span class="ot">&lt;-</span> <span class="fu">decimal_to_binary</span>(<span class="at">decimal_num =</span> position)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a> <span class="co"># Root</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a> frac <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> position_to_binary) {</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>   frac[<span class="dv">2</span>] <span class="ot">&lt;-</span> frac[<span class="dv">1</span>] <span class="sc">+</span> frac[<span class="dv">2</span>] </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>     frac[<span class="dv">1</span>] <span class="ot">&lt;-</span> frac[<span class="dv">1</span>] <span class="sc">+</span> frac[<span class="dv">2</span>] </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a> <span class="fu">return</span>(frac)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a> <span class="co"># Test with k=4</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a> <span class="fu">n_rational</span>(<span class="at">position =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p_to_q_positive <span class="ot">&lt;-</span> <span class="cf">function</span>(p) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to find the binary representation</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>decimal_to_binary <span class="ot">&lt;-</span> <span class="cf">function</span>(decimal_num) {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  binary_num <span class="ot">&lt;-</span> <span class="fu">integer</span>(<span class="dv">0</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (decimal_num <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  remainder <span class="ot">&lt;-</span> decimal_num <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  binary_num <span class="ot">&lt;-</span> <span class="fu">c</span>(remainder, binary_num) <span class="co"># Add at the beginning</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  decimal_num <span class="ot">&lt;-</span> decimal_num <span class="sc">%/%</span> <span class="dv">2</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(binary_num)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a> <span class="co"># Binary representation of the position</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a> position_to_binary <span class="ot">&lt;-</span> <span class="fu">decimal_to_binary</span>(<span class="at">decimal_num =</span> p)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a> <span class="co"># Root</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a> frac <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> position_to_binary) {</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>   frac[<span class="dv">2</span>] <span class="ot">&lt;-</span> frac[<span class="dv">1</span>] <span class="sc">+</span> frac[<span class="dv">2</span>] </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>     frac[<span class="dv">1</span>] <span class="ot">&lt;-</span> frac[<span class="dv">1</span>] <span class="sc">+</span> frac[<span class="dv">2</span>] </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a> <span class="fu">return</span>(frac)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a> <span class="co"># Test with k=4</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a> <span class="fu">p_to_q_positive</span>(<span class="at">p =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </figure>
@@ -1341,8 +1375,93 @@ Listing&nbsp;D.1: Finding the position of the k rational number in the Calkin–
 <pre><code>[1] 1 3</code></pre>
 </div>
 </div></li>
-<li><p>Test</p></li>
+<li><p>By thm-denumerable-sets b. let <span class="math inline">\(\Phi\)</span> be a one-one correspondence between <span class="math inline">\(\mathbb{Q}^+\)</span> and <span class="math inline">\(\mathbb{P}\)</span>. Then define:</p>
+<p><span class="math display">\[\Psi(z) = \begin{cases}
+             \Phi(z)   &amp; \text{ if }  z \in \mathbb{Z}^+ \\
+             0         &amp; \text{ if }  z = 0 \\
+             -\Phi(-z) &amp; \text{ if } -z \in \mathbb{Z}^+
+            \end{cases}\]</span></p>
+<p>Then <span class="math inline">\(\Psi: \mathbb{Z} \xrightarrow[onto]{1-1} \mathbb{Q}\)</span>. In code using the R programming language:</p>
+<div class="cell">
+<div id="lst-z-to-q" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-z-to-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;D.3: Bijection between <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{Q}\)</span>
+</figcaption>
+<div aria-describedby="lst-z-to-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>z_to_q <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (z <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   r <span class="ot">=</span> <span class="fu">p_to_q_positive</span>(<span class="at">p =</span> z)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (z <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   r <span class="ot">=</span> <span class="fu">p_to_q_positive</span>(<span class="at">p =</span> <span class="sc">-</span>z)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>   r[<span class="dv">1</span>] <span class="ot">=</span> <span class="sc">-</span>r[<span class="dv">1</span>]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>   r <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(r)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with z=-4</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">z_to_q</span>(<span class="at">z =</span> <span class="sc">-</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</figure>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1  3</code></pre>
+</div>
+</div>
+<p>But by <a href="#thm-denumerable-sets" class="quarto-xref">Theorem&nbsp;<span>D.11</span></a> a. <span class="math inline">\(\mathbb{P} \approx \mathbb{Z}\)</span>. Hence, <span class="math inline">\(\mathbb{P} \approx \mathbb{Q}\)</span>. In code using the R programming language:</p>
+<div class="cell">
+<div id="lst-p-to-q" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-p-to-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;D.4: Bijection between <span class="math inline">\(\mathbb{P}\)</span> and <span class="math inline">\(\mathbb{Q}\)</span>
+</figcaption>
+<div aria-describedby="lst-p-to-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with p = 9</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">p_to_z</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">z_to_q</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</figure>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1  3</code></pre>
+</div>
+</div></li>
 </ol>
+</div>
+<div id="nte-notation-cardinal-numbers" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;D.1: Notations cardinal numbers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The cardinal number <span class="math inline">\(\mathscr{K}(\mathbb{P})\)</span> is traditionally denoted by <span class="math inline">\(\aleph_0\)</span>. Thus, all denumerable sets have cardinal numbers <span class="math inline">\(\aleph_0\)</span>.</p>
+<p>By <a href="#exr-denumerable-set-1" class="quarto-xref">Exercise&nbsp;<span>D.8</span></a> the only cardinal numbers smaller than <span class="math inline">\(\aleph_0\)</span> are the finite cardinal numbers.</p>
+<p>By <a href="#exr-denumerable-sets" class="quarto-xref">Exercise&nbsp;<span>D.4</span></a> 1. <span class="math inline">\(\aleph_0\)</span> is the smallest infinite cardinal number.</p>
+<p>By <a href="#thm-cantor-theorem" class="quarto-xref">Theorem&nbsp;<span>D.3</span></a> the cardinal number of <span class="math inline">\(\mathscr{P}(\mathbb{P})\)</span> is bigger that <span class="math inline">\(\aleph_0\)</span></p>
+</div>
+</div>
+<p>Let <span class="math inline">\(\mathbb{R}\)</span> denote the set of real numbers.</p>
+<div id="thm-half-open-interval-0-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem D.12</strong></span> The half-open interval <span class="math inline">\([0,1) = \{x \mid x \in \mathbb{R} \land 0 \leq x &lt; 1 \}\)</span> is not denumerable.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
 </div>
 
 
