@@ -1050,7 +1050,7 @@ By @lem-denumerable-set-1 $\mathscr{R}({F \mid}_{B})$ is finite or denumerable.
 
 ::: {#exr-denumerable-set-1}
 
-1. Prove that, if $A$ is denumerable and $B < A$, then B is finite. 
+1. Prove that, if $A$ is denumerable and $B < A$, then $B$ is finite. 
 :::
 
 ::: {#sol-denumerable-set-1}
@@ -1224,13 +1224,38 @@ c. The set $\mathbb{Q}$ of all rational numbers
 
 ::: {.proof}
 
-a. Using the idea pointed out in @exm-one-one-correspondence 4 we can build $F$ such that $F: \mathbb{Z} \xrightarrow[onto]{1-1} \mathbb{P}$ where:
+a. We can build $F$ such that $F: \mathbb{P} \xrightarrow[onto]{1-1} \mathbb{Z}$ where:
 
-   $$F(n) = \begin{cases}
-             1 & \text{ if } n = 0 \\
-             2n & \text{ if } n > 0 \\
-             -2n + 1 & \text{ if } n < 0
+   $$F(p) = \begin{cases}
+              0             & \text{ if } p = 1 \\
+              \frac{p}{2}   & \text{ if } p = 2k \\
+             -\frac{p-1}{2} & \text{ if } p = 2k + 1
             \end{cases}$$
+   
+   In code using the R programming language:
+
+   ```{r}
+   #| lst-label: lst-p-to-z
+   #| lst-cap: Bijection between $\mathbb{P}$ and $\mathbb{Z}$
+   #| echo: true
+
+   p_to_z <- function(p) {
+   
+     if (p == 1) {
+      z = 0
+     } else if (p %% 2 == 0) {
+      z = p / 2
+     } else {
+      z = -((p - 1) / 2)
+     }
+     
+    return(z)
+    
+   }
+
+   # Test with p = 9
+   p_to_z(p = 9)
+   ```
 
 b. For this proof check out [@aigner_proofs_2018, chap. 19] which explains the Calkin–Wilf listing. Create the following tree (See @fig-calkin-wilf-listing-as-a-tree):
 
@@ -1312,14 +1337,14 @@ b. For this proof check out [@aigner_proofs_2018, chap. 19] which explains the C
       
       For example let $k = 4$ and $n = 2$. So $4_2 = 100$, $k_4(2) = 0$ and $r_2 = \frac{1}{2}$ where $r_1 = \frac{1}{1}$. In that way if you want to know $r_4$ you use $r_0$ to calculate $r_1$, $r_1$ to calculate $r_2$, $r_2$ to calculate $r_3$ and $r_3$ to finally calculate $r_4$.
       
-      In @lst-n-rational-number-calkin-wilf-tree it is pointed out a possible way to find the $k$ position in the Calkin–Wilf tree using the R programming language.
+      In @lst-p-to-q-positive it is pointed out a possible way to find the $k$ position in the Calkin–Wilf tree using the R programming language.
    
    ```{r}
-   #| lst-label: lst-n-rational-number-calkin-wilf-tree
+   #| lst-label: lst-p-to-q-positive
    #| lst-cap: Finding the position of the k rational number in the Calkin–Wilf tree
    #| echo: true
 
-   n_rational <- function(position) {
+   p_to_q_positive <- function(p) {
  
    # Function to find the binary representation
    decimal_to_binary <- function(decimal_num) {
@@ -1338,7 +1363,7 @@ b. For this proof check out [@aigner_proofs_2018, chap. 19] which explains the C
     }
  
     # Binary representation of the position
-    position_to_binary <- decimal_to_binary(decimal_num = position)
+    position_to_binary <- decimal_to_binary(decimal_num = p)
     # Root
     frac <- c(0,1)
  
@@ -1357,8 +1382,79 @@ b. For this proof check out [@aigner_proofs_2018, chap. 19] which explains the C
     }
 
     # Test with k=4
-    n_rational(position = 4)
+    p_to_q_positive(p = 4)
    ```
-c. Test
+c. By thm-denumerable-sets b. let $\Phi$ be a one-one correspondence between $\mathbb{Q}^+$ and $\mathbb{P}$. Then define:
+
+   $$\Psi(z) = \begin{cases}
+                \Phi(z)   & \text{ if }  z \in \mathbb{Z}^+ \\
+                0         & \text{ if }  z = 0 \\
+                -\Phi(-z) & \text{ if } -z \in \mathbb{Z}^+
+               \end{cases}$$
+
+   Then $\Psi: \mathbb{Z} \xrightarrow[onto]{1-1} \mathbb{Q}$. In code using the R programming language:
+
+   ```{r}
+   #| lst-label: lst-z-to-q
+   #| lst-cap: Bijection between $\mathbb{Z}$ and $\mathbb{Q}$
+   #| echo: true
+
+   z_to_q <- function(z) {
+    
+    if (z > 0) {
+      r = p_to_q_positive(p = z)
+     } else if (z < 0) {
+      r = p_to_q_positive(p = -z)
+      r[1] = -r[1]
+     } else {
+      r = 0
+     }
+    
+     return(r)
+    
+   }
+
+   # Test with z=-4
+   z_to_q(z = -4)
+   ```
+   But by @thm-denumerable-sets a. $\mathbb{P} \approx \mathbb{Z}$. Hence, $\mathbb{P} \approx \mathbb{Q}$. In code using the R programming language:
+   
+   ```{r}
+   #| lst-label: lst-p-to-q
+   #| lst-cap: Bijection between $\mathbb{P}$ and $\mathbb{Q}$
+   #| echo: true
+
+   # Test with p = 9
+   9 |> 
+    p_to_z() |> 
+    z_to_q()
+   ```
+:::
+
+::: {#nte-notation-cardinal-numbers .callout-note}
+
+## Notations cardinal numbers
+
+The cardinal number $\mathscr{K}(\mathbb{P})$ is traditionally denoted by $\aleph_0$. Thus, all denumerable sets have cardinal numbers $\aleph_0$. 
+
+By @exr-denumerable-set-1 the only cardinal numbers smaller than $\aleph_0$ are the finite cardinal numbers.
+
+By @exr-denumerable-sets 1. $\aleph_0$ is the smallest infinite cardinal number.
+
+By @thm-cantor-theorem the cardinal number of $\mathscr{P}(\mathbb{P})$ is bigger that $\aleph_0$
+
+:::
+
+Let $\mathbb{R}$ denote the set of real numbers.
+
+::: {#thm-half-open-interval-0-1}
+
+The half-open interval $[0,1) = \{x \mid x \in \mathbb{R} \land 0 \leq x < 1 \}$ is not denumerable.
+
+:::
+
+::: {.proof}
+
+**Pending**
 
 :::
