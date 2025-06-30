@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,10 +93,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f8cb7fe94b71c4ea6759b609738bfe9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-48fb113fea7c09ade55c8c495d57f66a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -400,7 +400,7 @@ A \leq B &amp; \iff \exists F (F: A \xrightarrow[]{1-1} B) \\
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(A &lt; \mathscr{P}(A)\)</span> by <a href="#def-less-equal-than-and-less-than-relation-sets" class="quarto-xref">Definition&nbsp;<span>D.1</span></a> b we need to prove that <span class="math inline">\(A \leq \mathscr{P}(A) \land A \not \approx \mathscr{P}(A)\)</span>.</p>
-<p>First, define <span class="math inline">\(F\)</span> such that <span class="math inline">\(F(a) = \{ a \}\)</span> for all <span class="math inline">\(a \in A\)</span> then <span class="math inline">\(F: A \xrightarrow[]{1-1} \mathscr{P}(A)\)</span> becuase if <span class="math inline">\(F(a) = F(b)\)</span> then <span class="math inline">\(\{ a \} = \{ b \}\)</span> so <span class="math inline">\(a = b\)</span>. Therefore, <span class="math inline">\(A \leq \mathscr{P}(A)\)</span>.</p>
+<p>First, define <span class="math inline">\(F\)</span> such that <span class="math inline">\(F(a) = \{ a \}\)</span> for all <span class="math inline">\(a \in A\)</span> then <span class="math inline">\(F: A \xrightarrow[]{1-1} \mathscr{P}(A)\)</span> because if <span class="math inline">\(F(a) = F(b)\)</span> then <span class="math inline">\(\{ a \} = \{ b \}\)</span> so <span class="math inline">\(a = b\)</span>. Therefore, <span class="math inline">\(A \leq \mathscr{P}(A)\)</span>.</p>
 <p>Second, using <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> assume <span class="math inline">\(A \approx \mathscr{P}(A)\)</span> so there is some <span class="math inline">\(G\)</span> such that <span class="math inline">\(G: A \xrightarrow[onto]{1-1} \mathscr{P}(A)\)</span>. Let <span class="math inline">\(B = \{ b \in A \mid b \not \in G(b) \}\)</span>. Because <span class="math inline">\(B \subseteq A\)</span> then <span class="math inline">\(B \in \mathscr{P}(A)\)</span> therefore because <span class="math inline">\(G\)</span> is onto it exists some <span class="math inline">\(a \in A\)</span> such that <span class="math inline">\(G(a) = B\)</span>. There are 2 possibilities <span class="math inline">\(a \in B\)</span> or <span class="math inline">\(a \not \in B\)</span>:</p>
 <ol type="i">
 <li><p>If <span class="math inline">\(a \in B\)</span> then <span class="math inline">\(a \not \in G(a)\)</span>. But <span class="math inline">\(G(a) = B\)</span> so we have also that <span class="math inline">\(a \in G(a)\)</span>.</p></li>
@@ -716,7 +716,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </div>
 <div id="def-denumerable-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition D.4 (Denumerable set)</strong></span> A set <span class="math inline">\(B\)</span> is said to be denumerable if and only if <span class="math inline">\(B \approx \mathbb{P}\)</span></p>
-<p><strong>Note</strong>: Any set <span class="math inline">\(A\)</span> that is equinumerous with a denumerable set <span class="math inline">\(B\)</span> is denumerable becuase <span class="math inline">\(A \approx B\)</span> and <span class="math inline">\(B \approx \mathbb{P}\)</span> by <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> c.&nbsp;implies <span class="math inline">\(A \approx \mathbb{P}\)</span>.</p>
+<p><strong>Note</strong>: Any set <span class="math inline">\(A\)</span> that is equinumerous with a denumerable set <span class="math inline">\(B\)</span> is denumerable because <span class="math inline">\(A \approx B\)</span> and <span class="math inline">\(B \approx \mathbb{P}\)</span> by <a href="#thm-equinumerous-equivalence-relation" class="quarto-xref">Theorem&nbsp;<span>D.1</span></a> c.&nbsp;implies <span class="math inline">\(A \approx \mathbb{P}\)</span>.</p>
 <p>Also if <span class="math inline">\(B\)</span> is denumerable let <span class="math inline">\(B^* = B - \{ x \}\)</span> where <span class="math inline">\(x \in B\)</span>. So <span class="math inline">\(B^* \subset B\)</span>. Furthermore because <span class="math inline">\(B\)</span> is denumerable it exists <span class="math inline">\(F\)</span> such that <span class="math inline">\(F: B \xrightarrow[onto]{1-1} \mathbb{P}\)</span>. Lets define <span class="math inline">\({F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}\)</span>. Therefore <span class="math inline">\(B^* \approx \mathbb{P} - \{ 1 \}\)</span> but <span class="math inline">\(\mathbb{P} - \{ 1 \} \approx \mathbb{P}\)</span> and <span class="math inline">\(\mathbb{P} \approx B\)</span>, which means that <span class="math inline">\(B^* \approx B\)</span>. So by <a href="#thm-positive-integers-equinumerous-proper-subset" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a>, <a href="#cor-positive-integers-infinite-set" class="quarto-xref">Corollary&nbsp;<span>D.3</span></a> and the contrapositive of <a href="#thm-not-equinumerous-with-proper-subsets-finite-set" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a> every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 </div>
 <div id="exr-denumerable-sets" class="theorem exercise">
@@ -869,7 +869,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 </ul>
 <p>Why? Let the collection <span class="math inline">\(\mathscr{B} = \{ A - U \mid U \in \mathscr{U} \}\)</span>. Because <span class="math inline">\(\mathscr{B} \subseteq \mathscr{P}(A)\)</span> and <span class="math inline">\(\emptyset \in \mathscr{U}\)</span> so <span class="math inline">\(A - \emptyset = A \in \mathscr{B}\)</span> then <span class="math inline">\(\mathscr{B}\)</span> has a minimal element <span class="math inline">\(B\)</span>. Because <span class="math inline">\(B \in \mathscr{B}\)</span> then <span class="math inline">\(A - B \in \mathscr{U}\)</span> and <span class="math inline">\(A - B\)</span> is a maximal element of <span class="math inline">\(\mathscr{U}\)</span>.</p>
 <ul>
-<li><span class="math inline">\(A - B\)</span> must be a maximal element of <span class="math inline">\(\mathscr{U}\)</span> becuase if it was not the case there would be a <span class="math inline">\(C\)</span> such that <span class="math inline">\(A - B \subseteq C\)</span>. This will mean that <span class="math inline">\(A - C \subseteq A - (A - B) = B\)</span>. Therefore <span class="math inline">\(C = B\)</span> or <span class="math inline">\(B\)</span> will not be a minimal element of <span class="math inline">\(\mathscr{B}\)</span>.</li>
+<li><span class="math inline">\(A - B\)</span> must be a maximal element of <span class="math inline">\(\mathscr{U}\)</span> because if it was not the case there would be a <span class="math inline">\(C\)</span> such that <span class="math inline">\(A - B \subseteq C\)</span>. This will mean that <span class="math inline">\(A - C \subseteq A - (A - B) = B\)</span>. Therefore <span class="math inline">\(C = B\)</span> or <span class="math inline">\(B\)</span> will not be a minimal element of <span class="math inline">\(\mathscr{B}\)</span>.</li>
 </ul>
 <p>Taking into account that <span class="math inline">\(A - B\)</span> is a maximal element of <span class="math inline">\(\mathscr{U}\)</span> where <span class="math inline">\(A - B \in \mathscr{U}\)</span> and that for any <span class="math inline">\(U \in \mathscr{U}\)</span> and <span class="math inline">\(a \in A\)</span> implies <span class="math inline">\(U \cup \{ a \} \in \mathscr{U}\)</span> it must be the case that <span class="math inline">\(A - B = A\)</span>. Therefore <span class="math inline">\(A \in \mathscr{U}\)</span></p>
 <ul>
@@ -1459,6 +1459,114 @@ Note&nbsp;D.1: Notations cardinal numbers
 <p>Let <span class="math inline">\(\mathbb{R}\)</span> denote the set of real numbers.</p>
 <div id="thm-half-open-interval-0-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem D.12</strong></span> The half-open interval <span class="math inline">\([0,1) = \{x \mid x \in \mathbb{R} \land 0 \leq x &lt; 1 \}\)</span> is not denumerable.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume that <span class="math inline">\([0,1)\)</span> is denumerable. Let <span class="math inline">\(\Psi: \mathbb{P} \xrightarrow[onto]{1-1} [0,1)\)</span>. Denote <span class="math inline">\(\Psi(n) = r_n\)</span> for each <span class="math inline">\(n \in \mathbb{P}\)</span>. Each <span class="math inline">\(r_n\)</span> can be represented by an infinite decimal <span class="math inline">\(.a_{n1}a_{n2}a_{n3}\ldots\)</span> where <span class="math inline">\(a_{nm} \in \{ 0, 1, \ldots, 9 \}\)</span> and <span class="math inline">\(m \in \mathbb{P}\)</span>.</p>
+<p>Also because infinite decimals with an infinite tail of <span class="math inline">\(9\)</span>’s, such as <span class="math inline">\(0.427999\ldots\)</span>, represent the same number as another decimal with an infinite tail of <span class="math inline">\(0\)</span>’s, in the example <span class="math inline">\(0.248000\ldots\)</span>, we avoid decimal expansions that terminate in repeating <span class="math inline">\(9\)</span>’s.</p>
+<p>So we have that:</p>
+<p><span class="math display">\[\begin{align*}
+r_1 &amp; = \; .a_{11}a_{12}a_{13}\ldots \\
+r_2 &amp; = \; .a_{21}a_{22}a_{23}\ldots \\
+r_3 &amp; = \; .a_{31}a_{32}a_{33}\ldots \\
+&amp; \;\; \vdots
+\end{align*}\]</span></p>
+<p>Now, define a new decimal <span class="math inline">\(.c_1c_2c_3\ldots\)</span> such that:</p>
+<p><span class="math display">\[c_n = \begin{cases}
+         0 &amp; \text{ if } a_{nn} \neq 0 \\
+         1 &amp; \text{ if } a_{nn} = 0
+        \end{cases}\]</span></p>
+<p>Then the decimal <span class="math inline">\(.c_1c_2c_3\ldots\)</span> differs from each decimal <span class="math inline">\(r_n\)</span> in the <span class="math inline">\(n\)</span>-th place. Hence, <span class="math inline">\(.c_1c_2c_3\ldots\)</span> does not appear in the list, contradicting the assumption that <span class="math inline">\(\Psi: \mathbb{P} \xrightarrow[onto]{1-1} [0,1)\)</span>.</p>
+</div>
+<p>By a generalized interval, we shall mean a set of real numbers of nay of the following forms:</p>
+<p><span class="math display">\[\begin{align*}
+[a,b] &amp; = \{ x \in \mathbb{R} \mid a \leq x \leq b \} \\
+(a,b) &amp; = \{ x \in \mathbb{R} \mid a &lt; x &lt; b \} \\
+[a,b) &amp; = \{ x \in \mathbb{R} \mid a \leq x &lt; b \} \\
+(a,b] &amp; = \{ x \in \mathbb{R} \mid a &lt; x \leq b \} \\
+[a,\infty) &amp; = \{ x \in \mathbb{R} \mid a \leq x \} \\
+(a,\infty) &amp; = \{ x \in \mathbb{R} \mid a &lt; x \} \\
+(-\infty, a] &amp; = \{ x \in \mathbb{R} \mid x \leq a \} \\
+(-\infty, a) &amp; = \{ x \in \mathbb{R} \mid x &lt; a \}
+\end{align*}\]</span></p>
+<div id="thm-generalized-intervals-r-equinumerous" class="theorem">
+<p><span class="theorem-title"><strong>Theorem D.13</strong></span> All generalized intervals are equinumerous with each other and with the whole set <span class="math inline">\(\mathbb{R}\)</span> of real numbers.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="1">
+<li><p>First, we map <span class="math inline">\((a, b)\)</span> into <span class="math inline">\((c, d)\)</span>.</p>
+<p>To do that we map <span class="math inline">\((a, b)\)</span> into <span class="math inline">\((0, 1)\)</span>. Take <span class="math inline">\(x \in (a, b)\)</span> and shift <span class="math inline">\(x\)</span> to the left by <span class="math inline">\(a\)</span> applying <span class="math inline">\(x - a\)</span> and then scale it by <span class="math inline">\(b - a\)</span> such that <span class="math inline">\(\frac{x - a}{b - a}\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+a &amp; &lt; x &lt; b \\
+0 &amp; &lt; x - a &lt; b - a \\
+0 &amp; &lt; \frac{x - a}{b-a} &lt; 1
+\end{align*}\]</span></p>
+<p>Then scale by the interval length <span class="math inline">\(d-c\)</span> and shift to the starting point <span class="math inline">\(c\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp; &lt; \frac{x - a}{b-a} &lt; 1 \\
+0 &amp; &lt; (d-c)\frac{x - a}{b-a} &lt; d-c \\
+c &amp; &lt; (d-c)\frac{x - a}{b-a} + c &lt; d \\
+\end{align*}\]</span></p>
+<p>So an specific bijection between <span class="math inline">\((a,b)\)</span> and <span class="math inline">\((c,d)\)</span> is <span class="math inline">\((d-c)\frac{x - a}{b-a} + c\)</span>. Therefore <span class="math inline">\((a,b) \approx (c,d)\)</span>.</p></li>
+<li><p>Second, we map <span class="math inline">\((0, 1)\)</span> into <span class="math inline">\((0, \infty)\)</span> in the following way:</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp; &lt; x &lt; 1 \\
+-1 &amp; &lt; -x &lt; 0 \\
+0 &amp; &lt; 1-x &lt; 1 \\
+1 &amp; &lt; \frac{1}{1-x} \\
+0 &amp; &lt; \frac{1}{1-x} - 1
+\end{align*}\]</span></p>
+<p>Therefore <span class="math inline">\(\frac{1}{1-x} - 1 \in (0, \infty)\)</span> and <span class="math inline">\((0, 1) \approx (0, \infty)\)</span> where the explicity bijection is <span class="math inline">\(\frac{1}{1-x} - 1\)</span>.</p>
+<p>Furthermore, we can map <span class="math inline">\((0, 1)\)</span> into <span class="math inline">\((a, \infty)\)</span> with <span class="math inline">\(\frac{1}{1-x} - 1 + a\)</span>.</p>
+<p>Also, we can map <span class="math inline">\((0, 1)\)</span> into <span class="math inline">\((-\infty, 0)\)</span> with:</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp; &lt; \frac{1}{1-x} - 1 \\
+0 &amp; &gt; -\left( \frac{1}{1-x} - 1 \right)
+\end{align*}\]</span></p>
+<p>So, we can map <span class="math inline">\((0, 1)\)</span> into <span class="math inline">\((-\infty, a)\)</span> with <span class="math inline">\(-\left( \frac{1}{1-x} - 1 \right) + a\)</span>.</p></li>
+<li><p>Third, we map <span class="math inline">\((-1, 1)\)</span> into <span class="math inline">\(\mathbb{R}\)</span> in the following way:</p>
+<p><span class="math display">\[\Psi(u) = \begin{cases}
+             \frac{1}{1-x} - 1 &amp; \text{ if } u \in (0,1) \\
+             0                 &amp; \text{ if } u = 0 \\
+             -\frac{1}{1-(-x)} - 1 &amp; \text{ if } u \in (-1,0)
+            \end{cases}\]</span></p>
+<p>Therefore, <span class="math inline">\((-1,1) \approx \mathbb{R}\)</span>.</p></li>
+<li><p>Now, assume <span class="math inline">\(I\)</span> is a generalized interval. So, there is some interval <span class="math inline">\((a,b)\)</span> included in <span class="math inline">\(I\)</span> such that <span class="math inline">\((a,b) \subseteq I\)</span>.</p>
+<p>By the above results <span class="math inline">\((a,b) \approx (-1,1)\)</span> so <span class="math inline">\((-1,1) \leq I\)</span>. Also because <span class="math inline">\(\mathbb{R} \approx (-1,1)\)</span> then <span class="math inline">\(\mathbb{R} \leq I\)</span>.</p>
+<p>Converserly, because <span class="math inline">\(I \subseteq \mathbb{R}\)</span> then <span class="math inline">\(I \leq \mathbb{R}\)</span></p>
+<p>By <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> <span class="math inline">\(I \approx \mathbb{R}\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-set-includes-generalized-interval" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise D.10</strong></span> &nbsp;</p>
+<ol type="1">
+<li>If <span class="math inline">\(A \subseteq \mathbb{R}\)</span> and <span class="math inline">\(A\)</span> includes some generalized interval, <span class="math inline">\(I \subseteq A\)</span>, prove that <span class="math inline">\(A \approx \mathbb{R}\)</span>.</li>
+</ol>
+</div>
+<div id="sol-set-includes-generalized-interval" class="proof solution">
+<p><span class="proof-title"><em>Solution D.10</em>. </span>Because <span class="math inline">\(A \subseteq \mathbb{R}\)</span> then <span class="math inline">\(A \leq \mathbb{R}\)</span>.</p>
+<p>Because <span class="math inline">\(I \subseteq A\)</span> then <span class="math inline">\(I \leq A\)</span>. Also <span class="math inline">\(\mathbb{R} \approx I\)</span> so <span class="math inline">\(\mathbb{R} \leq A\)</span>.</p>
+<p>By <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> <span class="math inline">\(A \approx \mathbb{R}\)</span>.</p>
+</div>
+<div id="nte-notation-cardinal-number-r" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;D.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The symbol <span class="math inline">\(\mathfrak{c}\)</span> is used to denote <span class="math inline">\(\mathscr{K}(\mathbb{R})\)</span>, the cardinal number of <span class="math inline">\(\mathbb{R}\)</span>. <span class="math inline">\(\mathfrak{c}\)</span> is called the power of continuum.</p>
+<p>From <a href="#thm-generalized-intervals-r-equinumerous" class="quarto-xref">Theorem&nbsp;<span>D.13</span></a> all generalized intervals have cardinal number <span class="math inline">\(\mathfrak{c}\)</span>.</p>
+<p>From <a href="#thm-half-open-interval-0-1" class="quarto-xref">Theorem&nbsp;<span>D.12</span></a> <span class="math inline">\(\aleph_0 &lt;_K \mathfrak{c}\)</span>.</p>
+<p>Whether there is a cardinal number between <span class="math inline">\(\aleph_0\)</span> and <span class="math inline">\(\mathfrak{c}\)</span> is a long-standing mathematical problem called the continuum hypothesis.</p>
+</div>
+</div>
+<p>The fact proved in <a href="#thm-half-open-interval-0-1" class="quarto-xref">Theorem&nbsp;<span>D.12</span></a> that <span class="math inline">\(\mathbb{P} &lt; \mathbb{R}\)</span> is not new. By <a href="#thm-cantor-theorem" class="quarto-xref">Theorem&nbsp;<span>D.3</span></a> <span class="math inline">\(\mathbb{P} &lt; \mathscr{P}(\mathbb{P})\)</span> and the following theorem tell us that this result is equivalent to <span class="math inline">\(\mathbb{P} &lt; \mathbb{R}\)</span>.</p>
+<div id="thm-equinumerous-r-power-set-p" class="theorem">
+<p><span class="theorem-title"><strong>Theorem D.14</strong></span> <span class="math inline">\(\mathbb{R} \approx \mathscr{P}(\mathbb{P})\)</span>. That is the set of real numbers is equinumerous with the set of all sets of positive numbers.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
