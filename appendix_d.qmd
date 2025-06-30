@@ -121,7 +121,7 @@ $$A < \mathscr{P}(A)$$
 
 If $A < \mathscr{P}(A)$ by @def-less-equal-than-and-less-than-relation-sets b we need to prove that $A \leq \mathscr{P}(A) \land A \not \approx \mathscr{P}(A)$.
 
-First, define $F$ such that $F(a) = \{ a \}$ for all $a \in A$ then $F: A \xrightarrow[]{1-1} \mathscr{P}(A)$ becuase if $F(a) = F(b)$ then $\{ a \} = \{ b \}$ so $a = b$. Therefore, $A \leq \mathscr{P}(A)$.
+First, define $F$ such that $F(a) = \{ a \}$ for all $a \in A$ then $F: A \xrightarrow[]{1-1} \mathscr{P}(A)$ because if $F(a) = F(b)$ then $\{ a \} = \{ b \}$ so $a = b$. Therefore, $A \leq \mathscr{P}(A)$.
 
 Second, using @nte-proof-by-reductio-ad-absurdum assume $A \approx \mathscr{P}(A)$ so there is some $G$ such that $G: A \xrightarrow[onto]{1-1} \mathscr{P}(A)$. Let $B = \{ b \in A \mid b \not \in G(b) \}$. Because $B \subseteq A$ then $B \in \mathscr{P}(A)$ therefore because $G$ is onto it exists some $a \in A$ such that $G(a) = B$. There are 2 possibilities $a \in B$ or $a \not \in B$:
 
@@ -560,7 +560,7 @@ By @thm-positive-integers-equinumerous-proper-subset $\mathbb{P}$ is equinumerou
 
 A set $B$ is said to be denumerable if and only if $B \approx \mathbb{P}$
 
-**Note**: Any set $A$ that is equinumerous with a denumerable set $B$ is denumerable becuase $A \approx B$ and $B \approx \mathbb{P}$ by @thm-equinumerous-equivalence-relation c. implies $A \approx \mathbb{P}$. 
+**Note**: Any set $A$ that is equinumerous with a denumerable set $B$ is denumerable because $A \approx B$ and $B \approx \mathbb{P}$ by @thm-equinumerous-equivalence-relation c. implies $A \approx \mathbb{P}$. 
 
 Also if $B$ is denumerable let $B^* = B - \{ x \}$ where $x \in B$. So $B^* \subset B$. Furthermore because $B$ is denumerable it exists $F$ such that $F: B \xrightarrow[onto]{1-1} \mathbb{P}$. Lets define ${F \mid}_{B^*}: B^* \xrightarrow[onto]{1-1} \mathbb{P} - \{ 1 \}$. Therefore $B^* \approx \mathbb{P} - \{ 1 \}$ but $\mathbb{P} - \{ 1 \} \approx \mathbb{P}$ and $\mathbb{P} \approx B$, which means that $B^* \approx B$. So by @thm-positive-integers-equinumerous-proper-subset, @cor-positive-integers-infinite-set and the contrapositive of @thm-not-equinumerous-with-proper-subsets-finite-set every denumerable set is equinumerous with a proper subset of itself and therefore every denumerable set is infinite[^appendix_d-3].
 
@@ -780,7 +780,7 @@ If $f \in A^B$, then $f \subseteq B \times A$. Therefore $f \in \mathscr{P}(B \t
 
        Why? Let the collection $\mathscr{B} = \{ A - U \mid U \in \mathscr{U} \}$. Because $\mathscr{B} \subseteq \mathscr{P}(A)$ and $\emptyset \in \mathscr{U}$ so $A - \emptyset = A \in \mathscr{B}$ then $\mathscr{B}$ has a minimal element $B$. Because $B \in \mathscr{B}$ then $A - B \in \mathscr{U}$ and $A - B$ is a maximal element of $\mathscr{U}$.
        
-          - $A - B$ must be a maximal element of $\mathscr{U}$ becuase if it was not the case there would be a $C$ such that $A - B \subseteq C$. This will mean that $A - C \subseteq A - (A - B) = B$. Therefore $C = B$ or $B$ will not be a minimal element of $\mathscr{B}$.
+          - $A - B$ must be a maximal element of $\mathscr{U}$ because if it was not the case there would be a $C$ such that $A - B \subseteq C$. This will mean that $A - C \subseteq A - (A - B) = B$. Therefore $C = B$ or $B$ will not be a minimal element of $\mathscr{B}$.
           
        Taking into account that $A - B$ is a maximal element of $\mathscr{U}$ where $A - B \in \mathscr{U}$ and that for any $U \in \mathscr{U}$ and $a \in A$ implies $U \cup \{ a \} \in \mathscr{U}$ it must be the case that $A - B = A$. Therefore $A \in \mathscr{U}$
        
@@ -1450,6 +1450,152 @@ Let $\mathbb{R}$ denote the set of real numbers.
 ::: {#thm-half-open-interval-0-1}
 
 The half-open interval $[0,1) = \{x \mid x \in \mathbb{R} \land 0 \leq x < 1 \}$ is not denumerable.
+
+:::
+
+::: {.proof}
+
+Assume that $[0,1)$ is denumerable. Let $\Psi: \mathbb{P} \xrightarrow[onto]{1-1} [0,1)$. Denote $\Psi(n) = r_n$ for each $n \in \mathbb{P}$. Each $r_n$ can be represented by an infinite decimal $.a_{n1}a_{n2}a_{n3}\ldots$ where $a_{nm} \in \{ 0, 1, \ldots, 9 \}$ and $m \in \mathbb{P}$.
+
+Also because infinite decimals with an infinite tail of $9$'s, such as $0.427999\ldots$, represent the same number as another decimal with an infinite tail of $0$'s, in the example $0.248000\ldots$, we avoid decimal expansions that terminate in repeating $9$'s.
+
+So we have that:
+
+\begin{align*}
+r_1 & = \; .a_{11}a_{12}a_{13}\ldots \\
+r_2 & = \; .a_{21}a_{22}a_{23}\ldots \\
+r_3 & = \; .a_{31}a_{32}a_{33}\ldots \\
+& \;\; \vdots
+\end{align*}
+
+Now, define a new decimal $.c_1c_2c_3\ldots$ such that:
+
+$$c_n = \begin{cases}
+         0 & \text{ if } a_{nn} \neq 0 \\
+         1 & \text{ if } a_{nn} = 0
+        \end{cases}$$
+
+Then the decimal $.c_1c_2c_3\ldots$ differs from each decimal $r_n$ in the $n$-th place. Hence, $.c_1c_2c_3\ldots$ does not appear in the list, contradicting the assumption that $\Psi: \mathbb{P} \xrightarrow[onto]{1-1} [0,1)$.  
+
+:::
+
+By a generalized interval, we shall mean a set of real numbers of nay of the following forms:
+
+\begin{align*}
+ [a,b] & = \{ x \in \mathbb{R} \mid a \leq x \leq b \} \\
+ (a,b) & = \{ x \in \mathbb{R} \mid a < x < b \} \\
+ [a,b) & = \{ x \in \mathbb{R} \mid a \leq x < b \} \\
+ (a,b] & = \{ x \in \mathbb{R} \mid a < x \leq b \} \\
+ [a,\infty) & = \{ x \in \mathbb{R} \mid a \leq x \} \\
+ (a,\infty) & = \{ x \in \mathbb{R} \mid a < x \} \\
+ (-\infty, a] & = \{ x \in \mathbb{R} \mid x \leq a \} \\
+ (-\infty, a) & = \{ x \in \mathbb{R} \mid x < a \}
+\end{align*}
+
+::: {#thm-generalized-intervals-r-equinumerous}
+
+All generalized intervals are equinumerous with each other and with the whole set $\mathbb{R}$ of real numbers.
+
+:::
+
+::: {.proof}
+
+1. First, we map $(a, b)$ into $(c, d)$.
+
+   To do that we map $(a, b)$ into $(0, 1)$. Take $x \in (a, b)$ and shift $x$ to the left by $a$ applying $x - a$ and then scale it by $b - a$ such that $\frac{x - a}{b - a}$:
+
+   \begin{align*}
+    a & < x < b \\
+    0 & < x - a < b - a \\
+    0 & < \frac{x - a}{b-a} < 1
+   \end{align*}
+
+   Then scale by the interval length $d-c$ and shift to the starting point $c$:
+   
+   \begin{align*}
+    0 & < \frac{x - a}{b-a} < 1 \\
+    0 & < (d-c)\frac{x - a}{b-a} < d-c \\
+    c & < (d-c)\frac{x - a}{b-a} + c < d \\
+   \end{align*}
+   
+   So an specific bijection between $(a,b)$ and $(c,d)$ is $(d-c)\frac{x - a}{b-a} + c$. Therefore $(a,b) \approx (c,d)$.
+
+2. Second, we map $(0, 1)$ into $(0, \infty)$ in the following way:
+
+   \begin{align*}
+    0 & < x < 1 \\
+    -1 & < -x < 0 \\
+    0 & < 1-x < 1 \\
+    1 & < \frac{1}{1-x} \\
+    0 & < \frac{1}{1-x} - 1
+   \end{align*}
+
+   Therefore $\frac{1}{1-x} - 1 \in (0, \infty)$ and $(0, 1) \approx (0, \infty)$ where the explicity bijection is $\frac{1}{1-x} - 1$.
+   
+   Furthermore, we can map $(0, 1)$ into $(a, \infty)$ with $\frac{1}{1-x} - 1 + a$.
+   
+   Also, we can map $(0, 1)$ into $(-\infty, 0)$ with:
+   
+   \begin{align*}
+    0 & < \frac{1}{1-x} - 1 \\
+    0 & > -\left( \frac{1}{1-x} - 1 \right)
+   \end{align*}
+   
+   So, we can map $(0, 1)$ into $(-\infty, a)$ with $-\left( \frac{1}{1-x} - 1 \right) + a$.
+   
+3. Third, we map $(-1, 1)$ into $\mathbb{R}$ in the following way:
+
+   $$\Psi(u) = \begin{cases}
+                \frac{1}{1-x} - 1 & \text{ if } u \in (0,1) \\
+                0                 & \text{ if } u = 0 \\
+                -\frac{1}{1-(-x)} - 1 & \text{ if } u \in (-1,0)
+               \end{cases}$$
+   
+   Therefore, $(-1,1) \approx \mathbb{R}$.
+
+4. Now, assume $I$ is a generalized interval. So, there is some interval $(a,b)$ included in $I$ such that $(a,b) \subseteq I$. 
+
+   By the above results $(a,b) \approx (-1,1)$ so $(-1,1) \leq I$. Also because $\mathbb{R} \approx (-1,1)$ then $\mathbb{R} \leq I$.
+   
+   Converserly, because $I \subseteq \mathbb{R}$ then $I \leq \mathbb{R}$
+   
+   By @thm-schroder-bernstein-theorem $I \approx \mathbb{R}$.
+  
+:::
+
+::: {#exr-set-includes-generalized-interval}
+
+1. If $A \subseteq \mathbb{R}$ and $A$ includes some generalized interval, $I \subseteq A$, prove that $A \approx \mathbb{R}$.
+
+:::
+
+::: {#sol-set-includes-generalized-interval}
+
+Because $A \subseteq \mathbb{R}$ then $A \leq \mathbb{R}$.
+
+Because $I \subseteq A$ then $I \leq A$. Also $\mathbb{R} \approx I$ so $\mathbb{R} \leq A$.
+
+By @thm-schroder-bernstein-theorem $A \approx \mathbb{R}$. 
+
+:::
+
+::: {#nte-notation-cardinal-number-r .callout-note}
+
+The symbol $\mathfrak{c}$ is used to denote $\mathscr{K}(\mathbb{R})$, the cardinal number of $\mathbb{R}$. $\mathfrak{c}$ is called the power of continuum.
+
+From @thm-generalized-intervals-r-equinumerous all generalized intervals have cardinal number $\mathfrak{c}$. 
+
+From @thm-half-open-interval-0-1 $\aleph_0 <_K \mathfrak{c}$.
+
+Whether there is a cardinal number between $\aleph_0$ and $\mathfrak{c}$ is a long-standing mathematical problem called the continuum hypothesis. 
+
+:::
+
+The fact proved in @thm-half-open-interval-0-1 that $\mathbb{P} < \mathbb{R}$ is not new. By @thm-cantor-theorem $\mathbb{P} < \mathscr{P}(\mathbb{P})$ and the following theorem tell us that this result is equivalent to $\mathbb{P} < \mathbb{R}$.
+
+::: {#thm-equinumerous-r-power-set-p}
+
+$\mathbb{R} \approx \mathscr{P}(\mathbb{P})$. That is the set of real numbers is equinumerous with the set of all sets of positive numbers.
 
 :::
 
