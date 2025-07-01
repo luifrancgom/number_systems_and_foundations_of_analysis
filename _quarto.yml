@@ -27,6 +27,7 @@ book:
     - appendix_e.qmd
     - appendix_f.qmd
     - appendix_g.qmd
+    - appendix_h.qmd
 
 bibliography: number_systems_and_the_foundations_of_analysis.bib
 

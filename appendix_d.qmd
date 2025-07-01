@@ -1601,6 +1601,12 @@ $\mathbb{R} \approx \mathscr{P}(\mathbb{P})$. That is the set of real numbers is
 
 ::: {.proof}
 
-**Pending**
+By @thm-characteristic-function $\{ 0, 1 \}^{\mathbb{P}} \approx \mathscr{P}(\mathbb{P})$.
+
+Hence we can prove that $\mathbb{R} \approx \{ 0, 1 \}^{\mathbb{P}}$.
+
+Since $\mathbb{R} \approx [0,1)$, it suffices to prove that $[0,1) \approx \{ 0, 1 \}^{\mathbb{P}}$.
+
+Any number in $[0,1)$ has an infinite binary expansion just as it has an infinite decimal representation. In the case of 2 binary representations for the same number, we discard the representation with an infinite tail of $1$'s.
 
 :::
