@@ -162,5 +162,16 @@
       "Appendices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Finite, Infinite and Denumerable Sets and Cardinal Numbers</span>"
     ]
+  },
+  {
+    "objectID": "appendix_h.html",
+    "href": "appendix_h.html",
+    "title": "Appendix H — Positional number systems",
+    "section": "",
+    "text": "Definition H.1 (Positional notation) Positional notation using base \\(b\\) (or radix \\(b\\)) is defined by the rule:\n\\[(a_na_{n-1} \\ldots a_1a_0.a_{-1}a_{-2}a_{-3})_b = \\sum_{k=0}^n a_kb^k + \\sum_{k = 1}^{\\infty} a_{-k}b^{-k}\\] Where the \\(a\\)’s are called the digits of the representation.\nAlso \\(0 \\leq a_k &lt; b\\), \\(0 \\leq a_{-k} &lt; b\\) and \\(b^k, b^{-k}\\) are the weights, \\(w\\), of the corresponding digits where the position \\(k\\) is the base \\(b\\) logarithm of the corresponding \\(w\\), that is \\(k = \\log_b w = \\log_b b^k\\).\nFurthermore, the dot, \\(.\\),that appears between \\(a_0\\) and \\(a_{-1}\\) is called the radix point were it is used to identify the integer part from the fractional part of the representation. In that sense, \\(a_n\\) to \\(a_0\\) is the integer part follow by the radix point and then \\(a_{-1}, a_{-2}, a_{-3}, \\ldots\\) is the fractional part.\n\nFor example for \\((5627.35)_{10}\\) we have that \\(b=10\\) and \\((4327.33)_{10} = 5 \\cdot 10^3 + 6 \\cdot 10^2 + 2 \\cdot 10^1 + 7 \\cdot 10^0 + 3 \\cdot 10^{-1} + 5 \\cdot 10^{-2} + 0 \\cdot 10^{-3} + \\cdots\\) where:\n\n\n\n\nTable H.1: Positional notation example\n\n\n\n\n\n\n\n\n\nPosition\n\\(3\\)\n\\(2\\)\n\\(1\\)\n\\(0\\)\n\\(-1\\)\n\\(-2\\)\n\\(-3\\)\n\\(\\cdots\\)\n\n\nWeight\n\\(b^3\\)\n\\(b^2\\)\n\\(b^1\\)\n\\(b^0\\)\n\\(b^{-1}\\)\n\\(b^{-2}\\)\n\\(b^{-3}\\)\n\\(\\cdots\\)\n\n\nDigit\n\\(a_3\\)\n\\(a_2\\)\n\\(a_1\\)\n\\(a_0\\)\n\\(a_{-1}\\)\n\\(a_{-2}\\)\n\\(a_{-3}\\)\n\\(\\cdots\\)\n\n\nExample weight\n\\(10^3\\)\n\\(10^2\\)\n\\(10^1\\)\n\\(10^0\\)\n\\(10^{-1}\\)\n\\(10^{-2}\\)\n\\(10^{-3}\\)\n\\(\\cdots\\)\n\n\nExample digit\n5\n6\n2\n7\n3\n5\n0\n\\(\\cdots\\)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>H</span>  <span class='chapter-title'>Positional number systems</span>"
+    ]
   }
 ]

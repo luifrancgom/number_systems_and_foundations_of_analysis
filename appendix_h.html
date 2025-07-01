@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix F — Construction of the Real Numbers via Dedeking Cuts – Number Systems and the Foundations of Analysis</title>
+<title>Appendix H — Positional number systems – Number Systems and the Foundations of Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix_g.html" rel="next">
-<link href="./appendix_e.html" rel="prev">
+<link href="./appendix_g.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_f.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Construction of the Real Numbers via Dedeking Cuts</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_h.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Positional number systems</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -219,7 +218,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_f.html" class="sidebar-item-text sidebar-link active">
+  <a href="./appendix_f.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Construction of the Real Numbers via Dedeking Cuts</span></span></a>
   </div>
 </li>
@@ -231,7 +230,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_h.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendix_h.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Positional number systems</span></span></a>
   </div>
 </li>
@@ -248,9 +247,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_f.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Construction of the Real Numbers via Dedeking Cuts</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_a.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_h.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Positional number systems</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix F — Construction of the Real Numbers via Dedeking Cuts</h1>
+<h1 class="title">Appendix H — Positional number systems</h1>
 </div>
 
 
@@ -267,6 +266,537 @@ window.Quarto = {
 </header>
 
 
+<div id="def-positional-notation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition H.1 (Positional notation)</strong></span> Positional notation using base <span class="math inline">\(b\)</span> (or radix <span class="math inline">\(b\)</span>) is defined by the rule:</p>
+<p><span class="math display">\[(a_na_{n-1} \ldots a_1a_0.a_{-1}a_{-2}a_{-3})_b = \sum_{k=0}^n a_kb^k + \sum_{k = 1}^{\infty} a_{-k}b^{-k}\]</span> Where the <span class="math inline">\(a\)</span>’s are called the digits of the representation.</p>
+<p>Also <span class="math inline">\(0 \leq a_k &lt; b\)</span>, <span class="math inline">\(0 \leq a_{-k} &lt; b\)</span> and <span class="math inline">\(b^k, b^{-k}\)</span> are the weights, <span class="math inline">\(w\)</span>, of the corresponding digits where the position <span class="math inline">\(k\)</span> is the base <span class="math inline">\(b\)</span> logarithm of the corresponding <span class="math inline">\(w\)</span>, that is <span class="math inline">\(k = \log_b w = \log_b b^k\)</span>.</p>
+<p>Furthermore, the dot, <span class="math inline">\(.\)</span>,that appears between <span class="math inline">\(a_0\)</span> and <span class="math inline">\(a_{-1}\)</span> is called the radix point were it is used to identify the integer part from the fractional part of the representation. In that sense, <span class="math inline">\(a_n\)</span> to <span class="math inline">\(a_0\)</span> is the integer part follow by the radix point and then <span class="math inline">\(a_{-1}, a_{-2}, a_{-3}, \ldots\)</span> is the fractional part.</p>
+</div>
+<p>For example for <span class="math inline">\((5627.35)_{10}\)</span> we have that <span class="math inline">\(b=10\)</span> and <span class="math inline">\((4327.33)_{10} = 5 \cdot 10^3 + 6 \cdot 10^2 + 2 \cdot 10^1 + 7 \cdot 10^0 + 3 \cdot 10^{-1} + 5 \cdot 10^{-2} + 0 \cdot 10^{-3} + \cdots\)</span> where:</p>
+<div class="cell">
+<div id="tbl-positional-notation-example" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-positional-notation-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;H.1: Positional notation example
+</figcaption>
+<div aria-describedby="tbl-positional-notation-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="ovwoyebjsv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ovwoyebjsv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ovwoyebjsv thead, #ovwoyebjsv tbody, #ovwoyebjsv tfoot, #ovwoyebjsv tr, #ovwoyebjsv td, #ovwoyebjsv th {
+  border-style: none;
+}
+
+#ovwoyebjsv p {
+  margin: 0;
+  padding: 0;
+}
+
+#ovwoyebjsv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ovwoyebjsv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ovwoyebjsv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ovwoyebjsv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ovwoyebjsv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ovwoyebjsv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ovwoyebjsv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ovwoyebjsv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ovwoyebjsv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ovwoyebjsv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ovwoyebjsv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ovwoyebjsv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ovwoyebjsv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ovwoyebjsv .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ovwoyebjsv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ovwoyebjsv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ovwoyebjsv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ovwoyebjsv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ovwoyebjsv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ovwoyebjsv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ovwoyebjsv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ovwoyebjsv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ovwoyebjsv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ovwoyebjsv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ovwoyebjsv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ovwoyebjsv .gt_left {
+  text-align: left;
+}
+
+#ovwoyebjsv .gt_center {
+  text-align: center;
+}
+
+#ovwoyebjsv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ovwoyebjsv .gt_font_normal {
+  font-weight: normal;
+}
+
+#ovwoyebjsv .gt_font_bold {
+  font-weight: bold;
+}
+
+#ovwoyebjsv .gt_font_italic {
+  font-style: italic;
+}
+
+#ovwoyebjsv .gt_super {
+  font-size: 65%;
+}
+
+#ovwoyebjsv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ovwoyebjsv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ovwoyebjsv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ovwoyebjsv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ovwoyebjsv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ovwoyebjsv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ovwoyebjsv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ovwoyebjsv .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ovwoyebjsv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="desc">Position</td>
+<td class="gt_row gt_left" headers="pos_3"><span class="math inline">\(3\)</span></td>
+<td class="gt_row gt_left" headers="pos_2"><span class="math inline">\(2\)</span></td>
+<td class="gt_row gt_left" headers="pos_1"><span class="math inline">\(1\)</span></td>
+<td class="gt_row gt_left" headers="pos_0"><span class="math inline">\(0\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_1"><span class="math inline">\(-1\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_2"><span class="math inline">\(-2\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_3"><span class="math inline">\(-3\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="desc">Weight</td>
+<td class="gt_row gt_left" headers="pos_3"><span class="math inline">\(b^3\)</span></td>
+<td class="gt_row gt_left" headers="pos_2"><span class="math inline">\(b^2\)</span></td>
+<td class="gt_row gt_left" headers="pos_1"><span class="math inline">\(b^1\)</span></td>
+<td class="gt_row gt_left" headers="pos_0"><span class="math inline">\(b^0\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_1"><span class="math inline">\(b^{-1}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_2"><span class="math inline">\(b^{-2}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_3"><span class="math inline">\(b^{-3}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="desc">Digit</td>
+<td class="gt_row gt_left" headers="pos_3"><span class="math inline">\(a_3\)</span></td>
+<td class="gt_row gt_left" headers="pos_2"><span class="math inline">\(a_2\)</span></td>
+<td class="gt_row gt_left" headers="pos_1"><span class="math inline">\(a_1\)</span></td>
+<td class="gt_row gt_left" headers="pos_0"><span class="math inline">\(a_0\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_1"><span class="math inline">\(a_{-1}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_2"><span class="math inline">\(a_{-2}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_3"><span class="math inline">\(a_{-3}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="desc">Example weight</td>
+<td class="gt_row gt_left" headers="pos_3"><span class="math inline">\(10^3\)</span></td>
+<td class="gt_row gt_left" headers="pos_2"><span class="math inline">\(10^2\)</span></td>
+<td class="gt_row gt_left" headers="pos_1"><span class="math inline">\(10^1\)</span></td>
+<td class="gt_row gt_left" headers="pos_0"><span class="math inline">\(10^0\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_1"><span class="math inline">\(10^{-1}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_2"><span class="math inline">\(10^{-2}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_3"><span class="math inline">\(10^{-3}\)</span></td>
+<td class="gt_row gt_left" headers="pos_d_"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="desc">Example digit</td>
+<td class="gt_row gt_left" headers="pos_3">5</td>
+<td class="gt_row gt_left" headers="pos_2">6</td>
+<td class="gt_row gt_left" headers="pos_1">2</td>
+<td class="gt_row gt_left" headers="pos_0">7</td>
+<td class="gt_row gt_left" headers="pos_d_1">3</td>
+<td class="gt_row gt_left" headers="pos_d_2">5</td>
+<td class="gt_row gt_left" headers="pos_d_3">0</td>
+<td class="gt_row gt_left" headers="pos_d_"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
 
 
 
@@ -672,14 +1202,11 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./appendix_e.html" class="pagination-link" aria-label="Axiomatic Set Theory and the Existence of the Peano System">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Axiomatic Set Theory and the Existence of the Peano System</span></span>
+      <a href="./appendix_g.html" class="pagination-link" aria-label="Complex Numbers">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Complex Numbers</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix_g.html" class="pagination-link" aria-label="Complex Numbers">
-        <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Complex Numbers</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
