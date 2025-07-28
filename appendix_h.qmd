@@ -231,7 +231,7 @@ Therefore $(12011.1022)_3 \approx (139.4321)_{10}$
 
 ::: {#exm-base-14-to-base-10}
 
-## For $(C4B3.3A9D)_14$ to base $10$ with 5 decimal places
+## For $(C4B3.3A9D)_{14}$ to base $10$ with 5 decimal places
 
 In base $14$ the digits can be defined as $\{ 1, 2, \ldots, 8, 9, A, B, C, D \}$.
 
@@ -261,4 +261,308 @@ Therefore $(12011.1022)_{14} \approx (33869.26893)_{10}$
 
 1. Convert from base $b$ to base $10$
 2. Convert from base $10$ to base $a$
+
+This workflow is implemented taking into account that many programming languages use base $10$ arithmetic. Also in @tbl-common-digits-for-bases it is shown possible common digits used for different bases but there are other available options as described in [@josefsson_base16_2006] to avoid that characters like `0` and `O` or `1`, `l` and `I` are not easily confused.
+
+```{r}
+#| label: tbl-common-digits-for-bases
+#| tbl-cap: Common digits for bases
+
+common_digits_for_bases <-  tibble(
+ Base = c(2, 8, 10, 16, 32, 36, 62),
+ `Digits used` = c(
+  "0 1",
+  "0 1 2 3 4 5 6 7",
+  "0 1 2 3 4 5 6 7 8 9",
+  "0 1 2 3 4 5 6 7 8 9 A B C D E F",
+  "`0–9` + `A–V`",
+  "`0–9` + `A–Z`",
+  "`0–9` + `A–Z` + `a–z`"
+ )
+)
+
+common_digits_for_bases |> 
+ gt() |> 
+ fmt_markdown()
+```
+
+In @lst-from-base-10-to-base-b-r it is shown an implementation to convert from base $10$ to base $b$ for the case of @exm-base-10-to-base-16 and adding the possibility to include negative numbers using ideas from @geeksforgeeks_convert_2023.
+
+```{r}
+#| lst-label: lst-from-base-10-to-base-b-r
+#| lst-cap: Convert from base $10$ to base $b$ using the programming language R
+#| echo: true
+#| code-fold: true
+
+# From base 10 to base b ----
+## Auxiliar functions ----
+### From int to char ---
+int_to_char <- function(int) {
+  # Define constants
+  zero <- utf8ToInt("0")
+  A <- utf8ToInt("A")
+  a <- utf8ToInt("a")
+
+  if (int >= 0 && int <= 9) {
+    return(intToUtf8(int + zero)) # 0–9 → '0'–'9'
+  } else if (int >= 10 && int <= 35) {
+    return(intToUtf8(int - 10 + A)) # 10–35 → 'A'–'Z'
+  } else if (int >= 36 && int <= 61) {
+    return(intToUtf8(int - 36 + a)) # 36–61 → 'a'–'z'
+  } else {
+    # Error for unsupported integers
+    stop(sprintf(
+      "Invalid integer: %d\nOnly integers from '0'-'61' are valid\n(base 2 to base 62).",
+      int
+    ))
+  }
+}
+
+### Integer part ----
+from_decimal_int_part <- function(int, 
+                                  base) {
+  # Initial values
+  q <- int # quotient
+  r <- character() # residual
+
+  # Handling int = 0
+  if (q == 0) {
+    return("0")
+  }
+
+  # Convert int in base 10 to another base
+  # when num > 0
+  while (q > 0) {
+    r <- c(r, int_to_char(q %% base))
+    q <- q %/% base
+  }
+
+  # Reverse the result
+  int_part <- paste0(rev(r), collapse = "")
+
+  return(int_part)
+}
+
+### Fractional part ---
+from_decimal_frac_part <- function(frac, 
+                                   base, 
+                                   decimal_places) {
+  # Initial values
+  frac_part <- character(0)
+  
+  # Handling decimal_places = 0
+  if (decimal_places == 0) {
+   return(NULL)
+  }
+  
+  # Convert frac in base 10 to another base
+  for (i in 1:decimal_places) {
+    mult <- frac * base
+    int <- trunc(mult)
+    frac_part <- c(frac_part, int_to_char(int))
+    frac <- mult - int
+  }
+
+  frac_part <- paste0(frac_part, collapse = "")
+
+  return(frac_part)
+}
+
+## Principal function ----
+from_decimal <- function(num, 
+                         base, 
+                         decimal_places) {
+ 
+ # Handle num < 0
+ num_abs <- abs(num)
+ 
+ # Extract integer and fractional part
+ int <- trunc(num_abs)
+ frac <- num_abs - int
+ 
+ # Integer part
+ int_part <- from_decimal_int_part(int, 
+                                   base)
+ 
+ # Fractional part
+ frac_part <- from_decimal_frac_part(frac, 
+                                     base, 
+                                     decimal_places)
+ 
+ # Mergin integer and fractional part
+ if (is.null(frac_part)) {
+  result <- int_part
+ } else {
+  result <- paste0(int_part, ".", frac_part)
+ }
+ 
+ # Add minus sign if needed
+ if (num < 0) {
+  result <- paste0("-", result)
+ }
+ 
+ return(result)
+ 
+}
+
+### Check ----
+# It may generate 
+# imprecisions during the conversion process
+# for the parameter decimal places
+from_decimal(num = -1251.9324, 
+             base = 16, 
+             decimal_places = 6)
+```
+
+Also in @lst-from-base-b-to-base-10-r using ideas from @geeksforgeeks_convert_2023, it is shown an implementation to convert from base $b$ to base $10$ for the case of @exm-base-14-to-base-10.   
+
+```{r}
+#| lst-label: lst-from-base-b-to-base-10-r
+#| lst-cap: Convert from base $b$ to base $10$ using the programming language R
+#| echo: true
+#| code-fold: true
+
+# From base b to base 10 ----
+## Auxiliar functions ----
+is_well_formed <- function(char) {
+           # Using raw strings
+ result <- grepl(r"(^[-]?[0-9A-Za-z]+(\.[0-9A-Za-z]+)?$)", 
+                 char)
+ return(result)
+}
+
+char_to_int <- function(char) {
+  # Convert character to int
+  int <- utf8ToInt(char)
+
+  # Define constants
+  zero <- utf8ToInt("0")
+  A <- utf8ToInt("A")
+  a <- utf8ToInt("a")
+
+  if (int >= zero && int <= zero + 9) {
+    return(int - zero) # '0'–'9' → 0–9
+  } else if (int >= A && int <= A + 25) {
+    return(int - A + 10) # 'A'–'Z' → 10–35
+  } else if (int >= a && int <= a + 25) {
+    return(int - a + 36) # 'a'–'z' → 36–61
+  } else {
+    # Error for unsupported characters
+    stop(sprintf(
+      "Invalid digit: '%s'.\nOnly characters from '0'-'9', 'A'-'Z', and 'a'-'z' are valid\n(base 2 to base 62).",
+      intToUtf8(int)
+    ))
+  }
+}
+
+### Integer part ----
+to_decimal_int_part <- function(char, base) {
+  char <- strsplit(char, "")[[1]]
+  len <- length(char)
+  power <- 1
+  num <- 0
+
+  for (i in rev(seq_len(len))) {
+    digit <- char_to_int(char[i])
+
+    if (digit >= base) {
+      stop(sprintf(
+        "Invalid digit: '%s'\nThis digit is not valid in base %d\n(base 2 to base 62)",
+        char[i], base
+      ))
+    }
+
+    num <- num + digit * power
+    power <- power * base
+  }
+
+  return(num)
+}
+
+### Fractional part ---
+to_decimal_frac_part <- function(char, base) {
+ char <- strsplit(char, "")[[1]]
+ len <- length(char)
+ power <- base^(-1)
+ num <- 0
+ 
+ for (i in seq_len(len)) {
+  digit <- char_to_int(char[i])
+  
+  if (digit >= base) {
+   stop(sprintf(
+    "Invalid digit: '%s'\nThis digit is not valid in base %d\n(base 2 to base 62)",
+    char[i], base
+   ))
+  }
+  
+  num <- num + digit * power
+  power <- power * base^(-1)
+ }
+ 
+ return(num)
+}
+
+## Principal function ----
+to_decimal <- function(char, 
+                       base,
+                       decimal_places) {
+ 
+ is_char_well_formed <- is_well_formed(char)
+ 
+ if (!is_char_well_formed) {
+  stop(sprintf(
+   "Invalid expression: '%s'",
+   char
+  ))
+ }
+ 
+ # Handle char with -
+ char_abs <- sub("-", "", char)
+ 
+ # Extract integer and fractional part
+ char_split <- strsplit(char_abs, r"(\.)")[[1]]
+ int <-  char_split[1]
+ frac <- char_split[2]
+ 
+ # Integer part
+ int_part <- to_decimal_int_part(int,
+                                 base)
+
+ # Fractional part
+ if (!is.na(frac)) {
+  frac_part <- to_decimal_frac_part(frac,
+                                    base)
+ }
+ 
+ # Mergin integer and fractional part
+ if (is.na(frac_part)) {
+  result <- int_part
+ } else {
+  result <- int_part + frac_part
+ }
+
+ # Add minus sign if needed
+ start_with_minus <- startsWith(char, "-")
+ if (start_with_minus) {
+  result <- -result
+ }
+ 
+ # Control the number of decimal places to show
+ result <- formatC(result,
+                   decimal_places,
+                   format = "f")
+ 
+ return(result)
+
+}
+
+### Check ----
+# It may generate 
+# imprecisions during the conversion process
+# for the parameter decimal places
+to_decimal("C4B3.3A9D", 
+           base = 14, 
+           decimal_places = 5)
+```
 
