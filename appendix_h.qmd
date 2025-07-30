@@ -566,3 +566,15 @@ to_decimal("C4B3.3A9D",
            decimal_places = 5)
 ```
 
+## Non uniqueness of positional notation representation
+
+Sometimes a number can be represented in 2 ways. For example in base $10$ the number $0.5$ can also be represented as $0.4999\ldots$. In that case according to @def-positional-notation:
+
+- $(0.5)_{10} = 0*10^0 + 5*10^{-1} + 0*10^{-2} + 0*10^{-3} + 0*10^{-4} + \cdots$
+
+- $(0.4999\ldots)_{10} = 0*10^0 + 4*10^{-1} + 9*10^{-2} + 9*10^{-3} + 9*10^{-4} + \cdots$
+
+Therefore $(0.5)_{10}$ has also 2 representations in another base. For example in base $2$ we have that $(0.5)_{10}$ or $(0.4999\ldots)_{2}$ can be represented as:
+
+- $(0.1000\ldots)_{2}$
+- $(0.0111\ldots)_{2}$
