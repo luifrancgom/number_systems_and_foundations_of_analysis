@@ -1,4 +1,4 @@
-# Positional number systems
+# Positional number systems {#sec-appendix-h}
 
 ```{r}
 #| label: setup
@@ -574,7 +574,7 @@ Sometimes a number can be represented in 2 ways. For example in base $10$ the nu
 
 - $(0.4999\ldots)_{10} = 0*10^0 + 4*10^{-1} + 9*10^{-2} + 9*10^{-3} + 9*10^{-4} + \cdots$
 
-Therefore $(0.5)_{10}$ has also 2 representations in another base. For example in base $2$ we have that $(0.5)_{10}$ or $(0.4999\ldots)_{2}$ can be represented as:
+Therefore $(0.5)_{10}$ has also 2 representations in another base. For example in base $2$ we have that $(0.5)_{10}$ or $(0.4999\ldots)_{10}$ can be represented as:
 
 - $(0.1000\ldots)_{2}$
 - $(0.0111\ldots)_{2}$

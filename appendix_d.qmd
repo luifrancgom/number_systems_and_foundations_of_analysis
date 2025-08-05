@@ -1605,8 +1605,13 @@ By @thm-characteristic-function $\{ 0, 1 \}^{\mathbb{P}} \approx \mathscr{P}(\ma
 
 Hence we can prove that $\mathbb{R} \approx \{ 0, 1 \}^{\mathbb{P}}$.
 
-Since $\mathbb{R} \approx [0,1)$, it suffices to prove that $[0,1) \approx \{ 0, 1 \}^{\mathbb{P}}$.
+Since $\mathbb{R} \approx [0,1)$ by @thm-generalized-intervals-r-equinumerous, it suffices to prove that $[0,1) \approx \{ 0, 1 \}^{\mathbb{P}}$.
 
 Any number in $[0,1)$ has an infinite binary expansion just as it has an infinite decimal representation. In the case of 2 binary representations for the same number, we discard the representation with an infinite tail of $1$'s.
 
+Every infinite binary (See @sec-appendix-h) representation can be considered to be an element of $\{ 0, 1\}^{\mathbb{P}} = \{ f \mid f: \mathbb{P} \longrightarrow \{ 0, 1\} \}$. For example $0.5$ in base $10$, $(0.5)_{10}$, can be represented in base $2$ as $0.1000\ldots$, $(0.1000\ldots)_2$, where it has an associated $f: \mathbb{P} \longrightarrow \{ 0, 1\}$ such that $1 = f(1), 0 = f(2), 0 = f(3), 0 = f(4), \ldots$. Thus, we have a one-one correspondence between $[0, 1)$ and a subset of $\{ 0, 1\}^{\mathbb{P}}$ because those binary representations with infinite tails of $1$'s were not used. For example $0.4999\ldots$ in base $10$, $(0.4999\ldots)_{10}$, represented in base $2$ as $0.0111\ldots$, $(0.0111\ldots)_2$, is not considered. Therefore, that range of this one-one correspondence is not equal to the range of $\{ 0, 1\}^{\mathbb{P}}$. So, $G: [0,1) \xrightarrow[]{1-1} \{ 0, 1 \}^{\mathbb{P}}$ and $[0,1) \leq \{ 0, 1 \}^{\mathbb{P}}$.
+
+Conversely, let's represent the numbers in $[0,1)$ in base $3$. So, for example $0.5$ in base $10$, $(0.5)_{10}$,is represented as $0.111\ldots$ in base $3$, $(0.111\ldots)_{3}$ and $0.1$ in base $10$, $(0.1)_{10}$,is represented as $00220022\ldots$ in base $3$, $00220022\ldots)_{3}$. Then with each element $g$ in $\{ 0, 1\}^{\mathbb{P}}$ we associate the real number in $[0,1)$ the base $3$ representation provided by $0.g(1)g(2)\ldots$ where $g(i) \neq 2$. So, $H: \{ 0, 1 \}^{\mathbb{P}} \xrightarrow[]{1-1} [0,1)$ taking into account that numbers like $0.1$ represented in base $3$ as $00220022\ldots)_{3}$ are not part of the range of this one-one correspondence. Therefore, $[0,1) \geq \{ 0, 1 \}^{\mathbb{P}}$. 
+
+Because, $[0,1) \leq \{ 0, 1 \}^{\mathbb{P}}$ and $[0,1) \geq \{ 0, 1 \}^{\mathbb{P}}$ then by @thm-schroder-bernstein-theorem $[0,1) \approx \{ 0, 1 \}^{\mathbb{P}}$.
 :::
