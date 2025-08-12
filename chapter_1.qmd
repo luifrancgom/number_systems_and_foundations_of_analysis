@@ -162,19 +162,17 @@ Show that the set of formulas of $\mathcal{L}_P$ is countable.
 
 ::: {.proof}
 
-**Pending**
-
 Let $S_{\mathcal{L}_p}$ the set of symbols of $\mathcal{L}_p$, $S_{\mathcal{L}_p} = \{ (, ), \neg, \Longrightarrow \} \cup \{ A_0, A_1, A_2, \ldots, A_n, \ldots \}$.
 
--  Show that $S_{\mathcal{L}_p}$ is a denumerable set.
+-  Because $\{ (, ), \neg, \Longrightarrow \}$ is finite and $\{ A_0, A_1, A_2, \ldots, A_n, \ldots \}$ is denumerable then by @exr-denumerable-set-2 2 $S_{\mathcal{L}_p}$ is denumerable.
 
 Let $S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathcal{L}_p} \times \ldots \times S_{\mathcal{L}_p}}} = S_{\mathcal{L}_p}^n$ the string of symbols of length $n$ build from $S_{\mathcal{L}_p}$.
 
--  Prove that $S_{\mathcal{L}_p}^2, S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n$ are denumerable sets.
+-  By @cor-denumerable-set-1 1 $S_{\mathcal{L}_p}^2$ is denumerable. Also by @cor-denumerable-set-1 1 and using the principle of induction we can prove that $S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n$ are denumerable sets.
 
--  Prove that $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
+-  By @exr-denumerable-set-2 4 $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
 
--  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ is a denumerable set.
+-  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ by @cor-denumerable-set-1 $F_{\mathcal{L}_p}$ is either finite or denumerable. However we know that $F_{\mathcal{L}_p}$ is not finite so it must be denumerable. 
 
 :::
 
@@ -2075,13 +2073,11 @@ The set of terms of a countable first-order language $\mathcal{L}$ is countable.
 
 ::: {.proof}
 
-**Pending**
-
 In a countable first-order language $\mathcal{L}$ the logical and non logical symbols of $\mathcal{L}$ are countable.
 
 Therefore for the terms of $\mathcal{L}$ the variables are countable, the set of constants are countable and the $k$-place function symbols are countable.
 
-Let $St_{\mathcal{L}}$ the set of symbols of $\mathcal{L}$ used to for terms:
+Let $St_{\mathcal{L}}$ the set of symbols of $\mathcal{L}$ used to form terms:
 
 $$\begin{split}
   St_{\mathcal{L}} = & \{ v_0, \ldots, v_n, \ldots, \} \\
@@ -2093,15 +2089,15 @@ $$\begin{split}
   & \; \vdots
   \end{split}$$
 
--  Show that $St_{\mathcal{L}}$ is denumerable
+-  By @exr-denumerable-set-2 4 $St_{\mathcal{L}}$ is denumerable. That is, any denumerable union of denumerable sets is a denumerable set.
 
 Let $St_{\mathcal{L}}(l(n)) = \underset{n \text{ times}}{\underbrace{St_{\mathcal{L}} \times \ldots \times St_{\mathcal{L}}}} = St_{\mathcal{L}}^n$ the strings of symbols of length $n$ build from $St_{\mathcal{L}}$.
 
--  Prove that $St_{\mathcal{L}}^2, St_{\mathcal{L}}^3, \ldots, St_{\mathcal{L}}^n$ are denumerable sets.
+-  By @cor-denumerable-set-1 1 $St_{\mathcal{L}}^2$ is a denumerable set. Also by @cor-denumerable-set-1 1 and using the principle of induction we can prove that $St_{\mathcal{L}}^3, \ldots, St_{\mathcal{L}}^n$ are denumerable sets.
 
--  Prove that $St_{\mathcal{L}}^1 \cup St_{\mathcal{L}}^2 \cup \ldots \cup St_{\mathcal{L}}^n \cup \dots = \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
+-  By @exr-denumerable-set-2 4 $St_{\mathcal{L}}^1 \cup St_{\mathcal{L}}^2 \cup \ldots \cup St_{\mathcal{L}}^n \cup \dots = \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
 
--  Let $Ft_{\mathcal{L}}$ the set of terms of $\mathcal{L}$. Because $Ft_{\mathcal{L}} \subseteq \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i$ then $Ft_{\mathcal{L}}$ is a denumerable set.
+-  Let $Ft_{\mathcal{L}}$ the set of terms of $\mathcal{L}$. Because $Ft_{\mathcal{L}} \subseteq \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i$ by @cor-denumerable-set-1 $Ft_{\mathcal{L}}$ is either finite or denumerable. However we know that $Ft_{\mathcal{L}}$ is not finite so it must be denumerable. 
 
 :::
 
