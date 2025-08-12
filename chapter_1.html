@@ -461,16 +461,15 @@ Figure&nbsp;1.1: Possible values of <span class="math inline">\(l(\alpha)\)</spa
 <p><span class="theorem-title"><strong>Proposition 1.1</strong></span> Show that the set of formulas of <span class="math inline">\(\mathcal{L}_P\)</span> is countable.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
-<p>Let <span class="math inline">\(S_{\mathcal{L}_p}\)</span> the set of symbols of <span class="math inline">\(\mathcal{L}_p\)</span>, <span class="math inline">\(S_{\mathcal{L}_p} = \{ (, ), \neg, \Longrightarrow \} \cup \{ A_0, A_1, A_2, \ldots, A_n, \ldots \}\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(S_{\mathcal{L}_p}\)</span> the set of symbols of <span class="math inline">\(\mathcal{L}_p\)</span>, <span class="math inline">\(S_{\mathcal{L}_p} = \{ (, ), \neg, \Longrightarrow \} \cup \{ A_0, A_1, A_2, \ldots, A_n, \ldots \}\)</span>.</p>
 <ul>
-<li>Show that <span class="math inline">\(S_{\mathcal{L}_p}\)</span> is a denumerable set.</li>
+<li>Because <span class="math inline">\(\{ (, ), \neg, \Longrightarrow \}\)</span> is finite and <span class="math inline">\(\{ A_0, A_1, A_2, \ldots, A_n, \ldots \}\)</span> is denumerable then by <a href="appendix_d.html#exr-denumerable-set-2" class="quarto-xref">Exercise&nbsp;<span>D.9</span></a> 2 <span class="math inline">\(S_{\mathcal{L}_p}\)</span> is denumerable.</li>
 </ul>
 <p>Let <span class="math inline">\(S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathcal{L}_p} \times \ldots \times S_{\mathcal{L}_p}}} = S_{\mathcal{L}_p}^n\)</span> the string of symbols of length <span class="math inline">\(n\)</span> build from <span class="math inline">\(S_{\mathcal{L}_p}\)</span>.</p>
 <ul>
-<li><p>Prove that <span class="math inline">\(S_{\mathcal{L}_p}^2, S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n\)</span> are denumerable sets.</p></li>
-<li><p>Prove that <span class="math inline">\(S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.</p></li>
-<li><p>Let <span class="math inline">\(F_{\mathcal{L}_p}\)</span> the set of formulas of <span class="math inline">\(\mathcal{L}_p\)</span>. Because <span class="math inline">\(F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> then <span class="math inline">\(F_{\mathcal{L}_p}\)</span> is a denumerable set.</p></li>
+<li><p>By <a href="appendix_d.html#cor-denumerable-set-1" class="quarto-xref">Corollary&nbsp;<span>D.6</span></a> 1 <span class="math inline">\(S_{\mathcal{L}_p}^2\)</span> is denumerable. Also by <a href="appendix_d.html#cor-denumerable-set-1" class="quarto-xref">Corollary&nbsp;<span>D.6</span></a> 1 and using the principle of induction we can prove that <span class="math inline">\(S_{\mathcal{L}_p}^3, \ldots, S_{\mathcal{L}_p}^n\)</span> are denumerable sets.</p></li>
+<li><p>By <a href="appendix_d.html#exr-denumerable-set-2" class="quarto-xref">Exercise&nbsp;<span>D.9</span></a> 4 <span class="math inline">\(S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.</p></li>
+<li><p>Let <span class="math inline">\(F_{\mathcal{L}_p}\)</span> the set of formulas of <span class="math inline">\(\mathcal{L}_p\)</span>. Because <span class="math inline">\(F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i\)</span> then <span class="math inline">\(F_{\mathcal{L}_p}\)</span> by <a href="appendix_d.html#cor-denumerable-set-1" class="quarto-xref">Corollary&nbsp;<span>D.6</span></a> <span class="math inline">\(F_{\mathcal{L}_p}\)</span> is either finite or denumerable. However we know that <span class="math inline">\(F_{\mathcal{L}_p}\)</span> is not finite so it must be denumerable.</p></li>
 </ul>
 </div>
 <section id="sec-informal-conventions" class="level4" data-number="1.1.1.1">
@@ -3573,10 +3572,9 @@ Note&nbsp;1.4
 <p><span class="theorem-title"><strong>Proposition 1.20</strong></span> The set of terms of a countable first-order language <span class="math inline">\(\mathcal{L}\)</span> is countable.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
-<p>In a countable first-order language <span class="math inline">\(\mathcal{L}\)</span> the logical and non logical symbols of <span class="math inline">\(\mathcal{L}\)</span> are countable.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>In a countable first-order language <span class="math inline">\(\mathcal{L}\)</span> the logical and non logical symbols of <span class="math inline">\(\mathcal{L}\)</span> are countable.</p>
 <p>Therefore for the terms of <span class="math inline">\(\mathcal{L}\)</span> the variables are countable, the set of constants are countable and the <span class="math inline">\(k\)</span>-place function symbols are countable.</p>
-<p>Let <span class="math inline">\(St_{\mathcal{L}}\)</span> the set of symbols of <span class="math inline">\(\mathcal{L}\)</span> used to for terms:</p>
+<p>Let <span class="math inline">\(St_{\mathcal{L}}\)</span> the set of symbols of <span class="math inline">\(\mathcal{L}\)</span> used to form terms:</p>
 <p><span class="math display">\[\begin{split}
   St_{\mathcal{L}} = &amp; \{ v_0, \ldots, v_n, \ldots, \} \\
   &amp; \cup \{ c_1, \ldots, c_n, \dots \} \\
@@ -3587,13 +3585,13 @@ Note&nbsp;1.4
   &amp; \; \vdots
   \end{split}\]</span></p>
 <ul>
-<li>Show that <span class="math inline">\(St_{\mathcal{L}}\)</span> is denumerable</li>
+<li>By <a href="appendix_d.html#exr-denumerable-set-2" class="quarto-xref">Exercise&nbsp;<span>D.9</span></a> 4 <span class="math inline">\(St_{\mathcal{L}}\)</span> is denumerable. That is, any denumerable union of denumerable sets is a denumerable set.</li>
 </ul>
 <p>Let <span class="math inline">\(St_{\mathcal{L}}(l(n)) = \underset{n \text{ times}}{\underbrace{St_{\mathcal{L}} \times \ldots \times St_{\mathcal{L}}}} = St_{\mathcal{L}}^n\)</span> the strings of symbols of length <span class="math inline">\(n\)</span> build from <span class="math inline">\(St_{\mathcal{L}}\)</span>.</p>
 <ul>
-<li><p>Prove that <span class="math inline">\(St_{\mathcal{L}}^2, St_{\mathcal{L}}^3, \ldots, St_{\mathcal{L}}^n\)</span> are denumerable sets.</p></li>
-<li><p>Prove that <span class="math inline">\(St_{\mathcal{L}}^1 \cup St_{\mathcal{L}}^2 \cup \ldots \cup St_{\mathcal{L}}^n \cup \dots = \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i\)</span> is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.</p></li>
-<li><p>Let <span class="math inline">\(Ft_{\mathcal{L}}\)</span> the set of terms of <span class="math inline">\(\mathcal{L}\)</span>. Because <span class="math inline">\(Ft_{\mathcal{L}} \subseteq \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i\)</span> then <span class="math inline">\(Ft_{\mathcal{L}}\)</span> is a denumerable set.</p></li>
+<li><p>By <a href="appendix_d.html#cor-denumerable-set-1" class="quarto-xref">Corollary&nbsp;<span>D.6</span></a> 1 <span class="math inline">\(St_{\mathcal{L}}^2\)</span> is a denumerable set. Also by <a href="appendix_d.html#cor-denumerable-set-1" class="quarto-xref">Corollary&nbsp;<span>D.6</span></a> 1 and using the principle of induction we can prove that <span class="math inline">\(St_{\mathcal{L}}^3, \ldots, St_{\mathcal{L}}^n\)</span> are denumerable sets.</p></li>
+<li><p>By <a href="appendix_d.html#exr-denumerable-set-2" class="quarto-xref">Exercise&nbsp;<span>D.9</span></a> 4 <span class="math inline">\(St_{\mathcal{L}}^1 \cup St_{\mathcal{L}}^2 \cup \ldots \cup St_{\mathcal{L}}^n \cup \dots = \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i\)</span> is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.</p></li>
+<li><p>Let <span class="math inline">\(Ft_{\mathcal{L}}\)</span> the set of terms of <span class="math inline">\(\mathcal{L}\)</span>. Because <span class="math inline">\(Ft_{\mathcal{L}} \subseteq \bigcup_{i \in \mathbb{N}} St_{\mathcal{L}}^i\)</span> by <a href="appendix_d.html#cor-denumerable-set-1" class="quarto-xref">Corollary&nbsp;<span>D.6</span></a> <span class="math inline">\(Ft_{\mathcal{L}}\)</span> is either finite or denumerable. However we know that <span class="math inline">\(Ft_{\mathcal{L}}\)</span> is not finite so it must be denumerable.</p></li>
 </ul>
 </div>
 <div id="def-formulas-l" class="theorem definition">
