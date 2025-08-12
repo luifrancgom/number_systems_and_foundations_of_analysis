@@ -1615,3 +1615,76 @@ Conversely, let's represent the numbers in $[0,1)$ in base $3$. So, for example 
 
 Because, $[0,1) \leq \{ 0, 1 \}^{\mathbb{P}}$ and $[0,1) \geq \{ 0, 1 \}^{\mathbb{P}}$ then by @thm-schroder-bernstein-theorem $[0,1) \approx \{ 0, 1 \}^{\mathbb{P}}$.
 :::
+
+::: {#lem-equinumerous-set}
+
+For any sets $A$ and $B$, there exist sets $A_1$, $B_1$ such that $A_1 \approx A$, $B_1 \approx B$ and $A_1 \cap B_1 = \emptyset$.
+
+:::
+
+::: {.proof}
+
+Let $A_1 = A \times \{ 0 \}$ and $B_1 = B \times \{ 1 \}$. Then $F(a) = (a, 0)$, $G(b) = (b, 0)$ so $F: A \xrightarrow[onto]{1-1} A_1$ and $G: B \xrightarrow[onto]{1-1} B_1$ and $A_1 \cap B_1$. Therefore, $A_1 \approx A$ and $B_1 \approx B$.
+
+:::
+
+::: {#def-addition-cardinal-numbers}
+
+# Addition
+
+Let $\mathfrak{m}$ and $\mathfrak{n}$ be cardinal numbers. Take any sets $A$, $B$ such that $\mathscr{K}(A) = \mathfrak{m}$, $\mathscr{K}(B) = \mathfrak{n}$ and $A \cap B = \emptyset$. Then
+
+$$\mathfrak{m} + \mathfrak{n} = \mathscr{K}(A \cup B)$$
+**Note**: By @lem-equinumerous-properties c, the result $\mathfrak{m} + \mathfrak{n}$ does not depend upon the choice of $A$ and $B$.
+
+Also the condition $A \cap B = \emptyset$ is important. For example, if $A = \{ 1, 2, 3 \}$ and $B = \{ 3, 4 \}$ then $\mathscr{K}(A) = 3$, $\mathscr{K}(B) = 2$, $\mathscr{K}(A \cup B) = 3$ where $\mathscr{K}(A) + \mathscr{K}(B) = 5 > \mathscr{K}(A \cup B) = 3$.  
+
+:::
+
+::: {#def-addition-cardinal-numbers}
+
+## Multiplication and Exponentiation
+
+Let $\mathfrak{m}$ and $\mathfrak{n}$ be cardinal numbers, and let $A$, $B$ be any sets such that $\mathscr{K}(A) = \mathfrak{m}$, $\mathscr{K}(B) = \mathfrak{n}$. Then
+
+$$\mathfrak{m} \times \mathfrak{n} = \mathscr{K}(A \times B),$$
+
+and
+
+$$\mathfrak{m}^{\mathfrak{n}} = \mathscr{K}(A^B).$$
+By @lem-equinumerous-properties a, b we know that $\mathfrak{m} \times \mathfrak{n}$ and $\mathfrak{m}^{\mathfrak{n}}$ do not depend upon the choice of $A$ and $B$.
+
+:::
+
+::: {#thm-cardinal-arithmetic}
+
+a. $\mathfrak{m} + \mathfrak{n} = \mathfrak{n} + \mathfrak{m}$
+
+b. $\mathfrak{m} + (\mathfrak{n} + \mathfrak{p}) = (\mathfrak{m} + \mathfrak{n}) + \mathfrak{p}$
+
+c. $\mathfrak{m} + 0 = \mathfrak{m}$ (Remember that $\mathscr{K}(\emptyset) = 0$)
+
+d. $\mathfrak{m} \times \mathfrak{n} = \mathfrak{n} \times \mathfrak{m}$
+
+e. $\mathfrak{m} \times (\mathfrak{n} \times \mathfrak{p}) = (\mathfrak{m} \times \mathfrak{n}) \times \mathfrak{p}$
+
+f. $\mathfrak{m} \times 1 = \mathfrak{m}$ (Remember that $\mathscr{K}(P_1)$)
+
+g. $\mathfrak{m} \times (\mathfrak{n} + \mathfrak{p}) = (\mathfrak{m} \times \mathfrak{n}) + (\mathfrak{m} + \mathfrak{p})$
+
+h. $\mathfrak{m}^0 = 1$
+
+i. $\mathfrak{n} \neq 0 \Longrightarrow 0^{\mathfrak{n}} = 0$
+
+k. $\mathfrak{m}^{\mathfrak{n} + \mathfrak{p}} = \mathfrak{m}^{\mathfrak{n}} \times \mathfrak{m}^{\mathfrak{p}}$
+
+j. $(\mathfrak{m}^{\mathfrak{n}})^{\mathfrak{p}} = \mathfrak{\mathfrak{m}^{\mathfrak{n} \times \mathfrak{p}}}$
+
+l. $2 \leq_K \mathfrak{m} \land 2 \leq_K \mathfrak{n} \Longrightarrow \mathfrak{m} + \mathfrak{n} \leq_K \mathfrak{m} \times \mathfrak{n}$
+:::
+
+::: {.proof}
+
+
+
+:::
