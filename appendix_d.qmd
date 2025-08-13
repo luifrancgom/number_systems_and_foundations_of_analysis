@@ -1685,6 +1685,42 @@ l. $2 \leq_K \mathfrak{m} \land 2 \leq_K \mathfrak{n} \Longrightarrow \mathfrak{
 
 ::: {.proof}
 
+Let $\mathscr{K}(A) = \mathfrak{m}$, $\mathscr{K}(B) = \mathfrak{n}$ and $\mathscr{K}(C) = \mathfrak{p}$ where $A \cap B = \emptyset$, $A \cap C = \emptyset$, $B \cap C = \emptyset$ and $A \cap P_1 = \emptyset$:
 
+a. $\begin{aligned}
+     \mathfrak{m} + \mathfrak{n} & = \mathscr{K}(A \cup B) \\
+     & = \mathscr{K}(B \cup A); A \cup B = B \cup A \\
+     & = \mathfrak{n} + \mathfrak{m} 
+     \end{aligned}$
+
+b. $\begin{aligned}
+     \mathfrak{m} + (\mathfrak{n} + \mathfrak{p}) & = \mathscr{K}(A \cup (B \cup C)) \\
+     & = \mathscr{K}((A \cup B) \cup C)); A \cup (B \cup C) = (A \cup B) \cup C) \\
+     & = (\mathfrak{n} + \mathfrak{m}) + \mathfrak{p}  
+     \end{aligned}$
+
+c. $\begin{aligned}
+     \mathfrak{m} + 0 & = \mathscr{K}(A \cup \emptyset); A \cap \emptyset \\
+     & = \mathscr{K}(A); A \cup \emptyset = A \\
+     & = \mathfrak{m}  
+     \end{aligned}$
+
+d. $\begin{aligned}
+     \mathfrak{m} \times \mathfrak{n} & = \mathscr{K}(A \times B) \\
+     & = \mathscr{K}(B \times A); A \times B \approx B \times A \\
+     & = \mathfrak{n} \times \mathfrak{m}   
+     \end{aligned}$
+
+e. $\begin{aligned}
+     \mathfrak{m} \times (\mathfrak{n} \times \mathfrak{p}) & = \mathscr{K}(A \times (B \times C)) \\
+     & = \mathscr{K}((A \times B) \times C); A \times (B \times C) \approx (A \times B) \times C \\
+     & = (\mathfrak{n} \times \mathfrak{m}) \times \mathfrak{p}    
+     \end{aligned}$
+
+f. $\begin{aligned}
+     \mathfrak{m} \times (\mathfrak{n} \times \mathfrak{p}) & = \mathscr{K}(A \times (B \times C)) \\
+     & = \mathscr{K}((A \times B) \times C); A \times (B \times C) \approx (A \times B) \times C \\
+     & = (\mathfrak{n} \times \mathfrak{m}) \times \mathfrak{p}    
+     \end{aligned}$
 
 :::
