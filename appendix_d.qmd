@@ -948,7 +948,7 @@ Because it exists $F: A \xrightarrow[]{1-1} B$ and $G: C \xrightarrow[]{1-1} D$ 
    
    Because $A \cap (C - A) = \emptyset$ then $H$ is a well defined function. If $A \cap C \neq \emptyset$ then it will not be clear how to assign $x$ to an element in $\mathscr{R}(H)$.
    
-   Also $H$ is one-one because $B \cup D \subseteq \mathscr{R}(H)$ and $B \cap D = \emptyset$. In that way $\mathscr{R}(B) \cap \mathscr{R}(D)$.
+   Also $H$ is one-one because $B \cup D \subseteq \mathscr{R}(H)$ and $B \cap D = \emptyset$. In that way $F(x) \neq G(x)$, so if $H(x) = H(x')$ then $F(x) = F(x')$ or $G(x) = G(x')$ which means that $x = x'$.
 
 2. Let $H(a, c) = (F(a), G(c))$ then $H$ is one-one because if $H(a, c) = H(a^*, c^*)$ then $(F(a), G(c)) = (F(a^*), G(c^*))$ so $(a, c) = (a^*, c^*)$ taking into account that $F$ and $G$ are one-one functions. 
 
@@ -1691,36 +1691,203 @@ a. $\begin{aligned}
      \mathfrak{m} + \mathfrak{n} & = \mathscr{K}(A \cup B) \\
      & = \mathscr{K}(B \cup A); A \cup B = B \cup A \\
      & = \mathfrak{n} + \mathfrak{m} 
-     \end{aligned}$
+    \end{aligned}$
 
 b. $\begin{aligned}
      \mathfrak{m} + (\mathfrak{n} + \mathfrak{p}) & = \mathscr{K}(A \cup (B \cup C)) \\
      & = \mathscr{K}((A \cup B) \cup C)); A \cup (B \cup C) = (A \cup B) \cup C) \\
      & = (\mathfrak{n} + \mathfrak{m}) + \mathfrak{p}  
-     \end{aligned}$
+    \end{aligned}$
 
 c. $\begin{aligned}
      \mathfrak{m} + 0 & = \mathscr{K}(A \cup \emptyset); A \cap \emptyset \\
      & = \mathscr{K}(A); A \cup \emptyset = A \\
      & = \mathfrak{m}  
-     \end{aligned}$
+    \end{aligned}$
 
 d. $\begin{aligned}
      \mathfrak{m} \times \mathfrak{n} & = \mathscr{K}(A \times B) \\
      & = \mathscr{K}(B \times A); A \times B \approx B \times A \\
      & = \mathfrak{n} \times \mathfrak{m}   
-     \end{aligned}$
+    \end{aligned}$
 
 e. $\begin{aligned}
      \mathfrak{m} \times (\mathfrak{n} \times \mathfrak{p}) & = \mathscr{K}(A \times (B \times C)) \\
      & = \mathscr{K}((A \times B) \times C); A \times (B \times C) \approx (A \times B) \times C \\
-     & = (\mathfrak{n} \times \mathfrak{m}) \times \mathfrak{p}    
-     \end{aligned}$
+     & = (\mathfrak{n} \times \mathfrak{m}) \times \mathfrak{p}   
+    \end{aligned}$
 
 f. $\begin{aligned}
-     \mathfrak{m} \times (\mathfrak{n} \times \mathfrak{p}) & = \mathscr{K}(A \times (B \times C)) \\
-     & = \mathscr{K}((A \times B) \times C); A \times (B \times C) \approx (A \times B) \times C \\
-     & = (\mathfrak{n} \times \mathfrak{m}) \times \mathfrak{p}    
-     \end{aligned}$
+     \mathfrak{m} \times 1 & = \mathscr{K}(A \times P_1) \\
+     & = \mathscr{K}(A); A \approx A \times P_1 \\
+     & = \mathfrak{m}
+    \end{aligned}$
+
+g. $\begin{aligned}
+     \mathfrak{m} \times (\mathfrak{n} + \mathfrak{p}) & = \mathscr{K}(A \times (B \cup C)) \\
+      & = \mathscr{K}((A \times B) \cup (A \times C)); A \times (B \cup C) = A \times B \cup A \times C) \\
+      & = (\mathfrak{m} \times \mathfrak{n}) + (\mathfrak{m} \times \mathfrak{p})
+    \end{aligned}$
+     
+h. $\begin{aligned}
+    \mathfrak{m}^0 & = \mathscr{K}(A^{\emptyset}) \\
+     & = \mathscr{K}(\{ \emptyset \}); A^{\emptyset} = \{ \emptyset \} \\
+     & = 1
+    \end{aligned}$
+
+i. Let $\mathfrak{n} \neq 0$ then $0^{\mathfrak{n}} = \mathscr{K}(\emptyset^B)$ where $B \neq \emptyset$. Because $\emptyset^B = \{ f \mid f: B \longrightarrow \emptyset \}$, but by @def-function $f$ is not a function. Therefore, $\emptyset^B = \emptyset$. So, $\mathscr{K}(\emptyset^B) = \mathscr{K}(\emptyset) = 0$ and $0^{\mathfrak{n}} = 0$ when $\mathfrak{n} \neq 0$.   
+
+j. $\begin{aligned}
+    \mathfrak{m}^{\mathfrak{n} + \mathfrak{p}} & = \mathscr{K}(A^{B \cup C}) \\
+     & = \mathscr{K}(A^B \times A^C); A^{B \cup C} \approx A^B \times A^C \text{ when } B \cap C = \emptyset \\
+     & = \mathfrak{m}^{\mathfrak{n}} \times \mathfrak{m}^{\mathfrak{p}}
+    \end{aligned}$
+
+k. $\begin{aligned}
+    (\mathfrak{m}^{\mathfrak{n}})^{\mathfrak{p}} & = \mathscr{K}((A^B)^C) \\
+     & = \mathscr{K}(A^{B \times C}); (A^B)^C \approx A^{B \times C} \\
+     & = \mathfrak{m}^{\mathfrak{n} \times \mathfrak{p}}
+    \end{aligned}$
+
+l. $\begin{aligned}
+    \mathfrak{m} + \mathfrak{n} & = \mathscr{K}(A \cup B) \\
+     & \iff A \cup B \leq A \times B \text{ if } 2 \leq_K \mathfrak{m} \land 2 \leq_K \mathfrak{n} \\
+     & \iff \mathscr{K}(A \cup B) \leq \mathscr{K}(A \times B) \\
+     & \iff \mathfrak{m} + \mathfrak{n} \leq_K \mathfrak{m} \times \mathfrak{n}  
+    \end{aligned}$
+:::
+
+::: {#exr-less-equal-cardinal-numbers}
+
+Assume $\mathfrak{m} \leq_K \mathfrak{n}$ and $\mathfrak{p} \leq_K \mathfrak{q}$. Prove:
+
+1. $\mathfrak{m} + \mathfrak{p} \leq_K \mathfrak{n} + \mathfrak{q}$
+
+2. $\mathfrak{m} \times \mathfrak{p} \leq_K \mathfrak{n} \times \mathfrak{q}$
+
+3. $\mathfrak{m} + (\mathfrak{n} + \mathfrak{p}) >_K 0 \Longrightarrow \mathfrak{m}^{\mathfrak{p}} \leq_K \mathfrak{n}^{\mathfrak{q}}$
+
+:::
+
+::: {#sol-less-equal-cardinal-numbers}
+
+ Also assume $\mathscr{K}(A) = \mathfrak{m}$, $\mathscr{K}(B) = \mathfrak{n}$, $\mathscr{K}(C) = \mathfrak{p}$, $\mathscr{K}(D) = \mathfrak{q}$ where $A \cap C = \emptyset$, $B \cap D = \emptyset$ and $(A \cap C) \cap B = \emptyset$:
+ 
+1. $\begin{aligned}
+     \mathfrak{m} \leq_K \mathfrak{n} \land \mathfrak{p} \leq_K \mathfrak{q} & \iff A \leq B \land C \leq D \\
+     & \Longrightarrow A \cup C \leq B \cup D; \text{ where } B \cap D = \emptyset \\ 
+     & \iff \mathscr{K}(A \cup C) \leq_K \mathscr{K}(B \cup D) \\
+     & \iff \mathfrak{m} + \mathfrak{p} \leq_K \mathfrak{n} + \mathfrak{q}
+    \end{aligned}$
+
+2. $\begin{aligned}
+     \mathfrak{m} \leq_K \mathfrak{n} \land \mathfrak{p} \leq_K \mathfrak{q} & \iff A \leq B \land C \leq D \\
+     & \Longrightarrow A \times C \leq B \times D \\ 
+     & \iff \mathscr{K}(A \times C) \leq_K \mathscr{K}(B \times D) \\
+     & \iff \mathfrak{m} \times \mathfrak{p} \leq_K \mathfrak{n} \times \mathfrak{q}
+    \end{aligned}$
+
+3. $\begin{aligned}
+     \mathfrak{m} + (\mathfrak{n} + \mathfrak{p}) >_K 0 & \iff \mathscr{K}(A \cup (B \cup C)) >_K \mathscr{K}(\emptyset) \\
+     & \iff A \cup (B \cup C) > \emptyset \\
+     & \Longrightarrow A \cup (B \cup C) \neq \emptyset \\
+     & \Longrightarrow A^C \leq B^D \\
+     & \iff \mathscr{K}(A^C) \leq_K \mathscr{K}(B^D) \\
+     & \iff \mathfrak{m}^{\mathfrak{p}} \leq_K \mathfrak{n}^{\mathfrak{q}} 
+    \end{aligned}$
+
+:::
+
+::: {#thm-cardinal-number-positive-integers}
+
+a. $\aleph_0 \times \aleph_0 = \aleph_0$
+
+b. If $n$ is a positive integer, $\aleph_0^n = \aleph_0$
+
+c. $0 <_K \mathfrak{m} \leq_K \aleph_0 \Longrightarrow \mathfrak{m} \times \aleph_0 = \aleph_0$
+
+d. $\aleph_0 + \aleph_0 = \aleph_0$
+
+e. $\mathfrak{m} \leq_K \aleph_0 \Longrightarrow \mathfrak{m} + \aleph_0 = \aleph_0$
+
+:::
+
+::: {.proof}
+
+Assume $\mathscr{K}(A) = \mathfrak{m}$ where $\mathfrak{m} \leq_K \aleph_0$:
+
+a. $\begin{aligned}
+     \aleph_0 \times \aleph_0 & = \mathscr{K}(\mathbb{P} \times \mathbb{P}) \\
+     & = \mathscr{K}(\mathbb{P}); \mathbb{P} \times \mathbb{P} \approx \mathbb{P} \\
+     & = \aleph_0 
+    \end{aligned}$
+
+b. $\begin{aligned}
+     \aleph_0^n & = \mathscr{K}(\mathbb{P}^{P_n}) \\
+     & = \mathscr{K}(\mathbb{P}); \mathbb{P}^{P_n} \approx \mathbb{P} \\
+     & = \aleph_0
+    \end{aligned}$
+
+c. $\begin{aligned}
+     0 <_K \mathfrak{m} \land \mathfrak{m} \leq_K \aleph_0 & \Longrightarrow 1 \leq_K \mathfrak{m} \land \mathfrak{m} \leq_K \aleph_0 \\
+     & \Longrightarrow 1 \times \aleph_0 \leq_K \mathfrak{m} \times \aleph_0 \land \mathfrak{m} \times \aleph_0 \leq_K \aleph_0 \times \aleph_0 \\
+     & \iff \aleph_0 \leq_K \mathfrak{m} \times \aleph_0 \land \mathfrak{m} \times \aleph_0 \leq_K \aleph_0 \\
+     & \iff \mathbb{P} \leq A \times \mathbb{P} \land A \times \mathbb{P} \leq \mathbb{P} \\
+     & \iff \mathbb{P} \approx A \times \mathbb{P} \\
+     & \iff \mathscr{K}(\mathbb{P}) = \mathscr{K}(A \times \mathbb{P}) \\
+     & \iff \aleph_0 = \mathfrak{m} \times \aleph_0  
+    \end{aligned}$
+
+d. $\begin{aligned}
+     \aleph_0 + \aleph_0 & = \mathscr{K}(\mathbb{P}) + \mathscr{K}(\mathbb{P}) \\
+     & = \mathscr{K}(\mathbb{P} \times \{0\}) + \mathscr{K}(\mathbb{P} \times \{1\}); \mathbb{P} \times \{0\} \approx \mathbb{P} \text{ and } \mathbb{P} \times \{1\} \approx \mathbb{P} \\
+     & = \mathscr{K}((\mathbb{P} \times \{0\}) \cup (\mathbb{P} \times \{1\})) \\
+     & = \mathscr{K}(\mathbb{P}); (\mathbb{P} \times \{0\}) \cup (\mathbb{P} \times \{1\}) \approx \mathbb{P} \\
+     & = \aleph_0 
+    \end{aligned}$ 
+
+e. $\begin{aligned}
+     \mathfrak{m} + \aleph_0 & = \mathscr{K}(A) + \mathscr{K}(\mathbb{P}) \\
+     & = \mathscr{K}(A \times \{0\}) + \mathscr{K}(\mathbb{P} \times \{1\}); A \times \{0\} \approx A \land \mathbb{P} \times \{1\} \approx \mathbb{P} \\
+     & = \mathscr{K}((A \times \{0\}) \cup (\mathbb{P} \times \{1\})) \\
+     & = \mathscr{K}(\mathbb{P}); (A \times \{0\}) \cup (\mathbb{P} \times \{1\}) \approx \mathbb{P} \text{ and } \mathfrak{m} \leq_K \aleph_0 \text{ so } A \text{ is denumerable or finite} \\
+     & = \aleph_0 
+    \end{aligned}$
+
+:::
+
+::: {#thm-cardinal-number-positive-integers-real}
+
+a. $2^{\aleph_0} = \mathfrak{c}$
+
+b. $\mathfrak{c} \times \mathfrak{c} = \mathfrak{c}$
+
+c. $0 <_K \mathfrak{m} \leq_K \mathfrak{c} \Longrightarrow \mathfrak{m} \times \mathfrak{c} = \mathfrak{c}$
+
+d. $\mathfrak{c} + \mathfrak{c} = \mathfrak{c}$
+
+e. $\mathfrak{m} \leq_K \mathfrak{c} \Longrightarrow \mathfrak{m} + \mathfrak{c} = \mathfrak{c}$
+
+f. $0 <_K \mathfrak{m} \leq_K \aleph_0 \Longrightarrow \mathfrak{c}^{\mathfrak{m}} = \mathfrak{c}$
+
+g. $\mathfrak{c} <_K 2^\mathfrak{c}$
+
+:::
+
+::: {.proof}
+
+a.
+
+b.
+
+c.
+
+d.
+
+e.
+
+f.
+
+g.
 
 :::
