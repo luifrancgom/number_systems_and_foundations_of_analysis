@@ -131,7 +131,7 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
          
                 - First, we have that $B \cap A \subseteq A$ so by @thm-finite-set b $B \cap A$ must be finite. Furthermore $B \cap A \neq \emptyset$ because $10 \in B$ and $10 \in A$.
          
-                - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a greatest element $k$. **Pending reference Appendix D** 
+                - Second, because $B \cap A$ is finite, $B \cap A \subseteq \mathbb{P}$ and $B \cap A \neq \emptyset$ it must have a greatest element $k$ by @exr-finite-sets 6.
          
                     - If $k = v$ then $v \in B$
             
@@ -156,7 +156,7 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
 
               - First, we have that $B \cap A \subseteq A$ so by @thm-finite-set b $B \cap A$ must be finite. Furthermore $B \cap A \neq \emptyset$ because $0 \in B$ and $0 \in A$.
               
-              - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a greatest element $k$ and a least element $l$ **Pending specify that you can extend reference Appendix D**.
+              - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a greatest element $k$ and a least element $l$ by extending the result in @exr-finite-sets 6.
               
                  - If $k = v > 0$ or $l = v \leq 0$ then $v \in B$
                  
@@ -187,7 +187,7 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
             
                 - First, we have that $B \cap A \subseteq A$ so by @thm-finite-set b $B \cap A$ must be finite. Furthermore $B \cap A \neq \emptyset$ because $1 \in B$ and $1 \in A$.
 
-                - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a least element $l$. **Pending specify that you can extend reference Appendix D** 
+                - Second, because $B \cap A$ is finite and $B \cap A \neq \emptyset$ it must have a least element $l$ by extending the result in @exr-finite-sets 6. 
          
                     - If $l = v$ then $v \in B$
             
