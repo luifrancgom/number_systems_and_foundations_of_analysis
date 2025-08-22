@@ -1868,7 +1868,7 @@ d. $\mathfrak{c} + \mathfrak{c} = \mathfrak{c}$
 
 e. $\mathfrak{m} \leq_K \mathfrak{c} \Longrightarrow \mathfrak{m} + \mathfrak{c} = \mathfrak{c}$
 
-f. $0 <_K \mathfrak{m} \leq_K \aleph_0 \Longrightarrow \mathfrak{c}^{\mathfrak{m}} = \mathfrak{c}$
+f. $0 <_K \mathfrak{n} \leq_K \aleph_0 \Longrightarrow \mathfrak{c}^{\mathfrak{n}} = \mathfrak{c}$
 
 g. $\mathfrak{c} <_K 2^\mathfrak{c}$
 
@@ -1876,18 +1876,90 @@ g. $\mathfrak{c} <_K 2^\mathfrak{c}$
 
 ::: {.proof}
 
-a.
+Assume $\mathscr{K}(A) = \mathfrak{m}$ and $\mathscr{K}(B) = \mathfrak{n}$ where $\mathfrak{m} \leq_K \mathfrak{c}$ and $\mathfrak{m} \leq_K \aleph_0$:
 
-b.
+a. $\begin{aligned}
+     2^{\aleph_0} & = \mathscr{K}(\{0,1\}^{\mathbb{P}}) \\
+     & = \mathscr{K}(\mathscr{P}(\mathbb{P})); \{0,1\}^{\mathbb{P}} \approx \mathscr{P}(\mathbb{P}) \\
+     & = \mathscr{K}(\mathbb{R}); \mathscr{P}(\mathbb{P}) \approx \mathbb{R} \\
+     & = \mathfrak{c}
+    \end{aligned}$
 
-c.
+b. $\begin{aligned}
+     \mathfrak{c} \times \mathfrak{c} & = 2^{\aleph_0} \times 2^{\aleph_0}; \mathfrak{c} = 2^{\aleph_0} \\
+     & = 2^{\aleph_0 + \aleph_0}; \mathfrak{m}^{\mathfrak{n} + \mathfrak{p}} = \mathfrak{m}^{\mathfrak{n}} \times \mathfrak{m}^{\mathfrak{p}} \\
+     & = 2^{\aleph_0}; \aleph_0 + \aleph_0 = \aleph_0 \\ 
+     & = \mathfrak{c}; \mathfrak{c} = 2^{\aleph_0} 
+    \end{aligned}$
 
-d.
+c. $\begin{aligned}
+     0 <_K \mathfrak{m} \land \mathfrak{m} \leq_K \mathfrak{c} & \Longrightarrow 1 \leq_K \mathfrak{m} \land \mathfrak{m} \leq_K \mathfrak{c} \\
+     & \Longrightarrow 1 \times \mathfrak{c} \leq_K \mathfrak{m} \times \mathfrak{c} \land \mathfrak{m} \times \mathfrak{c} \leq_K \mathfrak{c} \times \mathfrak{c} \\
+     & \iff \mathfrak{c} \leq_K \mathfrak{m} \times \mathfrak{c} \land \mathfrak{m} \times \mathfrak{c} \leq_K \mathfrak{c} \\
+     & \iff \mathbb{R} \leq_K A \times \mathbb{R} \land A \times \mathbb{R} \leq_K \mathbb{R} \\
+     & \iff \mathbb{R} \approx A \times \mathbb{R} \\
+     & \iff \mathscr{K}(\mathbb{R}) = \mathscr{K}(A \times \mathbb{R}) \\
+     & \iff \mathfrak{c} = \mathfrak{m} \times \mathfrak{c} \\ 
+    \end{aligned}$
 
-e.
+d. Because $0 \leq_K \mathfrak{c}$ and $\mathfrak{c} \leq_K \mathfrak{c}$ then by @exr-less-equal-cardinal-numbers 1 $\mathfrak{c} + 0 \leq_K \mathfrak{c} + \mathfrak{c}$. Therefore $\mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c}$ by @thm-cardinal-arithmetic c. Using the above result:  
 
-f.
+   $\begin{aligned}
+     \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c} \land \mathfrak{c} + \mathfrak{c} \leq_K \mathfrak{c} \times \mathfrak{c} & \iff \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c} \land \mathfrak{c} + \mathfrak{c} \leq_K \mathfrak{c} \\
+     & \iff \mathfrak{c} = \mathfrak{c} + \mathfrak{c} 
+    \end{aligned}$
 
-g.
+e. Because $\mathfrak{c} \leq_K \mathfrak{c}$ and $0 \leq_K \mathfrak{m}$ then by @exr-less-equal-cardinal-numbers 1 $\mathfrak{c} + 0 \leq_K \mathfrak{m} + \mathfrak{c}$. Also by @thm-cardinal-arithmetic c $\mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{m}$. By a similar argument because $\mathfrak{m} \leq_K \mathfrak{c}$ and $\mathfrak{c} \leq_K \mathfrak{c}$ we have that $\mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c}$. Using the above results:
+
+   $\begin{aligned}
+     \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{m} \land  \mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c} & \iff \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{m} \land  \mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} \\
+     & \iff \mathfrak{c} \leq_K \mathfrak{m} + \mathfrak{c} \land  \mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} \\
+     & \iff \mathfrak{c} = \mathfrak{m} + \mathfrak{c}  
+    \end{aligned}$  
+
+f. $\begin{aligned}
+     \mathfrak{c}^{\mathfrak{m}} & = ({2^{\aleph_0}})^{\mathfrak{m}} \\
+     & = 2^{\aleph_0 \times \mathfrak{m}} \\
+     & = 2^{\mathfrak{m} \times \aleph_0} \\
+     & = 2^{\aleph_0} \\
+     & = \mathfrak{c}
+    \end{aligned}$ 
+
+g. $\begin{aligned}
+     \mathbb{R} < \mathscr{P}(\mathbb{R}) & \iff \mathscr{K}(\mathbb{R}) <_K \mathscr{K}(\mathscr{P}(\mathbb{R})) \\
+     & \iff \mathfrak{c} <_K \mathscr{K}(\{0,1\}^{\mathbb{R}}); \mathscr{P}(\mathbb{R}) \approx \{0,1\}^{\mathbb{R}} \\
+     & \iff \mathfrak{c} <_K 2^{\mathfrak{c}} 
+    \end{aligned}$
 
 :::
+
+
+::: {#exr-cardinal-number-complex-real}
+
+1. Show that the set of complex numbers has cardinal number $\mathfrak{c}$
+
+2. Give a direct proof of @thm-cardinal-number-positive-integers-real d by using intervals of real numbers 
+
+:::
+
+::: {#sol-cardinal-number-complex-real}
+
+**Pending**
+
+1. 
+
+2. 
+
+:::
+
+It turns out that, if either of $\mathfrak{m}$ and $\mathfrak{n}$ is an infinite cardinal number and neither is $0$, $\aleph_0 \leq_K \mathfrak{m} \lor \aleph_0 \leq_K \mathfrak{n}$ and $\mathfrak{m} \neq 0 \lor \mathfrak{n} \neq 0$, then[^appendix_d-4]:
+
+$$\mathfrak{m} + \mathfrak{n} = \mathfrak{m} \times \mathfrak{n} = \max({\mathfrak{m}, \mathfrak{n}})$$
+
+::: {.proof}
+
+**Pending**
+
+:::
+
+[^appendix_d-4]: The proof requires the Axiom of Choice
