@@ -1768,21 +1768,77 @@ Note&nbsp;D.2
 <li><p><span class="math inline">\(0 &lt;_K \mathfrak{m} \leq_K \mathfrak{c} \Longrightarrow \mathfrak{m} \times \mathfrak{c} = \mathfrak{c}\)</span></p></li>
 <li><p><span class="math inline">\(\mathfrak{c} + \mathfrak{c} = \mathfrak{c}\)</span></p></li>
 <li><p><span class="math inline">\(\mathfrak{m} \leq_K \mathfrak{c} \Longrightarrow \mathfrak{m} + \mathfrak{c} = \mathfrak{c}\)</span></p></li>
-<li><p><span class="math inline">\(0 &lt;_K \mathfrak{m} \leq_K \aleph_0 \Longrightarrow \mathfrak{c}^{\mathfrak{m}} = \mathfrak{c}\)</span></p></li>
+<li><p><span class="math inline">\(0 &lt;_K \mathfrak{n} \leq_K \aleph_0 \Longrightarrow \mathfrak{c}^{\mathfrak{n}} = \mathfrak{c}\)</span></p></li>
 <li><p><span class="math inline">\(\mathfrak{c} &lt;_K 2^\mathfrak{c}\)</span></p></li>
 </ol>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(\mathscr{K}(A) = \mathfrak{m}\)</span> and <span class="math inline">\(\mathscr{K}(B) = \mathfrak{n}\)</span> where <span class="math inline">\(\mathfrak{m} \leq_K \mathfrak{c}\)</span> and <span class="math inline">\(\mathfrak{m} \leq_K \aleph_0\)</span>:</p>
 <ol type="a">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  2^{\aleph_0} &amp; = \mathscr{K}(\{0,1\}^{\mathbb{P}}) \\
+  &amp; = \mathscr{K}(\mathscr{P}(\mathbb{P})); \{0,1\}^{\mathbb{P}} \approx \mathscr{P}(\mathbb{P}) \\
+  &amp; = \mathscr{K}(\mathbb{R}); \mathscr{P}(\mathbb{P}) \approx \mathbb{R} \\
+  &amp; = \mathfrak{c}
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  \mathfrak{c} \times \mathfrak{c} &amp; = 2^{\aleph_0} \times 2^{\aleph_0}; \mathfrak{c} = 2^{\aleph_0} \\
+  &amp; = 2^{\aleph_0 + \aleph_0}; \mathfrak{m}^{\mathfrak{n} + \mathfrak{p}} = \mathfrak{m}^{\mathfrak{n}} \times \mathfrak{m}^{\mathfrak{p}} \\
+  &amp; = 2^{\aleph_0}; \aleph_0 + \aleph_0 = \aleph_0 \\
+  &amp; = \mathfrak{c}; \mathfrak{c} = 2^{\aleph_0}
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  0 &lt;_K \mathfrak{m} \land \mathfrak{m} \leq_K \mathfrak{c} &amp; \Longrightarrow 1 \leq_K \mathfrak{m} \land \mathfrak{m} \leq_K \mathfrak{c} \\
+  &amp; \Longrightarrow 1 \times \mathfrak{c} \leq_K \mathfrak{m} \times \mathfrak{c} \land \mathfrak{m} \times \mathfrak{c} \leq_K \mathfrak{c} \times \mathfrak{c} \\
+  &amp; \iff \mathfrak{c} \leq_K \mathfrak{m} \times \mathfrak{c} \land \mathfrak{m} \times \mathfrak{c} \leq_K \mathfrak{c} \\
+  &amp; \iff \mathbb{R} \leq_K A \times \mathbb{R} \land A \times \mathbb{R} \leq_K \mathbb{R} \\
+  &amp; \iff \mathbb{R} \approx A \times \mathbb{R} \\
+  &amp; \iff \mathscr{K}(\mathbb{R}) = \mathscr{K}(A \times \mathbb{R}) \\
+  &amp; \iff \mathfrak{c} = \mathfrak{m} \times \mathfrak{c} \\
+\end{aligned}\)</span></p></li>
+<li><p>Because <span class="math inline">\(0 \leq_K \mathfrak{c}\)</span> and <span class="math inline">\(\mathfrak{c} \leq_K \mathfrak{c}\)</span> then by <a href="#exr-less-equal-cardinal-numbers" class="quarto-xref">Exercise&nbsp;<span>D.11</span></a> 1 <span class="math inline">\(\mathfrak{c} + 0 \leq_K \mathfrak{c} + \mathfrak{c}\)</span>. Therefore <span class="math inline">\(\mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c}\)</span> by <a href="#thm-cardinal-arithmetic" class="quarto-xref">Theorem&nbsp;<span>D.15</span></a> c.&nbsp;Using the above result:</p>
+<p><span class="math inline">\(\begin{aligned}
+  \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c} \land \mathfrak{c} + \mathfrak{c} \leq_K \mathfrak{c} \times \mathfrak{c} &amp; \iff \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c} \land \mathfrak{c} + \mathfrak{c} \leq_K \mathfrak{c} \\
+  &amp; \iff \mathfrak{c} = \mathfrak{c} + \mathfrak{c}
+\end{aligned}\)</span></p></li>
+<li><p>Because <span class="math inline">\(\mathfrak{c} \leq_K \mathfrak{c}\)</span> and <span class="math inline">\(0 \leq_K \mathfrak{m}\)</span> then by <a href="#exr-less-equal-cardinal-numbers" class="quarto-xref">Exercise&nbsp;<span>D.11</span></a> 1 <span class="math inline">\(\mathfrak{c} + 0 \leq_K \mathfrak{m} + \mathfrak{c}\)</span>. Also by <a href="#thm-cardinal-arithmetic" class="quarto-xref">Theorem&nbsp;<span>D.15</span></a> c <span class="math inline">\(\mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{m}\)</span>. By a similar argument because <span class="math inline">\(\mathfrak{m} \leq_K \mathfrak{c}\)</span> and <span class="math inline">\(\mathfrak{c} \leq_K \mathfrak{c}\)</span> we have that <span class="math inline">\(\mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c}\)</span>. Using the above results:</p>
+<p><span class="math inline">\(\begin{aligned}
+  \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{m} \land  \mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{c} &amp; \iff \mathfrak{c} \leq_K \mathfrak{c} + \mathfrak{m} \land  \mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} \\
+  &amp; \iff \mathfrak{c} \leq_K \mathfrak{m} + \mathfrak{c} \land  \mathfrak{m} + \mathfrak{c} \leq_K \mathfrak{c} \\
+  &amp; \iff \mathfrak{c} = \mathfrak{m} + \mathfrak{c}
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  \mathfrak{c}^{\mathfrak{m}} &amp; = ({2^{\aleph_0}})^{\mathfrak{m}} \\
+  &amp; = 2^{\aleph_0 \times \mathfrak{m}} \\
+  &amp; = 2^{\mathfrak{m} \times \aleph_0} \\
+  &amp; = 2^{\aleph_0} \\
+  &amp; = \mathfrak{c}
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  \mathbb{R} &lt; \mathscr{P}(\mathbb{R}) &amp; \iff \mathscr{K}(\mathbb{R}) &lt;_K \mathscr{K}(\mathscr{P}(\mathbb{R})) \\
+  &amp; \iff \mathfrak{c} &lt;_K \mathscr{K}(\{0,1\}^{\mathbb{R}}); \mathscr{P}(\mathbb{R}) \approx \{0,1\}^{\mathbb{R}} \\
+  &amp; \iff \mathfrak{c} &lt;_K 2^{\mathfrak{c}}
+\end{aligned}\)</span></p></li>
+</ol>
+</div>
+<div id="exr-cardinal-number-complex-real" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise D.12</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Show that the set of complex numbers has cardinal number <span class="math inline">\(\mathfrak{c}\)</span></p></li>
+<li><p>Give a direct proof of <a href="#thm-cardinal-number-positive-integers-real" class="quarto-xref">Theorem&nbsp;<span>D.17</span></a> d by using intervals of real numbers</p></li>
+</ol>
+</div>
+<div id="sol-cardinal-number-complex-real" class="proof solution">
+<p><span class="proof-title"><em>Solution D.12</em>. </span><strong>Pending</strong></p>
+<ol type="1">
 <li></li>
 <li></li>
 </ol>
+</div>
+<p>It turns out that, if either of <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> is an infinite cardinal number and neither is <span class="math inline">\(0\)</span>, <span class="math inline">\(\aleph_0 \leq_K \mathfrak{m} \lor \aleph_0 \leq_K \mathfrak{n}\)</span> and <span class="math inline">\(\mathfrak{m} \neq 0 \lor \mathfrak{n} \neq 0\)</span>, then<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>:</p>
+<p><span class="math display">\[\mathfrak{m} + \mathfrak{n} = \mathfrak{m} \times \mathfrak{n} = \max({\mathfrak{m}, \mathfrak{n}})\]</span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
 </div>
 
 
@@ -1818,6 +1874,7 @@ Tarski, Alfred. 1924. <span>“Sur Les Ensembles Finis.”</span> <em>Fundamenta
 <li id="fn1"><p>For another proof of <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> check out <span class="citation" data-cites="halevi_fraenkel_abstract_1961">(<a href="references.html#ref-halevi_fraenkel_abstract_1961" role="doc-biblioref">Halevi Fraenkel 1961, 12:73–77</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>In the case of cardinal numbers if <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> are cardinal numbers then <span class="math inline">\(\mathfrak{m} {\leq}_K \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{m} {\geq}_K \mathfrak{n}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>A denumerable set must be distinguished from a <strong>denumerable sequence</strong>. The latter is a function <span class="math inline">\(a: \mathbb{P} \xrightarrow[onto]{1-1} A\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The proof requires the Axiom of Choice<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
