@@ -56,7 +56,7 @@ Show that every formula of $\mathcal{L}_P$ has the same number of left parenthes
 ::: {#sol-parentheses}
 By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\varphi$ of $\mathcal{L}_P$
 
-*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no parentheses is has the same left as right parentheses.
+*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no parentheses, it has the same left as right parentheses.
 
 *Induction hypothesis* $(n \leq k)$: Assume a formula with $n \leq k$ connectives has the same left as right parentheses.
 
@@ -172,7 +172,7 @@ Let $S_{\mathcal{L}_p}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathca
 
 -  By @exr-denumerable-set-2 4 $S_{\mathcal{L}_p}^1 \cup S_{\mathcal{L}_p}^2 \cup \ldots \cup S_{\mathcal{L}_p}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
 
--  Let $F_{\mathcal{L}_p}$ the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ by @cor-denumerable-set-1 $F_{\mathcal{L}_p}$ is either finite or denumerable. However we know that $F_{\mathcal{L}_p}$ is not finite so it must be denumerable. 
+-  Let $F_{\mathcal{L}_p}$ be the set of formulas of $\mathcal{L}_p$. Because $F_{\mathcal{L}_p} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}_p}^i$ then $F_{\mathcal{L}_p}$ by @cor-denumerable-set-1 $F_{\mathcal{L}_p}$ is either finite or denumerable. However we know that $F_{\mathcal{L}_p}$ is not finite so it must be denumerable. 
 
 :::
 
@@ -2126,14 +2126,271 @@ Which of the following are formulas of one of the languages defined in @exm-lang
 4. $(\neg \forall v_5 (= v_5v_5))$
 5. $< +01 \mid v_1v_3$
 6. $(v_3 = v_3 \Longrightarrow \forall v_5 v_3 = v_5)$
-7. $\forall v_6 (= v_60 \Longrightarrow \forall v_9(¬ \mid v_9v_6))$
+7. $\forall v_6 (= v_60 \Longrightarrow \forall v_9(\neg \mid v_9v_6))$
 8. $\forall v_8 < +11v_4$
 
 :::
 
 ::: {#sol-example-formulas-first-order-languages}
 
+1. $=0+v_7\cdot1v_3$ is a formula of $\mathcal{L}_{NT}, \mathcal{L}_{F}$ and $\mathcal{L}_N$ taking into account that $+v_7\cdot1v_3$ and $0$ are terms so $=0+v_7\cdot1v_3$ is a formula.
 
+2. $(\neg=v_1v_1)$ is a formula of $\mathcal{L}_{NT}, \mathcal{L}_=, \mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_0, \mathcal{L}_N$ and $\mathcal{L}_1$ taking into account that $v_1$ is a term, $=v_1v1$ is a formula so $(\neg=v_1v_1)$ is a formula.
+
+3. $(\mid v_20 \Longrightarrow \cdot01)$ is not a formula because $\cdot01$ is a term taking into account that $\cdot$ is a $2$-place function symbol. Therefore $(\mid v_20 \Longrightarrow \cdot01)$ can not be a formula.    
+
+4. $(\neg \forall v_5 (= v_5v_5))$ is not a formula because $(=v_5v_5)$ is not a formula. We have that $=v_5v_5$ is a formula but not $(=v_5v_5)$ with parentheses.  
+
+5. $< +01 \mid v_1v_3$ is a formula of $\mathcal{L}_{NT}$ taking into account that $\mid v_1v_3$ is a term, $+01$ is a term and $<$ is a $2$-place relation symbol.   
+
+6. $(v_3 = v_3 \Longrightarrow \forall v_5 v_3 = v_5)$ is not a formula because $v_3 = v_3$ and $v_3 = v_5$ are not formulas.
+
+7. $\forall v_6 (= v_60 \Longrightarrow \forall v_9(\neg \mid v_9v_6))$ is not a formula because $\mid v_9v_6$ is a term so $(\neg \mid v_9v_6)$ is not a formula.
+
+8. $\forall v_8 < +11v_4$ is not a formula because $<$ is a $2$-place symbol relation. So, $< +11v_4$ can not be a formula.   
+
+:::
+
+::: {#exr-parentheses-first-order-language}
+
+Show that every formula of a first-order language
+has the same number of left parentheses as of right parentheses.
+
+:::
+
+::: {#sol-parentheses-first-order-language}
+
+By strong induction on $n$, the number of connectives and quantifiers (occurrences of $\neg$, $\Longrightarrow$ or $\forall$) in a formula $\varphi$ of $\mathcal{L}$
+
+*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives or quantifiers by @def-formulas-l is an atomic formula: $Pt_1 \ldots t_k$ or $=t_1t_2$. Since an atomic formula has no parentheses, it has the same left as right parentheses.
+
+*Induction hypothesis* $(n \leq k)$: Assume a formula with $n \leq k$ connectives and quantifiers has the same left as right parentheses.
+
+*Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with $n = k + 1$ connectives and quantifiers. From @def-formulas-l $\varphi$ must be:
+
+-   $(\neg \alpha)$ for some formula $\alpha$ with $k$ connectives and quantifiers.
+
+    -   By the *induction hypothesis* $\alpha$ has the same left as right parentheses so $(\neg \alpha)$ also have the same left as right parentheses.
+
+-   $(\beta \Longrightarrow \gamma)$ for some formulas $\beta$ and $\gamma$ with $\leq k$ connectives and quantifiers each.
+
+    -   By the *induction hypothesis* $\beta$ and $\gamma$ have the same left as right parentheses so $(\beta \Longrightarrow \gamma)$ also has the same left as right parentheses.
+
+-   $\forall v_n \alpha$ for some formula $\alpha$ with $k$ connectives and quantifiers.
+
+    -   By the *induction hypothesis* $\alpha$ has the same left as right parentheses so $\forall v_n \alpha$ also have the same left as right parentheses.
+
+:::
+
+::: {#exr-length-parentheses-first-order-language}
+
+Choose one of the languages defined in @exm-language-elementary-number-theory
+and @exm-other-first-order-languages and determine the possible lengths of formulas of this language.
+
+:::
+
+::: {#sol-length-parentheses-first-order-language}
+
+Suppose $\alpha$ is any formula of $\mathcal{L}_=$. Let $l(\alpha)$ be the length of $\alpha$ as a sequence of symbols.
+
+The minimum value of $l(\alpha)$ is $3$ where $\alpha$ would be equal to $=v_1v_2$ taking into account that $\mathcal{L}_=$ has no constants, $k$-place function symbols and $k$-place relation symbols. That is, the atomic formulas of $\mathcal{L}_=$ are of the form $=v_1v_2$ where $v_1$ and $v_2$ are variables.
+
+With an atomic formula of the form $=v_1v_2$ we can create formulas of the following lengths:
+
+- $\forall v_1 =v_1v_2, \forall v_2 \forall v_1 =v_1v_2, \forall v_3 \forall v_2 \forall v_1 =v_1v_2, \ldots$
+- $(\neg =v_1v_2), \forall v_1(\neg =v_1v_2), \forall v_2 \forall v_1(\neg =v_1v_2), \forall v_3 \forall v_2 \forall v_1(\neg =v_1v_2), \ldots$
+
+That is, $l(\alpha) = 3, 5, 6, 7, 8, 9, 10, 11, 12, \ldots$ in relation to $\mathcal{L}_=$. 
+
+:::
+
+::: {#prp-formulas-countable-l}
+
+A countable first-order language $\mathcal{L}$ has countably many formulas.
+
+:::
+
+::: {.proof}
+
+Let $S_{\mathcal{L}}$ the set of symbols of $\mathcal{L}$, $S_{\mathcal{L}_p} = \{ P, =, \neg, (,), \Longrightarrow, \forall \} \cup \{ v_0, v_1, v_2, \ldots, v_n, \ldots \} \cup Ft_{\mathcal{L}}$ where $Ft_{\mathcal{L}}$ is the set of terms of $\mathcal{L}$.
+
+-  Because $\{ P, =, \neg, (,), \Longrightarrow, \forall \}$ is finite, $\{ v_0, v_1, v_2, \ldots, v_n, \ldots \}$ is denumerable and $Ft_{\mathcal{L}}$ is denumerable by @prp-set-terms-countable-first-order-language then by @exr-denumerable-set-2 1, 2 $S_{\mathcal{L}}$ is denumerable.
+
+Let $S_{\mathcal{L}}(l(n)) = \underset{n \text{ times}}{\underbrace{S_{\mathcal{L}} \times \ldots \times S_{\mathcal{L}}}} = S_{\mathcal{L}}^n$ the string of symbols of length $n$ build from $S_{\mathcal{L}}$.
+
+-  By @cor-denumerable-set-1 1 $S_{\mathcal{L}}^2$ is denumerable. Also by @cor-denumerable-set-1 1 and using the principle of induction we can prove that $S_{\mathcal{L}}^3, \ldots, S_{\mathcal{L}}^n$ are denumerable sets.
+
+-  By @exr-denumerable-set-2 4 $S_{\mathcal{L}}^1 \cup S_{\mathcal{L}}^2 \cup \ldots \cup S_{\mathcal{L}}^n \cup \dots = \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}}^i$ is a denumerable set. That is, any denumerable union of denumerable sets is a denumerable set.
+
+-  Let $F_{\mathcal{L}}$ be the set of formulas of $\mathcal{L}$. Because $F_{\mathcal{L}} \subseteq \bigcup_{i \in \mathbb{N}} S_{\mathcal{L}}^i$ then $F_{\mathcal{L}}$ by @cor-denumerable-set-1 $F_{\mathcal{L}}$ is either finite or denumerable. However we know that $F_{\mathcal{L}}$ is not finite so it must be denumerable. 
+
+:::
+
+In practice, devising a formal language intended to deal with a particular (kind of) structure isn't the end of the job: one must also specify axioms in the language that the structure(s) one wishes to study should satisfy.
+
+::: {#exr-formula-statement-first-order-languages}
+
+In each case, write down a formula of the given
+language expressing the given informal statement.
+
+1. "Addition is associative" in $\mathcal{L}_F$.
+2. "There is an empty set" in $\mathcal{L}_S$.
+3. "Between any two distinct elements there is a third element" in $\mathcal{L}_O$.
+4. "n0 = 1 for every n different from 0" in $\mathcal{L}_N$.
+5. "There is only one thing" in $\mathcal{L}_=$.
+
+:::
+
+::: {#sol-formula-statement-first-order-languages} 
+
+1. First we specify it in an informal way as:
+
+   $\forall v_3 \forall v_2 \forall v_1 (v_3 + (v_2 + v_1)) = \forall v_3 \forall v_2 \forall v_1 ((v_3 + v_2) + v_1)$
+
+   In a formal way it can be specify as:
+
+   $\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = \forall v_3 \forall v_2 \forall v_1 ++v_3v_2v_1$
+
+2. First we specify what an empty set is in an informal way: $\forall v_2 (v_2 \notin v_1)$
+
+   Then we can specify its existence: $\exists v_1 \forall v_2 (v_2 \notin v_1)$
+   
+   In a formal way it can be specify initially as:
+   
+   $\exists v_1 \forall v_2 (\neg \in v_2 v_1)$
+   
+   However we don't have the $\exists$ quantifier but we can express it as:
+   
+   $(\neg \forall v_1 (\neg \forall v_2 (\neg \in v_2 v_1)))$
+   
+
+3. First we specify it in an informal way as:
+
+   $\forall v_3 \forall v_1 (v_1 < v_3 \Longrightarrow \exists v_2 (v_1 < v_2 \land v_2 < v_3))$
+   
+   In a formal way it can be specify as initially as:
+   
+   $\forall v_3 \forall v_1 (<v_1 v_3 \Longrightarrow \exists v_2 (<v_1v_2 \land <v_2v_3))$
+   
+   Taking into account that we don't have the connective $\land$ and the quantifier $\exists$ we can express it as:
+   
+   $\forall v_3 \forall v_1 (<v_1 v_3 \Longrightarrow \neg \forall v_2 (\neg(\neg(<v_1v_2 \Longrightarrow (\neg <v_2v_3)))))$
+
+4. First we specify it in an informal way as:
+  
+   $\forall v_1 (v_1 \neq 0 \Longrightarrow v_1^0 = 1)$
+
+   In a formal way it can be specify as:
+
+   $\forall v_1 ((\neg = v_10) \Longrightarrow =Ev_101)$
+
+5. First we specify it in an informal way as:
+
+   $\exists v_1 \forall v_2 (v_1 = v_2)$
+   
+   where the idea is to specify first that something exists and second "everything" is that thing.
+
+   In a formal way it can be specify as:
+
+   $(\neg \forall v_1 (\neg \forall v_2 =v_1v_2))$
+
+:::
+
+::: {#exr-first-order-language-structure-examples}
+
+Define first-order languages to deal with the following structures and, in each case, an appropriate set of axioms in your language:
+
+1. Groups
+2. Graphs
+3. Vector spaces
+
+:::
+
+::: {#sol-first-order-language-structure-examples}
+
+1. The language of $\mathcal{L}_{Gro}$ would be:
+
+   Constant symbol: $e$
+   
+   2-place function symbol: $\cdot$
+   
+   In an informal way the axioms would be:
+   
+   a. $\forall v_3 \forall v_2 \forall v_1 (v_3 \cdot v_2) \cdot v_1 = v_3 \cdot (v_2 \cdot v_1)$ (associativity)
+   
+   b. $\forall v_1 (e \cdot v_1 = v_1 \land v_1 \cdot e = v_1)$ (identity element)
+   
+   c. $\forall v_1 \exists v_2 (v_1 v_2 = e \land v_2 v_1 = e)$  (inverse element)
+
+   **Note**: The last axiom c reveals a key factor in relation to the interchangeability between $\forall$ and $\exists$. The axiom c it is not the same as $\exists v_2 \forall v_1  (v_1 v_2 = e \land v_2 v_1 = e)$. Axiom c specifies that for each $v_1$ possibly a different $v_2$ works. However, in the other case is says there is some $v_2$ that works for every $v_1$. 
+
+2. The language of $\mathcal{L}_{Gra}$ would be:
+
+   2-place relation symbol: $E$ ($xEy$ means "there is an edge from $x$ to $y$")
+
+   In an informal way the axioms would be:
+   
+   a. $\forall v_1 \forall v_2 (v_1Ev_2 \Longrightarrow v_2Ev_1)$ (undirectedness)
+   
+   b. $\forall v_1 (\neg v_1Ev_1)$ (no loops)
+
+   **Note**: in this case we are only taking into account **simple graphs** where there are no multiple edges between 2 vertices and the possibility of loops are excluded.
+
+3. To define the language of $\mathcal{L}_V$ first we must divide the countable variables to differentiate scalars and vectors:
+
+   Scalars: $s_1, s_2, \ldots$
+   
+   Vectors: $v_1, v_2, \ldots$
+   
+   Then we have the non-logical symbols:
+   
+   Constants for scalars: $0_s, 1_s$
+
+   Constant for vectors: $0_v$
+   
+   2-place functions for scalars: $+_s$, $\cdot_s$
+   
+   2-place function for vectors: $+_v$
+   
+   2-place function for scalar multiplication: $\cdot_{sv}$
+   
+   In an informal way the axioms would be:
+   
+   a. $\forall v_3 \forall v_2 \forall v_1 (v_3 +_v (v_2 +_v v_1)) = ((v_3 +_v v_2) +_v v_1)$
+   
+   b. $\forall v_2 \forall v_1 (v_2 +_v v_1) = (v_1 +_v v_2)$
+   
+   c. $\forall v_1 (v_1 +_v 0_v = v_1)$
+   
+   d. $\forall v_1 \exists v_2 (v_1 +_v v_2 = 0_v)$
+   
+   e. $\forall s_2 \forall s_1 \forall v_1 (s_2 \cdot_{sv} (s_1 \cdot_{sv} v_1)) = ((s_2 \cdot_s s_1) \cdot_{sv} v_1)$
+   
+   f. $\forall v_1 (1_s \cdot_{sv} v_1 = v_1)$
+   
+   g. $\forall s_1 \forall v_2 \forall v_1 (s_1 \cdot_{sv} (v_2 +_v v_1)) = (s_1 \cdot_{sv}v_2 +_v s_1\cdot_{sv}v_1)$
+   
+   h. $\forall s_1 \forall s_2 \forall v_1 ((s_1 +_s s_2) \cdot_{sv} v_1) = (s_1\cdot_{sv} v_1 +_v s_2\cdot_{sv} v_1)$
+   
+   Plus the axioms in relation to the scalars:
+   
+   i. $\forall s_1 \forall s_2 \forall s_3 ((s_1 +_s s_2) +_s s_3) = (s_1 +_s (s_2 +_s s_3))$
+   
+   ii. $\forall s_1 \forall s_2 (s_1 +_s s_2) = (s_2 +_s s_1)$
+
+   iii. $\forall s_1 (s_1 +_s 0_s) = s_1$
+   
+   iv. $\forall s_1 \exists s_2 (s_1 +_s s_2 = 0_s)$
+   
+   v. $\forall s_1 \forall s_2 \forall s_3 ((s_3 \cdot_s s_2) \cdot_s s_1) = ((s_3 \cdot_s s_2) \cdot_s s_1)$
+   
+   vi. $\forall s_1 \forall s_2 (s_2 \cdot_s s_1) = (s_1 \cdot_s s_2)$
+   
+   vii. $\forall s_1 (1_s \cdot_s s_1) = s_1$
+   
+   viii. $\forall s_1 (s_1 \neq 0 \Longrightarrow \exists s_2(s_1 \cdot_s s_2 = 1_s))$
+   
+   ix. $\forall s_1 \forall s_2 \forall s_3 ((s_1 +_s s_2)\cdot_s s_3) = ((s_1 \cdot_s s_3) +_s (s_2 \cdot_s s_3))$
 
 :::
 
