@@ -2394,6 +2394,56 @@ Define first-order languages to deal with the following structures and, in each 
 
 :::
 
+::: {#exr-subformulas-lp}
+
+Define the set of subformulas of a formula $\varphi$ of a first-order language $\mathcal{L}$.
+
+:::
+
+::: {#sol-subformulas-lp}
+
+Suppose $\varphi$ is a formula of $\mathcal{L}$. The set of subformulas of $\varphi$, $S(\varphi)$, is defined as follows:
+
+1. If $\varphi$ is an atomic formula then $S(\varphi) = \{ \varphi \}$
+
+2. If $\varphi$ is $(\neg \alpha)$, then $S(\varphi) = S(\alpha) \cup \{ (\neg \alpha) \}$
+
+3. If $\varphi$ is $(\alpha \Longrightarrow \beta)$, then $S(\varphi) = S(\alpha) \cup S(\beta) \cup \{ (\alpha \Longrightarrow \beta) \}$
+
+4. If $\varphi$ is $\forall v_n \alpha$, then $S(\varphi) = S(\alpha) \cup \{ \forall v_n \alpha \}$
+
+:::
+
+For example, if $\varphi = (\neg \forall v_1 (\neg = v_1v_2))$ then $S(\varphi)$ contains the following elements:
+
+- $(\neg \forall v_1 (\neg = v_1v_2))$
+- $\forall v_1 (\neg = v_1v_2)$
+- $(\neg = v_1v_2)$
+- $= v_1v_2$
+
+Second, we will need a concept that has no counterpart in propositional logic.
+
+::: {#def-free-variable}
+
+Suppose $x$ is a variable of a first-order language
+$\mathcal{L}$. Then $x$ occurs free in a formula $\varphi$ of $\mathcal{L}$ is defined as follows:
+
+1. If $\varphi$ is atomic, then $x$ occurs free in $\varphi$ if and only if $x$ occurs in $\varphi$.
+
+2. If $\varphi$ is $(\neg \alpha)$, then $x$ occurs free in $\varphi$ if and only if $x$ occurs free
+in $\alpha$.
+
+3. If $\varphi$ is $(\alpha \Longrightarrow \beta)$, then $x$ occurs free in $\varphi$ if and only if $x$ occurs free in $\alpha$ and $\beta$.
+
+4. If $\varphi$ is $\forall v_k \psi$, then $x$ occurs free in $\varphi$ if and only if $x$ is different from $v_k$ and $x$ occurs free in $\varphi$.
+
+:::
+
+An occurrence of $x$ in $\varphi$ which is not free is said to be *bound*. A formula $\sigma$ of $\mathcal{L}$ in which no variable occurs free is said to be a *sentence*.
+
+@def-free-variable 4 is the key: it asserts that an occurrence of a variable $x$ is bound instead of free if it is in the “scope” of an occurrence of
+$\forall x$. For example, $v_7$ is free in $\forall v_5 = v_5v_7$, but $v_5$ is not. Different occurences of a given variable in a formula may be free or bound, depending on where they are; e.g. $v_6$ occurs both free and bound in $\forall v_0 (= v_0f^1_3 v_6 \Longrightarrow \forall (\neg \forall v_6 P^1_9 v_6))$.
+
 ## Sets
 
 This section is a treatment of axiomatic set theory from the naive point of view as described in [@halmos_naive_2017]:
