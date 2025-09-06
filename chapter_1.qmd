@@ -249,7 +249,7 @@ A formula of $\mathcal{L}_p$ must satisfy exactly one of the first 3 conditions 
 ::: proof
 By strong induction on $n$, the number of connectives (occurrences of $\neg$ or $\Longrightarrow$) in a formula $\varphi$ of $\mathcal{L}_P$
 
-*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no connectives it can not of the form $(\neg \varphi)$ or $(\alpha \Longrightarrow \beta)$.
+*Base step* $(n = 0)$: If $\varphi$ is a formula of $\mathcal{L}_P$ with no connectives by @def-formulas-lp is an atomic formula. Since an atomic formula has no connectives it can not be of the form $(\neg \varphi)$ or $(\alpha \Longrightarrow \beta)$.
 
 *Induction hypothesis* $(n \leq k)$: Assume a formula with $n \leq k$ connectives must satisfy exactly one of the first 3 conditions in @def-formulas-lp.
 
@@ -2245,11 +2245,11 @@ language expressing the given informal statement.
 
 1. First we specify it in an informal way as:
 
-   $\forall v_3 \forall v_2 \forall v_1 (v_3 + (v_2 + v_1)) = \forall v_3 \forall v_2 \forall v_1 ((v_3 + v_2) + v_1)$
+   $\forall v_3 \forall v_2 \forall v_1 (v_3 + (v_2 + v_1) = (v_3 + v_2) + v_1)$
 
    In a formal way it can be specify as:
 
-   $\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = \forall v_3 \forall v_2 \forall v_1 ++v_3v_2v_1$
+   $\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = ++v_3v_2v_1$
 
 2. First we specify what an empty set is in an informal way: $\forall v_2 (v_2 \notin v_1)$
 
@@ -2443,6 +2443,225 @@ An occurrence of $x$ in $\varphi$ which is not free is said to be *bound*. A for
 
 @def-free-variable 4 is the key: it asserts that an occurrence of a variable $x$ is bound instead of free if it is in the “scope” of an occurrence of
 $\forall x$. For example, $v_7$ is free in $\forall v_5 = v_5v_7$, but $v_5$ is not. Different occurences of a given variable in a formula may be free or bound, depending on where they are; e.g. $v_6$ occurs both free and bound in $\forall v_0 (= v_0f^1_3 v_6 \Longrightarrow \forall (\neg \forall v_6 P^1_9 v_6))$.
+
+::: {#exr-scope-quantifier}
+
+Give a precise definition of the scope of a quantifier.
+
+:::
+
+::: {#sol-scope-quantifier}
+
+If $\varphi$ is $\forall v_n \alpha$, then the scope of the quantifier $\forall$ is the subformula $\alpha$.
+
+:::
+
+::: {#exr-formulas-sentences}
+
+Which of the formulas you gave in solving @exr-formula-statement-first-order-languages are sentences? 
+
+:::
+
+::: {#sol-formulas-sentences}
+
+1. For $\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = ++v_3v_2v_1$ this formula is a sentence because $v_3, v_2$ and $v_1$ are bound. 
+
+2. For $(\neg \forall v_1 (\neg \forall v_2 (\neg \in v_2 v_1)))$ this formula is a sentence because $v_2$ and $v_1$ are bound. 
+
+3. For $\forall v_3 \forall v_1 (<v_1 v_3 \Longrightarrow \neg \forall v_2 (\neg(\neg(<v_1v_2 \Longrightarrow (\neg <v_2v_3)))))$ this formula is a sentence because $v_3, v_2$ and $v_1$ are bound.
+
+4. For $\forall v_1 ((\neg = v_10) \Longrightarrow =Ev_101)$ this formula is a sentence because $v_1$ is bound. 
+
+5. For $(\neg \forall v_1 (\neg \forall v_2 =v_1v_2))$ this formula is a sentence because $v_1$ and $v_2$ are bound.
+
+:::
+
+::: {#def-first-order-language-extension}
+
+A first-order language $\mathcal{L}'$ is an extension of a first-order language $\mathcal{L}$, sometimes written as $\mathcal{L} \subseteq \mathcal{L}'$, if every non-logical symbol of $\mathcal{L}$ is a non-logical symbol of the same kind of $\mathcal{L}'$.
+
+:::
+
+::: {#exr-examples-first-order-language-extensions}
+
+Which of the languages given in @exm-other-first-order-languages are
+extensions of other languages given in @exm-other-first-order-languages?
+
+:::
+
+::: {#sol-examples-first-order-language-extensions}
+
+1. $\mathcal{L}_= \subseteq \mathcal{L}_F$, $\mathcal{L}_= \subseteq \mathcal{L}_S$, $\mathcal{L}_= \subseteq \mathcal{L}_O$, $\mathcal{L}_= \subseteq \mathcal{L}_N$ and $\mathcal{L}_= \subseteq \mathcal{L}_1$ 
+
+2. $\mathcal{L}_F$ is not an extension of $\mathcal{L}_S, \mathcal{L}_O, \mathcal{L}_N$ and $\mathcal{L}_1$ because $1$ as a constant is not a symbol of any of the other first-order languages
+
+3. $\mathcal{L}_S$ is not an extension of $\mathcal{L}_F, \mathcal{L}_O, \mathcal{L}_N$ and $\mathcal{L}_1$ because $\in$ as a 2-place relation symbol is not a symbol of any of the other first-order languages
+
+4. $\mathcal{L}_O$ is not an extension of $\mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_N$ and $\mathcal{L}_1$ because $<$ as a 2-place relation symbol is not a symbol of any of the other first-order languages
+
+5. $\mathcal{L}_N$ is not an extension of $\mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_O$ and $\mathcal{L}_1$ because $E$ as a 2-place function symbol is not a symbol of any of the other first-order languages
+
+6. $\mathcal{L}_1$ is not an extension of $\mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_O$ and $\mathcal{L}_N$ because it has more constant symbols, $k$-place functions symbols and $k$-place relation symbols.
+
+:::
+
+::: {#prop-formula-}
+
+Suppose $\mathcal{L}$ is a first-order language and $\mathcal{L}'$ is an extension of $\mathcal{L}$. Then every formula $\varphi$ of $\mathcal{L}$ is a formula of $\mathcal{L}'$.
+
+:::
+
+::: {.proof}
+
+This results is proved in 2 parts using strong induction:
+
+1. By strong induction on $n$, the length in a term $\alpha$, $l(\alpha)$, of $\mathcal{L}$ 
+
+   *Base step* $(n = 1)$: If $\alpha$ is a term of $\mathcal{L}$ with $l(\varphi) = 1$ by @def-terms-l it is a variable $v_1$ symbol or a constant symbol $c$. Taking into account $c$ is also a symbol of the same kind in $\mathcal{L}'$ and $v_1$ is a logical symbol then $\alpha$ is also a term of $\mathcal{L}'$.
+   
+   *Induction hypothesis* $(n \leq k)$: Assume that if $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n \leq k$ then it is also a term of $\mathcal{L}'$ where $\mathcal{L}'$ is an extension of $\mathcal{L}$.
+   
+   *Induction step* $(n = k + 1)$: Suppose $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n = k + 1$. From @def-terms-l $\alpha$ must be a $s$-place function symbol where $ft_1t_2 \ldots t_s$ and $t_1t_2 \ldots t_s$ are terms. By the *Induction hypothesis* $ft_1t_2 \ldots t_{s-1}$ and $t_s$ are also terms of $\mathcal{L}'$. Therefore again by @@def-terms-l $ft_1t_2 \ldots t_s$ is a term of $\mathcal{L}'$.   
+
+2. By strong induction on $n$, the length in a formula $\varphi$, $l(\varphi)$, of $\mathcal{L}$
+
+   *Base step* $(n = 2)$: If $\varphi$ is a formula of $\mathcal{L}$ with $l(\varphi) = 2$ by @def-formulas-l it is an atomic formula and in particular a $1$-place relation symbol like $Pt_1$ where $t_1$ is a term. Because $t_1$ is a term and $l(\varphi) = 2$ by @def-terms-l it is a variable $v_1$ or a constant $c$. Taking into account $c$ is also a symbol of the same kind in $\mathcal{L}'$ and $v_1$ is a logical symbol then $\varphi$ is also a formula of $\mathcal{L}'$.
+
+   *Induction hypothesis* $(n \leq k)$: Assume that if $\varphi$ is a formula of $\mathcal{L}$ with $l(\varphi) = n \leq k$ then it is also a formula of $\mathcal{L}'$ where $\mathcal{L}'$ is an extension of $\mathcal{L}$.
+
+   *Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula of $\mathcal{L}$ with $l(\varphi) = n = k + 1$. From @def-formulas-l $\varphi$ must be either:
+
+    -   $Pt_1t_2 \ldots t_k$ for some terms $t_1, t_2, \ldots t_k$.
+
+        -   By @def-terms-l each term is a variable symbol $v_n$, a constant symbol $c$ or a $k$-place function symbol, $ft_1't_2', \ldots t_k'$ where $t_1', t_2', \dots t_k'$ are terms.
+        
+        -   By the *Induction hypothesis* $Pt_1t_2 \ldots t_{k-1}$ is a formula of $\mathcal{L}'$ and by the first part of the proof $t_k$ is a term of $\mathcal{L}'$. By @def-formulas-l $Pt_1t_2 \ldots t_k$ is a formula of $\mathcal{L}'$.   
+
+    -   $=t_1t_2$ for some terms $t_1, t_2$.
+
+        -   By @def-terms-l each term is a variable symbol $v_n$, a constant symbol $c$ or a $k$-place function symbol, $ft_1't_2', \ldots t_k'$ where $t_1', t_2', \dots t_k'$ are terms.
+
+        -   By the first part of the proof $t_1, t_2$ are terms of $\mathcal{L}'$. By @def-formulas-l $=t_1t_2$ is a formula of $\mathcal{L}'$.   
+
+    -   $(\neg \alpha)$ for some formula $\alpha$.
+    
+         -  By the *Induction hypothesis* $\alpha$ is a formula of $\mathcal{L}'$. By @def-formulas-l $(\neg \alpha)$ is a formula of $\mathcal{L}'$.
+
+    -   $(\alpha \Longrightarrow \beta)$ for some formulas $\alpha$ and $\beta$.
+    
+         -  By the *Induction hypothesis* $\alpha$ and $\beta$ are formulas of $\mathcal{L}'$. By @def-formulas-l $(\alpha \Longrightarrow \beta)$ is a formula of $\mathcal{L}'$.
+
+    -   $\forall v_n \alpha$ for some variable $v_n$ and some formula $\alpha$.
+    
+         -  By the *Induction hypothesis* $\alpha$ is a formula of $\mathcal{L}'$ and $v_n$ is a logical symbol. By @def-formulas-l $\forall v_n \alpha$ is a formula of $\mathcal{L}'$.
+
+:::
+
+#### Informal conventions
+
+We will use the symbols $\land$, $\lor$, $\iff$, and $\exists$ to represent and, or, if and only if and the quantifier "there exists" respectively. Since they are not among the symbols of , we will use them as abbreviations for certain constructions involving only $\neg$ and $\Longrightarrow$. Namely:
+
+-   $(\alpha \land \beta)$ is short for $(\neg(\alpha \Longrightarrow (\neg \beta)))$
+
+-   $(\alpha \lor \beta)$ is short for $(( \neg \alpha) \Longrightarrow \beta)$
+
+-   $(\alpha \iff \beta)$ is short for $((\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha))$
+
+-   $\exists v_k \varphi$ is short for $(\neg \forall v_k (\neg \varphi))$
+
+#### Unique readibility
+
+To ensure that the formulas of $\mathcal{L}$ are unambiguous (can be read in only one way according to the rules given in @def-formulas-l) one must add to @def-symbols-l the requirement that all the symbols of $\mathcal{L}$ are distinct and that no symbol is a subsequence of any other symbol.
+
+::: {#thm-unique-readibility-terms}
+
+Any term of a first-order language $\mathcal{L}$ satisfies exactly one of first 3 conditions in @def-terms-l
+
+:::
+
+::: {.proof}
+
+By strong induction on $n$, the length in a term $\varphi$, $l(\varphi)$, of $\mathcal{L}$
+
+*Base step* $(n = 1)$: If $\varphi$ is a term of $\mathcal{L}$ with $l(\varphi) = 1$ by @def-terms-l is a variable or a constant symbol.
+
+If it is a variable then it can not be a constant because all the symbols of $\mathcal{L}$ are distinct and viceversa.
+
+If it is a variable or a constant it can not be a $k$-place function because this last term has a length equal or greater than $2$.  
+
+*Induction hypothesis* $(n \leq k)$: Assume a term with length $n \leq k$ must satisfy exactly one of the first 3 conditions in @def-terms-l.
+
+*Induction step* $(n = k + 1)$: Suppose $\varphi$ is a term with length $n = k + 1$. From @def-terms-l $\varphi$ must be:
+
+-   $ft_1t_2 \ldots t_s$ for some terms $t_1t_2 \ldots t_s$ and length $k+1$.
+
+    -   If $l(\varphi) = 2$ then $\varphi = fv_1$ or $\varphi = fc$ but not both where $f$ alone is not a term. Also $\varphi$ can not be a variable or a constant symbol. 
+
+    -   If $l(\varphi) > 2$ by the *induction hypothesis* $ft_1t_2 \ldots t_{s-1}$ must satisfy exactly one of the first 3 conditions in @def-formulas-l. Then $ft_1t_2 \ldots t_{s-1}t_s$ can not be a variable or a constant symbol because it has a length greater than $2$.
+
+:::
+
+::: {#thm-unique-readibility-l}
+
+## Unique readability
+
+Any formula of a first-order language satisfies exactly one of first 5 conditions in @def-formulas-l
+
+:::
+
+::: {.proof}
+
+By strong induction on $n$, the length in a formula $\varphi$, $l(\varphi)$, of $\mathcal{L}$
+
+*Base step* $(n = 2)$: If $\varphi$ is a formula of $\mathcal{L}$ with $l(\varphi) = 2$ by @def-terms-l is a $1$-place relation symbol where $\varphi = Pt_1$ and $t_1$ is a term. Also $\varphi$ can not be of the form $=t_1t_2$, $(\neg \alpha)$, $(\alpha \Longrightarrow \beta)$ or $\forall v_n \alpha$.
+
+*Induction hypothesis* $(n \leq k)$: Assume a formula with length $n \leq k$ must satisfy exactly one of the first 5 conditions in @def-terms-l.
+
+*Induction step* $(n = k + 1)$: Suppose $\varphi$ is a formula with length $n = k + 1$. From @def-terms-l $\varphi$ must be either:
+
+- $Pt_1t_2 \ldots t_s$ for some terms $t_1t_2 \ldots t_s$ and length $k+1$
+
+    - By the *induction hypothesis* $Pt_1t_2 \ldots t_{s-1}$ must satisfy exactly one of the first 5 conditions in @def-terms-l. So $Pt_1t_2 \ldots t_s$ can not be of the form $=t_1t_2$, $(\neg \alpha)$, $(\alpha \Longrightarrow \beta)$ or $\forall v_n \alpha$. 
+
+- $=t_1t_2$ for some terms $t_1t_2$ and length $k+1$
+
+    - By the *induction hypothesis* $t_1$ and $t_2$ must satisfy exactly one of the first 5 conditions in @def-terms-l. So $=t_1t_2$ can not be of the form $Pt_1t_2 \ldots t_s$, $(\neg \alpha)$, $(\alpha \Longrightarrow \beta)$ or $\forall v_n \alpha$. 
+
+- $(\neg \alpha)$ for some formula $\alpha$ and length $k+1$
+
+    - By the *induction hypothesis* $\alpha$ must satisfy exactly one of the first 5 conditions in @def-terms-l. So $(\neg \alpha)$ can not be of the form $Pt_1t_2 \ldots t_s$, $=t_1t_2$, $(\alpha \Longrightarrow \beta)$ or $\forall v_n \alpha$.
+    
+- $(\alpha \Longrightarrow \beta)$ for some formulas $\alpha$, $\beta$ and length $k+1$
+
+    - By the *induction hypothesis* $\alpha$ and $\beta$ must satisfy exactly one of the first 5 conditions in @def-terms-l. So $(\alpha \Longrightarrow \beta)$ can not be of the form $Pt_1t_2 \ldots t_s$, $=t_1t_2$, $(\neg \alpha)$ or $\forall v_n \alpha$.
+
+- $\forall v_n \alpha$ for some variable $v_n$, some formula $\alpha$ and length $k+1$
+
+    - By the *induction hypothesis* $\alpha$ must satisfy exactly one of the first 5 conditions in @def-terms-l. So $\forall v_n \alpha$ can not be of the form $Pt_1t_2 \ldots t_s$, $=t_1t_2$, $(\neg \alpha)$ or $(\alpha \Longrightarrow \beta)$.
+
+:::
+
+### Structures and Models
+
+Defining truth and implication in first-order logic is a lot harder than it was in propositional logic. First-order languages are intended to deal with mathematical objects like groups or linear orders, so it makes little sense to speak of the truth of a formula without specifying a context.
+
+It follows that we need to make precise which mathematical objects or structures a given first-order language can be used to discuss and how, given a suitable structure, formulas in the language are to be interpreted.
+
+Throughout this section, let $\mathcal{L}$ be an arbitrary fixed countable first-order language.
+
+::: {#def-structure}
+
+A *structure* $\mathfrak{M}$ for $\mathcal{L}$ consists of the following:
+
+1. A non-empty set $M$, often written as $|\mathfrak{M}|$, called the *universe* of $\mathfrak{M}$
+
+2. For each constant symbol $c$ of $\mathcal{L}$, and element $c^{\mathfrak{M}}$ of $M$
+
+3. For each $k$-place function symbol $f$ of $\mathcal{L}$, a function $f^{\mathfrak{M}}: M^k \longrightarrow M$, i.e. a $k$-place function on $M$  
+
+4. For each $k$-place relation symbol $P$ of $\mathcal{L}$, a relation $P^{\mathfrak{M}} \subseteq M^k$, i.e. a $k$-place relation on $M$
+
+:::
 
 ## Sets
 
