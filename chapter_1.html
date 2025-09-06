@@ -280,7 +280,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#first-order-logic" id="toc-first-order-logic" class="nav-link" data-scroll-target="#first-order-logic"><span class="header-section-number">1.2</span> First order logic</a>
   <ul>
-  <li><a href="#language-1" id="toc-language-1" class="nav-link" data-scroll-target="#language-1"><span class="header-section-number">1.2.1</span> Language</a></li>
+  <li><a href="#language-1" id="toc-language-1" class="nav-link" data-scroll-target="#language-1"><span class="header-section-number">1.2.1</span> Language</a>
+  <ul class="collapse">
+  <li><a href="#informal-conventions" id="toc-informal-conventions" class="nav-link" data-scroll-target="#informal-conventions"><span class="header-section-number">1.2.1.1</span> Informal conventions</a></li>
+  <li><a href="#unique-readibility" id="toc-unique-readibility" class="nav-link" data-scroll-target="#unique-readibility"><span class="header-section-number">1.2.1.2</span> Unique readibility</a></li>
+  </ul></li>
+  <li><a href="#structures-and-models" id="toc-structures-and-models" class="nav-link" data-scroll-target="#structures-and-models"><span class="header-section-number">1.2.2</span> Structures and Models</a></li>
   </ul></li>
   <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets"><span class="header-section-number">1.3</span> Sets</a>
   <ul>
@@ -531,7 +536,7 @@ Figure&nbsp;1.1: Possible values of <span class="math inline">\(l(\alpha)\)</spa
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By strong induction on <span class="math inline">\(n\)</span>, the number of connectives (occurrences of <span class="math inline">\(\neg\)</span> or <span class="math inline">\(\Longrightarrow\)</span>) in a formula <span class="math inline">\(\varphi\)</span> of <span class="math inline">\(\mathcal{L}_P\)</span></p>
-<p><em>Base step</em> <span class="math inline">\((n = 0)\)</span>: If <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}_P\)</span> with no connectives by <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> is an atomic formula. Since an atomic formula has no connectives it can not of the form <span class="math inline">\((\neg \varphi)\)</span> or <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span>.</p>
+<p><em>Base step</em> <span class="math inline">\((n = 0)\)</span>: If <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}_P\)</span> with no connectives by <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> is an atomic formula. Since an atomic formula has no connectives it can not be of the form <span class="math inline">\((\neg \varphi)\)</span> or <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span>.</p>
 <p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume a formula with <span class="math inline">\(n \leq k\)</span> connectives must satisfy exactly one of the first 3 conditions in <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a>.</p>
 <p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\varphi\)</span> is a formula with <span class="math inline">\(n = k + 1\)</span> connectives. From <a href="#def-formulas-lp" class="quarto-xref">Definition&nbsp;<span>1.2</span></a> <span class="math inline">\(\varphi\)</span> must be either:</p>
 <ul>
@@ -3698,9 +3703,9 @@ Note&nbsp;1.4
 <p><span class="proof-title"><em>Solution 1.18</em>. </span></p>
 <ol type="1">
 <li><p>First we specify it in an informal way as:</p>
-<p><span class="math inline">\(\forall v_3 \forall v_2 \forall v_1 (v_3 + (v_2 + v_1)) = \forall v_3 \forall v_2 \forall v_1 ((v_3 + v_2) + v_1)\)</span></p>
+<p><span class="math inline">\(\forall v_3 \forall v_2 \forall v_1 (v_3 + (v_2 + v_1) = (v_3 + v_2) + v_1)\)</span></p>
 <p>In a formal way it can be specify as:</p>
-<p><span class="math inline">\(\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = \forall v_3 \forall v_2 \forall v_1 ++v_3v_2v_1\)</span></p></li>
+<p><span class="math inline">\(\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = ++v_3v_2v_1\)</span></p></li>
 <li><p>First we specify what an empty set is in an informal way: <span class="math inline">\(\forall v_2 (v_2 \notin v_1)\)</span></p>
 <p>Then we can specify its existence: <span class="math inline">\(\exists v_1 \forall v_2 (v_2 \notin v_1)\)</span></p>
 <p>In a formal way it can be specify initially as:</p>
@@ -3818,6 +3823,160 @@ Note&nbsp;1.4
 </div>
 <p>An occurrence of <span class="math inline">\(x\)</span> in <span class="math inline">\(\varphi\)</span> which is not free is said to be <em>bound</em>. A formula <span class="math inline">\(\sigma\)</span> of <span class="math inline">\(\mathcal{L}\)</span> in which no variable occurs free is said to be a <em>sentence</em>.</p>
 <p><a href="#def-free-variable" class="quarto-xref">Definition&nbsp;<span>1.16</span></a> 4 is the key: it asserts that an occurrence of a variable <span class="math inline">\(x\)</span> is bound instead of free if it is in the “scope” of an occurrence of <span class="math inline">\(\forall x\)</span>. For example, <span class="math inline">\(v_7\)</span> is free in <span class="math inline">\(\forall v_5 = v_5v_7\)</span>, but <span class="math inline">\(v_5\)</span> is not. Different occurences of a given variable in a formula may be free or bound, depending on where they are; e.g.&nbsp;<span class="math inline">\(v_6\)</span> occurs both free and bound in <span class="math inline">\(\forall v_0 (= v_0f^1_3 v_6 \Longrightarrow \forall (\neg \forall v_6 P^1_9 v_6))\)</span>.</p>
+<div id="exr-scope-quantifier" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.21</strong></span> Give a precise definition of the scope of a quantifier.</p>
+</div>
+<div id="sol-scope-quantifier" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.21</em>. </span>If <span class="math inline">\(\varphi\)</span> is <span class="math inline">\(\forall v_n \alpha\)</span>, then the scope of the quantifier <span class="math inline">\(\forall\)</span> is the subformula <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div id="exr-formulas-sentences" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.22</strong></span> Which of the formulas you gave in solving <a href="#exr-formula-statement-first-order-languages" class="quarto-xref">Exercise&nbsp;<span>1.18</span></a> are sentences?</p>
+</div>
+<div id="sol-formulas-sentences" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.22</em>. </span></p>
+<ol type="1">
+<li><p>For <span class="math inline">\(\forall v_3 \forall v_2 \forall v_1 +v_3+v_2v_1 = ++v_3v_2v_1\)</span> this formula is a sentence because <span class="math inline">\(v_3, v_2\)</span> and <span class="math inline">\(v_1\)</span> are bound.</p></li>
+<li><p>For <span class="math inline">\((\neg \forall v_1 (\neg \forall v_2 (\neg \in v_2 v_1)))\)</span> this formula is a sentence because <span class="math inline">\(v_2\)</span> and <span class="math inline">\(v_1\)</span> are bound.</p></li>
+<li><p>For <span class="math inline">\(\forall v_3 \forall v_1 (&lt;v_1 v_3 \Longrightarrow \neg \forall v_2 (\neg(\neg(&lt;v_1v_2 \Longrightarrow (\neg &lt;v_2v_3)))))\)</span> this formula is a sentence because <span class="math inline">\(v_3, v_2\)</span> and <span class="math inline">\(v_1\)</span> are bound.</p></li>
+<li><p>For <span class="math inline">\(\forall v_1 ((\neg = v_10) \Longrightarrow =Ev_101)\)</span> this formula is a sentence because <span class="math inline">\(v_1\)</span> is bound.</p></li>
+<li><p>For <span class="math inline">\((\neg \forall v_1 (\neg \forall v_2 =v_1v_2))\)</span> this formula is a sentence because <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> are bound.</p></li>
+</ol>
+</div>
+<div id="def-first-order-language-extension" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.17</strong></span> A first-order language <span class="math inline">\(\mathcal{L}'\)</span> is an extension of a first-order language <span class="math inline">\(\mathcal{L}\)</span>, sometimes written as <span class="math inline">\(\mathcal{L} \subseteq \mathcal{L}'\)</span>, if every non-logical symbol of <span class="math inline">\(\mathcal{L}\)</span> is a non-logical symbol of the same kind of <span class="math inline">\(\mathcal{L}'\)</span>.</p>
+</div>
+<div id="exr-examples-first-order-language-extensions" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.23</strong></span> Which of the languages given in <a href="#exm-other-first-order-languages" class="quarto-xref">Example&nbsp;<span>1.7</span></a> are extensions of other languages given in <a href="#exm-other-first-order-languages" class="quarto-xref">Example&nbsp;<span>1.7</span></a>?</p>
+</div>
+<div id="sol-examples-first-order-language-extensions" class="proof solution">
+<p><span class="proof-title"><em>Solution 1.23</em>. </span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathcal{L}_= \subseteq \mathcal{L}_F\)</span>, <span class="math inline">\(\mathcal{L}_= \subseteq \mathcal{L}_S\)</span>, <span class="math inline">\(\mathcal{L}_= \subseteq \mathcal{L}_O\)</span>, <span class="math inline">\(\mathcal{L}_= \subseteq \mathcal{L}_N\)</span> and <span class="math inline">\(\mathcal{L}_= \subseteq \mathcal{L}_1\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{L}_F\)</span> is not an extension of <span class="math inline">\(\mathcal{L}_S, \mathcal{L}_O, \mathcal{L}_N\)</span> and <span class="math inline">\(\mathcal{L}_1\)</span> because <span class="math inline">\(1\)</span> as a constant is not a symbol of any of the other first-order languages</p></li>
+<li><p><span class="math inline">\(\mathcal{L}_S\)</span> is not an extension of <span class="math inline">\(\mathcal{L}_F, \mathcal{L}_O, \mathcal{L}_N\)</span> and <span class="math inline">\(\mathcal{L}_1\)</span> because <span class="math inline">\(\in\)</span> as a 2-place relation symbol is not a symbol of any of the other first-order languages</p></li>
+<li><p><span class="math inline">\(\mathcal{L}_O\)</span> is not an extension of <span class="math inline">\(\mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_N\)</span> and <span class="math inline">\(\mathcal{L}_1\)</span> because <span class="math inline">\(&lt;\)</span> as a 2-place relation symbol is not a symbol of any of the other first-order languages</p></li>
+<li><p><span class="math inline">\(\mathcal{L}_N\)</span> is not an extension of <span class="math inline">\(\mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_O\)</span> and <span class="math inline">\(\mathcal{L}_1\)</span> because <span class="math inline">\(E\)</span> as a 2-place function symbol is not a symbol of any of the other first-order languages</p></li>
+<li><p><span class="math inline">\(\mathcal{L}_1\)</span> is not an extension of <span class="math inline">\(\mathcal{L}_F, \mathcal{L}_S, \mathcal{L}_O\)</span> and <span class="math inline">\(\mathcal{L}_N\)</span> because it has more constant symbols, <span class="math inline">\(k\)</span>-place functions symbols and <span class="math inline">\(k\)</span>-place relation symbols.</p></li>
+</ol>
+</div>
+<div id="prop-formula-">
+<p>Suppose <span class="math inline">\(\mathcal{L}\)</span> is a first-order language and <span class="math inline">\(\mathcal{L}'\)</span> is an extension of <span class="math inline">\(\mathcal{L}\)</span>. Then every formula <span class="math inline">\(\varphi\)</span> of <span class="math inline">\(\mathcal{L}\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This results is proved in 2 parts using strong induction:</p>
+<ol type="1">
+<li><p>By strong induction on <span class="math inline">\(n\)</span>, the length in a term <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(l(\alpha)\)</span>, of <span class="math inline">\(\mathcal{L}\)</span></p>
+<p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: If <span class="math inline">\(\alpha\)</span> is a term of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\varphi) = 1\)</span> by <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> it is a variable <span class="math inline">\(v_1\)</span> symbol or a constant symbol <span class="math inline">\(c\)</span>. Taking into account <span class="math inline">\(c\)</span> is also a symbol of the same kind in <span class="math inline">\(\mathcal{L}'\)</span> and <span class="math inline">\(v_1\)</span> is a logical symbol then <span class="math inline">\(\alpha\)</span> is also a term of <span class="math inline">\(\mathcal{L}'\)</span>.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume that if <span class="math inline">\(\alpha\)</span> is a term of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\alpha) = n \leq k\)</span> then it is also a term of <span class="math inline">\(\mathcal{L}'\)</span> where <span class="math inline">\(\mathcal{L}'\)</span> is an extension of <span class="math inline">\(\mathcal{L}\)</span>.</p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\alpha\)</span> is a term of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\alpha) = n = k + 1\)</span>. From <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> <span class="math inline">\(\alpha\)</span> must be a <span class="math inline">\(s\)</span>-place function symbol where <span class="math inline">\(ft_1t_2 \ldots t_s\)</span> and <span class="math inline">\(t_1t_2 \ldots t_s\)</span> are terms. By the <em>Induction hypothesis</em> <span class="math inline">\(ft_1t_2 \ldots t_{s-1}\)</span> and <span class="math inline">\(t_s\)</span> are also terms of <span class="math inline">\(\mathcal{L}'\)</span>. Therefore again by @<a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> <span class="math inline">\(ft_1t_2 \ldots t_s\)</span> is a term of <span class="math inline">\(\mathcal{L}'\)</span>.</p></li>
+<li><p>By strong induction on <span class="math inline">\(n\)</span>, the length in a formula <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(l(\varphi)\)</span>, of <span class="math inline">\(\mathcal{L}\)</span></p>
+<p><em>Base step</em> <span class="math inline">\((n = 2)\)</span>: If <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\varphi) = 2\)</span> by <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> it is an atomic formula and in particular a <span class="math inline">\(1\)</span>-place relation symbol like <span class="math inline">\(Pt_1\)</span> where <span class="math inline">\(t_1\)</span> is a term. Because <span class="math inline">\(t_1\)</span> is a term and <span class="math inline">\(l(\varphi) = 2\)</span> by <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> it is a variable <span class="math inline">\(v_1\)</span> or a constant <span class="math inline">\(c\)</span>. Taking into account <span class="math inline">\(c\)</span> is also a symbol of the same kind in <span class="math inline">\(\mathcal{L}'\)</span> and <span class="math inline">\(v_1\)</span> is a logical symbol then <span class="math inline">\(\varphi\)</span> is also a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume that if <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\varphi) = n \leq k\)</span> then it is also a formula of <span class="math inline">\(\mathcal{L}'\)</span> where <span class="math inline">\(\mathcal{L}'\)</span> is an extension of <span class="math inline">\(\mathcal{L}\)</span>.</p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\varphi) = n = k + 1\)</span>. From <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(\varphi\)</span> must be either:</p>
+<ul>
+<li><p><span class="math inline">\(Pt_1t_2 \ldots t_k\)</span> for some terms <span class="math inline">\(t_1, t_2, \ldots t_k\)</span>.</p>
+<ul>
+<li><p>By <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> each term is a variable symbol <span class="math inline">\(v_n\)</span>, a constant symbol <span class="math inline">\(c\)</span> or a <span class="math inline">\(k\)</span>-place function symbol, <span class="math inline">\(ft_1't_2', \ldots t_k'\)</span> where <span class="math inline">\(t_1', t_2', \dots t_k'\)</span> are terms.</p></li>
+<li><p>By the <em>Induction hypothesis</em> <span class="math inline">\(Pt_1t_2 \ldots t_{k-1}\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span> and by the first part of the proof <span class="math inline">\(t_k\)</span> is a term of <span class="math inline">\(\mathcal{L}'\)</span>. By <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(Pt_1t_2 \ldots t_k\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\(=t_1t_2\)</span> for some terms <span class="math inline">\(t_1, t_2\)</span>.</p>
+<ul>
+<li><p>By <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> each term is a variable symbol <span class="math inline">\(v_n\)</span>, a constant symbol <span class="math inline">\(c\)</span> or a <span class="math inline">\(k\)</span>-place function symbol, <span class="math inline">\(ft_1't_2', \ldots t_k'\)</span> where <span class="math inline">\(t_1', t_2', \dots t_k'\)</span> are terms.</p></li>
+<li><p>By the first part of the proof <span class="math inline">\(t_1, t_2\)</span> are terms of <span class="math inline">\(\mathcal{L}'\)</span>. By <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(=t_1t_2\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\((\neg \alpha)\)</span> for some formula <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li>By the <em>Induction hypothesis</em> <span class="math inline">\(\alpha\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>. By <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\((\neg \alpha)\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> for some formulas <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</p>
+<ul>
+<li>By the <em>Induction hypothesis</em> <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are formulas of <span class="math inline">\(\mathcal{L}'\)</span>. By <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\(\forall v_n \alpha\)</span> for some variable <span class="math inline">\(v_n\)</span> and some formula <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li>By the <em>Induction hypothesis</em> <span class="math inline">\(\alpha\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span> and <span class="math inline">\(v_n\)</span> is a logical symbol. By <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a> <span class="math inline">\(\forall v_n \alpha\)</span> is a formula of <span class="math inline">\(\mathcal{L}'\)</span>.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<section id="informal-conventions" class="level4" data-number="1.2.1.1">
+<h4 data-number="1.2.1.1" class="anchored" data-anchor-id="informal-conventions"><span class="header-section-number">1.2.1.1</span> Informal conventions</h4>
+<p>We will use the symbols <span class="math inline">\(\land\)</span>, <span class="math inline">\(\lor\)</span>, <span class="math inline">\(\iff\)</span>, and <span class="math inline">\(\exists\)</span> to represent and, or, if and only if and the quantifier “there exists” respectively. Since they are not among the symbols of , we will use them as abbreviations for certain constructions involving only <span class="math inline">\(\neg\)</span> and <span class="math inline">\(\Longrightarrow\)</span>. Namely:</p>
+<ul>
+<li><p><span class="math inline">\((\alpha \land \beta)\)</span> is short for <span class="math inline">\((\neg(\alpha \Longrightarrow (\neg \beta)))\)</span></p></li>
+<li><p><span class="math inline">\((\alpha \lor \beta)\)</span> is short for <span class="math inline">\((( \neg \alpha) \Longrightarrow \beta)\)</span></p></li>
+<li><p><span class="math inline">\((\alpha \iff \beta)\)</span> is short for <span class="math inline">\(((\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha))\)</span></p></li>
+<li><p><span class="math inline">\(\exists v_k \varphi\)</span> is short for <span class="math inline">\((\neg \forall v_k (\neg \varphi))\)</span></p></li>
+</ul>
+</section>
+<section id="unique-readibility" class="level4" data-number="1.2.1.2">
+<h4 data-number="1.2.1.2" class="anchored" data-anchor-id="unique-readibility"><span class="header-section-number">1.2.1.2</span> Unique readibility</h4>
+<p>To ensure that the formulas of <span class="math inline">\(\mathcal{L}\)</span> are unambiguous (can be read in only one way according to the rules given in <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a>) one must add to <a href="#def-symbols-l" class="quarto-xref">Definition&nbsp;<span>1.13</span></a> the requirement that all the symbols of <span class="math inline">\(\mathcal{L}\)</span> are distinct and that no symbol is a subsequence of any other symbol.</p>
+<div id="thm-unique-readibility-terms" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.8</strong></span> Any term of a first-order language <span class="math inline">\(\mathcal{L}\)</span> satisfies exactly one of first 3 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By strong induction on <span class="math inline">\(n\)</span>, the length in a term <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(l(\varphi)\)</span>, of <span class="math inline">\(\mathcal{L}\)</span></p>
+<p><em>Base step</em> <span class="math inline">\((n = 1)\)</span>: If <span class="math inline">\(\varphi\)</span> is a term of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\varphi) = 1\)</span> by <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> is a variable or a constant symbol.</p>
+<p>If it is a variable then it can not be a constant because all the symbols of <span class="math inline">\(\mathcal{L}\)</span> are distinct and viceversa.</p>
+<p>If it is a variable or a constant it can not be a <span class="math inline">\(k\)</span>-place function because this last term has a length equal or greater than <span class="math inline">\(2\)</span>.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume a term with length <span class="math inline">\(n \leq k\)</span> must satisfy exactly one of the first 3 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>.</p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\varphi\)</span> is a term with length <span class="math inline">\(n = k + 1\)</span>. From <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> <span class="math inline">\(\varphi\)</span> must be:</p>
+<ul>
+<li><p><span class="math inline">\(ft_1t_2 \ldots t_s\)</span> for some terms <span class="math inline">\(t_1t_2 \ldots t_s\)</span> and length <span class="math inline">\(k+1\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(l(\varphi) = 2\)</span> then <span class="math inline">\(\varphi = fv_1\)</span> or <span class="math inline">\(\varphi = fc\)</span> but not both where <span class="math inline">\(f\)</span> alone is not a term. Also <span class="math inline">\(\varphi\)</span> can not be a variable or a constant symbol.</p></li>
+<li><p>If <span class="math inline">\(l(\varphi) &gt; 2\)</span> by the <em>induction hypothesis</em> <span class="math inline">\(ft_1t_2 \ldots t_{s-1}\)</span> must satisfy exactly one of the first 3 conditions in <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a>. Then <span class="math inline">\(ft_1t_2 \ldots t_{s-1}t_s\)</span> can not be a variable or a constant symbol because it has a length greater than <span class="math inline">\(2\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="thm-unique-readibility-l" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.9 (Unique readability)</strong></span> Any formula of a first-order language satisfies exactly one of first 5 conditions in <a href="#def-formulas-l" class="quarto-xref">Definition&nbsp;<span>1.15</span></a></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By strong induction on <span class="math inline">\(n\)</span>, the length in a formula <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(l(\varphi)\)</span>, of <span class="math inline">\(\mathcal{L}\)</span></p>
+<p><em>Base step</em> <span class="math inline">\((n = 2)\)</span>: If <span class="math inline">\(\varphi\)</span> is a formula of <span class="math inline">\(\mathcal{L}\)</span> with <span class="math inline">\(l(\varphi) = 2\)</span> by <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> is a <span class="math inline">\(1\)</span>-place relation symbol where <span class="math inline">\(\varphi = Pt_1\)</span> and <span class="math inline">\(t_1\)</span> is a term. Also <span class="math inline">\(\varphi\)</span> can not be of the form <span class="math inline">\(=t_1t_2\)</span>, <span class="math inline">\((\neg \alpha)\)</span>, <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> or <span class="math inline">\(\forall v_n \alpha\)</span>.</p>
+<p><em>Induction hypothesis</em> <span class="math inline">\((n \leq k)\)</span>: Assume a formula with length <span class="math inline">\(n \leq k\)</span> must satisfy exactly one of the first 5 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>.</p>
+<p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>: Suppose <span class="math inline">\(\varphi\)</span> is a formula with length <span class="math inline">\(n = k + 1\)</span>. From <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a> <span class="math inline">\(\varphi\)</span> must be either:</p>
+<ul>
+<li><p><span class="math inline">\(Pt_1t_2 \ldots t_s\)</span> for some terms <span class="math inline">\(t_1t_2 \ldots t_s\)</span> and length <span class="math inline">\(k+1\)</span></p>
+<ul>
+<li>By the <em>induction hypothesis</em> <span class="math inline">\(Pt_1t_2 \ldots t_{s-1}\)</span> must satisfy exactly one of the first 5 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. So <span class="math inline">\(Pt_1t_2 \ldots t_s\)</span> can not be of the form <span class="math inline">\(=t_1t_2\)</span>, <span class="math inline">\((\neg \alpha)\)</span>, <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> or <span class="math inline">\(\forall v_n \alpha\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\(=t_1t_2\)</span> for some terms <span class="math inline">\(t_1t_2\)</span> and length <span class="math inline">\(k+1\)</span></p>
+<ul>
+<li>By the <em>induction hypothesis</em> <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span> must satisfy exactly one of the first 5 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. So <span class="math inline">\(=t_1t_2\)</span> can not be of the form <span class="math inline">\(Pt_1t_2 \ldots t_s\)</span>, <span class="math inline">\((\neg \alpha)\)</span>, <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> or <span class="math inline">\(\forall v_n \alpha\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\((\neg \alpha)\)</span> for some formula <span class="math inline">\(\alpha\)</span> and length <span class="math inline">\(k+1\)</span></p>
+<ul>
+<li>By the <em>induction hypothesis</em> <span class="math inline">\(\alpha\)</span> must satisfy exactly one of the first 5 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. So <span class="math inline">\((\neg \alpha)\)</span> can not be of the form <span class="math inline">\(Pt_1t_2 \ldots t_s\)</span>, <span class="math inline">\(=t_1t_2\)</span>, <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> or <span class="math inline">\(\forall v_n \alpha\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> for some formulas <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> and length <span class="math inline">\(k+1\)</span></p>
+<ul>
+<li>By the <em>induction hypothesis</em> <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> must satisfy exactly one of the first 5 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. So <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span> can not be of the form <span class="math inline">\(Pt_1t_2 \ldots t_s\)</span>, <span class="math inline">\(=t_1t_2\)</span>, <span class="math inline">\((\neg \alpha)\)</span> or <span class="math inline">\(\forall v_n \alpha\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\(\forall v_n \alpha\)</span> for some variable <span class="math inline">\(v_n\)</span>, some formula <span class="math inline">\(\alpha\)</span> and length <span class="math inline">\(k+1\)</span></p>
+<ul>
+<li>By the <em>induction hypothesis</em> <span class="math inline">\(\alpha\)</span> must satisfy exactly one of the first 5 conditions in <a href="#def-terms-l" class="quarto-xref">Definition&nbsp;<span>1.14</span></a>. So <span class="math inline">\(\forall v_n \alpha\)</span> can not be of the form <span class="math inline">\(Pt_1t_2 \ldots t_s\)</span>, <span class="math inline">\(=t_1t_2\)</span>, <span class="math inline">\((\neg \alpha)\)</span> or <span class="math inline">\((\alpha \Longrightarrow \beta)\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="structures-and-models" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="structures-and-models"><span class="header-section-number">1.2.2</span> Structures and Models</h3>
+<p>Defining truth and implication in first-order logic is a lot harder than it was in propositional logic. First-order languages are intended to deal with mathematical objects like groups or linear orders, so it makes little sense to speak of the truth of a formula without specifying a context.</p>
+<p>It follows that we need to make precise which mathematical objects or structures a given first-order language can be used to discuss and how, given a suitable structure, formulas in the language are to be interpreted.</p>
+<p>Throughout this section, let <span class="math inline">\(\mathcal{L}\)</span> be an arbitrary fixed countable first-order language.</p>
+<div id="def-structure" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.18</strong></span> A <em>structure</em> <span class="math inline">\(\mathfrak{M}\)</span> for <span class="math inline">\(\mathcal{L}\)</span> consists of the following:</p>
+<ol type="1">
+<li><p>A non-empty set <span class="math inline">\(M\)</span>, often written as <span class="math inline">\(|\mathfrak{M}|\)</span>, called the <em>universe</em> of <span class="math inline">\(\mathfrak{M}\)</span></p></li>
+<li><p>For each constant symbol <span class="math inline">\(c\)</span> of <span class="math inline">\(\mathcal{L}\)</span>, and element <span class="math inline">\(c^{\mathfrak{M}}\)</span> of <span class="math inline">\(M\)</span></p></li>
+<li><p>For each <span class="math inline">\(k\)</span>-place function symbol <span class="math inline">\(f\)</span> of <span class="math inline">\(\mathcal{L}\)</span>, a function <span class="math inline">\(f^{\mathfrak{M}}: M^k \longrightarrow M\)</span>, i.e.&nbsp;a <span class="math inline">\(k\)</span>-place function on <span class="math inline">\(M\)</span></p></li>
+<li><p>For each <span class="math inline">\(k\)</span>-place relation symbol <span class="math inline">\(P\)</span> of <span class="math inline">\(\mathcal{L}\)</span>, a relation <span class="math inline">\(P^{\mathfrak{M}} \subseteq M^k\)</span>, i.e.&nbsp;a <span class="math inline">\(k\)</span>-place relation on <span class="math inline">\(M\)</span></p></li>
+</ol>
+</div>
 </section>
 </section>
 <section id="sets" class="level2" data-number="1.3">
@@ -3834,7 +3993,7 @@ Note&nbsp;1.4
 <p>The principal concept of set theory, the one that in completely axiomatic studies is the principal primitive (undefined) concept, is that of <em>belonging</em>. If <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(A\)</span>, we shall write <span class="math inline">\(x \in A\)</span>. Also if <span class="math inline">\(x\)</span> is not an element of <span class="math inline">\(A\)</span> we shall write <span class="math inline">\(x \not \in A\)</span>, <span class="math inline">\((\neg (x \in A))\)</span>.</p>
 <p>A possible relation between sets, more elementary than belonging, is equality. The equality of two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is written as <span class="math inline">\(A = B\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not equal is denoted as <span class="math inline">\(A \neq B\)</span>, <span class="math inline">\((\neg (A = B))\)</span>.</p>
 <div id="def-axiom-of-extension" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.17 (Axiom of extensionality)</strong></span> Two sets are equal if and only if they have the same elements.</p>
+<p><span class="theorem-title"><strong>Definition 1.19 (Axiom of extensionality)</strong></span> Two sets are equal if and only if they have the same elements.</p>
 <p><span class="math display">\[A = B \iff \forall x(x \in A \iff x \in B)\]</span></p>
 <p>The axiom expresses the basic idea that a set is determined by its elements:</p>
 <ul>
@@ -3844,17 +4003,17 @@ Note&nbsp;1.4
 </div>
 <p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets then <span class="math inline">\(A\)</span> is <em>included</em> in <span class="math inline">\(B\)</span> or <span class="math inline">\(A\)</span> is a <em>subset</em> of <span class="math inline">\(B\)</span> if every element of <span class="math inline">\(A\)</span> is an element of <span class="math inline">\(B\)</span>. If this is the case this situation is denoted as <span class="math inline">\(A \subseteq B\)</span>. Thus:</p>
 <div id="def-subset" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.18 (Subset)</strong></span> <span class="math display">\[A \subseteq B \iff \forall x(x \in A \Longrightarrow x \in B)\]</span></p>
+<p><span class="theorem-title"><strong>Definition 1.20 (Subset)</strong></span> <span class="math display">\[A \subseteq B \iff \forall x(x \in A \Longrightarrow x \in B)\]</span></p>
 </div>
 <p>Because <span class="math inline">\(A = A\)</span> then <span class="math inline">\(A \subseteq A\)</span>. If <span class="math inline">\(\neg (A \subseteq B)\)</span> then we write <span class="math inline">\(A \not \subseteq B\)</span>. In this case <span class="math inline">\(\neg \forall x(x \in A \Longrightarrow x \in B)\)</span>.</p>
 <p>Any subset of <span class="math inline">\(A\)</span> different from <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(A\)</span>. To denote that <span class="math inline">\(C\)</span> is a proper subset of <span class="math inline">\(A\)</span> we use the notation <span class="math inline">\(C \subset A\)</span>. Thus:</p>
 <div id="def-propersubset" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.19 (Proper subset)</strong></span> <span class="math display">\[C \subset A \iff (C \subseteq A \land A \not \subseteq C)\]</span></p>
+<p><span class="theorem-title"><strong>Definition 1.21 (Proper subset)</strong></span> <span class="math display">\[C \subset A \iff (C \subseteq A \land A \not \subseteq C)\]</span></p>
 </div>
-<p>If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B \subseteq A\)</span> then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements so by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.17</span></a> <span class="math inline">\(A = B\)</span>. Thus:</p>
+<p>If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B \subseteq A\)</span> then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements so by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.19</span></a> <span class="math inline">\(A = B\)</span>. Thus:</p>
 <p><span class="math display">\[A = B \iff (A \subseteq B \land B \subseteq A)\]</span></p>
 <div id="exr-axiom-of-extension" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.21</strong></span> Proof the following assertions or answer the following questions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.24</strong></span> Proof the following assertions or answer the following questions:</p>
 <ol type="1">
 <li><p><span class="math inline">\(\{ a \} = \{ a, a \}\)</span></p></li>
 <li><p>¿How many elements does the set <span class="math inline">\(\{ 1, 2, 3 \}\)</span> have?</p></li>
@@ -3867,7 +4026,7 @@ Note&nbsp;1.4
 </ol>
 </div>
 <div id="sol-axiom-of-extension" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.21</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.24</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
 a \in \{ a \} &amp; \iff a \in \{ a, a \} \\
@@ -3905,17 +4064,17 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 </section>
 <section id="axiom-schema-of-specification-or-separation" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="axiom-schema-of-specification-or-separation"><span class="header-section-number">1.3.2</span> Axiom schema of specification (or separation)</h3>
-<p>All the basic principles of set theory, except only <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.17</span></a> are designed to make new sets out of old ones. The first and most important of these basic principles is the axiom of secham of specification.</p>
+<p>All the basic principles of set theory, except only <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.19</span></a> are designed to make new sets out of old ones. The first and most important of these basic principles is the axiom of secham of specification.</p>
 <p>Let <span class="math inline">\(A\)</span> be the set of all men. The sentence <span class="math inline">\(x\)</span> <em>is married</em> is true for some of the elements <span class="math inline">\(x \in A\)</span> and false for others. The principle we are illustrating is the one that justifies the passage from the given set <span class="math inline">\(A\)</span> to the subset (namely, the set of all married men) specified by the given sentence <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 4</a>)</span>.</p>
 <p>To indicate the generation of the subset, it is usually denoted by:</p>
 <p><span class="math display">\[\{ x \in A \mid x \text{ is married} \}\]</span></p>
 <div id="def-axiom-schema-of-specification" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.20 (Axiom schema of specification)</strong></span> If <span class="math inline">\(P\)</span> is a property then for every set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> that contains all those <span class="math inline">\(x \in A\)</span> that have the property <span class="math inline">\(P\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.22 (Axiom schema of specification)</strong></span> If <span class="math inline">\(P\)</span> is a property then for every set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> that contains all those <span class="math inline">\(x \in A\)</span> that have the property <span class="math inline">\(P\)</span>.</p>
 <ul>
 <li>Observe that <span class="math inline">\(B \subseteq A\)</span> and that if <span class="math inline">\(A\)</span> exists then <span class="math inline">\(B = \{ x \in A \mid P(x) \}\)</span> exists</li>
 </ul>
 </div>
-<p>Lets see an amusing application of <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.20</span></a>. Consider <span class="math inline">\(P(x)\)</span> as <span class="math inline">\((\neg (x \in x))\)</span> or more compact <span class="math inline">\(x \not \in x\)</span>. Therefore if <span class="math inline">\(A\)</span> is a set and <span class="math inline">\(B = \{ x \in A \mid x \not \in x \}\)</span> then:</p>
+<p>Lets see an amusing application of <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.22</span></a>. Consider <span class="math inline">\(P(x)\)</span> as <span class="math inline">\((\neg (x \in x))\)</span> or more compact <span class="math inline">\(x \not \in x\)</span>. Therefore if <span class="math inline">\(A\)</span> is a set and <span class="math inline">\(B = \{ x \in A \mid x \not \in x \}\)</span> then:</p>
 <p><span id="eq-application-axiom-schema-of-specification"><span class="math display">\[y \in B \iff (y \in A \land y \not \in y) \tag{1.1}\]</span></span></p>
 <p>Can it be that <span class="math inline">\(B \in A\)</span>? Because <span class="math inline">\(B \subseteq A\)</span> then if <span class="math inline">\(B \in A\)</span> we have that <span class="math inline">\(B \in B\)</span> or <span class="math inline">\(B \not \in A\)</span> but not both:</p>
 <ul>
@@ -3923,15 +4082,15 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 <li><p>If <span class="math inline">\(B \not \in B\)</span> and because <span class="math inline">\(B \in A\)</span> then again by <a href="#eq-application-axiom-schema-of-specification" class="quarto-xref">Equation&nbsp;<span>1.1</span></a> <span class="math inline">\(B \in B\)</span>. However this is again a contradiction because <span class="math inline">\((B \in B) \land (B \not \in B)\)</span></p></li>
 </ul>
 <p>Because <span class="math inline">\(B \in A\)</span> generates a contradiction by <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> it must be the case that <span class="math inline">\(B \not \in A\)</span>. In simple words <em>nothing contains everything</em> or <em>there is no universe</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 6–7</a>)</span>. In older approaches to set theory, the existence of a universe was taken for granted, and the argument in the preceding paragraph was known as the <em>Russell paradox</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 7</a>)</span>.</p>
-<p>Let as assume that <em>there exists a set</em>. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. One consequence of this assumption is that there exists a set without any elements at all. By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.20</span></a> define <span class="math inline">\(B\)</span> using some false <span class="math inline">\(P(x)\)</span> like <span class="math inline">\(x \not = x\)</span>:</p>
-<p><span class="math display">\[B = \{ x \in A \mid x \not = x \}\]</span> Furthermore by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.17</span></a> <span class="math inline">\(B\)</span> is unique. This is because <span class="math inline">\(\forall x(x \not \in B)\)</span> so if there is another <span class="math inline">\(B^*\)</span> such that <span class="math inline">\(\forall x(x \not \in B^*)\)</span> then we have that:</p>
+<p>Let as assume that <em>there exists a set</em>. Later on we shall formulate a deeper and more useful existential assumption, this assumption plays a temporary role only <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. One consequence of this assumption is that there exists a set without any elements at all. By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.22</span></a> define <span class="math inline">\(B\)</span> using some false <span class="math inline">\(P(x)\)</span> like <span class="math inline">\(x \not = x\)</span>:</p>
+<p><span class="math display">\[B = \{ x \in A \mid x \not = x \}\]</span> Furthermore by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.19</span></a> <span class="math inline">\(B\)</span> is unique. This is because <span class="math inline">\(\forall x(x \not \in B)\)</span> so if there is another <span class="math inline">\(B^*\)</span> such that <span class="math inline">\(\forall x(x \not \in B^*)\)</span> then we have that:</p>
 <ul>
 <li><p><span class="math inline">\(\forall x(x \in B \Longrightarrow x \in B^*)\)</span> is true because <span class="math inline">\(x \in B\)</span> is false so <span class="math inline">\(B \subseteq B^*\)</span></p></li>
 <li><p><span class="math inline">\(\forall x(x \in B^* \Longrightarrow x \in B)\)</span> is true because <span class="math inline">\(x \in B^*\)</span> is false so <span class="math inline">\(B^* \subseteq B\)</span></p></li>
 </ul>
 <p>Therefore <span class="math inline">\(B = B^*\)</span>. Because <span class="math inline">\(B\)</span> is unique we will use the symbol <span class="math inline">\(\emptyset\)</span> for this set. Therefore <span class="math inline">\(\emptyset\)</span> has the following property:</p>
 <div id="def-empty-set-property" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.21 (Empty set property)</strong></span> <span class="math display">\[\forall x (x \not \in \emptyset)\]</span> <strong>Note</strong>: The above property is equivalent to <span class="math inline">\(\neg \exists x (x \in \emptyset)\)</span>. So if <span class="math inline">\(B \neq \emptyset\)</span> then <span class="math inline">\(\exists x (x \in B)\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.23 (Empty set property)</strong></span> <span class="math display">\[\forall x (x \not \in \emptyset)\]</span> <strong>Note</strong>: The above property is equivalent to <span class="math inline">\(\neg \exists x (x \in \emptyset)\)</span>. So if <span class="math inline">\(B \neq \emptyset\)</span> then <span class="math inline">\(\exists x (x \in B)\)</span>.</p>
 </div>
 <p>We know that <span class="math inline">\(\emptyset \subseteq \emptyset\)</span> but we also have that <span class="math inline">\(\emptyset \subseteq A\)</span> for any set <span class="math inline">\(A\)</span>. How could it be that the empty set is a subset of every set? To prove that something is true about the empty set, prove that it cannot be false <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 8</a>)</span>. Assume <span class="math inline">\(\emptyset \not \subseteq A\)</span> for any set <span class="math inline">\(A\)</span>. But this will mean that there is some <span class="math inline">\(x\)</span> such that <span class="math inline">\(x \in \emptyset \land x \not \in A\)</span>. However this is not possible because <span class="math inline">\((\forall x)(x \not \in \emptyset)\)</span>. Therefore by <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a> it must be the case that <span class="math inline">\((\forall A)(\emptyset \subseteq A)\)</span>.</p>
 </section>
@@ -3939,20 +4098,20 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="axiom-of-pairing"><span class="header-section-number">1.3.3</span> Axiom of pairing</h3>
 <p>The pairing axiom states that whenever we have two sets <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, there is a set <span class="math inline">\(A\)</span> whose only members are <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
 <div id="def-axiom-of-pairing" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.22 (Axiom of pairing)</strong></span> If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are sets there is a set <span class="math inline">\(A\)</span> such that it contains exactly <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.24 (Axiom of pairing)</strong></span> If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are sets there is a set <span class="math inline">\(A\)</span> such that it contains exactly <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
 </div>
-<p>By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.20</span></a> we can specify <span class="math inline">\(P(x)\)</span> as <span class="math inline">\(x = a \lor x = b\)</span> and build <span class="math inline">\(A\)</span> as:</p>
+<p>By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.22</span></a> we can specify <span class="math inline">\(P(x)\)</span> as <span class="math inline">\(x = a \lor x = b\)</span> and build <span class="math inline">\(A\)</span> as:</p>
 <p><span class="math display">\[A = \{ x \in C \mid x = a \lor x = b \}\]</span></p>
-<p>If there is another set <span class="math inline">\(B\)</span> such that <span class="math inline">\(\{ x \in C \mid x = a \lor x = b \}\)</span> then by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.17</span></a> <span class="math inline">\(A = B\)</span> so we can denote <span class="math inline">\(A\)</span> as <span class="math inline">\(\{ a, b\}\)</span>. In case <span class="math inline">\(a = b\)</span> we have that <span class="math inline">\(\{ a, a \}\)</span> but we can simply write <span class="math inline">\(\{ a\}\)</span> because <span class="math inline">\(\{ a, a \} \subseteq \{ a \}\)</span> and <span class="math inline">\(\{ a \} \subseteq \{ a, a \}\)</span> so <span class="math inline">\(\{ a, a \} = \{ a \}\)</span>. Also <span class="math inline">\(a \in A\)</span> is equivalent to <span class="math inline">\(\{ a \} \subseteq A\)</span> but be careful because <span class="math inline">\(a \not = \{ a \}\)</span>.</p>
+<p>If there is another set <span class="math inline">\(B\)</span> such that <span class="math inline">\(\{ x \in C \mid x = a \lor x = b \}\)</span> then by <a href="#def-axiom-of-extension" class="quarto-xref">Definition&nbsp;<span>1.19</span></a> <span class="math inline">\(A = B\)</span> so we can denote <span class="math inline">\(A\)</span> as <span class="math inline">\(\{ a, b\}\)</span>. In case <span class="math inline">\(a = b\)</span> we have that <span class="math inline">\(\{ a, a \}\)</span> but we can simply write <span class="math inline">\(\{ a\}\)</span> because <span class="math inline">\(\{ a, a \} \subseteq \{ a \}\)</span> and <span class="math inline">\(\{ a \} \subseteq \{ a, a \}\)</span> so <span class="math inline">\(\{ a, a \} = \{ a \}\)</span>. Also <span class="math inline">\(a \in A\)</span> is equivalent to <span class="math inline">\(\{ a \} \subseteq A\)</span> but be careful because <span class="math inline">\(a \not = \{ a \}\)</span>.</p>
 <p>Furthermore because <span class="math inline">\(\emptyset\)</span> exists we can build new sets:</p>
 <p><span class="math display">\[\{ \emptyset \}, \{ \{ \emptyset \} \}, \{ \{ \{ \emptyset \} \} \}, \ldots\]</span></p>
 <p>Or pairs of them like <span class="math inline">\(\{ \emptyset, \{ \emptyset \} \}\)</span>, <span class="math inline">\(\{ \{ \emptyset \}, \{ \{ \emptyset \} \} \}\)</span>. But we can still apply the same logic by creating new sets from the above sets like <span class="math inline">\(\{ \emptyset, \{ \emptyset, \{ \emptyset \} \} \}\)</span>.</p>
 <p>Because <span class="math inline">\(\{ a, b \} = \{ b, a \}\)</span> and using the above logic we can use those aspects to motive the definition of ordered pair as:</p>
 <div id="def-ordered-pair" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.23 (Ordered pair)</strong></span> <span class="math display">\[(a, b) = \{ \{ a \}, \{ a, b\} \}\]</span> <strong>Note</strong>: <span class="math inline">\((a, b) = \{ \{ a \}, \{ a, b\} \}\)</span> is defined as an ordered pair because <span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span> if and only if <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span> (See <a href="#exr-axiom-of-pairing" class="quarto-xref">Exercise&nbsp;<span>1.22</span></a>).</p>
+<p><span class="theorem-title"><strong>Definition 1.25 (Ordered pair)</strong></span> <span class="math display">\[(a, b) = \{ \{ a \}, \{ a, b\} \}\]</span> <strong>Note</strong>: <span class="math inline">\((a, b) = \{ \{ a \}, \{ a, b\} \}\)</span> is defined as an ordered pair because <span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span> if and only if <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span> (See <a href="#exr-axiom-of-pairing" class="quarto-xref">Exercise&nbsp;<span>1.25</span></a>).</p>
 </div>
 <div id="def-n-tuple" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.24 (<span class="math inline">\(n\)</span>-tuple)</strong></span> We can use <a href="#def-ordered-pair" class="quarto-xref">Definition&nbsp;<span>1.23</span></a> to define recursively an <span class="math inline">\(n\)</span>-tuple for <span class="math inline">\(n \geq 3\)</span> as:</p>
+<p><span class="theorem-title"><strong>Definition 1.26 (<span class="math inline">\(n\)</span>-tuple)</strong></span> We can use <a href="#def-ordered-pair" class="quarto-xref">Definition&nbsp;<span>1.25</span></a> to define recursively an <span class="math inline">\(n\)</span>-tuple for <span class="math inline">\(n \geq 3\)</span> as:</p>
 <p><span class="math display">\[\begin{split}
 (a_1, a_2, a_3) &amp; = ((a_1, a_2), a_3) \\
 (a_1, a_2, a_3, a_4) &amp; = ((a_1, a_2, a_3), a_4) \\
@@ -3961,14 +4120,14 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 \end{split}\]</span></p>
 </div>
 <div id="exr-axiom-of-pairing" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.22</strong></span> Prove the following assertions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.25</strong></span> Prove the following assertions:</p>
 <ol type="1">
 <li><p><span class="math inline">\((a, b) = (a^{'}, b^{'})\)</span> if and only if <span class="math inline">\(a = a^{'} \land b = b^{'}\)</span></p></li>
 <li><p><span class="math inline">\((a_1, \ldots, a_n) = (a_1^{'}, \ldots, a_n^{'})\)</span> if and only if <span class="math inline">\(a_1 = a_1^{'} \land \ldots \land a_n = a_n^{'}\)</span></p></li>
 </ol>
 </div>
 <div id="sol-axiom-of-pairing" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.22</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.25</em>. </span></p>
 <ol type="1">
 <li><p>We deduce this assertion in 2 parts:</p>
 <ul>
@@ -3981,7 +4140,7 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 </ul></li>
 <li><p>By strong induction on <span class="math inline">\(n\)</span>:</p>
 <ul>
-<li><p>Base step <span class="math inline">\((n = 2)\)</span>: We can use the proof of <a href="#exr-axiom-of-pairing" class="quarto-xref">Exercise&nbsp;<span>1.22</span></a> exercise 1 to show that <span class="math inline">\((a_1, a_2) = (a_1^{'}, a_2^{'})\)</span> if and only if <span class="math inline">\(a_1 = a_1^{'} \land a_2 = a_2^{'}\)</span>.</p></li>
+<li><p>Base step <span class="math inline">\((n = 2)\)</span>: We can use the proof of <a href="#exr-axiom-of-pairing" class="quarto-xref">Exercise&nbsp;<span>1.25</span></a> exercise 1 to show that <span class="math inline">\((a_1, a_2) = (a_1^{'}, a_2^{'})\)</span> if and only if <span class="math inline">\(a_1 = a_1^{'} \land a_2 = a_2^{'}\)</span>.</p></li>
 <li><p>Induction hypothesis <span class="math inline">\((n \leq k)\)</span>: Assume that <span class="math inline">\((a_1, \ldots, a_n) = (a_1^{'}, \ldots, a_n^{'})\)</span> if and only if <span class="math inline">\(a_1 = a_1^{'} \land \ldots \land a_n = a_n^{'}\)</span></p></li>
 <li><p>Induction step <span class="math inline">\((n = k + 1)\)</span>:</p>
 <ul>
@@ -4006,12 +4165,12 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="axiom-of-union"><span class="header-section-number">1.3.4</span> Axiom of union</h3>
 <p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, it is sometimes natural to wish to unite their elements into one comprehensive set <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 12</a>)</span>.</p>
 <div id="def-axiom-of-union" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.25 (Axiom of union)</strong></span> For any set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \bigcup A\)</span>, the union of all elements of <span class="math inline">\(A\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.27 (Axiom of union)</strong></span> For any set <span class="math inline">\(A\)</span> there exist a set <span class="math inline">\(B = \bigcup A\)</span>, the union of all elements of <span class="math inline">\(A\)</span>.</p>
 <p>In other words <span class="math inline">\(\bigcup A = \{ x \in C \mid \exists C (C\in A) \}\)</span> or that <span class="math inline">\(x \in \bigcup A\)</span> if and only if <span class="math inline">\(\exists C (C\in A \land x \in C)\)</span>.</p>
 </div>
-<p>For example let <span class="math inline">\(A = \{ \{ a, b\}, \{ c \} \}\)</span> then <span class="math inline">\(\bigcup A = \{ a, b, c \}\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-of-pairing" class="quarto-xref">Definition&nbsp;<span>1.22</span></a> we can generate the set <span class="math inline">\(\{ A, B \}\)</span> and apply <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.25</span></a> to obtain:</p>
+<p>For example let <span class="math inline">\(A = \{ \{ a, b\}, \{ c \} \}\)</span> then <span class="math inline">\(\bigcup A = \{ a, b, c \}\)</span>. Also if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-of-pairing" class="quarto-xref">Definition&nbsp;<span>1.24</span></a> we can generate the set <span class="math inline">\(\{ A, B \}\)</span> and apply <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.27</span></a> to obtain:</p>
 <div id="def-union-of-2-sets" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.26 (Union of 2 sets)</strong></span> <span class="math display">\[\begin{split}
+<p><span class="theorem-title"><strong>Definition 1.28 (Union of 2 sets)</strong></span> <span class="math display">\[\begin{split}
    \bigcup \{ A, B \} &amp; = \{ x \in C \mid C = A \lor C = B \} \\
    &amp; = A \cup B
   \end{split}\]</span></p>
@@ -4019,7 +4178,7 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 </div>
 <p>Also let <span class="math inline">\(B = \{ A \}\)</span> then <span class="math inline">\(\bigcup B = \{ x \in A \mid A \in B \} = A\)</span>. What about <span class="math inline">\(\bigcup \emptyset\)</span>? Well, <span class="math inline">\(\bigcup \emptyset = \{ x \in A \mid A \in \emptyset \}\)</span>. But there is no <span class="math inline">\(A \in \emptyset\)</span> so there is not <span class="math inline">\(x \in \bigcup \emptyset\)</span>. Therefore <span class="math inline">\(\bigcup \emptyset = \emptyset\)</span>.</p>
 <div id="exr-unions" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.23</strong></span> Prove the following assertions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.26</strong></span> Prove the following assertions:</p>
 <ol type="1">
 <li><p><span class="math inline">\(A \cup \emptyset = A\)</span></p></li>
 <li><p><span class="math inline">\(A \cup A = A\)</span></p></li>
@@ -4030,7 +4189,7 @@ B \subset A &amp; \iff (C \subseteq A \land A \not \subseteq C) \\
 </ol>
 </div>
 <div id="sol-unions" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.23</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.26</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
   x \in A \cup \emptyset &amp; \iff x \in A \lor x \in \emptyset \\
@@ -4076,12 +4235,12 @@ x \in A \cup B &amp; \Longrightarrow x \in A \lor x \in B \\
 </ul></li>
 </ol>
 </div>
-<p>What about intersections? By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.20</span></a> we can define the intersection of 2 sets with <span class="math inline">\(P(x) = x \in B\)</span> as:</p>
+<p>What about intersections? By <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.22</span></a> we can define the intersection of 2 sets with <span class="math inline">\(P(x) = x \in B\)</span> as:</p>
 <div id="def-intersection-of-2-sets" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.27 (Intersection of 2 sets)</strong></span> <span class="math display">\[A \cap B = \{ x \in A \mid x \in B \}\]</span> <strong>Note</strong>: If <span class="math inline">\(x \in A \cap B\)</span> then <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x \in B\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.29 (Intersection of 2 sets)</strong></span> <span class="math display">\[A \cap B = \{ x \in A \mid x \in B \}\]</span> <strong>Note</strong>: If <span class="math inline">\(x \in A \cap B\)</span> then <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x \in B\)</span>.</p>
 </div>
 <div id="exr-intersections" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.24</strong></span> Prove the following assertions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.27</strong></span> Prove the following assertions:</p>
 <ol type="1">
 <li><p><span class="math inline">\(A \cap \emptyset = \emptyset\)</span></p></li>
 <li><p><span class="math inline">\(A \cap A = A\)</span></p></li>
@@ -4092,7 +4251,7 @@ x \in A \cup B &amp; \Longrightarrow x \in A \lor x \in B \\
 </ol>
 </div>
 <div id="sol-intersections" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.24</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.27</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(A \cap \emptyset = \{ x \in A \mid x \in \emptyset \}\)</span> but there is no <span class="math inline">\(x \in \emptyset\)</span> so there is no <span class="math inline">\(x \in A \cap \emptyset\)</span>. Therefore <span class="math inline">\(A \cap \emptyset = \emptyset\)</span>.</p></li>
 <li><p><span class="math inline">\(\begin{aligned}
@@ -4137,7 +4296,7 @@ x \in A \cap B &amp; \Longrightarrow x \in A \land x \in B \\
 </div>
 <p>Pairs of sets with an empty intersection occur frequently enough to justify the use of a special word. If <span class="math inline">\(A \cap B = \emptyset\)</span>, the sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are called <em>disjoint</em>. Also if in a collection of sets any two distinct sets of the collection are disjoint we may speak in such a situation of a <em>pairwise disjoint</em> collection <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span>.</p>
 <div id="def-pairwaise-disjoint-collection" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.28 (Pairwaise disjoint collection)</strong></span> Let <span class="math inline">\(B = \{ A_i \in A \mid A_i \}\)</span> then <span class="math inline">\(B\)</span> is a <em>pairwise disjoint</em> collection if <span class="math inline">\(i \neq j\)</span> then <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.30 (Pairwaise disjoint collection)</strong></span> Let <span class="math inline">\(B = \{ A_i \in A \mid A_i \}\)</span> then <span class="math inline">\(B\)</span> is a <em>pairwise disjoint</em> collection if <span class="math inline">\(i \neq j\)</span> then <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>.</p>
 </div>
 <p>We can define <span class="math inline">\(\bigcap B = \{ x \in A_i \mid \forall A_i \in B \}\)</span>. Once we define <span class="math inline">\(\bigcap B\)</span> we can have that <span class="math inline">\(\bigcap B = \emptyset\)</span> but <span class="math inline">\(B\)</span> is not necessary a <em>pairwise disjoint</em> collection. For example let <span class="math inline">\(B = \{ \{ a, b \}, \{ b, c \}, \{ a, c \} \}\)</span> where we have that:</p>
 <ul>
@@ -4147,9 +4306,9 @@ x \in A \cap B &amp; \Longrightarrow x \in A \land x \in B \\
 <li><span class="math inline">\(\{ a, b \} \cap \{ b, c \} \cap \{ a, c \} = \emptyset\)</span></li>
 </ul>
 <p>Therefore if <span class="math inline">\(B\)</span> is a <em>pairwise disjoint</em> collection of sets it is <em>disjoint</em> but if <span class="math inline">\(B\)</span> is a <em>disjoint</em> collection of sets it is not necessary true that is a <em>pairwise disjoint</em> collection.</p>
-<p>Also there are two useful facts about unions and intersections known as <em>distributive laws</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span> that can be prove using <a href="#exr-distributive-laws" class="quarto-xref">Exercise&nbsp;<span>1.11</span></a> (See <a href="#exr-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.25</span></a>).</p>
+<p>Also there are two useful facts about unions and intersections known as <em>distributive laws</em> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 15</a>)</span> that can be prove using <a href="#exr-distributive-laws" class="quarto-xref">Exercise&nbsp;<span>1.11</span></a> (See <a href="#exr-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.28</span></a>).</p>
 <div id="exr-unions-intersections" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.25</strong></span> Prove the following assertions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.28</strong></span> Prove the following assertions:</p>
 <ol type="1">
 <li><p><span class="math inline">\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)</span></p></li>
 <li><p><span class="math inline">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</span></p></li>
@@ -4159,7 +4318,7 @@ x \in A \cap B &amp; \Longrightarrow x \in A \land x \in B \\
 </ol>
 </div>
 <div id="sol-unions-intersections" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.25</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.28</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
   x \in A \cup (B \cap C) &amp; \iff x \in A \lor x \in (B \land C) \\
@@ -4234,7 +4393,7 @@ x \in A \cap B &amp; \iff x \in A \cap A \\
 <h3 data-number="1.3.5" class="anchored" data-anchor-id="axiom-of-power-set"><span class="header-section-number">1.3.5</span> Axiom of power set</h3>
 <p>Recall that <span class="math inline">\(B \subseteq A\)</span> means that <span class="math inline">\(B\)</span> is a subset of <span class="math inline">\(A\)</span>. That is, every element in <span class="math inline">\(B\)</span> is also an element of <span class="math inline">\(A\)</span>. Given any set <span class="math inline">\(A\)</span> , the axiom of power set ensures that one can form a set that consists of every subset of <span class="math inline">\(A\)</span> <span class="citation" data-cites="cunningham_set_2016">(<a href="references.html#ref-cunningham_set_2016" role="doc-biblioref">Cunningham 2016, 34</a>)</span>.</p>
 <div id="def-axiom-of-power-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.29 (Axiom of power set)</strong></span> For any <span class="math inline">\(A\)</span> there exists a set <span class="math inline">\(\mathscr{P}(A)\)</span>, the set of all subsets of <span class="math inline">\(A\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.31 (Axiom of power set)</strong></span> For any <span class="math inline">\(A\)</span> there exists a set <span class="math inline">\(\mathscr{P}(A)\)</span>, the set of all subsets of <span class="math inline">\(A\)</span>.</p>
 </div>
 <p>In that sense <span class="math inline">\(\mathscr{P}(A) = \{ x \in C \mid x \subseteq A \}\)</span>. For example we have:</p>
 <ul>
@@ -4251,7 +4410,7 @@ x \in A \cap B &amp; \iff x \in A \cap A \\
 \end{aligned}\)</span></li>
 </ul>
 <div id="exr-power-set" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.26</strong></span> Prove the following assertions or answer the following questions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.29</strong></span> Prove the following assertions or answer the following questions:</p>
 <ol type="1">
 <li><p><span class="math inline">\(B \subseteq A\)</span> if and only if <span class="math inline">\(\mathscr{P}(B) \subseteq \mathscr{P}(A)\)</span></p></li>
 <li><p><span class="math inline">\(\mathscr{P}(B) \cap \mathscr{P}(A) = \mathscr{P}(B \cap A)\)</span></p></li>
@@ -4262,7 +4421,7 @@ x \in A \cap B &amp; \iff x \in A \cap A \\
 </ol>
 </div>
 <div id="sol-power-set" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.26</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.29</em>. </span></p>
 <ol type="1">
 <li><p>We deduce this assertion in 2 parts:</p>
 <ul>
@@ -4329,12 +4488,12 @@ Figure&nbsp;1.2: Listing the elements of <span class="math inline">\(\mathscr{P}
 </figcaption>
 </figure>
 </div>
-<p>Using <a href="#def-axiom-of-power-set" class="quarto-xref">Definition&nbsp;<span>1.29</span></a> we can define the following set know as the <em>product</em> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> where it is the set of all pairs <span class="math inline">\((x, y)\)</span> such that <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span>:</p>
+<p>Using <a href="#def-axiom-of-power-set" class="quarto-xref">Definition&nbsp;<span>1.31</span></a> we can define the following set know as the <em>product</em> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> where it is the set of all pairs <span class="math inline">\((x, y)\)</span> such that <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span>:</p>
 <div id="def-product-of-2-sets" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.30 (Product of 2 sets)</strong></span> <span class="math display">\[A \times B = \{(x,y) \in S \mid x \in A \land y \in B \}\]</span> <strong>Note</strong>: The product <span class="math inline">\(A \times B\)</span> can be defined because <span class="math inline">\((x,y) \in S \subseteq \mathscr{P}(\mathscr{P}(A \cup B))\)</span>. For example if <span class="math inline">\(A = \{ a \}\)</span> and <span class="math inline">\(B = \{ b \}\)</span> then <span class="math inline">\(\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} = \{ (a, b), (b, a) \} \subseteq \mathscr{P}(\mathscr{P}(A \cup B))\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.32 (Product of 2 sets)</strong></span> <span class="math display">\[A \times B = \{(x,y) \in S \mid x \in A \land y \in B \}\]</span> <strong>Note</strong>: The product <span class="math inline">\(A \times B\)</span> can be defined because <span class="math inline">\((x,y) \in S \subseteq \mathscr{P}(\mathscr{P}(A \cup B))\)</span>. For example if <span class="math inline">\(A = \{ a \}\)</span> and <span class="math inline">\(B = \{ b \}\)</span> then <span class="math inline">\(\{ \{ \{ a \}, \{ a, b \} \},  \{ \{ b \}, \{ b, a \} \} \} = \{ (a, b), (b, a) \} \subseteq \mathscr{P}(\mathscr{P}(A \cup B))\)</span>.</p>
 </div>
 <div id="def-product-of-n-sets" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.31 (Product of <span class="math inline">\(n\)</span>-sets)</strong></span> We can use <a href="#def-product-of-2-sets" class="quarto-xref">Definition&nbsp;<span>1.30</span></a> to define recursively the product of <span class="math inline">\(n\)</span>-sets <span class="math inline">\(n \geq 3\)</span> as:</p>
+<p><span class="theorem-title"><strong>Definition 1.33 (Product of <span class="math inline">\(n\)</span>-sets)</strong></span> We can use <a href="#def-product-of-2-sets" class="quarto-xref">Definition&nbsp;<span>1.32</span></a> to define recursively the product of <span class="math inline">\(n\)</span>-sets <span class="math inline">\(n \geq 3\)</span> as:</p>
 <p><span class="math display">\[\begin{split}
 (A_1, A_2, A_3) &amp; = (A_1 \times A_2) \times A_3 \\
 (A_1, A_2, A_3, A_4) &amp; = (A_1, A_2, A_3) \times A_4 \\
@@ -4346,7 +4505,7 @@ Figure&nbsp;1.2: Listing the elements of <span class="math inline">\(\mathscr{P}
 <p><strong>Note</strong>: We use the following notation <span class="math inline">\(X^n = \underset{n \text{ times}}{\underbrace{X \times \ldots \times X}}\)</span> when <span class="math inline">\(A_i = X\)</span> for <span class="math inline">\(i = 1, \ldots n\)</span></p>
 </div>
 <div id="exr-product-of-sets" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.27</strong></span> Prove the following assertions or answer the following questions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.30</strong></span> Prove the following assertions or answer the following questions:</p>
 <ol type="1">
 <li><p>Let <span class="math inline">\(A = \{ a \}\)</span> and <span class="math inline">\(B = \{ c, d \}\)</span>. Find <span class="math inline">\(A \times B\)</span> and <span class="math inline">\(B \times A\)</span></p></li>
 <li><p>Let <span class="math inline">\(A = \{ a, b \}\)</span> and <span class="math inline">\(B = \{ c, d \}\)</span>. Find <span class="math inline">\(A \times B\)</span></p></li>
@@ -4357,7 +4516,7 @@ Figure&nbsp;1.2: Listing the elements of <span class="math inline">\(\mathscr{P}
 </ol>
 </div>
 <div id="sol-product-of-sets" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.27</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.30</em>. </span></p>
 <ol type="1">
 <li><p>First we calculate <span class="math inline">\(A \times B\)</span> and then <span class="math inline">\(B \times A\)</span></p>
 <ul>
@@ -4376,11 +4535,11 @@ Figure&nbsp;1.2: Listing the elements of <span class="math inline">\(\mathscr{P}
 <ul>
 <li><p>Assume <span class="math inline">\(A = \emptyset \lor B = \emptyset \lor A = B\)</span></p>
 <ul>
-<li>If <span class="math inline">\(A = \emptyset \lor B = \emptyset\)</span> by <a href="#exr-product-of-sets" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> exercise 4 <span class="math inline">\(A \times B = \emptyset = B \times A\)</span>. Also if <span class="math inline">\(A = B\)</span> then <span class="math inline">\(A \times B = A \times A = B \times A\)</span>.</li>
+<li>If <span class="math inline">\(A = \emptyset \lor B = \emptyset\)</span> by <a href="#exr-product-of-sets" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> exercise 4 <span class="math inline">\(A \times B = \emptyset = B \times A\)</span>. Also if <span class="math inline">\(A = B\)</span> then <span class="math inline">\(A \times B = A \times A = B \times A\)</span>.</li>
 </ul></li>
 <li><p>Assume <span class="math inline">\(A \times B = B \times A\)</span></p>
 <ul>
-<li><p>One possibility is cover by <a href="#exr-product-of-sets" class="quarto-xref">Exercise&nbsp;<span>1.27</span></a> exercise 4 where <span class="math inline">\(A \times B = B \times A = \emptyset\)</span> so <span class="math inline">\(A = \emptyset \lor B = \emptyset\)</span></p></li>
+<li><p>One possibility is cover by <a href="#exr-product-of-sets" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> exercise 4 where <span class="math inline">\(A \times B = B \times A = \emptyset\)</span> so <span class="math inline">\(A = \emptyset \lor B = \emptyset\)</span></p></li>
 <li><p>If <span class="math inline">\(A \times B = B \times A \neq \emptyset\)</span> then <span class="math inline">\((x, y) \in A \times B\)</span> where <span class="math inline">\(x \in A\)</span> if and only if $(x, y) <span class="math inline">\(B \times A\)</span> where <span class="math inline">\(x \in B\)</span>. Therefore <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B \subseteq A\)</span> so <span class="math inline">\(A = B\)</span>.</p>
 <ul>
 <li>Therefore <span class="math inline">\(A = \emptyset \lor B = \emptyset \lor A = B\)</span></li>
@@ -4396,17 +4555,17 @@ Figure&nbsp;1.2: Listing the elements of <span class="math inline">\(\mathscr{P}
 </section>
 <section id="difference-and-complement" class="level3" data-number="1.3.6">
 <h3 data-number="1.3.6" class="anchored" data-anchor-id="difference-and-complement"><span class="header-section-number">1.3.6</span> Difference and complement</h3>
-<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.20</span></a> we can define the difference between 2 sets as:</p>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets using <a href="#def-axiom-schema-of-specification" class="quarto-xref">Definition&nbsp;<span>1.22</span></a> we can define the difference between 2 sets as:</p>
 <div id="def-difference-of-2-sets" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.32 (Difference of 2 sets)</strong></span> <span class="math display">\[A - B = \{ x \in A \mid x \not \in B \}\]</span></p>
+<p><span class="theorem-title"><strong>Definition 1.34 (Difference of 2 sets)</strong></span> <span class="math display">\[A - B = \{ x \in A \mid x \not \in B \}\]</span></p>
 <p><strong>Note</strong>: In this definition it is not necessary to assume <span class="math inline">\(B \subseteq A\)</span> <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 17</a>)</span>.</p>
 </div>
 <p>Also if <span class="math inline">\(A \subseteq U\)</span> and <span class="math inline">\(U \neq \emptyset\)</span> we can define the complement of <span class="math inline">\(A\)</span> relative to <span class="math inline">\(U\)</span> as:</p>
 <div id="def-complement-of-a-set-relative-to-u" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.33 (Complement of a set relative to <span class="math inline">\(U\)</span>)</strong></span> <span class="math display">\[A^{'} = \{ x \in U \mid x \not \in A \}\]</span> <strong>Note</strong>: Remember that <span class="math inline">\(A \subseteq U\)</span> and <span class="math inline">\(U \neq \emptyset\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.35 (Complement of a set relative to <span class="math inline">\(U\)</span>)</strong></span> <span class="math display">\[A^{'} = \{ x \in U \mid x \not \in A \}\]</span> <strong>Note</strong>: Remember that <span class="math inline">\(A \subseteq U\)</span> and <span class="math inline">\(U \neq \emptyset\)</span>.</p>
 </div>
 <div id="exr-complement" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.28</strong></span> Prove the following assertions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.31</strong></span> Prove the following assertions:</p>
 <ol type="1">
 <li><p><span class="math inline">\((A^{'})^{'} = A\)</span></p></li>
 <li><p><span class="math inline">\(\emptyset^{'} = U\)</span></p></li>
@@ -4420,7 +4579,7 @@ Figure&nbsp;1.2: Listing the elements of <span class="math inline">\(\mathscr{P}
 </ol>
 </div>
 <div id="sol-complement" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.28</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.31</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
 x \in (A^{'})^{'} &amp; \iff x \not \in A^{'} \\
@@ -4460,7 +4619,7 @@ x \in (A \cup B)^{'} &amp; \iff x \not \in A \cup B \\
 </ol>
 </div>
 <div id="exr-difference" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.29</strong></span> Prove the following assertions:</p>
+<p><span class="theorem-title"><strong>Exercise 1.32</strong></span> Prove the following assertions:</p>
 <ol type="1">
 <li><p><span class="math inline">\(A - B = A \cap B^{'}\)</span></p></li>
 <li><p><span class="math inline">\(A - (A - B) = A \cap B\)</span></p></li>
@@ -4471,7 +4630,7 @@ x \in (A \cup B)^{'} &amp; \iff x \not \in A \cup B \\
 </ol>
 </div>
 <div id="sol-difference" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.29</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.32</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
 x \in A - B &amp; \iff x \in A \land x \not \in B \\
@@ -4537,7 +4696,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </section>
 <section id="arbitrary-unions-and-intersections" class="level3" data-number="1.3.7">
 <h3 data-number="1.3.7" class="anchored" data-anchor-id="arbitrary-unions-and-intersections"><span class="header-section-number">1.3.7</span> Arbitrary unions and intersections</h3>
-<p>By <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.25</span></a> <span class="math inline">\(\bigcup \mathscr{F} = \{ x \in A \mid \exists A (A \in \mathscr{F}) \}\)</span>. Then we can use the following alternative notation <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> for <span class="math inline">\(\bigcup \mathscr{F}\)</span>.</p>
+<p>By <a href="#def-axiom-of-union" class="quarto-xref">Definition&nbsp;<span>1.27</span></a> <span class="math inline">\(\bigcup \mathscr{F} = \{ x \in A \mid \exists A (A \in \mathscr{F}) \}\)</span>. Then we can use the following alternative notation <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> for <span class="math inline">\(\bigcup \mathscr{F}\)</span>.</p>
 <p>Also we can define <span class="math inline">\(\bigcup \mathscr{F}\)</span> as <span class="math inline">\(\bigcap \mathscr{F} = \{ x \in A \mid \forall A (A \in \mathscr{F}) \}\)</span> and use in a similar way the alternative notation <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A\)</span> for <span class="math inline">\(\bigcap \mathscr{F}\)</span>. For example if <span class="math inline">\(\mathscr{F} = \{ A, B, C \}\)</span> then <span class="math inline">\(\bigcup \mathscr{F} = \{ x \in A \mid x \in B \land x \in C \}\)</span>.</p>
 <p>Therefore we have that:</p>
 <ul>
@@ -4545,7 +4704,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <li><p><span class="math inline">\(x \in \bigcap_{A \in \mathscr{F}} A\)</span> if and only if <span class="math inline">\(\forall A (A \in \mathscr{F} \land x \in A)\)</span></p></li>
 </ul>
 <div id="exr-arbitrary-unions-intersections" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.30</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.33</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>If <span class="math inline">\(B \in \mathscr{F}\)</span> then <span class="math inline">\(B \subseteq \bigcup_{A \in \mathscr{F}} A\)</span></p></li>
 <li><p>If <span class="math inline">\(B \in \mathscr{F}\)</span> then <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A \subseteq B\)</span></p></li>
@@ -4558,7 +4717,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </ol>
 </div>
 <div id="sol-arbitrary-unions-intersections" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.30</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.33</em>. </span></p>
 <ol type="1">
 <li><p>Let <span class="math inline">\(x \in B\)</span> and <span class="math inline">\(B \in \mathscr{F}\)</span> then <span class="math inline">\(\exists B (B \in \mathscr{F} \land x \in B)\)</span>. Therefore <span class="math inline">\(x \in \bigcup_{A \in \mathscr{F}} A\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(x \in \bigcup_{A \in \mathscr{F}} A\)</span> and <span class="math inline">\(B \in \mathscr{F}\)</span>. Then <span class="math inline">\(\forall A (A \in \mathscr{F} \land x \in A)\)</span> so it must be the case that <span class="math inline">\(x \in B\)</span>.</p></li>
@@ -4568,16 +4727,16 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <li><p>If <span class="math inline">\(A \in \mathscr{F}\)</span> then <span class="math inline">\(A \subseteq \mathbb{Z} \land (1 \in A \lor 2 \in A)\)</span></p>
 <ul>
 <li><p>If we want to calculate <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A\)</span> then <span class="math inline">\(\{ 1 \} \in \mathscr{F}\)</span> and <span class="math inline">\(\{ 2 \} \in \mathscr{F}\)</span> but <span class="math inline">\(1 \not \in \{ 2 \}\)</span>. So there is some <span class="math inline">\(A \in \mathscr{F}\)</span> such that <span class="math inline">\(x \not \in A\)</span>. Therefore <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A = \emptyset\)</span></p></li>
-<li><p>If we want to calculate <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> we have that <span class="math inline">\(\forall B (B \in \mathscr{F} \land B \subseteq \mathbb{Z})\)</span>. Therefore by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> 5 <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A \subseteq \mathbb{Z}\)</span>. Also we have that <span class="math inline">\(\mathbb{Z} \in \mathscr{F}\)</span> so by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> 1 <span class="math inline">\(\mathbb{Z} \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Therefore <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A = \mathbb{Z}\)</span>.</p></li>
+<li><p>If we want to calculate <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> we have that <span class="math inline">\(\forall B (B \in \mathscr{F} \land B \subseteq \mathbb{Z})\)</span>. Therefore by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 5 <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A \subseteq \mathbb{Z}\)</span>. Also we have that <span class="math inline">\(\mathbb{Z} \in \mathscr{F}\)</span> so by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 1 <span class="math inline">\(\mathbb{Z} \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Therefore <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A = \mathbb{Z}\)</span>.</p></li>
 </ul></li>
 <li><p>If <span class="math inline">\(A \in \mathscr{F}\)</span> then <span class="math inline">\(A \subseteq \mathbb{Z} \land A \neq \emptyset \land A\)</span> is infinite. Therefore:</p>
 <ul>
 <li><p>If we want to calculate <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A\)</span> then <span class="math inline">\(\{ 1 \} \in \mathscr{F}\)</span> and <span class="math inline">\(\{ 2 \} \in \mathscr{F}\)</span> but <span class="math inline">\(1 \not \in \{ 2 \}\)</span>. So there is some <span class="math inline">\(A \in \mathscr{F}\)</span> such that <span class="math inline">\(x \not \in A\)</span>. Therefore <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A = \emptyset\)</span></p></li>
-<li><p>If we want to calculate <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> we have that <span class="math inline">\(\forall B (B \in \mathscr{F} \land B \subseteq \mathbb{Z})\)</span>. Therefore by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> 5 <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A \subseteq \mathbb{Z}\)</span>. Also we have that <span class="math inline">\(\mathbb{Z} \in \mathscr{F}\)</span> so by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> 1 <span class="math inline">\(\mathbb{Z} \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Therefore <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A = \mathbb{Z}\)</span>.</p></li>
+<li><p>If we want to calculate <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> we have that <span class="math inline">\(\forall B (B \in \mathscr{F} \land B \subseteq \mathbb{Z})\)</span>. Therefore by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 5 <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A \subseteq \mathbb{Z}\)</span>. Also we have that <span class="math inline">\(\mathbb{Z} \in \mathscr{F}\)</span> so by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 1 <span class="math inline">\(\mathbb{Z} \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Therefore <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A = \mathbb{Z}\)</span>.</p></li>
 </ul></li>
 <li><p>If <span class="math inline">\(A \in \mathscr{F}\)</span> then <span class="math inline">\(A \neq \emptyset \land A \subseteq W \land A\)</span> is finite.</p>
 <ul>
-<li><p>If we want to calculate <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> we have that if <span class="math inline">\(x \in W\)</span> then <span class="math inline">\(\{ x \} \in \mathscr{F}\)</span>. Then by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.30</span></a> 5 <span class="math inline">\(\{ x \} \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Therefore <span class="math inline">\(x \in \bigcup_{A \in \mathscr{F}} A\)</span> and <span class="math inline">\(W \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Also if <span class="math inline">\(y \in \bigcup_{A \in \mathscr{F}} A\)</span> then <span class="math inline">\(\exists A (A \in \mathscr{F} \land x \in A)\)</span>. So <span class="math inline">\(y \in W\)</span> because <span class="math inline">\(A \subseteq W\)</span>. Therefore <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A = W\)</span>.</p></li>
+<li><p>If we want to calculate <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A\)</span> we have that if <span class="math inline">\(x \in W\)</span> then <span class="math inline">\(\{ x \} \in \mathscr{F}\)</span>. Then by <a href="#exr-arbitrary-unions-intersections" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 5 <span class="math inline">\(\{ x \} \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Therefore <span class="math inline">\(x \in \bigcup_{A \in \mathscr{F}} A\)</span> and <span class="math inline">\(W \subseteq \bigcup_{A \in \mathscr{F}} A\)</span>. Also if <span class="math inline">\(y \in \bigcup_{A \in \mathscr{F}} A\)</span> then <span class="math inline">\(\exists A (A \in \mathscr{F} \land x \in A)\)</span>. So <span class="math inline">\(y \in W\)</span> because <span class="math inline">\(A \subseteq W\)</span>. Therefore <span class="math inline">\(\bigcup_{A \in \mathscr{F}} A = W\)</span>.</p></li>
 <li><p>If we want to calculate <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A\)</span> we have to cases:</p>
 <ul>
 <li><p><span class="math inline">\(W = \{ x \}\)</span> so <span class="math inline">\(\bigcap_{A \in \mathscr{F}} A = W\)</span></p></li>
@@ -4589,13 +4748,13 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </section>
 <section id="relations" class="level3" data-number="1.3.8">
 <h3 data-number="1.3.8" class="anchored" data-anchor-id="relations"><span class="header-section-number">1.3.8</span> Relations</h3>
-<p>In general a relation is a subset of <span class="math inline">\(A_1 \times \ldots \times A_n\)</span> as it is pointed out in <a href="#def-n-ary-relation" class="quarto-xref">Definition&nbsp;<span>1.34</span></a></p>
+<p>In general a relation is a subset of <span class="math inline">\(A_1 \times \ldots \times A_n\)</span> as it is pointed out in <a href="#def-n-ary-relation" class="quarto-xref">Definition&nbsp;<span>1.36</span></a></p>
 <div id="def-n-ary-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.34 (<span class="math inline">\(n\)</span>-ary relation)</strong></span> A <span class="math inline">\(n\)</span>-ary relation <span class="math inline">\(R\)</span> on sets <span class="math inline">\(A_1, \ldots, A_n\)</span> is a subset of <span class="math inline">\(A_1 \times \ldots \times A_n\)</span>. That is <span class="math inline">\(R \subseteq A_1 \times \ldots \times A_n\)</span></p>
+<p><span class="theorem-title"><strong>Definition 1.36 (<span class="math inline">\(n\)</span>-ary relation)</strong></span> A <span class="math inline">\(n\)</span>-ary relation <span class="math inline">\(R\)</span> on sets <span class="math inline">\(A_1, \ldots, A_n\)</span> is a subset of <span class="math inline">\(A_1 \times \ldots \times A_n\)</span>. That is <span class="math inline">\(R \subseteq A_1 \times \ldots \times A_n\)</span></p>
 </div>
-<p>However we are usually going to work with binary relations as it is defined in <a href="#def-binary-relation" class="quarto-xref">Definition&nbsp;<span>1.35</span></a></p>
+<p>However we are usually going to work with binary relations as it is defined in <a href="#def-binary-relation" class="quarto-xref">Definition&nbsp;<span>1.37</span></a></p>
 <div id="def-binary-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.35 (Binary relation)</strong></span> A binary relation <span class="math inline">\(R\)</span> on sets <span class="math inline">\(A_1, A_2\)</span> is a subset of <span class="math inline">\(A_1 \times A_2\)</span>. That is <span class="math inline">\(R \subseteq A_1 \times A_2\)</span></p>
+<p><span class="theorem-title"><strong>Definition 1.37 (Binary relation)</strong></span> A binary relation <span class="math inline">\(R\)</span> on sets <span class="math inline">\(A_1, A_2\)</span> is a subset of <span class="math inline">\(A_1 \times A_2\)</span>. That is <span class="math inline">\(R \subseteq A_1 \times A_2\)</span></p>
 </div>
 <p>These are examples of binary relations:</p>
 <ol type="1">
@@ -4606,11 +4765,11 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <li><p>Let <span class="math inline">\(&lt;\)</span> be the set of all ordered pairs <span class="math inline">\((b, c)\)</span> such that <span class="math inline">\(b\)</span> is less than <span class="math inline">\(c\)</span>. <span class="math inline">\(&lt;\)</span> is usually refereed as the less than relation.</p></li>
 </ol>
 <div id="def-domain-binary-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.36 (Domain of binary relation)</strong></span> If <span class="math inline">\(R\)</span> is a binary relation. The domain of <span class="math inline">\(R\)</span> is the set <span class="math inline">\(\mathscr{D}(R)\)</span> of all objects <span class="math inline">\(x\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(y\)</span>. Thus:</p>
+<p><span class="theorem-title"><strong>Definition 1.38 (Domain of binary relation)</strong></span> If <span class="math inline">\(R\)</span> is a binary relation. The domain of <span class="math inline">\(R\)</span> is the set <span class="math inline">\(\mathscr{D}(R)\)</span> of all objects <span class="math inline">\(x\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(y\)</span>. Thus:</p>
 <p><span class="math display">\[\mathscr{D}(R) = \{ x \in A \mid \exists y ((x, y) \in R) \}\]</span></p>
 </div>
 <div id="def-range-binary-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.37 (Range of binary relation)</strong></span> If <span class="math inline">\(R\)</span> is a binary relation. The range of <span class="math inline">\(R\)</span> is the set <span class="math inline">\(\mathscr{R}(R)\)</span> of all objects <span class="math inline">\(y\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(x\)</span>. Thus:</p>
+<p><span class="theorem-title"><strong>Definition 1.39 (Range of binary relation)</strong></span> If <span class="math inline">\(R\)</span> is a binary relation. The range of <span class="math inline">\(R\)</span> is the set <span class="math inline">\(\mathscr{R}(R)\)</span> of all objects <span class="math inline">\(y\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(x\)</span>. Thus:</p>
 <p><span class="math display">\[\mathscr{R}(R) = \{ y \in A \mid \exists x ((x, y) \in R) \}\]</span></p>
 </div>
 <div id="exm-domain-range-binary-relation" class="theorem example">
@@ -4621,7 +4780,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </ol>
 </div>
 <div id="exr-relations" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.31</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.34</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Let <span class="math inline">\(\mathbb{R}\)</span> be the set of all real numbers. Determine the domain and range of the following relations:</p>
 <ol type="a">
@@ -4634,7 +4793,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </ol>
 </div>
 <div id="sol-relations" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.31</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.34</em>. </span></p>
 <ol type="1">
 <li><p>For each case we calculate <span class="math inline">\(\mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R)\)</span> in the following way:</p>
 <ol type="a">
@@ -4656,7 +4815,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 <section id="inverse-and-composition-of-relations" class="level4" data-number="1.3.8.1">
 <h4 data-number="1.3.8.1" class="anchored" data-anchor-id="inverse-and-composition-of-relations"><span class="header-section-number">1.3.8.1</span> Inverse and composition of relations</h4>
 <div id="def-inverse-of-a-binary-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.38 (Inverse of a binary relation)</strong></span> Let <span class="math inline">\(R\)</span> by a binary relation. By the inverse of <span class="math inline">\(R\)</span>, <span class="math inline">\(R^{-1}\)</span>, we mean the set of all ordered pairs <span class="math inline">\((x, y)\)</span> for which <span class="math inline">\((y, x) \in R\)</span>. Thus:</p>
+<p><span class="theorem-title"><strong>Definition 1.40 (Inverse of a binary relation)</strong></span> Let <span class="math inline">\(R\)</span> by a binary relation. By the inverse of <span class="math inline">\(R\)</span>, <span class="math inline">\(R^{-1}\)</span>, we mean the set of all ordered pairs <span class="math inline">\((x, y)\)</span> for which <span class="math inline">\((y, x) \in R\)</span>. Thus:</p>
 <p><span class="math display">\[R^{-1} = \{ (x, y) \mid (y, x) \in R \}\]</span></p>
 </div>
 <div id="exm-inverse-of-a-binary-relation" class="theorem example">
@@ -4694,7 +4853,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </div>
 <p>From now on we introduce a traditional notation for binary relations. If <span class="math inline">\(R\)</span> is a binary relation then <span class="math inline">\(xRy\)</span> stands for <span class="math inline">\((x, y) \in R\)</span>. For example one usually writes <span class="math inline">\(x &lt; y\)</span> instead of <span class="math inline">\((x, y) \in &lt;\)</span>.</p>
 <div id="def-composition-of-binary-relations" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.39</strong></span> Consider any binary relations <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>. Then we can define a new relation, <span class="math inline">\(S \circ R\)</span>, called the composition of <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 1.41</strong></span> Consider any binary relations <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>. Then we can define a new relation, <span class="math inline">\(S \circ R\)</span>, called the composition of <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>:</p>
 <p><span class="math display">\[S \circ R = \{ (x, y) \mid \exists z (xRz \land zSy) \}\]</span></p>
 <p>Thus, <span class="math inline">\(x(S \circ R)y\)</span> means that there is and intermediate object <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz\)</span> and <span class="math inline">\(zSy\)</span>.</p>
 <p><strong>Note</strong>: Take into account that <span class="math inline">\(R\)</span> is applied before <span class="math inline">\(S\)</span></p>
@@ -4724,7 +4883,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </ol>
 </div>
 <div id="exr-inverse-composition-relations" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.32</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.35</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>As in <a href="#exm-composition-of-binary-relations" class="quarto-xref">Example&nbsp;<span>1.10</span></a> 1 let <span class="math inline">\(A\)</span> be the set of people. Also let <span class="math inline">\(F\)</span>, <span class="math inline">\(M\)</span>, <span class="math inline">\(P\)</span> be the fatherhood, motherhood, parenthood relations respectively. In addition let <span class="math inline">\(B\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> be the brother, sister, husband, wife relations:</p>
 <ol type="a">
@@ -4783,7 +4942,7 @@ x \in (A \cup C) \cap (B \cup C^{'}) &amp; \iff x \in ((A \cup C) \cap B) \cup (
 </ol>
 </div>
 <div id="sol-inverse-composition-relations" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.32</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.35</em>. </span></p>
 <ol type="1">
 <li><p>Taking into account <a href="#exm-composition-of-binary-relations" class="quarto-xref">Example&nbsp;<span>1.10</span></a> 1 and exr-inverse-composition-relations 1:</p>
 <ol type="a">
@@ -4918,18 +5077,18 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <li><p><span class="math inline">\(\mathscr{D}(S) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(S) = \{ y \in \mathbb{R} \mid y \geq 0 \}\)</span></p></li>
 <li><p><span class="math inline">\(\mathscr{D}(R) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(R) = \mathbb{R}\)</span></p></li>
 <li><p><span class="math inline">\(\mathscr{D}(W) = \mathbb{R}\)</span> and <span class="math inline">\(\mathscr{R}(W) = \mathbb{R}\)</span></p></li>
-<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 2 <span class="math inline">\(\mathscr{D}(S^{-1}) = \mathscr{R}(S)\)</span> and <span class="math inline">\(\mathscr{R}(S^{-1}) = \mathscr{D}(S)\)</span></p></li>
-<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span></p></li>
-<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 2 <span class="math inline">\(\mathscr{D}(W^{-1}) = \mathscr{R}(W)\)</span> and <span class="math inline">\(\mathscr{R}(W^{-1}) = \mathscr{D}(W)\)</span></p></li>
-<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ S) = \mathscr{D}(S)\)</span> and <span class="math inline">\(\mathscr{R}(S \circ S) = \mathscr{R}(S)\)</span></p></li>
-<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ W) = \mathscr{D}(W)\)</span> and <span class="math inline">\(\mathscr{R}(W \circ W) = \mathscr{R}(W)\)</span></p></li>
-<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ R) = \mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R \circ R) = \mathscr{R}(R)\)</span></p></li>
-<li><p>Because <span class="math inline">\(\mathscr{R}(W) \subseteq \mathscr{D}(S)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ W) = \mathscr{D}(W)\)</span>. Also because <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{R}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{R}(S \circ W) = \mathscr{R}(S)\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ S) = \mathscr{D}(S)\)</span>. For <span class="math inline">\(\mathscr{R}(W \circ S) = \{ y \in \mathbb{R} \mid y \leq 0 \} \subseteq \mathscr{R}(W)\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{D}(S)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ R) = \mathscr{D}(R)\)</span>. Also because <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{R}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{R}(S \circ R) = \mathscr{R}(S)\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span>. For <span class="math inline">\(\mathscr{R}(R \circ S) = \{ y \in \mathbb{R} \mid y \geq 1 \} \subseteq \mathscr{R}(R)\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(\mathscr{R}(W) \subseteq \mathscr{D}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ W) = \mathscr{D}(W)\)</span>. Also because <span class="math inline">\(\mathscr{D}(R) \subseteq \mathscr{R}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{R}(R \circ W) = \mathscr{R}(R)\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{D}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ R) = \mathscr{D}(R)\)</span>. Also because <span class="math inline">\(\mathscr{D}(W) \subseteq \mathscr{R}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{R}(W \circ R) = \mathscr{R}(W)\)</span>.</p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 2 <span class="math inline">\(\mathscr{D}(S^{-1}) = \mathscr{R}(S)\)</span> and <span class="math inline">\(\mathscr{R}(S^{-1}) = \mathscr{D}(S)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 2 <span class="math inline">\(\mathscr{D}(W^{-1}) = \mathscr{R}(W)\)</span> and <span class="math inline">\(\mathscr{R}(W^{-1}) = \mathscr{D}(W)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ S) = \mathscr{D}(S)\)</span> and <span class="math inline">\(\mathscr{R}(S \circ S) = \mathscr{R}(S)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ W) = \mathscr{D}(W)\)</span> and <span class="math inline">\(\mathscr{R}(W \circ W) = \mathscr{R}(W)\)</span></p></li>
+<li><p>By <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ R) = \mathscr{D}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R \circ R) = \mathscr{R}(R)\)</span></p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(W) \subseteq \mathscr{D}(S)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ W) = \mathscr{D}(W)\)</span>. Also because <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{R}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{R}(S \circ W) = \mathscr{R}(S)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ S) = \mathscr{D}(S)\)</span>. For <span class="math inline">\(\mathscr{R}(W \circ S) = \{ y \in \mathbb{R} \mid y \leq 0 \} \subseteq \mathscr{R}(W)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{D}(S)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(S \circ R) = \mathscr{D}(R)\)</span>. Also because <span class="math inline">\(\mathscr{D}(S) \subseteq \mathscr{R}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{R}(S \circ R) = \mathscr{R}(S)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(S) \subseteq \mathscr{D}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ S) = \mathscr{D}(S)\)</span>. For <span class="math inline">\(\mathscr{R}(R \circ S) = \{ y \in \mathbb{R} \mid y \geq 1 \} \subseteq \mathscr{R}(R)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(W) \subseteq \mathscr{D}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(R \circ W) = \mathscr{D}(W)\)</span>. Also because <span class="math inline">\(\mathscr{D}(R) \subseteq \mathscr{R}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{R}(R \circ W) = \mathscr{R}(R)\)</span>.</p></li>
+<li><p>Because <span class="math inline">\(\mathscr{R}(R) \subseteq \mathscr{D}(W)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{D}(W \circ R) = \mathscr{D}(R)\)</span>. Also because <span class="math inline">\(\mathscr{D}(W) \subseteq \mathscr{R}(R)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{R}(W \circ R) = \mathscr{R}(W)\)</span>.</p></li>
 </ol></li>
 </ol></li>
 </ol>
@@ -4939,11 +5098,11 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <h4 data-number="1.3.8.2" class="anchored" data-anchor-id="reflexivity-symmetry-and-transitivity"><span class="header-section-number">1.3.8.2</span> Reflexivity, symmetry and transitivity</h4>
 <p>A binary relation <span class="math inline">\(R\)</span> can have different properties.</p>
 <div id="def-binary-relation-reflexive" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.40 (Reflexive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is reflexive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.42 (Reflexive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is reflexive in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x (x \in A \Longrightarrow xRx)\]</span></p>
 </div>
 <div id="def-binary-relation-irreflexive" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.41 (Irreflexive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is irreflexive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.43 (Irreflexive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is irreflexive in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x (x \in A \Longrightarrow \neg(xRx))\]</span></p>
 </div>
 <div id="exm-binary-relation-reflexive-irreflexive" class="theorem example">
@@ -4963,7 +5122,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 </ol>
 </div>
 <div id="def-binary-relation-symmetric" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.42 (Symmetric binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is symmetric in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.44 (Symmetric binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is symmetric in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x \forall y ((x \in A \land y \in A\land xRy) \Longrightarrow yRx))\]</span></p>
 </div>
 <p>In <a href="#exm-binary-relation-reflexive-irreflexive" class="quarto-xref">Example&nbsp;<span>1.11</span></a> 1 <span class="math inline">\(I_{\mathbb{Z}}\)</span> is symmetric because if <span class="math inline">\(x = y\)</span> then <span class="math inline">\(y = x\)</span> but <span class="math inline">\(R\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(W\)</span> are not symmetric.</p>
@@ -4980,7 +5139,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 </ol>
 </div>
 <div id="def-binary-relation-transitive" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.43 (Transitive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is transitive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.45 (Transitive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is transitive in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x \forall y \forall z ((x \in A \land y \in A \land z \in A \land xRy \land yRz) \Longrightarrow xRz)\]</span></p>
 </div>
 <p>In <a href="#exm-binary-relation-reflexive-irreflexive" class="quarto-xref">Example&nbsp;<span>1.11</span></a> 1 <span class="math inline">\(R\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(I_{\mathbb{Z}}\)</span> are transitive in <span class="math inline">\(A\)</span> but not <span class="math inline">\(W\)</span> because if <span class="math inline">\(x^2 = y\)</span> and <span class="math inline">\(y^2 = z\)</span> then <span class="math inline">\(x^4 = z\)</span> and <span class="math inline">\(\neg(x^2 = z)\)</span> when <span class="math inline">\(x \neq 1 \lor x \neq 0\)</span>.</p>
@@ -4997,7 +5156,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 </ol>
 </div>
 <div id="exr-reflexivity-symmetry-transitivity" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.33</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.36</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Determine whether each of the following relations <span class="math inline">\(R\)</span> is reflexive, symmetric or transitive in a given set.</p>
 <ol type="a">
@@ -5046,7 +5205,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 </ol>
 </div>
 <div id="sol-reflexivity-symmetry-transitivity" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.33</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.36</em>. </span></p>
 <ol type="1">
 <li><p>We have the following results for each <span class="math inline">\(R\)</span>:</p>
 <ol type="a">
@@ -5066,7 +5225,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <ul>
 <li><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x\)</span> can not be perpendicular to itself.</li>
 <li><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x\)</span> is perpendicular to <span class="math inline">\(y\)</span> then <span class="math inline">\(y\)</span> is perpendicular to <span class="math inline">\(x\)</span>.</li>
-<li><span class="math inline">\(R\)</span> is not transitive because <a href="#def-binary-relation-transitive" class="quarto-xref">Definition&nbsp;<span>1.43</span></a> doesn’t include that <span class="math inline">\(x \neq y \neq z\)</span>. Therefore if <span class="math inline">\(R\)</span> is transitive <span class="math inline">\(x \perp y\)</span> and <span class="math inline">\(y \perp x\)</span> then <span class="math inline">\(x \perp x\)</span> but this is not true. Therefore <span class="math inline">\(R\)</span> can not be transitive.</li>
+<li><span class="math inline">\(R\)</span> is not transitive because <a href="#def-binary-relation-transitive" class="quarto-xref">Definition&nbsp;<span>1.45</span></a> doesn’t include that <span class="math inline">\(x \neq y \neq z\)</span>. Therefore if <span class="math inline">\(R\)</span> is transitive <span class="math inline">\(x \perp y\)</span> and <span class="math inline">\(y \perp x\)</span> then <span class="math inline">\(x \perp x\)</span> but this is not true. Therefore <span class="math inline">\(R\)</span> can not be transitive.</li>
 </ul></li>
 <li><p>For the relation <span class="math inline">\(x \cap y = \emptyset\)</span> in <span class="math inline">\(A\)</span> we have that:</p>
 <ul>
@@ -5099,7 +5258,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <li><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \neq y\)</span> and <span class="math inline">\(y \neq z\)</span> then <span class="math inline">\(x \neq z\)</span>.</li>
 </ul></li>
 </ol></li>
-<li><p>Using the definition of asymmetric and antisymmetric pointed out in <a href="#exr-reflexivity-symmetry-transitivity" class="quarto-xref">Exercise&nbsp;<span>1.33</span></a> 2 the following questions are answered</p>
+<li><p>Using the definition of asymmetric and antisymmetric pointed out in <a href="#exr-reflexivity-symmetry-transitivity" class="quarto-xref">Exercise&nbsp;<span>1.36</span></a> 2 the following questions are answered</p>
 <ol type="a">
 <li><p>These are the examples:</p>
 <ol type="i">
@@ -5234,19 +5393,19 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 <section id="negatively-transitivite-connected-and-total-strongly-connected-or-complete" class="level4" data-number="1.3.8.3">
 <h4 data-number="1.3.8.3" class="anchored" data-anchor-id="negatively-transitivite-connected-and-total-strongly-connected-or-complete"><span class="header-section-number">1.3.8.3</span> Negatively transitivite, connected and total, strongly connected or complete</h4>
 <div id="def-binary-relation-negatively-transitive" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.44 (Negatively transitive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is negatively transitive in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.46 (Negatively transitive binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is negatively transitive in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x \forall y \forall z ((x \in A \land y \in A \land z \in A \land \neg(xRy) \land \neg(yRz)) \Longrightarrow \neg(xRz))\]</span></p>
 </div>
 <div id="def-binary-relation-connected" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.45 (Connected binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is connected in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.47 (Connected binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is connected in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x \forall y ((x \in A \land y \in A \land x \neq y) \Longrightarrow (xRy \lor yRx))\]</span></p>
 </div>
 <div id="def-binary-relation-total-strongly-connected-or-complete" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.46 (Total, strongly connected or complete binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is total, strongly connected or complete in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.48 (Total, strongly connected or complete binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is total, strongly connected or complete in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\forall x \forall y (x \in A \land y \in A \land (xRy \lor yRx))\]</span></p>
 </div>
 <div id="exr-negatively-transitive-connected-total-strongly-connected-or-complete" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.34</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.37</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Show that if <span class="math inline">\(R\)</span> is a binary relation that is asymmetric and negatively transitive then it is transitive.</p></li>
 <li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is total, strongly connected or complete in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R \cup R^{-1} = A \times A\)</span>.</p></li>
@@ -5255,7 +5414,7 @@ x(W \circ R)y &amp; \iff \exists z (xRz \land zWy) \\
 </ol>
 </div>
 <div id="sol-negatively-transitive-connected-total-strongly-connected-or-complete" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.34</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.37</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
 xRy \land yRz &amp; \Longrightarrow \neg(zRy) \land \neg(yRx) \\
@@ -5310,18 +5469,18 @@ xRy \lor yRx &amp; \iff xRy \lor xR^{-1}y \\
 <section id="acyclic" class="level4" data-number="1.3.8.4">
 <h4 data-number="1.3.8.4" class="anchored" data-anchor-id="acyclic"><span class="header-section-number">1.3.8.4</span> Acyclic</h4>
 <div id="def-binary-relation-acyclic" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.47 (Acyclic binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is acyclic in <span class="math inline">\(A\)</span> if and only if:</p>
+<p><span class="theorem-title"><strong>Definition 1.49 (Acyclic binary relation)</strong></span> If <span class="math inline">\(A\)</span> is a set a binary relation <span class="math inline">\(R\)</span> is acyclic in <span class="math inline">\(A\)</span> if and only if:</p>
 <p><span class="math display">\[\neg(\exists x_1 \ldots \exists x_n (x_1Rx_2  \land \ldots  \land x_nRx_1))\]</span> where <span class="math inline">\(n \in \mathbb{N} \land n &gt; 1\)</span></p>
 </div>
 <div id="exr-acyclic" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.35</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.38</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is acyclic in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R^n \cap I_A = \emptyset\)</span> where <span class="math inline">\(R^n = \underset{n \text{ times}}{\underbrace{R \circ \ldots \circ R}}\)</span>.</p></li>
 <li><p>Show that if <span class="math inline">\(R\)</span> is a binary relation that is acyclic then it is irreflexive.</p></li>
 </ol>
 </div>
 <div id="sol-acyclic" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.35</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.38</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(\begin{aligned}
   R \text{ is acyclic} &amp; \iff (x,x) \not \in R^n \\
@@ -5335,7 +5494,7 @@ xRy \lor yRx &amp; \iff xRy \lor xR^{-1}y \\
 <section id="equivalence-relations" class="level4" data-number="1.3.8.5">
 <h4 data-number="1.3.8.5" class="anchored" data-anchor-id="equivalence-relations"><span class="header-section-number">1.3.8.5</span> Equivalence relations</h4>
 <div id="def-equivalence-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.48 (Equivalence relation)</strong></span> A relation <span class="math inline">\(R\)</span> is said to be and equivalence relation in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R\)</span> is reflexive, symmetric and transitive in <span class="math inline">\(A\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.50 (Equivalence relation)</strong></span> A relation <span class="math inline">\(R\)</span> is said to be and equivalence relation in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R\)</span> is reflexive, symmetric and transitive in <span class="math inline">\(A\)</span>.</p>
 </div>
 <div id="exm-equivalence-relation" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.14</strong></span> These are examples of equivalence binary relations:</p>
@@ -5360,7 +5519,7 @@ xRy \lor yRx &amp; \iff xRy \lor xR^{-1}y \\
 </ol>
 </div>
 <div id="def-equivalence-class" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.49 (Equivalence class)</strong></span> Consider an equivalence relation <span class="math inline">\(R\)</span> in a set <span class="math inline">\(A\)</span>. Each <span class="math inline">\(x \in A\)</span> determines the set of all elements <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz\)</span>. This set is denoted <span class="math inline">\([x]\)</span> and called the equivalence class of <span class="math inline">\(x\)</span> (relative to the relation <span class="math inline">\(R\)</span>). Thus,</p>
+<p><span class="theorem-title"><strong>Definition 1.51 (Equivalence class)</strong></span> Consider an equivalence relation <span class="math inline">\(R\)</span> in a set <span class="math inline">\(A\)</span>. Each <span class="math inline">\(x \in A\)</span> determines the set of all elements <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz\)</span>. This set is denoted <span class="math inline">\([x]\)</span> and called the equivalence class of <span class="math inline">\(x\)</span> (relative to the relation <span class="math inline">\(R\)</span>). Thus,</p>
 <p><span class="math display">\[[x] = \{ z \in A \mid xRz \}\]</span></p>
 <p><strong>Note</strong>: We should use the notation <span class="math inline">\([x]_R\)</span> instead of <span class="math inline">\([x]\)</span> in order to indicate the equivalence relation relative to which we are forming equivalence classes. However, we shall omit the subscript <span class="math inline">\(R\)</span> if we are talking about only one equivalence relation or it is obvious from the context which equivalence relation we are refering about.</p>
 </div>
@@ -5376,7 +5535,7 @@ xRy \lor yRx &amp; \iff xRy \lor xR^{-1}y \\
 </ol>
 </div>
 <div id="thm-equality-equivalence-classes" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.8 (Equality between equivalence classes)</strong></span> Consider an equivalence relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span>. Then 2 elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> determine the same equivalence class if and only <span class="math inline">\(xRy\)</span>. That is,</p>
+<p><span class="theorem-title"><strong>Theorem 1.10 (Equality between equivalence classes)</strong></span> Consider an equivalence relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span>. Then 2 elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> determine the same equivalence class if and only <span class="math inline">\(xRy\)</span>. That is,</p>
 <p><span class="math display">\[[x] = [y] \iff xRy\]</span></p>
 <p><strong>Note</strong>: If <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x \in [x]\)</span>.</p>
 </div>
@@ -5387,9 +5546,9 @@ xRy \lor yRx &amp; \iff xRy \lor xR^{-1}y \\
   &amp; \iff xRy
   \end{split}\]</span></p>
 </div>
-<p>By <a href="#thm-equality-equivalence-classes" class="quarto-xref">Theorem&nbsp;<span>1.8</span></a> let <span class="math inline">\([x] \neq [y]\)</span> then <span class="math inline">\(\neg(xRy)\)</span> and <span class="math inline">\(\neg(yRx)\)</span>. Let any <span class="math inline">\(z \in [y]\)</span> then <span class="math inline">\(yRz\)</span>. Therefore <span class="math inline">\(\neg(zRx)\)</span> because if <span class="math inline">\(zRx\)</span> then <span class="math inline">\(yRx\)</span> but we know that <span class="math inline">\(\neg(yRx)\)</span>. So if <span class="math inline">\(\neg(zRx)\)</span> then <span class="math inline">\(z \not \in [x]\)</span> which means that <span class="math inline">\([x] \cap [y] = \emptyset\)</span> because <span class="math inline">\(z\)</span> is any <span class="math inline">\(z \in [y]\)</span>. In that sense, an equivalence relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> divides <span class="math inline">\(A\)</span> into a collection of nonempty and mutually exclusive subsets where each subset is an equivalence class.</p>
+<p>By <a href="#thm-equality-equivalence-classes" class="quarto-xref">Theorem&nbsp;<span>1.10</span></a> let <span class="math inline">\([x] \neq [y]\)</span> then <span class="math inline">\(\neg(xRy)\)</span> and <span class="math inline">\(\neg(yRx)\)</span>. Let any <span class="math inline">\(z \in [y]\)</span> then <span class="math inline">\(yRz\)</span>. Therefore <span class="math inline">\(\neg(zRx)\)</span> because if <span class="math inline">\(zRx\)</span> then <span class="math inline">\(yRx\)</span> but we know that <span class="math inline">\(\neg(yRx)\)</span>. So if <span class="math inline">\(\neg(zRx)\)</span> then <span class="math inline">\(z \not \in [x]\)</span> which means that <span class="math inline">\([x] \cap [y] = \emptyset\)</span> because <span class="math inline">\(z\)</span> is any <span class="math inline">\(z \in [y]\)</span>. In that sense, an equivalence relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> divides <span class="math inline">\(A\)</span> into a collection of nonempty and mutually exclusive subsets where each subset is an equivalence class.</p>
 <div id="exr-equivalence-classes" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.36</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.39</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>For each relation <span class="math inline">\(R\)</span> and a <span class="math inline">\(A\)</span>, determine whether <span class="math inline">\(R\)</span> is an equivalence relation in <span class="math inline">\(A\)</span>. If it is, describe the equivalence classes.</p>
 <ol type="a">
@@ -5408,7 +5567,7 @@ R = \{ &amp;(x, y) \mid x \in A \land y \in A  \\
 </ol>
 </div>
 <div id="sol-equivalence-classes" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.36</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.39</em>. </span></p>
 <ol type="1">
 <li><p>For each relation <span class="math inline">\(R\)</span> and each set <span class="math inline">\(A\)</span> we have the following results.</p>
 <ol type="a">
@@ -5460,7 +5619,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="functions" class="level3" data-number="1.3.9">
 <h3 data-number="1.3.9" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.3.9</span> Functions</h3>
 <div id="def-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.50 (Function)</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are sets, a function from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> is a relation <span class="math inline">\(F \subseteq X \times Y\)</span> with <span class="math inline">\(\mathscr{D}(F) = X\)</span> such that (See <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 30</a>)</span>, <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 42–43</a>)</span> and <span class="citation" data-cites="bourbaki_theory_2004">(<a href="references.html#ref-bourbaki_theory_2004" role="doc-biblioref">Bourbaki 2004, 75–82</a>)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 1.52 (Function)</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are sets, a function from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> is a relation <span class="math inline">\(F \subseteq X \times Y\)</span> with <span class="math inline">\(\mathscr{D}(F) = X\)</span> such that (See <span class="citation" data-cites="halmos_naive_2017">(<a href="references.html#ref-halmos_naive_2017" role="doc-biblioref">Halmos 2017, 30</a>)</span>, <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 42–43</a>)</span> and <span class="citation" data-cites="bourbaki_theory_2004">(<a href="references.html#ref-bourbaki_theory_2004" role="doc-biblioref">Bourbaki 2004, 75–82</a>)</span>:</p>
 <ol type="1">
 <li><p><span class="math inline">\(\forall x (x \in X \Longrightarrow \exists y (y \in Y \land (x, y) \in F))\)</span></p></li>
 <li><p><span class="math inline">\(\forall x \forall y \forall z ((x \in X \land y \in Y \land z \in Y \land (x, y) \in F \land (x, z) \in F) \Longrightarrow y = z)\)</span></p></li>
@@ -5497,7 +5656,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="exr-function" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.37</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.40</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>For each of the following relations <span class="math inline">\(F\)</span>, determine whether it is a function. If it is, find its domain, and if possible, give an explicit formula for <span class="math inline">\(F(x)\)</span>:</p>
 <ol type="a">
@@ -5544,7 +5703,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-function" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.37</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.40</em>. </span></p>
 <ol type="1">
 <li><p>For each of the following relations <span class="math inline">\(F\)</span> we have that:</p>
 <ol type="a">
@@ -5599,7 +5758,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="functions-from-a-onto-b-surjective-functions" class="level4" data-number="1.3.9.1">
 <h4 data-number="1.3.9.1" class="anchored" data-anchor-id="functions-from-a-onto-b-surjective-functions"><span class="header-section-number">1.3.9.1</span> Functions from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> (Surjective functions)</h4>
 <div id="def-onto-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.51 (Function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> (Surjective function))</strong></span> If <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, <span class="math inline">\(F: A \longrightarrow B\)</span>, and the range of <span class="math inline">\(F\)</span> is all of <span class="math inline">\(B\)</span>, <span class="math inline">\(\mathscr{R}(F) = B\)</span>, then we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span>. This will be written as <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>. Thus:</p>
+<p><span class="theorem-title"><strong>Definition 1.53 (Function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> (Surjective function))</strong></span> If <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, <span class="math inline">\(F: A \longrightarrow B\)</span>, and the range of <span class="math inline">\(F\)</span> is all of <span class="math inline">\(B\)</span>, <span class="math inline">\(\mathscr{R}(F) = B\)</span>, then we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span>. This will be written as <span class="math inline">\(F: A \xrightarrow[onto]{} B\)</span>. Thus:</p>
 <p><span class="math display">\[F: A \xrightarrow[onto]{} B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)\]</span></p>
 <p><strong>Note</strong>: An alternative definition is that <span class="math inline">\(F: A \longrightarrow B\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span> or surjective if <span class="math inline">\(\forall y (y \in B \Longrightarrow \exists x(x \in A \land F(x) = y))\)</span>.</p>
 </div>
@@ -5615,7 +5774,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="exr-function-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.38</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.41</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>For each of the following functions <span class="math inline">\(F\)</span> and sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, determine whether <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span>.</p>
 <ol type="a">
@@ -5630,7 +5789,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-function-2" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.38</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.41</em>. </span></p>
 <ol type="1">
 <li><p>For each function <span class="math inline">\(F\)</span> and sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> where <span class="math inline">\(F: A \longrightarrow B\)</span> we have that:</p>
 <ol type="a">
@@ -5648,7 +5807,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="one-one-functions-injective-functions" class="level4" data-number="1.3.9.2">
 <h4 data-number="1.3.9.2" class="anchored" data-anchor-id="one-one-functions-injective-functions"><span class="header-section-number">1.3.9.2</span> One-one functions (Injective functions)</h4>
 <div id="def-one-one-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.52 (One-one function (Injective function))</strong></span> <span class="math inline">\(F\)</span> is one-one (or <span class="math inline">\(1-1\)</span>) if and only if for any distinct objects <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of the domain <span class="math inline">\(F\)</span>, <span class="math inline">\(F(x) \neq F(y)\)</span>. In other words, <span class="math inline">\(F\)</span> takes different objects into different objects. This will be written as <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span>. Thus:</p>
+<p><span class="theorem-title"><strong>Definition 1.54 (One-one function (Injective function))</strong></span> <span class="math inline">\(F\)</span> is one-one (or <span class="math inline">\(1-1\)</span>) if and only if for any distinct objects <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of the domain <span class="math inline">\(F\)</span>, <span class="math inline">\(F(x) \neq F(y)\)</span>. In other words, <span class="math inline">\(F\)</span> takes different objects into different objects. This will be written as <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span>. Thus:</p>
 <p><span class="math display">\[F \text{ is one-one} \iff \forall x \forall y ((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \Longrightarrow F(x) \neq F(y))\]</span></p>
 <p><strong>Note</strong>: Notice that the condition for <span class="math inline">\(F\)</span> to be one-one can be reformulated as <span class="math inline">\(F(x) = F(y) \Longrightarrow x = y\)</span> when <span class="math inline">\(x \in \mathscr{D}(F) \land y \in \mathscr{D}(F)\)</span>. In other words, if <span class="math inline">\(F\)</span> takes <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> into the same object then <span class="math inline">\(x = y\)</span>.</p>
 </div>
@@ -5674,8 +5833,8 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </div>
 <p>Consider a function <span class="math inline">\(F\)</span>. The inverse relation <span class="math inline">\(F^{-1}\)</span> need not be a function. For example, let <span class="math inline">\(F(x) = x^2\)</span> for all real numbers <span class="math inline">\(x\)</span>. Clearly, <span class="math inline">\((1, 1) \in F\)</span> and <span class="math inline">\((-1, 1) \in F\)</span> so <span class="math inline">\((1, 1) \in F^{-1}\)</span> and <span class="math inline">\((1, -1) \in F^{-1}\)</span>. Therefore <span class="math inline">\(F^{-1}\)</span> is not a function.</p>
 <div id="thm-inverse-function-as-a-function" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.9</strong></span> If <span class="math inline">\(F\)</span> is one-one function, then <span class="math inline">\(F^{-1}\)</span> must be a function. In fact, <span class="math inline">\(F^{-1}\)</span> is a one-one function.</p>
-<p><strong>Note</strong>: If <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A\)</span><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. According to <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span> so <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F)\)</span> and <span class="math inline">\(\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A\)</span>. In particular if <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> because <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 1.11</strong></span> If <span class="math inline">\(F\)</span> is one-one function, then <span class="math inline">\(F^{-1}\)</span> must be a function. In fact, <span class="math inline">\(F^{-1}\)</span> is a one-one function.</p>
+<p><strong>Note</strong>: If <span class="math inline">\(F: A \xrightarrow[]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} A\)</span><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. According to <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 2 <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span> so <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F)\)</span> and <span class="math inline">\(\mathscr{R}(F^{-1}) = \mathscr{D}(F) = A\)</span>. In particular if <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> then <span class="math inline">\(F^{-1}: B \xrightarrow[onto]{1-1} A\)</span> because <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F) = B\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>First we prove that <span class="math inline">\(F^{-1}\)</span> is a function:</p>
@@ -5704,7 +5863,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="exr-one-one-function" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.39</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.42</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Determine whether each of the following functions <span class="math inline">\(F\)</span> is one-one. If it is one-one, describe <span class="math inline">\(F^{-1}\)</span> by a formula if it is possible and find the domain of <span class="math inline">\(F^{-1}\)</span></p>
 <ol type="a">
@@ -5719,7 +5878,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-one-one-function" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.39</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.42</em>. </span></p>
 <ol type="1">
 <li><p>For each <span class="math inline">\(F\)</span> we have the following results</p>
 <ol type="a">
@@ -5738,7 +5897,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="one-one-correspondences-bijective-functions" class="level4" data-number="1.3.9.3">
 <h4 data-number="1.3.9.3" class="anchored" data-anchor-id="one-one-correspondences-bijective-functions"><span class="header-section-number">1.3.9.3</span> One-one correspondences (Bijective functions)</h4>
 <div id="def-one-one-correspondence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.53 (One-one correspondence (Bijective function))</strong></span> If <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, we say that <span class="math inline">\(F\)</span> is a <em>one-one correspondence</em> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.55 (One-one correspondence (Bijective function))</strong></span> If <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>, we say that <span class="math inline">\(F\)</span> is a <em>one-one correspondence</em> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
 <p><strong>Note</strong>: If there is a one-one correspondence between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are said to be <strong>equinumerous</strong> because, in a certain case, each has a many elements as other.</p>
 </div>
 <div id="exm-one-one-correspondence" class="theorem example">
@@ -5773,7 +5932,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="exr-one-one-correspondence" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.40</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.43</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>In each of the following cases, show that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equinumerous</p>
 <ol type="a">
@@ -5784,7 +5943,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-one-one-correspondence" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.40</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.43</em>. </span></p>
 <ol type="1">
 <li><p>For each case we have the following results:</p>
 <ol type="a">
@@ -5808,7 +5967,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="composition-of-functions" class="level4" data-number="1.3.9.4">
 <h4 data-number="1.3.9.4" class="anchored" data-anchor-id="composition-of-functions"><span class="header-section-number">1.3.9.4</span> Composition of functions</h4>
 <div id="thm-composition-functions" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.10</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are functions, then <span class="math inline">\(F \circ G\)</span> is a function.</p>
+<p><span class="theorem-title"><strong>Theorem 1.12</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are functions, then <span class="math inline">\(F \circ G\)</span> is a function.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(x(F \circ G)y\)</span> and <span class="math inline">\(x(F \circ G)z\)</span> then <span class="math inline">\(\exists w (xGw \land wFy)\)</span> and <span class="math inline">\(\exists v (xGv \land vFz)\)</span>. Therefore <span class="math inline">\(G(x) = w\)</span>, <span class="math inline">\(F(w) = y\)</span>, <span class="math inline">\(G(x) = v\)</span> and <span class="math inline">\(F(v) = z\)</span>. So <span class="math inline">\(F(G(x)) = y\)</span> and <span class="math inline">\(F(G(x)) = z\)</span> which implies that <span class="math inline">\(y = z\)</span>.</p>
@@ -5837,19 +5996,19 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="thm-composition-functions-notation" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.11</strong></span> Consider functions <span class="math inline">\(G: A \longrightarrow B\)</span> and <span class="math inline">\(F: B \longrightarrow C\)</span>. Then <span class="math inline">\(F \circ G: A \longrightarrow C\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 1.13</strong></span> Consider functions <span class="math inline">\(G: A \longrightarrow B\)</span> and <span class="math inline">\(F: B \longrightarrow C\)</span>. Then <span class="math inline">\(F \circ G: A \longrightarrow C\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By the note in the proof of <a href="#thm-composition-functions" class="quarto-xref">Theorem&nbsp;<span>1.10</span></a> <span class="math inline">\(x \in \mathscr{D}(F \circ G)\)</span> if and only if <span class="math inline">\(x \in \mathscr{D}(G)\)</span> and <span class="math inline">\(G(x) \in \mathscr{D}(F)\)</span>. Therefore <span class="math inline">\(\mathscr{D}(F \circ G) = \{ x \mid x \in A \land G(x) \in B \} = \{ x \mid x \in A \}\)</span>. On the other hand <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> and therefore <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq C\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By the note in the proof of <a href="#thm-composition-functions" class="quarto-xref">Theorem&nbsp;<span>1.12</span></a> <span class="math inline">\(x \in \mathscr{D}(F \circ G)\)</span> if and only if <span class="math inline">\(x \in \mathscr{D}(G)\)</span> and <span class="math inline">\(G(x) \in \mathscr{D}(F)\)</span>. Therefore <span class="math inline">\(\mathscr{D}(F \circ G) = \{ x \mid x \in A \land G(x) \in B \} = \{ x \mid x \in A \}\)</span>. On the other hand <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> and therefore <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq C\)</span>.</p>
 </div>
 <div id="thm-composition-functions-one-one" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.12</strong></span> If <span class="math inline">\(G: A \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(F: B \xrightarrow[]{1-1} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[]{1-1} C\)</span></p>
+<p><span class="theorem-title"><strong>Theorem 1.14</strong></span> If <span class="math inline">\(G: A \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(F: B \xrightarrow[]{1-1} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[]{1-1} C\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\((F \circ G)(x) = (F \circ G)(y)\)</span>. Then <span class="math inline">\(F(G(x)) = F(G(y))\)</span> but <span class="math inline">\(F\)</span> is one-one so <span class="math inline">\(G(x) = G(y)\)</span>. Also <span class="math inline">\(G\)</span> is one-one, therefore <span class="math inline">\(x = y\)</span>. We have that <span class="math inline">\(F \circ G\)</span> is one-one.</p>
 </div>
 <div id="thm-composition-functions-onto" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.13</strong></span> If <span class="math inline">\(G: A \xrightarrow[onto]{} B\)</span> and <span class="math inline">\(F: B \xrightarrow[onto]{} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[onto]{} C\)</span></p>
+<p><span class="theorem-title"><strong>Theorem 1.15</strong></span> If <span class="math inline">\(G: A \xrightarrow[onto]{} B\)</span> and <span class="math inline">\(F: B \xrightarrow[onto]{} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[onto]{} C\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We need to prove that for any <span class="math inline">\(y \in C\)</span> there exists an <span class="math inline">\(x\)</span> such that <span class="math inline">\((F \circ G)(x) = y\)</span>. Let <span class="math inline">\(y \in C\)</span>. Because <span class="math inline">\(F\)</span> is onto it exist a <span class="math inline">\(z \in B\)</span> such that <span class="math inline">\(F(z) = y\)</span>. Also because <span class="math inline">\(G\)</span> is onto it exists an <span class="math inline">\(x\)</span> such that <span class="math inline">\(G(x) = z\)</span>. Therefore we have that <span class="math inline">\(F(z) = y\)</span> so <span class="math inline">\(F(G(x)) = y\)</span> and this means that <span class="math inline">\((F \circ G)(x) = y\)</span>.</p>
@@ -5858,10 +6017,10 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <p><span class="theorem-title"><strong>Corollary 1.3</strong></span> If <span class="math inline">\(G: A \xrightarrow[onto]{1-1} B\)</span> and <span class="math inline">\(F: B \xrightarrow[onto]{1-1} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[onto]{1-1} C\)</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By applying <a href="#thm-composition-functions-one-one" class="quarto-xref">Theorem&nbsp;<span>1.12</span></a> and <a href="#thm-composition-functions-onto" class="quarto-xref">Theorem&nbsp;<span>1.13</span></a> we can prove <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a></p>
+<p><span class="proof-title"><em>Proof</em>. </span>By applying <a href="#thm-composition-functions-one-one" class="quarto-xref">Theorem&nbsp;<span>1.14</span></a> and <a href="#thm-composition-functions-onto" class="quarto-xref">Theorem&nbsp;<span>1.15</span></a> we can prove <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a></p>
 </div>
 <div id="exr-composition-functions" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.41</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.44</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>Assume <span class="math inline">\(F: A \longrightarrow B\)</span>, <span class="math inline">\(G: B \longrightarrow C\)</span> and <span class="math inline">\(H: C \longrightarrow D\)</span>. Show that <span class="math inline">\(H \circ (G \circ F) = (H \circ G) \circ F\)</span>. This is the associative law for composition functions.</p></li>
 <li><p>Assume <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span>. Prove:</p>
@@ -5894,7 +6053,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-composition-functions" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.41</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.44</em>. </span></p>
 <ol type="1">
 <li><p>We have that <span class="math inline">\(\mathscr{D}(H \circ (G \circ F)) = A = \mathscr{D}((H \circ G) \circ F)\)</span>. Also for any <span class="math inline">\(x\)</span>:</p>
 <p><span class="math inline">\(\begin{aligned}
@@ -5903,7 +6062,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 &amp; = (H \circ G)(F(x)) \\
 &amp; = ((H \circ G) \circ F)(x)
 \end{aligned}\)</span></p>
-<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 3 <span class="math inline">\(H \circ (G \circ F) = (H \circ G) \circ F\)</span></p></li>
+<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.40</span></a> 3 <span class="math inline">\(H \circ (G \circ F) = (H \circ G) \circ F\)</span></p></li>
 <li><p>If <span class="math inline">\(F: A \xrightarrow[onto]{1-1} B\)</span> we have the following results:</p>
 <ol type="a">
 <li><p><span class="math inline">\(F^{-1} \circ F: A \xrightarrow[onto]{1-1} A\)</span> by <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}(F^{-1} \circ F) = A = \mathscr{D}(I_A)\)</span>.Furthermore, <span class="math inline">\(I_A(x) = x\)</span> for all <span class="math inline">\(x \in A\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(xFy\)</span> and <span class="math inline">\(xI_Ax\)</span>:</p>
@@ -5913,23 +6072,23 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 &amp; = x \\
 &amp; = I_A(x)
 \end{aligned}\)</span></p>
-<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 3 <span class="math inline">\(F^{-1} \circ F = I_A\)</span>.</p></li>
-<li><p><span class="math inline">\(F \circ F^{-1}: B \xrightarrow[onto]{1-1} B\)</span> by <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> and <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}(F \circ F^{-1}) = B = \mathscr{D}(I_B)\)</span>.Furthermore, <span class="math inline">\(I_B(y) = y\)</span> for all <span class="math inline">\(y \in B\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(yF^{-1}x\)</span> and <span class="math inline">\(yI_By\)</span>:</p>
+<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.40</span></a> 3 <span class="math inline">\(F^{-1} \circ F = I_A\)</span>.</p></li>
+<li><p><span class="math inline">\(F \circ F^{-1}: B \xrightarrow[onto]{1-1} B\)</span> by <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.11</span></a> and <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}(F \circ F^{-1}) = B = \mathscr{D}(I_B)\)</span>.Furthermore, <span class="math inline">\(I_B(y) = y\)</span> for all <span class="math inline">\(y \in B\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(yF^{-1}x\)</span> and <span class="math inline">\(yI_By\)</span>:</p>
 <p><span class="math inline">\(\begin{aligned}
 (F \circ F^{-1})(y) &amp; = F(F^{-1}(y)) \\
 &amp; = F(x) \\
 &amp; = y \\
 &amp; = I_B(y)
 \end{aligned}\)</span></p>
-<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 3 <span class="math inline">\(F \circ F^{-1} = I_B\)</span>.</p></li>
-<li><p><span class="math inline">\((F^{-1})^{-1}: A \xrightarrow[onto]{1-1} B\)</span> by <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> and <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}((F^{-1})^{-1}) = A = \mathscr{D}(F)\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(x(F^{-1})^{-1}y\)</span>:</p>
+<p>By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.40</span></a> 3 <span class="math inline">\(F \circ F^{-1} = I_B\)</span>.</p></li>
+<li><p><span class="math inline">\((F^{-1})^{-1}: A \xrightarrow[onto]{1-1} B\)</span> by <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.11</span></a> and <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>. So <span class="math inline">\(\mathscr{D}((F^{-1})^{-1}) = A = \mathscr{D}(F)\)</span>. Also for any <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> such that <span class="math inline">\(x(F^{-1})^{-1}y\)</span>:</p>
 <p><span class="math inline">\(\begin{aligned}
 (F^{-1})^{-1}(x) = y &amp; \iff x(F^{-1})^{-1}y \\
 &amp; \iff yF^{-1}x \\
 &amp; \iff xFy \\
 &amp; \iff F(x) = y
 \end{aligned}\)</span></p>
-<p>Therefore <span class="math inline">\((F^{-1})^{-1}(x) = F(x)\)</span> for all <span class="math inline">\(x \in A\)</span>. By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 3 <span class="math inline">\((F^{-1})^{-1} = F\)</span>.</p></li>
+<p>Therefore <span class="math inline">\((F^{-1})^{-1}(x) = F(x)\)</span> for all <span class="math inline">\(x \in A\)</span>. By <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.40</span></a> 3 <span class="math inline">\((F^{-1})^{-1} = F\)</span>.</p></li>
 </ol></li>
 <li><p>For each of the following functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> and its compositions we have that:</p>
 <ol type="a">
@@ -5939,7 +6098,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <li><p><span class="math inline">\((F \circ G)(x) = \frac{6x}{2} = 3x\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{Z}\)</span> and <span class="math inline">\((G \circ F)(x) = \sqrt{x^2} = 6\frac{x}{2} = 3x\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{Z}\)</span>.</p></li>
 <li><p><span class="math inline">\((F \circ G)(x) = \frac{\frac{1}{x}}{\frac{1}{x^2} + 1} = \frac{x}{1 + x^2}\)</span> where <span class="math inline">\(\mathscr{D}(F \circ G) = \mathbb{R} - \{ 0 \}\)</span> and <span class="math inline">\((G \circ F)(x) = \frac{\frac{1}{1}}{\frac{x}{x^2 + 1}} = \frac{x^2 + 1}{x}\)</span> where <span class="math inline">\(\mathscr{D}(G \circ F) = \mathbb{R} - \{ 0 \}\)</span> because <span class="math inline">\(F(0) = 0\)</span> so <span class="math inline">\(0F0\)</span> but there is no <span class="math inline">\(y\)</span> such that <span class="math inline">\(0Gy\)</span> for <span class="math inline">\(y \in \mathbb{R}\)</span>.</p></li>
 </ol></li>
-<li><p>By <a href="#thm-composition-functions-one-one" class="quarto-xref">Theorem&nbsp;<span>1.12</span></a> and <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> <span class="math inline">\(F \circ G: A \xrightarrow[]{1-1} C\)</span> and <span class="math inline">\((F \circ G)^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A\)</span>. Also <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A\)</span> where <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 and <span class="math inline">\(\mathscr{R}(G) \subseteq B\)</span>. To apply <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 3 we need to:</p>
+<li><p>By <a href="#thm-composition-functions-one-one" class="quarto-xref">Theorem&nbsp;<span>1.14</span></a> and <a href="#thm-inverse-function-as-a-function" class="quarto-xref">Theorem&nbsp;<span>1.11</span></a> <span class="math inline">\(F \circ G: A \xrightarrow[]{1-1} C\)</span> and <span class="math inline">\((F \circ G)^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A\)</span>. Also <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[onto]{1-1} B\)</span>, <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A\)</span> where <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 and <span class="math inline">\(\mathscr{R}(G) \subseteq B\)</span>. To apply <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.40</span></a> 3 we need to:</p>
 <ul>
 <li><p>Restrict the domain the domain of <span class="math inline">\(F^{-1}\)</span> such that <span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F \circ G)\)</span> so <span class="math inline">\(\mathscr{D}(G^{-1} \circ F^{-1}) = \mathscr{R}(F \circ G) = \mathscr{D}((F \circ G)^{-1})\)</span>.</p></li>
 <li><p>Restrict the range of <span class="math inline">\(F^{-1}\)</span> such that <span class="math inline">\(\mathscr{R}(F^{-1}) \subseteq \mathscr{R}(G)\)</span> so we can apply <a href="#cor-composition-functions-one-one-correspondence" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a> with <span class="math inline">\(F^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} \mathscr{R}(G)\)</span> and <span class="math inline">\(G^{-1}: \mathscr{R}(G) \xrightarrow[onto]{1-1} A\)</span> to obtain <span class="math inline">\(G^{-1} \circ F^{-1}: \mathscr{R}(F \circ G) \xrightarrow[onto]{1-1} A\)</span>.</p></li>
@@ -5952,7 +6111,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 &amp; \iff x(F \circ G)^{-1}y \\
 &amp; \iff (F \circ G)^{-1}(x) = y
 \end{aligned}\)</span></p></li>
-<li><p>Therefore by <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.37</span></a> 3 we can conclude that <span class="math inline">\(G^{-1} \circ F^{-1} = (F \circ G)^{-1}\)</span>.</p>
+<li><p>Therefore by <a href="#exr-function" class="quarto-xref">Exercise&nbsp;<span>1.40</span></a> 3 we can conclude that <span class="math inline">\(G^{-1} \circ F^{-1} = (F \circ G)^{-1}\)</span>.</p>
 <ul>
 <li><p>As an example let:</p>
 <ul>
@@ -5965,9 +6124,9 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ul></li>
 <li><p>In the case of <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> we have the following results:</p>
 <ol type="a">
-<li><p>Let use <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Assume <span class="math inline">\(F \circ G\)</span> is one-one and <span class="math inline">\(G\)</span> is not one-one. Then <span class="math inline">\(G(x) = G(y)\)</span> and <span class="math inline">\(x \neq y\)</span>. Therefore <span class="math inline">\(F(G(x)) = F(G(y))\)</span> because <span class="math inline">\(F\)</span> is a function, see <a href="#def-function" class="quarto-xref">Definition&nbsp;<span>1.50</span></a>, but <span class="math inline">\(F \circ G\)</span> is one-one so <span class="math inline">\(x = y\)</span>. We obtain a contradiction because <span class="math inline">\(x \neq y\)</span> and <span class="math inline">\(x = y\)</span> so it must be case that <span class="math inline">\(G\)</span> is one-one.</p>
+<li><p>Let use <a href="#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Assume <span class="math inline">\(F \circ G\)</span> is one-one and <span class="math inline">\(G\)</span> is not one-one. Then <span class="math inline">\(G(x) = G(y)\)</span> and <span class="math inline">\(x \neq y\)</span>. Therefore <span class="math inline">\(F(G(x)) = F(G(y))\)</span> because <span class="math inline">\(F\)</span> is a function, see <a href="#def-function" class="quarto-xref">Definition&nbsp;<span>1.52</span></a>, but <span class="math inline">\(F \circ G\)</span> is one-one so <span class="math inline">\(x = y\)</span>. We obtain a contradiction because <span class="math inline">\(x \neq y\)</span> and <span class="math inline">\(x = y\)</span> so it must be case that <span class="math inline">\(G\)</span> is one-one.</p>
 <p><strong>Note</strong>: We can have that <span class="math inline">\(F \circ G\)</span> is one-one, <span class="math inline">\(F\)</span> is not one-one and <span class="math inline">\(G\)</span> is one-one. For example <span class="math inline">\(F(x) = x^2\)</span> for <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(G(x) = \sqrt{x}\)</span> for <span class="math inline">\(x \in \mathbb{R}_{\geq 0}\)</span> and <span class="math inline">\((F \circ G)(x) = (\sqrt{x})^2 = |x| = x\)</span> for <span class="math inline">\(x \in \mathbb{R}_{\geq 0}\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(F \circ G\)</span> is onto we have that <span class="math inline">\(\mathscr{R}(F \circ G) = C\)</span>. Also by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.32</span></a> 3 <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> so <span class="math inline">\(C \subseteq \mathscr{R}(F)\)</span>. Furthermore <span class="math inline">\(\mathscr{R}(F) \subseteq C\)</span> which means that <span class="math inline">\(\mathscr{R}(F) = C\)</span>. Therefore <span class="math inline">\(F\)</span> is onto.</p>
+<li><p>Because <span class="math inline">\(F \circ G\)</span> is onto we have that <span class="math inline">\(\mathscr{R}(F \circ G) = C\)</span>. Also by <a href="#exr-inverse-composition-relations" class="quarto-xref">Exercise&nbsp;<span>1.35</span></a> 3 <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span> so <span class="math inline">\(C \subseteq \mathscr{R}(F)\)</span>. Furthermore <span class="math inline">\(\mathscr{R}(F) \subseteq C\)</span> which means that <span class="math inline">\(\mathscr{R}(F) = C\)</span>. Therefore <span class="math inline">\(F\)</span> is onto.</p>
 <p><strong>Note</strong>: We can have that <span class="math inline">\(F \circ G\)</span> is onto, <span class="math inline">\(F\)</span> is onto and <span class="math inline">\(G\)</span> is not onto. For example <span class="math inline">\((F \circ G)(x) = x\)</span> where <span class="math inline">\(F \circ G: \mathbb{R}_{\geq 0} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}\)</span>, <span class="math inline">\(F(x) = x^2\)</span> where <span class="math inline">\(F: \mathbb{R} \xrightarrow[onto]{} \mathbb{R}_{\geq 0}\)</span> and <span class="math inline">\(G(x) = \sqrt{x}\)</span> where <span class="math inline">\(G: \mathbb{R}_{\geq 0} \longrightarrow \mathbb{R}\)</span>.</p></li>
 </ol></li>
 </ol>
@@ -5976,7 +6135,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 <section id="operations" class="level4" data-number="1.3.9.5">
 <h4 data-number="1.3.9.5" class="anchored" data-anchor-id="operations"><span class="header-section-number">1.3.9.5</span> Operations</h4>
 <div id="def-singulary-operation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.54 (Singulary operation)</strong></span> Let <span class="math inline">\(A\)</span> be a set. By a singulary operation on <span class="math inline">\(A\)</span> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math inline">\(F\)</span> is a singulary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A \longrightarrow A\)</span>. This means that the values of <span class="math inline">\(F\)</span> as well as its arguments must belong to <span class="math inline">\(A\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.56 (Singulary operation)</strong></span> Let <span class="math inline">\(A\)</span> be a set. By a singulary operation on <span class="math inline">\(A\)</span> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math inline">\(F\)</span> is a singulary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A \longrightarrow A\)</span>. This means that the values of <span class="math inline">\(F\)</span> as well as its arguments must belong to <span class="math inline">\(A\)</span>.</p>
 </div>
 <div id="exm-singulary-operation" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.22</strong></span> &nbsp;</p>
@@ -5989,7 +6148,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="def-binary-operation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.55 (Binary operation)</strong></span> Let <span class="math inline">\(A\)</span> be a set. By a binary operation on <span class="math inline">\(A\)</span> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A \times A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A \times A \longrightarrow A\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.57 (Binary operation)</strong></span> Let <span class="math inline">\(A\)</span> be a set. By a binary operation on <span class="math inline">\(A\)</span> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A \times A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A \times A \longrightarrow A\)</span>.</p>
 </div>
 <div id="exm-binary-operation" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.23</strong></span> &nbsp;</p>
@@ -6004,7 +6163,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </div>
 <p>We could go on to define ternary, quarternary and so on operations. For example, <span class="math inline">\(F\)</span> is a ternary operation on <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(F: A^3 \longrightarrow A\)</span>. However such operations will be of little importance in <span class="citation" data-cites="mendelson_introduction_2015">Mendelson (<a href="references.html#ref-mendelson_introduction_2015" role="doc-biblioref">2015</a>)</span>.</p>
 <div id="exr-binary-operation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.42</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 1.45</strong></span> &nbsp;</p>
 <ol type="1">
 <li><p>If <span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span>, and <span class="math inline">\(C \subseteq A\)</span>, we say that <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span> if and only if <span class="math inline">\(F(x, y) \in C\)</span> whenever <span class="math inline">\(x \in C\)</span> and <span class="math inline">\(y \in C\)</span>. In each of the following cases, determine whether <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span>.</p>
 <ol type="a">
@@ -6056,7 +6215,7 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </ol>
 </div>
 <div id="sol-binary-operation" class="proof solution">
-<p><span class="proof-title"><em>Solution 1.42</em>. </span></p>
+<p><span class="proof-title"><em>Solution 1.45</em>. </span></p>
 <ol type="1">
 <li><p>In each of the following cases we have:</p>
 <ol type="a">
