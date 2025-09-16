@@ -1993,8 +1993,7 @@ It remains to specify how to form valid formulas from the symbols of a first-ord
 
 ::: {#def-terms-l}
 
-The *terms* of a first-order language $\mathcal{L}$ are those
-finite sequences of symbols of $\mathcal{L}$ which satisfy the following rules:
+The *terms* of a first-order language $\mathcal{L}$ are those finite sequences of symbols of $\mathcal{L}$ which satisfy the following rules:
 
 -  Every variable symbol $v_n$ is a term.
 -  Every constant symbol $c$ is a term.
@@ -2105,7 +2104,7 @@ Let $St_{\mathcal{L}}(l(n)) = \underset{n \text{ times}}{\underbrace{St_{\mathca
 
 The formulas of a first-order language $\mathcal{L}$ are the finite sequences of the symbols of $\mathcal{L}$ satisfying the following rules:
 
--  If $P$ is a $k$-place relation symbol and $t_1, \ldots , t_k$ are terms, then $Pt_1 \ldots t_k$ is a formula.
+-  If $P$ is a $k$-place relation symbol and $t_1, \ldots, t_k$ are terms, then $Pt_1 \ldots t_k$ is a formula.
 -  If $t_1$ and $t_2$ are terms then $=t_1t_2$ is a formula.
 -  If $\alpha$ is a formula then $(\neg \alpha)$ is a formula.
 -  If $\alpha$ and $\beta$ are formulas then $(\alpha \Longrightarrow \beta)$ is a formula.
@@ -2521,7 +2520,7 @@ This results is proved in 2 parts using strong induction:
    
    *Induction hypothesis* $(n \leq k)$: Assume that if $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n \leq k$ then it is also a term of $\mathcal{L}'$ where $\mathcal{L}'$ is an extension of $\mathcal{L}$.
    
-   *Induction step* $(n = k + 1)$: Suppose $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n = k + 1$. From @def-terms-l $\alpha$ must be a $s$-place function symbol where $ft_1t_2 \ldots t_s$ and $t_1t_2 \ldots t_s$ are terms. By the *Induction hypothesis* $ft_1t_2 \ldots t_{s-1}$ and $t_s$ are also terms of $\mathcal{L}'$. Therefore again by @@def-terms-l $ft_1t_2 \ldots t_s$ is a term of $\mathcal{L}'$.   
+   *Induction step* $(n = k + 1)$: Suppose $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n = k + 1$. From @def-terms-l $\alpha$ must be a $s$-place function symbol where $ft_1t_2 \ldots t_s$ and $t_1,t_2, \ldots, t_s$ are terms. By the *Induction hypothesis* $ft_1t_2 \ldots t_{s-1}$ and $t_s$ are also terms of $\mathcal{L}'$. Therefore again by @@def-terms-l $ft_1t_2 \ldots t_s$ is a term of $\mathcal{L}'$.   
 
 2. By strong induction on $n$, the length in a formula $\varphi$, $l(\varphi)$, of $\mathcal{L}$
 
@@ -2655,13 +2654,201 @@ A *structure* $\mathfrak{M}$ for $\mathcal{L}$ consists of the following:
 
 1. A non-empty set $M$, often written as $|\mathfrak{M}|$, called the *universe* of $\mathfrak{M}$
 
-2. For each constant symbol $c$ of $\mathcal{L}$, and element $c^{\mathfrak{M}}$ of $M$
+2. For each constant symbol $c$ of $\mathcal{L}$, an element $c^{\mathfrak{M}}$ of $M$
 
 3. For each $k$-place function symbol $f$ of $\mathcal{L}$, a function $f^{\mathfrak{M}}: M^k \longrightarrow M$, i.e. a $k$-place function on $M$  
 
 4. For each $k$-place relation symbol $P$ of $\mathcal{L}$, a relation $P^{\mathfrak{M}} \subseteq M^k$, i.e. a $k$-place relation on $M$
 
 :::
+
+It is customary to use upper-case "gothic" characters such as $\mathfrak{M}$ and $\mathfrak{N}$ for structures. For example, consider $\mathfrak{Q} = (\mathbb{Q}, <)$ where $<$ is the "less than" relation on the rationals. This is a structure relation for $\mathcal{L}_O$, the language for linear orders defined in @exm-other-first-order-languages. 
+
+$\mathfrak{Q}$ is not the only possible structure for $\mathcal{L}_O$: $(\mathbb{R}, <)$, $(\{0\}, \emptyset)$ and $(\mathbb{N}, \mathbb{N}^2)$ are also other possibilities. Note that in these cases the relation symbol $<$ is interpreted by relations on the universe which are not linear orders. One can ensure that a structure satisfy various conditions beyond what @def-structure guarantees by requiring appropriate formulas to be true when interpreted in the structure.
+
+On the other hand, $(\mathbb{R})$ is not a structure for $\mathcal{L}_O$ because it lacks a binary relation to interpret the symbol $<$ by, while $(\mathbb{N}, 0, 1, +, ·, |, <)$ is not a structure for $\mathcal{L}_O$ because it has two binary relations where $\mathcal{L}_O$ has a symbol only for one, plus constants and functions for which $\mathcal{L}_O$ lacks symbols.
+
+::: {#exr-structures-first-order-languages}
+
+The first-order languages referred to below were all defined in @exm-other-first-order-languages.
+
+1. Is $(\emptyset)$ a structure for $\mathcal{L}=$?
+
+2. Determine whether $\mathfrak{Q} = (\mathbb{Q}, <)$ is a structure for each of $\mathcal{L}_=$, $\mathcal{L}_F$, and $\mathcal{L}_S$. 
+
+3. Give three different structures for $\mathcal{L}_F$ which are not fields. 
+
+:::
+
+::: {#sol-structures-first-order-languages}
+
+1. No because according to @def-structure it must contains a non-empty set $M$
+
+2. Is not a structure for $\mathcal{L}_=$ because it contains a 2-place relation symbol, it s not a structure for $\mathcal{L}_F$ because it doesn't contain constant symbols and is a structure of $\mathcal{L}_S$ where $< = \in^\mathfrak{S}$ must be interpreted as $\in^\mathfrak{S} \subseteq \mathbb{Q}^2$ 
+
+3. The non-logical symbols of $\mathcal{L}_F$ are the constant symbols $0, 1$ and $2$-place relation symbols $+, \cdot$. Then a structure for $\mathcal{L}_F$ is $\mathfrak{F} = (M, 0^{\mathfrak{F}}, 1^{\mathfrak{F}}, +^{\mathfrak{F}}, \cdot^{\mathfrak{F}})$.
+
+   Some structures that are not fields can be:
+   
+   a. $(\mathbb{N}, 0, 1, +, \cdot)$ because there is not $x \neq y \in \mathbb{N}$ such that $x + y = 0$
+   
+   b. $(\mathbb{Z}, 0, 1, +, \cdot)$ because there is not $x \neq y \in \mathbb{Z}$ such that $x \cdot y = 1$
+   
+   c. $(\{ 0, 1 \}, 0, 1, +, \cdot)$ with $1 + 1 = 1$ and $1 + 0 = 1$ because for $1$ there is no $y \in \{ 0, 1 \}$ such that $1 + y = 0$ 
+:::
+
+To determine what it means for a given formula to be true in a structure for the corresponding language, we will also need to specify how to interpret the variables when they occur free. (Bound variables have the associated quantifier to tell us what to do.)
+
+::: {#def-assignment}
+
+Let $V = \{ v_0, v_1, v_2, \ldots \}$ be the set of all variable symbols of $\mathcal{L}$ and suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$. A function $s: V \longrightarrow |\mathfrak{M}|$ is said to be an assignment for $\mathfrak{M}$.
+
+:::
+
+Note that these are not truth assignments like those for $\mathcal{L}_P$.  An assignment just interprets each variable in the language by an element of the universe of the structure.  Also, as long as the universe of the structure has more than one element,  any variable can be interpreted in more than one way.  Hence there are usually many different possible assignments for a given structure.
+
+::: {#exm-assignment}
+
+Consider the structure $\mathfrak{R} = (\mathbb{R}, 0, 1, +, \cdot)$ for $\mathcal{L}_F$. Each of the following functions is an assignment for $\mathfrak{R}$:
+
+1. $p(v_n) = \pi$ for each $n$
+2. $r(v_n) = e^n$ for each $n$
+3. $s(v_n) = n + 1$ for each $n$
+
+In fact every $V \longrightarrow \mathbb{R}$ is an assignment for $\mathfrak{R}$.
+
+:::
+
+In order to use assignments to determine whether formulas are true in a structure, we need to know how to use an assignment to interpret each term of the language as an element of the universe.
+
+::: {#def-extent-assignment}
+
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$ and $s: V \longrightarrow |\mathfrak{M}|$ is an assignment for $\mathfrak{M}$. Let $T$ be the set of all terms of $\mathcal{L}$. Then the
+extended assignment $\mathbf{s}: T \longrightarrow |\mathfrak{M}|$ is defined inductively as follows:
+
+1. For each variable $x$, $\mathbf{s}(x) = s(x)$
+2. For each constant symbol $c$, $\mathbf{s}(c) = c^{\mathfrak{M}}$
+3. For every $k$-place function symbol $f$ and terms $t_1, \ldots t_k$,
+
+$$\mathbf{s}(ft_1 \ldots t_k) = f^{\mathfrak{M}}(\mathbf{s}(t_1), \ldots, \mathbf{s}(t_k))$$
+
+:::
+
+::: {#exm-extent-assignment}
+
+Let $\mathfrak{R}$ be the structure for $\mathcal{L}_F$ given in @exm-assignment, and let $\mathbf{p}$, $\mathbf{r}$, and $\mathbf{s}$ be the extended assignments corresponding to the assignments $p$, $r$, and $s$ defined in Example @exm-assignment. Consider the term $+ \cdot v_6 v_0 + 0 v_3$ of $\mathcal{L}_F$. Then:
+
+1. $\begin{aligned}
+   \mathbf{p}(+ \cdot v_6 v_0 + 0 v_3) & = +(\mathbf{p}(\cdot v_6 v_0), \mathbf{p}(+ 0 v_3)) \\
+   & = +(\cdot(\mathbf{p}(v_6), \mathbf{p}(v_0)), +(\mathbf{p}(0), \mathbf{p}(v_3))) \\
+   & = +(\cdot(p(v_6), p(v_0)), +(0, p(v_3))) \\
+   & = +(\cdot(\pi, \pi), +(0, \pi)) \\
+   & = +(\pi^2, \pi) \\
+   & = \pi^2 + \pi
+   \end{aligned}$
+
+2. $\begin{aligned}
+   \mathbf{r}(+ \cdot v_6 v_0 + 0 v_3) & = +(\mathbf{r}(\cdot v_6 v_0), \mathbf{p}(+ 0 v_3)) \\
+   & = +(\cdot(\mathbf{r}(v_6), \mathbf{r}(v_0)), +(\mathbf{r}(0), \mathbf{r}(v_3))) \\
+   & = +(\cdot(r(v_6), r(v_0)), +(0, r(v_3))) \\
+   & = +(\cdot(e^6, e^0), +(0, e^3)) \\
+   & = +(e^6, e^3) \\
+   & = e^6 + e^3
+   \end{aligned}$
+
+3. $\begin{aligned}
+   \mathbf{s}(+ \cdot v_6 v_0 + 0 v_3) & = +(\mathbf{s}(\cdot v_6 v_0), \mathbf{s}(+ 0 v_3)) \\
+   & = +(\cdot(\mathbf{s}(v_6), \mathbf{s}(v_0)), +(\mathbf{s}(0), \mathbf{s}(v_3))) \\
+   & = +(\cdot(s(v_6), s(v_0)), +(0, s(v_3))) \\
+   & = +(\cdot(6 + 1, 0 + 1), +(0, 3 + 1)) \\
+   & = +(7, 4) \\
+   & = 11
+   \end{aligned}$
+
+:::
+
+::: {#exr-extent-assignment}
+
+$\mathfrak{N} = (\mathbb{N}, 0, S, +, \cdot, E)$ is a structure for $\mathcal{L}_N$.  Let $s: V \to \mathbb{N}$ be the assignment defined by $s(v_k) = k + 1$.  What are $\mathbf{s}(E + v_{19} v_1 \cdot 0 v_{45})$ and $\mathbf{s}(SSS + E 0 v_6 v_7)$?
+
+:::
+
+::: {#sol-extent-assignment}
+
+1. $\begin{aligned}
+   \mathbf{s}(E + v_{19} v_1 \cdot 0 v_{45}) & = E(\mathbf{s}(+ v_{19} v_1), \mathbf{s}(\cdot 0 v_{45})) \\
+   & = E(+(\mathbf{s}(v_{19}), \mathbf{s}(v_1)), \cdot (\mathbf{s}(0), \mathbf{s}(v_{45}))) \\
+   & = E(+(s(v_{19}), s(v_1)), \cdot (0, s(v_{45}))) \\
+   & = E(+(20, 2), \cdot (0, 46)) \\
+   & = E(22, 0) \\
+   & = 1 \\
+   \end{aligned}$
+   
+2. $\begin{aligned}
+   \mathbf{s}(SSS + E 0 v_6 v_7) & = S(\mathbf{s}(SS + E 0 v_6 v_7)) \\
+   & = S(S(\mathbf{s}(S + E 0 v_6 v_7))) \\
+   & = S(S(S(\mathbf{s}( + E 0 v_6 v_7)))) \\
+   & = S(S(S(+(\mathbf{s}(E 0 v_6), \mathbf{s}(v_7) )))) \\
+   & = S(S(S(+(E(\mathbf{s}(0), \mathbf{s}(v_6)), s(v_7)))))) \\
+   & = S(S(S(+(E(0,s(v_6)), 8)))) \\
+   & = S(S(S(+(E(0,7), 8)))) \\
+   & = S(S(S(+(0, 8)))) \\
+   & = S(S(S(8))) \\
+   & = S(S(9)) \\
+   & = S(10) \\
+   & = 11
+   \end{aligned}$
+
+:::
+
+::: {#prp-uniqueness-s}
+
+$\mathbf{s}$ is unique, i.e. given an assignment $s$, no other function $T \longrightarrow |\mathfrak{M}|$ satisfies conditions 1–3 in @def-extent-assignment
+
+:::
+
+::: {.proof}
+
+By strong induction on $n$, the length in a term $\alpha$, $l(\alpha)$, of $\mathcal{L}$ 
+
+*Base step* $(n = 1)$: If $\alpha$ is a term of $\mathcal{L}$ with $l(\varphi) = 1$ where $\mathbf{s}$ and $\mathbf{r}$ extend the assignment $s$ then $\varphi$ is a constant of a variable. 
+
+- If $\varphi$ is a variable $v_1$ then $\mathbf{s}(v_1) = s(v_1)$ and $\mathbf{r}(v_1) = s(v_1)$ for all $v_1$. Also because in this case the domains of $\mathbf{s}$ and $\mathbf{r}$ are the variables of $\mathcal{L}$ then by @exr-function 3 $\mathbf{s} = \mathbf{r}$
+ 
+- If $\varphi$ is a constant $c$ then $\mathbf{s}(c) = c^{\mathfrak{M}}$ and $\mathbf{r}(c) = c^{\mathfrak{M}}$ for all $c$. Also because in this case the domains of $\mathbf{s}$ and $\mathbf{r}$ are the constants of $\mathcal{L}$ then by @exr-function 3 $\mathbf{s} = \mathbf{r}$
+   
+*Induction hypothesis* $(n \leq k)$: Assume that if $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n \leq k$ then $\mathbf{s}(t) = \mathbf{r}(t)$ for all $t$. Also because it means that $\mathbf{s} = \mathbf{r}$ for all terms with $l(\alpha) = n \leq k$ of $\mathcal{L}$ by @exr-function 3  
+   
+*Induction step* $(n = k + 1)$: Suppose $\alpha$ is a term of $\mathcal{L}$ with $l(\alpha) = n = k + 1$. From @def-terms-l $\alpha$ must be a $s$-place function symbol where $ft_1t_2 \ldots t_s$ and $t_1,t_2, \ldots, t_s$ are terms where $\mathbf{s}(ft_1t_2 \ldots t_s) = f^{\mathfrak{M}}(\mathbf{s}(t_1), \mathbf{s}(t_2), \ldots \mathbf{s}(t_s))$ and $\mathbf{r}(ft_1t_2 \ldots t_s) = f^{\mathfrak{M}}(\mathbf{r}(t_1), \mathbf{r}(t_2), \ldots \mathbf{r}(t_s))$. 
+
+Then $\mathbf{s}(t_1) = \mathbf{r}(t_1)$, $\mathbf{s}(t_2) = \mathbf{r}(t_2)$, $\ldots$, $\mathbf{s}(t_s) = \mathbf{r}(t_s)$ by the *Induction hypothesis*. Therefore, $f^{\mathfrak{M}}(\mathbf{s}(t_1), \mathbf{s}(t_2), \ldots \mathbf{s}(t_s)) = f^{\mathfrak{M}}(\mathbf{r}(t_1), \mathbf{r}(t_2), \ldots \mathbf{r}(t_s)) = \mathbf{r}(ft_1t_2 \ldots t_s)$. So, $\mathbf{s}(ft_1t_2 \ldots t_s) = \mathbf{r}(ft_1t_2 \ldots t_s)$ for all $t_1, t_2, \ldots, t_s$ in $T$. Also $\mathbf{s}$ and $\mathbf{t}$ have the same domain where by @exr-function 3 $\mathbf{s} = \mathbf{r}$.  
+
+:::
+
+With @def-assignment and @def-extent-assignment in hand, we can take our first cut at defining what it means for a first-order formula to be true.
+
+::: {#def-formula-true-structure-assignment}
+
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, $s$ is an assignment for $\mathfrak{M}$, and $\varphi$ is a formula of $\mathcal{L}$. Then $\mathfrak{M} \models \varphi[s]$ is defined as follows:
+
+1. If $\varphi$ is $=t_1t_2$ for some terms $t_1$ and $t_2$, then $\mathfrak{M} \models \varphi[s]$ if and only if $\mathbf{s}(t_1) = \mathbf{s}(t_2)$ 
+
+2. If $\varphi$ is $Pt_1 \ldots t_k$ for some $k$-place relation symbol $P$ and terms $t1, \ldots,tk$, then $M \models \varphi[s]$ if and only if $(s(t_1), \ldots, s(t_k)) \in P^{\mathfrak{M}}$, i.e. $P^{\mathfrak{M}}$ is true of $(s(t_1), . . . , s(t_k))$.
+
+3. If $\varphi$ is $(\neg \psi)$ for some formula $\psi$, then $\mathfrak{M} \models \psi[s]$ if and only if it is not the case that $\mathfrak{M} \models \psi[s]$.
+
+4. If $\psi$ is $(\alpha \longrightarrow \beta)$, then $\mathfrak{M} \models \psi[s]$ if and only if $\mathfrak{M} \models \beta[s]$ whenever $\mathfrak{M} \models \alpha[s]$, i.e. unless $\mathfrak{M} \models \alpha[s]$ but not $\mathfrak{M} \models \beta[s]$
+
+5. If $\varphi$ is $\forall x \delta$ for some variable $x$, then $\mathfrak{M} \models \varphi[s]$ if and only if for all $m \in |\mathfrak{M}|$, $M \models \delta[s(x|m)]$, where $s(x|m)$ is the assignment
+
+   $$s(x|m)(v_k) = \begin{cases}
+            s(v_k) & \text{if } v_k \text{ is different from } x \\
+            m & \text{if } v_k \text{ is } x
+            \end{cases}$$
+
+:::
+
+If $\mathfrak{M} \models \varphi[s]$, we shall say that $\mathfrak{M}$ satisfies $\varphi$ on assignment $s$ or that $\varphi$ is true in $\mathfrak{M}$ on assignment $s$. We will often write $\mathfrak{M} \not \models \varphi[s]$ if it is not the case that $\mathfrak{M} \models \varphi[s]$. Also, if $\Gamma$ is a set of formulas of $\mathcal{L}$, we shall take $\mathfrak{M} \models \Gamma[s]$ to mean that $\mathfrak{M} \models \gamma[s]$ for every formula $\gamma \in \Gamma$ and say that $\mathfrak{M}$ satisfies $\Gamma$ on assignment $s$. Similarly, we shall take $M \not \models \Gamma[s]$ to mean that $\mathfrak{M} \not \models \gamma[s]$ for some formula $\gamma \in \Gamma$.
 
 ## Sets
 
