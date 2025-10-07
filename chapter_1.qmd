@@ -2850,6 +2850,73 @@ Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, $s$ is an assignment fo
 
 If $\mathfrak{M} \models \varphi[s]$, we shall say that $\mathfrak{M}$ satisfies $\varphi$ on assignment $s$ or that $\varphi$ is true in $\mathfrak{M}$ on assignment $s$. We will often write $\mathfrak{M} \not \models \varphi[s]$ if it is not the case that $\mathfrak{M} \models \varphi[s]$. Also, if $\Gamma$ is a set of formulas of $\mathcal{L}$, we shall take $\mathfrak{M} \models \Gamma[s]$ to mean that $\mathfrak{M} \models \gamma[s]$ for every formula $\gamma \in \Gamma$ and say that $\mathfrak{M}$ satisfies $\Gamma$ on assignment $s$. Similarly, we shall take $M \not \models \Gamma[s]$ to mean that $\mathfrak{M} \not \models \gamma[s]$ for some formula $\gamma \in \Gamma$.
 
+::: {#exm-formula-true-structure-assignment}
+
+Let $\mathfrak{R}$ be the structure for $\mathcal{L}_F$ and $s$ the assignment
+for $\mathfrak{R}$ given in @exm-assignment, and consider the formula $\forall v_1 (= v_3 \cdot 0 v_1 \longrightarrow = v_3 0)$ of $\mathcal{L}_F$. We can verify that $\mathfrak{R} \models \forall v_1 (= v_3 \cdot 0 v_1 \longrightarrow = v_3 0)[s]$ as follows:
+
+$\begin{aligned}
+   \mathfrak{R} \models \forall v_1 (= v_3 \cdot 0 v_1 \Longrightarrow = v_3 0)[s] & \iff \forall m \in |\mathfrak{R}|, \mathfrak{R} \models (= v_3 \cdot 0 v_1 \Longrightarrow = v_3 0)[s(v_1|m)] \\
+   & \iff  \forall m \in |\mathfrak{R}|, \mathfrak{R} \models (=v_3 \cdot 0 v_1)[s(v_1|m)] \Longrightarrow \mathfrak{R} \models (= v_3 0)[s(v_1|m)] \\
+   & \iff \forall m \in |\mathfrak{R}|, \mathbf{s}(v_1|m)(v_3) = \mathbf{s}(v_1|m)(\cdot 0 v_1) \Longrightarrow \mathbf{s}(v_1|m)(v_3) = \mathbf{s}(v_1|m)(0) \\
+   & \iff \forall m \in |\mathfrak{R}|, \mathbf{s}(v_3) = \cdot(\mathbf{s}(v_1|m)(0), \mathbf{s}(v_1|m)(v_1)) \Longrightarrow  \mathbf{s}(v_3) = \mathbf{s}(0) \\
+   & \iff \forall m \in |\mathfrak{R}|, \mathbf{s}(v_3) = \cdot(\mathbf{s}(0), m) \Longrightarrow  \mathbf{s}(v_3) = \mathbf{s}(0) \\
+   & \iff \forall m \in |\mathfrak{R}|, s(v_3) = \cdot(0, m) \Longrightarrow  s(v_3) = 0 \\
+   & \iff \forall m \in |\mathfrak{R}|, 4 = 0 \Longrightarrow 4 = 0 \\
+   \end{aligned}$
+
+Therefore we have that $\forall v_1 (= v_3 \cdot 0 v_1 \longrightarrow = v_3 0)$ is true in $\mathfrak{R}$ on assignment $s$ or that $\mathfrak{R}$ satisfies $\forall v_1 (= v_3 \cdot 0 v_1 \longrightarrow = v_3 0)$ on assignment $s$ because $4 = 0$ is false to $4 = 0 \Longrightarrow 4 = 0$ is true.   
+
+:::
+
+::: {#exr-formula-true-structure-assignment}
+
+Let $\mathfrak{N}$ be the structure for $\mathcal{L}_N$ in @exr-extent-assignment. Let $p: V \longrightarrow \mathbb{N}$ be defined by $p(v_{2k}) = k$ and $p(v_{2k+1}) = k$. Verify that
+
+(1) $\mathfrak{N} \models \forall w (\neg Sw = 0)[p]$
+(2) $\mathfrak{N} \models \forall x \exists y x + y = 0[p]$
+
+:::
+
+::: {#sol-formula-true-structure-assignment}
+
+(1) $\begin{aligned}
+     \mathfrak{N} \models \forall w (\neg Sw = 0)[p] & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \models (\neg = Sw 0)[s(w|m)] \\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models = Sw 0[s(w|m)] \\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models \mathbf{s}(w|m)(Sw) = \mathbf{s}(w|m)(0)\\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models S(\mathbf{s}(w|m)(w)) = 0 \\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models S(m) = 0 \\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models m + 1 = 0 \\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \neg (m + 1 0) \\
+    \end{aligned}$ 
+
+    Therefore we have that $\forall w (\neg Sw = 0)$ is true in $\mathfrak{R}$ on assignment $p$ or that $\mathfrak{R}$ satisfies $\forall w (\neg Sw = 0)$ on assignment $s$ because $\neg (= m + 1  0)$ is true \forall m \in |\mathfrak{N}|. 
+
+(2) $\begin{aligned}
+      \mathfrak{N} \not \models \forall x \exists y x + y = 0 [p] & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models \exists y x + y = 0[p(x|m)] \\
+      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models (\neg \forall y \neg (x + y = 0)[p(x|m)]) \\
+      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \forall y 
+      \neg (x + y = 0)[p(x|m)] \\
+     \end{aligned}$
+
+    In the last part we need to apply a double assignment so we define in this case s(x|m, y|n):
+    
+    $$s(x|m, y|n)(v_k) = \begin{cases}
+            m & \text{if } v_k \text{ is } x \\
+            n & \text{if } v_k \text{ is } y \\
+            s(v_k) & \text{ otherwise}
+            \end{cases}$$
+   
+    Therefore we have that:
+    
+    $\begin{aligned}
+      \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \forall y 
+      \neg (x + y = 0)[p(x|m)] & \iff \forall m, n \in |\mathfrak{N}|, \mathfrak{N} \models \neg (x + y = 0)[p(x|m, y|n)] \\
+      & \iff \forall m, n \in |\mathfrak{N}|, \mathfrak{N} \not \models (x + y = 0)[p(x|m, y|n)] \\
+     \end{aligned}$
+    
+:::
+
 ## Sets
 
 This section is a treatment of axiomatic set theory from the naive point of view as described in [@halmos_naive_2017]:
