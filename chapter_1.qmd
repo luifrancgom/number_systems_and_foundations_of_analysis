@@ -2887,19 +2887,19 @@ Let $\mathfrak{N}$ be the structure for $\mathcal{L}_N$ in @exr-extent-assignmen
      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models S(\mathbf{s}(w|m)(w)) = 0 \\
      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models S(m) = 0 \\
      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models m + 1 = 0 \\
-     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \neg (m + 1 0) \\
+     & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \neg (m + 1 = 0) \\
     \end{aligned}$ 
 
-    Therefore we have that $\forall w (\neg Sw = 0)$ is true in $\mathfrak{R}$ on assignment $p$ or that $\mathfrak{R}$ satisfies $\forall w (\neg Sw = 0)$ on assignment $s$ because $\neg (= m + 1  0)$ is true \forall m \in |\mathfrak{N}|. 
+    Therefore we have that $\forall w (\neg Sw = 0)$ is true in $\mathfrak{R}$ on assignment $p$ or that $\mathfrak{R}$ satisfies $\forall w (\neg Sw = 0)$ on assignment $s$ because $\neg (= m + 1 = 0)$ is true $\forall m \in |\mathfrak{N}|$. 
 
 (2) $\begin{aligned}
-      \mathfrak{N} \not \models \forall x \exists y x + y = 0 [p] & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models \exists y x + y = 0[p(x|m)] \\
-      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \not \models (\neg \forall y \neg (x + y = 0)[p(x|m)]) \\
-      & \iff \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \forall y 
-      \neg (x + y = 0)[p(x|m)] \\
+      \mathfrak{N} \not \models \forall x \exists y x + y = 0 [p] & \iff \neg (\mathfrak{N} \models \forall x \exists y x + y = 0 [p]) \\ 
+      & \iff \neg (\forall m \in |\mathfrak{N}|, \mathfrak{N} \models \exists y x + y = 0[p(x|m)]) \\
+      & \iff \neg (\forall m \in |\mathfrak{N}|, \mathfrak{N} \models (\neg \forall y \neg (x + y = 0))[p(x|m)]) \\
+      & \iff \exists m \in |\mathfrak{N}|, \mathfrak{N} \models \forall y \neg (x + y = 0)[p(x|m)]
      \end{aligned}$
 
-    In the last part we need to apply a double assignment so we define in this case s(x|m, y|n):
+    In the last part we need to apply a double assignment so we define in this case $s(x|m, y|n)$:
     
     $$s(x|m, y|n)(v_k) = \begin{cases}
             m & \text{if } v_k \text{ is } x \\
@@ -2910,11 +2910,43 @@ Let $\mathfrak{N}$ be the structure for $\mathcal{L}_N$ in @exr-extent-assignmen
     Therefore we have that:
     
     $\begin{aligned}
-      \forall m \in |\mathfrak{N}|, \mathfrak{N} \models \forall y 
-      \neg (x + y = 0)[p(x|m)] & \iff \forall m, n \in |\mathfrak{N}|, \mathfrak{N} \models \neg (x + y = 0)[p(x|m, y|n)] \\
-      & \iff \forall m, n \in |\mathfrak{N}|, \mathfrak{N} \not \models (x + y = 0)[p(x|m, y|n)] \\
+      \exists m \in |\mathfrak{N}|, \mathfrak{N} \models \forall y \neg (x + y = 0)[p(x|m)] & \iff \exists m \in |\mathfrak{N}| \forall n \in |\mathfrak{N}|, \mathfrak{N} \models \neg (x + y = 0)[p(x|m)] \\
+      & \iff \exists m \in |\mathfrak{N}| \forall n \in |\mathfrak{N}|, \neg (\mathfrak{N} \models (x + y = 0)[p(x|m)]) \\
+      & \iff \exists m \in |\mathfrak{N}| \forall n \in |\mathfrak{N}|, \mathfrak{N} \not \models (x + y = 0)[p(x|m, y|n)] \\
+      & \iff \exists m \in |\mathfrak{N}| \forall n \in |\mathfrak{N}|, \mathfrak{N} \not \models \mathbf{p}(x|m, y|n)(x) + \mathbf{p}(x|m, y|n)(y) = \mathbf{p}(x|m, y|n)(0) \\
+      & \iff \exists m \in |\mathfrak{N}| \forall n \in |\mathfrak{N}|, \mathfrak{N} \not \models m + n = p(0) \\
+      & \iff \exists m \in |\mathfrak{N}| \forall n \in |\mathfrak{N}|, \mathfrak{N} \not \models m + n = 0 \\
      \end{aligned}$
+
+    Therefore we have that $\forall x \exists y x + y = 0$ is false in $\mathfrak{N}$ on assignment $p$ or that $\mathfrak{R}$ doesn't satisfy $\forall x \exists y x + y = 0$ on assignment $p$ because the only $x$ where $\exists y x + y = 0$ is $x = 0$. 
     
+:::
+
+::: {#prp-exists-quantifier-formula-true-structure-assignment}
+
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, $s$ is an assingment for $\mathfrak{M}$, $x$ is a variable, and $\varphi$ is a formula of a first-order language $\mathcal{L}$. Then $\mathfrak{M} \models \exists x \varphi[s]$ if and only if $\mathfrak{M} \models \varphi[s(x|m)]$ for some $m \in |\mathfrak{M}|$ 
+
+:::
+
+::: {.proof}
+
+$\begin{aligned}
+  \mathfrak{M} \models \exists x \varphi[s] & \iff \mathfrak{M} \models (\neg \forall x (\neg \varphi)[s]) \\
+  & \iff \neg (\mathfrak{M} \models \forall x (\neg \varphi)[s]) \\
+  & \iff \neg (\forall m \in |\mathfrak{M}|, \mathfrak{M} \models (\neg \varphi)[s(x|m)]) \\
+  & \iff \exists m \in |\mathfrak{M}|, \mathfrak{M} \models \varphi[s(x|m)]
+ \end{aligned}$
+
+:::
+
+Working with particular assignments is difficult but, while sometimes unavoidable, not always necessary.
+
+::: {#def-formula-satisfiable-l}
+
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, and $\varphi$ a formula of $\mathcal{L}$. Then $M \models \varphi$ if and only if $M \models \varphi[s]$ for every assignment $s: V → |\mathfrak{M}|$ for $\mathfrak{M}$. $\mathfrak{M}$ is a model of $\varphi$ or that $\varphi$ is true in $\mathfrak{M}$ if $\mathfrak{M} \models \varphi$. We will often write $\mathfrak{M} \not \models \psi$ if it is not the case that $\mathfrak{M} \models \psi$. Similarly, if $\Gamma$ is a set of formulas, we will write $\mathfrak{M} \models \Gamma$ if $\mathfrak{M} \models \gamma$ for every formula $\gamma \in \Gamma$, and say that $\mathfrak{M}$ is a model of $\Gamma$ or that $\mathfrak{M}$ satisfies $\Gamma$. A formula or set of formulas is satisfiable if there is some structure $\mathfrak{M}$ which satisfies it. We will often write $\mathfrak{M} \not \models \Gamma$ if it is not the case that $\mathfrak{M} \models \Gamma$.
+
+**Note**: $\mathfrak{M} \not \models \varphi$ does not mean that for every assignment $s: V \longrightarrow |\mathfrak{M}|$, it is not the case that $\mathfrak{M} \models \varphi[s]$. It only means that that there is some assignment $r: V → |\mathfrak{M}|$ for which $\mathfrak{M} \models \varphi[r]$ is not true.
+
 :::
 
 ## Sets
