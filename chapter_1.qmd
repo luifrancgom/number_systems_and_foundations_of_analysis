@@ -2943,11 +2943,167 @@ Working with particular assignments is difficult but, while sometimes unavoidabl
 
 ::: {#def-formula-satisfiable-l}
 
-Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, and $\varphi$ a formula of $\mathcal{L}$. Then $M \models \varphi$ if and only if $M \models \varphi[s]$ for every assignment $s: V → |\mathfrak{M}|$ for $\mathfrak{M}$. $\mathfrak{M}$ is a model of $\varphi$ or that $\varphi$ is true in $\mathfrak{M}$ if $\mathfrak{M} \models \varphi$. We will often write $\mathfrak{M} \not \models \psi$ if it is not the case that $\mathfrak{M} \models \psi$. Similarly, if $\Gamma$ is a set of formulas, we will write $\mathfrak{M} \models \Gamma$ if $\mathfrak{M} \models \gamma$ for every formula $\gamma \in \Gamma$, and say that $\mathfrak{M}$ is a model of $\Gamma$ or that $\mathfrak{M}$ satisfies $\Gamma$. A formula or set of formulas is satisfiable if there is some structure $\mathfrak{M}$ which satisfies it. We will often write $\mathfrak{M} \not \models \Gamma$ if it is not the case that $\mathfrak{M} \models \Gamma$.
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, and $\varphi$ a formula of $\mathcal{L}$. Then $\mathfrak{M} \models \varphi$ if and only if $\mathfrak{M} \models \varphi[s]$ for every assignment $s: V → |\mathfrak{M}|$ for $\mathfrak{M}$. $\mathfrak{M}$ is a model of $\varphi$ or that $\varphi$ is true in $\mathfrak{M}$ if $\mathfrak{M} \models \varphi$. We will often write $\mathfrak{M} \not \models \psi$ if it is not the case that $\mathfrak{M} \models \psi$. Similarly, if $\Gamma$ is a set of formulas, we will write $\mathfrak{M} \models \Gamma$ if $\mathfrak{M} \models \gamma$ for every formula $\gamma \in \Gamma$, and say that $\mathfrak{M}$ is a model of $\Gamma$ or that $\mathfrak{M}$ satisfies $\Gamma$. A formula or set of formulas is satisfiable if there is some structure $\mathfrak{M}$ which satisfies it. We will often write $\mathfrak{M} \not \models \Gamma$ if it is not the case that $\mathfrak{M} \models \Gamma$.
 
 **Note**: $\mathfrak{M} \not \models \varphi$ does not mean that for every assignment $s: V \longrightarrow |\mathfrak{M}|$, it is not the case that $\mathfrak{M} \models \varphi[s]$. It only means that that there is some assignment $r: V → |\mathfrak{M}|$ for which $\mathfrak{M} \models \varphi[r]$ is not true.
 
 :::
+
+::: {#exr-formula-satisfiable-l}
+
+$\mathfrak{Q} = (\mathbb{Q}, <)$ is a structure for $\mathcal{L}_O$. For each of the following formulas $\varphi$ of $\mathcal{L}_O$ , determine whether or not $\mathfrak{Q} \models \varphi$.
+
+(1) $\forall v_0 \exists v_2 v_0 < v_2$
+(2) $\exists v_1 \forall v_3 (v1 < v3 \Longrightarrow v_1 = v_3)$
+(3) $\forall v_4 \forall v_5 \forall v_6 (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6))$
+
+:::
+
+::: {#sol-formula-satisfiable-l}
+
+(1) $\begin{aligned}
+     \mathfrak{Q} \models \forall v_0 \exists v_2 v_0 < v_2[s] & \iff \forall m \in |\mathfrak{Q}|, \mathfrak{Q} \models \exists v_2 v_0 < v_2[s(v_0 | m)] \\
+     & \iff \forall m \in |\mathfrak{Q}| \exists n \in |\mathfrak{Q}|, \mathfrak{Q} \models v_0 < v_2[s(v_0 | m, v_2 | n)] \\
+     & \iff \forall m \in |\mathfrak{Q}| \exists n \in |\mathfrak{Q}|, \mathfrak{Q} \models \mathbf{s}(v_0 | m, v_2 | n)(v_0) < \mathbf{s}(v_0 | m, v_2 | n)(v_2) \\
+     & \iff \forall m \in |\mathfrak{Q}| \exists n \in |\mathfrak{Q}|, \mathfrak{Q} \models m < n
+     \end{aligned}$
+    
+    Therefore because $\mathfrak{Q} \models \forall v_0 \exists v_2 v_0 < v_2[s]$ for every assignment $s$ then $\mathfrak{Q} \models \forall v_0 \exists v_2 v_0 < v_2$ 
+
+(2) $\begin{aligned}
+     \mathfrak{Q} \models \exists v_1 \forall v_3 (v_1 < v_3 \Longrightarrow v_1 = v_3) & \iff \exists m \in |\mathfrak{Q}|, \mathfrak{Q} \models \forall v_3 (v_1 < v_3 \Longrightarrow v_1 = v_3)[s(v_1 | m)] \\
+     & \iff \exists m \forall n \in |\mathfrak{Q}|, \mathfrak{Q} \models (v_1 < v_3 \Longrightarrow v_1 = v_3)[s(v_1 | m, v_3 | n)] \\ 
+     & \iff \exists m \forall n \in |\mathfrak{Q}|, \mathfrak{Q} \models v_1 < v_3[s(v_1 | m, v_3 | n)] \Longrightarrow \mathfrak{Q} \models v_1 = v_3[s(v_1 | m, v_3 | n)] \\
+     & \iff \exists m \forall n \in |\mathfrak{Q}|, \mathbf{s}(v_1 | m, v_3 | n)(v_1) < \mathbf{s}(v_1 | m, v_3 | n)(v_3) \Longrightarrow \mathbf{s}(v_1 | m, v_3 | n)(v_1) = \mathbf{s}(v_1 | m, v_3 | n)(v_3) \\
+     & \iff \exists m \forall n \in |\mathfrak{Q}|, m < n \Longrightarrow m = n \\   
+     \end{aligned}$
+
+    Therefore because $\mathfrak{Q} \not \models \exists v_1 \forall v_3 (v_1 < v_3 \Longrightarrow v_1 = v_3)[s]$ for every assignment $s$ then $\mathfrak{Q} \not \models \forall v_0 \exists v_2 v_0 < v_2$
+
+(3) $\begin{aligned}
+     \mathfrak{Q} \models \forall v_4 \forall v_5 \forall v_6 (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6)) & \iff \forall m \in |\mathfrak{Q}|, \forall v_5 \forall v_6 (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6))[s(v_4 | m)] \\
+     & \iff \forall m \in |\mathfrak{Q}|, n \in |\mathfrak{Q}|, \mathfrak{Q} \models \forall v_6 (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6))[s(v_4 | m, v_5 | n)] \\
+     & \iff \forall m \in |\mathfrak{Q}| n \in |\mathfrak{Q}| k \in |\mathfrak{Q}|, \mathfrak{Q} \models (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6))[s(v_4 | m, v_5 | n, v_6 | k)] \\
+     & \iff \forall m \in |\mathfrak{Q}| n \in |\mathfrak{Q}| k \in |\mathfrak{Q}|, \mathfrak{Q}, (m < n \Longrightarrow (n < k \Longrightarrow m < k))
+     \end{aligned}$
+
+     We have that $(m < n \Longrightarrow (n < k \Longrightarrow m < k))$ is equivalent to $(m < n \land n < k) \Longrightarrow m < k$. Therefore, because $\mathfrak{Q} \models \forall v_4 \forall v_5 \forall v_6 (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6))[s]$ for every assignment $s$ then $\mathfrak{Q} \models \forall v_4 \forall v_5 \forall v_6 (v_4 < v_5 \Longrightarrow (v_5 < v_6 \Longrightarrow v_4 < v_6))$
+
+:::
+
+::: {#lem-assignment-extend-assignment}
+
+Suppose $\mathfrak{M}$ is a structure $\mathcal{L}$, $t$ is a term of $\mathcal{L}$, and $r$ and $s$ are assignments for $\mathfrak{M}$ such that $r(x) = s(x)$ for every variable $x$ which occurs in $t$. Then $\mathbf{r}(t) = \mathbf{s}(t)$.
+
+:::
+
+::: {.proof}
+
+By strong induction on $n$, the length in a term $t$, $l(t)$, of $\mathcal{L}$
+
+*Base step* $(n = 1)$: If $t$ is a term of $\mathcal{L}$ with $l(t) = 1$ and $r(x) = s(x)$ for every variable $x$ which occurs in $t$. By @def-terms-l and @def-assignment $t$ is a variable, so by @def-extent-assignment $\mathbf{r}(x) = r(x)$ and $\mathbf{s}(x) = s(x)$. Therefore, $\mathbf{r}(x) = \mathbf{s}(x)$.
+
+*Induction hypothesis* $(n \leq k)$: Assume that if a term $t$ with $l(t) = n \leq k$ such that $r(x) = s(x)$ for every variable $x$ which occurs in $t$ then $\mathbf{r}(t) = \mathbf{s}(t)$.
+
+*Induction step* $(n = k + 1)$: Suppose $t$ is a term with $l(t) = k + 1$. From @def-terms-l $t$ must be a $s$-place function symbol $ft_1 \ldots t_s$ for some terms $t_1t_2 \ldots t_s$ and length $k+1$. Then $\mathbf{r}(ft_1t_2 \ldots t_s) = f^{\mathfrak{M}}(\mathbf{r}(t_1), \ldots, \mathbf{r}(t_s))$ and $\mathbf{s}(ft_1t_2 \ldots t_s) = f^{\mathfrak{M}}(\mathbf{s}(t_1), \ldots, \mathbf{s}(t_s))$.
+
+By the induction hypothesis $\mathbf{r}(t_1) = \mathbf{s}(t_1), \ldots, \mathbf{r}(t_s) = \mathbf{s}(t_s)$. Therefore, $f^{\mathfrak{M}}(\mathbf{s}(t_1), \mathbf{s}(t_2), \ldots \mathbf{s}(t_s)) = f^{\mathfrak{M}}(\mathbf{r}(t_1), \mathbf{r}(t_2), \ldots \mathbf{r}(t_s)) = \mathbf{r}(ft_1t_2 \ldots t_s)$. So, $\mathbf{s}(ft_1t_2 \ldots t_s) = \mathbf{r}(ft_1t_2 \ldots t_s)$ for all $t_1, t_2, \ldots, t_s$ in $T$. Also $\mathbf{s}$ and $\mathbf{t}$ have the same domain where by @exr-function 3 $\mathbf{s} = \mathbf{r}$.   
+
+:::
+
+::: {#prp-assignment-extend-assignment}
+
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$, $\varphi$ is a formula of $\mathcal{L}$, and $r$ and $s$ are assignments for $\mathfrak{M}$ such that $r(x) = s(x)$ for every variable $x$ which occurs free in $\varphi$. Then $\mathfrak{M} \models \varphi [r]$ if and only if $\mathfrak{M} \models \varphi[s]$.
+
+:::
+
+::: {.proof}
+
+By strong induction on $n$, the length in a formula $\varphi$, $l(\varphi)$, of $\mathcal{L}$
+
+*Base step* $(n = 2)$: If $\varphi$ is a formula of $\mathcal{L}$ with $l(\varphi) = 2$ by @def-terms-l is a $1$-place relation symbol where $\varphi = Pt_1$ and $t_1$ is a term. Then by @def-formulas-lp $\varphi$ is atomic and by the hypothesis of @prp-assignment-extend-assignment $t_1$ is a variable, so $t_1 = x$. Then:
+
+$$\begin{aligned}
+  \mathfrak{M} \models Px[r] & \iff (\mathbf{r}(x)) \\
+  & \iff (r(x)) \\
+  & \iff (s(x)) \\
+  & \iff (\mathbf{s}(x)) \\
+  & \iff \mathfrak{M} \models Px[s]
+ \end{aligned}$$
+
+*Induction hypothesis* $(n \leq k)$: Assume a formula with length $n \leq k$ such that $r(x) = s(x)$ for every variable $x$ which occurs free in $\varphi$. Then $\mathfrak{M} \models \varphi[r]$ if and only $\mathfrak{M} \models \varphi[s]$.
+
+*Induction step* $(n = k + 1)$: Assume a formula with length $n = k + 1$ such that $r(x) = s(x)$ for every variable $x$ which occurs free in $\varphi$. Then by @def-formulas-lp $\varphi$ can be:
+
+(1) $Pt_1 \ldots t_s$. So using @lem-assignment-extend-assignment:
+
+    $\begin{aligned}
+      \mathfrak{M} \models Pt_1 \ldots t_s [r] & \iff (\mathbf{r}(t_1), \ldots, \mathbf{r}(t_s)) \\
+      & \iff (\mathbf{s}(t_1), \ldots, \mathbf{s}(t_s)) \\
+      & \iff \mathfrak{M} \models Pt_1 \ldots t_s [s]
+     \end{aligned}$
+
+(2) $t_1 = t_2$. So using @lem-assignment-extend-assignment: 
+
+    $\begin{aligned}
+      \mathfrak{M} \models t_1 = t_2 [r] & \iff \mathbf{r}(t_1) = \mathbf{r}(t_2) \\
+      & \iff \mathbf{s}(t_1) = \mathbf{s}(t_2) \\
+      & \iff \mathfrak{M} \models t_1 = t_2 [s]
+     \end{aligned}$
+
+(3) $(\neg \psi)$. So using the induction hypothesis:
+
+    $\begin{aligned}
+      \mathfrak{M} \models \neg \psi [r] & \iff \mathfrak{M} \not \models \psi [r] \\
+      & \iff \mathfrak{M} \not \models \psi [s] \\
+      & \iff \mathfrak{M} \models \neg \psi [s]      
+     \end{aligned}$
+
+(4) $(\alpha \Longrightarrow \beta)$. So using the induction hypothesis:
+
+    $\begin{aligned}
+      \mathfrak{M} \models (\alpha \Longrightarrow \beta) [r] & \iff \mathfrak{M} \models \alpha [r] \Longrightarrow \beta [r] \\
+      & \iff \mathfrak{M} \models \alpha [s] \Longrightarrow \beta [s] \\
+      \mathfrak{M} \models (\alpha \Longrightarrow \beta) [s]    
+     \end{aligned}$
+
+(5) $\forall x \delta$. So using the induction hypothesis: 
+
+    $\begin{aligned}
+      \mathfrak{M} \models \forall x \delta [r] & \iff \forall m \in |\mathfrak{M}|, \mathfrak{M} \models \delta [r(x|m)] \\
+      & \iff \forall m \in |\mathfrak{M}|, \mathfrak{M} \models \delta [s(x|m)] \\
+      & \iff \mathfrak{M} \models \forall x \delta [s] 
+     \end{aligned}$
+
+Therefore, $\mathfrak{M} \models \varphi [r]$ if and only if $\mathfrak{M} \models \varphi[s]$.
+
+:::
+
+::: {#cor-assignment-extend-assignment}
+
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$ and $\sigma$ is a sentence of $\mathcal{L}$. Then $\mathfrak{M} \models \sigma$ if and only if there is some assignment $s: V \longrightarrow |\mathfrak{M}|$ for $\mathfrak{M}$ such that $M \models \sigma[s]$.
+
+:::
+
+::: {.proof}
+
+We divide the proof in 2 parts. The first direction is by definition:
+
+(1) $\begin{aligned}
+      \mathfrak{M} \models \sigma & \iff \forall s \mathfrak{M} \models \sigma[s] \\
+      & \Longrightarrow \exists s \mathfrak{M} \models \sigma[s] 
+     \end{aligned}$
+
+The other direction applies because $\sigma$ is a sentence so there are no free variables. In @prp-assignment-extend-assignment the antecedent is vacously true if $\sigma$ is a sentence. Therefore, for $\sigma$ we have that $\mathfrak{M} \models \sigma[r] \iff \mathfrak{M} \models \sigma[s]$. So if it exists some $s$ then it applies for any $r$:  
+
+(2) $\begin{aligned}
+     \exists s \mathfrak{M} \models \sigma[s] & \Longrightarrow \forall s \mathfrak{M} \models \sigma[s] \\
+     & \iff \mathfrak{M} \models \sigma  
+     \end{aligned}$
+
+:::
+
+Thus sentences are true or false in a structure independently of any particular assignment. @cor-assignment-extend-assignment let us simplify things on occasion when proving things about sentences rather than formulas. 
 
 ## Sets
 
