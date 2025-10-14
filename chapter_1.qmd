@@ -667,7 +667,7 @@ Suppose $\Sigma$ is a set of formulas and $\psi$ and $\rho$ are formulas. Then $
 
 -   Assume $\Sigma \cup \{ \psi \} \models \rho$.
 
-    -   Let $v$ satisfies $\Sigma \cup \{ \psi \}$ so $v(\sigma) = F$ for all $\sigma in \Sigma$, $v(\psi) = T$ and $v(\rho) = T$.
+    -   Let $v$ satisfies $\Sigma \cup \{ \psi \}$ so $v(\sigma) = T$ for all $\sigma \in \Sigma$, $v(\psi) = T$ and $v(\rho) = T$.
 
     -   Because $v(\psi) = T$ and $v(\rho) = T$ by @def-truth-assignment $v((\psi \Longrightarrow \rho)) = T$.
 
@@ -679,15 +679,42 @@ A set of formulas $\Sigma$ is satisfiable if and only if there is no contradicti
 :::
 
 ::: proof
--   Assume $\Sigma = \emptyset$ by @nte-truth-assignments-tautology-contradiction $\emptyset$ is satisfiable and $\chi$ will be a tautology because $\models \chi$.
 
--   Assume $\Sigma \neq \emptyset$ is a set of formulas that are satisfiable.
+We have that $\Sigma \models \chi$ if and only if $\forall v (\forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \Longrightarrow v(\chi) = T)$ where $v$ is a true assignment. Also:
 
-    -   Lets take $\sigma \in \Sigma$ so $v(T) = \sigma$. Then $\Sigma \models \sigma$ where $\sigma$ is not a contradiction.
+$\begin{aligned}
+  \Sigma \not \models \chi & \iff \neg (\Sigma \models \chi) \\
+  & \iff \neg \forall v (\forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \Longrightarrow v(\chi) = T) \\
+  & \iff \exists v \neg (\forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \Longrightarrow v(\chi) = T) \\
+  & \iff \exists v \neg \neg (\forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \land v(\chi) = F) \\
+  & \iff \exists v (\forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \land v(\chi) = F)
+ \end{aligned}$
 
--   Assume $\Sigma \models \chi$ where $\chi$ is not a contradiction.
+ Furthermore, $\Sigma$ is satisfiable if and only if $\exists v \forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T)$. Therefore:
 
-    -   Then for all $\sigma \in \Sigma$ we have that $v(\sigma) = T$. Therefore $\Sigma$ is satisfiable.
+ $\begin{aligned}
+   \Sigma \not \models \chi & \iff \exists v (\forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \land v(\chi) = F) \\
+   & \Longrightarrow \exists v \forall \sigma (\sigma \in \Sigma \Longrightarrow v(\sigma) = T) \land \exists v v(\chi) = F \\ 
+   & \iff \Sigma \text{ is satisfiable } \land \exists v v(\chi) = F 
+  \end{aligned}$
+
+ Finally the statement "There is no contradiction $\chi$ such that $\Sigma \models \chi$" is equivalent to $\neg \exists \chi (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi)$. So:
+
+ $\begin{aligned}
+   \neg \exists \chi (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi) & \iff \forall \chi \neg (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi) \\
+   & \iff \forall \chi \neg \neg (\chi \text{ is a contradiction } \land \Sigma \not \models \chi) \\
+   & \iff \forall \chi (\chi \text{ is a contradiction } \land \Sigma \not \models \chi) \\
+  \end{aligned}$
+
+We can have the above result in both directions with the hypothesis that $\chi \text{ is a contradiction }$ so the quantifier $\exists$ applies in both cases with the connective $\land$:
+
+ $\begin{aligned}
+   \neg \exists \chi (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi) & \iff \forall \chi (\chi \text{ is a contradiction } \land \Sigma \not \models \chi) \\
+   & \iff \forall \chi (\chi \text{ is a contradiction } \land \Sigma \text{ is satisfiable }) \\
+   & \iff (\chi \text{ is a contradiction } \land \Sigma \text{ is satisfiable }) \\
+   & \iff \Sigma \text{ is satisfiable }
+  \end{aligned}$
+
 :::
 
 ### Deductions
@@ -3103,7 +3130,195 @@ The other direction applies because $\sigma$ is a sentence so there are no free 
 
 :::
 
-Thus sentences are true or false in a structure independently of any particular assignment. @cor-assignment-extend-assignment let us simplify things on occasion when proving things about sentences rather than formulas. 
+Thus sentences are true or false in a structure independently of any particular assignment. @cor-assignment-extend-assignment let us simplify things on occasion when proving things about sentences rather than formulas.
+
+::: {#def-implies-formula-l}
+
+Suppose $\Gamma$ is a set of formulas of $\mathcal{L}$ and $\psi$ is a formula of $\mathcal{L}$. Then $\Gamma$ implies $\psi$, written as $\Gamma \models \psi$, if $\mathfrak{M} \models \psi$ whenever $\mathfrak{M} \models \Gamma$ (if $\mathfrak{M} \models \Gamma$ then $\mathfrak{M} \models \psi$) for every structure $\mathfrak{M}$ for $\mathcal{L}$.
+
+Similarly, if $\Gamma$ and $\Delta$ are sets of formulas of $\mathcal{L}$, then $\Gamma$ implies $\Delta$, written as $\Gamma \models \Delta$, if $\mathfrak{M} \models \Delta$ whenever $\mathfrak{M} \models \Gamma$ (if $\mathfrak{M} \models \Gamma$ then $\mathfrak{M} \models \Delta$ ) for every structure $\mathfrak{M}$ for $\mathcal{L}$
+
+**Note**: We will usually write $\models \ldots$ for $\emptyset \models \ldots$.
+
+:::
+
+::: {#prp-modus-ponens-implies-l}
+
+Suppose $\alpha$ and $\beta$ are formulas of some first-order language. Then $\{ (\alpha \Longrightarrow \beta), \alpha \} \models \beta$.
+
+:::
+
+::: {.proof}
+
+Use @def-formula-true-structure-assignment 4:
+
+$\begin{aligned}
+ \mathfrak{M} \models \{ (\alpha \Longrightarrow \beta), \alpha \} & \iff  \mathfrak{M} \models \alpha \Longrightarrow \beta \land \mathfrak{M} \models \alpha \\
+ & \iff (\neg (\mathfrak{M} \models \alpha) \lor \mathfrak{M} \models \beta ) \land \mathfrak{M} \models \alpha \\
+ & \iff (\neg (\mathfrak{M} \models \alpha) \land \mathfrak{M} \models \alpha) \lor (\mathfrak{M} \models \beta \land \mathfrak{M} \models \alpha) \\
+ & \Longrightarrow (\mathfrak{M} \models \beta \land \mathfrak{M} \models \alpha) \\
+ & \iff \mathfrak{M} \models \beta 
+ \end{aligned}$
+
+:::
+
+::: {#prp-assignment-deduction-theorem-l}
+
+Suppose $\Sigma$ is a set of formulas and $\psi$ and $\rho$ are formulas of some first-order language. Then $\Sigma \cup \{ \psi \} \models \rho$ if and only if $\Sigma \models (\psi \Longrightarrow \rho)$.
+
+:::
+
+::: {.proof}
+
+We divide the proof in 2 parts.
+
+(1) Assume $\Sigma \cup \{ \psi \} \models \rho$. We need to prove that if $\mathfrak{M}   \models \Sigma$ then $\mathfrak{M} \models (\psi \Longrightarrow \rho)$.
+
+    Let $\mathfrak{M} \models \Sigma$ and assume that $\mathfrak{M} \models \psi$. Therefore because $\Sigma \cup \{ \psi \} \models \rho$ then $\mathfrak{M} \models \rho$. Also by @def-formula-true-structure-assignment $\mathfrak{M} \models (\psi \Longrightarrow \rho)$.
+
+    Finally by @def-implies-formula-l $\Sigma \models (\psi \Longrightarrow \rho)$
+
+(2) Assume $\Sigma \models (\psi \Longrightarrow \rho)$. We need to prove that if $\mathfrak{M}   \models \Sigma \cup \{ \psi \}$ then $\mathfrak{M} \models \rho$.
+
+    Let $\mathfrak{M} \models \Sigma \cup \{ \psi \}$ then $\mathfrak{M} \models \Sigma$ and $\mathfrak{M} \models \psi$ because $\Sigma \in \Sigma \cup \{ \psi \}$ and $\psi \in \Sigma \cup \{ \psi \}$.
+
+    Because $\mathfrak{M} \models \Sigma$ by assumption $\mathfrak{M} \models (\psi \Longrightarrow \rho)$. Again because $\mathfrak{M} \models \psi$ then $\mathfrak{M} \models \rho$.
+
+    Finally by @def-implies-formula-l $\Sigma \cup \psi \models \rho$
+
+:::
+
+::: {#def-tautology-contradiction-l}
+
+A formula $\psi$ of $\mathcal{L}$ is a tautology if it is true in every structure, i.e. if $\models \psi$. $\psi$ is a contradiction if $\neg \psi$ is a tautology, i.e. if $\models \neg \psi$.
+
+:::
+
+For some trivials examples, let $\varphi$ be a formula of $\mathcal{L}$ and $\mathfrak{M}$ a structure for $\mathcal{L}$. Then $\mathfrak{M} \models \{ \varphi \}$ if and only if $\mathfrak{M} \models \varphi$, so it must be the case that $\{ \varphi \} \models \varphi$. It is also easy to check that $(\varphi \Longrightarrow \varphi)$ is a tautology and $\neg (\varphi \Longrightarrow \varphi)$ is a contradiction.
+
+::: {#exr-tautology-contradiction-l}
+
+Show that $\forall y y = y$ is a tautology and that $\exists y \neg y = y$ is a contradiction.
+
+:::
+
+::: {#sol-tautology-contradiction-l}
+
+Take an arbitrary $\mathfrak{M}$ taking into account that $\forall \mathfrak{M}, \mathfrak{M} \models \varphi$ if $\varphi$ is a tautology:
+
+(1) $\begin{aligned}
+      \mathfrak{M} \models \forall y y = y & \iff \mathfrak{M} \models \forall y y = y [s] \\
+      & \iff \forall m \in \mathfrak{M}, \mathfrak{M} \models y = y[s(x|m)] \\
+      & \iff \forall m \in \mathfrak{M}, \mathfrak{M} \models \mathbf{s}(x|m)(y) = \mathbf{s}(x|m)(y) \\
+      & \iff \forall m \in \mathfrak{M}, \mathfrak{M} \models m = m 
+     \end{aligned}$
+    
+    Therefore $\mathfrak{M} \models \forall y y = y$ because $\forall m \in \mathfrak{M}, \mathfrak{M} \models m = m$ is true for every $\mathfrak{M}$
+
+(2) Because $\exists y \neg y = y$ is equivalent to $\neg \forall y \neg \neg y = y$ so $\neg \forall y y = y$. Therefore, $\neg \neg \forall y y = y$ is equivalent to $\forall y y = y$ which is a tautology. So, by @def-tautology-contradiction-l $\exists y \neg y = y$ is a contradiction.
+
+:::
+
+::: {#exr-contradiction-l}
+
+Suppose $\varphi$ is a contradiction. Show that $\mathfrak{M} \models \varphi [s]$ is false for every structure $\mathfrak{M}$ and assignment $s: V \longrightarrow |\mathfrak{M}|$ for $\mathfrak{M}$.
+
+:::
+
+::: {#sol-contradiction-l}
+
+If $\varphi$ is a contradiction then $(\neg \varphi)$ is a tautology. Therefore $\forall \mathfrak{M}, \mathfrak{M} \models (\neg \varphi)$. Then $\forall \mathfrak{M}, \mathfrak{M} \models (\neg \varphi)[s]$. Also, by @def-formula-true-structure-assignment 3 $\mathfrak{M} \models (\neg \varphi)[s]$ if and only if $\mathfrak{M} \not \models \varphi[s]$. Finally, replacing this we have $\forall \mathfrak{M}, \mathfrak{M} \not \models \varphi[s]$.
+
+:::
+
+::: {#exr-set-formulas-satisfiable-l}
+
+Show that a set of formulas $\Sigma$ is satisfiable if and only if there is no contradiction $\chi$ such that $\Sigma \models \chi$.
+
+:::
+
+::: {#sol-set-formulas-satisfiable-l}
+
+We have that $\Sigma \models \chi$ if and only if $\forall \mathfrak{M} (\forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma) \Longrightarrow \mathfrak{M} \models \chi)$ where $\mathfrak{M}$ is a structure. Also:
+
+$\begin{aligned}
+  \Sigma \not \models \chi & \iff \neg (\Sigma \models \chi) \\
+  & \iff \neg \forall \mathfrak{M} (\forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma) \Longrightarrow \mathfrak{M} \models \chi) \\
+  & \iff \exists \mathfrak{M} \neg (\forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma) \Longrightarrow \mathfrak{M} \models \chi ) \\
+  & \iff \exists \mathfrak{M} \neg \neg (\forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M}\models \sigma) \land \mathfrak{M} \not \models \chi) \\
+  & \iff \exists \mathfrak{M} \forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma \land \mathfrak{M} \not \models \chi)
+ \end{aligned}$
+
+  Furthermore, $\Sigma$ is satisfiable if and only if $\exists \mathfrak{M} \forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma)$. Therefore:
+
+ $\begin{aligned}
+   \Sigma \not \models \chi & \iff \exists \mathfrak{M} (\forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma) \land \mathfrak{M} \not \models \chi) \\
+   & \Longrightarrow \exists \mathfrak{M} \forall \sigma (\sigma \in \Sigma \Longrightarrow \mathfrak{M} \models \sigma) \land \exists \mathfrak{M} \mathfrak{M} \not \models \chi \\ 
+   & \iff \Sigma \text{ is satisfiable } \land \exists \mathfrak{M} \mathfrak{M} \not \models \chi 
+  \end{aligned}$
+
+ Finally the statement "There is no contradiction $\chi$ such that $\Sigma \models \chi$" is equivalent to $\neg \exists \chi (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi)$. So:
+
+ $\begin{aligned}
+   \neg \exists \chi (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi) & \iff \forall \chi \neg (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi) \\
+   & \iff \forall \chi \neg \neg (\chi \text{ is a contradiction } \land \Sigma \not \models \chi) \\
+   & \iff \forall \chi (\chi \text{ is a contradiction } \land \Sigma \not \models \chi) \\
+  \end{aligned}$
+
+We can have the above result in both directions with the hypothesis that $\chi \text{ is a contradiction }$ so the quantifier $\exists$ applies in both cases with the connective $\land$:
+
+ $\begin{aligned}
+   \neg \exists \chi (\chi \text{ is a contradiction } \Longrightarrow \Sigma \models \chi) & \iff \forall \chi (\chi \text{ is a contradiction } \land \Sigma \not \models \chi) \\
+   & \iff \forall \chi (\chi \text{ is a contradiction } \land \Sigma \text{ is satisfiable }) \\
+   & \iff (\chi \text{ is a contradiction } \land \Sigma \text{ is satisfiable }) \\
+   & \iff \Sigma \text{ is satisfiable }
+  \end{aligned}$
+
+:::
+
+::: {#prp-connectives-assignment}
+
+(1) $\mathfrak{M} \models \neg \alpha$ if and only if $\mathfrak{M} \not \models \alpha$
+
+(2) $\mathfrak{M} \models (\alpha \Longrightarrow \beta)$ if and only if ($\mathfrak{M} \models \alpha$ then $\mathfrak{M} \models \beta$)
+
+(3) $\mathfrak{M} \models (\alpha \lor \beta)$ if and only if ($\mathfrak{M} \models \alpha$ or $\mathfrak{M} \models \beta$)
+
+(4) $\mathfrak{M} \models (\alpha \land \beta)$ if and only if ($\mathfrak{M} \models \alpha$ and $\mathfrak{M} \models \beta$)
+
+:::
+
+::: {.proof}
+
+(1) $\begin{aligned}
+      \mathfrak{M} \models \neg \alpha & \iff \mathfrak{M} \models \neg \alpha [s] \\
+      & \iff \neg (\mathfrak{M} \models \alpha [s]) \\
+      & \iff \neg (\mathfrak{M} \models \alpha) \\
+      & \iff \mathfrak{M} \not \models \alpha
+     \end{aligned}$
+
+(2) $\begin{aligned}
+      \mathfrak{M} \models (\alpha \Longrightarrow \beta) & \iff \mathfrak{M} \models (\alpha \Longrightarrow \beta) [s] \\
+      & \iff \mathfrak{M} \models \alpha [s] \text{ then } \mathfrak{M} \models \beta [s]  \\
+      & \iff \mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \models \beta
+     \end{aligned}$
+
+(3) $\begin{aligned}
+      \mathfrak{M} \models (\alpha \lor \beta) & \iff \mathfrak{M} \models ((\neg \alpha) \Longrightarrow \beta) \\
+      & \iff \mathfrak{M} \models (\neg \alpha) \text{ then } \mathfrak{M} \models \beta |\\
+      & \iff \mathfrak{M} \not \models \alpha \text{ then } \mathfrak{M} \models \beta |\\
+     \end{aligned}$
+
+(4) $\begin{aligned}
+      \mathfrak{M} \models (\alpha \land \beta) & \iff \mathfrak{M} \models (\neg (\alpha \Longrightarrow (\neg \beta))) \\
+      & \iff \neg \mathfrak{M} \models (\alpha \Longrightarrow (\neg \beta)) \\
+      & \iff \neg (\mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \models (\neg \beta)) \\ 
+      & \iff \neg (\mathfrak{M} \models \alpha \text{ then } \neg \mathfrak{M} \models \beta) \\ 
+      & \iff \neg (\mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \not \models \beta) \\ 
+      & \iff \mathfrak{M} \models \alpha \text{ and } \mathfrak{M} \models \beta
+     \end{aligned}$
+
+:::
 
 ## Sets
 
