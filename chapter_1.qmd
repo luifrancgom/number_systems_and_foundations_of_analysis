@@ -3278,13 +3278,21 @@ We can have the above result in both directions with the hypothesis that $\chi \
 
 ::: {#prp-connectives-assignment}
 
+Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$ and $\alpha$ and $\beta$ are sentences of $\mathcal{L}$. Then:
+
 (1) $\mathfrak{M} \models \neg \alpha$ if and only if $\mathfrak{M} \not \models \alpha$
 
-(2) $\mathfrak{M} \models (\alpha \Longrightarrow \beta)$ if and only if ($\mathfrak{M} \models \alpha$ then $\mathfrak{M} \models \beta$)
+(2) $\mathfrak{M} \models (\alpha \Longrightarrow \beta)$ if and only if $(\mathfrak{M} \models \alpha$ then $\mathfrak{M} \models \beta)$
 
 (3) $\mathfrak{M} \models (\alpha \lor \beta)$ if and only if ($\mathfrak{M} \models \alpha$ or $\mathfrak{M} \models \beta$)
 
-(4) $\mathfrak{M} \models (\alpha \land \beta)$ if and only if ($\mathfrak{M} \models \alpha$ and $\mathfrak{M} \models \beta$)
+(4) $\mathfrak{M} \models (\alpha \land \beta)$ if and only if $(\mathfrak{M} \models \alpha$ and $\mathfrak{M} \models \beta)$
+
+(5) $\mathfrak{M} \models (\alpha \iff \beta)$ if and only if $(\mathfrak{M} \models \alpha$ if and only if $\mathfrak{M} \models \beta)$
+
+(6) $\mathfrak{M} \models \forall x \alpha \text{ if and only if } \mathfrak{M} \models \alpha$
+
+(7) $\mathfrak{M} \models \exists x \alpha$ if and only if there is some $m \in |\mathfrak{M}|$ so that $\mathfrak{M} \models \alpha[s(x|m)]$ for every assignment $s$ for $|M|$
 
 :::
 
@@ -3318,6 +3326,36 @@ We can have the above result in both directions with the hypothesis that $\chi \
       & \iff \mathfrak{M} \models \alpha \text{ and } \mathfrak{M} \models \beta
      \end{aligned}$
 
+(5) $\begin{aligned}
+      \mathfrak{M} \models (\alpha \iff \beta) & \iff \mathfrak{M} \models ((\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha)) \\
+      & \iff \mathfrak{M} \models (\alpha \Longrightarrow \beta) \text{ and } \mathfrak{M} \models (\beta \Longrightarrow \alpha) \\  
+      & \iff (\mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \models \beta) \text{ and } (\mathfrak{M} \models \beta \text{ then } {M} \models \alpha) \\ 
+      & \iff \mathfrak{M} \models \alpha \text{ if and only if } \mathfrak{M} \models \beta   
+     \end{aligned}$
+
+(6) $\begin{aligned}
+      \mathfrak{M} \models \forall x \alpha & \iff \forall s \mathfrak{M} \models \forall x \alpha [s] \\
+      & \iff \forall s \forall m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)]
+     \end{aligned}$
+    
+    By @prp-assignment-extend-assignment because $\alpha$ is a sentence then $x$ doesn't occur free in $\alpha$. So $\mathfrak{M} \models \alpha [s(x|m)]$ if and only if $\mathfrak{M} \models \alpha [s]$ is vacuosly true. Therefore:
+
+    $\begin{aligned}
+      \mathfrak{M} \models \forall x \alpha & \iff \forall s \forall m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)] \\
+      & \iff \forall s \forall m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s] \\
+      & \iff \forall s, \mathfrak{M} \models \alpha [s] \\
+      & \iff \mathfrak{M} \models \alpha
+     \end{aligned}$
+
+(7) $\begin{aligned}
+     \mathfrak{M} \models \exists x \alpha & \iff  \forall s \mathfrak{M} \models \exists x \alpha [s] \\
+     & \iff \forall s \mathfrak{M} \models \neg \forall x \neg \alpha [s] \\
+     & \iff \forall s \neg (\mathfrak{M} \models \forall x \neg \alpha [s]) \\
+     & \iff \forall s \neg (\forall m \in \mathfrak{M}, \mathfrak{M} \models \neg \alpha [s(x|m)]) \\
+     & \iff \forall s \neg (\forall m \in \mathfrak{M}, \neg (\mathfrak{M} \models \alpha [s(x|m)])) \\
+     & \iff \forall s \neg \neg \exists m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)] \\
+     & \iff \forall s \exists m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)]
+     \end{aligned}$
 :::
 
 ## Sets
