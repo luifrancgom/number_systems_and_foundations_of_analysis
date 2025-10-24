@@ -4412,12 +4412,15 @@ Note&nbsp;1.4
   \end{aligned}\)</span></p>
 </div>
 <div id="prp-connectives-assignment" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1.27</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Proposition 1.27</strong></span> Suppose <span class="math inline">\(\mathfrak{M}\)</span> is a structure for <span class="math inline">\(\mathcal{L}\)</span> and <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are sentences of <span class="math inline">\(\mathcal{L}\)</span>. Then:</p>
 <ol type="1">
 <li><p><span class="math inline">\(\mathfrak{M} \models \neg \alpha\)</span> if and only if <span class="math inline">\(\mathfrak{M} \not \models \alpha\)</span></p></li>
-<li><p><span class="math inline">\(\mathfrak{M} \models (\alpha \Longrightarrow \beta)\)</span> if and only if (<span class="math inline">\(\mathfrak{M} \models \alpha\)</span> then <span class="math inline">\(\mathfrak{M} \models \beta\)</span>)</p></li>
+<li><p><span class="math inline">\(\mathfrak{M} \models (\alpha \Longrightarrow \beta)\)</span> if and only if <span class="math inline">\((\mathfrak{M} \models \alpha\)</span> then <span class="math inline">\(\mathfrak{M} \models \beta)\)</span></p></li>
 <li><p><span class="math inline">\(\mathfrak{M} \models (\alpha \lor \beta)\)</span> if and only if (<span class="math inline">\(\mathfrak{M} \models \alpha\)</span> or <span class="math inline">\(\mathfrak{M} \models \beta\)</span>)</p></li>
-<li><p><span class="math inline">\(\mathfrak{M} \models (\alpha \land \beta)\)</span> if and only if (<span class="math inline">\(\mathfrak{M} \models \alpha\)</span> and <span class="math inline">\(\mathfrak{M} \models \beta\)</span>)</p></li>
+<li><p><span class="math inline">\(\mathfrak{M} \models (\alpha \land \beta)\)</span> if and only if <span class="math inline">\((\mathfrak{M} \models \alpha\)</span> and <span class="math inline">\(\mathfrak{M} \models \beta)\)</span></p></li>
+<li><p><span class="math inline">\(\mathfrak{M} \models (\alpha \iff \beta)\)</span> if and only if <span class="math inline">\((\mathfrak{M} \models \alpha\)</span> if and only if <span class="math inline">\(\mathfrak{M} \models \beta)\)</span></p></li>
+<li><p><span class="math inline">\(\mathfrak{M} \models \forall x \alpha \text{ if and only if } \mathfrak{M} \models \alpha\)</span></p></li>
+<li><p><span class="math inline">\(\mathfrak{M} \models \exists x \alpha\)</span> if and only if there is some <span class="math inline">\(m \in |\mathfrak{M}|\)</span> so that <span class="math inline">\(\mathfrak{M} \models \alpha[s(x|m)]\)</span> for every assignment <span class="math inline">\(s\)</span> for <span class="math inline">\(|M|\)</span></p></li>
 </ol>
 </div>
 <div class="proof">
@@ -4446,6 +4449,32 @@ Note&nbsp;1.4
   &amp; \iff \neg (\mathfrak{M} \models \alpha \text{ then } \neg \mathfrak{M} \models \beta) \\
   &amp; \iff \neg (\mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \not \models \beta) \\
   &amp; \iff \mathfrak{M} \models \alpha \text{ and } \mathfrak{M} \models \beta
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  \mathfrak{M} \models (\alpha \iff \beta) &amp; \iff \mathfrak{M} \models ((\alpha \Longrightarrow \beta) \land (\beta \Longrightarrow \alpha)) \\
+  &amp; \iff \mathfrak{M} \models (\alpha \Longrightarrow \beta) \text{ and } \mathfrak{M} \models (\beta \Longrightarrow \alpha) \\
+  &amp; \iff (\mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \models \beta) \text{ and } (\mathfrak{M} \models \beta \text{ then } {M} \models \alpha) \\
+  &amp; \iff \mathfrak{M} \models \alpha \text{ if and only if } \mathfrak{M} \models \beta
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  \mathfrak{M} \models \forall x \alpha &amp; \iff \forall s \mathfrak{M} \models \forall x \alpha [s] \\
+  &amp; \iff \forall s \forall m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)]
+\end{aligned}\)</span></p>
+<p>By <a href="#prp-assignment-extend-assignment" class="quarto-xref">Proposition&nbsp;<span>1.24</span></a> because <span class="math inline">\(\alpha\)</span> is a sentence then <span class="math inline">\(x\)</span> doesn’t occur free in <span class="math inline">\(\alpha\)</span>. So <span class="math inline">\(\mathfrak{M} \models \alpha [s(x|m)]\)</span> if and only if <span class="math inline">\(\mathfrak{M} \models \alpha [s]\)</span> is vacuosly true. Therefore:</p>
+<p><span class="math inline">\(\begin{aligned}
+  \mathfrak{M} \models \forall x \alpha &amp; \iff \forall s \forall m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)] \\
+  &amp; \iff \forall s \forall m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s] \\
+  &amp; \iff \forall s, \mathfrak{M} \models \alpha [s] \\
+  &amp; \iff \mathfrak{M} \models \alpha
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+\mathfrak{M} \models \exists x \alpha &amp; \iff  \forall s \mathfrak{M} \models \exists x \alpha [s] \\
+&amp; \iff \forall s \mathfrak{M} \models \neg \forall x \neg \alpha [s] \\
+&amp; \iff \forall s \neg (\mathfrak{M} \models \forall x \neg \alpha [s]) \\
+&amp; \iff \forall s \neg (\forall m \in \mathfrak{M}, \mathfrak{M} \models \neg \alpha [s(x|m)]) \\
+&amp; \iff \forall s \neg (\forall m \in \mathfrak{M}, \neg (\mathfrak{M} \models \alpha [s(x|m)])) \\
+&amp; \iff \forall s \neg \neg \exists m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)] \\
+&amp; \iff \forall s \exists m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)]
 \end{aligned}\)</span></p></li>
 </ol>
 </div>
