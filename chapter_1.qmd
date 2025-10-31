@@ -2531,9 +2531,9 @@ extensions of other languages given in @exm-other-first-order-languages?
 
 :::
 
-::: {#prop-formula-}
+::: {#prp-formula-extension-l}
 
-Suppose $\mathcal{L}$ is a first-order language and $\mathcal{L}'$ is an extension of $\mathcal{L}$. Then every formula $\varphi$ of $\mathcal{L}$ is a formula of $\mathcal{L}'$.
+Suppose $\mathcal{L}$ is a first-order language and $\mathcal{L'}$ is an extension of $\mathcal{L}$. Then every formula $\varphi$ of $\mathcal{L}$ is a formula of $\mathcal{L}'$.
 
 :::
 
@@ -3299,22 +3299,23 @@ Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$ and $\alpha$ and $\beta$
 ::: {.proof}
 
 (1) $\begin{aligned}
-      \mathfrak{M} \models \neg \alpha & \iff \mathfrak{M} \models \neg \alpha [s] \\
-      & \iff \neg (\mathfrak{M} \models \alpha [s]) \\
+      \mathfrak{M} \models \neg \alpha & \iff \forall s \mathfrak{M} \models \neg \alpha [s] \\
+      & \iff \forall s \neg (\mathfrak{M} \models \alpha [s]) \\
       & \iff \neg (\mathfrak{M} \models \alpha) \\
       & \iff \mathfrak{M} \not \models \alpha
      \end{aligned}$
 
 (2) $\begin{aligned}
-      \mathfrak{M} \models (\alpha \Longrightarrow \beta) & \iff \mathfrak{M} \models (\alpha \Longrightarrow \beta) [s] \\
-      & \iff \mathfrak{M} \models \alpha [s] \text{ then } \mathfrak{M} \models \beta [s]  \\
+      \mathfrak{M} \models (\alpha \Longrightarrow \beta) & \iff \forall s \mathfrak{M} \models (\alpha \Longrightarrow \beta) [s] \\
+      & \iff \forall s \mathfrak{M} \models \alpha [s] \text{ then } \forall s \mathfrak{M} \models \beta [s]  \\
       & \iff \mathfrak{M} \models \alpha \text{ then } \mathfrak{M} \models \beta
      \end{aligned}$
 
 (3) $\begin{aligned}
       \mathfrak{M} \models (\alpha \lor \beta) & \iff \mathfrak{M} \models ((\neg \alpha) \Longrightarrow \beta) \\
-      & \iff \mathfrak{M} \models (\neg \alpha) \text{ then } \mathfrak{M} \models \beta |\\
-      & \iff \mathfrak{M} \not \models \alpha \text{ then } \mathfrak{M} \models \beta |\\
+      & \iff \mathfrak{M} \models (\neg \alpha) \text{ then } \mathfrak{M} \models \beta \\
+      & \iff \mathfrak{M} \not \models \alpha \text{ then } \mathfrak{M} \models \beta \\
+      & \iff \mathfrak{M} \not \models \alpha \text{ or } \mathfrak{M} \models \beta
      \end{aligned}$
 
 (4) $\begin{aligned}
@@ -3351,11 +3352,80 @@ Suppose $\mathfrak{M}$ is a structure for $\mathcal{L}$ and $\alpha$ and $\beta$
      \mathfrak{M} \models \exists x \alpha & \iff  \forall s \mathfrak{M} \models \exists x \alpha [s] \\
      & \iff \forall s \mathfrak{M} \models \neg \forall x \neg \alpha [s] \\
      & \iff \forall s \neg (\mathfrak{M} \models \forall x \neg \alpha [s]) \\
-     & \iff \forall s \neg (\forall m \in \mathfrak{M}, \mathfrak{M} \models \neg \alpha [s(x|m)]) \\
-     & \iff \forall s \neg (\forall m \in \mathfrak{M}, \neg (\mathfrak{M} \models \alpha [s(x|m)])) \\
-     & \iff \forall s \neg \neg \exists m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)] \\
-     & \iff \forall s \exists m \in \mathfrak{M}, \mathfrak{M} \models \alpha [s(x|m)]
+     & \iff \forall s \neg (\forall m \in |\mathfrak{M}|, \mathfrak{M} \models \neg \alpha [s(x|m)]) \\
+     & \iff \forall s \neg (\forall m \in |\mathfrak{M}|, \neg (\mathfrak{M} \models \alpha [s(x|m)])) \\
+     & \iff \forall s \neg \neg \exists m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)] \\
+     & \iff \forall s \exists m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)]
      \end{aligned}$
+:::
+
+::: {#exr-connectives-assignment-not-sentence}
+
+How much of @prp-connectives-assignment must remain true if $\alpha$ and $\beta$ are not sentences?
+
+:::
+
+::: {#sol-connectives-assignment-not-sentence}
+
+(1) It will work but we need to modify if specifying a particular assignment like $\mathfrak{M} \models \neg \alpha [s]$ if and only if $\mathfrak{M} \not \models \alpha [s]$ by using @def-formula-true-structure-assignment
+
+(2) For this case the same applies so $\mathfrak{M} \models (\alpha \longrightarrow \beta) [s]$ if and only if, if $\mathfrak{M} \models \alpha [s]$ then $\mathfrak{M} \models \beta [s]$ by using @def-formula-true-structure-assignment 
+
+(3) In the same way we can have that $\mathfrak{M} \models (\alpha \lor \beta) [s]$ if and only if $\mathfrak{M} \models \alpha [s]$ or $\mathfrak{M} \models \beta [s]$ by using @def-formula-true-structure-assignment and the proof of @prp-connectives-assignment 3.
+
+(4) In the same way we can have that $\mathfrak{M} \models (\alpha \land \beta) [s]$ if and only if $\mathfrak{M} \models \alpha [s]$ and $\mathfrak{M} \models \beta [s]$ by using @def-formula-true-structure-assignment and the proof of @prp-connectives-assignment 4.  
+
+(5) In the same way we can have that $\mathfrak{M} \models (\alpha \iff \beta) [s]$ if and only if $\mathfrak{M} \models \alpha [s]$ if and only if $\mathfrak{M} \models \beta [s]$ by using @def-formula-true-structure-assignment and the proof of @prp-connectives-assignment 5.
+
+(6) We have that:
+
+    $\begin{aligned}
+     \mathfrak{M} \models \forall x \alpha [s] & \iff \forall m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)] 
+     \end{aligned}$
+    
+    Because:
+
+    $$s(x|m)(v_k) = \begin{cases}
+            s(v_k) & \text{if } v_k \text{ is different from } x \\
+            m & \text{if } v_k \text{ is } x
+            \end{cases}$$
+    
+    Also $s: V \longrightarrow |\mathfrak{M}|$ then it exists some $m_0$ such that $m_0 = s(x)$ so $s(x|m_0)(v_k) = s(x)$ if $v_k$ is $x$ and $s(x|m_0)(v_k) = s(v_k)$ if $v_k$ is different from $x$. Therefore: 
+
+    $\begin{aligned}
+     \mathfrak{M} \models \forall x \alpha [s] & \iff \forall m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)] \\
+     & \Longrightarrow \exists m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)] \\
+     & \Longrightarrow \mathfrak{M} \models \alpha [s(x|m_0)] \\
+     & \Longrightarrow \mathfrak{M} \models \alpha [s]
+     \end{aligned}$
+    
+    However, we can not have the other direction.
+
+(7) In this case we can only have the following:
+
+    $\begin{aligned}
+     \mathfrak{M} \models \exists x \alpha [s] \iff \forall s \mathfrak{M} \models \neg \forall x \neg \alpha [s] \\
+     & \iff \neg (\mathfrak{M} \models \forall x \neg \alpha [s]) \\
+     & \iff \neg (\forall m \in |\mathfrak{M}|, \mathfrak{M} \models \neg \alpha [s(x|m)]) \\
+     & \iff \neg (\forall m \in |\mathfrak{M}|, \neg (\mathfrak{M} \models \alpha [s(x|m)])) \\
+     & \iff \neg \neg \exists m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)] \\
+     & \iff \exists m \in |\mathfrak{M}|, \mathfrak{M} \models \alpha [s(x|m)]
+     \end{aligned}$
+
+:::
+
+Recall that by @prp-formula-extension-l a formula of a first-order language is also a formula of any extension of the language. The following relationship between extension languages and satisfiability will be needed later on.
+
+::: {#prp-extension-satisfiability-l}
+
+Suppose $\mathcal{L}$ is a first-order language, $\mathcal{L'}$ is an extension of $\mathcal{L}$, and $\Gamma$ is a set of formulas of $\mathcal{L}$. Then $\Gamma$ is satisfiable in a structure for $\mathcal{L}$ if and only if $\Gamma$ is satisfiable in a structure for $\mathcal{L'}$
+
+:::
+
+::: {.proof}
+
+
+
 :::
 
 ## Sets
