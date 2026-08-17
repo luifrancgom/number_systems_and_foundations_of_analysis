@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Appendix H — Positional number systems – Number Systems and the Foundations of Analysis</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -59,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -88,15 +93,14 @@ div.csl-indent {
 <link href="./appendix_g.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d497cff885f6278d37568d0ef0763f8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,7 +130,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -343,7 +347,7 @@ window.Quarto = {
 
 
 <div id="def-positional-notation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition H.1 (Positional notation)</strong></span> Positional notation using base <span class="math inline">\(b\)</span> (or radix <span class="math inline">\(b\)</span>) is defined by the rule <span class="citation" data-cites="knuth_art_1997">(<a href="references.html#ref-knuth_art_1997" role="doc-biblioref">Knuth 1997, 2:195</a>)</span>:</p>
+<p><span class="theorem-title"><strong>Definition H.1 (Positional notation)</strong></span> Positional notation using base <span class="math inline">\(b\)</span> (or radix <span class="math inline">\(b\)</span>) is defined by the rule <span class="citation" data-cites="knuth_art_1997">(<a href="references.html#ref-knuth_art_1997" role="doc-biblioref">Knuth 1997, 195</a>)</span>:</p>
 <p><span class="math display">\[(a_na_{n-1} \ldots a_1a_0.a_{-1}a_{-2}a_{-3} \ldots)_b= \sum_{k=0}^n a_kb^k + \sum_{k = 1}^{\infty} a_{-k}b^{-k}\]</span> Where the <span class="math inline">\(a\)</span>’s are called the digits of the representation.</p>
 <p>Also <span class="math inline">\(0 \leq a_k &lt; b\)</span>, <span class="math inline">\(0 \leq a_{-k} &lt; b\)</span> and <span class="math inline">\(b^k, b^{-k}\)</span> are the weights, <span class="math inline">\(w\)</span>, of the corresponding digits where the position <span class="math inline">\(k\)</span> is the base <span class="math inline">\(b\)</span> logarithm of the corresponding <span class="math inline">\(w\)</span>, that is <span class="math inline">\(k = \log_b w = \log_b b^k\)</span>.</p>
 <p>Furthermore, the dot, <span class="math inline">\(.\)</span> , that appears between <span class="math inline">\(a_0\)</span> and <span class="math inline">\(a_{-1}\)</span> is called the radix point were it is used to identify the integer part from the fractional part of the representation. In that sense, <span class="math inline">\(a_n\)</span> to <span class="math inline">\(a_0\)</span> is the integer part follow by the radix point and then <span class="math inline">\(a_{-1}, a_{-2}, a_{-3}, \ldots\)</span> is the fractional part.</p>
@@ -358,23 +362,23 @@ Table&nbsp;H.1: Positional notation example
 </figcaption>
 <div aria-describedby="tbl-positional-notation-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="fjwragcucs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fjwragcucs table {
+<div id="ipnhjbdqju" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ipnhjbdqju table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fjwragcucs thead, #fjwragcucs tbody, #fjwragcucs tfoot, #fjwragcucs tr, #fjwragcucs td, #fjwragcucs th {
+#ipnhjbdqju thead, #ipnhjbdqju tbody, #ipnhjbdqju tfoot, #ipnhjbdqju tr, #ipnhjbdqju td, #ipnhjbdqju th {
   border-style: none;
 }
 
-#fjwragcucs p {
+#ipnhjbdqju p {
   margin: 0;
   padding: 0;
 }
 
-#fjwragcucs .gt_table {
+#ipnhjbdqju .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -400,12 +404,12 @@ Table&nbsp;H.1: Positional notation example
   border-left-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_caption {
+#ipnhjbdqju .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fjwragcucs .gt_title {
+#ipnhjbdqju .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -417,7 +421,7 @@ Table&nbsp;H.1: Positional notation example
   border-bottom-width: 0;
 }
 
-#fjwragcucs .gt_subtitle {
+#ipnhjbdqju .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -429,7 +433,7 @@ Table&nbsp;H.1: Positional notation example
   border-top-width: 0;
 }
 
-#fjwragcucs .gt_heading {
+#ipnhjbdqju .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -441,13 +445,13 @@ Table&nbsp;H.1: Positional notation example
   border-right-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_bottom_border {
+#ipnhjbdqju .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_col_headings {
+#ipnhjbdqju .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -462,7 +466,7 @@ Table&nbsp;H.1: Positional notation example
   border-right-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_col_heading {
+#ipnhjbdqju .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -482,7 +486,7 @@ Table&nbsp;H.1: Positional notation example
   overflow-x: hidden;
 }
 
-#fjwragcucs .gt_column_spanner_outer {
+#ipnhjbdqju .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -494,15 +498,15 @@ Table&nbsp;H.1: Positional notation example
   padding-right: 4px;
 }
 
-#fjwragcucs .gt_column_spanner_outer:first-child {
+#ipnhjbdqju .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fjwragcucs .gt_column_spanner_outer:last-child {
+#ipnhjbdqju .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fjwragcucs .gt_column_spanner {
+#ipnhjbdqju .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -514,11 +518,11 @@ Table&nbsp;H.1: Positional notation example
   width: 100%;
 }
 
-#fjwragcucs .gt_spanner_row {
+#ipnhjbdqju .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fjwragcucs .gt_group_heading {
+#ipnhjbdqju .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -544,7 +548,7 @@ Table&nbsp;H.1: Positional notation example
   text-align: left;
 }
 
-#fjwragcucs .gt_empty_group_heading {
+#ipnhjbdqju .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -559,15 +563,15 @@ Table&nbsp;H.1: Positional notation example
   vertical-align: middle;
 }
 
-#fjwragcucs .gt_from_md > :first-child {
+#ipnhjbdqju .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fjwragcucs .gt_from_md > :last-child {
+#ipnhjbdqju .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fjwragcucs .gt_row {
+#ipnhjbdqju .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -586,7 +590,7 @@ Table&nbsp;H.1: Positional notation example
   overflow-x: hidden;
 }
 
-#fjwragcucs .gt_stub {
+#ipnhjbdqju .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -599,7 +603,7 @@ Table&nbsp;H.1: Positional notation example
   padding-right: 5px;
 }
 
-#fjwragcucs .gt_stub_row_group {
+#ipnhjbdqju .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -613,15 +617,15 @@ Table&nbsp;H.1: Positional notation example
   vertical-align: top;
 }
 
-#fjwragcucs .gt_row_group_first td {
+#ipnhjbdqju .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fjwragcucs .gt_row_group_first th {
+#ipnhjbdqju .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fjwragcucs .gt_summary_row {
+#ipnhjbdqju .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -631,16 +635,16 @@ Table&nbsp;H.1: Positional notation example
   padding-right: 5px;
 }
 
-#fjwragcucs .gt_first_summary_row {
+#ipnhjbdqju .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_first_summary_row.thick {
+#ipnhjbdqju .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fjwragcucs .gt_last_summary_row {
+#ipnhjbdqju .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -650,7 +654,7 @@ Table&nbsp;H.1: Positional notation example
   border-bottom-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_grand_summary_row {
+#ipnhjbdqju .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -660,7 +664,7 @@ Table&nbsp;H.1: Positional notation example
   padding-right: 5px;
 }
 
-#fjwragcucs .gt_first_grand_summary_row {
+#ipnhjbdqju .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -670,7 +674,7 @@ Table&nbsp;H.1: Positional notation example
   border-top-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_last_grand_summary_row_top {
+#ipnhjbdqju .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -680,11 +684,11 @@ Table&nbsp;H.1: Positional notation example
   border-bottom-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_striped {
+#ipnhjbdqju .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fjwragcucs .gt_table_body {
+#ipnhjbdqju .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -693,7 +697,7 @@ Table&nbsp;H.1: Positional notation example
   border-bottom-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_footnotes {
+#ipnhjbdqju .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -707,7 +711,7 @@ Table&nbsp;H.1: Positional notation example
   border-right-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_footnote {
+#ipnhjbdqju .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -716,7 +720,7 @@ Table&nbsp;H.1: Positional notation example
   padding-right: 5px;
 }
 
-#fjwragcucs .gt_sourcenotes {
+#ipnhjbdqju .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -730,7 +734,7 @@ Table&nbsp;H.1: Positional notation example
   border-right-color: #D3D3D3;
 }
 
-#fjwragcucs .gt_sourcenote {
+#ipnhjbdqju .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -738,77 +742,77 @@ Table&nbsp;H.1: Positional notation example
   padding-right: 5px;
 }
 
-#fjwragcucs .gt_left {
+#ipnhjbdqju .gt_left {
   text-align: left;
 }
 
-#fjwragcucs .gt_center {
+#ipnhjbdqju .gt_center {
   text-align: center;
 }
 
-#fjwragcucs .gt_right {
+#ipnhjbdqju .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fjwragcucs .gt_font_normal {
+#ipnhjbdqju .gt_font_normal {
   font-weight: normal;
 }
 
-#fjwragcucs .gt_font_bold {
+#ipnhjbdqju .gt_font_bold {
   font-weight: bold;
 }
 
-#fjwragcucs .gt_font_italic {
+#ipnhjbdqju .gt_font_italic {
   font-style: italic;
 }
 
-#fjwragcucs .gt_super {
+#ipnhjbdqju .gt_super {
   font-size: 65%;
 }
 
-#fjwragcucs .gt_footnote_marks {
+#ipnhjbdqju .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fjwragcucs .gt_asterisk {
+#ipnhjbdqju .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fjwragcucs .gt_indent_1 {
+#ipnhjbdqju .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fjwragcucs .gt_indent_2 {
+#ipnhjbdqju .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fjwragcucs .gt_indent_3 {
+#ipnhjbdqju .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fjwragcucs .gt_indent_4 {
+#ipnhjbdqju .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fjwragcucs .gt_indent_5 {
+#ipnhjbdqju .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fjwragcucs .katex-display {
+#ipnhjbdqju .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fjwragcucs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ipnhjbdqju div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="desc">Position</td>
@@ -906,23 +910,23 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
 </figcaption>
 <div aria-describedby="tbl-exm-base-10-to-base-2-int-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="wnhjexcfgs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wnhjexcfgs table {
+<div id="fzemfkbmxc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fzemfkbmxc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wnhjexcfgs thead, #wnhjexcfgs tbody, #wnhjexcfgs tfoot, #wnhjexcfgs tr, #wnhjexcfgs td, #wnhjexcfgs th {
+#fzemfkbmxc thead, #fzemfkbmxc tbody, #fzemfkbmxc tfoot, #fzemfkbmxc tr, #fzemfkbmxc td, #fzemfkbmxc th {
   border-style: none;
 }
 
-#wnhjexcfgs p {
+#fzemfkbmxc p {
   margin: 0;
   padding: 0;
 }
 
-#wnhjexcfgs .gt_table {
+#fzemfkbmxc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -948,12 +952,12 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-left-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_caption {
+#fzemfkbmxc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wnhjexcfgs .gt_title {
+#fzemfkbmxc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -965,7 +969,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-bottom-width: 0;
 }
 
-#wnhjexcfgs .gt_subtitle {
+#fzemfkbmxc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -977,7 +981,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-top-width: 0;
 }
 
-#wnhjexcfgs .gt_heading {
+#fzemfkbmxc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -989,13 +993,13 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_bottom_border {
+#fzemfkbmxc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_col_headings {
+#fzemfkbmxc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1010,7 +1014,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_col_heading {
+#fzemfkbmxc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1030,7 +1034,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#wnhjexcfgs .gt_column_spanner_outer {
+#fzemfkbmxc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1042,15 +1046,15 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   padding-right: 4px;
 }
 
-#wnhjexcfgs .gt_column_spanner_outer:first-child {
+#fzemfkbmxc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wnhjexcfgs .gt_column_spanner_outer:last-child {
+#fzemfkbmxc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wnhjexcfgs .gt_column_spanner {
+#fzemfkbmxc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1062,11 +1066,11 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   width: 100%;
 }
 
-#wnhjexcfgs .gt_spanner_row {
+#fzemfkbmxc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wnhjexcfgs .gt_group_heading {
+#fzemfkbmxc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1092,7 +1096,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   text-align: left;
 }
 
-#wnhjexcfgs .gt_empty_group_heading {
+#fzemfkbmxc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1107,15 +1111,15 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   vertical-align: middle;
 }
 
-#wnhjexcfgs .gt_from_md > :first-child {
+#fzemfkbmxc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wnhjexcfgs .gt_from_md > :last-child {
+#fzemfkbmxc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wnhjexcfgs .gt_row {
+#fzemfkbmxc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1134,7 +1138,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#wnhjexcfgs .gt_stub {
+#fzemfkbmxc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1147,7 +1151,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   padding-right: 5px;
 }
 
-#wnhjexcfgs .gt_stub_row_group {
+#fzemfkbmxc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1161,15 +1165,15 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   vertical-align: top;
 }
 
-#wnhjexcfgs .gt_row_group_first td {
+#fzemfkbmxc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wnhjexcfgs .gt_row_group_first th {
+#fzemfkbmxc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wnhjexcfgs .gt_summary_row {
+#fzemfkbmxc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1179,16 +1183,16 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   padding-right: 5px;
 }
 
-#wnhjexcfgs .gt_first_summary_row {
+#fzemfkbmxc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_first_summary_row.thick {
+#fzemfkbmxc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wnhjexcfgs .gt_last_summary_row {
+#fzemfkbmxc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1198,7 +1202,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_grand_summary_row {
+#fzemfkbmxc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1208,7 +1212,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   padding-right: 5px;
 }
 
-#wnhjexcfgs .gt_first_grand_summary_row {
+#fzemfkbmxc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1218,7 +1222,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-top-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_last_grand_summary_row_top {
+#fzemfkbmxc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1228,11 +1232,11 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_striped {
+#fzemfkbmxc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wnhjexcfgs .gt_table_body {
+#fzemfkbmxc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1241,7 +1245,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_footnotes {
+#fzemfkbmxc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1255,7 +1259,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_footnote {
+#fzemfkbmxc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1264,7 +1268,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   padding-right: 5px;
 }
 
-#wnhjexcfgs .gt_sourcenotes {
+#fzemfkbmxc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1278,7 +1282,7 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#wnhjexcfgs .gt_sourcenote {
+#fzemfkbmxc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1286,77 +1290,77 @@ Table&nbsp;H.2: For <span class="math inline">\((45)_{10}\)</span>
   padding-right: 5px;
 }
 
-#wnhjexcfgs .gt_left {
+#fzemfkbmxc .gt_left {
   text-align: left;
 }
 
-#wnhjexcfgs .gt_center {
+#fzemfkbmxc .gt_center {
   text-align: center;
 }
 
-#wnhjexcfgs .gt_right {
+#fzemfkbmxc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wnhjexcfgs .gt_font_normal {
+#fzemfkbmxc .gt_font_normal {
   font-weight: normal;
 }
 
-#wnhjexcfgs .gt_font_bold {
+#fzemfkbmxc .gt_font_bold {
   font-weight: bold;
 }
 
-#wnhjexcfgs .gt_font_italic {
+#fzemfkbmxc .gt_font_italic {
   font-style: italic;
 }
 
-#wnhjexcfgs .gt_super {
+#fzemfkbmxc .gt_super {
   font-size: 65%;
 }
 
-#wnhjexcfgs .gt_footnote_marks {
+#fzemfkbmxc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wnhjexcfgs .gt_asterisk {
+#fzemfkbmxc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wnhjexcfgs .gt_indent_1 {
+#fzemfkbmxc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wnhjexcfgs .gt_indent_2 {
+#fzemfkbmxc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wnhjexcfgs .gt_indent_3 {
+#fzemfkbmxc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wnhjexcfgs .gt_indent_4 {
+#fzemfkbmxc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wnhjexcfgs .gt_indent_5 {
+#fzemfkbmxc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wnhjexcfgs .katex-display {
+#fzemfkbmxc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wnhjexcfgs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#fzemfkbmxc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
 <td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Integer part</td>
@@ -1422,23 +1426,23 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
 </figcaption>
 <div aria-describedby="tbl-exm-base-10-to-base-2-frac-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="pmbmywxcmq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pmbmywxcmq table {
+<div id="vtehfsnrsl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vtehfsnrsl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pmbmywxcmq thead, #pmbmywxcmq tbody, #pmbmywxcmq tfoot, #pmbmywxcmq tr, #pmbmywxcmq td, #pmbmywxcmq th {
+#vtehfsnrsl thead, #vtehfsnrsl tbody, #vtehfsnrsl tfoot, #vtehfsnrsl tr, #vtehfsnrsl td, #vtehfsnrsl th {
   border-style: none;
 }
 
-#pmbmywxcmq p {
+#vtehfsnrsl p {
   margin: 0;
   padding: 0;
 }
 
-#pmbmywxcmq .gt_table {
+#vtehfsnrsl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1464,12 +1468,12 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-left-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_caption {
+#vtehfsnrsl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pmbmywxcmq .gt_title {
+#vtehfsnrsl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1481,7 +1485,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-bottom-width: 0;
 }
 
-#pmbmywxcmq .gt_subtitle {
+#vtehfsnrsl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1493,7 +1497,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-top-width: 0;
 }
 
-#pmbmywxcmq .gt_heading {
+#vtehfsnrsl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1505,13 +1509,13 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_bottom_border {
+#vtehfsnrsl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_col_headings {
+#vtehfsnrsl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1526,7 +1530,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_col_heading {
+#vtehfsnrsl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1546,7 +1550,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#pmbmywxcmq .gt_column_spanner_outer {
+#vtehfsnrsl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1558,15 +1562,15 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   padding-right: 4px;
 }
 
-#pmbmywxcmq .gt_column_spanner_outer:first-child {
+#vtehfsnrsl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pmbmywxcmq .gt_column_spanner_outer:last-child {
+#vtehfsnrsl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pmbmywxcmq .gt_column_spanner {
+#vtehfsnrsl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1578,11 +1582,11 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   width: 100%;
 }
 
-#pmbmywxcmq .gt_spanner_row {
+#vtehfsnrsl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pmbmywxcmq .gt_group_heading {
+#vtehfsnrsl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1608,7 +1612,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   text-align: left;
 }
 
-#pmbmywxcmq .gt_empty_group_heading {
+#vtehfsnrsl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1623,15 +1627,15 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   vertical-align: middle;
 }
 
-#pmbmywxcmq .gt_from_md > :first-child {
+#vtehfsnrsl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pmbmywxcmq .gt_from_md > :last-child {
+#vtehfsnrsl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pmbmywxcmq .gt_row {
+#vtehfsnrsl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1650,7 +1654,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#pmbmywxcmq .gt_stub {
+#vtehfsnrsl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1663,7 +1667,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   padding-right: 5px;
 }
 
-#pmbmywxcmq .gt_stub_row_group {
+#vtehfsnrsl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1677,15 +1681,15 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   vertical-align: top;
 }
 
-#pmbmywxcmq .gt_row_group_first td {
+#vtehfsnrsl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pmbmywxcmq .gt_row_group_first th {
+#vtehfsnrsl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pmbmywxcmq .gt_summary_row {
+#vtehfsnrsl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1695,16 +1699,16 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   padding-right: 5px;
 }
 
-#pmbmywxcmq .gt_first_summary_row {
+#vtehfsnrsl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_first_summary_row.thick {
+#vtehfsnrsl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pmbmywxcmq .gt_last_summary_row {
+#vtehfsnrsl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1714,7 +1718,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_grand_summary_row {
+#vtehfsnrsl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1724,7 +1728,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   padding-right: 5px;
 }
 
-#pmbmywxcmq .gt_first_grand_summary_row {
+#vtehfsnrsl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1734,7 +1738,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-top-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_last_grand_summary_row_top {
+#vtehfsnrsl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1744,11 +1748,11 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_striped {
+#vtehfsnrsl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pmbmywxcmq .gt_table_body {
+#vtehfsnrsl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1757,7 +1761,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_footnotes {
+#vtehfsnrsl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1771,7 +1775,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_footnote {
+#vtehfsnrsl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1780,7 +1784,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   padding-right: 5px;
 }
 
-#pmbmywxcmq .gt_sourcenotes {
+#vtehfsnrsl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1794,7 +1798,7 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#pmbmywxcmq .gt_sourcenote {
+#vtehfsnrsl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1802,77 +1806,77 @@ Table&nbsp;H.3: For <span class="math inline">\((0.3689)_{10}\)</span>
   padding-right: 5px;
 }
 
-#pmbmywxcmq .gt_left {
+#vtehfsnrsl .gt_left {
   text-align: left;
 }
 
-#pmbmywxcmq .gt_center {
+#vtehfsnrsl .gt_center {
   text-align: center;
 }
 
-#pmbmywxcmq .gt_right {
+#vtehfsnrsl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pmbmywxcmq .gt_font_normal {
+#vtehfsnrsl .gt_font_normal {
   font-weight: normal;
 }
 
-#pmbmywxcmq .gt_font_bold {
+#vtehfsnrsl .gt_font_bold {
   font-weight: bold;
 }
 
-#pmbmywxcmq .gt_font_italic {
+#vtehfsnrsl .gt_font_italic {
   font-style: italic;
 }
 
-#pmbmywxcmq .gt_super {
+#vtehfsnrsl .gt_super {
   font-size: 65%;
 }
 
-#pmbmywxcmq .gt_footnote_marks {
+#vtehfsnrsl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pmbmywxcmq .gt_asterisk {
+#vtehfsnrsl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pmbmywxcmq .gt_indent_1 {
+#vtehfsnrsl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pmbmywxcmq .gt_indent_2 {
+#vtehfsnrsl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pmbmywxcmq .gt_indent_3 {
+#vtehfsnrsl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pmbmywxcmq .gt_indent_4 {
+#vtehfsnrsl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pmbmywxcmq .gt_indent_5 {
+#vtehfsnrsl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pmbmywxcmq .katex-display {
+#vtehfsnrsl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pmbmywxcmq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#vtehfsnrsl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
 <td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Fractional part</td>
@@ -1936,23 +1940,23 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
 </figcaption>
 <div aria-describedby="tbl-exm-base-10-to-base-16-int-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="zrpncawvox" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zrpncawvox table {
+<div id="ujuqdgljtv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ujuqdgljtv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zrpncawvox thead, #zrpncawvox tbody, #zrpncawvox tfoot, #zrpncawvox tr, #zrpncawvox td, #zrpncawvox th {
+#ujuqdgljtv thead, #ujuqdgljtv tbody, #ujuqdgljtv tfoot, #ujuqdgljtv tr, #ujuqdgljtv td, #ujuqdgljtv th {
   border-style: none;
 }
 
-#zrpncawvox p {
+#ujuqdgljtv p {
   margin: 0;
   padding: 0;
 }
 
-#zrpncawvox .gt_table {
+#ujuqdgljtv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1978,12 +1982,12 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-left-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_caption {
+#ujuqdgljtv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zrpncawvox .gt_title {
+#ujuqdgljtv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1995,7 +1999,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-bottom-width: 0;
 }
 
-#zrpncawvox .gt_subtitle {
+#ujuqdgljtv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2007,7 +2011,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-top-width: 0;
 }
 
-#zrpncawvox .gt_heading {
+#ujuqdgljtv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2019,13 +2023,13 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_bottom_border {
+#ujuqdgljtv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_col_headings {
+#ujuqdgljtv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2040,7 +2044,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_col_heading {
+#ujuqdgljtv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2060,7 +2064,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#zrpncawvox .gt_column_spanner_outer {
+#ujuqdgljtv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2072,15 +2076,15 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   padding-right: 4px;
 }
 
-#zrpncawvox .gt_column_spanner_outer:first-child {
+#ujuqdgljtv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zrpncawvox .gt_column_spanner_outer:last-child {
+#ujuqdgljtv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zrpncawvox .gt_column_spanner {
+#ujuqdgljtv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2092,11 +2096,11 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   width: 100%;
 }
 
-#zrpncawvox .gt_spanner_row {
+#ujuqdgljtv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zrpncawvox .gt_group_heading {
+#ujuqdgljtv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2122,7 +2126,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   text-align: left;
 }
 
-#zrpncawvox .gt_empty_group_heading {
+#ujuqdgljtv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2137,15 +2141,15 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   vertical-align: middle;
 }
 
-#zrpncawvox .gt_from_md > :first-child {
+#ujuqdgljtv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zrpncawvox .gt_from_md > :last-child {
+#ujuqdgljtv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zrpncawvox .gt_row {
+#ujuqdgljtv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2164,7 +2168,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#zrpncawvox .gt_stub {
+#ujuqdgljtv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2177,7 +2181,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   padding-right: 5px;
 }
 
-#zrpncawvox .gt_stub_row_group {
+#ujuqdgljtv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2191,15 +2195,15 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   vertical-align: top;
 }
 
-#zrpncawvox .gt_row_group_first td {
+#ujuqdgljtv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zrpncawvox .gt_row_group_first th {
+#ujuqdgljtv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zrpncawvox .gt_summary_row {
+#ujuqdgljtv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2209,16 +2213,16 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   padding-right: 5px;
 }
 
-#zrpncawvox .gt_first_summary_row {
+#ujuqdgljtv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_first_summary_row.thick {
+#ujuqdgljtv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zrpncawvox .gt_last_summary_row {
+#ujuqdgljtv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2228,7 +2232,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_grand_summary_row {
+#ujuqdgljtv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2238,7 +2242,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   padding-right: 5px;
 }
 
-#zrpncawvox .gt_first_grand_summary_row {
+#ujuqdgljtv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2248,7 +2252,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-top-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_last_grand_summary_row_top {
+#ujuqdgljtv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2258,11 +2262,11 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_striped {
+#ujuqdgljtv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zrpncawvox .gt_table_body {
+#ujuqdgljtv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2271,7 +2275,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_footnotes {
+#ujuqdgljtv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2285,7 +2289,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_footnote {
+#ujuqdgljtv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2294,7 +2298,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   padding-right: 5px;
 }
 
-#zrpncawvox .gt_sourcenotes {
+#ujuqdgljtv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2308,7 +2312,7 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#zrpncawvox .gt_sourcenote {
+#ujuqdgljtv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2316,77 +2320,77 @@ Table&nbsp;H.4: For <span class="math inline">\((1251)_{10}\)</span>
   padding-right: 5px;
 }
 
-#zrpncawvox .gt_left {
+#ujuqdgljtv .gt_left {
   text-align: left;
 }
 
-#zrpncawvox .gt_center {
+#ujuqdgljtv .gt_center {
   text-align: center;
 }
 
-#zrpncawvox .gt_right {
+#ujuqdgljtv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zrpncawvox .gt_font_normal {
+#ujuqdgljtv .gt_font_normal {
   font-weight: normal;
 }
 
-#zrpncawvox .gt_font_bold {
+#ujuqdgljtv .gt_font_bold {
   font-weight: bold;
 }
 
-#zrpncawvox .gt_font_italic {
+#ujuqdgljtv .gt_font_italic {
   font-style: italic;
 }
 
-#zrpncawvox .gt_super {
+#ujuqdgljtv .gt_super {
   font-size: 65%;
 }
 
-#zrpncawvox .gt_footnote_marks {
+#ujuqdgljtv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zrpncawvox .gt_asterisk {
+#ujuqdgljtv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zrpncawvox .gt_indent_1 {
+#ujuqdgljtv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zrpncawvox .gt_indent_2 {
+#ujuqdgljtv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zrpncawvox .gt_indent_3 {
+#ujuqdgljtv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zrpncawvox .gt_indent_4 {
+#ujuqdgljtv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zrpncawvox .gt_indent_5 {
+#ujuqdgljtv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zrpncawvox .katex-display {
+#ujuqdgljtv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zrpncawvox div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ujuqdgljtv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
 <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border">Integer part</td>
@@ -2438,23 +2442,23 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
 </figcaption>
 <div aria-describedby="tbl-exm-base-10-to-base-16-frac-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ojzxmoydtp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ojzxmoydtp table {
+<div id="eopbonqani" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eopbonqani table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ojzxmoydtp thead, #ojzxmoydtp tbody, #ojzxmoydtp tfoot, #ojzxmoydtp tr, #ojzxmoydtp td, #ojzxmoydtp th {
+#eopbonqani thead, #eopbonqani tbody, #eopbonqani tfoot, #eopbonqani tr, #eopbonqani td, #eopbonqani th {
   border-style: none;
 }
 
-#ojzxmoydtp p {
+#eopbonqani p {
   margin: 0;
   padding: 0;
 }
 
-#ojzxmoydtp .gt_table {
+#eopbonqani .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2480,12 +2484,12 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-left-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_caption {
+#eopbonqani .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ojzxmoydtp .gt_title {
+#eopbonqani .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2497,7 +2501,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-bottom-width: 0;
 }
 
-#ojzxmoydtp .gt_subtitle {
+#eopbonqani .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2509,7 +2513,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-top-width: 0;
 }
 
-#ojzxmoydtp .gt_heading {
+#eopbonqani .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2521,13 +2525,13 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_bottom_border {
+#eopbonqani .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_col_headings {
+#eopbonqani .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2542,7 +2546,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_col_heading {
+#eopbonqani .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2562,7 +2566,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#ojzxmoydtp .gt_column_spanner_outer {
+#eopbonqani .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2574,15 +2578,15 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   padding-right: 4px;
 }
 
-#ojzxmoydtp .gt_column_spanner_outer:first-child {
+#eopbonqani .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ojzxmoydtp .gt_column_spanner_outer:last-child {
+#eopbonqani .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ojzxmoydtp .gt_column_spanner {
+#eopbonqani .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2594,11 +2598,11 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   width: 100%;
 }
 
-#ojzxmoydtp .gt_spanner_row {
+#eopbonqani .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ojzxmoydtp .gt_group_heading {
+#eopbonqani .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2624,7 +2628,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   text-align: left;
 }
 
-#ojzxmoydtp .gt_empty_group_heading {
+#eopbonqani .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2639,15 +2643,15 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   vertical-align: middle;
 }
 
-#ojzxmoydtp .gt_from_md > :first-child {
+#eopbonqani .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ojzxmoydtp .gt_from_md > :last-child {
+#eopbonqani .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ojzxmoydtp .gt_row {
+#eopbonqani .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2666,7 +2670,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   overflow-x: hidden;
 }
 
-#ojzxmoydtp .gt_stub {
+#eopbonqani .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2679,7 +2683,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   padding-right: 5px;
 }
 
-#ojzxmoydtp .gt_stub_row_group {
+#eopbonqani .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2693,15 +2697,15 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   vertical-align: top;
 }
 
-#ojzxmoydtp .gt_row_group_first td {
+#eopbonqani .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ojzxmoydtp .gt_row_group_first th {
+#eopbonqani .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ojzxmoydtp .gt_summary_row {
+#eopbonqani .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2711,16 +2715,16 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   padding-right: 5px;
 }
 
-#ojzxmoydtp .gt_first_summary_row {
+#eopbonqani .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_first_summary_row.thick {
+#eopbonqani .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ojzxmoydtp .gt_last_summary_row {
+#eopbonqani .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2730,7 +2734,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_grand_summary_row {
+#eopbonqani .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2740,7 +2744,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   padding-right: 5px;
 }
 
-#ojzxmoydtp .gt_first_grand_summary_row {
+#eopbonqani .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2750,7 +2754,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-top-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_last_grand_summary_row_top {
+#eopbonqani .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2760,11 +2764,11 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_striped {
+#eopbonqani .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ojzxmoydtp .gt_table_body {
+#eopbonqani .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2773,7 +2777,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-bottom-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_footnotes {
+#eopbonqani .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2787,7 +2791,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_footnote {
+#eopbonqani .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2796,7 +2800,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   padding-right: 5px;
 }
 
-#ojzxmoydtp .gt_sourcenotes {
+#eopbonqani .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2810,7 +2814,7 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   border-right-color: #D3D3D3;
 }
 
-#ojzxmoydtp .gt_sourcenote {
+#eopbonqani .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2818,77 +2822,77 @@ Table&nbsp;H.5: For <span class="math inline">\((0.9324)_{10}\)</span>
   padding-right: 5px;
 }
 
-#ojzxmoydtp .gt_left {
+#eopbonqani .gt_left {
   text-align: left;
 }
 
-#ojzxmoydtp .gt_center {
+#eopbonqani .gt_center {
   text-align: center;
 }
 
-#ojzxmoydtp .gt_right {
+#eopbonqani .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ojzxmoydtp .gt_font_normal {
+#eopbonqani .gt_font_normal {
   font-weight: normal;
 }
 
-#ojzxmoydtp .gt_font_bold {
+#eopbonqani .gt_font_bold {
   font-weight: bold;
 }
 
-#ojzxmoydtp .gt_font_italic {
+#eopbonqani .gt_font_italic {
   font-style: italic;
 }
 
-#ojzxmoydtp .gt_super {
+#eopbonqani .gt_super {
   font-size: 65%;
 }
 
-#ojzxmoydtp .gt_footnote_marks {
+#eopbonqani .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ojzxmoydtp .gt_asterisk {
+#eopbonqani .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ojzxmoydtp .gt_indent_1 {
+#eopbonqani .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ojzxmoydtp .gt_indent_2 {
+#eopbonqani .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ojzxmoydtp .gt_indent_3 {
+#eopbonqani .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ojzxmoydtp .gt_indent_4 {
+#eopbonqani .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ojzxmoydtp .gt_indent_5 {
+#eopbonqani .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ojzxmoydtp .katex-display {
+#eopbonqani .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ojzxmoydtp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#eopbonqani div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
 <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border">Integer part</td>
@@ -3032,23 +3036,23 @@ Table&nbsp;H.6: Common digits for bases
 </figcaption>
 <div aria-describedby="tbl-common-digits-for-bases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="lksxshowdz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lksxshowdz table {
+<div id="alkxpiyrzt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#alkxpiyrzt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lksxshowdz thead, #lksxshowdz tbody, #lksxshowdz tfoot, #lksxshowdz tr, #lksxshowdz td, #lksxshowdz th {
+#alkxpiyrzt thead, #alkxpiyrzt tbody, #alkxpiyrzt tfoot, #alkxpiyrzt tr, #alkxpiyrzt td, #alkxpiyrzt th {
   border-style: none;
 }
 
-#lksxshowdz p {
+#alkxpiyrzt p {
   margin: 0;
   padding: 0;
 }
 
-#lksxshowdz .gt_table {
+#alkxpiyrzt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3074,12 +3078,12 @@ Table&nbsp;H.6: Common digits for bases
   border-left-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_caption {
+#alkxpiyrzt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lksxshowdz .gt_title {
+#alkxpiyrzt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3091,7 +3095,7 @@ Table&nbsp;H.6: Common digits for bases
   border-bottom-width: 0;
 }
 
-#lksxshowdz .gt_subtitle {
+#alkxpiyrzt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3103,7 +3107,7 @@ Table&nbsp;H.6: Common digits for bases
   border-top-width: 0;
 }
 
-#lksxshowdz .gt_heading {
+#alkxpiyrzt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3115,13 +3119,13 @@ Table&nbsp;H.6: Common digits for bases
   border-right-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_bottom_border {
+#alkxpiyrzt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_col_headings {
+#alkxpiyrzt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3136,7 +3140,7 @@ Table&nbsp;H.6: Common digits for bases
   border-right-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_col_heading {
+#alkxpiyrzt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3156,7 +3160,7 @@ Table&nbsp;H.6: Common digits for bases
   overflow-x: hidden;
 }
 
-#lksxshowdz .gt_column_spanner_outer {
+#alkxpiyrzt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3168,15 +3172,15 @@ Table&nbsp;H.6: Common digits for bases
   padding-right: 4px;
 }
 
-#lksxshowdz .gt_column_spanner_outer:first-child {
+#alkxpiyrzt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lksxshowdz .gt_column_spanner_outer:last-child {
+#alkxpiyrzt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lksxshowdz .gt_column_spanner {
+#alkxpiyrzt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3188,11 +3192,11 @@ Table&nbsp;H.6: Common digits for bases
   width: 100%;
 }
 
-#lksxshowdz .gt_spanner_row {
+#alkxpiyrzt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lksxshowdz .gt_group_heading {
+#alkxpiyrzt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3218,7 +3222,7 @@ Table&nbsp;H.6: Common digits for bases
   text-align: left;
 }
 
-#lksxshowdz .gt_empty_group_heading {
+#alkxpiyrzt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3233,15 +3237,15 @@ Table&nbsp;H.6: Common digits for bases
   vertical-align: middle;
 }
 
-#lksxshowdz .gt_from_md > :first-child {
+#alkxpiyrzt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lksxshowdz .gt_from_md > :last-child {
+#alkxpiyrzt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lksxshowdz .gt_row {
+#alkxpiyrzt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3260,7 +3264,7 @@ Table&nbsp;H.6: Common digits for bases
   overflow-x: hidden;
 }
 
-#lksxshowdz .gt_stub {
+#alkxpiyrzt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3273,7 +3277,7 @@ Table&nbsp;H.6: Common digits for bases
   padding-right: 5px;
 }
 
-#lksxshowdz .gt_stub_row_group {
+#alkxpiyrzt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3287,15 +3291,15 @@ Table&nbsp;H.6: Common digits for bases
   vertical-align: top;
 }
 
-#lksxshowdz .gt_row_group_first td {
+#alkxpiyrzt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lksxshowdz .gt_row_group_first th {
+#alkxpiyrzt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lksxshowdz .gt_summary_row {
+#alkxpiyrzt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3305,16 +3309,16 @@ Table&nbsp;H.6: Common digits for bases
   padding-right: 5px;
 }
 
-#lksxshowdz .gt_first_summary_row {
+#alkxpiyrzt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_first_summary_row.thick {
+#alkxpiyrzt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lksxshowdz .gt_last_summary_row {
+#alkxpiyrzt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3324,7 +3328,7 @@ Table&nbsp;H.6: Common digits for bases
   border-bottom-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_grand_summary_row {
+#alkxpiyrzt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3334,7 +3338,7 @@ Table&nbsp;H.6: Common digits for bases
   padding-right: 5px;
 }
 
-#lksxshowdz .gt_first_grand_summary_row {
+#alkxpiyrzt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3344,7 +3348,7 @@ Table&nbsp;H.6: Common digits for bases
   border-top-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_last_grand_summary_row_top {
+#alkxpiyrzt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3354,11 +3358,11 @@ Table&nbsp;H.6: Common digits for bases
   border-bottom-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_striped {
+#alkxpiyrzt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lksxshowdz .gt_table_body {
+#alkxpiyrzt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3367,7 +3371,7 @@ Table&nbsp;H.6: Common digits for bases
   border-bottom-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_footnotes {
+#alkxpiyrzt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3381,7 +3385,7 @@ Table&nbsp;H.6: Common digits for bases
   border-right-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_footnote {
+#alkxpiyrzt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3390,7 +3394,7 @@ Table&nbsp;H.6: Common digits for bases
   padding-right: 5px;
 }
 
-#lksxshowdz .gt_sourcenotes {
+#alkxpiyrzt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3404,7 +3408,7 @@ Table&nbsp;H.6: Common digits for bases
   border-right-color: #D3D3D3;
 }
 
-#lksxshowdz .gt_sourcenote {
+#alkxpiyrzt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3412,77 +3416,77 @@ Table&nbsp;H.6: Common digits for bases
   padding-right: 5px;
 }
 
-#lksxshowdz .gt_left {
+#alkxpiyrzt .gt_left {
   text-align: left;
 }
 
-#lksxshowdz .gt_center {
+#alkxpiyrzt .gt_center {
   text-align: center;
 }
 
-#lksxshowdz .gt_right {
+#alkxpiyrzt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lksxshowdz .gt_font_normal {
+#alkxpiyrzt .gt_font_normal {
   font-weight: normal;
 }
 
-#lksxshowdz .gt_font_bold {
+#alkxpiyrzt .gt_font_bold {
   font-weight: bold;
 }
 
-#lksxshowdz .gt_font_italic {
+#alkxpiyrzt .gt_font_italic {
   font-style: italic;
 }
 
-#lksxshowdz .gt_super {
+#alkxpiyrzt .gt_super {
   font-size: 65%;
 }
 
-#lksxshowdz .gt_footnote_marks {
+#alkxpiyrzt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lksxshowdz .gt_asterisk {
+#alkxpiyrzt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lksxshowdz .gt_indent_1 {
+#alkxpiyrzt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lksxshowdz .gt_indent_2 {
+#alkxpiyrzt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lksxshowdz .gt_indent_3 {
+#alkxpiyrzt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lksxshowdz .gt_indent_4 {
+#alkxpiyrzt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lksxshowdz .gt_indent_5 {
+#alkxpiyrzt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lksxshowdz .katex-display {
+#alkxpiyrzt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lksxshowdz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#alkxpiyrzt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Base" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Base</th>
@@ -3839,18 +3843,18 @@ Listing&nbsp;H.2: Convert from base <span class="math inline">\(b\)</span> to ba
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-britton_base_2017" class="csl-entry" role="listitem">
-Britton, Jolene. 2017. <span>“Base <span>Conversion</span> <span>Guide</span> <span>UCR</span> <span>Math</span> <span>135A</span>.”</span>
+Britton, Jolene. 2017. <em>Base <span>Conversion</span> <span>Guide</span> <span>UCR</span> <span>Math</span> <span>135A</span></em>.
 </div>
 <div id="ref-geeksforgeeks_convert_2023" class="csl-entry" role="listitem">
-GeeksforGeeks. 2023. <span>“Convert from Any Base to Decimal and Vice Versa.”</span> <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/dsa/convert-base-decimal-vice-versa/">https://www.geeksforgeeks.org/dsa/convert-base-decimal-vice-versa/</a>.
+GeeksforGeeks. 2023. <span>“Convert from Any Base to Decimal and Vice Versa.”</span> In <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/dsa/convert-base-decimal-vice-versa/">https://www.geeksforgeeks.org/dsa/convert-base-decimal-vice-versa/</a>.
 </div>
 <div id="ref-josefsson_base16_2006" class="csl-entry" role="listitem">
-Josefsson, Simon. 2006. <span>“The <span>Base16</span>, <span>Base32</span>, and <span>Base64</span> <span>Data</span> <span>Encodings</span>.”</span> RFC4648. <a href="https://doi.org/10.17487/rfc4648">https://doi.org/10.17487/rfc4648</a>.
+Josefsson, Simon. 2006. <em>The <span>Base16</span>, <span>Base32</span>, and <span>Base64</span> <span>Data</span> <span>Encodings</span></em>. No. RFC4648. <a href="https://doi.org/10.17487/rfc4648">https://doi.org/10.17487/rfc4648</a>.
 </div>
 <div id="ref-knuth_art_1997" class="csl-entry" role="listitem">
-Knuth, Donald Ervin. 1997. <em>The Art of Computer Programming: <span>Seminumerical</span> <span>Algorithms</span></em>. 3rd ed. Vol. 2. Reading, Massachusetts: Addison-Wesley.
+Knuth, Donald Ervin. 1997. <em>The Art of Computer Programming: <span>Seminumerical</span> <span>Algorithms</span></em>. 3rd ed. Vol. 2. Addison-Wesley.
 </div>
 </div>
 </section>

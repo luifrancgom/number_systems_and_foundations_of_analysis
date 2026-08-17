@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>1&nbsp; Basic Facts and Notions of Logic and Set Theory – Number Systems and the Foundations of Analysis</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -24,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +59,14 @@ div.csl-indent {
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d497cff885f6278d37568d0ef0763f8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,7 +96,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -6861,54 +6865,54 @@ Figure&nbsp;1.3: A case where <span class="math inline">\(R\)</span> is not tran
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-bilaniuk_problem_2009" class="csl-entry" role="listitem">
 Bilaniuk, Stefan. 2009. <em>A Problem Course in Mathematical Logic</em>. <a href="http://euclid.trentu.ca/math/sb/pcml/pcml.html">http://euclid.trentu.ca/math/sb/pcml/pcml.html</a>.
 </div>
 <div id="ref-bourbaki_theory_2004" class="csl-entry" role="listitem">
-Bourbaki, Nicolas. 2004. <em>Theory of <span>Sets</span></em>. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-642-59309-3">https://doi.org/10.1007/978-3-642-59309-3</a>.
+Bourbaki, Nicolas. 2004. <em>Theory of <span>Sets</span></em>. Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-642-59309-3">https://doi.org/10.1007/978-3-642-59309-3</a>.
 </div>
 <div id="ref-church_introduction_1996" class="csl-entry" role="listitem">
-Church, Alonzo. 1996. <em>Introduction to Mathematical Logic</em>. 10th ed. Princeton Landmarks in Mathematics and Physics. Princeton, NJ Chichester, West Sussex: Princeton University Press.
+Church, Alonzo. 1996. <em>Introduction to Mathematical Logic</em>. 10th ed. Princeton Landmarks in Mathematics and Physics. Princeton University Press.
 </div>
 <div id="ref-cunningham_set_2016" class="csl-entry" role="listitem">
-Cunningham, Daniel W. 2016. <em>Set Theory: A First Course</em>. Cambridge Mathematical Textbooks. New York, NY: Cambridge University Press.
+Cunningham, Daniel W. 2016. <em>Set Theory: A First Course</em>. Cambridge Mathematical Textbooks. Cambridge University Press.
 </div>
 <div id="ref-dawson_why_2015" class="csl-entry" role="listitem">
-Dawson, John W. 2015. <em>Why <span>Prove</span> It <span>Again</span>?: <span>Alternative</span> <span>Proofs</span> in <span>Mathematical</span> <span>Practice</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-17368-9">https://doi.org/10.1007/978-3-319-17368-9</a>.
+Dawson, John W. 2015. <em>Why <span>Prove</span> It <span>Again</span>?: <span>Alternative</span> <span>Proofs</span> in <span>Mathematical</span> <span>Practice</span></em>. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-17368-9">https://doi.org/10.1007/978-3-319-17368-9</a>.
 </div>
 <div id="ref-egre_logic_2021" class="csl-entry" role="listitem">
-Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Conditionals</span>.”</span> In <em>The <span>Stanford</span> <span>Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta, Winter 2021. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/">https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/</a>.
+Egré, Paul, and Hans Rott. 2021. <span>“The <span>Logic</span> of <span>Conditionals</span>.”</span> In <em>The <span>Stanford</span> <span>Encyclopedia</span> of <span>Philosophy</span></em>, Winter 2021, edited by Edward N. Zalta. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/">https://plato.stanford.edu/archives/win2021/entries/logic-conditionals/</a>.
 </div>
 <div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
-Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
+Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. Academic Press.
 </div>
 <div id="ref-fagin_reasoning_1995" class="csl-entry" role="listitem">
-Fagin, Ronald, ed. 1995. <em>Reasoning about Knowledge</em>. Cambridge, Mass: MIT Press.
+Fagin, Ronald, ed. 1995. <em>Reasoning about Knowledge</em>. MIT Press.
 </div>
 <div id="ref-forero_cuervo_matematica_2009" class="csl-entry" role="listitem">
 Forero Cuervo, Andrés. 2009. <em>Matemática Estructural</em>. Universidad de los Andes, Colombia.
 </div>
 <div id="ref-halmos_naive_2017" class="csl-entry" role="listitem">
-Halmos, Paul Richard. 2017. <em>Naive Set Theory</em>. Dover edition. Mineola, New York: Dover Publications, Inc.
+Halmos, Paul Richard. 2017. <em>Naive Set Theory</em>. Dover edition. Dover Publications, Inc.
 </div>
 <div id="ref-lukasiewicz_selected_1970" class="csl-entry" role="listitem">
-Łukasiewicz, Jan, and Ludwik Borkowski. 1970. <em>Selected Works</em>. Studies in Logic and the Foundations of Mathematics. Amsterdam: North-Holland Pub. Co.
+Łukasiewicz, Jan, and Ludwik Borkowski. 1970. <em>Selected Works</em>. Studies in Logic and the Foundations of Mathematics. North-Holland Pub. Co.
 </div>
 <div id="ref-mendelson_number_2008" class="csl-entry" role="listitem">
-Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.
+Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Dover Publications.
 </div>
 <div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
-———. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
+Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. CRC Press/Taylor &amp; Francis Group.
 </div>
 <div id="ref-seroul_programming_2000" class="csl-entry" role="listitem">
-Seroul, Raymond. 2000. <em>Programming for Mathematicians</em>. Universitext. Berlin ; New York: Springer.
+Seroul, Raymond. 2000. <em>Programming for Mathematicians</em>. Universitext. Springer.
 </div>
 <div id="ref-stoll_sets_1974" class="csl-entry" role="listitem">
-Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
+Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. Freeman.
 </div>
 <div id="ref-wasilewska_logics_2018" class="csl-entry" role="listitem">
-Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
+Wasilewska, Anita. 2018. <em>Logics for <span>Computer</span> <span>Science</span>: <span>Classical</span> and <span>Non</span>-<span>Classical</span></em>. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-92591-2">https://doi.org/10.1007/978-3-319-92591-2</a>.
 </div>
 </div>
 </section>

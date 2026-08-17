@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Appendix D — Finite, Infinite and Denumerable Sets and Cardinal Numbers – Number Systems and the Foundations of Analysis</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -59,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,15 +94,14 @@ div.csl-indent {
 <link href="./appendix_c.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d497cff885f6278d37568d0ef0763f8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -127,7 +131,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -729,7 +733,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div id="exr-denumerable-sets" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise D.4</strong></span> &nbsp;</p>
 <ol type="1">
-<li><p>Prove that any infinite set <span class="math inline">\(B\)</span> contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi(D) \in D\)</span> for all non empty subsets <span class="math inline">\(D\)</span> of <span class="math inline">\(B\)</span>. Define, by <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>, a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that <span class="math inline">\(\theta(1) = \psi(B)\)</span> and <span class="math inline">\(\theta(n+1) = \psi(B - \theta(n))\)</span>. Then <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(\mathscr{R}(\theta)\)</span> is a denumerable subset of <span class="math inline">\(B\)</span>).</p></li>
+<li><p>Prove that any infinite set <span class="math inline">\(B\)</span> contains a denumerable set. (Hint: This requires the Axiom of Choice, which provides a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi(D) \in D\)</span> for all non empty subsets <span class="math inline">\(D\)</span> of <span class="math inline">\(B\)</span>. Define, by <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>, a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that <span class="math inline">\(\theta(1) = \psi(B)\)</span> and <span class="math inline">\(\theta(n+1) = \psi(B - \theta(n))\)</span>. Then <span class="math inline">\(\theta: \mathbb{P} \xrightarrow[]{1-1} B\)</span> and <span class="math inline">\(\mathscr{R}(\theta)\)</span> is a denumerable subset of <span class="math inline">\(B\)</span>).</p></li>
 <li><p>Show that any infinite set <span class="math inline">\(B\)</span> is equinumerous with a proper subset of itself. (Hint: By <a href="#exr-denumerable-sets" class="quarto-xref">Exercise&nbsp;<span>D.4</span></a> 1. let <span class="math inline">\(D\)</span> be an infinite denumerable subset of <span class="math inline">\(B\)</span>. Let <span class="math inline">\(\varphi\)</span> be a one-one correspondance between <span class="math inline">\(D\)</span> and a proper subset of <span class="math inline">\(D\)</span>. Extend <span class="math inline">\(\varphi\)</span> to a function <span class="math inline">\(\varphi^*\)</span> defined on <span class="math inline">\(B\)</span> by letting <span class="math inline">\(\varphi^*(u) = u\)</span> for any <span class="math inline">\(u \in B - D\)</span>. The <span class="math inline">\(\varphi^*\)</span> is a one-one correspondence between <span class="math inline">\(B\)</span> and a proper subset of itself.)</p></li>
 </ol>
 </div>
@@ -738,7 +742,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <ol type="1">
 <li><p>There is a problem with the hint because <span class="math inline">\(B - \theta(n)\)</span> is not well define. But the general idea of the hint is correct.</p>
 <p>By the axiom of choice let <span class="math inline">\(S = \{D \subseteq B \mid D \neq \emptyset \}\)</span>. So there exists a function <span class="math inline">\(\psi\)</span> such that <span class="math inline">\(\psi: S \longrightarrow \bigcup S\)</span> where <span class="math inline">\(\psi(D) \in D\)</span> and <span class="math inline">\(\bigcup S \subseteq B\)</span>.</p>
-<p>By <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> define a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that:</p>
+<p>By <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> define a function <span class="math inline">\(\theta: \mathbb{P} \longrightarrow B\)</span> such that:</p>
 <ol type="a">
 <li><span class="math inline">\(\theta(1) = \psi(B)\)</span> where <span class="math inline">\(\psi(B) \in B\)</span></li>
 <li><span class="math inline">\(\theta(n + 1) = g(\theta(n)) = \psi(B - \{\theta(i) \mid i \in \mathbb{P} \land 1 \leq i \leq n \})\)</span></li>
@@ -867,7 +871,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <p>Also we have that <span class="math inline">\(s^* \subseteq  m_k\)</span>, <span class="math inline">\(m_k \subseteq s^*\)</span> or <span class="math inline">\(s^* \not \subseteq  m_k \land m_k \not \subseteq s^*\)</span>. If <span class="math inline">\(s^* \subseteq  m_k\)</span> then <span class="math inline">\(s^*\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal of <span class="math inline">\(M\)</span>, if <span class="math inline">\(m_k \subseteq s^*\)</span> then <span class="math inline">\(m_k\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal of <span class="math inline">\(M\)</span> and if <span class="math inline">\(s^* \not \subseteq  m_k \land m_k \not \subseteq s^*\)</span> then <span class="math inline">\(s^*\)</span> is <span class="math inline">\(\subseteq\)</span>-minimal of <span class="math inline">\(M\)</span>.</p>
 <p>Therefore by <a href="chapter_2.html#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii we have that <span class="math inline">\(B = \mathbb{P}\)</span>. So if <span class="math inline">\(\mathscr{K}(A) = n\)</span> every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element.</p></li>
 </ul>
-<p>Second, assume that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element. We can use the following result pointed out in <span class="citation" data-cites="herrlich_axiom_2006">(<a href="references.html#ref-herrlich_axiom_2006" role="doc-biblioref">Herrlich 2006, 1876:45</a>)</span>.</p>
+<p>Second, assume that every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element. We can use the following result pointed out in <span class="citation" data-cites="herrlich_axiom_2006">(<a href="references.html#ref-herrlich_axiom_2006" role="doc-biblioref">Herrlich 2006, 45</a>)</span>.</p>
 <ul>
 <li><p>If every non empty subset of <span class="math inline">\(\mathscr{P}(A)\)</span> has a <span class="math inline">\(\subseteq\)</span>-minimal element then this statement is equivalent to:</p>
 <ul>
@@ -1027,7 +1031,7 @@ Figure&nbsp;D.2: Schröder-Bernstein theorem proof using mirrors
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(A \subseteq \mathbb{P}\)</span>. Also every set is finite or infinite but not both.</p>
 <p>First, if <span class="math inline">\(A\)</span> is finite the result is fulfill.</p>
-<p>Second, assume <span class="math inline">\(A\)</span> is infinite so we have to proof that it is denumerable, <span class="math inline">\(A \approx \mathbb{P}\)</span>. By <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> let <span class="math inline">\((\mathbb{P}, S, 1)\)</span>, <span class="math inline">\(W = A \subseteq \mathbb{P}\)</span>, <span class="math inline">\(c \in A\)</span> equal to <span class="math inline">\(c = \min{(A)}\)</span> where <span class="math inline">\(c\)</span> is the least element of <span class="math inline">\(A\)</span> and <span class="math inline">\(g: A \longrightarrow A\)</span> such that <span class="math inline">\(g(a) = a^*\)</span> where <span class="math inline">\(a &lt; a^* = \min{(A - \{ x \in A \mid x \leq a \})}\)</span>, that is <span class="math inline">\(a^*\)</span> is the least element in <span class="math inline">\(A\)</span> greater than <span class="math inline">\(a\)</span>. Then there is a function <span class="math inline">\(f\)</span> such that:</p>
+<p>Second, assume <span class="math inline">\(A\)</span> is infinite so we have to proof that it is denumerable, <span class="math inline">\(A \approx \mathbb{P}\)</span>. By <a href="chapter_2.html#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> let <span class="math inline">\((\mathbb{P}, S, 1)\)</span>, <span class="math inline">\(W = A \subseteq \mathbb{P}\)</span>, <span class="math inline">\(c \in A\)</span> equal to <span class="math inline">\(c = \min{(A)}\)</span> where <span class="math inline">\(c\)</span> is the least element of <span class="math inline">\(A\)</span> and <span class="math inline">\(g: A \longrightarrow A\)</span> such that <span class="math inline">\(g(a) = a^*\)</span> where <span class="math inline">\(a &lt; a^* = \min{(A - \{ x \in A \mid x \leq a \})}\)</span>, that is <span class="math inline">\(a^*\)</span> is the least element in <span class="math inline">\(A\)</span> greater than <span class="math inline">\(a\)</span>. Then there is a function <span class="math inline">\(f\)</span> such that:</p>
 <ol type="a">
 <li><span class="math inline">\(f(1) = c\)</span></li>
 <li><span class="math inline">\(f(n + 1) = g(f(n))\)</span> for all <span class="math inline">\(n \in \mathbb{P}\)</span></li>
@@ -1843,27 +1847,27 @@ Note&nbsp;D.2
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-aigner_proofs_2018" class="csl-entry" role="listitem">
-Aigner, Martin, and Günter M. Ziegler. 2018. <em>Proofs from <span>THE</span> <span>BOOK</span></em>. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-57265-8">https://doi.org/10.1007/978-3-662-57265-8</a>.
+Aigner, Martin, and Günter M. Ziegler. 2018. <em>Proofs from <span>THE</span> <span>BOOK</span></em>. Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-57265-8">https://doi.org/10.1007/978-3-662-57265-8</a>.
 </div>
 <div id="ref-enderton_elements_2009" class="csl-entry" role="listitem">
-Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. San Diego: Academic Press.
+Enderton, Herbert B. 2009. <em>Elements of Set Theory</em>. Transferred to digital print.; [Reprint of the ed. New York, 1977]. Academic Press.
 </div>
 <div id="ref-halevi_fraenkel_abstract_1961" class="csl-entry" role="listitem">
-Halevi Fraenkel, Abraham Adolf. 1961. <em>Abstract Set Theory</em>. 2nd ed. Vol. 12. Studies in <span>Logic</span> and the <span>Foundations</span> of <span>Mathematics</span>. Amsterdam: North Holland Publishing Company.
+Halevi Fraenkel, Abraham Adolf. 1961. <em>Abstract Set Theory</em>. 2nd ed. Vol. 12. Studies in <span>Logic</span> and the <span>Foundations</span> of <span>Mathematics</span>. North Holland Publishing Company.
 </div>
 <div id="ref-herrlich_axiom_2006" class="csl-entry" role="listitem">
-Herrlich, Horst. 2006. <em>Axiom of <span>Choice</span></em>. 1st ed. Vol. 1876. Lecture <span>Notes</span> in <span>Mathematics</span>. Berlin/Heidelberg: Springer-Verlag. <a href="https://doi.org/10.1007/11601562">https://doi.org/10.1007/11601562</a>.
+Herrlich, Horst. 2006. <em>Axiom of <span>Choice</span></em>. 1st ed. Vol. 1876. Lecture <span>Notes</span> in <span>Mathematics</span>. Springer-Verlag. <a href="https://doi.org/10.1007/11601562">https://doi.org/10.1007/11601562</a>.
 </div>
 <div id="ref-mendelson_introduction_2015" class="csl-entry" role="listitem">
-Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.
+Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. CRC Press/Taylor &amp; Francis Group.
 </div>
 <div id="ref-peloquin_cantor-schroeder-bernstein_2016" class="csl-entry" role="listitem">
-Peloquin, John. 2016. <span>“The <span>Cantor</span>-<span>Schroeder</span>-<span>Bernstein</span> <span>Theorem</span>.”</span> <a href="https://www.youtube.com/watch?v=IkoKttTDuxE">https://www.youtube.com/watch?v=IkoKttTDuxE</a>.
+Peloquin, John. 2016. <em>The <span>Cantor</span>-<span>Schroeder</span>-<span>Bernstein</span> <span>Theorem</span></em>. <a href="https://www.youtube.com/watch?v=IkoKttTDuxE">https://www.youtube.com/watch?v=IkoKttTDuxE</a>.
 </div>
 <div id="ref-stoll_sets_1974" class="csl-entry" role="listitem">
-Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. San Francisco, California: Freeman.
+Stoll, Robert R. 1974. <em>Sets, Logic, and Axiomatic Theories</em>. 2. ed. Freeman.
 </div>
 <div id="ref-tarski_sur_1924" class="csl-entry" role="listitem">
 Tarski, Alfred. 1924. <span>“Sur Les Ensembles Finis.”</span> <em>Fundamenta Mathematicae</em> 6: 45–95. <a href="https://doi.org/10.4064/fm-6-1-45-95">https://doi.org/10.4064/fm-6-1-45-95</a>.
@@ -1872,7 +1876,7 @@ Tarski, Alfred. 1924. <span>“Sur Les Ensembles Finis.”</span> <em>Fundamenta
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>For another proof of <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> check out <span class="citation" data-cites="halevi_fraenkel_abstract_1961">(<a href="references.html#ref-halevi_fraenkel_abstract_1961" role="doc-biblioref">Halevi Fraenkel 1961, 12:73–77</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>For another proof of <a href="#thm-schroder-bernstein-theorem" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a> check out <span class="citation" data-cites="halevi_fraenkel_abstract_1961">(<a href="references.html#ref-halevi_fraenkel_abstract_1961" role="doc-biblioref">Halevi Fraenkel 1961, 73–77</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>In the case of cardinal numbers if <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> are cardinal numbers then <span class="math inline">\(\mathfrak{m} {\leq}_K \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{m} {\geq}_K \mathfrak{n}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>A denumerable set must be distinguished from a <strong>denumerable sequence</strong>. The latter is a function <span class="math inline">\(a: \mathbb{P} \xrightarrow[onto]{1-1} A\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>The proof requires the Axiom of Choice<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
