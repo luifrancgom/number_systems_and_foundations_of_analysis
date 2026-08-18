@@ -549,12 +549,12 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p>Let us define <span class="math inline">\(F(n) = f(n)\)</span>. By c.&nbsp;the value of <span class="math inline">\(F(n)\)</span> does not depend upon the particular choice of the <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span>.</p>
 <p>Because we choose any <span class="math inline">\(n \in \mathbb{P}\)</span> then <span class="math inline">\(\mathscr{D}(F) = \mathbb{P}\)</span>. Also, <span class="math inline">\(F(1) = f(1)\)</span> for some <span class="math inline">\(1\)</span>-admissible function <span class="math inline">\(f\)</span>. But, <span class="math inline">\(f(1) = c\)</span>. Hence we have that <span class="math inline">\(F(1) = c\)</span>.</p>
 <p>In addition, <span class="math inline">\(F(S(n)) = f(S(n))\)</span> for some <span class="math inline">\(S(n)\)</span>-admissible function <span class="math inline">\(f\)</span>. By a. <span class="math inline">\(f\)</span> is also <span class="math inline">\(n\)</span>-admissible where <span class="math inline">\(F(n) = f(n)\)</span>. Also since <span class="math inline">\(f\)</span> is <span class="math inline">\(S(n)\)</span>-admissible, <span class="math inline">\(f(S(n)) = g(f(n))\)</span> we have that <span class="math inline">\(F(S(n)) = g(F(n))\)</span>.</p>
-<p>Therefore conditions a. and b. in <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> are satisfied by <span class="math inline">\(F\)</span>.</p>
+<p>Therefore conditions a. and b. in <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> are satisfied by <span class="math inline">\(F\)</span>.</p>
 <p>We must still show that the range of <span class="math inline">\(F\)</span> is included in <span class="math inline">\(W\)</span>. Because for any <span class="math inline">\(n \in \mathbb{P}\)</span>, <span class="math inline">\(F(n) = f(n)\)</span> for some <span class="math inline">\(n\)</span>-admissible function <span class="math inline">\(f\)</span>. Since <span class="math inline">\(\mathscr{R}(f) \subseteq W\)</span>, it follows that <span class="math inline">\(F(n) \in W\)</span> for any <span class="math inline">\(n \in \mathbb{P}\)</span>.</p></li>
 </ol></li>
 </ol></li>
 <li><p>Uniqueness of <span class="math inline">\(F\)</span></p>
-<p>Assume <span class="math inline">\(F_1\)</span> and <span class="math inline">\(F_2\)</span> are functions from <span class="math inline">\(\mathbb{P}\)</span> into <span class="math inline">\(W\)</span> satisfying conditions a. and b. in <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>.</p>
+<p>Assume <span class="math inline">\(F_1\)</span> and <span class="math inline">\(F_2\)</span> are functions from <span class="math inline">\(\mathbb{P}\)</span> into <span class="math inline">\(W\)</span> satisfying conditions a. and b. in <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>.</p>
 <p>Let <span class="math inline">\(K = \{ n \in \mathbb{P} \mid \land F_1(n) = F_2(n) \}\)</span>.</p>
 <p>First, <span class="math inline">\(1 \in K\)</span> because <span class="math inline">\(F_1(1) = c = F_2(1)\)</span>.</p>
 <p>Second, assume <span class="math inline">\(n \in K\)</span> so <span class="math inline">\(F_1(n) = F_2(n)\)</span>.</p>
@@ -565,14 +565,14 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 </section>
 <section id="application-of-the-iteration-theorem-addition" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="application-of-the-iteration-theorem-addition"><span class="header-section-number">2.4</span> Application of the iteration theorem: addition</h2>
-<div id="thm-iteration-theorem" class="theorem">
+<div id="thm-iteration-theorem-addition" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.4 (Addition)</strong></span> Consider any Peano system <span class="math inline">\((\mathbb{P}, S, 1)\)</span>. Then there is a unique binary operation <span class="math inline">\(+\)</span> on <span class="math inline">\(\mathbb{P}\)</span> such that:</p>
 <p><span class="math inline">\((\alpha)\)</span>. <span class="math inline">\(x + 1 = S(x)\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span></p>
 <p><span class="math inline">\((\beta)\)</span>. <span class="math inline">\(x + S(y) = S(x + y)\)</span> for all <span class="math inline">\(x, y \in \mathbb{P}\)</span></p>
 <p><strong>Note</strong>: We adopt the standard convention of writing <span class="math inline">\(x + y\)</span> instead of <span class="math inline">\(+(x,y)\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>To prove the existence take any <span class="math inline">\(x\)</span> in <span class="math inline">\(\mathbb{P}\)</span>. Now apply <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> with <span class="math inline">\(W = \mathbb{P}\)</span>, <span class="math inline">\(c = S(x)\)</span> and <span class="math inline">\(g = S\)</span>. Therefore, there is a unique function <span class="math inline">\(F: \mathbb{P} \longrightarrow \mathbb{P}\)</span> such that:</p>
+<p><span class="proof-title"><em>Proof</em>. </span>To prove the existence take any <span class="math inline">\(x\)</span> in <span class="math inline">\(\mathbb{P}\)</span>. Now apply <a href="#thm-iteration-theorem" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> with <span class="math inline">\(W = \mathbb{P}\)</span>, <span class="math inline">\(c = S(x)\)</span> and <span class="math inline">\(g = S\)</span>. Therefore, there is a unique function <span class="math inline">\(F: \mathbb{P} \longrightarrow \mathbb{P}\)</span> such that:</p>
 <ol type="a">
 <li><span class="math inline">\(F(1) = c = S(x)\)</span></li>
 <li><span class="math inline">\(F(S(y)) = g(F(y)) = S(F(y))\)</span> for any <span class="math inline">\(y \in \mathbb{P}\)</span></li>
@@ -757,6 +757,46 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 </section>
 <section id="the-order-relation" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="the-order-relation"><span class="header-section-number">2.5</span> The order relation</h2>
+<p>One the usual properties of addition are available it is possible to introduce an order relation in a Peano system.</p>
+<div id="def-order-relation-natural-numbers" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.2</strong></span> <span class="math inline">\(x &lt; y\)</span> is an abbreviation for <span class="math inline">\((\exists z)(x + z = y)\)</span></p>
+<p><strong>Note</strong>: Notice that this is a purely abbreviational definition. The expression <span class="math inline">\(x &lt; y\)</span> is simply shorthand for <span class="math inline">\((\exists z)(x + z = y)\)</span></p>
+</div>
+<div id="def-order-negation-relation-natural-numbers" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.3</strong></span> <span class="math inline">\(x \not&lt; y\)</span> is an abbreviation for <span class="math inline">\(\neg(x &lt; y)\)</span></p>
+</div>
+<div id="thm-order-relation-natural-numbers-properties-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.9</strong></span> &nbsp;</p>
+<ol type="a">
+<li><span class="math inline">\(x \not&lt; x\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span> (irreflexivity of <span class="math inline">\(&lt;\)</span>)</li>
+<li><span class="math inline">\([x &lt; y \land y &lt; z] \Longrightarrow x &lt; z\)</span> for all <span class="math inline">\(x, y, z \in \mathbb{P}\)</span> (transitivity of <span class="math inline">\(&lt;\)</span>)</li>
+<li>For <span class="math inline">\(x, y, z \in \mathbb{P}\)</span>, exactly one of the following conditions holds: <span class="math inline">\(x &lt; y\)</span>, <span class="math inline">\(x = y\)</span>, <span class="math inline">\(x &gt; y\)</span> (trichotomy)</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>If <span class="math inline">\(x &lt; x\)</span> then by <a href="#def-order-relation-natural-numbers" class="quarto-xref">Definition&nbsp;<span>2.2</span></a> it exists some <span class="math inline">\(z \in \mathbb{P}\)</span> such that <span class="math inline">\(x = x + z\)</span>. However by <a href="#thm-no-additive-identity" class="quarto-xref">Theorem&nbsp;<span>2.8</span></a> <span class="math inline">\(x \neq x + z\)</span>. Therefore by <a href="#def-order-negation-relation-natural-numbers" class="quarto-xref">Definition&nbsp;<span>2.3</span></a> <span class="math inline">\(x \not&lt; x\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(y &lt; z\)</span>. Then there are some <span class="math inline">\(v, w \in \mathbb{P}\)</span> such that <span class="math inline">\(y = x + v\)</span> and <span class="math inline">\(z = y + w\)</span>. Therefore, <span class="math inline">\(z = (x + v) + w = x + (v + w)\)</span> where <span class="math inline">\((v + w) \in \mathbb{P}\)</span> because <span class="math inline">\(+\)</span> is a binary operation on <span class="math inline">\(\mathbb{P}\)</span> (<span class="math inline">\(+: \mathbb{P} \times \mathbb{P} \longrightarrow \mathbb{P}\)</span>). So, <span class="math inline">\(x &lt; z\)</span> by <a href="#def-order-relation-natural-numbers" class="quarto-xref">Definition&nbsp;<span>2.2</span></a>.</p></li>
+<li><p>Let <span class="math inline">\(B\)</span> and <span class="math inline">\(x \in \mathbb{P}\)</span> such that:</p>
+<p><span class="math display">\[B = \{ y: y \in \mathbb{P} \land (x &lt; y \oplus x = y \oplus y &lt; x) \}\]</span></p>
+<p>where <span class="math inline">\(\oplus\)</span> refers to exclusive or.</p>
+<p>We have that <span class="math inline">\(1 \in B\)</span>. First, it is not possible that <span class="math inline">\(x &lt; 1\)</span> because by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = S(w)\)</span>. If <span class="math inline">\(x = 1\)</span> then <span class="math inline">\(1 &lt; 1\)</span> but by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> a. this is not possible. If <span class="math inline">\(x = S(w)\)</span> then <span class="math inline">\(S(w) &lt; 1\)</span> but this means that <span class="math inline">\(1 = S(w) + v = S(w + v)\)</span> by <a href="#lem-commutativity-of-addition" class="quarto-xref">Lemma&nbsp;<span>2.1</span></a> b. However, by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i. this is not possible.</p>
+<p>Second, again by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = S(w)\)</span>. If, <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(y = 1\)</span> then it is not possible that <span class="math inline">\(y &lt; x\)</span> because this will mean that <span class="math inline">\(1 &lt; 1\)</span>. If <span class="math inline">\(x = S(w)\)</span> and <span class="math inline">\(y = 1\)</span> then <span class="math inline">\(x = w + 1 = 1 + w\)</span> by <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> and <a href="#thm-commutativity-of-addition" class="quarto-xref">Theorem&nbsp;<span>2.6</span></a>, so <span class="math inline">\(1 &lt; x\)</span>. However it is not possible that <span class="math inline">\(x = y\)</span> because by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i it is not possible that <span class="math inline">\(S(w) = 1\)</span>.</p>
+<p>Now, assume <span class="math inline">\(y \in B\)</span> so <span class="math inline">\(y \in \mathbb{P}\)</span> and <span class="math inline">\(x &lt; y \oplus x = y \oplus y &lt; x\)</span>.</p>
+<ol type="i">
+<li><p>If <span class="math inline">\(x &lt; y\)</span> then by <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> <span class="math inline">\(S(y) = y + 1\)</span>. So, <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(y &lt; S(y)\)</span>. Therefore <span class="math inline">\(x &lt; S(y)\)</span> by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> b.</p>
+<p>Also it is not possible that <span class="math inline">\(x = S(y)\)</span> or <span class="math inline">\(S(y) &lt; x\)</span> because in any case you would have <span class="math inline">\(S(y) &lt; S(y)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x = y\)</span> then by <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> <span class="math inline">\(S(y) = y + 1\)</span>. So, <span class="math inline">\(S(y) = x + 1\)</span>. Therefore <span class="math inline">\(x &lt; S(y)\)</span>.</p>
+<p>Also it is not possible that <span class="math inline">\(x = S(y)\)</span> or <span class="math inline">\(S(y) &lt; x\)</span> because in any case you would have <span class="math inline">\(S(y) &lt; S(y)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(y &lt; x\)</span> then <span class="math inline">\(x = y + z\)</span>. By <span class="citation" data-cites="by">(<a href="references.html#ref-by" role="doc-biblioref"><strong>by?</strong></a>)</span> <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(z = 1\)</span> or <span class="math inline">\(z = S(w)\)</span>.</p>
+<p>If <span class="math inline">\(z = 1\)</span> then <span class="math inline">\(x = y + 1 = S(y)\)</span> <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span>. Also it is not possible that <span class="math inline">\(x &lt; S(y)\)</span> or <span class="math inline">\(S(y) &gt; x\)</span> because in any case you would have <span class="math inline">\(x &lt; x\)</span> or <span class="math inline">\(x &gt; x\)</span>.</p>
+<p>If <span class="math inline">\(z = S(w)\)</span> then <span class="math inline">\(x = y + S(w) = S(y + w) = S(y) + w\)</span> by <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> and <a href="#lem-commutativity-of-addition" class="quarto-xref">Lemma&nbsp;<span>2.1</span></a> b. So <span class="math inline">\(S(y) &lt; x\)</span>. Also it is not possible that <span class="math inline">\(S(y) = x\)</span> or <span class="math inline">\(S(y) &gt; x\)</span> because in any case you would have <span class="math inline">\(x &lt; x\)</span>.</p></li>
+</ol>
+<p>Therefore because <span class="math inline">\(y \in B \Longrightarrow S(y) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.<br>
+</p></li>
+</ol>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
