@@ -319,7 +319,7 @@ b. $F(S(x)) = g(F(x))$ for all $x \in \mathbb{P}$
 
 ## Application of the iteration theorem: addition
 
-::: {#thm-iteration-theorem}
+::: {#thm-iteration-theorem-addition}
 ## Addition
 
 Consider any Peano system $(\mathbb{P}, S, 1)$. Then there is a unique binary operation $+$ on $\mathbb{P}$ such that:
@@ -565,3 +565,55 @@ Therefore because $y \in B \Longrightarrow S(y) \in B$ then $B = \mathbb{P}$.
 :::
 
 ## The order relation
+
+One the usual properties of addition are available it is possible to introduce an order  relation in a Peano system.
+
+::: {#def-order-relation-natural-numbers}
+$x < y$ is an abbreviation for $(\exists z)(x + z = y)$
+
+**Note**: Notice that this is a purely abbreviational definition. The expression $x < y$ is simply shorthand for $(\exists z)(x + z = y)$
+:::
+
+::: {#def-order-negation-relation-natural-numbers}
+$x \not< y$ is an abbreviation for $\neg(x < y)$
+:::
+
+::: {#thm-order-relation-natural-numbers-properties-1}
+a. $x \not< x$ for all $x \in \mathbb{P}$ (irreflexivity of $<$)
+b. $[x < y \land y < z] \Longrightarrow x < z$ for all $x, y, z \in \mathbb{P}$ (transitivity of $<$)
+c. For $x, y, z \in \mathbb{P}$, exactly one of the following conditions holds: $x < y$, $x = y$, $x > y$ (trichotomy)
+:::
+
+::: {.proof}
+a. If $x < x$ then by @def-order-relation-natural-numbers it exists some $z \in \mathbb{P}$ such that $x = x + z$. However by @thm-no-additive-identity $x \neq x + z$. Therefore by @def-order-negation-relation-natural-numbers $x \not< x$.
+
+b. Assume $x < y$ and $y < z$. Then there are some $v, w \in \mathbb{P}$ such that $y = x + v$ and $z = y + w$. Therefore, $z = (x + v) + w = x + (v + w)$ where $(v + w) \in \mathbb{P}$ because $+$ is a binary operation on $\mathbb{P}$ ($+: \mathbb{P} \times \mathbb{P} \longrightarrow \mathbb{P}$). So, $x < z$ by @def-order-relation-natural-numbers.  
+
+c. Let $B$ and $x \in \mathbb{P}$ such that:
+
+   $$B = \{ y: y \in \mathbb{P} \land (x < y \oplus x = y \oplus y < x) \}$$
+
+   where $\oplus$ refers to exclusive or.
+
+   We have that $1 \in B$. First, it is not possible that $x < 1$ because by @thm-x-different-1-is-a-successor $x = 1$ or $x = S(w)$. If $x = 1$ then $1 < 1$ but by @thm-order-relation-natural-numbers-properties-1 a. this is not possible. If $x = S(w)$ then $S(w) < 1$ but this means that $1 = S(w) + v = S(w + v)$ by @lem-commutativity-of-addition b. However, by @def-peano-system i. this is not possible.
+
+   Second, again by @thm-x-different-1-is-a-successor $x = 1$ or $x = S(w)$. If, $x = 1$ and $y = 1$ then it is not possible that $y < x$ because this will mean that $1 < 1$. If $x = S(w)$ and $y = 1$ then $x = w + 1 = 1 + w$ by @thm-iteration-theorem-addition $(\alpha)$ and @thm-commutativity-of-addition, so $1 < x$. However it is not possible that $x = y$ because by @def-peano-system i it is not possible that $S(w) = 1$.
+
+   Now, assume $y \in B$ so $y \in \mathbb{P}$ and $x < y \oplus x = y \oplus y < x$.
+
+   i. If $x < y$ then by @thm-iteration-theorem-addition $(\alpha)$ $S(y) = y + 1$. So, $x < y$ and $y < S(y)$. Therefore $x < S(y)$ by @thm-order-relation-natural-numbers-properties-1 b.
+
+      Also it is not possible that $x = S(y)$ or $S(y) < x$ because in any case you would have $S(y) < S(y)$.
+
+   ii. If $x = y$ then by @thm-iteration-theorem-addition $(\alpha)$ $S(y) = y + 1$. So, $S(y) = x + 1$. Therefore $x < S(y)$.
+
+       Also it is not possible that $x = S(y)$ or $S(y) < x$ because in any case you would have $S(y) < S(y)$. 
+
+   iii. If $y < x$ then $x = y + z$. By @by @thm-x-different-1-is-a-successor $z = 1$ or $z = S(w)$.
+
+        If $z = 1$ then $x = y + 1 = S(y)$ @thm-iteration-theorem-addition $(\alpha)$. Also it is not possible that $x < S(y)$ or $S(y) > x$ because in any case you would have $x < x$ or $x > x$.
+
+        If $z = S(w)$ then $x = y + S(w) = S(y + w) = S(y) + w$ by @thm-iteration-theorem-addition $(\alpha)$ and @lem-commutativity-of-addition b. So $S(y) < x$. Also it is not possible that $S(y) = x$ or $S(y) > x$ because in any case you would have $x < x$.
+
+   Therefore because $y \in B \Longrightarrow S(y) \in B$ then $B = \mathbb{P}$.      
+:::
