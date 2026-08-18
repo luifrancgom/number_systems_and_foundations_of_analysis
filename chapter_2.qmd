@@ -419,5 +419,149 @@ $$x + (y + z) = (x + y) + z \text{ for all } x, y, z \in \mathbb{P}$$
 :::
 
 ::: {.proof}
+Let $B$ and $x, y \in \mathbb{P}$ such that:
 
+$$B = \{ z: z \in \mathbb{P} \land x + (y + z) = (x + y) + z \}$$
+
+Clearly, $B \subseteq \mathbb{P}$. Also:
+
+$\begin{aligned}
+     x + (y + 1) & = (x + S(y)) && \text{ Equation } (\alpha) \\
+     & = S(x + y) && \text{ Equation } (\beta) \\
+     & = (x + y) + 1 && \text{ Equation } (\alpha)
+   \end{aligned}$
+
+Therefore $1 \in B$. Now assume $z \in B$, so $z \in \mathbb{P}$ and $x + (y + z) = (x + y) + z$:
+
+$\begin{aligned}
+     x + (y + S(z)) & = x + S(y + z) && \text{ Equation } (\beta) \\
+     & = S(x + (y + z)) && \text{ Equation } (\beta) \\
+     & = S((x + y) + z) && \text{ Induction hypothesis } \\
+     & = (x + y) + S(z) && \text{ Equation } (\beta)
+   \end{aligned}$
+
+Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
 :::
+
+We still do not know that addition is commutative: $x + y = y + x$. To show this, we need the following preliminary facts.
+
+::: {#lem-commutativity-of-addition}
+a. $x + 1 = 1 + x$ for all $x \in \mathbb{P}$ (Hence by Equation $(\alpha)$, $1 + x = S()x$)
+
+b. $S(y) + x = S(y + x)$ for all $x, y \in \mathbb{P}$
+:::
+
+::: {.proof}
+a. Let $B = \{x: x \in \mathbb{P} \land x + 1 = 1 + x \}$
+
+   Clearly $B \subseteq \mathbb{P}$ and $1 \in B$ because $1 + 1 = 1 + 1$.
+
+   Assume $x \in B$ so $x \in \mathbb{P}$ and $x + 1 = 1 + x$. So:
+
+   $\begin{aligned}
+     S(x) + 1 & = S(S(x)) && \text{ Equation } (\alpha) \\
+     & = S(x + 1) && \text{ Equation } (\alpha) \\
+     & = S(1 + x) && \text{ Induction hypothesis } \\
+     & = 1 + S(x) && \text{ Equation } (\beta)
+   \end{aligned}$
+
+   Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+
+b. $\begin{aligned}
+     S(y) + x & = (y + 1) + x && \text{ Equation } (\alpha) \\
+     & = y + (1 + x) && \text{ Associativity of addition} \\
+     & = y + (x + 1) && \text{ By part a.} \\
+     & = y + S(x) && \text{ Equation } \alpha \\
+     & = S(y + x) && \text{ Equation } (\beta)
+     \end{aligned}$ 
+:::
+
+::: {#thm-commutativity-of-addition}
+## Commutativity of addition
+
+$$x + y = y + x \text{ for all } x, y \in \mathbb{P}$$
+:::
+
+::: {.proof}
+Let $B$ and $x, y \in \mathbb{P}$ such that:
+
+$$B = \{ y: y \in \mathbb{P} \land x + y = y + x \}$$
+Clearly, $B \subseteq \mathbb{P}$. Also $1 \in B$ by @lem-commutativity-of-addition a.
+
+Assume $y \in B$ so $y \in \mathbb{P}$ and $x + y = y + x$. So:
+
+$\begin{aligned}
+  x + S(y) & = S(x + y) + x && \text{ Equation } (\beta) \\
+  & = S(y + x) && \text{ Inductive hypothesis} \\
+  & = S(y) + x && \text{ Lemma b.}
+  \end{aligned}$
+
+Therefore because $y \in B \Longrightarrow S(y) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#thm-cancellation-law-for-addition}
+## Cancellation law for addition
+
+$x + z = y + z \Longrightarrow x = y$ for all $x, y, z \in \mathbb{P}$[^chapter_2-2]
+:::
+
+[^chapter_2-2]: Of course, the converse $x = y \Longrightarrow x + z = y + z$ also holds, as a consequence of the substitutivity of equality (see **Appendix A**)
+
+::: {.proof}
+Let $B$ and $x, y \in \mathbb{P}$ such that:
+
+$$B = \{ y: y \in \mathbb{P} \land x + z = y + z \Longrightarrow x = y \}$$
+Clearly, $B \subseteq \mathbb{P}$. Also $1 \in B$:
+
+$\begin{aligned}
+  x + 1 = y + 1 & \Longrightarrow S(x) = S(y) && \text{ Equation } (\alpha) \\
+  & \Longrightarrow x = y && \text{ Peano axiom ii} \\
+  \end{aligned}$
+
+Assume $z \in B$ so $z \in \mathbb{P}$ and $x + z = y + z \Longrightarrow x = y$. So:
+
+$\begin{aligned}
+  x + S(z) = y + S(z) & \Longrightarrow S(x + z) = S(y + z) && \text{ Equation } (\beta) \\
+  & \Longrightarrow x + z = y + z && \text{ Peano axiom ii} \\
+  & \Longrightarrow x = y && \text{ Induction Hypothesis}
+  \end{aligned}$
+
+Therefore because $z \in B \Longrightarrow S(z) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#thm-no-additive-identity}
+$y \neq x + y$ for all $x, y \in \mathbb{P}$
+:::
+
+::: {.proof}
+Let $B$ and $x, y \in \mathbb{P}$ such that:
+
+$$B = \{ y: y \in \mathbb{P} \land y \neq x + y \}$$
+
+Clearly, $B \subseteq \mathbb{P}$. Also $1 \in B$ because $1 \neq S(1)$ by @def-peano-system i. 
+
+Assume $y \in B$ so $y \in \mathbb{P}$ and $y \neq x + y$. So:
+
+$\begin{aligned}
+  y \neq x + y & \Longrightarrow S(y) \neq S(x + y) && \text{ Peano axiom ii} \\
+  & \Longrightarrow S(y) \neq x + S(y) && \text{ Equation } (\beta)
+  \end{aligned}$
+
+Therefore because $y \in B \Longrightarrow S(y) \in B$ then $B = \mathbb{P}$.  
+:::
+
+::: {#exr-addition-2}
+1. Prove: $(x + y) + (u + v) = (x + u) + (y + v)$
+:::
+
+::: {#sol-addition-2}
+1. $\begin{aligned}
+    (x + y) + (u + v) & =  ((x + y) + u) + v && \text{ Associativity of addition} \\
+    & =  (x + (y + u)) + v && \text{ Associativity of addition} \\
+    & =  (x + (u + y)) + v && \text{ Commutativity of addition} \\
+    & =  ((x + u) + y) + v && \text{ Associativity of addition} \\
+    & =  (x + u) + (y + v) && \text{ Associativity of addition}
+    \end{aligned}$
+:::
+
+## The order relation
