@@ -276,6 +276,7 @@ window.Quarto = {
   <li><a href="#diagramatic-interpretation-of-peano-system-axioms" id="toc-diagramatic-interpretation-of-peano-system-axioms" class="nav-link" data-scroll-target="#diagramatic-interpretation-of-peano-system-axioms"><span class="header-section-number">2.2</span> Diagramatic interpretation of peano system axioms</a></li>
   <li><a href="#the-iteration-theorem" id="toc-the-iteration-theorem" class="nav-link" data-scroll-target="#the-iteration-theorem"><span class="header-section-number">2.3</span> The iteration theorem</a></li>
   <li><a href="#application-of-the-iteration-theorem-addition" id="toc-application-of-the-iteration-theorem-addition" class="nav-link" data-scroll-target="#application-of-the-iteration-theorem-addition"><span class="header-section-number">2.4</span> Application of the iteration theorem: addition</a></li>
+  <li><a href="#the-order-relation" id="toc-the-order-relation" class="nav-link" data-scroll-target="#the-order-relation"><span class="header-section-number">2.5</span> The order relation</a></li>
   </ul>
 </nav>
     </div>
@@ -642,8 +643,120 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p><span class="theorem-title"><strong>Theorem 2.5 (Associativity of addition)</strong></span> <span class="math display">\[x + (y + z) = (x + y) + z \text{ for all } x, y, z \in \mathbb{P}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> and <span class="math inline">\(x, y \in \mathbb{P}\)</span> such that:</p>
+<p><span class="math display">\[B = \{ z: z \in \mathbb{P} \land x + (y + z) = (x + y) + z \}\]</span></p>
+<p>Clearly, <span class="math inline">\(B \subseteq \mathbb{P}\)</span>. Also:</p>
+<p><span class="math inline">\(\begin{aligned}
+     x + (y + 1) &amp; = (x + S(y)) &amp;&amp; \text{ Equation } (\alpha) \\
+     &amp; = S(x + y) &amp;&amp; \text{ Equation } (\beta) \\
+     &amp; = (x + y) + 1 &amp;&amp; \text{ Equation } (\alpha)
+   \end{aligned}\)</span></p>
+<p>Therefore <span class="math inline">\(1 \in B\)</span>. Now assume <span class="math inline">\(z \in B\)</span>, so <span class="math inline">\(z \in \mathbb{P}\)</span> and <span class="math inline">\(x + (y + z) = (x + y) + z\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+     x + (y + S(z)) &amp; = x + S(y + z) &amp;&amp; \text{ Equation } (\beta) \\
+     &amp; = S(x + (y + z)) &amp;&amp; \text{ Equation } (\beta) \\
+     &amp; = S((x + y) + z) &amp;&amp; \text{ Induction hypothesis } \\
+     &amp; = (x + y) + S(z) &amp;&amp; \text{ Equation } (\beta)
+   \end{aligned}\)</span></p>
+<p>Therefore because <span class="math inline">\(x \in B \Longrightarrow S(x) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
 </div>
+<p>We still do not know that addition is commutative: <span class="math inline">\(x + y = y + x\)</span>. To show this, we need the following preliminary facts.</p>
+<div id="lem-commutativity-of-addition" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2.1</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p><span class="math inline">\(x + 1 = 1 + x\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span> (Hence by Equation <span class="math inline">\((\alpha)\)</span>, <span class="math inline">\(1 + x = S()x\)</span>)</p></li>
+<li><p><span class="math inline">\(S(y) + x = S(y + x)\)</span> for all <span class="math inline">\(x, y \in \mathbb{P}\)</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>Let <span class="math inline">\(B = \{x: x \in \mathbb{P} \land x + 1 = 1 + x \}\)</span></p>
+<p>Clearly <span class="math inline">\(B \subseteq \mathbb{P}\)</span> and <span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 + 1 = 1 + 1\)</span>.</p>
+<p>Assume <span class="math inline">\(x \in B\)</span> so <span class="math inline">\(x \in \mathbb{P}\)</span> and <span class="math inline">\(x + 1 = 1 + x\)</span>. So:</p>
+<p><span class="math inline">\(\begin{aligned}
+  S(x) + 1 &amp; = S(S(x)) &amp;&amp; \text{ Equation } (\alpha) \\
+  &amp; = S(x + 1) &amp;&amp; \text{ Equation } (\alpha) \\
+  &amp; = S(1 + x) &amp;&amp; \text{ Induction hypothesis } \\
+  &amp; = 1 + S(x) &amp;&amp; \text{ Equation } (\beta)
+\end{aligned}\)</span></p>
+<p>Therefore because <span class="math inline">\(x \in B \Longrightarrow S(x) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+  S(y) + x &amp; = (y + 1) + x &amp;&amp; \text{ Equation } (\alpha) \\
+  &amp; = y + (1 + x) &amp;&amp; \text{ Associativity of addition} \\
+  &amp; = y + (x + 1) &amp;&amp; \text{ By part a.} \\
+  &amp; = y + S(x) &amp;&amp; \text{ Equation } \alpha \\
+  &amp; = S(y + x) &amp;&amp; \text{ Equation } (\beta)
+  \end{aligned}\)</span></p></li>
+</ol>
+</div>
+<div id="thm-commutativity-of-addition" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.6 (Commutativity of addition)</strong></span> <span class="math display">\[x + y = y + x \text{ for all } x, y \in \mathbb{P}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> and <span class="math inline">\(x, y \in \mathbb{P}\)</span> such that:</p>
+<p><span class="math display">\[B = \{ y: y \in \mathbb{P} \land x + y = y + x \}\]</span> Clearly, <span class="math inline">\(B \subseteq \mathbb{P}\)</span>. Also <span class="math inline">\(1 \in B\)</span> by <a href="#lem-commutativity-of-addition" class="quarto-xref">Lemma&nbsp;<span>2.1</span></a> a.</p>
+<p>Assume <span class="math inline">\(y \in B\)</span> so <span class="math inline">\(y \in \mathbb{P}\)</span> and <span class="math inline">\(x + y = y + x\)</span>. So:</p>
+<p><span class="math inline">\(\begin{aligned}
+  x + S(y) &amp; = S(x + y) + x &amp;&amp; \text{ Equation } (\beta) \\
+  &amp; = S(y + x) &amp;&amp; \text{ Inductive hypothesis} \\
+  &amp; = S(y) + x &amp;&amp; \text{ Lemma b.}
+  \end{aligned}\)</span></p>
+<p>Therefore because <span class="math inline">\(y \in B \Longrightarrow S(y) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+</div>
+<div id="thm-cancellation-law-for-addition" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.7 (Cancellation law for addition)</strong></span> <span class="math inline">\(x + z = y + z \Longrightarrow x = y\)</span> for all <span class="math inline">\(x, y, z \in \mathbb{P}\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> and <span class="math inline">\(x, y \in \mathbb{P}\)</span> such that:</p>
+<p><span class="math display">\[B = \{ y: y \in \mathbb{P} \land x + z = y + z \Longrightarrow x = y \}\]</span> Clearly, <span class="math inline">\(B \subseteq \mathbb{P}\)</span>. Also <span class="math inline">\(1 \in B\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+  x + 1 = y + 1 &amp; \Longrightarrow S(x) = S(y) &amp;&amp; \text{ Equation } (\alpha) \\
+  &amp; \Longrightarrow x = y &amp;&amp; \text{ Peano axiom ii} \\
+  \end{aligned}\)</span></p>
+<p>Assume <span class="math inline">\(z \in B\)</span> so <span class="math inline">\(z \in \mathbb{P}\)</span> and <span class="math inline">\(x + z = y + z \Longrightarrow x = y\)</span>. So:</p>
+<p><span class="math inline">\(\begin{aligned}
+  x + S(z) = y + S(z) &amp; \Longrightarrow S(x + z) = S(y + z) &amp;&amp; \text{ Equation } (\beta) \\
+  &amp; \Longrightarrow x + z = y + z &amp;&amp; \text{ Peano axiom ii} \\
+  &amp; \Longrightarrow x = y &amp;&amp; \text{ Induction Hypothesis}
+  \end{aligned}\)</span></p>
+<p>Therefore because <span class="math inline">\(z \in B \Longrightarrow S(z) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+</div>
+<div id="thm-no-additive-identity" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.8</strong></span> <span class="math inline">\(y \neq x + y\)</span> for all <span class="math inline">\(x, y \in \mathbb{P}\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> and <span class="math inline">\(x, y \in \mathbb{P}\)</span> such that:</p>
+<p><span class="math display">\[B = \{ y: y \in \mathbb{P} \land y \neq x + y \}\]</span></p>
+<p>Clearly, <span class="math inline">\(B \subseteq \mathbb{P}\)</span>. Also <span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 \neq S(1)\)</span> by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i.</p>
+<p>Assume <span class="math inline">\(y \in B\)</span> so <span class="math inline">\(y \in \mathbb{P}\)</span> and <span class="math inline">\(y \neq x + y\)</span>. So:</p>
+<p><span class="math inline">\(\begin{aligned}
+  y \neq x + y &amp; \Longrightarrow S(y) \neq S(x + y) &amp;&amp; \text{ Peano axiom ii} \\
+  &amp; \Longrightarrow S(y) \neq x + S(y) &amp;&amp; \text{ Equation } (\beta)
+  \end{aligned}\)</span></p>
+<p>Therefore because <span class="math inline">\(y \in B \Longrightarrow S(y) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+</div>
+<div id="exr-addition-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> &nbsp;</p>
+<ol type="1">
+<li>Prove: <span class="math inline">\((x + y) + (u + v) = (x + u) + (y + v)\)</span></li>
+</ol>
+</div>
+<div id="sol-addition-2" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.2</em>. </span></p>
+<ol type="1">
+<li><span class="math inline">\(\begin{aligned}
+(x + y) + (u + v) &amp; =  ((x + y) + u) + v &amp;&amp; \text{ Associativity of addition} \\
+&amp; =  (x + (y + u)) + v &amp;&amp; \text{ Associativity of addition} \\
+&amp; =  (x + (u + y)) + v &amp;&amp; \text{ Commutativity of addition} \\
+&amp; =  ((x + u) + y) + v &amp;&amp; \text{ Associativity of addition} \\
+&amp; =  (x + u) + (y + v) &amp;&amp; \text{ Associativity of addition}
+\end{aligned}\)</span></li>
+</ol>
+</div>
+</section>
+<section id="the-order-relation" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="the-order-relation"><span class="header-section-number">2.5</span> The order relation</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -662,6 +775,7 @@ Mendelson, Elliott. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edi
 <hr>
 <ol>
 <li id="fn1"><p>Also known as the recursion theorem (See <span class="citation" data-cites="enderton_elements_2009">(<a href="references.html#ref-enderton_elements_2009" role="doc-biblioref">Enderton 2009, 73–74</a>)</span>) where it can be found in <span class="citation" data-cites="dedekind_essays_1963">(<a href="references.html#ref-dedekind_essays_1963" role="doc-biblioref">Dedekind and Beman 1963, 85–86</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Of course, the converse <span class="math inline">\(x = y \Longrightarrow x + z = y + z\)</span> also holds, as a consequence of the substitutivity of equality (see <strong>Appendix A</strong>)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
