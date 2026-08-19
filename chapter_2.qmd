@@ -393,8 +393,10 @@ $$2 = S(1), 3 = S(2), 4 = S(3), 5 = S(4), \text{ etc.}$$
 
 ::: {#exr-addition}
 1. Compute $4 + 2$ and $2 + 4$. (We do not know yet that these two values must be the same.)
+:::
 
-   $\begin{aligned}
+::: {#sol-addition} 
+1. $\begin{aligned}
      4 + 2 & = 4 + S(1) && \text{ Definition of "2"} \\
      & = S(4 + 1) && \text{ Equation } (\beta) \\
      & = S(S(4)) && \text{ Equation } (\alpha) \\
@@ -491,7 +493,7 @@ Clearly, $B \subseteq \mathbb{P}$. Also $1 \in B$ by @lem-commutativity-of-addit
 Assume $y \in B$ so $y \in \mathbb{P}$ and $x + y = y + x$. So:
 
 $\begin{aligned}
-  x + S(y) & = S(x + y) + x && \text{ Equation } (\beta) \\
+  x + S(y) & = S(x + y) && \text{ Equation } (\beta) \\
   & = S(y + x) && \text{ Inductive hypothesis} \\
   & = S(y) + x && \text{ Lemma b.}
   \end{aligned}$
@@ -580,7 +582,9 @@ $x \not< y$ is an abbreviation for $\neg(x < y)$
 
 ::: {#thm-order-relation-natural-numbers-properties-1}
 a. $x \not< x$ for all $x \in \mathbb{P}$ (irreflexivity of $<$)
+
 b. $[x < y \land y < z] \Longrightarrow x < z$ for all $x, y, z \in \mathbb{P}$ (transitivity of $<$)
+
 c. For $x, y, z \in \mathbb{P}$, exactly one of the following conditions holds: $x < y$, $x = y$, $x > y$ (trichotomy)
 :::
 
@@ -609,11 +613,240 @@ c. Let $B$ and $x \in \mathbb{P}$ such that:
 
        Also it is not possible that $x = S(y)$ or $S(y) < x$ because in any case you would have $S(y) < S(y)$. 
 
-   iii. If $y < x$ then $x = y + z$. By @by @thm-x-different-1-is-a-successor $z = 1$ or $z = S(w)$.
+   iii. If $y < x$ then $x = y + z$. By @thm-x-different-1-is-a-successor $z = 1$ or $z = S(w)$.
 
         If $z = 1$ then $x = y + 1 = S(y)$ @thm-iteration-theorem-addition $(\alpha)$. Also it is not possible that $x < S(y)$ or $S(y) > x$ because in any case you would have $x < x$ or $x > x$.
 
         If $z = S(w)$ then $x = y + S(w) = S(y + w) = S(y) + w$ by @thm-iteration-theorem-addition $(\alpha)$ and @lem-commutativity-of-addition b. So $S(y) < x$. Also it is not possible that $S(y) = x$ or $S(y) > x$ because in any case you would have $x < x$.
 
    Therefore because $y \in B \Longrightarrow S(y) \in B$ then $B = \mathbb{P}$.      
+:::
+
+::: {#thm-order-relation-natural-numbers-properties-2}
+a. $x < S(x)$
+
+b. $\neg(\exists y)(x < y < S(x))$
+:::
+
+::: {.proof}
+a. By @thm-iteration-theorem-addition $(\alpha)$ $S(x) = x + 1$. Therefore $x < S(x)$.
+
+b. Assume that $(\exists y)(x < y < S(x))$. Then $y = x + w$ and $S(x) = y + v$ for $w, v \in \mathbb{P}$. Then:
+
+   $\begin{aligned}
+    S(x) = y + v & \Longrightarrow S(x) = (x + w) + v \\
+    & \Longrightarrow x + 1 = x + (w + v) \\
+    & \Longrightarrow 1 + x = (w + v) + x \\
+    & \Longrightarrow 1 = w + v
+    \end{aligned}$
+
+    But by @thm-x-different-1-is-a-successor $w = 1$ or $w = S(a)$ and $v = 1$ or $v = S(b)$. In any case we will have that $1 < 1$ or that $1 = S(c)$ for some $c \in \mathbb{P}$ which is a contradiction by @thm-order-relation-natural-numbers-properties-1 a. or @def-peano-system i.
+
+    Therefore it must be the case that $\neg(\exists y)(x < y < S(x))$. 
+:::
+
+::: {#def-order-relation-natural-numbers-extent}
+
+$$
+\begin{aligned}
+   x \le y      &\quad\text{for}\quad x < y \lor x = y \\
+   x \not\le y  &\quad\text{for}\quad \neg(x \le y) \\
+   x > y        &\quad\text{for}\quad y < x \\
+   x \ge y      &\quad\text{for}\quad y \le x
+   \end{aligned}
+$$
+:::
+
+::: {#exr-order-relation-natural-numbers-1}
+1. Prove $x < y \iff (x \leq y \land x = y)$
+:::
+
+::: {#sol-order-relation-natural-numbers-1}
+1. $\begin{aligned}
+    x < y & \iff x < y \land x \neq y \\ 
+    & \iff (x < y \land x \neq y) \lor (x = y \land x \neq y) \\
+    & \iff (x < y \lor x = y) \land x \neq y \\
+    & \iff x \leq y \land x \neq y
+    \end{aligned}$
+
+**Note**: In the proof $x < y \Longrightarrow x < y \land x \neq y$ is true by @thm-order-relation-natural-numbers-properties-1 c. Also $x < y \Longleftarrow x < y \land x \neq y$ because if $x \leq y \land x \neq y$ is true then $x < y$ and $x \neq y$ must be true. 
+:::
+
+::: {#thm-order-relation-natural-numbers-extent-1}
+For $x, y, z \in \mathbb{P}$:
+
+a. $x \leq x$ (Reflexivity of $\leq$)
+
+b. $[x < y \land y \leq z] \Longrightarrow x < z$
+
+c. $[x \leq y \land y < z] \Longrightarrow x < z$
+
+d. $[x \leq y \land y \leq z] \Longrightarrow x \leq z$ (Transitivity of $\leq$)
+
+e. $x \leq y \lor y \geq x$
+
+f. $[x \leq y \land y \leq x] \Longrightarrow x = y$
+:::
+
+::: {.proof}
+a. $\begin{aligned}
+    x = x & \Longrightarrow x = x \lor x < x \\ 
+    & \Longrightarrow x \leq x
+    \end{aligned}$
+
+b. $\begin{aligned}
+    x < y \land y \leq z & \Longrightarrow x < y \land (y = z \lor y < z) \\
+    & \Longrightarrow (x < y \land y = z) \lor (x < y \land y < z) \\
+    & \Longrightarrow x < z \lor x < z \\
+    & \Longrightarrow x < z
+    \end{aligned}$
+
+c. $\begin{aligned}
+    x \leq y \land y < z & \Longrightarrow (x = y \lor x < y) \land y < z \\
+    & \Longrightarrow (x = y \land y < z) \lor (x < y \land y < z) \\
+    & \Longrightarrow x < z \lor x < z \\
+    & \Longrightarrow x < z
+    \end{aligned}$
+
+d. $\begin{aligned}
+    x \leq y \land y \leq z & \Longrightarrow x \leq y \land (y = z \lor y < z) \\
+    & \Longrightarrow (x \leq y \land y = z) \lor (x \leq y \land y < z) \\
+    & \Longrightarrow x \leq z \lor x < z \\
+    & \Longrightarrow (x < z \lor x = z) \lor x < z \\
+    & \Longrightarrow (x = z \lor x < z) \lor x < z \\
+    & \Longrightarrow x = z \lor (x < z \lor x < z) \\
+    & \Longrightarrow x = z \lor x < z \\
+    & \Longrightarrow x \leq z
+    \end{aligned}$
+
+e. $\begin{aligned}
+    x \leq y \land y \leq x & \iff (x < y \lor x = y) \land y \leq x \\
+    & \iff (x < y \land y \leq x) \lor (x = y \land y \leq x) \\
+    & \Longrightarrow x < x \lor (x = y \land y \leq x) \\
+    & \Longrightarrow x = y \land y \leq x \\
+    & \Longrightarrow x = y
+    \end{aligned}$   
+:::
+
+The next theorem establishes some of the order properties of $1$ and $+$.
+
+::: {#thm-order-relation-natural-numbers-extent-2}
+a. $x \neq 1 \Longrightarrow 1 < x$
+
+b. $x < x + y$
+
+c. $x < y \iff x + z < y + z$
+
+d. $x \leq y \iff x + z \leq y + z$
+
+e. $[x < y \land u < v] \Longrightarrow x + u < y + v$
+
+f. $[x < y \land u \leq v] \Longrightarrow x + u < y + v$
+
+g. $[x \leq y \land u < v] \Longrightarrow x + u < y + v$
+
+h. $[x \leq y \land u \leq v] \Longrightarrow x + u \leq y + v$
+:::
+
+::: {.proof}
+a. If $x \neq 1$ then by @thm-x-different-1-is-a-successor there is some $y \in \mathbb{P}$ such that $x = S(y)$. Therefore, $x = y + 1 = 1 + y$ which means that $1 < x$.
+
+b. $x + y = x + y$ so there is some $y \in \mathbb{P}$ which means that $x < x + y$.
+
+c. $\begin{aligned}
+    x < y & \iff y = x + w \\
+    & \iff y + z = (x + w) + z \\
+    & \iff y + z = x + (w + z) \\
+    & \iff y + z = x + (z + w) \\
+    & \iff y + z = (x + z) + w \\
+    & \iff x + z < y + z \\
+    \end{aligned}$
+
+d. $\begin{aligned}
+    x \leq y & \iff x < y \lor x = y \\
+    & \iff y = x + w \lor x = y \\
+    & \iff y + z = (x + w) + z \lor x + z = y + z \\
+    & \iff y + z = (x + z) + w \lor x + z = y + z \\
+    & x + z \leq y + z 
+    \end{aligned}$
+
+e. $\begin{aligned}
+    x < y \land u < v & \iff y = x + z \land v = u + w \\
+    & \iff y + v = (x + z) + (u + w) \\
+    & \iff y + v = (x + u) + (z + w) \\
+    & \Longrightarrow x + u < y + v 
+    \end{aligned}$
+
+f. $\begin{aligned}
+    x < y \land u \leq v & \iff x < y \land (u < v \lor u = v) \\
+    & \iff (x < y \land u < v) \lor (x < y \land u = v) \\
+    & \Longrightarrow (x + u < y + v) \lor (x + u < y + v) \\
+    & \iff x + u < y + v 
+    \end{aligned}$
+
+g. $\begin{aligned}
+    x \leq y \land u < v & \iff (x < y \lor x = y) \land u < v \\
+    & \iff (x < y \land u < v) \lor (x = y \land u < v) \\
+    & \Longrightarrow (x + u < y + v) \lor (u + x < v + y) \\
+    & \iff (x + u < y + v) \lor (x + u < y + v) \\
+    & \iff x + u < y + v 
+    \end{aligned}$
+
+h. $\begin{aligned}
+    x \leq y \land u \leq v & \iff x \leq y \land (u < v \lor u = v) \\
+    & \iff (x \leq y \land u < v) \lor (x \leq y \land u = v) \\
+    & \Longrightarrow x + u < y + v \lor ((x < y \lor x = y) \land u = v) \\
+    & \iff x + u < y + v \lor ((x < y \land u = v) \lor (x = y \land u = v)) \\
+    & \Longrightarrow x + u < y + v \lor (x + u < y + v \lor x + u = y + v) \\
+    & \iff (x + u < y + v \lor x + u < y + v) \lor x + u = y + v \\
+    & \iff x + u < y + v \lor x + u = y + v \\
+    & \iff x + u \leq y + v    
+    \end{aligned}$ 
+:::
+
+::: {#exr-order-relation-natural-numbers-2}
+Prove:
+
+1. $1 \leq x$ 
+
+2. $x \leq 1 \iff x = 1$ 
+
+3. $x < S(y) \iff x \leq y$
+
+4. $x < y \iff S(x) \leq y$
+
+5. $x + u < y + u \Longrightarrow (x < y \lor u < v)$
+
+6. $1 < 2 < 3 < 4 < \ldots$
+
+7. If $g: \mathbb{P} \longrightarrow \mathbb{P}$ and $(\forall x)(\forall y)(x < y \Longrightarrow g(x) < g(y))$, prove that $(\forall u)(g(u) \leq u)$
+:::
+
+::: {#sol-order-relation-natural-numbers-2}
+1. If $x \in \mathbb{P}$ by @thm-x-different-1-is-a-successor $x = 1$ or $x = S(y)$. So $x = 1$ or $x = y + 1 = 1 + y$. Therefore $1 \leq x$.
+
+2. $\begin{aligned}
+    x \leq 1 & \iff x < 1 \lor x = 1 \\
+    & x = 1
+    \end{aligned}$
+
+   **Note**: $x < 1$ is false because if it is true then $1 = x + w$ for some $w \in \mathbb{P}$. By @thm-x-different-1-is-a-successor $w = 1$ or $w = S(v)$. However, this will mean that $1 = x + 1 = S(x)$ or $1 = x + S(v) = S(x + v)$ which is a contradiction by @def-peano-system i.   
+
+3. $\begin{aligned}
+    x < S(y) & \iff S(y) = x + z \\
+    & \iff y + 1 = x + z \\
+    & \iff (y + 1 = x + 1) \lor (y + 1 = x + S(w)) \\
+    & \iff y = x \lor y + 1 = x + (w + 1) \\
+    & \iff y = x \lor y = x + w \\
+    & \iff y = x \lor x < y \\
+    & \iff x \leq y
+    \end{aligned}$
+
+4.
+
+5.
+
+6.
+
+7.
 :::
