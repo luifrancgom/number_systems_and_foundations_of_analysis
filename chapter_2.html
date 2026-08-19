@@ -622,8 +622,13 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <div id="exr-addition" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.2</strong></span> &nbsp;</p>
 <ol type="1">
-<li><p>Compute <span class="math inline">\(4 + 2\)</span> and <span class="math inline">\(2 + 4\)</span>. (We do not know yet that these two values must be the same.)</p>
-<p><span class="math inline">\(\begin{aligned}
+<li>Compute <span class="math inline">\(4 + 2\)</span> and <span class="math inline">\(2 + 4\)</span>. (We do not know yet that these two values must be the same.)</li>
+</ol>
+</div>
+<div id="sol-addition" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.2</em>. </span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\begin{aligned}
   4 + 2 &amp; = 4 + S(1) &amp;&amp; \text{ Definition of "2"} \\
   &amp; = S(4 + 1) &amp;&amp; \text{ Equation } (\beta) \\
   &amp; = S(S(4)) &amp;&amp; \text{ Equation } (\alpha) \\
@@ -698,7 +703,7 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p><span class="math display">\[B = \{ y: y \in \mathbb{P} \land x + y = y + x \}\]</span> Clearly, <span class="math inline">\(B \subseteq \mathbb{P}\)</span>. Also <span class="math inline">\(1 \in B\)</span> by <a href="#lem-commutativity-of-addition" class="quarto-xref">Lemma&nbsp;<span>2.1</span></a> a.</p>
 <p>Assume <span class="math inline">\(y \in B\)</span> so <span class="math inline">\(y \in \mathbb{P}\)</span> and <span class="math inline">\(x + y = y + x\)</span>. So:</p>
 <p><span class="math inline">\(\begin{aligned}
-  x + S(y) &amp; = S(x + y) + x &amp;&amp; \text{ Equation } (\beta) \\
+  x + S(y) &amp; = S(x + y) &amp;&amp; \text{ Equation } (\beta) \\
   &amp; = S(y + x) &amp;&amp; \text{ Inductive hypothesis} \\
   &amp; = S(y) + x &amp;&amp; \text{ Lemma b.}
   \end{aligned}\)</span></p>
@@ -743,7 +748,7 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 </ol>
 </div>
 <div id="sol-addition-2" class="proof solution">
-<p><span class="proof-title"><em>Solution 2.2</em>. </span></p>
+<p><span class="proof-title"><em>Solution 2.3</em>. </span></p>
 <ol type="1">
 <li><span class="math inline">\(\begin{aligned}
 (x + y) + (u + v) &amp; =  ((x + y) + u) + v &amp;&amp; \text{ Associativity of addition} \\
@@ -768,9 +773,9 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <div id="thm-order-relation-natural-numbers-properties-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.9</strong></span> &nbsp;</p>
 <ol type="a">
-<li><span class="math inline">\(x \not&lt; x\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span> (irreflexivity of <span class="math inline">\(&lt;\)</span>)</li>
-<li><span class="math inline">\([x &lt; y \land y &lt; z] \Longrightarrow x &lt; z\)</span> for all <span class="math inline">\(x, y, z \in \mathbb{P}\)</span> (transitivity of <span class="math inline">\(&lt;\)</span>)</li>
-<li>For <span class="math inline">\(x, y, z \in \mathbb{P}\)</span>, exactly one of the following conditions holds: <span class="math inline">\(x &lt; y\)</span>, <span class="math inline">\(x = y\)</span>, <span class="math inline">\(x &gt; y\)</span> (trichotomy)</li>
+<li><p><span class="math inline">\(x \not&lt; x\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span> (irreflexivity of <span class="math inline">\(&lt;\)</span>)</p></li>
+<li><p><span class="math inline">\([x &lt; y \land y &lt; z] \Longrightarrow x &lt; z\)</span> for all <span class="math inline">\(x, y, z \in \mathbb{P}\)</span> (transitivity of <span class="math inline">\(&lt;\)</span>)</p></li>
+<li><p>For <span class="math inline">\(x, y, z \in \mathbb{P}\)</span>, exactly one of the following conditions holds: <span class="math inline">\(x &lt; y\)</span>, <span class="math inline">\(x = y\)</span>, <span class="math inline">\(x &gt; y\)</span> (trichotomy)</p></li>
 </ol>
 </div>
 <div class="proof">
@@ -789,12 +794,213 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p>Also it is not possible that <span class="math inline">\(x = S(y)\)</span> or <span class="math inline">\(S(y) &lt; x\)</span> because in any case you would have <span class="math inline">\(S(y) &lt; S(y)\)</span>.</p></li>
 <li><p>If <span class="math inline">\(x = y\)</span> then by <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> <span class="math inline">\(S(y) = y + 1\)</span>. So, <span class="math inline">\(S(y) = x + 1\)</span>. Therefore <span class="math inline">\(x &lt; S(y)\)</span>.</p>
 <p>Also it is not possible that <span class="math inline">\(x = S(y)\)</span> or <span class="math inline">\(S(y) &lt; x\)</span> because in any case you would have <span class="math inline">\(S(y) &lt; S(y)\)</span>.</p></li>
-<li><p>If <span class="math inline">\(y &lt; x\)</span> then <span class="math inline">\(x = y + z\)</span>. By <span class="citation" data-cites="by">(<a href="references.html#ref-by" role="doc-biblioref"><strong>by?</strong></a>)</span> <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(z = 1\)</span> or <span class="math inline">\(z = S(w)\)</span>.</p>
+<li><p>If <span class="math inline">\(y &lt; x\)</span> then <span class="math inline">\(x = y + z\)</span>. By <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(z = 1\)</span> or <span class="math inline">\(z = S(w)\)</span>.</p>
 <p>If <span class="math inline">\(z = 1\)</span> then <span class="math inline">\(x = y + 1 = S(y)\)</span> <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span>. Also it is not possible that <span class="math inline">\(x &lt; S(y)\)</span> or <span class="math inline">\(S(y) &gt; x\)</span> because in any case you would have <span class="math inline">\(x &lt; x\)</span> or <span class="math inline">\(x &gt; x\)</span>.</p>
 <p>If <span class="math inline">\(z = S(w)\)</span> then <span class="math inline">\(x = y + S(w) = S(y + w) = S(y) + w\)</span> by <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> and <a href="#lem-commutativity-of-addition" class="quarto-xref">Lemma&nbsp;<span>2.1</span></a> b. So <span class="math inline">\(S(y) &lt; x\)</span>. Also it is not possible that <span class="math inline">\(S(y) = x\)</span> or <span class="math inline">\(S(y) &gt; x\)</span> because in any case you would have <span class="math inline">\(x &lt; x\)</span>.</p></li>
 </ol>
 <p>Therefore because <span class="math inline">\(y \in B \Longrightarrow S(y) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.<br>
 </p></li>
+</ol>
+</div>
+<div id="thm-order-relation-natural-numbers-properties-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.10</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p><span class="math inline">\(x &lt; S(x)\)</span></p></li>
+<li><p><span class="math inline">\(\neg(\exists y)(x &lt; y &lt; S(x))\)</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>By <a href="#thm-iteration-theorem-addition" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> <span class="math inline">\((\alpha)\)</span> <span class="math inline">\(S(x) = x + 1\)</span>. Therefore <span class="math inline">\(x &lt; S(x)\)</span>.</p></li>
+<li><p>Assume that <span class="math inline">\((\exists y)(x &lt; y &lt; S(x))\)</span>. Then <span class="math inline">\(y = x + w\)</span> and <span class="math inline">\(S(x) = y + v\)</span> for <span class="math inline">\(w, v \in \mathbb{P}\)</span>. Then:</p>
+<p><span class="math inline">\(\begin{aligned}
+S(x) = y + v &amp; \Longrightarrow S(x) = (x + w) + v \\
+&amp; \Longrightarrow x + 1 = x + (w + v) \\
+&amp; \Longrightarrow 1 + x = (w + v) + x \\
+&amp; \Longrightarrow 1 = w + v
+\end{aligned}\)</span></p>
+<p>But by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(w = 1\)</span> or <span class="math inline">\(w = S(a)\)</span> and <span class="math inline">\(v = 1\)</span> or <span class="math inline">\(v = S(b)\)</span>. In any case we will have that <span class="math inline">\(1 &lt; 1\)</span> or that <span class="math inline">\(1 = S(c)\)</span> for some <span class="math inline">\(c \in \mathbb{P}\)</span> which is a contradiction by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> a. or <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i.</p>
+<p>Therefore it must be the case that <span class="math inline">\(\neg(\exists y)(x &lt; y &lt; S(x))\)</span>.</p></li>
+</ol>
+</div>
+<div id="def-order-relation-natural-numbers-extent" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.4</strong></span> <span class="math display">\[
+\begin{aligned}
+   x \le y      &amp;\quad\text{for}\quad x &lt; y \lor x = y \\
+   x \not\le y  &amp;\quad\text{for}\quad \neg(x \le y) \\
+   x &gt; y        &amp;\quad\text{for}\quad y &lt; x \\
+   x \ge y      &amp;\quad\text{for}\quad y \le x
+   \end{aligned}
+\]</span></p>
+</div>
+<div id="exr-order-relation-natural-numbers-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.4</strong></span> &nbsp;</p>
+<ol type="1">
+<li>Prove <span class="math inline">\(x &lt; y \iff (x \leq y \land x = y)\)</span></li>
+</ol>
+</div>
+<div id="sol-order-relation-natural-numbers-1" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.4</em>. </span></p>
+<ol type="1">
+<li><span class="math inline">\(\begin{aligned}
+x &lt; y &amp; \iff x &lt; y \land x \neq y \\
+&amp; \iff (x &lt; y \land x \neq y) \lor (x = y \land x \neq y) \\
+&amp; \iff (x &lt; y \lor x = y) \land x \neq y \\
+&amp; \iff x \leq y \land x \neq y
+\end{aligned}\)</span></li>
+</ol>
+<p><strong>Note</strong>: In the proof <span class="math inline">\(x &lt; y \Longrightarrow x &lt; y \land x \neq y\)</span> is true by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> c.&nbsp;Also <span class="math inline">\(x &lt; y \Longleftarrow x &lt; y \land x \neq y\)</span> because if <span class="math inline">\(x \leq y \land x \neq y\)</span> is true then <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(x \neq y\)</span> must be true.</p>
+</div>
+<div id="thm-order-relation-natural-numbers-extent-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.11</strong></span> For <span class="math inline">\(x, y, z \in \mathbb{P}\)</span>:</p>
+<ol type="a">
+<li><p><span class="math inline">\(x \leq x\)</span> (Reflexivity of <span class="math inline">\(\leq\)</span>)</p></li>
+<li><p><span class="math inline">\([x &lt; y \land y \leq z] \Longrightarrow x &lt; z\)</span></p></li>
+<li><p><span class="math inline">\([x \leq y \land y &lt; z] \Longrightarrow x &lt; z\)</span></p></li>
+<li><p><span class="math inline">\([x \leq y \land y \leq z] \Longrightarrow x \leq z\)</span> (Transitivity of <span class="math inline">\(\leq\)</span>)</p></li>
+<li><p><span class="math inline">\(x \leq y \lor y \geq x\)</span></p></li>
+<li><p><span class="math inline">\([x \leq y \land y \leq x] \Longrightarrow x = y\)</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p><span class="math inline">\(\begin{aligned}
+x = x &amp; \Longrightarrow x = x \lor x &lt; x \\
+&amp; \Longrightarrow x \leq x
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x &lt; y \land y \leq z &amp; \Longrightarrow x &lt; y \land (y = z \lor y &lt; z) \\
+&amp; \Longrightarrow (x &lt; y \land y = z) \lor (x &lt; y \land y &lt; z) \\
+&amp; \Longrightarrow x &lt; z \lor x &lt; z \\
+&amp; \Longrightarrow x &lt; z
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq y \land y &lt; z &amp; \Longrightarrow (x = y \lor x &lt; y) \land y &lt; z \\
+&amp; \Longrightarrow (x = y \land y &lt; z) \lor (x &lt; y \land y &lt; z) \\
+&amp; \Longrightarrow x &lt; z \lor x &lt; z \\
+&amp; \Longrightarrow x &lt; z
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq y \land y \leq z &amp; \Longrightarrow x \leq y \land (y = z \lor y &lt; z) \\
+&amp; \Longrightarrow (x \leq y \land y = z) \lor (x \leq y \land y &lt; z) \\
+&amp; \Longrightarrow x \leq z \lor x &lt; z \\
+&amp; \Longrightarrow (x &lt; z \lor x = z) \lor x &lt; z \\
+&amp; \Longrightarrow (x = z \lor x &lt; z) \lor x &lt; z \\
+&amp; \Longrightarrow x = z \lor (x &lt; z \lor x &lt; z) \\
+&amp; \Longrightarrow x = z \lor x &lt; z \\
+&amp; \Longrightarrow x \leq z
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq y \land y \leq x &amp; \iff (x &lt; y \lor x = y) \land y \leq x \\
+&amp; \iff (x &lt; y \land y \leq x) \lor (x = y \land y \leq x) \\
+&amp; \Longrightarrow x &lt; x \lor (x = y \land y \leq x) \\
+&amp; \Longrightarrow x = y \land y \leq x \\
+&amp; \Longrightarrow x = y
+\end{aligned}\)</span><br>
+</p></li>
+</ol>
+</div>
+<p>The next theorem establishes some of the order properties of <span class="math inline">\(1\)</span> and <span class="math inline">\(+\)</span>.</p>
+<div id="thm-order-relation-natural-numbers-extent-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.12</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p><span class="math inline">\(x \neq 1 \Longrightarrow 1 &lt; x\)</span></p></li>
+<li><p><span class="math inline">\(x &lt; x + y\)</span></p></li>
+<li><p><span class="math inline">\(x &lt; y \iff x + z &lt; y + z\)</span></p></li>
+<li><p><span class="math inline">\(x \leq y \iff x + z \leq y + z\)</span></p></li>
+<li><p><span class="math inline">\([x &lt; y \land u &lt; v] \Longrightarrow x + u &lt; y + v\)</span></p></li>
+<li><p><span class="math inline">\([x &lt; y \land u \leq v] \Longrightarrow x + u &lt; y + v\)</span></p></li>
+<li><p><span class="math inline">\([x \leq y \land u &lt; v] \Longrightarrow x + u &lt; y + v\)</span></p></li>
+<li><p><span class="math inline">\([x \leq y \land u \leq v] \Longrightarrow x + u \leq y + v\)</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li><p>If <span class="math inline">\(x \neq 1\)</span> then by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> there is some <span class="math inline">\(y \in \mathbb{P}\)</span> such that <span class="math inline">\(x = S(y)\)</span>. Therefore, <span class="math inline">\(x = y + 1 = 1 + y\)</span> which means that <span class="math inline">\(1 &lt; x\)</span>.</p></li>
+<li><p><span class="math inline">\(x + y = x + y\)</span> so there is some <span class="math inline">\(y \in \mathbb{P}\)</span> which means that <span class="math inline">\(x &lt; x + y\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x &lt; y &amp; \iff y = x + w \\
+&amp; \iff y + z = (x + w) + z \\
+&amp; \iff y + z = x + (w + z) \\
+&amp; \iff y + z = x + (z + w) \\
+&amp; \iff y + z = (x + z) + w \\
+&amp; \iff x + z &lt; y + z \\
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq y &amp; \iff x &lt; y \lor x = y \\
+&amp; \iff y = x + w \lor x = y \\
+&amp; \iff y + z = (x + w) + z \lor x + z = y + z \\
+&amp; \iff y + z = (x + z) + w \lor x + z = y + z \\
+&amp; x + z \leq y + z
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x &lt; y \land u &lt; v &amp; \iff y = x + z \land v = u + w \\
+&amp; \iff y + v = (x + z) + (u + w) \\
+&amp; \iff y + v = (x + u) + (z + w) \\
+&amp; \Longrightarrow x + u &lt; y + v
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x &lt; y \land u \leq v &amp; \iff x &lt; y \land (u &lt; v \lor u = v) \\
+&amp; \iff (x &lt; y \land u &lt; v) \lor (x &lt; y \land u = v) \\
+&amp; \Longrightarrow (x + u &lt; y + v) \lor (x + u &lt; y + v) \\
+&amp; \iff x + u &lt; y + v
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq y \land u &lt; v &amp; \iff (x &lt; y \lor x = y) \land u &lt; v \\
+&amp; \iff (x &lt; y \land u &lt; v) \lor (x = y \land u &lt; v) \\
+&amp; \Longrightarrow (x + u &lt; y + v) \lor (u + x &lt; v + y) \\
+&amp; \iff (x + u &lt; y + v) \lor (x + u &lt; y + v) \\
+&amp; \iff x + u &lt; y + v
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq y \land u \leq v &amp; \iff x \leq y \land (u &lt; v \lor u = v) \\
+&amp; \iff (x \leq y \land u &lt; v) \lor (x \leq y \land u = v) \\
+&amp; \Longrightarrow x + u &lt; y + v \lor ((x &lt; y \lor x = y) \land u = v) \\
+&amp; \iff x + u &lt; y + v \lor ((x &lt; y \land u = v) \lor (x = y \land u = v)) \\
+&amp; \Longrightarrow x + u &lt; y + v \lor (x + u &lt; y + v \lor x + u = y + v) \\
+&amp; \iff (x + u &lt; y + v \lor x + u &lt; y + v) \lor x + u = y + v \\
+&amp; \iff x + u &lt; y + v \lor x + u = y + v \\
+&amp; \iff x + u \leq y + v
+\end{aligned}\)</span></p></li>
+</ol>
+</div>
+<div id="exr-order-relation-natural-numbers-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.5</strong></span> Prove:</p>
+<ol type="1">
+<li><p><span class="math inline">\(1 \leq x\)</span></p></li>
+<li><p><span class="math inline">\(x \leq 1 \iff x = 1\)</span></p></li>
+<li><p><span class="math inline">\(x &lt; S(y) \iff x \leq y\)</span></p></li>
+<li><p><span class="math inline">\(x &lt; y \iff S(x) \leq y\)</span></p></li>
+<li><p><span class="math inline">\(x + u &lt; y + u \Longrightarrow (x &lt; y \lor u &lt; v)\)</span></p></li>
+<li><p><span class="math inline">\(1 &lt; 2 &lt; 3 &lt; 4 &lt; \ldots\)</span></p></li>
+<li><p>If <span class="math inline">\(g: \mathbb{P} \longrightarrow \mathbb{P}\)</span> and <span class="math inline">\((\forall x)(\forall y)(x &lt; y \Longrightarrow g(x) &lt; g(y))\)</span>, prove that <span class="math inline">\((\forall u)(g(u) \leq u)\)</span></p></li>
+</ol>
+</div>
+<div id="sol-order-relation-natural-numbers-2" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.5</em>. </span></p>
+<ol type="1">
+<li><p>If <span class="math inline">\(x \in \mathbb{P}\)</span> by <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = S(y)\)</span>. So <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = y + 1 = 1 + y\)</span>. Therefore <span class="math inline">\(1 \leq x\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x \leq 1 &amp; \iff x &lt; 1 \lor x = 1 \\
+&amp; x = 1
+\end{aligned}\)</span></p>
+<p><strong>Note</strong>: <span class="math inline">\(x &lt; 1\)</span> is false because if it is true then <span class="math inline">\(1 = x + w\)</span> for some <span class="math inline">\(w \in \mathbb{P}\)</span>. By <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(w = 1\)</span> or <span class="math inline">\(w = S(v)\)</span>. However, this will mean that <span class="math inline">\(1 = x + 1 = S(x)\)</span> or <span class="math inline">\(1 = x + S(v) = S(x + v)\)</span> which is a contradiction by <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> i.</p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x &lt; S(y) &amp; \iff S(y) = x + z \\
+&amp; \iff y + 1 = x + z \\
+&amp; \iff (y + 1 = x + 1) \lor (y + 1 = x + S(w)) \\
+&amp; \iff y = x \lor y + 1 = x + (w + 1) \\
+&amp; \iff y = x \lor y = x + w \\
+&amp; \iff y = x \lor x &lt; y \\
+&amp; \iff x \leq y
+\end{aligned}\)</span></p></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 </ol>
 </div>
 
