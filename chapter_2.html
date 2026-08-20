@@ -938,7 +938,7 @@ x \leq y &amp; \iff x &lt; y \lor x = y \\
 \end{aligned}\)</span></p></li>
 <li><p><span class="math inline">\(\begin{aligned}
 x &lt; y \land u &lt; v &amp; \iff y = x + z \land v = u + w \\
-&amp; \iff y + v = (x + z) + (u + w) \\
+&amp; \Longrightarrow y + v = (x + z) + (u + w) \\
 &amp; \iff y + v = (x + u) + (z + w) \\
 &amp; \Longrightarrow x + u &lt; y + v
 \end{aligned}\)</span></p></li>
@@ -974,7 +974,7 @@ x \leq y \land u \leq v &amp; \iff x \leq y \land (u &lt; v \lor u = v) \\
 <li><p><span class="math inline">\(x \leq 1 \iff x = 1\)</span></p></li>
 <li><p><span class="math inline">\(x &lt; S(y) \iff x \leq y\)</span></p></li>
 <li><p><span class="math inline">\(x &lt; y \iff S(x) \leq y\)</span></p></li>
-<li><p><span class="math inline">\(x + u &lt; y + u \Longrightarrow (x &lt; y \lor u &lt; v)\)</span></p></li>
+<li><p><span class="math inline">\(x + u &lt; y + v \Longrightarrow (x &lt; y \lor u &lt; v)\)</span></p></li>
 <li><p><span class="math inline">\(1 &lt; 2 &lt; 3 &lt; 4 &lt; \ldots\)</span></p></li>
 <li><p>If <span class="math inline">\(g: \mathbb{P} \longrightarrow \mathbb{P}\)</span> and <span class="math inline">\((\forall x)(\forall y)(x &lt; y \Longrightarrow g(x) &lt; g(y))\)</span>, prove that <span class="math inline">\((\forall u)(g(u) \leq u)\)</span></p></li>
 </ol>
@@ -997,8 +997,61 @@ x &lt; S(y) &amp; \iff S(y) = x + z \\
 &amp; \iff y = x \lor x &lt; y \\
 &amp; \iff x \leq y
 \end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+x &lt; y &amp; \iff y = x + z \\
+&amp; \iff y = x + 1 \lor y = x + S(v) \\
+&amp; \iff y = S(x) \lor y = x + (v + 1) \\
+&amp; \iff y = S(x) \lor y = (x + 1) + v \\
+&amp; \iff y = S(x) \lor y = S(x) + v \\
+&amp; \iff S(x) \leq y
+\end{aligned}\)</span></p></li>
+<li><p>Prove the contrapositive and use <a href="#def-order-negation-relation-natural-numbers" class="quarto-xref">Definition&nbsp;<span>2.3</span></a> where by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> <span class="math inline">\(\neg(x &lt; y)\)</span> means that <span class="math inline">\(y &lt; x \lor y = x\)</span>. So, <span class="math inline">\(\neg(x &lt; y)\)</span> is equivalent to <span class="math inline">\(y \leq x\)</span>:</p>
+<p><span class="math inline">\(\begin{aligned}
+\neg(x &lt; y \lor u &lt; v) &amp; \iff \neg(x &lt; y) \land \neg(u &lt; v) \\
+&amp; \iff y \leq x \land v \leq u \\
+&amp; \Longrightarrow y + v \leq x + u \\
+&amp; \iff \neg(x + u &lt; y + v)
+\end{aligned}\)</span></p></li>
+<li><p>Because <span class="math inline">\(S(x) = x + 1\)</span> then <span class="math inline">\(x &lt; S(x)\)</span>. So:</p>
+<p><span class="math inline">\(\begin{aligned}
+1 &lt; S(1) &lt; S(S(1)) &lt; S(S(S(1))) &lt; \ldots &amp; \iff  1 &lt; 2 &lt; S(2) &lt; S(S(2)) &lt; \ldots \\
+&amp; \iff 1 &lt; 2 &lt; 3 &lt; S(3) &lt; \ldots \\
+&amp; \iff 1 &lt; 2 &lt; 3 &lt; 4 &lt; \ldots
+\end{aligned}\)</span></p></li>
+<li><p>Let <span class="math inline">\(B\)</span> such that:</p>
+<p><span class="math inline">\(B = \{ u: u \in \mathbb{P} \land u \leq g(u) \}\)</span></p>
+<p>Where <span class="math inline">\(g: \mathbb{P} \longrightarrow \mathbb{P}\)</span> and <span class="math inline">\((\forall x)(\forall y)(x &lt; y \Longrightarrow g(x) &lt; g(y))\)</span>.</p>
+<p><span class="math inline">\(1 \in B\)</span> because if <span class="math inline">\(\neg(1 \leq g(1))\)</span> then <span class="math inline">\(g(1) &lt; 1\)</span> where <span class="math inline">\(g(1) \in \mathbb{P}\)</span>. By <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1. this is not possible. So, because there is a contradiction it must be that <span class="math inline">\(1 \leq g(1)\)</span>.</p>
+<p>Now, assume <span class="math inline">\(u \in B\)</span> so <span class="math inline">\(u \in \mathbb{P}\)</span> and <span class="math inline">\(u \leq g(u)\)</span>.</p>
+<p>Because <span class="math inline">\(u &lt; S(u)\)</span> then <span class="math inline">\(g(u) &lt; g(S(u))\)</span>. But by the induction hypothesis <span class="math inline">\(u \leq g(u)\)</span>. So, because <span class="math inline">\(u \leq g(u)\)</span> and <span class="math inline">\(g(u) &lt; g(S(u))\)</span> then by <a href="#thm-order-relation-natural-numbers-extent-2" class="quarto-xref">Theorem&nbsp;<span>2.12</span></a> g. <span class="math inline">\(u &lt; g(S(u))\)</span>. Therefore by <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 4., <span class="math inline">\(S(u) \leq g(S(u))\)</span>. This means that <span class="math inline">\(S(u) \in B\)</span>.</p>
+<p>Therefore because <span class="math inline">\(u \in B \Longrightarrow S(u) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
+</ol>
+</div>
+<div id="def-least-element" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.5</strong></span> Let <span class="math inline">\(A\)</span> be a subset of <span class="math inline">\(P\)</span>. By a <strong>least element</strong> of <span class="math inline">\(A\)</span> we mean an object <span class="math inline">\(z \in A\)</span> such that <span class="math inline">\(z\)</span> is less than or equal to every element of A. Thus <span class="math inline">\(z\)</span> is a least element of <span class="math inline">\(A\)</span> if and only if:</p>
+<ol type="i">
+<li><span class="math inline">\(z \in A\)</span></li>
+<li><span class="math inline">\((\forall u)(u \in A \Longrightarrow z \leq u)\)</span></li>
+</ol>
+<p><strong>Note 1</strong>: By <a href="#thm-order-relation-natural-numbers-extent-1" class="quarto-xref">Theorem&nbsp;<span>2.11</span></a> f., <span class="math inline">\(A\)</span> has at most one least element. This is because if <span class="math inline">\(z\)</span> and <span class="math inline">\(v\)</span> are least elements then <span class="math inline">\(z \leq v\)</span> and <span class="math inline">\(v \leq z\)</span> so <span class="math inline">\(z = v\)</span>.</p>
+<p><strong>Note 2</strong>: Also notice that <span class="math inline">\(1\)</span> is the least element of any set to which it belongs. By <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1., we have that <span class="math inline">\((\forall x)(1 \leq x)\)</span>.</p>
+</div>
+<div id="thm-least-number-principle" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.13 (Least number principle)</strong></span> Any non empty subset of <span class="math inline">\(\mathbb{P}\)</span> has a least element.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
+</div>
+<div id="exr-order-relation-natural-numbers-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.6</strong></span> &nbsp;</p>
+<ol type="1">
 <li></li>
 <li></li>
+</ol>
+</div>
+<div id="sol-order-relation-natural-numbers-3" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.6</em>. </span></p>
+<ol type="1">
 <li></li>
 <li></li>
 </ol>
