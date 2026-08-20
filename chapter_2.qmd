@@ -772,7 +772,7 @@ d. $\begin{aligned}
 
 e. $\begin{aligned}
     x < y \land u < v & \iff y = x + z \land v = u + w \\
-    & \iff y + v = (x + z) + (u + w) \\
+    & \Longrightarrow y + v = (x + z) + (u + w) \\
     & \iff y + v = (x + u) + (z + w) \\
     & \Longrightarrow x + u < y + v 
     \end{aligned}$
@@ -815,7 +815,7 @@ Prove:
 
 4. $x < y \iff S(x) \leq y$
 
-5. $x + u < y + u \Longrightarrow (x < y \lor u < v)$
+5. $x + u < y + v \Longrightarrow (x < y \lor u < v)$
 
 6. $1 < 2 < 3 < 4 < \ldots$
 
@@ -842,11 +842,77 @@ Prove:
     & \iff x \leq y
     \end{aligned}$
 
-4.
+4. $\begin{aligned}
+    x < y & \iff y = x + z \\
+    & \iff y = x + 1 \lor y = x + S(v) \\
+    & \iff y = S(x) \lor y = x + (v + 1) \\
+    & \iff y = S(x) \lor y = (x + 1) + v \\
+    & \iff y = S(x) \lor y = S(x) + v \\
+    & \iff S(x) \leq y
+    \end{aligned}$
 
-5.
+5. Prove the contrapositive and use @def-order-negation-relation-natural-numbers where by @thm-order-relation-natural-numbers-properties-1 $\neg(x < y)$ means that $y < x \lor y = x$. So, $\neg(x < y)$ is equivalent to $y \leq x$:
 
-6.
+   $\begin{aligned}
+    \neg(x < y \lor u < v) & \iff \neg(x < y) \land \neg(u < v) \\
+    & \iff y \leq x \land v \leq u \\
+    & \Longrightarrow y + v \leq x + u \\
+    & \iff \neg(x + u < y + v)
+    \end{aligned}$
 
-7.
+6. Because $S(x) = x + 1$ then $x < S(x)$. So:
+   
+    $\begin{aligned}
+    1 < S(1) < S(S(1)) < S(S(S(1))) < \ldots & \iff  1 < 2 < S(2) < S(S(2)) < \ldots \\
+    & \iff 1 < 2 < 3 < S(3) < \ldots \\
+    & \iff 1 < 2 < 3 < 4 < \ldots
+    \end{aligned}$
+   
+
+7.  Let $B$ such that:
+
+    $B = \{ u: u \in \mathbb{P} \land u \leq g(u) \}$
+
+    Where $g: \mathbb{P} \longrightarrow \mathbb{P}$ and $(\forall x)(\forall y)(x < y \Longrightarrow g(x) < g(y))$.
+
+    $1 \in B$ because if $\neg(1 \leq g(1))$ then $g(1) < 1$ where $g(1) \in \mathbb{P}$. By @exr-order-relation-natural-numbers-2 1. this is not possible. So, because there is a contradiction it must be that $1 \leq g(1)$.
+
+    Now, assume $u \in B$ so $u \in \mathbb{P}$ and $u \leq g(u)$.
+
+    Because $u < S(u)$ then $g(u) < g(S(u))$. But by the induction hypothesis $u \leq g(u)$. So, because $u \leq g(u)$ and $g(u) < g(S(u))$ then by @thm-order-relation-natural-numbers-extent-2 g. $u < g(S(u))$. Therefore by @exr-order-relation-natural-numbers-2 4., $S(u) \leq g(S(u))$. This means that $S(u) \in B$.
+
+    Therefore because $u \in B \Longrightarrow S(u) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#def-least-element}
+Let $A$ be a subset of $P$. By a **least element** of $A$ we mean an object $z \in A$ such that $z$ is less than or equal to every element of A. Thus $z$ is a least element of $A$ if and only if:
+
+i. $z \in A$
+ii. $(\forall u)(u \in A \Longrightarrow z \leq u)$
+
+**Note 1**: By @thm-order-relation-natural-numbers-extent-1 f., $A$ has at most one least element. This is because if $z$ and $v$ are least elements then $z \leq v$ and $v \leq z$ so $z = v$.
+
+**Note 2**: Also notice that $1$ is the least element of any set to which it belongs. By @exr-order-relation-natural-numbers-2 1., we have that $(\forall x)(1 \leq x)$.
+:::
+
+::: {#thm-least-number-principle}
+## Least number principle
+
+Any non empty subset of $\mathbb{P}$ has a least element.
+:::
+
+::: {.proof}
+**Pending**
+:::
+
+::: {#exr-order-relation-natural-numbers-3}
+1.
+
+2. 
+:::
+
+::: {#sol-order-relation-natural-numbers-3}
+1.
+
+2.
 :::
