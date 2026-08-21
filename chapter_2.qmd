@@ -177,7 +177,7 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
 
                     - If $l < 0$ then $S(l) = -(l - 1) = -l + 1 \in B$ and $S(-l + 1) = l - 1 \in B$. Therefore $v \leq l - 1 \leq -v$ so $l - 1 \in A$ but this will mean that $l - 1 \in B \cap A$. However $l - 1 < l$ so $l$ will not be the least element. Because we arrive to a contradiction we discard that $v < l$ when $l < 0$.
 
-    d. Let $\mathbb{P} = \{ u \mid u = \frac{1}{2^n} \land n \in \mathbb{Z}_{\geq 0} \}$
+    d. Let $\mathbb{P} = \{ u \mid u=\frac{1}{2^n} \land n \in \mathbb{Z}_{\geq 0} \}$
     
         - First $S(u) = \frac{1}{2}u$ where $u = \frac{1}{2^n}$ then $S(u) \neq 1$. Because if $\frac{1}{2}u = 1$ then $u = 2$ but $u = \frac{1}{2^n}$. So $u = 2$ will imply $\log_2 1 = n + 1$ but this is not true because $n \neq -1$.
         
@@ -337,6 +337,7 @@ $(\beta)$. $x + S(y) = S(x + y)$ for all $x, y \in \mathbb{P}$
 To prove the existence take any $x$ in $\mathbb{P}$. Now apply @thm-iteration-theorem with $W = \mathbb{P}$, $c = S(x)$ and $g = S$. Therefore, there is a unique function $F: \mathbb{P} \longrightarrow \mathbb{P}$ such that:
 
 a. $F(1) = c = S(x)$
+
 b. $F(S(y)) = g(F(y)) = S(F(y))$ for any $y \in \mathbb{P}$
 
 We denote this unique function $F$ by $f_x$, since is is determinated by $x$. Thus $f_x(1) = S(x)$ and $f_x(S(y)) = S(f_x(y))$ for any $y \in \mathbb{P}$. Now, let $x + y = f_x(y)$ for any $x, y \in \mathbb{P}$. Then, $x + 1 = f_x(1) = S(x)$, and $x + S(y) = f_x(S(y)) = S(f_x(y)) = S(x + y)$. Therefore:
@@ -975,3 +976,131 @@ Therefore because $n \in B \Longrightarrow S(n) \in B$ then $B = \mathbb{P}$.
 :::
 
 ## Multiplication
+
+::: {#thm-iteration-theorem-multiplication}
+## Multiplication
+
+Consider any Peano system $(\mathbb{P}, S, 1)$. Then there is a unique binary operation $\times$ on $\mathbb{P}$ such that:
+
+$(\gamma)$. $x \times 1 = x$ for all $x \in \mathbb{P}$
+
+$(\delta)$. $x \times S(y) = (x \times y) + x$ for all $x, y \in \mathbb{P}$
+
+**Note**: We adopt the standard convention of writing $x \times y$ instead of $\times(x,y)$.
+:::
+
+::: {.proof}
+To prove the existence take any $x \in \mathbb{P}$. Now apply @thm-iteration-theorem with $W = \mathbb{P}$, $c = x$ and $g(u) = u + x$ for any $u \in \mathbb{P}$. Therefore, there is a unique function $F: \mathbb{P} \longrightarrow \mathbb{P}$ such that:
+
+a. $F(1) = c = x$
+
+b. $F(S(y)) = g(F(y)) = F(y) + x$ for any $y \in \mathbb{P}$
+
+We denote this unique function $F$ by $\psi_x$, since it is determined by $x$. Thus, $\psi_x(1) = 1$ and $\psi_x(S(y)) = \psi_x(y) + x$. Now, define $x \times y = \psi_x(y)$. Then, $x \times 1 = \psi_x(1) = 1$, and $x \times S(y) = \psi_x(S(y)) = \psi_x(y) + x = (x \times y) + x$. Therefore:
+
+a. $x \times 1 = x$ for any $x \in \mathbb{P}$
+
+b. $x \times S(y) = (x \times y) + x$ for any $x,y \in \mathbb{P}$
+
+To prove the uniqueness of $\times$, assume that there is another binary operation $\theta$ such that:
+
+$$
+\theta(x,1) = x \text{ for all } x \in \mathbb{P}
+$$
+
+$$
+\theta(x,S(y)) = \theta(x,y) + x \text{ for all } x,y \in \mathbb{P} 
+$$
+
+Take any $x \in \mathbb{P}$. Let us prove that $\theta(x,y) = x \times y$, for all $y \in \mathbb{P}$. Let $B = \{ y: y \in \mathbb{P} \land \theta(x,y) = x \times y \}$.
+
+First, $1 \in B$, since $\theta(x, 1) = x = x \times 1$
+
+Second, assume $y \in B$. Then, $\theta(x,y) = x \times y$. But, $\theta(x,S(y)) = \theta(x,y) + x = (x \times y) + x = x \times S(y)$. This $S(y) \in B$, and we have shown that $y \in B \Longrightarrow S(y) \in B$. Hence, by matjematical induction, $\mathbb{P} = B$. Thus, $\theta(x,y) = x \times y$ for all $x,y \in \mathbb{P}$. This means that $\theta = \times$.
+
+**Note**: $\times$ is called the **multiplication** operation on $\mathbb{P}$, and $x \times y$ is called the product of $x$ and $y$. Observe that, by virtue of Equation $(\gamma)$ and $(\delta)$ can be written as:
+
+$(\delta')$. $x \times (y + 1) = (x \times y) + x$
+
+Notice also that Equations $(\gamma)$ and $(\delta)$, along with Equations $(alpha)$, $(\beta)$ for addition, enable us to compute any particular product.
+:::
+
+::: {#exm-multiplication}
+
+1. $\begin{aligned}
+     2 \times 2 & = 2 \times S(1) && \text{ Definition of "2"} \\
+     & = (2 \times 1) + 2 && \text{ Equation } (\delta) \\
+     & = 2 + 2 && \text{ Equation } (\gamma) \\
+     & = 4 && \text{ Example 2 in addition}
+     \end{aligned}$
+
+2. $\begin{aligned}
+     2 \times 3 & = 2 \times S(2) && \text{ Definition of "3"} \\
+     & = (2 \times 2) + 2 && \text{ Equation } (\delta) \\
+     & = 4 + 2 && \text{ Computation above } \\
+     & = 4 + S(1) && \text{ Definition of "2"} \\
+     & = S(4 + 1) && \text{ Equation } \beta \\
+     & = S(5) && \text{ Equation } \alpha \text{ and definition of "5"} \\
+     & = 6 && \text{ Definition of "6"}
+     \end{aligned}$
+
+3. $\begin{aligned}
+     3 \times 3 & = 3 \times S(2) && \text{ Definition of "3"} \\
+     & = (3 \times 2) + 3 && \text{ Equation } (\beta) \\
+     & = 6 + 3 && \text{ Computation above } \\
+     & = 6 + S(2) && \text{ Definition of "3"} \\
+     & = S(6 + 2) && \text{ Equation } \beta \\
+     & = S(6 + S(1)) && \text{ Definition of "2"} \\
+     & = S(S(6 + 1)) && \text{ Equation } \beta \\
+     & = S(S(7)) && \text{ Equation } \alpha \text{ and definition of "7"} \\
+     & = S(8) && \text{ Equation } \alpha \text{ and definition of "8"} \\
+     & = 9 && \text{ Equation } \alpha \text{ and definition of "9"} \\
+     \end{aligned}$
+:::
+
+::: {#exr-addition}
+1. Compute $3 \times 2$. (Observe that at this point we have not established the commutativity of multiplication: $x \times y = y \times x$. Hence, we have no right to use the computation for $2 \times 3$ given in @exm-multiplication 2)
+
+2. Compute $3 \times 3$
+
+3. Compute $1 \times 3$
+:::
+
+::: {#sol-addition}
+1. $\begin{aligned}
+     3 \times 2 & = 3 \times S(1) && \text{ Definition of "2"} \\
+     & = (3 \times 1) + 3 && \text{ Equation } (\delta) \\
+     & = 3 + 3 && \text{ Equation } (\gamma) \\
+     & = 6 && \text{ Example 3 in addition}
+     \end{aligned}$
+
+2. See @exm-multiplication 3 
+
+3. $\begin{aligned}
+     1 \times 3 & = 1 \times S(2) && \text{ Definition of "3"} \\
+     & = (1 \times 2) + 1 && \text{ Equation } (\delta) \\
+     & = S(1 \times 2) && \text{ Equation } (\alpha) \\
+     & = S(1 \times S(1)) && \text{ Definition of "2"} \\
+     & = S((1 \times 1) + 1) && \text{ Equation } (\delta) \\
+     & = S(1 + 1) && \text{ Equation } (\gamma) \\
+     & = S(S(1)) && \text{ Equation } (\alpha) \\
+     & = S(2) && \text{ Definition of "2"} \\
+     & = 3 && \text{ Definition of "3"} 
+     \end{aligned}$
+:::
+
+It is important now to show that the familiar properties of multiplication are derivable. First, we establish a basic relation between addition and multiplication.
+
+::: {#thm-distributive-laws}
+## Distributive laws
+
+a. $x \times (y + z) = (x \times y) + (x \times z)$
+
+b. $(y + z) \times x = (y \times x) + (z \times x)$
+:::
+
+::: {.proof}
+a.
+
+b.
+:::
