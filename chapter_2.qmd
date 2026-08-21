@@ -14,7 +14,9 @@ i. $1$ is not the successor $S(x)$ of any object $x \in \mathbb{P}$. In symbols,
 
 ii. Different objects in $\mathbb{P}$ have different successors. This can be formulated as follows:
 
-    $$\forall x \forall y (x \neq y \Longrightarrow S(x) \neq (S(y)))$$
+    $$
+    \forall x \forall y (x \neq y \Longrightarrow S(x) \neq (S(y)))
+    $$
     
 iii. Principle of Mathematical Induction: Any subset of $\mathbb{P}$ containing $1$ and closed under the successor operation (See @exr-binary-operation 1. and applied for a singulary operation) must be identical to $\mathbb{P}$. This can be formulated as follows:
     
@@ -193,7 +195,7 @@ We have that $1 \in B$ because $S(1) \neq 1$ by @def-peano-system i. Also let $x
             
                     - If $v < l$ and because $l \in B \cap A$ then $l \in B$. Because of the properties of $B$ then $S(l) = \frac{1}{2}l \in B$. Also this means that $v \leq \frac{1}{2}l \leq 1$ so $\frac{1}{2}l \in A$ but this will mean that $\frac{1}{2}l \in B \cap A$. However $\frac{1}{2}l < l$ so $l$ will not be the least element. Because we arrive to a contradiction we discard that $v < l$.  
 
-    d. Because $\mathbb{P} = \{ 1, 2, 3, 4 \}$ and $S(1) = 2$, $S(2) = 3$, $S(3) = 4$, $S(4) = 1$ we have that this structure is not a peano system because:
+    e. Because $\mathbb{P} = \{ 1, 2, 3, 4 \}$ and $S(1) = 2$, $S(2) = 3$, $S(3) = 4$, $S(4) = 1$ we have that this structure is not a peano system because:
     
         - $S(4) = 1$ 
 
@@ -281,7 +283,7 @@ b. $F(S(x)) = g(F(x))$ for all $x \in \mathbb{P}$
 
         c. If $f$ is $n$-admissible and $h$ is $n$-admissible then $f(n) = h(n)$.
         
-           We shall prove this by mathematical induction. Let $Y = \{ n \in \mathbb{P} \mid (\forall f) (\forall g) (((f \text{ is } n\text{-admissible} \land (g \text{ is } n\text{-admissible} )) \Longrightarrow f(n) = g(n)) \}$. We must show that $Y = \mathbb{P}$ using @def-peano-system iii.
+           We shall prove this by mathematical induction. Let $Y = \{ n \in \mathbb{P} \mid (\forall f) (\forall g) ((f \text{ is } n\text{-admissible} \land (g \text{ is } n\text{-admissible} )) \Longrightarrow f(n) = g(n)) \}$. We must show that $Y = \mathbb{P}$ using @def-peano-system iii.
            
            First, $1 \in Y$ because $1 \in \mathbb{P}$ and if $f$ and $g$ are $1$-admissible then $f(1) = c = g(1)$.
            
@@ -902,17 +904,74 @@ Any non empty subset of $\mathbb{P}$ has a least element.
 :::
 
 ::: {.proof}
-**Pending**
+Let $P_n = \{ k: k \in \mathbb{P} \land k \leq n \}$ such that $P_1 = \{ 1 \}$, $P_2 = \{ 1, 2 \}$, $P_3 = \{ 1, 2, 3 \}$, $\ldots$, $\emptyset \neq S \subseteq \mathbb{P}$ and
+
+$$B = \{ n: n \in \mathbb{P} \land (A \cap P_n \neq \emptyset \Longrightarrow A \text{ has a least element})\}$$
+
+$1 \in B$ because if $A \cap P_1 \neq \emptyset$ then $1 \in A$. By @exr-order-relation-natural-numbers-2 1. $1 \leq a$ for any $a \in A$. Therefore, $1$ is the least element of $A$.   
+
+Assume $n \in B$ so $n \in \mathbb{P}$ and $A \subseteq P_n \neq \emptyset \Longrightarrow A \text{ has a least element}$, that is $S(n)$. Then:
+
+$$
+\begin{aligned}
+ A \cap P_{S(n)} \neq \emptyset & \iff A \cap (P_n \cup \{ S(n) \}) \neq \emptyset \\
+ & \iff  (A \cap P_n) \cup (A \cap \{ S(n) \}) \neq \emptyset \\
+\end{aligned}
+$$
+
+If $A \cap P_n \neq \emptyset$ by the induction hypothesis $A$ has a least elements. Also, if $A \cap P_n = \emptyset$ then $A \cap \{ S(n) \} \neq \emptyset$. So, $A = \{ S(n) \}$ and $A$ has a least element, that is $S(n)$. In any case $A$ has a least element which means that $S(n) \in B$.
+
+Therefore because $n \in B \Longrightarrow S(n) \in B$ then $B = \mathbb{P}$.
 :::
 
 ::: {#exr-order-relation-natural-numbers-3}
-1.
+1. Prove the Principle of Complete Induction:
 
-2. 
+   $$
+   (\forall B)([B \subseteq \mathbb{P} \land (\forall x)((\forall y)(y < x \Longrightarrow y \in B) \Longrightarrow x \in B)] \Longrightarrow \mathbb{P} = B)
+   $$
+
+   (Hint: Assume $\mathbb{P} \neq B$. Then, $\mathbb{P} - B \neq \emptyset$. Apply the Least Number Principle. Notice that, when $x = 1$, $(\forall y)(y < x \Longrightarrow y \in B)$ is trivially true, since $y < 1$ is always false.)
+
+2. By a **greatest** element of a set $B \subseteq \mathbb{P}$ we mean an object $z$ such the $z \in B \land (\forall u)(u \in B \Longrightarrow u \leq z)$. Prove:
+
+   a. A set has at most one greatest element
+
+   b. A set need not have a greatest element
+   
+   c. If $\emptyset \neq A \subseteq \mathbb{P}$ and $A$ is bounded above (that is, $(\exists w)(\forall u)(u \in A \Longrightarrow u \leq w)$), then $A$ has a greatest element. (Hint: Let $B = \{ w: (\forall u)(u \in A \Longrightarrow u \leq w) \}$. By hypothesis, $B \neq \emptyset$. Apply the Least Number Principle.)  
 :::
 
 ::: {#sol-order-relation-natural-numbers-3}
-1.
+1. We have that $B \subseteq \mathbb{P}$ and that $(\forall x)((\forall y)(y < x \Longrightarrow y \in B) \Longrightarrow x \in B)$.
 
-2.
+   Assume $\mathbb{P} \neq B$ then $\mathbb{P} - B \neq \emptyset$. by @thm-least-number-principle $\mathbb{P} - B$ has a least element. Let $z$ be that least element. Therefore:
+
+   i. $z \not\in B$ because $z \in \mathbb{P} - B$
+   
+   ii. $(\forall y)(y < z \Longrightarrow y \not\in \mathbb{P} - B)$ because $z$ is the least element of $\mathbb{P} - B$. Therefore $(\forall y)(y < z \Longrightarrow y \in B)$
+
+   By i. we have that $z \not\in B$ but by ii. taking into account $(\forall x)((\forall y)(y < x \Longrightarrow y \in B) \Longrightarrow x \in B)$ we have that $z \in B$. Because we have a contradiction it must be the case that $\mathbb{P} = B$.
+
+   Finally when $x = 1$ because $y < 1$ is false then $y < x \Longrightarrow y \in B$ is true and $(y < x \Longrightarrow y \in B) \Longrightarrow x \in B$ is also true.        
+
+2. Lets prove each aspect:
+
+   a. If $z$ is a greatest element of $A$ and $w$ is also a greatest element of $A$. Then $w \leq z$ and $z \leq w$. By @thm-order-relation-natural-numbers-extent-1 f. we have that $z = w$
+
+   b. Let $B = \mathbb{P}$. If we assume that $z$ is a greatest element then $z \leq S(z)$ where $S(z) = z + 1 \in \mathbb{P}$ because $+$ is a binary operation on $\mathbb{P}$. Therefore $\mathbb{P}$ doesn't have a greatest element.
+
+   c. Let $B = \{ w: (\forall u)(u \in A \Longrightarrow u \leq w) \}$
+      
+      i. If $A = \{ 1 \}$ then $1 \in B$ and because $1 \in A$ it is also a greatest element.
+
+      ii. If $A \neq \{ 1 \}$ and $w \in A$ then $w$ is also the greates element of $A$.
+
+      iii. If $A \neq \{ 1 \}$ and because $B \neq \emptyset$ by @thm-least-number-principle it has a least element. Let $w \in B$ be the least element. 
+      
+           Now assume that $w \not\in A$ so $w \neq 1$ and $u < w$ for all $u \in A$. By @thm-x-different-1-is-a-successor $w = S(y)$. Also by @exr-order-relation-natural-numbers-2 because $u < w = S(y)$ then $u \leq y$ for all $u \in A$. Therefore $y \in B$ and $y < S(y) = w$ but $w = S(y)$ is the least element of $B$. We have a contradiction so it must be the case that $w \in A$.
+           
+           Therefore, $w$ is also the greates element of $A$.       
 :::
+
+## Multiplication
