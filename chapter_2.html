@@ -277,6 +277,7 @@ window.Quarto = {
   <li><a href="#the-iteration-theorem" id="toc-the-iteration-theorem" class="nav-link" data-scroll-target="#the-iteration-theorem"><span class="header-section-number">2.3</span> The iteration theorem</a></li>
   <li><a href="#application-of-the-iteration-theorem-addition" id="toc-application-of-the-iteration-theorem-addition" class="nav-link" data-scroll-target="#application-of-the-iteration-theorem-addition"><span class="header-section-number">2.4</span> Application of the iteration theorem: addition</a></li>
   <li><a href="#the-order-relation" id="toc-the-order-relation" class="nav-link" data-scroll-target="#the-order-relation"><span class="header-section-number">2.5</span> The order relation</a></li>
+  <li><a href="#multiplication" id="toc-multiplication" class="nav-link" data-scroll-target="#multiplication"><span class="header-section-number">2.6</span> Multiplication</a></li>
   </ul>
 </nav>
     </div>
@@ -311,7 +312,9 @@ window.Quarto = {
 <ol type="i">
 <li><p><span class="math inline">\(1\)</span> is not the successor <span class="math inline">\(S(x)\)</span> of any object <span class="math inline">\(x \in \mathbb{P}\)</span>. In symbols, <span class="math inline">\(\forall x(S(x) \neq 1)\)</span> or <span class="math inline">\(1 \not \in \mathscr{R}(S)\)</span>.</p></li>
 <li><p>Different objects in <span class="math inline">\(\mathbb{P}\)</span> have different successors. This can be formulated as follows:</p>
-<p><span class="math display">\[\forall x \forall y (x \neq y \Longrightarrow S(x) \neq (S(y)))\]</span></p></li>
+<p><span class="math display">\[
+\forall x \forall y (x \neq y \Longrightarrow S(x) \neq (S(y)))
+\]</span></p></li>
 <li><p>Principle of Mathematical Induction: Any subset of <span class="math inline">\(\mathbb{P}\)</span> containing <span class="math inline">\(1\)</span> and closed under the successor operation (See <a href="chapter_1.html#exr-binary-operation" class="quarto-xref">Exercise&nbsp;<span>1.54</span></a> 1. and applied for a singulary operation) must be identical to <span class="math inline">\(\mathbb{P}\)</span>. This can be formulated as follows:</p>
 <p><span class="math display">\[\forall B ((B \subseteq \mathbb{P} \land 1 \in B \land \forall x(x \in B \Longrightarrow S(x) \in B)) \Longrightarrow \mathbb{P} = B)\]</span></p></li>
 </ol>
@@ -541,7 +544,7 @@ Figure&nbsp;2.4: Violation of the third peano axiom
 <p>Third, define a function <span class="math inline">\(f^*\)</span> such that for any <span class="math inline">\(x \in A\)</span> <span class="math inline">\(f^*(x) = f(x)\)</span> and if <span class="math inline">\(S(n) \not \in A\)</span> let <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span>. Note that if <span class="math inline">\(S(n) \in A\)</span> then by vi <span class="math inline">\(f(S(u)) = g(f(u))\)</span>. Therefore, <span class="math inline">\(f^*: A^* \longrightarrow W\)</span> such that <span class="math inline">\(A^* = A \cup \{ S(n) \}\)</span> where <span class="math inline">\(A \subseteq A^*\)</span>. So <span class="math inline">\(A^* \subseteq \mathbb{P}\)</span>, <span class="math inline">\(1 \in A^*\)</span>, <span class="math inline">\(n \in A^*\)</span>, if <span class="math inline">\(S(n) \not \in A\)</span> then <span class="math inline">\(S(n) \in A^*\)</span> then <span class="math inline">\(n \in A^*\)</span>, <span class="math inline">\(f^*(1) = f(1) = c\)</span> and if <span class="math inline">\(S(n) \not \in A\)</span> then <span class="math inline">\(S(n) \in A^*\)</span> implies that <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span>. This means that <span class="math inline">\(f^*\)</span> is <span class="math inline">\(S(n)\)</span>-admissible.</p>
 <p>Thus, <span class="math inline">\(S(n) \in B\)</span>. We have shown that if <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(S(n) \in B\)</span>. By <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
 <li><p>If <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-admissible and <span class="math inline">\(h\)</span> is <span class="math inline">\(n\)</span>-admissible then <span class="math inline">\(f(n) = h(n)\)</span>.</p>
-<p>We shall prove this by mathematical induction. Let <span class="math inline">\(Y = \{ n \in \mathbb{P} \mid (\forall f) (\forall g) (((f \text{ is } n\text{-admissible} \land (g \text{ is } n\text{-admissible} )) \Longrightarrow f(n) = g(n)) \}\)</span>. We must show that <span class="math inline">\(Y = \mathbb{P}\)</span> using <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
+<p>We shall prove this by mathematical induction. Let <span class="math inline">\(Y = \{ n \in \mathbb{P} \mid (\forall f) (\forall g) ((f \text{ is } n\text{-admissible} \land (g \text{ is } n\text{-admissible} )) \Longrightarrow f(n) = g(n)) \}\)</span>. We must show that <span class="math inline">\(Y = \mathbb{P}\)</span> using <a href="#def-peano-system" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> iii.</p>
 <p>First, <span class="math inline">\(1 \in Y\)</span> because <span class="math inline">\(1 \in \mathbb{P}\)</span> and if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are <span class="math inline">\(1\)</span>-admissible then <span class="math inline">\(f(1) = c = g(1)\)</span>.</p>
 <p>Second, assume <span class="math inline">\(n \in Y\)</span>.</p>
 <p>Third, let <span class="math inline">\(f\)</span> and <span class="math inline">\(h\)</span> be <span class="math inline">\(S(n)\)</span>-admissible. Then by a. <span class="math inline">\(f\)</span> and <span class="math inline">\(h\)</span> are <span class="math inline">\(n\)</span>-admissible. Because <span class="math inline">\(n \in Y\)</span> then <span class="math inline">\(f(n) = h(n)\)</span>. By vi. <span class="math inline">\(f(S(n)) = g(f(n))\)</span> but <span class="math inline">\(f(n) = h(n)\)</span> so <span class="math inline">\(f(S(n)) = g(h(n))\)</span>. Again by vi. <span class="math inline">\(f(S(n)) = h(S(n))\)</span>.Therefore <span class="math inline">\(S(n) \in Y\)</span> so <span class="math inline">\(Y = \mathbb{P}\)</span></p></li>
@@ -1040,22 +1043,66 @@ x &lt; y &amp; \iff y = x + z \\
 <p><span class="theorem-title"><strong>Theorem 2.13 (Least number principle)</strong></span> Any non empty subset of <span class="math inline">\(\mathbb{P}\)</span> has a least element.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><strong>Pending</strong></p>
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(P_n = \{ k: k \in \mathbb{P} \land k \leq n \}\)</span> such that <span class="math inline">\(P_1 = \{ 1 \}\)</span>, <span class="math inline">\(P_2 = \{ 1, 2 \}\)</span>, <span class="math inline">\(P_3 = \{ 1, 2, 3 \}\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(\emptyset \neq S \subseteq \mathbb{P}\)</span> and</p>
+<p><span class="math display">\[B = \{ n: n \in \mathbb{P} \land (A \cap P_n \neq \emptyset \Longrightarrow A \text{ has a least element})\}\]</span></p>
+<p><span class="math inline">\(1 \in B\)</span> because if <span class="math inline">\(A \cap P_1 \neq \emptyset\)</span> then <span class="math inline">\(1 \in A\)</span>. By <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1. <span class="math inline">\(1 \leq a\)</span> for any <span class="math inline">\(a \in A\)</span>. Therefore, <span class="math inline">\(1\)</span> is the least element of <span class="math inline">\(A\)</span>.</p>
+<p>Assume <span class="math inline">\(n \in B\)</span> so <span class="math inline">\(n \in \mathbb{P}\)</span> and <span class="math inline">\(A \subseteq P_n \neq \emptyset \Longrightarrow A \text{ has a least element}\)</span>, that is <span class="math inline">\(S(n)\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{aligned}
+A \cap P_{S(n)} \neq \emptyset &amp; \iff A \cap (P_n \cup \{ S(n) \}) \neq \emptyset \\
+&amp; \iff  (A \cap P_n) \cup (A \cap \{ S(n) \}) \neq \emptyset \\
+\end{aligned}
+\]</span></p>
+<p>If <span class="math inline">\(A \cap P_n \neq \emptyset\)</span> by the induction hypothesis <span class="math inline">\(A\)</span> has a least elements. Also, if <span class="math inline">\(A \cap P_n = \emptyset\)</span> then <span class="math inline">\(A \cap \{ S(n) \} \neq \emptyset\)</span>. So, <span class="math inline">\(A = \{ S(n) \}\)</span> and <span class="math inline">\(A\)</span> has a least element, that is <span class="math inline">\(S(n)\)</span>. In any case <span class="math inline">\(A\)</span> has a least element which means that <span class="math inline">\(S(n) \in B\)</span>.</p>
+<p>Therefore because <span class="math inline">\(n \in B \Longrightarrow S(n) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
 </div>
 <div id="exr-order-relation-natural-numbers-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.6</strong></span> &nbsp;</p>
 <ol type="1">
-<li></li>
-<li></li>
+<li><p>Prove the Principle of Complete Induction:</p>
+<p><span class="math display">\[
+(\forall B)([B \subseteq \mathbb{P} \land (\forall x)((\forall y)(y &lt; x \Longrightarrow y \in B) \Longrightarrow x \in B)] \Longrightarrow \mathbb{P} = B)
+\]</span></p>
+<p>(Hint: Assume <span class="math inline">\(\mathbb{P} \neq B\)</span>. Then, <span class="math inline">\(\mathbb{P} - B \neq \emptyset\)</span>. Apply the Least Number Principle. Notice that, when <span class="math inline">\(x = 1\)</span>, <span class="math inline">\((\forall y)(y &lt; x \Longrightarrow y \in B)\)</span> is trivially true, since <span class="math inline">\(y &lt; 1\)</span> is always false.)</p></li>
+<li><p>By a <strong>greatest</strong> element of a set <span class="math inline">\(B \subseteq \mathbb{P}\)</span> we mean an object <span class="math inline">\(z\)</span> such the <span class="math inline">\(z \in B \land (\forall u)(u \in B \Longrightarrow u \leq z)\)</span>. Prove:</p>
+<ol type="a">
+<li><p>A set has at most one greatest element</p></li>
+<li><p>A set need not have a greatest element</p></li>
+<li><p>If <span class="math inline">\(\emptyset \neq A \subseteq \mathbb{P}\)</span> and <span class="math inline">\(A\)</span> is bounded above (that is, <span class="math inline">\((\exists w)(\forall u)(u \in A \Longrightarrow u \leq w)\)</span>), then <span class="math inline">\(A\)</span> has a greatest element. (Hint: Let <span class="math inline">\(B = \{ w: (\forall u)(u \in A \Longrightarrow u \leq w) \}\)</span>. By hypothesis, <span class="math inline">\(B \neq \emptyset\)</span>. Apply the Least Number Principle.)<br>
+</p></li>
+</ol></li>
 </ol>
 </div>
 <div id="sol-order-relation-natural-numbers-3" class="proof solution">
 <p><span class="proof-title"><em>Solution 2.6</em>. </span></p>
 <ol type="1">
-<li></li>
-<li></li>
+<li><p>We have that <span class="math inline">\(B \subseteq \mathbb{P}\)</span> and that <span class="math inline">\((\forall x)((\forall y)(y &lt; x \Longrightarrow y \in B) \Longrightarrow x \in B)\)</span>.</p>
+<p>Assume <span class="math inline">\(\mathbb{P} \neq B\)</span> then <span class="math inline">\(\mathbb{P} - B \neq \emptyset\)</span>. by <a href="#thm-least-number-principle" class="quarto-xref">Theorem&nbsp;<span>2.13</span></a> <span class="math inline">\(\mathbb{P} - B\)</span> has a least element. Let <span class="math inline">\(z\)</span> be that least element. Therefore:</p>
+<ol type="i">
+<li><p><span class="math inline">\(z \not\in B\)</span> because <span class="math inline">\(z \in \mathbb{P} - B\)</span></p></li>
+<li><p><span class="math inline">\((\forall y)(y &lt; z \Longrightarrow y \not\in \mathbb{P} - B)\)</span> because <span class="math inline">\(z\)</span> is the least element of <span class="math inline">\(\mathbb{P} - B\)</span>. Therefore <span class="math inline">\((\forall y)(y &lt; z \Longrightarrow y \in B)\)</span></p></li>
+</ol>
+<p>By i. we have that <span class="math inline">\(z \not\in B\)</span> but by ii. taking into account <span class="math inline">\((\forall x)((\forall y)(y &lt; x \Longrightarrow y \in B) \Longrightarrow x \in B)\)</span> we have that <span class="math inline">\(z \in B\)</span>. Because we have a contradiction it must be the case that <span class="math inline">\(\mathbb{P} = B\)</span>.</p>
+<p>Finally when <span class="math inline">\(x = 1\)</span> because <span class="math inline">\(y &lt; 1\)</span> is false then <span class="math inline">\(y &lt; x \Longrightarrow y \in B\)</span> is true and <span class="math inline">\((y &lt; x \Longrightarrow y \in B) \Longrightarrow x \in B\)</span> is also true.</p></li>
+<li><p>Lets prove each aspect:</p>
+<ol type="a">
+<li><p>If <span class="math inline">\(z\)</span> is a greatest element of <span class="math inline">\(A\)</span> and <span class="math inline">\(w\)</span> is also a greatest element of <span class="math inline">\(A\)</span>. Then <span class="math inline">\(w \leq z\)</span> and <span class="math inline">\(z \leq w\)</span>. By <a href="#thm-order-relation-natural-numbers-extent-1" class="quarto-xref">Theorem&nbsp;<span>2.11</span></a> f.&nbsp;we have that <span class="math inline">\(z = w\)</span></p></li>
+<li><p>Let <span class="math inline">\(B = \mathbb{P}\)</span>. If we assume that <span class="math inline">\(z\)</span> is a greatest element then <span class="math inline">\(z \leq S(z)\)</span> where <span class="math inline">\(S(z) = z + 1 \in \mathbb{P}\)</span> because <span class="math inline">\(+\)</span> is a binary operation on <span class="math inline">\(\mathbb{P}\)</span>. Therefore <span class="math inline">\(\mathbb{P}\)</span> doesn’t have a greatest element.</p></li>
+<li><p>Let <span class="math inline">\(B = \{ w: (\forall u)(u \in A \Longrightarrow u \leq w) \}\)</span></p>
+<ol type="i">
+<li><p>If <span class="math inline">\(A = \{ 1 \}\)</span> then <span class="math inline">\(1 \in B\)</span> and because <span class="math inline">\(1 \in A\)</span> it is also a greatest element.</p></li>
+<li><p>If <span class="math inline">\(A \neq \{ 1 \}\)</span> and <span class="math inline">\(w \in A\)</span> then <span class="math inline">\(w\)</span> is also the greates element of <span class="math inline">\(A\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A \neq \{ 1 \}\)</span> and because <span class="math inline">\(B \neq \emptyset\)</span> by <a href="#thm-least-number-principle" class="quarto-xref">Theorem&nbsp;<span>2.13</span></a> it has a least element. Let <span class="math inline">\(w \in B\)</span> be the least element.</p>
+<p>Now assume that <span class="math inline">\(w \not\in A\)</span> so <span class="math inline">\(w \neq 1\)</span> and <span class="math inline">\(u &lt; w\)</span> for all <span class="math inline">\(u \in A\)</span>. By <a href="#thm-x-different-1-is-a-successor" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> <span class="math inline">\(w = S(y)\)</span>. Also by <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> because <span class="math inline">\(u &lt; w = S(y)\)</span> then <span class="math inline">\(u \leq y\)</span> for all <span class="math inline">\(u \in A\)</span>. Therefore <span class="math inline">\(y \in B\)</span> and <span class="math inline">\(y &lt; S(y) = w\)</span> but <span class="math inline">\(w = S(y)\)</span> is the least element of <span class="math inline">\(B\)</span>. We have a contradiction so it must be the case that <span class="math inline">\(w \in A\)</span>.</p>
+<p>Therefore, <span class="math inline">\(w\)</span> is also the greates element of <span class="math inline">\(A\)</span>.<br>
+</p></li>
+</ol></li>
+</ol></li>
 </ol>
 </div>
+</section>
+<section id="multiplication" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="multiplication"><span class="header-section-number">2.6</span> Multiplication</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
