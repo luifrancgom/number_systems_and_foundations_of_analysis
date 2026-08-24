@@ -1100,7 +1100,138 @@ b. $(y + z) \times x = (y \times x) + (z \times x)$
 :::
 
 ::: {.proof}
-a.
+a. Consider $x, y \in \mathbb{P}$. Let
+   
+   $$B = \{ z: z \in \mathbb{P} \land x \times (y + z) = (x \times y) + (x \times z) \}$$
 
-b.
+   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since:
+
+   $\begin{aligned}
+     x \times (y + 1) & = x \times S(y) \\
+     & = x \times S(y) \\
+     & = (x \times y) + x \\
+     & = (x \times y) + (x \times 1) 
+     \end{aligned}$
+
+   Now assume $z \in B$. Then $z \in \mathbb{P}$ and $x \times (y + z) = (x \times y) + (x \times z)$. Therefore:
+
+   $\begin{aligned}
+     x \times (y + S(z)) & = x \times S(y + z) \\
+     & =  x \times (y + z) + x \\
+     & =  ((x \times y) + (x \times z)) + x \\
+     & =  (x \times y) + ((x \times z) + x) \\
+     & =  (x \times y) +(x \times S(z)) \\ 
+     \end{aligned}$
+
+   Thus, $S(z) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+
+b. Consider $y, z \in \mathbb{P}$. Let
+   
+   $$B = \{ x: x \in \mathbb{P} \land (y + z) \times x = (y \times x) + (z \times x) \}$$
+
+   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since:
+
+   $\begin{aligned}
+     (y + z) \times 1 & = y + z \\
+     & = (y \times 1) + (z \times 1) \\  
+     \end{aligned}$
+
+   Now assume $x \in B$. Then $x \in \mathbb{P}$ and $(y + z) \times x = (y \times x) + (z \times x)$. Therefore:
+
+   $\begin{aligned}
+     (y + z) \times S(x) & = ((y + z) \times x) + (y + z) \\
+     & = ((y \times x) + (z \times x)) + (y + z) \\
+     & = (y \times x) + ((z \times x) + (y + z)) \\
+     & = (y \times x) + ((z \times x) + (z + y)) \\
+     & = (y \times x) + (((z \times x) + z) + y) \\
+     & = (y \times x) + (z \times S(x) + y) \\
+     & = (y \times x) + (y + z \times S(x)) \\
+     & = ((y \times x) + y) + z \times S(x) \\
+     & = y \times S(x) + z \times S(x) \\
+     \end{aligned}$
+    
+   Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+:::
+
+If we already knew that multiplication is commutative. @thm-distributive-laws b. would be a consequence of @thm-distributive-laws a. However, we still be done in @thm-commutativity-of-multiplication and the proof will depend upon @thm-distributive-laws b.
+
+::: {#exr-distributive-laws}
+1. Prove $2 \times x = x + x$
+
+2. Prove $3 \times x = (x + x) + x$
+:::
+
+::: {#sol-distributive-laws}
+1. Using @lem-commutativity-of-multiplication:
+
+   $\begin{aligned}
+     2 \times x & = S(1) \times x \\
+     & = (1 + 1) \times x \\
+     & = 1 \times x + 1 \times x \\
+     & = x \times 1 + x \times 1 \\
+     & = x + x
+     \end{aligned}$
+
+2. Using @lem-commutativity-of-multiplication and @exr-distributive-laws 1.:
+
+   $\begin{aligned}
+     3 \times x & = S(2) \times x \\
+     & = (2 + 1) \times x \\
+     & = (x + x) + x \times 1 \\
+     & = (x + x) + x
+     \end{aligned}$
+:::
+
+::: {#lem-commutativity-of-multiplication}
+$1 \times x = x \times 1$ for all $x \in P$
+:::
+
+::: {.proof}
+Let
+   
+   $$B = \{ x: x \in \mathbb{P} \land 1 \times x = x \times 1 \}$$
+
+   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $1 \times 1 = 1 \times 1$.
+
+   Now assume $x \in B$. Then $x \in \mathbb{P}$ and $1 \times x = x \times 1$. Therefore:
+
+   $\begin{aligned}
+     1 \times S(x) & = 1 \times (x + 1) \\
+     & = 1 \times x + 1 \times 1 \\
+     & = x \times 1 + 1 \times 1 \\
+     & = (x + 1) \times 1 \\
+     & = S(x) \times 1
+     \end{aligned}$
+   
+   Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#thm-commutativity-of-multiplication}
+## Commutativity of multiplication
+
+$$x \times y = y \times x$$
+
+For all $x, y \in \mathbb{P}$.
+:::
+
+::: {.proof}
+Consider $x \in \mathbb{P}$. Let
+   
+   $$B = \{ y: y \in \mathbb{P} \land x \times y = y \times x \}$$
+
+We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $x \times 1 = 1 \times x$ by @lem-commutativity-of-multiplication
+
+Now assume $x \in B$. Then $x \in \mathbb{P}$ and $x \times y = y \times x$. Therefore:
+
+$$
+\begin{aligned}
+ x \times S(y) & = x \times (y + 1) \\
+ & = (x \times y) + (x \times 1) \\
+ & = (y \times x) + (1 \times x) \\
+ & = (y + 1) \times x \\
+ & = S(y) \times x
+ \end{aligned}
+$$
+
+Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
 :::
