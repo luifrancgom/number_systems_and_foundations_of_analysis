@@ -1189,21 +1189,23 @@ $1 \times x = x \times 1$ for all $x \in P$
 ::: {.proof}
 Let
    
-   $$B = \{ x: x \in \mathbb{P} \land 1 \times x = x \times 1 \}$$
+$$
+B = \{ x: x \in \mathbb{P} \land 1 \times x = x \times 1 \}
+$$
 
-   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $1 \times 1 = 1 \times 1$.
+We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $1 \times 1 = 1 \times 1$.
 
-   Now assume $x \in B$. Then $x \in \mathbb{P}$ and $1 \times x = x \times 1$. Therefore:
+Now assume $x \in B$. Then $x \in \mathbb{P}$ and $1 \times x = x \times 1$. Therefore:
 
-   $\begin{aligned}
-     1 \times S(x) & = 1 \times (x + 1) \\
-     & = 1 \times x + 1 \times 1 \\
-     & = x \times 1 + 1 \times 1 \\
-     & = (x + 1) \times 1 \\
-     & = S(x) \times 1
-     \end{aligned}$
+$\begin{aligned}
+  1 \times S(x) & = 1 \times (x + 1) \\
+  & = 1 \times x + 1 \times 1 \\
+  & = x \times 1 + 1 \times 1 \\
+  & = (x + 1) \times 1 \\
+  & = S(x) \times 1
+  \end{aligned}$
    
-   Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
 :::
 
 ::: {#thm-commutativity-of-multiplication}
@@ -1234,4 +1236,123 @@ $$
 $$
 
 Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#thm-associativity-of-multiplication}
+## Associativity of multiplication
+
+$$
+x \times (y \times z) = (x \times y) \times z
+$$
+
+for all $x, y, z \in \mathbb{P}$
+:::
+
+::: {.proof}
+Let
+   
+$$
+B = \{ z: z \in \mathbb{P} \land x \times (y \times z) = (x \times y) \times z \}
+$$
+We must prove that $B = \mathbb{P}$. First, $1 \in B$, since:
+
+$\begin{aligned}
+  x \times (y \times 1) & x \times y \\
+  = & (x \times y) \times 1 \\
+  \end{aligned}$
+
+Now assume $z \in B$. Then $z \in \mathbb{P}$ and $x \times (y \times z) = (x \times y) \times z$. Therefore:
+
+$\begin{aligned}
+  x \times (y \times S(z)) & = x \times ((y \times z) + y) \\
+  & = x \times ((y \times z) + y) \\
+  & = (x \times (y \times z)) + (x \times y) \\
+  & = ((x \times y) \times z) + (x \times y) \\
+  & = (x \times y) \times S(z) \\
+  \end{aligned}$
+
+Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#exr-associativity-of-multiplication}
+1. Prove $(x \times y) \times (u \times v) = (x \times u) \times (y \times v)$
+:::
+
+::: {#sol-associativity-of-multiplication}
+1. We have that:
+
+   $\begin{aligned}
+     (x \times y) \times (u \times v) & = ((x \times y) \times u) \times v \\
+     & = (x \times (y \times u)) \times v \\
+     & = (x \times (u \times y)) \times v \\
+     & = ((x \times u) \times y) \times v \\
+     & = (x \times u) \times (y \times v)
+     \end{aligned}$
+:::
+
+::: {#thm-order-relation-cancelation-law}
+$$
+x < y \iff x \times z < y \times z
+$$
+
+for all $x, y, z \in \mathbb{P}$ 
+:::
+
+::: {.proof}
+Assume $x < y$, then:
+
+$\begin{aligned}
+  x < y & \iff y = x + w \\
+  & \Longrightarrow  y \times z = (x + w) \times z \\
+  & \iff y \times z = (x \times z) + (w \times z) \\
+  & \iff x \times z < y \times z
+  \end{aligned}$
+
+Now, assume $x \times z < y \times z$. Lets proof using @nte-proof-by-reductio-ad-absurdum. Assume $x \not< y$ then by @thm-order-relation-natural-numbers-properties-1 c. $x = y$ or $y < x$. If $x = y$ then $x \times z = y \times z$ which contradicts $x \times z < y \times z$. Also if $y < x$ then by the first part $y \times z < x \times z$ which contradicts $x \times z < y \times z$. In any case there is a contradiction so it must be the case that if $x \times z < y \times z$ then $x < y$. 
+:::
+
+::: {#cor-cancellation-law-of-multiplication}
+## Cancellation law of multiplication
+
+$$
+x \times z = y \times z \Longrightarrow x = y
+$$
+
+for all $x, y, z \in \mathbb{P}$ 
+:::
+
+::: {.proof}
+Assume $x \times z = y \times z$. Lets proof using @nte-proof-by-reductio-ad-absurdum. Assume $x \neq y$ then by @thm-order-relation-natural-numbers-properties-1 c. $x < y$ or $y < x$. If $x < y$ then by @thm-order-relation-cancelation-law $x \times z < y \times z$ which contradicts $x \times z = y \times z$. Also if $y < x$ then again by @thm-order-relation-cancelation-law $y \times z < x \times z$ which contradicts again $x \times z = y \times z$. Therefore it must be the case that $x = y$.
+:::
+
+::: {#cor-order-relation-multiplication}
+a.
+
+b.
+
+c.
+
+d.
+
+e.
+
+f.
+
+g.
+:::
+
+::: {.proof}
+a.
+
+b.
+
+c.
+
+d.
+
+e.
+
+f.
+
+g.
 :::
