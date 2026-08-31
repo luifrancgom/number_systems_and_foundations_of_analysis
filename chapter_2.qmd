@@ -1318,7 +1318,13 @@ $$
 x \times z = y \times z \Longrightarrow x = y
 $$
 
-for all $x, y, z \in \mathbb{P}$ 
+for all $x, y, z \in \mathbb{P}$
+
+**Note**: The other direction follows from **Appendix A Assumption II**. That is,
+
+$$
+x = y \Longrightarrow x \times z = y \times z
+$$
 :::
 
 ::: {.proof}
@@ -1326,33 +1332,207 @@ Assume $x \times z = y \times z$. Lets proof using @nte-proof-by-reductio-ad-abs
 :::
 
 ::: {#cor-order-relation-multiplication}
-a.
+a. $x \leq y \iff x \times z \leq y \times z$
 
-b.
+b. $z \leq y \times z$
 
-c.
+c. $1 < y \iff z < y \times z$
 
-d.
+d. $[x < u \land y < v] \Longrightarrow x \times y < u \times  v$
 
-e.
+e. $[x < u \land y \leq v] \Longrightarrow x \times y < u \times  v$
 
-f.
+f. $[x \leq u \land y < v] \Longrightarrow x \times y < u \times  v$
 
-g.
+g. $[x \leq u \land y \leq v] \Longrightarrow x \times y \leq u \times  v$
 :::
 
 ::: {.proof}
-a.
+a. By @thm-order-relation-cancelation-law and @cor-cancellation-law-of-multiplication.
 
-b.
+b. Let $1 \leq y$ by @exr-order-relation-natural-numbers-2 1. Then for $x = 1$ by @cor-order-relation-multiplication:
 
-c.
+   $\begin{aligned}
+     1 \leq y & \iff 1 \times z \leq y \times z \\
+     & \iff z \leq y \times z
+     \end{aligned}$
+     
+c. For $x = 1$ by @thm-order-relation-cancelation-law:
 
-d.
+   $\begin{aligned}
+     1 < y & \iff 1 \times z < y \times z \\
+     & \iff z < y \times z
+     \end{aligned}$
 
-e.
+d. Let $x < u$ and $y < v$ then:
 
-f.
+   $\begin{aligned}
+     x < u \land y < v & \iff x \times y < u \times y \land y \times u < v \times u \\
+     & \iff x \times y < u \times y \land u \times y < u \times v \\
+     & \Longrightarrow x \times y < u \times v
+     \end{aligned}$   
 
-g.
+e. If $y = v$ and $x < u$ then by @thm-order-relation-cancelation-law $x \times y < u \times v$. Also, if $y < v$ and $x < u$ then by @cor-order-relation-multiplication d $x \times y < u \times v$.   
+
+f. If $x = u$ and $y < v$ then by @thm-order-relation-cancelation-law $y \times x < v \times u$. Then by @thm-commutativity-of-multiplication $x \times y < u \times v$. Also, if $x < u$ and $y < v$ then by @cor-order-relation-multiplication d $x \times y < u \times v$.
+
+g. If $x = u \land y \leq v$ or $x \leq u \land y = v$ then by @cor-order-relation-multiplication e or f $x \times y < u \times v$. If $x = u \land y = v$ then by **Appendix A Assumption II** $x \times y = u \times v$. Therefore we have that, $x \times y < u \times v$ or $x \times y = u \times v$ so $x \times y \leq u \times v$.   
 :::
+
+::: {#exr-multiplication}
+1. We use the standard notation: $x^2$ for $x \times x$, and $x^3$ for $x^2 \times x$,
+
+   a. Prove $1^2 = 1$
+   b. Prove $(x + y)^2 = x^2 + (2 \times x \times y) + y^2$
+
+2. Define:
+   
+   $x$ is even is an abbreviation for $(\exists u)(x = 2 \times u)$
+
+   $x$ is odd is an abbreviation for $x = 1 \lor (\exists u)(x = (2 \times u) + 1)$
+
+   Prove:
+   
+   i. Every element of $\mathbb{P}$ is either even or odd.
+   
+   ii. No element of $\mathbb{P}$ is both even and odd.
+   
+   iii. $x^{2}$ is even $\iff x$ is even.
+   
+   iv. $x^{2}$ is odd $\iff x$ is odd.
+   
+   v. The sum and product of even elements is even.
+   
+   vi. The product of odd elements is odd.
+   
+   vii. The sum of two odd elements is even.
+   
+   viii. If $x$ is odd and $y$ is even, then $x + y$ is odd and $x \times y$ is even.
+:::
+
+::: {#sol-multiplication}
+1. Let $x^2$ for $x \times x$, and $x^3$ for $x^2 \times x$ then:
+
+   a. $\begin{aligned}
+       1^2 & \iff 1 \times 1 \\
+       & \iff 1
+       \end{aligned}$
+
+   b. $\begin{aligned}
+       (x + y)^2 & = (x + y) \times (x + y) \\
+       & = ((x + y) \times x) + ((x + y) \times y) \\
+       & = ((x \times x) + (y \times x)) + ((x \times y) + (y \times y)) \\
+       & = (x^2 + (x \times y)) + ((x \times y) + y^2) \\
+       & = ((x^2 + (x \times y)) + (x \times y)) + y^2 \\
+       & = (x^2 + ((x \times y) + (x \times y))) + y^2 \\
+       & = (x^2 + ((x \times y) \times 1 + (x \times y))) + y^2 \\
+       & = (x^2 + (x \times y) \times S(1)) + y^2 \\
+       & = (x^2 + (x \times y) \times 2) + y^2 \\
+       & = (x^2 + 2 \times (x \times y)) + y^2 \\
+       \end{aligned}$ 
+
+2. Taking into account the definitons of even and odd we have that:
+
+   i. Let $B = \{ x: x \in \mathbb{P} \land (x \text{ is even } \lor x \text{ is odd})\}$
+
+      $1 \in B$ because $1$ is odd so $1 \in B$. Now assume $x \in B$ so $x$ is even or $x$ is odd.
+
+      Therefore, if $x$ is even then $x = 2 \times u$ so $x + 1 = S(x) = 2 \times u + 1$. So, $S(x)$ is odd and $S(x) \in B$.
+
+      Now assume $x$ is odd. If $x = 1$ then $x + 1 = S(1) = 1 + 1 = 2 = 2 \times 1$ therefore $S(x)$ is even and $S(x) \in B$. If $x = 2u + 1$ then:
+
+      $\begin{aligned}
+       x + 1 & = S(x) \\
+       & = (2 \times u + 1) + 1 \\
+       & = 2 \times u + (1 + 1) \\
+       & = 2 \times u + 2 \\
+       & = 2 \times u + 2 \times 1 \\
+       & = 2 \times (u + 1) \\
+       & = 2 \times S(u) \\
+       \end{aligned}$
+
+      So, $S(x)$ is also even and $S(x) \in B$.
+
+      Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+   
+   ii. Assume $x$ is odd and even then $x = 1$ and $x = 2u$ or $x = 2w + 1$ and $x = 2u$
+
+       If $x = 1$ and $x = 2 \times u = u \times 2$ then $1 < 2$ and $2 \leq 2 \times u$. Therefore, because $1 < 2$ and $2 \leq 2 \times u$ then $1 < 2 \times u$. So it is not the case that $x = 1$ and $x = 2 \times u$.
+
+       If $x = 2w + 1$ and $x = 2u$ then $2w + 1 = 2u$. This means that $2w < 2u$ and $w < u$. Therefore $u = w + z$. Then $2u = 2(w + z) = 2w + 2z$. Also we have that $2w + 1 = 2w + 2z$ so $1 = 2z$. But by the first part of the proof this is not possible.
+
+       Therefore we have that it is not the case that $x$ is odd and even.
+
+   iii. Assume $x$ is even then $x = 2u$. This means that $x^2 = (2u) \times x = 2 \times (u \times x)$. Therefore $x^2$ is even.
+
+        Now assume $x^2$ is even and $x$ is odd then by @exr-multiplication iv. $x^2$ is odd. However by @exr-multiplication ii. this is not possible. Therefore, it must be the case that $x$ is also even.
+
+   iv. Assume $x$ is odd then $x = 2u + 1$. This means that $x^2 = (2u + 1)^2 = 4u^2 + 2u + 1 = 2(2u^2 + u) + 1$. Therefore $x^2$ is odd.
+
+       Now assume $x^2$ is odd and $x$ is even then by @exr-multiplication iii. $x^2$ is even. However by @exr-multiplication ii. this is not possible. Therefore, it must be the case that $x$ is also odd.
+
+   v. Let $x = 2u$ and $y = 2w$ then
+
+      $\begin{aligned}
+       x + y & = 2 \times u + 2 \times w \\
+       & = 2 \times (u + w)
+       \end{aligned}$
+
+      So $x + y$ is even. Also 
+
+      $\begin{aligned}
+       x \times y & = (2 \times u) \times (2 \times w) \\
+       & = 2 \times (u \times (2 \times w))
+       \end{aligned}$
+
+      So $x \times y$ is even.
+
+   vi. Let $x = 2u + 1$ and $y = 2w + 1$ then
+
+       $\begin{aligned}
+        x \times y & = (2u + 1) \times (2w + 1) \\
+        & = (2u + 1) \times 2w + (2u + 1) \times 1 \\
+        & = ((2u \times 2w) + (1 \times 2w))  + (2u + 1) \\
+        & = ((2u \times 2w) + 2w)  + (2u + 1) \\
+        & = (2 \times (u \times 2w) + 2 \times w)  + (2u + 1) \\
+        & = 2 \times ((u \times 2w) + w)  + (2u + 1) \\
+        & = (2 \times ((u \times 2w) + w)  + 2 \times u) + 1 \\
+        & = 2 \times (((u \times 2w) + w)  + u) + 1
+        \end{aligned}$
+
+       So $x \times y$ is odd.
+
+   vii. Let $x = 2u + 1$ and $y = 2w + 1$ then
+
+        $\begin{aligned}
+         x + y & = (2u + 1) + (2w + 1) \\
+         & = (2u + 2w) + (1 + 1) \\
+         & = 2 \times (u + w) + 2 \\
+         & = 2 \times (u + w) + 2 \times 1 \\
+         & = 2 \times ((u + w) + 1)
+         \end{aligned}$    
+        
+        So $x + y$ is even.
+
+   viii. Let $x = 2u + 1$ and $y = 2w$ then
+
+         $\begin{aligned}
+          x + y & = (2u + 1) + 2w \\
+          & = (1 + 2u) + 2w \\
+          & = 1 + (2u + 2w) \\
+          & = 1 + 2 \times (u + w) \\
+          & = 2 \times (u + w) + 1
+          \end{aligned}$    
+        
+         So $x + y$ is odd.
+
+         $\begin{aligned}
+          x \times y & = (2u + 1) \times 2w \\
+          & = 2w \times (2u + 1) \\
+          & = 2 \times (w \times (2u + 1)) \\
+          \end{aligned}$
+
+         So $x \times y$ is even.  
+:::
+
+## Exponentation
