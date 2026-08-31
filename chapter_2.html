@@ -278,6 +278,7 @@ window.Quarto = {
   <li><a href="#application-of-the-iteration-theorem-addition" id="toc-application-of-the-iteration-theorem-addition" class="nav-link" data-scroll-target="#application-of-the-iteration-theorem-addition"><span class="header-section-number">2.4</span> Application of the iteration theorem: addition</a></li>
   <li><a href="#the-order-relation" id="toc-the-order-relation" class="nav-link" data-scroll-target="#the-order-relation"><span class="header-section-number">2.5</span> The order relation</a></li>
   <li><a href="#multiplication" id="toc-multiplication" class="nav-link" data-scroll-target="#multiplication"><span class="header-section-number">2.6</span> Multiplication</a></li>
+  <li><a href="#exponentation" id="toc-exponentation" class="nav-link" data-scroll-target="#exponentation"><span class="header-section-number">2.7</span> Exponentation</a></li>
   </ul>
 </nav>
     </div>
@@ -1380,6 +1381,10 @@ x &lt; y \iff x \times z &lt; y \times z
 x \times z = y \times z \Longrightarrow x = y
 \]</span></p>
 <p>for all <span class="math inline">\(x, y, z \in \mathbb{P}\)</span></p>
+<p><strong>Note</strong>: The other direction follows from <strong>Appendix A Assumption II</strong>. That is,</p>
+<p><span class="math display">\[
+x = y \Longrightarrow x \times z = y \times z
+\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(x \times z = y \times z\)</span>. Lets proof using <a href="chapter_1.html#nte-proof-by-reductio-ad-absurdum" class="quarto-xref">Note&nbsp;<span>1.3</span></a>. Assume <span class="math inline">\(x \neq y\)</span> then by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> c.&nbsp;<span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(y &lt; x\)</span>. If <span class="math inline">\(x &lt; y\)</span> then by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a> <span class="math inline">\(x \times z &lt; y \times z\)</span> which contradicts <span class="math inline">\(x \times z = y \times z\)</span>. Also if <span class="math inline">\(y &lt; x\)</span> then again by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a> <span class="math inline">\(y \times z &lt; x \times z\)</span> which contradicts again <span class="math inline">\(x \times z = y \times z\)</span>. Therefore it must be the case that <span class="math inline">\(x = y\)</span>.</p>
@@ -1387,27 +1392,166 @@ x \times z = y \times z \Longrightarrow x = y
 <div id="cor-order-relation-multiplication" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 2.2</strong></span> &nbsp;</p>
 <ol type="a">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li><p><span class="math inline">\(x \leq y \iff x \times z \leq y \times z\)</span></p></li>
+<li><p><span class="math inline">\(z \leq y \times z\)</span></p></li>
+<li><p><span class="math inline">\(1 &lt; y \iff z &lt; y \times z\)</span></p></li>
+<li><p><span class="math inline">\([x &lt; u \land y &lt; v] \Longrightarrow x \times y &lt; u \times  v\)</span></p></li>
+<li><p><span class="math inline">\([x &lt; u \land y \leq v] \Longrightarrow x \times y &lt; u \times  v\)</span></p></li>
+<li><p><span class="math inline">\([x \leq u \land y &lt; v] \Longrightarrow x \times y &lt; u \times  v\)</span></p></li>
+<li><p><span class="math inline">\([x \leq u \land y \leq v] \Longrightarrow x \times y \leq u \times  v\)</span></p></li>
 </ol>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <ol type="a">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li><p>By <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a> and <a href="#cor-cancellation-law-of-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.1</span></a>.</p></li>
+<li><p>Let <span class="math inline">\(1 \leq y\)</span> by <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1. Then for <span class="math inline">\(x = 1\)</span> by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a>:</p>
+<p><span class="math inline">\(\begin{aligned}
+  1 \leq y &amp; \iff 1 \times z \leq y \times z \\
+  &amp; \iff z \leq y \times z
+  \end{aligned}\)</span></p></li>
+<li><p>For <span class="math inline">\(x = 1\)</span> by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a>:</p>
+<p><span class="math inline">\(\begin{aligned}
+  1 &lt; y &amp; \iff 1 \times z &lt; y \times z \\
+  &amp; \iff z &lt; y \times z
+  \end{aligned}\)</span></p></li>
+<li><p>Let <span class="math inline">\(x &lt; u\)</span> and <span class="math inline">\(y &lt; v\)</span> then:</p>
+<p><span class="math inline">\(\begin{aligned}
+  x &lt; u \land y &lt; v &amp; \iff x \times y &lt; u \times y \land y \times u &lt; v \times u \\
+  &amp; \iff x \times y &lt; u \times y \land u \times y &lt; u \times v \\
+  &amp; \Longrightarrow x \times y &lt; u \times v
+  \end{aligned}\)</span></p></li>
+<li><p>If <span class="math inline">\(y = v\)</span> and <span class="math inline">\(x &lt; u\)</span> then by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a> <span class="math inline">\(x \times y &lt; u \times v\)</span>. Also, if <span class="math inline">\(y &lt; v\)</span> and <span class="math inline">\(x &lt; u\)</span> then by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a> d <span class="math inline">\(x \times y &lt; u \times v\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x = u\)</span> and <span class="math inline">\(y &lt; v\)</span> then by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a> <span class="math inline">\(y \times x &lt; v \times u\)</span>. Then by <a href="#thm-commutativity-of-multiplication" class="quarto-xref">Theorem&nbsp;<span>2.16</span></a> <span class="math inline">\(x \times y &lt; u \times v\)</span>. Also, if <span class="math inline">\(x &lt; u\)</span> and <span class="math inline">\(y &lt; v\)</span> then by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a> d <span class="math inline">\(x \times y &lt; u \times v\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x = u \land y \leq v\)</span> or <span class="math inline">\(x \leq u \land y = v\)</span> then by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a> e or f <span class="math inline">\(x \times y &lt; u \times v\)</span>. If <span class="math inline">\(x = u \land y = v\)</span> then by <strong>Appendix A Assumption II</strong> <span class="math inline">\(x \times y = u \times v\)</span>. Therefore we have that, <span class="math inline">\(x \times y &lt; u \times v\)</span> or <span class="math inline">\(x \times y = u \times v\)</span> so <span class="math inline">\(x \times y \leq u \times v\)</span>.<br>
+</p></li>
 </ol>
 </div>
+<div id="exr-multiplication" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.10</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>We use the standard notation: <span class="math inline">\(x^2\)</span> for <span class="math inline">\(x \times x\)</span>, and <span class="math inline">\(x^3\)</span> for <span class="math inline">\(x^2 \times x\)</span>,</p>
+<ol type="a">
+<li>Prove <span class="math inline">\(1^2 = 1\)</span></li>
+<li>Prove <span class="math inline">\((x + y)^2 = x^2 + (2 \times x \times y) + y^2\)</span></li>
+</ol></li>
+<li><p>Define:</p>
+<p><span class="math inline">\(x\)</span> is even is an abbreviation for <span class="math inline">\((\exists u)(x = 2 \times u)\)</span></p>
+<p><span class="math inline">\(x\)</span> is odd is an abbreviation for <span class="math inline">\(x = 1 \lor (\exists u)(x = (2 \times u) + 1)\)</span></p>
+<p>Prove:</p>
+<ol type="i">
+<li><p>Every element of <span class="math inline">\(\mathbb{P}\)</span> is either even or odd.</p></li>
+<li><p>No element of <span class="math inline">\(\mathbb{P}\)</span> is both even and odd.</p></li>
+<li><p><span class="math inline">\(x^{2}\)</span> is even <span class="math inline">\(\iff x\)</span> is even.</p></li>
+<li><p><span class="math inline">\(x^{2}\)</span> is odd <span class="math inline">\(\iff x\)</span> is odd.</p></li>
+<li><p>The sum and product of even elements is even.</p></li>
+<li><p>The product of odd elements is odd.</p></li>
+<li><p>The sum of two odd elements is even.</p></li>
+<li><p>If <span class="math inline">\(x\)</span> is odd and <span class="math inline">\(y\)</span> is even, then <span class="math inline">\(x + y\)</span> is odd and <span class="math inline">\(x \times y\)</span> is even.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="sol-multiplication" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.10</em>. </span></p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(x^2\)</span> for <span class="math inline">\(x \times x\)</span>, and <span class="math inline">\(x^3\)</span> for <span class="math inline">\(x^2 \times x\)</span> then:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\begin{aligned}
+1^2 &amp; \iff 1 \times 1 \\
+&amp; \iff 1
+\end{aligned}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{aligned}
+(x + y)^2 &amp; = (x + y) \times (x + y) \\
+&amp; = ((x + y) \times x) + ((x + y) \times y) \\
+&amp; = ((x \times x) + (y \times x)) + ((x \times y) + (y \times y)) \\
+&amp; = (x^2 + (x \times y)) + ((x \times y) + y^2) \\
+&amp; = ((x^2 + (x \times y)) + (x \times y)) + y^2 \\
+&amp; = (x^2 + ((x \times y) + (x \times y))) + y^2 \\
+&amp; = (x^2 + ((x \times y) \times 1 + (x \times y))) + y^2 \\
+&amp; = (x^2 + (x \times y) \times S(1)) + y^2 \\
+&amp; = (x^2 + (x \times y) \times 2) + y^2 \\
+&amp; = (x^2 + 2 \times (x \times y)) + y^2 \\
+\end{aligned}\)</span></p></li>
+</ol></li>
+<li><p>Taking into account the definitons of even and odd we have that:</p>
+<ol type="i">
+<li><p>Let <span class="math inline">\(B = \{ x: x \in \mathbb{P} \land (x \text{ is even } \lor x \text{ is odd})\}\)</span></p>
+<p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1\)</span> is odd so <span class="math inline">\(1 \in B\)</span>. Now assume <span class="math inline">\(x \in B\)</span> so <span class="math inline">\(x\)</span> is even or <span class="math inline">\(x\)</span> is odd.</p>
+<p>Therefore, if <span class="math inline">\(x\)</span> is even then <span class="math inline">\(x = 2 \times u\)</span> so <span class="math inline">\(x + 1 = S(x) = 2 \times u + 1\)</span>. So, <span class="math inline">\(S(x)\)</span> is odd and <span class="math inline">\(S(x) \in B\)</span>.</p>
+<p>Now assume <span class="math inline">\(x\)</span> is odd. If <span class="math inline">\(x = 1\)</span> then <span class="math inline">\(x + 1 = S(1) = 1 + 1 = 2 = 2 \times 1\)</span> therefore <span class="math inline">\(S(x)\)</span> is even and <span class="math inline">\(S(x) \in B\)</span>. If <span class="math inline">\(x = 2u + 1\)</span> then:</p>
+<p><span class="math inline">\(\begin{aligned}
+x + 1 &amp; = S(x) \\
+&amp; = (2 \times u + 1) + 1 \\
+&amp; = 2 \times u + (1 + 1) \\
+&amp; = 2 \times u + 2 \\
+&amp; = 2 \times u + 2 \times 1 \\
+&amp; = 2 \times (u + 1) \\
+&amp; = 2 \times S(u) \\
+\end{aligned}\)</span></p>
+<p>So, <span class="math inline">\(S(x)\)</span> is also even and <span class="math inline">\(S(x) \in B\)</span>.</p>
+<p>Therefore because <span class="math inline">\(x \in B \Longrightarrow S(x) \in B\)</span> then <span class="math inline">\(B = \mathbb{P}\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(x\)</span> is odd and even then <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(x = 2u\)</span> or <span class="math inline">\(x = 2w + 1\)</span> and <span class="math inline">\(x = 2u\)</span></p>
+<p>If <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(x = 2 \times u = u \times 2\)</span> then <span class="math inline">\(1 &lt; 2\)</span> and <span class="math inline">\(2 \leq 2 \times u\)</span>. Therefore, because <span class="math inline">\(1 &lt; 2\)</span> and <span class="math inline">\(2 \leq 2 \times u\)</span> then <span class="math inline">\(1 &lt; 2 \times u\)</span>. So it is not the case that <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(x = 2 \times u\)</span>.</p>
+<p>If <span class="math inline">\(x = 2w + 1\)</span> and <span class="math inline">\(x = 2u\)</span> then <span class="math inline">\(2w + 1 = 2u\)</span>. This means that <span class="math inline">\(2w &lt; 2u\)</span> and <span class="math inline">\(w &lt; u\)</span>. Therefore <span class="math inline">\(u = w + z\)</span>. Then <span class="math inline">\(2u = 2(w + z) = 2w + 2z\)</span>. Also we have that <span class="math inline">\(2w + 1 = 2w + 2z\)</span> so <span class="math inline">\(1 = 2z\)</span>. But by the first part of the proof this is not possible.</p>
+<p>Therefore we have that it is not the case that <span class="math inline">\(x\)</span> is odd and even.</p></li>
+<li><p>Assume <span class="math inline">\(x\)</span> is even then <span class="math inline">\(x = 2u\)</span>. This means that <span class="math inline">\(x^2 = (2u) \times x = 2 \times (u \times x)\)</span>. Therefore <span class="math inline">\(x^2\)</span> is even.</p>
+<p>Now assume <span class="math inline">\(x^2\)</span> is even and <span class="math inline">\(x\)</span> is odd then by <a href="#exr-multiplication" class="quarto-xref">Exercise&nbsp;<span>2.10</span></a> iv. <span class="math inline">\(x^2\)</span> is odd. However by <a href="#exr-multiplication" class="quarto-xref">Exercise&nbsp;<span>2.10</span></a> ii. this is not possible. Therefore, it must be the case that <span class="math inline">\(x\)</span> is also even.</p></li>
+<li><p>Assume <span class="math inline">\(x\)</span> is odd then <span class="math inline">\(x = 2u + 1\)</span>. This means that <span class="math inline">\(x^2 = (2u + 1)^2 = 4u^2 + 2u + 1 = 2(2u^2 + u) + 1\)</span>. Therefore <span class="math inline">\(x^2\)</span> is odd.</p>
+<p>Now assume <span class="math inline">\(x^2\)</span> is odd and <span class="math inline">\(x\)</span> is even then by <a href="#exr-multiplication" class="quarto-xref">Exercise&nbsp;<span>2.10</span></a> iii. <span class="math inline">\(x^2\)</span> is even. However by <a href="#exr-multiplication" class="quarto-xref">Exercise&nbsp;<span>2.10</span></a> ii. this is not possible. Therefore, it must be the case that <span class="math inline">\(x\)</span> is also odd.</p></li>
+<li><p>Let <span class="math inline">\(x = 2u\)</span> and <span class="math inline">\(y = 2w\)</span> then</p>
+<p><span class="math inline">\(\begin{aligned}
+x + y &amp; = 2 \times u + 2 \times w \\
+&amp; = 2 \times (u + w)
+\end{aligned}\)</span></p>
+<p>So <span class="math inline">\(x + y\)</span> is even. Also</p>
+<p><span class="math inline">\(\begin{aligned}
+x \times y &amp; = (2 \times u) \times (2 \times w) \\
+&amp; = 2 \times (u \times (2 \times w))
+\end{aligned}\)</span></p>
+<p>So <span class="math inline">\(x \times y\)</span> is even.</p></li>
+<li><p>Let <span class="math inline">\(x = 2u + 1\)</span> and <span class="math inline">\(y = 2w + 1\)</span> then</p>
+<p><span class="math inline">\(\begin{aligned}
+x \times y &amp; = (2u + 1) \times (2w + 1) \\
+&amp; = (2u + 1) \times 2w + (2u + 1) \times 1 \\
+&amp; = ((2u \times 2w) + (1 \times 2w))  + (2u + 1) \\
+&amp; = ((2u \times 2w) + 2w)  + (2u + 1) \\
+&amp; = (2 \times (u \times 2w) + 2 \times w)  + (2u + 1) \\
+&amp; = 2 \times ((u \times 2w) + w)  + (2u + 1) \\
+&amp; = (2 \times ((u \times 2w) + w)  + 2 \times u) + 1 \\
+&amp; = 2 \times (((u \times 2w) + w)  + u) + 1
+\end{aligned}\)</span></p>
+<p>So <span class="math inline">\(x \times y\)</span> is odd.</p></li>
+<li><p>Let <span class="math inline">\(x = 2u + 1\)</span> and <span class="math inline">\(y = 2w + 1\)</span> then</p>
+<p><span class="math inline">\(\begin{aligned}
+x + y &amp; = (2u + 1) + (2w + 1) \\
+&amp; = (2u + 2w) + (1 + 1) \\
+&amp; = 2 \times (u + w) + 2 \\
+&amp; = 2 \times (u + w) + 2 \times 1 \\
+&amp; = 2 \times ((u + w) + 1)
+\end{aligned}\)</span></p>
+<p>So <span class="math inline">\(x + y\)</span> is even.</p></li>
+<li><p>Let <span class="math inline">\(x = 2u + 1\)</span> and <span class="math inline">\(y = 2w\)</span> then</p>
+<p><span class="math inline">\(\begin{aligned}
+x + y &amp; = (2u + 1) + 2w \\
+&amp; = (1 + 2u) + 2w \\
+&amp; = 1 + (2u + 2w) \\
+&amp; = 1 + 2 \times (u + w) \\
+&amp; = 2 \times (u + w) + 1
+\end{aligned}\)</span></p>
+<p>So <span class="math inline">\(x + y\)</span> is odd.</p>
+<p><span class="math inline">\(\begin{aligned}
+x \times y &amp; = (2u + 1) \times 2w \\
+&amp; = 2w \times (2u + 1) \\
+&amp; = 2 \times (w \times (2u + 1)) \\
+\end{aligned}\)</span></p>
+<p>So <span class="math inline">\(x \times y\)</span> is even.<br>
+</p></li>
+</ol></li>
+</ol>
+</div>
+</section>
+<section id="exponentation" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="exponentation"><span class="header-section-number">2.7</span> Exponentation</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
