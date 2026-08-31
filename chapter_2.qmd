@@ -1536,3 +1536,222 @@ g. If $x = u \land y \leq v$ or $x \leq u \land y = v$ then by @cor-order-relati
 :::
 
 ## Exponentation
+
+::: {#thm-iteration-theorem-exponentiation}
+## Exponentiation
+
+Consider any Peano system $(\mathbb{P}, S, 1)$. Then there is a unique binary operation $\tau(x, y)$ on $\mathbb{P}$ such that:
+
+$(\varrho)$. $\tau(x, 1) = x$ for all $x \in \mathbb{P}$
+
+$(\sigma)$. $\tau(x, S(y)) = \tau(x, y) \times x$ for all $x, y \in \mathbb{P}$
+
+**Note**: We shall let $x^y$ stand for $\tau(x, y)$. Then $(\varrho)$, $(\sigma)$ become the familiar equation:
+
+$(\gamma')$. $x^1 = x$
+
+$(\sigma')$. $x^{y + 1} = x^y \times x$
+:::
+
+::: {.proof}
+To prove the existence take any $x \in \mathbb{P}$. Now apply @thm-iteration-theorem with $W = \mathbb{P}$, $c = x$ and $g(u) = u \times x$ for any $u \in \mathbb{P}$. Therefore, there is a unique function $F: \mathbb{P} \longrightarrow \mathbb{P}$ such that:
+
+a. $F(1) = c = x$
+
+b. $F(S(y)) = g(F(y)) = F(y) \times x$ for any $y \in \mathbb{P}$
+
+We denote this unique function $F$ by $h_x$, since it is determined by $x$. Thus, $h_x(1) = x$ and $h_x(S(y)) = h_x(y) \times x$. Now, define $\tau(x,y) = h_x(y)$. Then, $\tau(x,1) = = h_x(1) = 1$, and $\tau(x,S(y)) = h_x(S(y)) = h_x(y) \times x = \tau(x,y) \times x$. Therefore:
+
+a. $\tau(x,1) = x$ for any $x \in \mathbb{P}$
+
+b. $\tau(x,S(y)) = \tau(x,y) \times x$ for any $x,y \in \mathbb{P}$
+
+To prove the uniqueness of $\tau$, assume that there is another binary operation $\mu$ such that:
+
+$$
+\mu(x,1) = x \text{ for all } x \in \mathbb{P}
+$$
+
+$$
+\mu(x,S(y)) = \mu(x,y) \times x \text{ for all } x,y \in \mathbb{P} 
+$$
+
+Take any $x \in \mathbb{P}$. Let us prove that $\mu(x,y) = \tau(x,y)$, for all $y \in \mathbb{P}$. Let $B = \{ y: y \in \mathbb{P} \land \mu(x,y) = \tau(x,y) \}$.
+
+First, $1 \in B$, since $\mu(x, 1) = 1 = \tau(x,1)$
+
+Second, assume $y \in B$. Then, $\mu(x,y) = \tau(x,y)$. But, $\tau(x,S(y)) = \tau(x,y) \times x = \mu(x,y) \times x = \mu(x,S(y))$. This $S(y) \in B$, and we have shown that $y \in B \Longrightarrow S(y) \in B$. Hence, by matjematical induction, $\mathbb{P} = B$. Thus, $\mu(x,y) = \tau(x,y)$ for all $x,y \in \mathbb{P}$. This means that $\mu = \tau$.
+
+**Note**: Our notation for exponentiation does not conflict with out previous agreement that $x^2$ stands for $x \times x$, and $x^3$ for $x^2 \times x$. For according to equation $(\varrho')$, $(\sigma')$, $x^2 = x^1 \times x = x \times x$, and $x^3 = x^{2+1} = x^2 \times x$. 
+:::
+
+::: {#exr-exponentiation-1}
+1. Compute the values of $2^2$, $2^3$ and $3^2$
+:::
+
+::: {#sol-exponentiation-1}
+1. Let compute each value:
+
+   $\begin{aligned}
+    2^2 & = 2^{1 + 1} \\
+    & =  2^1 \times 2 \\
+    & =  2 \times 2 \\
+    & =  4
+    \end{aligned}$
+
+   $\begin{aligned}
+    2^3 & = 2^{2 + 1} \\
+    & = 2^2 \times 2 \\
+    & = 4 \times 2 \\
+    & = S(3) \times 2 \\
+    & = 2 \times S(3) \\
+    & = 2 \times 3 + 2 \\
+    & = 6 + 2 \\
+    & = 6 + S(1) \\
+    & = S(6 + 1) \\
+    & = S(7) \\
+    & = 8 
+    \end{aligned}$
+
+   $\begin{aligned}
+    3^2 & = 3^{1 + 1} \\
+    & = 3^1 \times 3 \\
+    & = 3 \times 3 \\
+    & = 9
+    \end{aligned}$   
+:::
+
+::: {#lem-multiplication}
+$1^x = 1$ for all $x \in \mathbb{P}$
+:::
+
+::: {.proof}
+Let
+   
+$$
+B = \{ x: x \in \mathbb{P} \land 1^x = 1 \}
+$$
+
+We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $x \times 1^1 = 1$ by equation $(\varrho')$
+
+Now assume $x \in B$. Then $x \in \mathbb{P}$ and $1^x = 1$. Therefore:
+
+$$
+\begin{aligned}
+ 1^{S(x)} & = 1^{x + 1} \\
+ & = 1^x \times 1 \\
+ & = 1^x \\
+ & = 1 
+ \end{aligned}
+$$
+
+Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#thm-basic-properties-of-exponentiation}
+## Basic properties of exponentiation
+
+a. $x^{y + z} = x^y \times x^z$
+
+b. $(x^y)^z = x^{y \times z}$
+
+c. $(x \times y)^z = x^z \times y^z$
+:::
+
+::: {.proof}
+a. Consider $x, y \in \mathbb{P}$. Let
+   
+   $$
+   B = \{ z: z \in \mathbb{P} \land x^{y + z} = x^y \times x^z \}
+   $$
+   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $x^{y + 1} = x^y \times x = x^y \times x^1$.
+
+   Now assume $z \in B$. Then $z \in \mathbb{P}$ and $x^{y + z} = x^y \times x^z$. Therefore:
+
+   $$
+   \begin{aligned}
+    x^{y + S(z)} & = x^{y + (z + 1)} \\
+    & = x^{(y + z) + 1} \\
+    & = x^{y + z} \times x \\
+    & = (x^y \times x^z) \times x \\
+    & = x^y \times (x^z \times x) \\
+    & = x^y \times x^{z + 1} \\
+    & = x^y \times x^{S(z)} \\
+    \end{aligned}
+   $$
+
+   Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+
+b. Consider $x, y \in \mathbb{P}$. Let
+   
+   $$
+   B = \{ z: z \in \mathbb{P} \land (x^y)^z = x^{y \times z} \}
+   $$
+   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $(x^y)^1 = x^y = x^{y \times 1}$.
+
+   Now assume $z \in B$. Then $z \in \mathbb{P}$ and $(x^y)^z = x^{y \times z}$. Therefore:
+
+   $$
+   \begin{aligned}
+    (x^y)^{S(z)} & = (x^y)^{z + 1} \\
+    & = (x^y)^z \times x^y \\
+    & = x^{y \times z} \times x^y \\
+    & = x^{y \times z + y} \\
+    & = x^{y \times S(z)}
+    \end{aligned}
+   $$
+
+   Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+
+c. Consider $x, y \in \mathbb{P}$. Let
+   
+   $$
+   B = \{ z: z \in \mathbb{P} \land (x \times y)^z = x^z \times y^z \}
+   $$
+   We must prove that $B = \mathbb{P}$. First, $1 \in B$, since $(x \times y)^1 = x \times y = x^1 \times y^1$.
+
+   Now assume $z \in B$. Then $z \in \mathbb{P}$ and $(x \times y)^z = x^z \times y^z$. Therefore:
+
+   $$
+   \begin{aligned}
+    (x \times y)^{S(z)} & = (x \times y)^{z + 1} \\
+    & = (x \times y)^z \times (x \times y) \\
+    & = (x^z \times y^z) \times (x \times y) \\
+    & = (x^z \times y^z) \times (y \times x) \\
+    & = ((x^z \times y^z) \times y) \times x \\
+    & = (x^z \times (y^z \times y)) \times x \\
+    & = (x^z \times y^{z + 1}) \times x \\
+    & = (y^{z + 1} \times x^z) \times x \\
+    & = y^{z + 1} \times (x^z \times x) \\
+    & = y^{z + 1} \times x^{z + 1}  \\
+    & = x^{z + 1} \times y^{z + 1} \\
+    & = x^{S(z)} \times y^{S(z)}
+    \end{aligned}
+   $$
+
+   Thus, $S(x) \in B$. Therefore because $x \in B \Longrightarrow S(x) \in B$ then $B = \mathbb{P}$.
+:::
+
+::: {#thm-exponentiation-and-the-order-relation}
+## Exponentiation and the order relation
+
+For any $x, y, z \in \mathbb{P}$:
+
+a. $x < y \iff x^z < y^z$ 
+
+b. $(1 < z \land x < y) \iff z^x < z^y$
+
+c. $1 < x \iff z < x^z$
+
+d. $(1 < z \land 1 < y) \iff z < z^y$
+:::
+
+::: {.proof}
+a.
+
+b.
+
+c.
+
+d.
+:::
