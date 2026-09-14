@@ -1580,7 +1580,7 @@ Take any $x \in \mathbb{P}$. Let us prove that $\mu(x,y) = \tau(x,y)$, for all $
 
 First, $1 \in B$, since $\mu(x, 1) = 1 = \tau(x,1)$
 
-Second, assume $y \in B$. Then, $\mu(x,y) = \tau(x,y)$. But, $\tau(x,S(y)) = \tau(x,y) \times x = \mu(x,y) \times x = \mu(x,S(y))$. This $S(y) \in B$, and we have shown that $y \in B \Longrightarrow S(y) \in B$. Hence, by matjematical induction, $\mathbb{P} = B$. Thus, $\mu(x,y) = \tau(x,y)$ for all $x,y \in \mathbb{P}$. This means that $\mu = \tau$.
+Second, assume $y \in B$. Then, $\mu(x,y) = \tau(x,y)$. But, $\tau(x,S(y)) = \tau(x,y) \times x = \mu(x,y) \times x = \mu(x,S(y))$. This $S(y) \in B$, and we have shown that $y \in B \Longrightarrow S(y) \in B$. Hence, by mathematical induction, $\mathbb{P} = B$. Thus, $\mu(x,y) = \tau(x,y)$ for all $x,y \in \mathbb{P}$. This means that $\mu = \tau$.
 
 **Note**: Our notation for exponentiation does not conflict with out previous agreement that $x^2$ stands for $x \times x$, and $x^3$ for $x^2 \times x$. For according to equation $(\varrho')$, $(\sigma')$, $x^2 = x^1 \times x = x \times x$, and $x^3 = x^{2+1} = x^2 \times x$. 
 :::
@@ -1747,11 +1747,139 @@ d. $(1 < z \land 1 < y) \iff z < z^y$
 :::
 
 ::: {.proof}
-a.
+a. Lets divide the proof in 2 parts:
 
-b.
+   First, assume $x < y$. Let $x, y \in \mathbb{P}$ and $B = \{ z: z \in \mathbb{P} \land x^z < y^z  \}$. Then we must show that $B = \mathbb{P}$.
+   
+   We have that $1 \in B$. Because $x^1 = x < y = y^1$. 
+   
+   Now, assume $z \in B$. Then, $x^z < y^z$. Therefore:
 
-c.
+   $$
+   \begin{aligned}
+    x^{S(z)} & = x^{z + 1} \\
+    & = x^z \times x \\
+    & < y^z \times y \\
+    & = y^{z + 1} \\
+    & = y^{S(z)}
+   \end{aligned}
+   $$
+   Where by @cor-order-relation-multiplication d. $x < y \land x^z < y^z$ then $x^z \times x < y^z \times y$. Hence, by mathematical induction, $\mathbb{P} = B$.
 
-d.
+   Second, assume $x^z < y^z$. Also assume that $x \not< y$. Then $x = y$ or $y < x$. If $x = z$ then $x^z = y^z$ but $x^z < y^z$. Now, if $y < x$ then by the first part of the proof $y^z < x^z$ but $x^z < y^z$. So it must be the case that if $x^z < y^z$ then $x < y$.
+
+b. Lets divide the proof in 2 parts:
+
+   First, assume $1 < z \land x < y$. Then $1^u = 1 < z^u$ by @lem-multiplication and @thm-exponentiation-and-the-order-relation a. Also $y = x + u$. 
+   
+   Also by @thm-order-relation-cancelation-law, if $1 < z^u$ then $1 \times z^x < z^u \times z^x$. Therefore:
+
+   $$
+   \begin{aligned}
+   z^x & = z^x \times 1 \\
+   & = 1 \times z^x \\
+   & < z^u \times z^x \\
+   & = z^x \times z^u \\
+   & = z^{x + u} \\
+   & = z^y \\
+   \end{aligned}
+   $$
+
+   Where $z^x \times z^u = z^{x + u}$ by @thm-basic-properties-of-exponentiation a.
+
+   Second, assume $z^x < z^y$. It must be the case that $z \neq 1$ because by @lem-multiplication $1^x = 1 = 1^y$. Therefore by @thm-order-relation-natural-numbers-extent-2 a. $1 < z$.
+
+   Now assume that $x \not< y$. Then by @thm-order-relation-natural-numbers-properties-1 $x = y$ or $y < x$. If $x = y$ then $z^x = z^y$ but $z^x < z^y$. Also if $y < x$ by the first part of the proof $$z^y < z^x$ but again $z^x < z^y$. Therefore, it must be the case that $x < y$.  
+
+c. Lets divide the proof in 2 parts:
+
+   First, assume $1 < x$. Let $x \in \mathbb{P}$ and $B = \{ z: z \in \mathbb{P} \land z < x^z  \}$. Then we must show that $B = \mathbb{P}$.
+   
+   We have that $1 \in B$. Because $1 < x^1 = x$ where it is assumed that $1 < 1$. 
+   
+   Now, assume $z \in B$. Then, $z < x^z$. Therefore we have that $z < x \times z = z \times x$ by @cor-order-relation-multiplication. Also if $z < x^z$ by @thm-order-relation-cancelation-law $z \times x < x^z \times x$. Therefore:
+
+   $$
+   \begin{aligned}
+   z < x^z & \iff z \times x < x^z \times z \\
+   & \iff z < z \times x \land z \times x < x^z \times z \\
+   & \Longrightarrow z < x^z \times z \\
+   & \iff z < x^{z + 1} \\
+   & \iff z < x^{S(z)} \\   
+   \end{aligned}
+   $$
+
+   Hence, by mathematical induction, $\mathbb{P} = B$.
+
+   Second, lets prove the converse. That is, $z < x^z \Longleftarrow 1 < x$. This is equivalent to prove $\neg(z < x^z \land 1 \not< x)$. 
+   
+   Assume $(z < x^z \land 1 \not< x)$. This means that $x \leq 1$ but by @exr-order-relation-natural-numbers-2 1. $1 \leq x$ so if $1 \not< x$ it must be the case that $x = 1$. However, it must be the case that $z < 1^x = 1$. However by @exr-order-relation-natural-numbers-2 1. this is not possible. Therefore, it must be the case that $\neg(z < x^z \land 1 \not< x)$, which means that $z < x^z \Longleftarrow 1 < x$.   
+
+d. By @thm-exponentiation-and-the-order-relation let $x = 1$ then $(1 < z \land 1 < y) \iff z^1 < z^y$. Therefore, $(1 < z \land 1 < y) \iff z < z^y$. 
 :::
+
+::: {#exr-exponentiation-2}
+1. Prove $1 < x \iff 1 < x^z$
+
+2. Prove $x \leq x^z$
+
+3. Prove $x \leq y \iff x^z \leq y^z$
+
+4. Prove $x \leq y \Longrightarrow z^{x} \leq z^{y}$
+
+5. Prove $(1 < z \land z^x \leq z^y) \Longrightarrow x \leq y$
+
+6. Prove $(1 + z)^y \geq 1 + (y \times z)$
+:::
+
+::: {#sol-exponentiation-2}
+1. By @thm-exponentiation-and-the-order-relation we can apply $1 < x \iff 1^z < x^z$. Also by @lem-multiplication $1^z = 1$, so $1 < x \iff 1 < x^z$. 
+
+2. Let $x \in \mathbb{P}$.
+
+   If $z = 1$ then $x \leq x^1 = x$. 
+   
+   Now if $z > 1$ then $z = S(y) = y + 1$. By @exr-order-relation-natural-numbers-2 1. $1 \leq x^y$. Also by @cor-order-relation-multiplication a. $1 \times x \leq x^y \times x$. Therefore $x \leq x^{y + 1} = x^z$.  
+
+3. If $x < y$ or $x^z < y^z$ it is possible to apply @thm-exponentiation-and-the-order-relation a.
+
+   Now, if $x = y$ then it must be the case that $x^z = y^z$.
+
+   Also if $x^z = y^z$ it is possible to prove the converse by contradiction. Let assume $x^z = y^z$ and $x \neq y$. Then $x < y$ or $x < y$ but by @thm-exponentiation-and-the-order-relation a. $x^z < y^z$ or $x^z < y^z$ which it is a contradiction because $x^z = y^z$. Therefore, it must be the case that $x = y$. 
+
+4. If $x < y$ and $1 < z$ it is possible to apply @thm-exponentiation-and-the-order-relation b.
+
+   If $x < y$ and $1 = z$ then $1^x = 1 = 1^y$ by @lem-multiplication.
+
+   However the converse it not true in the case of $z = 1$ because $1^x = 1 = 1^y$. So it is possible to have $y < x$. 
+
+5. If $z^x < z^y$ then it is possible to apply @thm-exponentiation-and-the-order-relation b. to obtain $x < y$. Also we don't have any contradiction because we obtain $1 < z$.
+
+   Now, assume $z^x = z^y$ and $1 < z$. Assume by contradiction that $x \not \leq y$ or equivalently $y < x$. Then by @thm-exponentiation-and-the-order-relation b. $z^y < z^x$ but $z^x = z^y$. Therefore, it must by the case that $x \leq y$.
+
+6. Let $z \in \mathbb{P}$ and $B = \{ y: y \in \mathbb{P} \land y \times z + 1 \leq (1 + z)^y \}$. Then we must show that $B = \mathbb{P}$.
+
+   We have that $1 \in B$ becasue $1 \times z + 1 = z + 1 = (1 + z)^1 = 1 + z = z + 1$.
+
+   Now asume $y \in B$ so $y \times z + 1 \leq (1 + z)^y$. Therefore:
+
+   $$
+   \begin{aligned}
+   y \times z + 1 < (1 + z)^y & \iff (y \times z + 1) \times (1 + z) \leq (1 + z)^y \times (1 + z) \\
+   & \iff (y \times z + 1) +  (y \times z + 1) \times z \leq (1 + z)^{y + 1} \\
+   & \iff (y \times z + 1) +  ((y \times z) \times z + z) \leq (1 + z)^{S(y)} \\
+   & \iff ((z \times y + z) + 1) +  (y \times z) \times z \leq (1 + z)^{S(y)} \\
+   & \iff (z \times S(y) + 1) +  (y \times z) \times z \leq (1 + z)^{S(y)} \\
+   & \Longrightarrow z \times S(y) + 1 < (1 + z)^{S(y)} \\
+   \end{aligned}
+   $$
+
+   Where $(z \times S(y) + 1) < (z \times S(y) + 1) +  (y \times z) \times z$. So, if $(z \times S(y) + 1) +  (y \times z) \times z \leq (1 + z)^{S(y)}$ then by @thm-order-relation-natural-numbers-extent-1 b. we have that $z \times S(y) + 1 \leq (1 + z)^{S(y)}$.
+
+   Hence, $B = \mathbb{P}$ by the principle of mathematical induction.
+
+   This result is known as the **Bernoulli's inequality**.  
+:::
+
+## Isomorphism - Categoricity
+
