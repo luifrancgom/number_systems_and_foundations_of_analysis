@@ -66,7 +66,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3d497cff885f6278d37568d0ef0763f8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ed7344add5f1663e434276306a2aa159.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -279,6 +279,7 @@ window.Quarto = {
   <li><a href="#the-order-relation" id="toc-the-order-relation" class="nav-link" data-scroll-target="#the-order-relation"><span class="header-section-number">2.5</span> The order relation</a></li>
   <li><a href="#multiplication" id="toc-multiplication" class="nav-link" data-scroll-target="#multiplication"><span class="header-section-number">2.6</span> Multiplication</a></li>
   <li><a href="#exponentation" id="toc-exponentation" class="nav-link" data-scroll-target="#exponentation"><span class="header-section-number">2.7</span> Exponentation</a></li>
+  <li><a href="#isomorphism---categoricity" id="toc-isomorphism---categoricity" class="nav-link" data-scroll-target="#isomorphism---categoricity"><span class="header-section-number">2.8</span> Isomorphism - Categoricity</a></li>
   </ul>
 </nav>
     </div>
@@ -1580,7 +1581,7 @@ x \times y &amp; = (2u + 1) \times 2w \\
 \]</span></p>
 <p>Take any <span class="math inline">\(x \in \mathbb{P}\)</span>. Let us prove that <span class="math inline">\(\mu(x,y) = \tau(x,y)\)</span>, for all <span class="math inline">\(y \in \mathbb{P}\)</span>. Let <span class="math inline">\(B = \{ y: y \in \mathbb{P} \land \mu(x,y) = \tau(x,y) \}\)</span>.</p>
 <p>First, <span class="math inline">\(1 \in B\)</span>, since <span class="math inline">\(\mu(x, 1) = 1 = \tau(x,1)\)</span></p>
-<p>Second, assume <span class="math inline">\(y \in B\)</span>. Then, <span class="math inline">\(\mu(x,y) = \tau(x,y)\)</span>. But, <span class="math inline">\(\tau(x,S(y)) = \tau(x,y) \times x = \mu(x,y) \times x = \mu(x,S(y))\)</span>. This <span class="math inline">\(S(y) \in B\)</span>, and we have shown that <span class="math inline">\(y \in B \Longrightarrow S(y) \in B\)</span>. Hence, by matjematical induction, <span class="math inline">\(\mathbb{P} = B\)</span>. Thus, <span class="math inline">\(\mu(x,y) = \tau(x,y)\)</span> for all <span class="math inline">\(x,y \in \mathbb{P}\)</span>. This means that <span class="math inline">\(\mu = \tau\)</span>.</p>
+<p>Second, assume <span class="math inline">\(y \in B\)</span>. Then, <span class="math inline">\(\mu(x,y) = \tau(x,y)\)</span>. But, <span class="math inline">\(\tau(x,S(y)) = \tau(x,y) \times x = \mu(x,y) \times x = \mu(x,S(y))\)</span>. This <span class="math inline">\(S(y) \in B\)</span>, and we have shown that <span class="math inline">\(y \in B \Longrightarrow S(y) \in B\)</span>. Hence, by mathematical induction, <span class="math inline">\(\mathbb{P} = B\)</span>. Thus, <span class="math inline">\(\mu(x,y) = \tau(x,y)\)</span> for all <span class="math inline">\(x,y \in \mathbb{P}\)</span>. This means that <span class="math inline">\(\mu = \tau\)</span>.</p>
 <p><strong>Note</strong>: Our notation for exponentiation does not conflict with out previous agreement that <span class="math inline">\(x^2\)</span> stands for <span class="math inline">\(x \times x\)</span>, and <span class="math inline">\(x^3\)</span> for <span class="math inline">\(x^2 \times x\)</span>. For according to equation <span class="math inline">\((\varrho')\)</span>, <span class="math inline">\((\sigma')\)</span>, <span class="math inline">\(x^2 = x^1 \times x = x \times x\)</span>, and <span class="math inline">\(x^3 = x^{2+1} = x^2 \times x\)</span>.</p>
 </div>
 <div id="exr-exponentiation-1" class="theorem exercise">
@@ -1720,12 +1721,103 @@ B = \{ z: z \in \mathbb{P} \land (x \times y)^z = x^z \times y^z \}
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <ol type="a">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li><p>Lets divide the proof in 2 parts:</p>
+<p>First, assume <span class="math inline">\(x &lt; y\)</span>. Let <span class="math inline">\(x, y \in \mathbb{P}\)</span> and <span class="math inline">\(B = \{ z: z \in \mathbb{P} \land x^z &lt; y^z  \}\)</span>. Then we must show that <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+<p>We have that <span class="math inline">\(1 \in B\)</span>. Because <span class="math inline">\(x^1 = x &lt; y = y^1\)</span>.</p>
+<p>Now, assume <span class="math inline">\(z \in B\)</span>. Then, <span class="math inline">\(x^z &lt; y^z\)</span>. Therefore:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x^{S(z)} &amp; = x^{z + 1} \\
+&amp; = x^z \times x \\
+&amp; &lt; y^z \times y \\
+&amp; = y^{z + 1} \\
+&amp; = y^{S(z)}
+\end{aligned}
+\]</span> Where by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a> d.&nbsp;<span class="math inline">\(x &lt; y \land x^z &lt; y^z\)</span> then <span class="math inline">\(x^z \times x &lt; y^z \times y\)</span>. Hence, by mathematical induction, <span class="math inline">\(\mathbb{P} = B\)</span>.</p>
+<p>Second, assume <span class="math inline">\(x^z &lt; y^z\)</span>. Also assume that <span class="math inline">\(x \not&lt; y\)</span>. Then <span class="math inline">\(x = y\)</span> or <span class="math inline">\(y &lt; x\)</span>. If <span class="math inline">\(x = z\)</span> then <span class="math inline">\(x^z = y^z\)</span> but <span class="math inline">\(x^z &lt; y^z\)</span>. Now, if <span class="math inline">\(y &lt; x\)</span> then by the first part of the proof <span class="math inline">\(y^z &lt; x^z\)</span> but <span class="math inline">\(x^z &lt; y^z\)</span>. So it must be the case that if <span class="math inline">\(x^z &lt; y^z\)</span> then <span class="math inline">\(x &lt; y\)</span>.</p></li>
+<li><p>Lets divide the proof in 2 parts:</p>
+<p>First, assume <span class="math inline">\(1 &lt; z \land x &lt; y\)</span>. Then <span class="math inline">\(1^u = 1 &lt; z^u\)</span> by <a href="#lem-multiplication" class="quarto-xref">Lemma&nbsp;<span>2.3</span></a> and <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> a. Also <span class="math inline">\(y = x + u\)</span>.</p>
+<p>Also by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a>, if <span class="math inline">\(1 &lt; z^u\)</span> then <span class="math inline">\(1 \times z^x &lt; z^u \times z^x\)</span>. Therefore:</p>
+<p><span class="math display">\[
+\begin{aligned}
+z^x &amp; = z^x \times 1 \\
+&amp; = 1 \times z^x \\
+&amp; &lt; z^u \times z^x \\
+&amp; = z^x \times z^u \\
+&amp; = z^{x + u} \\
+&amp; = z^y \\
+\end{aligned}
+\]</span></p>
+<p>Where <span class="math inline">\(z^x \times z^u = z^{x + u}\)</span> by <a href="#thm-basic-properties-of-exponentiation" class="quarto-xref">Theorem&nbsp;<span>2.20</span></a> a.</p>
+<p>Second, assume <span class="math inline">\(z^x &lt; z^y\)</span>. It must be the case that <span class="math inline">\(z \neq 1\)</span> because by <a href="#lem-multiplication" class="quarto-xref">Lemma&nbsp;<span>2.3</span></a> <span class="math inline">\(1^x = 1 = 1^y\)</span>. Therefore by <a href="#thm-order-relation-natural-numbers-extent-2" class="quarto-xref">Theorem&nbsp;<span>2.12</span></a> a. <span class="math inline">\(1 &lt; z\)</span>.</p>
+<p>Now assume that <span class="math inline">\(x \not&lt; y\)</span>. Then by <a href="#thm-order-relation-natural-numbers-properties-1" class="quarto-xref">Theorem&nbsp;<span>2.9</span></a> <span class="math inline">\(x = y\)</span> or <span class="math inline">\(y &lt; x\)</span>. If <span class="math inline">\(x = y\)</span> then <span class="math inline">\(z^x = z^y\)</span> but <span class="math inline">\(z^x &lt; z^y\)</span>. Also if <span class="math inline">\(y &lt; x\)</span> by the first part of the proof $<span class="math inline">\(z^y &lt; z^x\)</span> but again <span class="math inline">\(z^x &lt; z^y\)</span>. Therefore, it must be the case that <span class="math inline">\(x &lt; y\)</span>.</p></li>
+<li><p>Lets divide the proof in 2 parts:</p>
+<p>First, assume <span class="math inline">\(1 &lt; x\)</span>. Let <span class="math inline">\(x \in \mathbb{P}\)</span> and <span class="math inline">\(B = \{ z: z \in \mathbb{P} \land z &lt; x^z  \}\)</span>. Then we must show that <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+<p>We have that <span class="math inline">\(1 \in B\)</span>. Because <span class="math inline">\(1 &lt; x^1 = x\)</span> where it is assumed that <span class="math inline">\(1 &lt; 1\)</span>.</p>
+<p>Now, assume <span class="math inline">\(z \in B\)</span>. Then, <span class="math inline">\(z &lt; x^z\)</span>. Therefore we have that <span class="math inline">\(z &lt; x \times z = z \times x\)</span> by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a>. Also if <span class="math inline">\(z &lt; x^z\)</span> by <a href="#thm-order-relation-cancelation-law" class="quarto-xref">Theorem&nbsp;<span>2.18</span></a> <span class="math inline">\(z \times x &lt; x^z \times x\)</span>. Therefore:</p>
+<p><span class="math display">\[
+\begin{aligned}
+z &lt; x^z &amp; \iff z \times x &lt; x^z \times z \\
+&amp; \iff z &lt; z \times x \land z \times x &lt; x^z \times z \\
+&amp; \Longrightarrow z &lt; x^z \times z \\
+&amp; \iff z &lt; x^{z + 1} \\
+&amp; \iff z &lt; x^{S(z)} \\   
+\end{aligned}
+\]</span></p>
+<p>Hence, by mathematical induction, <span class="math inline">\(\mathbb{P} = B\)</span>.</p>
+<p>Second, lets prove the converse. That is, <span class="math inline">\(z &lt; x^z \Longleftarrow 1 &lt; x\)</span>. This is equivalent to prove <span class="math inline">\(\neg(z &lt; x^z \land 1 \not&lt; x)\)</span>.</p>
+<p>Assume <span class="math inline">\((z &lt; x^z \land 1 \not&lt; x)\)</span>. This means that <span class="math inline">\(x \leq 1\)</span> but by <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1. <span class="math inline">\(1 \leq x\)</span> so if <span class="math inline">\(1 \not&lt; x\)</span> it must be the case that <span class="math inline">\(x = 1\)</span>. However, it must be the case that <span class="math inline">\(z &lt; 1^x = 1\)</span>. However by <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1. this is not possible. Therefore, it must be the case that <span class="math inline">\(\neg(z &lt; x^z \land 1 \not&lt; x)\)</span>, which means that <span class="math inline">\(z &lt; x^z \Longleftarrow 1 &lt; x\)</span>.</p></li>
+<li><p>By <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> let <span class="math inline">\(x = 1\)</span> then <span class="math inline">\((1 &lt; z \land 1 &lt; y) \iff z^1 &lt; z^y\)</span>. Therefore, <span class="math inline">\((1 &lt; z \land 1 &lt; y) \iff z &lt; z^y\)</span>.</p></li>
 </ol>
 </div>
+<div id="exr-exponentiation-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.12</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Prove <span class="math inline">\(1 &lt; x \iff 1 &lt; x^z\)</span></p></li>
+<li><p>Prove <span class="math inline">\(x \leq x^z\)</span></p></li>
+<li><p>Prove <span class="math inline">\(x \leq y \iff x^z \leq y^z\)</span></p></li>
+<li><p>Prove <span class="math inline">\(x \leq y \Longrightarrow z^{x} \leq z^{y}\)</span></p></li>
+<li><p>Prove <span class="math inline">\((1 &lt; z \land z^x \leq z^y) \Longrightarrow x \leq y\)</span></p></li>
+<li><p>Prove <span class="math inline">\((1 + z)^y \geq 1 + (y \times z)\)</span></p></li>
+</ol>
+</div>
+<div id="sol-exponentiation-2" class="proof solution">
+<p><span class="proof-title"><em>Solution 2.12</em>. </span></p>
+<ol type="1">
+<li><p>By <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> we can apply <span class="math inline">\(1 &lt; x \iff 1^z &lt; x^z\)</span>. Also by <a href="#lem-multiplication" class="quarto-xref">Lemma&nbsp;<span>2.3</span></a> <span class="math inline">\(1^z = 1\)</span>, so <span class="math inline">\(1 &lt; x \iff 1 &lt; x^z\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(x \in \mathbb{P}\)</span>.</p>
+<p>If <span class="math inline">\(z = 1\)</span> then <span class="math inline">\(x \leq x^1 = x\)</span>.</p>
+<p>Now if <span class="math inline">\(z &gt; 1\)</span> then <span class="math inline">\(z = S(y) = y + 1\)</span>. By <a href="#exr-order-relation-natural-numbers-2" class="quarto-xref">Exercise&nbsp;<span>2.5</span></a> 1. <span class="math inline">\(1 \leq x^y\)</span>. Also by <a href="#cor-order-relation-multiplication" class="quarto-xref">Corollary&nbsp;<span>2.2</span></a> a. <span class="math inline">\(1 \times x \leq x^y \times x\)</span>. Therefore <span class="math inline">\(x \leq x^{y + 1} = x^z\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x^z &lt; y^z\)</span> it is possible to apply <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> a.</p>
+<p>Now, if <span class="math inline">\(x = y\)</span> then it must be the case that <span class="math inline">\(x^z = y^z\)</span>.</p>
+<p>Also if <span class="math inline">\(x^z = y^z\)</span> it is possible to prove the converse by contradiction. Let assume <span class="math inline">\(x^z = y^z\)</span> and <span class="math inline">\(x \neq y\)</span>. Then <span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x &lt; y\)</span> but by <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> a. <span class="math inline">\(x^z &lt; y^z\)</span> or <span class="math inline">\(x^z &lt; y^z\)</span> which it is a contradiction because <span class="math inline">\(x^z = y^z\)</span>. Therefore, it must be the case that <span class="math inline">\(x = y\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(1 &lt; z\)</span> it is possible to apply <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> b.</p>
+<p>If <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(1 = z\)</span> then <span class="math inline">\(1^x = 1 = 1^y\)</span> by <a href="#lem-multiplication" class="quarto-xref">Lemma&nbsp;<span>2.3</span></a>.</p>
+<p>However the converse it not true in the case of <span class="math inline">\(z = 1\)</span> because <span class="math inline">\(1^x = 1 = 1^y\)</span>. So it is possible to have <span class="math inline">\(y &lt; x\)</span>.</p></li>
+<li><p>If <span class="math inline">\(z^x &lt; z^y\)</span> then it is possible to apply <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> b. to obtain <span class="math inline">\(x &lt; y\)</span>. Also we don’t have any contradiction because we obtain <span class="math inline">\(1 &lt; z\)</span>.</p>
+<p>Now, assume <span class="math inline">\(z^x = z^y\)</span> and <span class="math inline">\(1 &lt; z\)</span>. Assume by contradiction that <span class="math inline">\(x \not \leq y\)</span> or equivalently <span class="math inline">\(y &lt; x\)</span>. Then by <a href="#thm-exponentiation-and-the-order-relation" class="quarto-xref">Theorem&nbsp;<span>2.21</span></a> b. <span class="math inline">\(z^y &lt; z^x\)</span> but <span class="math inline">\(z^x = z^y\)</span>. Therefore, it must by the case that <span class="math inline">\(x \leq y\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(z \in \mathbb{P}\)</span> and <span class="math inline">\(B = \{ y: y \in \mathbb{P} \land y \times z + 1 \leq (1 + z)^y \}\)</span>. Then we must show that <span class="math inline">\(B = \mathbb{P}\)</span>.</p>
+<p>We have that <span class="math inline">\(1 \in B\)</span> becasue <span class="math inline">\(1 \times z + 1 = z + 1 = (1 + z)^1 = 1 + z = z + 1\)</span>.</p>
+<p>Now asume <span class="math inline">\(y \in B\)</span> so <span class="math inline">\(y \times z + 1 \leq (1 + z)^y\)</span>. Therefore:</p>
+<p><span class="math display">\[
+\begin{aligned}
+y \times z + 1 &lt; (1 + z)^y &amp; \iff (y \times z + 1) \times (1 + z) \leq (1 + z)^y \times (1 + z) \\
+&amp; \iff (y \times z + 1) +  (y \times z + 1) \times z \leq (1 + z)^{y + 1} \\
+&amp; \iff (y \times z + 1) +  ((y \times z) \times z + z) \leq (1 + z)^{S(y)} \\
+&amp; \iff ((z \times y + z) + 1) +  (y \times z) \times z \leq (1 + z)^{S(y)} \\
+&amp; \iff (z \times S(y) + 1) +  (y \times z) \times z \leq (1 + z)^{S(y)} \\
+&amp; \Longrightarrow z \times S(y) + 1 &lt; (1 + z)^{S(y)} \\
+\end{aligned}
+\]</span></p>
+<p>Where <span class="math inline">\((z \times S(y) + 1) &lt; (z \times S(y) + 1) +  (y \times z) \times z\)</span>. So, if <span class="math inline">\((z \times S(y) + 1) +  (y \times z) \times z \leq (1 + z)^{S(y)}\)</span> then by <a href="#thm-order-relation-natural-numbers-extent-1" class="quarto-xref">Theorem&nbsp;<span>2.11</span></a> b. we have that <span class="math inline">\(z \times S(y) + 1 \leq (1 + z)^{S(y)}\)</span>.</p>
+<p>Hence, <span class="math inline">\(B = \mathbb{P}\)</span> by the principle of mathematical induction.</p>
+<p>This result is known as the <strong>Bernoulli’s inequality</strong>.<br>
+</p></li>
+</ol>
+</div>
+</section>
+<section id="isomorphism---categoricity" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="isomorphism---categoricity"><span class="header-section-number">2.8</span> Isomorphism - Categoricity</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
