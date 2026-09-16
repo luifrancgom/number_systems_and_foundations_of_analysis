@@ -1818,6 +1818,58 @@ y \times z + 1 &lt; (1 + z)^y &amp; \iff (y \times z + 1) \times (1 + z) \leq (1
 </section>
 <section id="isomorphism---categoricity" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="isomorphism---categoricity"><span class="header-section-number">2.8</span> Isomorphism - Categoricity</h2>
+<p>Do the axioms for Peano systems completely characterize the natural numbers? The meaning of this question is not quite clear, but we shall give a positive answert in the following sense:</p>
+<blockquote class="blockquote">
+<p>Any Peano system is essentially the same as the natural numbers</p>
+</blockquote>
+<p>Of course, a precise definition is required for the notion that 2 Peano systems are essentially the same. This leads to the important idea of isomorphic Peano systems.</p>
+<div id="def-isomorphic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.6</strong></span> Consider any two Peano systems <span class="math inline">\(\mathscr{P} = (\mathbb{P}, 1, S)\)</span> and <span class="math inline">\(\mathscr{P}^* = (\mathbb{P}^*, 1^*, S^*)\)</span>. We say that <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span> are isomorphic if and only if there is a one-one correspondence <span class="math inline">\(H\)</span> between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span>:</p>
+<p><span class="math display">\[
+H: \mathbb{P} \xrightarrow[onto]{1-1} \mathbb{P}^*
+\]</span></p>
+<p>such that:</p>
+<ol type="i">
+<li><span class="math inline">\(H(1) = 1^*\)</span></li>
+<li><span class="math inline">\(H(S(x)) = S^*(H(x))\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span></li>
+</ol>
+<p>Such a function <span class="math inline">\(H\)</span> is called an <strong>isomorphism</strong> between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span>.</p>
+</div>
+<div id="exm-isomorphism" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.4</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(\mathscr{P} = (\mathbb{P}, 1, S)\)</span> be the standard Peano system, where <span class="math inline">\(\mathbb{P}\)</span> is the set of natural numbers, <span class="math inline">\("1"\)</span> stands for the ordinary integer <span class="math inline">\(1\)</span>, and <span class="math inline">\(S(x) = x + 1\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span>.</p>
+<p>Let <span class="math inline">\(\mathscr{P}^* = (\mathbb{P}^*, 1^*, S^*)\)</span> be the Peano system in which <span class="math inline">\(\mathbb{P}^*\)</span> is the set of even natural numbers, <span class="math inline">\("1^*"\)</span> denotes the integer <span class="math inline">\(2\)</span> and <span class="math inline">\(S^*(x) = x + 2\)</span> for all <span class="math inline">\(x \in \mathbb{P}^*\)</span>.</p>
+<p>Then the function <span class="math inline">\(H: \mathbb{P} \longrightarrow \mathbb{P}^*\)</span> such that <span class="math inline">\(H(x) = 2 \times x\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span> is an isomorphism between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span>.</p>
+<p>Note first that <span class="math inline">\(H(1) = 2 \times 1 = 2 = 1^*\)</span>, verifying condition (i). Moreover,</p>
+<p><span class="math display">\[
+\begin{aligned}
+H(S(x)) &amp; = H(x + 1) \\
+&amp; = 2 \times (x + 1) \\
+&amp; = (2 \times x) + 2 \\
+&amp; = H(x) + 2 \\
+&amp; = S^*(H(x))
+\end{aligned}
+\]</span></p>
+<p>verifying (ii). It is clear that <span class="math inline">\(H\)</span> is one-one since <span class="math inline">\(x \neq y \Longrightarrow 2 \times x \neq 2 \times y\)</span> and that the range of <span class="math inline">\(H\)</span> is <span class="math inline">\(\mathbb{P}^*\)</span>.</p></li>
+<li><p>Again let <span class="math inline">\(\mathscr{P} = (\mathbb{P}, 1, S)\)</span> be the standard Peano system and let <span class="math inline">\(\mathscr{P}^{\#} = (\mathbb{P}^{\#}, 1^{\#}, S^{\#})\)</span>, where <span class="math inline">\(\mathbb{P}^{\#}\)</span> is the set of negative integers, <span class="math inline">\(1^{\#} = -1\)</span> and <span class="math inline">\(S^{\#}(u) = u - 1\)</span> for all <span class="math inline">\(u \in \mathbb{P}^{\#}\)</span>.</p>
+<p>Then the function <span class="math inline">\(G: \mathbb{P} \longrightarrow \mathbb{P}^{\#}\)</span> such that <span class="math inline">\(G(x) = -x\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span> is an isomorphic between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^{\#}\)</span>.</p>
+<p>First, <span class="math inline">\(G(1) = -1 = 1^{\#}\)</span>. In addition,</p>
+<p><span class="math display">\[
+\begin{aligned}
+G(S(x)) &amp; = G(x + 1) \\
+&amp; = -(x + 1) \\
+&amp; = (-x) - 1 \\
+&amp; = G(x) - 1 \\
+&amp; = S^{\#}(G(x))
+\end{aligned}
+\]</span></p>
+<p>Finally, it is obvious that <span class="math inline">\(G\)</span> is one-one since <span class="math inline">\(x \neq y \Longrightarrow -x \neq -y\)</span> and that the range of <span class="math inline">\(G\)</span> is <span class="math inline">\(\mathbb{P}^{\#}\)</span>.</p></li>
+</ol>
+</div>
+<p>And isomorphism <span class="math inline">\(H\)</span> between 2 Peano systems <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span> shows that the 2 structures are essentially the same.</p>
+<p>Condition (i) asserts that the distinguised object <span class="math inline">\(1\)</span> of <span class="math inline">\(\mathscr{P}\)</span> corresponds to the distinguished object <span class="math inline">\(1^*\)</span> of <span class="math inline">\(\mathscr{P}^*\)</span>.</p>
+<p>Condition (ii) says that the successor operations correspond under the function <span class="math inline">\(H\)</span>, this is pictured in the following diagram:</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
