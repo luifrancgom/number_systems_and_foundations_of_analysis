@@ -1,0 +1,13 @@
+\documentclass[border={0mm 0mm 1.9cm 0mm}]{standalone}
+
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{tikzcd}[row sep=large, column sep=large]
+x \arrow[r, "H"] \arrow[d, "S"'] & H(x) \arrow[d, "S^*"] \\
+S(x) \arrow[r, "H"'] & H(S(x)) \rlap{${} = S^*(H(x)).$}
+\end{tikzcd}
+
+\end{document}

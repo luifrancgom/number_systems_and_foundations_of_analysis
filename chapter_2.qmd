@@ -1905,9 +1905,9 @@ Such a function $H$ is called an **isomorphism** between $\mathscr{P}$ and $\mat
 :::
 
 ::: {#exm-isomorphism}
-1. Let $\mathscr{P} = (\mathbb{P}, 1, S)$ be the standard Peano system, where $\mathbb{P}$ is the set of natural numbers, $"1"$ stands for the ordinary integer $1$, and $S(x) = x + 1$ for all $x \in \mathbb{P}$.
+1. Let $\mathscr{P} = (\mathbb{P}, 1, S)$ be the standard Peano system, where $\mathbb{P}$ is the set of natural numbers, "$1$" stands for the ordinary integer $1$, and $S(x) = x + 1$ for all $x \in \mathbb{P}$.
 
-   Let $\mathscr{P}^* = (\mathbb{P}^*, 1^*, S^*)$ be the Peano system in which $\mathbb{P}^*$ is the set of even natural numbers, $"1^*"$ denotes the integer $2$ and $S^*(x) = x + 2$ for all $x \in \mathbb{P}^*$.
+   Let $\mathscr{P}^* = (\mathbb{P}^*, 1^*, S^*)$ be the Peano system in which $\mathbb{P}^*$ is the set of even natural numbers, "$1^*$" denotes the integer $2$ and $S^*(x) = x + 2$ for all $x \in \mathbb{P}^*$.
 
    Then the function $H: \mathbb{P} \longrightarrow \mathbb{P}^*$ such that $H(x) = 2 \times x$ for all $x \in \mathbb{P}$ is an isomorphism between $\mathscr{P}$ and $\mathscr{P}^*$. 
 
@@ -1950,3 +1950,11 @@ Condition (i) asserts that the distinguised object $1$ of $\mathscr{P}$ correspo
 
 Condition (ii) says that the successor operations correspond under the function $H$, this is pictured in the following diagram:
 
+![Diagrammatic representation of condition (ii)](/images/fig-isomorphic.png){#fig-isomorphic fig-align="center" width=70%}
+
+::: {#thm-peano-systems-isophormic}
+Any two Peano systems are isomorphic.
+:::
+
+::: {.proof}
+:::
